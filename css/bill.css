@@ -1,0 +1,61 @@
+body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        font: 10pt "Tahoma";
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        width: 21cm;
+        min-height: 31cm;
+        padding: 1cm;
+        margin: 1cm auto;
+        border: 1px #D3D3D3 solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .subpage {
+       /* padding: 1cm;*/
+        border: 1px white solid;
+        height: 256mm;
+       /*outline: 2cm #FFEAEA solid;*/
+    }
+	table { font-size: 10pt; }
+	tr { height: 25px;}
+	td.rlb{ border-right:solid black 1px; border-left:solid black 1px;border-bottom:solid black 1px; }
+	td.rlt{ border-right:solid black 1px; border-left:solid black 1px;border-top:solid black 1px; }
+	td.all{ border-right:solid black 1px; border-left:solid black 1px;border-bottom:solid black 1px; border-top:solid black 1px; }
+	td.rl{ border-right:solid black 1px; border-left:solid black 1px; }
+	td.rt{ border-right:solid black 1px; border-top:solid black 1px; }
+	td.r{ border-right:solid black 1px;  }
+	td.l{ border-left:solid black 1px; padding: 0 5px 0 0; }
+	td.br{ border-right:solid black 1px;  border-bottom:solid black 1px;}
+	td.b{border-bottom:solid black 1px;}
+	td.t{border-top:solid black 1px;}
+	tr td:first-child{ padding: 0 0 0 5px; }
+    
+    @page {
+        size: A4;
+        margin: 0;
+    }
+	
+	.punit { text-align:right; width: 75px; }
+	.pdesc { width:80%; }
+	
+    @media print {
+        .page {
+            margin: 0;
+            padding-top: 1.5cm;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }

@@ -1,0 +1,141 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px 5%;
+}
+form header {
+  margin: 0 0 20px 0; 
+}
+form header div {
+  font-size: 90%;
+  color: #999;
+}
+form header h2 {
+  margin: 0 0 5px 0;
+}
+form > div {
+  clear: both;
+  overflow: hidden;
+  padding: 1px;
+  margin: 0 0 10px 0;
+}
+form > div > fieldset > div > div {
+  margin: 0 0 5px 0;
+}
+form > div > label,
+legend {
+  width: 25%;
+  float: left;
+  padding: 5px 10px 0 0;
+}
+form > div > div,
+form > div > fieldset > div {
+  width: 75%;
+  float: right;
+}
+form > div > fieldset label {
+	font-size: 90%;
+}
+fieldset {
+	border: 0;
+  padding: 0;
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea {
+	width: 100%;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+input[type=text],
+input[type=password] {
+  width: 50%;
+}
+input[type=text]:focus,
+input[type=password]:focus {
+  outline: 0;
+  border-color: #4697e4;
+}
+input:focus, textarea:focus, input:hover, textarea:hover, select:hover{
+	  outline: 0;
+	  background:#ebfaf8;
+	}
+	
+	input[type=text],
+	input[type=password], select {
+	  width: 50%;
+	  padding:9px;
+	  background:#ebfaf8;
+	}
+	input[type=text],
+	input[type=password] {
+	  width: 50%;
+	}
+		
+	input[type=button]{ 
+		padding:9px; 
+		/*width:75px; */
+		background:#617798; 
+		cursor:pointer; 
+		border:0; 
+		color:#FFFFFF; 
+		/*margin: 2% 0 0 30%;*/
+		
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		 border-radius:5px;
+	}
+	hr { margin:30px 0; }
+
+  /*Order table*/
+table.summary {
+  width: 50%; 
+  border:solid black 1px;
+  margin: auto
+}
+
+@media (max-width: 800px) {
+  table.summary {
+    width: 100%; 
+  }
+}
+
+@media (max-width: 600px) {
+  form > div {
+    margin: 0 0 15px 0; 
+  }
+  form > div > label,
+  legend {
+	  width: 100%;
+    float: none;
+    margin: 0 0 5px 0;
+  }
+  form > div > div,
+  form > div > fieldset > div {
+    width: 100%;
+    float: none;
+  }
+  input[type=text],
+  input[type=email],
+  input[type=url],
+  input[type=password],
+  textarea,
+  select {
+    width: 100%; 
+  }
+}
+@media (min-width: 1200px) {
+  form > div > label,
+	legend {
+  	text-align: right;
+  }
+}
