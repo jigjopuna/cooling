@@ -22,6 +22,26 @@
 	$timeperiod  = $_POST['timeperiod'];
 	$qty  = $_POST['qty'];
 	$percentprice = 1.1;
+
+	if($temparature==1){
+		$temps = 25;
+	}else if ($temparature==2){
+		$temps = 18;
+	}else if ($temparature==3){
+		$temps = 15;
+	}else if ($temparature==4){
+		$temps = -5;
+	}else if ($temparature==5){
+		$temps = -12;
+	}else if ($temparature==6){
+		$temps = -15;
+	}else if ($temparature==7){
+		$temps = -25;
+	}else if ($temparature==8){
+		$temps = -30;
+	}else{
+		$temps = -40;
+	}
 	
 	$area_room = ((($r_width*$r_height)*2)+ (($r_length*$r_height)*2) + (($r_length*$r_width)))*1.1;
 	$cute = $r_width*$r_length*$r_height;
@@ -47,7 +67,7 @@
 	
 	
 	//Temparature 0
-	if($temparature==1){
+	if($temparature <= 4){
 		$pps = 100;
 		$var13 = 35;
 		$temp_num = 0;
@@ -190,11 +210,9 @@
 	    $row_chkMaxKw = mysql_fetch_array($result_chkMaxKw);
 		$get_chkMaxKw = $row_chkMaxKw['MAXKW'];
 		$get_MaxKw_id = $row_chkMaxKw['p_id'];
-		
+
 		/*echo "get_chkMaxKwfromCWConedensing = ".$get_chkMaxKw."<br>";
-		echo "get_MaxKw_id = ".$get_MaxKw_id."<br>";
 		echo "ค่าที่คำนวณได้ = ".$total_result_t."<br>";*/
-		
 		
 		
 		if($total_result_t > $get_chkMaxKw){ //compare condensing max  
@@ -220,13 +238,12 @@
 				$first = number_format($total_result_t / $get_chkMaxKw, 2, '.', ''); 
 				$condensingmaxqty = ceil($first);
 				list($fdec, $fsed) = explode('.',$first);
-				/*echo "<br>"."first = ".$first."<br>";
-				echo "<br>"."condensingmaxqty = ".$condensingmaxqty."<br>";*/
+				//echo "<br>"."condensingmaxqty = ".$condensingmaxqty."<br>";
 				//ลูปเพื่อหาว่า ค่าไหนเหมาะสมที่สุด
 				for($i=1; $i<=$num; $i++){
 					$row = mysql_fetch_array($result);
 					/*echo "<br>"."cw5 = ".$row['p_cw5']."<br>";
-					echo "fdec = ".$fdec."<br>";*/
+					echo "<br>"."fdec = ".$fdec."<br>";*/
 					
 					
 					//แบ่งค่าออกมา ห้ามเกินตัวนั้น เช่น 150/40  = 3.75  ตัวแรกห้ามเกิน 3 หลังจุดหาให้เข้าใกล้ 9 มากที่สุดจะดี
@@ -239,31 +256,30 @@
 					
 					
 					if($dec == $fdec){
-						$goodvalue[$i] = $row['p_id'];
-						/*echo "row p_id : ".$row['p_id'].'<br>';
-						print_r(array_values($goodvalue));
-						echo '<br>';*/
+						$goodvalue[$i] = $row['p_id']."<br>";
+						//echo $row['p_id'];
+						//print_r(array_values($goodvalue));
 					}else{
 						break;
 					}
 						
 				}//end for 
-				print_r(array_values($goodvalue));
+				//print_r(array_values($goodvalue));
 				$lastvalue = end($goodvalue);
-               // echo "<br>"."condensing_id = ".$lastvalue.'<br>';			
+                //echo "condensing_id = ".$lastvalue;			
 							
-				$sub = number_format($total_result_t / $get_chkMaxKw, 2, '.', '');
-				/*list($dec, $sed) = explode('.',$sub);			
-				echo "<br>"."total_result_t = ".$total_result_t."<br>";
+				//$sub = number_format($total_result_t / $get_chkMaxKw, 2, '.', '');
+				list($dec, $sed) = explode('.',$sub);			
+				/*echo "<br>"."total_result_t = ".$total_result_t."<br>";
 				echo "<br>"."get_chkMaxKw = ".$get_chkMaxKw."<br>";
 				echo "<br>"."getsed = ".$getsed."<br>";
 				echo "<br>"."sub = ".$sub."<br>";
 				echo "<br>"."dec = ".$dec."<br>";
 				echo "<br>"."sed = ".$sed."<br>";*/
 			} //end getsed
-			$sql_condensing = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_id='$lastvalue'";	
+			$sql_condensing = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_id='$lastvalue'";		
 		}else{ 
-			if($temparature==1){
+			if($temparature <= 4){
 				//echo "no more cw5";
 				$sql_condensing = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw5 > '$total_result_t' AND p.p_cate = 1 ORDER BY p.p_cw5 Limit 0,1";		
 			}else{
@@ -278,8 +294,7 @@
 	
 	
 	
-    	
-	
+	//echo 'condensingmaxqty = '. $condensingmaxqty.'<br>';
 	//echo $row['p_id'];echo "<br>"; echo $row['p_name'] ;echo "<br>"; echo $row['p_model'] ;
 
     // Cooler 
@@ -302,6 +317,7 @@
 			//echo "<br>","coolercw20", '<br>';
 			
 		}//end select 0 or -20
+		
 		//exit();
 	
 	    $row_chkMaxKwcw = mysql_fetch_array($result_chkMaxKwcw);
@@ -311,9 +327,9 @@
 		echo "getfromcondensing = ".$getfromcondensing."<br>";
 		echo $getfromcondensing - $get_chkMaxKwcw, '<br>';*/
 		if($getfromcondensing > $get_chkMaxKwcw ){ //compare cooler max 
-		  //  echo "คอนเด็นซิงมากกว่าจริงๆ นะ", '<br>';
+		    //echo "คอนเด็นซิงมากกว่าจริงๆ นะ", '<br>';
 			$getsedcw = $getfromcondensing % $get_chkMaxKwcw;
-			// echo "เศษเท่าไรจ๊ะ ", $getsedcw, '<br>';
+			 //echo "เศษเท่าไรจ๊ะ ", $getsedcw, '<br>';
 			if(($getsedcw==0) && ($getfromcondensing-$get_chkMaxKwcw)>1){
 				//echo "หารลงตัว",'<br>';
 				$coolermaxqty = $getfromcondensing / $get_chkMaxKwcw;
@@ -364,20 +380,24 @@
                 //echo "cooler_id = ".$lastvaluecw;	
 			} //end getsedcw
 			$sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_id = '$lastvaluecw'";		
-			$qtycooler = $condensingmaxqty*2;
+			$qtycooler = $condensingmaxqty*2; 
 		}else{ 
 		    //echo "<br>"."no more"."<br>";
-			if($temparature==1){
-				// echo "cw5","<br>";
-				$sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw5 > '$getfromcondensing' AND p.p_cate = 2 ORDER BY p.p_cw5 Limit 0,1";		
-			}else{
-				// echo "cw20","<br>";
-				$sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw20 > '$getfromcondensing' AND p.p_cate = 2 ORDER BY p.p_cw20 Limit 0,1";				
+			if($temparature <= 4){
+				 /*echo "cw5","<br>"; 
+				 echo "เลือก 0.2 ช่วง 0 องศา","<br>"; */
+				 //เลือกค่า kw ที่ต่ำกว่าได้ ยอมรับค่าที่ต่ำกว่าได้ไม่เกิน 0.2 และ kw สูงกว่าเท่าไรก็ได้ แต่ต้องได้ราคาที่ถูกที่สุด
+				$sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw5 > ('$total_result_t'/$condensingmaxqty)-0.2 AND p.p_cate = 2 ORDER BY p.p_price_sell ASC Limit 0,1";
+			}else{			
+				/* echo "cw20","<br>";
+				 echo "เลือก 0.2 ช่วง -20 องศา","<br>"; */
+				 $sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw20 > ('$total_result_t'/$condensingmaxqty)-0.2 AND p.p_cate = 2 ORDER BY p.p_price_sell ASC Limit 0,1";				
 			}
 			$qtycooler = $condensingmaxqty;
 		}//end compare cooler max
 		
-		//echo "<br>"." qtycooler = ".$qtycooler;
+		/*echo "<br>"." condensingmaxqty = ".$condensingmaxqty;
+		echo "<br>"." qtycooler = ".$qtycooler;*/
 		
 		$result_cooler = mysql_query($sql_cooler);
 		//$num_cooler = mysql_num_rows($result_cooler);
