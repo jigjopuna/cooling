@@ -272,8 +272,15 @@
 					<div class="col-sm-12">
 						<select id="temparature" name="temparature" class="select-box -left" placeholder="อุณหภูมิที่ต้องการ">
 							<option value="">อุณหภูมิที่ต้องการ</option>
-							<option value="1">10 ถึง 0 องศา</option>
-							<option value="2">0 ถึง -20 องศา</option>
+							<option value="1">25 องศา</option>	
+							<option value="2">18 องศา</option>
+							<option value="3">15 องศา</option>	
+							<option value="4"> -5 องศา</option>	
+							<option value="5">-12 องศา</option>	
+							<option value="6">-15 องศา</option>
+							<option value="7">-25 องศา</option>	
+							<option value="8">-30 องศา</option>	
+							<option value="9">-40 องศา</option>
 						</select>
 					<div class="select-arrow"></div>
 					</div>

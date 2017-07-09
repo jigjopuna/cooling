@@ -34,6 +34,10 @@
                             <a href="quotation/q.php" target="_blank"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา</a>
                         </li>
 						
+						<li>
+                            <a href="quotation/q_fome.php" target="_blank"><i class="fa fa-dashboard fa-fw"></i>ต้นทุนห้องโฟม</a>
+                        </li>
+						
 						 <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>ลูกค้า <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
