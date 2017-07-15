@@ -12,7 +12,7 @@
 	$varprofit  = trim($_POST['percentprofit']);
 	$corp_addr  = trim($_POST['corp_addr']);
 	
-	 
+	$fomeadd =  trim($_POST['fomeadd']);
 	$percentprofit = ($varprofit/100)+1;
 	$vats = 7;
 	
@@ -204,10 +204,16 @@
 
 	
 
-	
-	
-	$r1t = $r1q*$r1p*$percentprofit;
-	$r2t = $r2q*$r2p*$percentprofit;
+	/*
+		กำไรคิดตามตารางเมตร ไม่ได้คิดจาก %
+		(ต้นทุนผนัง (ตร.ม) + กำไร) x ตารางเมตรทั้งหมด
+		($r1p + $fomeadd)*$r1q;
+		
+ 	*/ 
+	$r1t = ($r1p + $fomeadd)*$r1q;
+	//$r1t = $r1q*$r1p*$percentprofit;
+	$r2t = ($r2p + $fomeadd)*$r2q;
+	//$r2t = $r2q*$r2p*$percentprofit;
 	$r3t = $r3q*$r3p*$percentprofit;
 	$r4t = $r4q*$r4p*$percentprofit;
 	$r5t = $r5q*$r5p*$percentprofit;
@@ -237,8 +243,10 @@
 	//$bftotal = $m_sum + $r_sum + $laborfinal + $shipfinal;
 	//$vatbftotal = $m_vat + $r_vat + (($laborfinal*$vats)/100) + (($shipfinal*$vats)/100);
 	
-	$bftotal = $m_sum + $r_sum + $shmt + $shrt + $lbmt + $lbrt;
-	$vatbftotal = $m_vat + $r_vat + ((($lbmt+$lbrt)*$vats)/100) + ((($shmt+$shrt)*$vats)/100);
+	//$bftotal = $m_sum + $r_sum + $shmt + $shrt + $lbmt + $lbrt;
+	$bftotal = $m_sum + $r_sum;
+	//$vatbftotal = $m_vat + $r_vat + ((($lbmt+$lbrt)*$vats)/100) + ((($shmt+$shrt)*$vats)/100);
+	$vatbftotal = (($m_sum + $r_sum)*$vats)/100;
 
 	$atotal = $bftotal + $vatbftotal;
 	
@@ -590,14 +598,14 @@
 					<tr>
 						<td>1. <?php echo $r1;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r1q;?></td>
-						<td class="l" align="right"><?php echo number_format($r1p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l" align="right"><?php echo number_format($r1p+$fomeadd, 2, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($r1t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>2. <?php echo $r2;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r2q;?></td>
-						<td class="l" align="right"><?php echo number_format($r2p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l" align="right"><?php echo number_format($r2p+$fomeadd, 2, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($r2t, 2, '.', ',');?></td>
 					</tr>
 					

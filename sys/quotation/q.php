@@ -132,24 +132,34 @@
 							<div class="row">
 								<form action="../../admin/qadmin.php" id="form1" name="form" method="post">
 									<div class="col-lg-4">
-										.
-									</div>
-									
-									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess"> กว้าง </label>
+											<label class="control-label" for="inputSuccess"> กว้าง 1</label>
 											<input type="text" class="form-control" id="r_width" name="r_width">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess"> กว้าง 2</label>
+											<input type="text" class="form-control" id="r_width2" name="r_width2">
 										</div>
 
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ยาว</label>
+											<label class="control-label" for="inputSuccess">ยาว 1</label>
 											<input type="text" class="form-control" id="r_length" name="r_length">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ยาว 2</label>
+											<input type="text" class="form-control" id="r_length2" name="r_length2">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">สูง</label>
 											<input type="text" class="form-control" id="r_height" name="r_height">
 										</div>
+									</div>
+									
+									<div class="col-lg-4">
+										
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">อุณหภูมิที่ต้องการ  </label>
