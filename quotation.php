@@ -4,9 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="keywords" content="เช็คราคาห้องเย็น" />
 	<meta name="description" content="ใบเสนอราคาห้องเย็น Quotation" />
+	<link rel="shortcut icon" href="content/images/favicon.png">
 	<title>ใบเสนอราคาห้องเย็น Topcooling</title>
 </head>
 <body>
+<?php require_once('include/googletag.php');?>
 <?php
    require_once('include/connect.php');
    require_once('include/thaibaht.php');
@@ -21,7 +23,21 @@
 	$temp_before  = $_POST['temp_before']; 
 	$timeperiod  = $_POST['timeperiod'];
 	$qty  = $_POST['qty'];
-	$percentprice = 1.1;
+	$percentprice = 1.1;$stdardwall = 1.2;
+	$aluminium_lenght = 6;
+	
+	$cost_chakbold = 330;
+	$cost_chakl = 410;
+	$cost_chakcurve = 390;
+	$cost_chakf = 1035;
+	$cost_minuimbua = 230;
+	
+	$cost_printcode = 2150;
+	$cost_plastic = 4500;
+	$cost_seland = 70;
+	$cost_silicon = 88;
+	$cost_revet = 407;
+	$cost_pressure = 2000;
 
 	if($temparature==1){
 		$temps = 25;
@@ -65,7 +81,7 @@
 		$condensingtime = 20;
 	}
 	
-	
+	//echo "temparature = ".$temparature."<br>";
 	//Temparature 0
 	if($temparature <= 4){
 		$pps = 100;
@@ -85,8 +101,17 @@
 	$var_florom = $r_length*$r_width*1.1;
 	$var12 = 0.033/($pps/1000);
 	
+	/*echo "var11 = ".$var11."<br>";
+	echo "var12 = ".$var12."<br>";
+	echo "var13 = ".$var13."<br>";
+	
+	echo "var_room : ".$var_room."<br>";
+	echo "var_florom : ".$var_florom."<br><br>";*/
+
+	
 	//1. ค่ารวม ภาระที่ผ่านฉนวนห้องเย็น
 	$rusult = ($var11*$var12*$var13*24)/($condensingtime*1000);
+	//echo "rusult = ".$rusult."<br><br>";
 
 	
 	//2.ภาระอากาศจากภายนอก
@@ -99,6 +124,14 @@
 	 $result30 = ($qty * 3.89 * ($temp_before - $temp_num)) / ($timeperiod*3600); 
 	 $result31 = ($qty * 0) / ($timeperiod*3600);  
 	 $result3 = $result30+$result31;
+	 
+	/* echo "var21 = ".$var21."<br>";
+	 echo "var22 = ".$var22."<br>";
+	 echo "result2 = ".$result2."<br><br>";
+	 echo "test = ".$test."<br>";
+	 echo "result30 = ".$result30."<br>";
+	 echo "result31 = ".$result31."<br>";
+	 echo "result3 = ".$result3."<br>";*/
 	 
 	 
 	 //4.ภาระอื่นๆ 
@@ -126,11 +159,11 @@
 	
 	echo "all_result  "; echo $all_result; echo " KW "; echo "<br>";
 	echo "safety  "; echo $safety; echo " KW "; echo "<br><br>";
-	echo "ตารางที่ 1  = "; echo $total_result; echo " KW "; echo "<br><br>";*/
+	echo "ตารางที่ 1  = "; echo $total_result; echo " KW "; echo "<br><br>";
 	
 
 	
-   // echo "=======================================================================";  echo "<br><br>";
+    echo "=======================================================================";  echo "<br><br>";*/
 	
 	
 	
@@ -170,7 +203,7 @@
 	 $total_result_t = $all_result_t + $safety_t;
 	 
 	 
-	 /*echo "all_result_t  "; echo $all_result_t; echo " KW "; echo "<br>";
+	/* echo "all_result_t  "; echo $all_result_t; echo " KW "; echo "<br>";
 	 echo "safety_t  "; echo $safety_t; echo " KW "; echo "<br><br>";
 	 echo "ตารางที่ 2  = "; echo $total_result_t; echo " KW "; echo "<br><br>";
 	 
@@ -586,6 +619,32 @@
    }
 	
 	
+	$b_condensing_price =  $row_condensing['p_price_sell']*$percentprice*$condensingmaxqty;
+	$b_cooler_price = $row_cooler['p_price_sell']*$percentprice*$qtycooler;
+	$b_dc_price = $row_dc['p_price_sell']*$percentprice*$condensingmaxqty;
+	$b_expand_price = $row_expand['p_price_sell']*$percentprice*$expandmaxqty;
+	$b_tube2_price = $row_tube2['p_price_sell']*$percentprice*2*$qtycooler; 
+	$b_tube1_price = $row_tube1['p_price_sell']*$percentprice*2*$qtycooler;
+	$b_curve1_price = $row_curve1['p_price_sell']*$percentprice*5*$condensingmaxqty;
+	$b_curve2_price = $row_curve2['p_price_sell']*$percentprice*5*$condensingmaxqty;
+	$b_curve3_price = $row_curve3['p_price_sell']*$percentprice*$qtycooler;
+	$b_ins_price = $row_ins['p_price_sell']*$percentprice*$qtycooler*2*3;
+	$b_numya_price = $row_numya['p_price_sell']*$percentprice*$numyaQty*$condensingmaxqty;
+	$b_cable_price = $cable*$percentprice*$condensingmaxqty;
+	
+	/*echo 'b_condensing_price : '.$b_condensing_price.'<br>';
+	echo 'b_cooler_price : '.$b_cooler_price.'<br>';
+	echo 'b_dc_price : '.$b_dc_price.'<br>';
+	echo 'b_expand_price : '.$b_expand_price.'<br>';
+	echo 'b_tube2_price : '.$b_tube2_price.'<br>';
+	echo 'b_tube1_price : '.$b_tube1_price.'<br>';
+	echo 'b_curve1_price : '.$b_curve1_price.'<br>';
+	echo 'b_curve2_price : '.$b_curve2_price.'<br>';
+	echo 'b_curve3_price : '.$b_curve3_price.'<br>';
+	echo 'b_ins_price : '.$b_ins_price.'<br>';
+	echo 'b_numya_price : '.$b_numya_price.'<br>';
+	echo 'b_cable_price : '.$b_cable_price.'<br>';*/
+	
 	
 	$tatal_price =  ($row_condensing['p_price_sell']*$percentprice*$condensingmaxqty) + 
 					($row_cooler['p_price_sell']*$percentprice*$qtycooler) +
@@ -728,7 +787,7 @@ body {
 						<td style="width: 13%" class="b">สูง (เมตร)</td>
 					</tr>
 					<tr align="center">
-						<td align="left">COLD ROOM TEMP <?php echo $temp_num?> C<Sup>o</Sup> ขนาดห้อง (วัดภายนอก) </td>
+						<td align="left">COLD ROOM TEMP <?php echo $temps?> C<Sup>o</Sup> ขนาดห้อง (วัดภายนอก) </td>
 						<td class="l"><?php echo $r_width?></td>
 						<td class="r"></td>
 						<td><?php echo $r_length?></td>
@@ -909,6 +968,90 @@ body {
 		
 		
 		<?
+		
+		    $row_inch = mysql_fetch_array(mysql_query("SELECT pr_size, pr_sell_price FROM tb_productroom WHERE pr_cate = 1 AND pr_temp = '$temps'"));	
+			$isoprice = $row_inch['pr_sell_price'];
+
+			//echo 'isoprice : '. $isoprice . '<br>';
+			
+			//ISOWALL
+			$isoside = ceil((($r_length+$r_width)*2)/1.2);
+			$isosidecost = $r_height*1.2*$isoside*$isoprice;
+			$isosidearea = 1.2*$r_height*$isoside;
+			
+			$isoceil = ceil($r_length/1.2);
+			$isoceilcost = $r_width*1.2*$isoceil*$isoprice;
+			$isoceilarea = 1.2*$r_width*$isoceil;
+			
+			$cuteiso = ($r_height*1.2*$isoside)+($r_length*1.2*$isoceil);
+			
+			/*echo 'isoside : '. $isoside . '<br>';
+			echo 'isosidecost : '. $isosidecost . '<br>';
+			echo 'isosidearea : '. $isosidearea . '<br>';
+			echo 'cuteiso : '. $cuteiso . '<br><br>';
+			
+			echo 'isoceil : '. $isoceil . '<br>';
+			echo 'isoceilarea : '. $isoceilarea . '<br>';
+			echo 'isoceilcost : '. $isoceilcost . '<br><br>';*/
+			
+			//Fome Floor
+			$inchs = $row_inch['pr_size'];
+			$inch2 = $inchs/2;
+			if($inch2 < 2 ){ //ถ้าคำนวนโฟมได้น้อยกว่า 2 นิ้ว ให้ใช้ 2 นิ้ว
+				$inch2 = 2;
+			}
+			$fqty = $r_width*$r_length*2;
+			$qtypaper = ceil($fqty/3.66);
+			
+			
+			
+			$row_flr_cost = mysql_fetch_array(mysql_query("SELECT * FROM tb_productroom WHERE pr_cate = 2 AND pr_size = '$inch2'"));
+			$flr_cost = $row_flr_cost['pr_sell_price'];
+			
+			$flr_area = $qtypaper*3.6;
+			$fome_flr_cost = $flr_area*$flr_cost;
+			
+			
+			/*echo 'inch2 : '. $inch2 . '<br>';
+			echo 'fqty : '. $fqty . '<br>';
+			echo 'qtypaper : '. $qtypaper . '<br>';
+			echo 'flr_area : '. $flr_area . '<br>';
+			echo 'flr_cost : '. $flr_cost . '<br>';
+			echo 'fome_flr_cost : '. $fome_flr_cost . '<br><br>';*/
+			
+			
+			$chakbold = ceil(($r_height*4)/6);    
+			$chaklthing = ceil((($r_width*2) + ($r_length*2))/6);
+			$chak2in = $chakbold + $chaklthing;
+			$chakf = ceil((($r_width*2)+($r_length*2))/6);
+			$miniumbau = ceil(((($r_width*2)+($r_length*2))/6)*2);
+			$all_menium = $chakbold + $chaklthing + $chak2in + $chakf + $miniumbau;
+			
+			$price_chkbold = $chakbold*$cost_chakbold;
+			$price_chkl = $chaklthing*$cost_chakl;
+			$price_chkcurve = $cost_chakcurve*$chak2in;
+			$price_chkf = $chakf*$cost_chakf;
+			$price_bua = $miniumbau*$cost_minuimbua;
+			$all_price_chak =  $price_chkbold + $price_chkl + $price_chkcurve + $price_chkf + $price_bua;
+					
+
+			
+			$printcode = ceil((($r_width*$r_length)*2)/36);
+			$plasticflr = ceil(($r_width*$r_length)/45);
+			$seland_ = ceil($area_room*0.5);
+			$silicon_ = ceil($area_room/8);
+			$revet = ceil((($all_menium*6*2*0.35)/0.25)/1000);
+			$prsur = ceil(($r_width*$r_length*$r_height)/100);
+			
+			
+			if($area_room <= 100){
+				$laborcost = 15000;
+			}else if($area_room <= 200){
+				$laborcost = 25000;
+			}else{
+				$laborcost = $area_room*120;
+			}
+			
 			if($temparature==1){
 				
 				$sql_isowall = "SELECT * FROM tb_categoryroom c JOIN tb_productroom p ON c.catr_id = p.pr_cate WHERE p.pr_cate = 1 AND p.pr_size = 4";			
@@ -1084,7 +1227,7 @@ body {
 						<td style="width: 13%" class="b">สูง (เมตร)</td>
 					</tr>
 					<tr align="center">
-						<td align="left">COLD ROOM TEMP <?php echo $temp_num?> C<Sup>o</Sup> ขนาดห้อง (วัดภายนอก) </td>
+						<td align="left">COLD ROOM TEMP <?php echo $temps?> C<Sup>o</Sup> ขนาดห้อง (วัดภายนอก) </td>
 						<td class="l"><?php echo $r_width?></td>
 						<td class="r"></td>
 						<td><?php echo $r_length?></td>
@@ -1107,7 +1250,7 @@ body {
 					
 					<tr>
 						<td>1. <?php echo "แผ่นฉนวนสำเร็จรูปสำหรับผนังและเพดาน "." หนา ".$row_isowall['pr_size'].'"' ." Type ".$row_isowall['pr_type'];?></?></td>
-						<td colspan="2" class="l" align="center"><?php echo number_format($var_room, 2, '.', ',') ." ตร.ม."; ?></td>
+						<td colspan="2" class="l" align="center"><?php echo number_format(1111  , 2, '.', ',') ." ตร.ม."; ?></td>
 						<td class="l" align="right"><?php //echo number_format($row_isowall['pr_sell_price']*$percentprice, 2, '.', ',');?></td>
 						<td class="l" align="right"><?php //echo number_format($row_isowall['pr_sell_price']*$percentprice*$var_room, 2, '.', ','); ?></td>
 					</tr>

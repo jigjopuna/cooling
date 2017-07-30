@@ -21,7 +21,7 @@ var channelsLoaded = 0;
 // fieldList shows which field you want to load, and which axis to display that field on, 
 // the 'T' Temperature left axis, or the 'O' Other right axis.
 var channelKeys =[];
-channelKeys.push({channelNumber:285881, name:'Topcooling',key:'4LFYUUE7371QHY7Y', fieldList:[{field:1,axis:'O'}]});
+channelKeys.push({channelNumber:305791, name:'Topcooling',key:'84CY3XLVC63SS8X0', fieldList:[{field:1,axis:'O'}]});
 
 
 // user's timezone offset

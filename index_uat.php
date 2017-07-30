@@ -7,19 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 <meta name="author" content="Topcooling"/>
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
 <meta name="copyright" content="Topcooling 2017"/>
 <meta name="keywords" content="ห้องเย็น, ห้องเย็นราคา, ห้องเย็นมือสอง, เครื่องทำความเย็นอาหาร, ห้องเย็นไม่เย็น">
 <meta name="description" content="รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้">
 <?php require_once ('include/google_verify.php');?>
 <meta property="og:title" content="ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | Topcooling"/>
 <meta property="og:type" content="article"/>
-<meta property="og:image" content=""/>
-<meta property="og:url" content="https://www.topcooling.net"/>
+<meta property="og:image" content="/sources/img/og.png"/>
+<meta property="og:url" content="http://www.topcooling.net"/>
 <meta property="og:description" content="รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้"/>
-<link rel="shortcut icon" href="content/images/favicon.png">
+ 
+
+
+<link rel="shortcut icon" href="/assets/img/favicon.ico">
 <link rel="stylesheet" href="sources/css/main.css">
-<link rel="canonical" href="https://topcooling.net" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
  
 <script type="text/javascript" src="sys/js/jquery-1.11.1.min.js"></script>
