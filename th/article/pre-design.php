@@ -5,8 +5,7 @@
 <meta http-equiv="cache-control" content="max-age=10"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php require_once ('../../include/google_verify.php');?>
-<meta name="author" content="topcooling"/>
-<meta name="robots" content="index, follow">
+<?php require_once ('../../include/googlebot.php');?>
 <meta name="copyright" content="topcooling 2017"/>
 <meta name="keywords" content="ห้องเย็นนครปฐม, ห้องเย็นมหาชัย, ห้องเย็นแม่กลอง">
 <meta name="description" content="เพื่อให้ลูกค้ากับผู้สร้างห้องเย็นได้เห็นภาพจริง ได้เข้าใจความต้องการที่แท้จริงของลูกค้า จึงได้ออกแบบภาพ 3 มิติ">
@@ -15,7 +14,7 @@
 <meta property="og:image" content=""/>
 <meta property="og:url" content="http://www.topcooling.net"/>
 <meta property="og:description" content="เพื่อให้ลูกค้ากับผู้สร้างห้องเย็นได้เห็นภาพจริง ได้เข้าใจความต้องการที่แท้จริงของลูกค้า จึงได้ออกแบบภาพ 3 มิติ"/>
-<link rel="shortcut icon" href="../../assets/img/favicon.ico">
+<link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>ขึ้นแบบ 3D ห้องเย็นก่อนสร้างห้องจริง</title>
  
@@ -48,24 +47,36 @@
 			<div class="col-md-12">
 				
 				<div class="heading" style="text-align: center;">
-				 
+				
 				ขึ้นแบบ 3D ห้องเย็นก่อนสร้างห้องจริง
 				
 				</div><br><br>
 				<img src="../../content/images/article/out-side/outside-01.jpg" alt="ปรึกษาห้องเย็น"><br><br><br><br>
 				
+			
+				<div class="p_article">
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+				อยากดู อยากเห็น <span class="text-strong">ห้องเย็นของจริง</span> ก่อน ทาง topcooling เองจะมีห้องเย็นของจริงให้ลูกค้าได้ดูก่อนเสมอ หรือหากต้องการแบบ เราจะขึ้นแบบจำลอง
+				ที่เป็น 3D หรือ 3 มิติให้ เพราะบางท่านอาจจะนำไปให้ทีมงาน หรือ ผู้บริหารได้ดูก่อนเพื่อเป็นการตัดสินใจ <br><br>
+				
+				เพราะห้องเย็นหรือระบบทำความเย็นที่มีขนาดใหญ่งบประมาณการลงทุนค่อนข้างสูงหรือสูงมาก เราจะต้องออกแบบและวางแผนให้เหมาะกับลักษณะงาน และรองรับการขยายตัวที่อาจเกิดในอนาคต
+				เช่น <br><br>
+				<h2>ความสูงของอาคาร </h2>หรือหลังคาที่จะใช้ทำห้องเย็น ก็จะมีเรื่องความสูงมาเป็นตัวกำหนดหรือบางที่อาจจะเป็นมาตรฐานที่ต้องทำ หรือหลังคาจะต้องทนความร้อนได้แค่ไหน<br><br>
+				<h2>สภาพแวดล้อมหน้างาน</h2> ที่ติดตั้งห้องเย็น  ยกตัวอย่าง ห้องเย็นใช้เก็บเนื้อสัตว์ และบริเวณนั้นก็มีโรงเชือดอยู่ด้วย จะมีแมลงวันหรือแมลงที่มีเชื่้อต่างๆ  เราต้องออกแบบเรื่องการทำความสะอาดเนื้อสัตว์
+				ตั้งแต่ขนส่งมาถึงหน้าห้องเย็น ทำความสะอาดมีที่ฉีดน้ำ รางน้ำไหล ที่ไม่ตัน และประตูห้องเย็นที่มีม่านป้องกันแมลงด้วย<br><br>
+				
+				ฉะนั้นการขึ้นแบบ 3D จำลองห้องเย็นเป็นสิ่งจำเป็น เพื่อให้เห็นภาพรวมก่อนสร้างห้องจริง
+
+				</div>
+					
+					
+					
 				<p class="p_article">
 					
-				</p>
-					
-					
-					
-				<p class="p_article">
-					
-					<br><br>
+					<br>
 					หวังว่าบทความนี้จะเป็นประโยชน์ นะครับ ^^<br><br>
 					สนใจสอบถามข้อมูล ยินดีให้บริการ<br>
-					โทร 082-360-1523<br>
+					โทร 082-360-1523, 093-230-5559<br>
 					Line: @topcooling (พิมพ์ @ ข้างหน้าด้วย)<br>
 		
 

@@ -38,6 +38,21 @@
                             <a href="quotation/q_fome.php" target="_blank"><i class="fa fa-dashboard fa-fw"></i>ต้นทุนห้องโฟม</a>
                         </li>
 						
+						<li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>การเงิน <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+								
+                                <li>
+                                    <a href="finance/outpay.php">รายการสั่งซื้อ</a>
+                                </li>
+								
+								<li>
+                                    <a href="finance/inpay.php">ยอดเงินเข้า</a>
+                                </li>
+							
+                            </ul>
+                        </li>
+						
 						 <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>ลูกค้า <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

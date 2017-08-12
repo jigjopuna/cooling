@@ -28,7 +28,7 @@
 			exit("
 				<script>
 					alert('กรุณา Login ก่อนนะคะ');
-					window.location = 'https://topcooling.net/sys/pages/login/login.php';
+					window.location = 'pages/login/login.php';
 				</script>");
 		}
 	
