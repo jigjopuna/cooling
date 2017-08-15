@@ -30,6 +30,29 @@
 		}
 	
 	?>
+<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
+<script src="../../js/jquery-ui-1-12-1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.btn-success').click(validation);
+		$('#date_pay').datepicker({dateFormat: 'yy-mm-dd'});
+		$("#search_custname").autocomplete({
+				source: "../../ajax/search_cust.php",
+				minLength: 1
+		});
+		
+		function validation(){
+			var search_custname = $('#search_custname').val();
+			var payinqty = $('#payinqty').val();
+			var paydate = $('#paydate').val();
+			if((search_custname=='') || (payinqty=='') || (paydate=='')){
+				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
+			}else{
+				$('#form1').submit();				
+			}
+		}		
+	});
+</script>
 </head>
 
 <body>
@@ -38,6 +61,68 @@
 
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">เพิ่มออเดอร์</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							เพิ่มออเดอร์
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="row">
+								<form action="../db/finance/addpo.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess"> สินค้า/รายการ </label>
+											<input type="text" class="form-control" id="poname" name="poname">
+										</div>
+										
+										
+									</div>
+																		
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">วันที่</label>
+											<input type="text" class="form-control" id="date_pay" name="date_pay">
+										</div>
+										
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">คอมเม้นท์</label>
+											<input type="text" class="form-control" id="poment" name="poment">
+										</div>
+									</div>
+									
+									
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">บิล/เอกสาร</label>
+											<input type="file" class="form-control require" id="pobill" name="pobill">
+										</div>
+										
+										<div class="form-group has-success">
+											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกรายการสั่งซื้อ</button>
+										</div>
+									</div>
+									
+								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+        </div>
+		
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">ออเดอร์ลูกค้า</h1>

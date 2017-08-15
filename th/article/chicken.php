@@ -11,8 +11,8 @@
 <meta name="description" content="ห้องเย็นแช่ไก่เป็นตัว แช่แข็งยังไงไม่ให้อะไหล่เน่า ไก่ไม่เขียว รักษาคุณภาพไก่ได้นาน ขายได้ราคาดี แช่ตุนเก็บไว้ได้">
 <meta property="og:title" content="รู้ยัง ไก่ หนึ่งในเนื้อสัตว์ที่ต้องใช้ห้องเย็นประสิทธิภาพ ทำไม?"/>
 <meta property="og:type" content="article"/>
-<meta property="og:image" content=""/>
-<meta property="og:url" content="https://www.topcooling.net"/>
+<meta property="og:image" content="../../content/images/article/kicken.gif">
+<meta property="og:url" content="https://topcooling.net/th/article/chicken.php"/>
 <meta property="og:description" content="ห้องเย็นแช่ไก่เป็นตัว แช่แข็งยังไงไม่ให้อะไหล่เน่า ไก่ไม่เขียว รักษาคุณภาพไก่ได้นาน ขายได้ราคาดี แช่ตุนเก็บไว้ได้"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
@@ -46,7 +46,7 @@
 				แช่แข็งไก่ต้องใช้ห้องเย็นแบบไหน	
 				
 				</div><br><br>
-				<img src="../../content/images/article/out-side/outside-01.jpg" alt=""><br><br>
+				<img src="../../content/images/article/kicken.gif" alt="ห้องเย็นแช่ไก่"><br><br>
 			
 				<div class="p_article">
 												

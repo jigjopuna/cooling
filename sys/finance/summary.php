@@ -1,25 +1,17 @@
 <?php session_start();
 	  require_once('../include/connect.php');
-	  
-	  //for left nav menu path include/navproduct.php
-	/*$sql = "SELECT * FROM tb_category ORDER BY cat_name";
-	$result = mysql_query($sql);
-	$num = mysql_num_rows($result);*/
 	
-	$o_id = trim($_GET['o_id']);
+	//payout
+	$sqlout = "SELECT e.e_id, e.e_name, SUM(po_price) poprice FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id  GROUP BY po_buyer";
+	$resultout= mysql_query($sqlout);
+	$numout = mysql_num_rows($resultout);
 	
+	//payin
+	$sqlin = "SELECT e.e_id, e.e_name, SUM(o.pay_amount) payamount FROM tb_ord_pay o JOIN tb_emp e ON o.o_emp_receive = e.e_id GROUP BY o.o_emp_receive";
+	$resultin = mysql_query($sqlin);
+	$numin = mysql_num_rows($resultin);
 	
-	//list all product this order
-	$sql_prd = "SELECT * FROM tb_ord_prod orpd JOIN tb_product p ON orpd.p_id = p.p_id WHERE orpd.o_id = '$o_id'";
-	$result_prd = mysql_query($sql_prd);
-	$num_prd = mysql_num_rows($result_prd);
-	
-	
-	//order pay
-	$sql_pay = "SELECT * FROM tb_ord_pay opy JOIN tb_orders ord on opy.o_id = ord.o_id WHERE opy.o_id = '$o_id' ORDER BY opy.pay_date";
-	$result_pay = mysql_query($sql_pay);
-	$num_pay= mysql_num_rows($result_pay);
-
+	$today = date("Y-m-d");
 	
 ?>
 <!DOCTYPE html>
@@ -28,8 +20,9 @@
 <head>
 
 <?php require_once ('../include/header.php');?>
-<title>ออเดอร์ลูกค้า</title>
 <?php require_once('../include/metatagsys.php');?>
+<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
+<script src="../../js/jquery-ui-1-12-1.min.js"></script>
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
 		if($e_id==""){
@@ -41,6 +34,12 @@
 		}
 	
 	?>
+	
+	<script>
+		$(document).ready(function(){
+			
+		});
+	</script> 
 </head>
 
 <body>
@@ -49,40 +48,42 @@
 
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
+		
+		    
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">รายละเอียด ออเดอร์</h1>
+                    <h1 class="page-header">สรุปรายรับ / รายจ่าย (รวมทุกคน)</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+			
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							รายละเอียดสินค้า
+								สรุปรายจ่าย
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
-                                        <th>สินค้า</th>
-                                        <th>รุ่น</th>
-                                        <th>จำนวน</th>
+                                        <th>ชื่อ</th>                                     
+                                        <th>รายจ่าย</th>
+										
                                     </tr>
                                 </thead>
                                 <tbody>
                                     
 									<?php 
-										for($i=1; $i<=$num_prd; $i++){
-										  $row_prd = mysql_fetch_array($result_prd);
+										for($i=1; $i<=$numout; $i++){
+										  $rowout = mysql_fetch_array($resultout);
 									  ?>
 										<tr class="gradeA">
-											<td><?php echo $row_prd['p_name']; ?></td>
-											<td><?php echo $row_prd['p_model']; ?></td>
-											<td><?php echo $row_prd['orpd_qty']; ?></td> 
-											
+											<td><a href="outpayeachother.php?e_id=<?php echo $rowout['e_id']; ?>"><?php echo $rowout['e_name']; ?></a></td>
+											<td><?php echo number_format($rowout['poprice'], 0, '.', ','); ?></td>
+												
 										</tr>
 									<?php } ?>
 
@@ -99,37 +100,31 @@
             </div>
             <!-- /.row -->
 			
-			 <!-- /.row -->
-            <div class="row">
+			<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							การชำระเงิน
+								สรุปรายรับ
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
-                                        <th>งวดที่</th>
-                                        <th>จำนวน</th>
-                                        <th>เวลา</th>
-										<th>บิล</th>
-										<th>Comment</th>
+                                        <th>ชื่อ</th>                                     
+                                        <th>รายรับ</th>
+										
                                     </tr>
                                 </thead>
                                 <tbody>
                                     
 									<?php 
-										for($i=1; $i<=$num_pay; $i++){
-										  $row_pay = mysql_fetch_array($result_pay);
+										for($i=1; $i<=$numin; $i++){
+										  $rowin = mysql_fetch_array($resultin);
 									  ?>
 										<tr class="gradeA">
-											<td><?php echo $i; ?></td>
-											<td><?php echo number_format($row_pay['pay_amount'], 2, '.', ','); ?></td>
-											<td><?php echo $row_pay['pay_date']; ?></td> 
-											<th><a href="../images/receive/<?php echo $row_pay['pay_bill']; ?>">ดูบิล</a></th> 
-											<td>.</td> 
+											<td><a href="outpayeachother.php?e_id=<?php echo $rowin['e_id']; ?>"><?php echo $rowin['e_name']; ?></a></td>
+											<td><?php echo number_format($rowin['payamount'], 0, '.', ','); ?></td>												
 										</tr>
 									<?php } ?>
 
@@ -144,8 +139,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-			
-			
+            <!-- /.row -->
 
         </div>
         <!-- /#page-wrapper -->

@@ -49,6 +49,10 @@
 								<li>
                                     <a href="../finance/inpay.php">ยอดเงินเข้า</a>
                                 </li>
+								
+								<li>
+                                    <a href="../finance/summary.php">สรุปการเงิน</a>
+                                </li>
 							
                             </ul>
                         </li>
