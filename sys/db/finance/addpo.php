@@ -81,7 +81,7 @@
 			echo "Sorry, your file was not uploaded."; exit();
 		// if everything is ok, try to upload file
 		} else {
-			if (move_uploaded_file($_FILES["pobill"]["tmp_name"], $target_file . '.jpg')) {
+			if (move_uploaded_file($_FILES["pobill"]["tmp_name"], $target_file)) {
 				//move_uploaded_file($_FILES["file"]["tmp_name"], "../img/imageDirectory/" . $newfilename);
 				echo "The file ". basename( $_FILES["pobill"]["name"]). " has been uploaded."; 
 			} else {
