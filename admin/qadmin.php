@@ -676,7 +676,7 @@
 				source: "../ajax/search_cust.php",
 				minLength: 1
 		});
-		alert('44444');
+		
 	});
 	
 

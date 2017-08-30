@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="col-sm-4">
 
-				<ul class="contact-list">
+				<ul class="contact-list" id="contact-list">
 
 				 
 					<li>

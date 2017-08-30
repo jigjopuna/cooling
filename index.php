@@ -25,13 +25,17 @@
 <script type="text/javascript" src="sys/js/jquery-1.11.1.min.js"></script>
 <script>
 	$(document).ready(function(){
-		$('#navbar-mobile-btn').click(function(){
-		 $('.navbar-mobile-menu').css('right','0');
-		 setTimeout(function(){ $('.navbar-mobile-menu').css('right','-214px'); }, 3000);
-		});
+		/*$$('#navbar-mobile-btn').click(function(){
+		('.navbar-mobile-menu').css('right','0');
+		 setTimeout(function(){ 
+			$('.navbar-mobile-menu').css('right','-214px'); }, 3000);
+		});*/
 		
 		
 		$('#q_btn').click(validation);
+		$("#navbar-mobile-btn").click(function(){
+			$('.navbar-menu').toggle();
+		});
 	});
 	
 	
@@ -143,10 +147,10 @@
 				<ul class="navbar-menu">
 				 
 				 
-				<li><a href="" target="_blank">ติดต่อเรา</a></li>
-				<li><a href="/faq">คำถามที่พบบ่อย</a></li>
+				<li><a href="#contact-list">ติดต่อเรา</a></li>
+				<li><a href="https://topcooling.net/th/article/17howto.php">คำถามที่พบบ่อย</a></li>
 				 
-				<li><a class="btn-border" style="cursor:pointer;">เข้าสู่ระบบ</a></li>
+				<li><a class="btn-border" style="cursor:pointer;"></a></li>
 			</div>
 		</div>
 	</div>
@@ -156,8 +160,8 @@
 	
 	<ul class="navbar-menu"> 
 		<li><a href="" target="_blank">ติดต่อเรา</a></li>
-		<li><a href="">คำถามที่พบบ่อย</a></li>
-		<li><a class="btn-border" style="cursor:pointer;">เข้าสู่ระบบ</a></li>
+		<li><a href="https://topcooling.net/th/article/17howto.php">คำถามที่พบบ่อย</a></li>
+		<li><a class="btn-border" style="cursor:pointer;"></a></li>
 	</ul>
 </div>
 <style media="screen">.section-header .col-sm-6:first-child .heading{text-align:left;}.section-header .col-sm-6:first-child .btn{margin:0;}.dealbox p.policy{letter-spacing:0;line-height:1.4;font-size:13px;}.link:hover{text-decoration:underline;}.videoModal{position:fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.8);z-index:10000;}.wrapVideo{margin-top:25vh;margin-left:auto;margin-right:auto;text-align:center;}@media  screen and (max-width: 984px) {.dealbox>.wrapper>.form-header>.heading{font-size:34px;}.dealbox p.policy br{display:none;}}@media  screen and (max-width: 767px) {.section-header .col-sm-6:first-child .heading{text-align:center;}}@media  screen and (max-width: 768px) {.section-header .col-sm-6:first-child .btn{margin:0 auto;}.dealbox>.wrapper>.form-header>.heading{font-size:32px;margin-bottom:20px;}.dealbox>.wrapper>.form-header>.heading{font-size:40px;}.dealbox p.policy br{display:block;}}@media  screen and (max-width: 425px) {.dealbox{width:100%;}.dealbox>.wrapper>.form-header>.heading{font-size:34px;margin-bottom:20px;}.dealbox>.wrapper>.form-group.insurance p,.dealbox p.policy{font-size:1em!important;}.dealbox p.policy br{display:none;}}</style>

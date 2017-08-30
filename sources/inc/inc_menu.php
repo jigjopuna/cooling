@@ -15,18 +15,18 @@
 				<ul class="navbar-menu">
 				 
 				 
-				<li><a href="" target="_blank">หน้าแรก</a></li>
-				<li><a href="" target="_blank">ราคาห้องเย็น</a></li>
-				<li><a href="/faq">คำถามที่พบบ่อย</a></li>
-				<li><a class="btn-border" style="cursor:pointer;">ติดต่อเรา</a></li>
+				<li><a href="https://topcooling.net/" target="_blank">หน้าแรก</a></li>
+				<li><a href="https://topcooling.net/chkprice.php" target="_blank">ราคาห้องเย็น</a></li>
+				<li><a href="https://topcooling.net/th/article/17howto.php">คำถามที่พบบ่อย</a></li>
+				<li><a href="#contact-list">ติดต่อเรา</a></li>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="navbar-mobile-menu">
 	<ul class="navbar-menu"> 
-		<li><a href="" target="_blank">หน้าแรก</a></li>
-		<li><a href="" target="_blank">ราคาห้องเย็น</a></li>
-		<li><a href="">คำถามที่พบบ่อย</a></li>
+		<li><a href="https://topcooling.net/" target="_blank">หน้าแรก</a></li>
+		<li><a href="https://topcooling.net/chkprice.php" target="_blank">ราคาห้องเย็น</a></li>
+		<li><a href="https://topcooling.net/th/article/17howto.php">คำถามที่พบบ่อย</a></li>
 	</ul>
 </div>
