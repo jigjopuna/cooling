@@ -102,7 +102,7 @@
 											<td><?php echo $rowout['e_name']; ?></td>
 											<td><?php echo $rowout['po_comment']; ?></td>
 											<td><?php echo $rowout['po_date']; ?></td>
-											<td><a href="../../images/bill/<?php echo $rowout['po_bill_img'];?>" target="_blank">ดูบิล</a></td>											
+											<td><a href="../../sys/images/bill/<?php echo $rowout['po_bill_img'];?>" target="_blank">ดูบิล</a></td>											
 										</tr>
 									<?php } ?>
 

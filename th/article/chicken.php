@@ -18,14 +18,9 @@
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>รู้ยัง ไก่ หนึ่งในเนื้อสัตว์ที่ต้องใช้ห้องเย็นประสิทธิภาพ ทำไม ?</title>
 
-<script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$('.btn').click(function(){			
-			window.open('../../index.php', '_newtab');
-		});	
-	});	
-</script>
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
+<script src="../../js/main.js"></script>
 
 </head>
 <body>

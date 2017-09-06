@@ -19,17 +19,9 @@
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>ห้องเย็นมีกี่ประเภท กี่แบบ วันนี้รู้เลย</title>
  
-<script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$('.btn').click(function(){
-			
-			window.open('../../index.php', '_newtab');
-		});
-		
-	});
-	
-</script>
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
+<script src="../../js/main.js"></script>
 
 
  
@@ -75,7 +67,7 @@
 					<strong>- แช่แข็งสินค้าได้มาก</strong> มากกว่า 10 ต้น ขึ้นไป<br>
 					<strong>- ใช้งบประมาณน้อย</strong> อาจจะมีแนวโน้มที่ใช้งบน้อยกว่าห้องเย็นสำเร็จรูป เช่น ปกติสินค้า 20 ตัน อาจจำเป็นต้องใช้ ห้องเย็นสำเร็จรูป 4 - 5 ห้อง แต่สามารถใช้ห้องเย็นแบบฝั่งแพียงแค่ห้องเดียวได้ สามารถลดค่าไฟได้<br>
 					<strong>-  ออกแบบได้ตามที่ต้องการ</strong> ห้องเย็นแบบฝั่งลูกค้าสามารถออกแบบลักษณะได้เองยกตัวอย่างเช่น ห้องที่ไม่เป็นสีเหลี่ยม<br>
-					<strong>- ไม่สามารถเคลื่อนที่ได้<br>
+					<strong>- ไม่สามารถเคลื่อนที่ได้</strong><br>
 				</p>
 				
 				

@@ -13,19 +13,14 @@
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/kicken.gif">
 <meta property="og:url" content="https://topcooling.net/th/article/chicken.php"/>
-<meta property="og:description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน"/>
+<meta property="og:description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็น ราคาเท่าไร"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>17 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ</title>
 
-<script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$('.btn').click(function(){			
-			window.open('../../index.php', '_newtab');
-		});	
-	});	
-</script>
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
+<script src="../../js/main.js"></script>
 <style>
 .topic-article {font-family:'Thaisans_neue_regular'; font-size:1.8em; color: brown; font-weight:bold; text-decoration: underline}
 </style>
@@ -69,7 +64,7 @@
 				14. มีบริการหลังการขายไหม<br>
 				15. ต้องจ่ายเงินยังไง<br>
 				16. ห้องมือสองสภาพแตกต่างจากของใหม่อย่างไร<br>
-				17. มือสองกับของใหม่ราคาต่างกันเยอะไหม	<br><br>				
+				17. ห้องเย็นมือสองกับของใหม่ราคาเท่าไร ต่างกันเยอะไหม<br><br>				
 				
 				<span class="topic-article">1 . อยากได้ห้องเย็นมีขนาดและราคาเท่าไหร่บ้าง</span><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-strong">ห้องเย็น</span> ขนาดกว้าง 3 เมตร ยาว 3 เมตร สูง 2.4 เมตร จะเก็บสินค้าได้ประมาณ 2-3 ตัน ขึ้นอยู่กับเป็น <span class="text-strong">สินค้า</span> อะไร เนื้อสัตว์ หรือ ผักผลไม้ ถ้าเป็นประเภทผักผลไม้ น้ำหนักก็น้อยลงไป ส่วนนี้เป็นห้องเย็นสำเร็จรูปนะครับ

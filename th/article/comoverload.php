@@ -18,21 +18,9 @@
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>คอมเพรสเซอร์ห้องเย็น โอเวอร์โหลด (Overload)</title>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$('.btn').click(function(){			
-			window.open('../../index.php', '_newtab');
-		});	
-		$("#navbar-mobile-btn").click(function(){
-			$('.navbar-menu').toggle();
-		});
-
-	});	
-</script>
-<style>
-
-</style>
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
+<script src="../../js/main.js"></script>
 </head>
 <body>
 <?php require_once('../../include/googletag.php');?>

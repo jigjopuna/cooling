@@ -8,31 +8,19 @@
 <?php require_once ('../../include/googlebot.php');?>
 <meta name="copyright" content="topcooling 2017"/>
 <meta name="keywords" content="ห้องเย็นคำถาม">
-<meta name="description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน">
+<meta name="description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร">
 <meta property="og:title" content="17 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/17howto/17.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/17howto.php"/>
-<meta property="og:description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน"/>
+<meta property="og:description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>17 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ</title>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$('.btn').click(function(){			
-			window.open('../../index.php', '_newtab');
-		});	
-		$("#navbar-mobile-btn").click(function(){
-			$('.navbar-menu').toggle();
-		});
+<script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
+<script src="../../js/main.js"></script>
 
-	});	
-</script>
-<style>
-
-</style>
 </head>
 <body>
 <?php require_once('../../include/googletag.php');?>
@@ -75,7 +63,7 @@
 				14. มีบริการหลังการขายไหม<br>
 				15. ต้องจ่ายเงินยังไง<br>
 				16. ห้องมือสองสภาพแตกต่างจากของใหม่อย่างไร<br>
-				17. มือสองกับของใหม่ราคาต่างกันเยอะไหม	<br><br>
+				17. ห้องเย็นมือสองกับของใหม่ราคาเท่าไร ต่างกันเยอะไหม<br><br>
 				
 				<img src="../../content/images/article/17howto/cold-storage.jpg" alt="ห้องเย็นมือสอง"><br><br>
 							

@@ -2,13 +2,13 @@
 	  require_once('../include/connect.php');
 	
 	//PO LIST
-	$sql = "SELECT p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_bill_img, p.po_date, p.po_shop, e.e_id, e.e_name   
+	$sql = "SELECT p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_bill_img, p.po_date, p.po_shop, e.e_id, e.e_name   
 			FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
 			ORDER BY po_id DESC";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
-	$sql_buyer = "SELECT e_id, e_name FROM tb_emp";
+	$sql_buyer = "SELECT e_id, e_name FROM tb_emp WHERE e_type = 1";
 	$result_buyer = mysql_query($sql_buyer);
 	$num_buyer = mysql_num_rows($result_buyer);
 	
@@ -39,6 +39,7 @@
 	<script>
 		$(document).ready(function(){
 			$('.btn-success').click(validation);
+			$('#podate').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#search_custname").autocomplete({
 				source: "../../ajax/search_cust.php",
 				minLength: 1
@@ -178,6 +179,7 @@
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
+										<th>ลำดับ</th>
                                         <th>รายการ</th>                                     
                                         <th>จำนวน</th>
                                         <th>ราคา</th>
@@ -196,6 +198,7 @@
 										  $row = mysql_fetch_array($result);
 									  ?>
 										<tr class="gradeA">
+											<td><?php echo number_format($row['po_id'], 0, '.', ''); ?></td>
 											<td><a href="order_detail.php?o_id=<?php echo $row['po_id'] ?>"><?php echo $row['po_name']; ?></td>
 											<td><?php echo number_format($row['po_qty'], 0, '.', ''); ?></td>
 											<td><?php echo number_format($row['po_price'], 0, '.', ','); ?></td>

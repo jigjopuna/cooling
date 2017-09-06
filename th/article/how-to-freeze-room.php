@@ -19,17 +19,9 @@
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>ไม่รู้จะเริ่มสร้างห้องเย็นยังไง บทความนี้ กระจ่างเลย</title>
  
-<script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$('.btn').click(function(){
-			
-			window.open('../../index.php', '_newtab');
-		});
-		
-	});
-	
-</script>
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
+<script src="../../js/main.js"></script>
 
 
  

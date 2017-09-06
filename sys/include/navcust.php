@@ -87,6 +87,21 @@
                             </ul>
                         </li>
 						
+						<li>
+                            <a href="stock/stockout.php"><i class="fa fa-bar-chart-o fa-fw"></i> สต็อก / เบิกของ <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+								
+                                <li>
+                                    <a href="stock/stockout.php">เบิกของ</a>
+                                </li>
+								
+								<li>
+                                    <a href="stock/stock.php">ดูสต็อก</a>
+                                </li>
+							
+                            </ul>
+                        </li>
+						
 						
 						<li>
                             <a href="index.php" target="_blank"><i class="fa fa-dashboard fa-fw"></i>อุปกรณ์ห้องเย็น</a>
