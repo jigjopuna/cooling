@@ -1,22 +1,17 @@
 <?php session_start();
 	  require_once('../include/connect.php');
-	
-	//โอนเข้ามา
-	$sql = "SELECT op.pay_id, c.cust_name, op.pay_amount, op.pay_date, o.o_id, e.e_name, op.pay_bill
-			FROM ((tb_orders o JOIN tb_ord_pay op ON o.o_id = op.o_id) 
-				 JOIN tb_customer c ON c.cust_id = o.o_cust) JOIN tb_emp e ON e.e_id = op.o_emp_receive
-			ORDER BY op.pay_date DESC";
+	  
+	$sql = "SELECT * FROM tb_mcenter";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
-	$today = date("Y-m-d");
-	
+	$today = date("Y-m-d");	  
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<title>รับเงิน</title>
+<title>เงินส่วนกลาง</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
@@ -30,54 +25,22 @@
 					window.location = '../pages/login/login.php';
 				</script>");
 		}
-	
 	?>
-
+	
 <script>
 	$(document).ready(function(){ 
-		$('.btn-success').click(validation);
-		$('#paydate').datepicker({dateFormat: 'yy-mm-dd'});
-		$("#search_custname").autocomplete({
-				source: "../../ajax/search_cust.php",
-				minLength: 1
-		});
-		
-		$("#search_emp").autocomplete({
-				source: "../../ajax/search_emp.php",
-				minLength: 1
-		});
-		
-		$("#search_ord").autocomplete({
-				source: "../../ajax/search_ord.php",
-				minLength: 1
-		});
-		
-		function validation(){
-			var search_custname = $('#search_custname').val();
-			var payinqty = $('#payinqty').val();
-			var paydate = $('#paydate').val();
-			if((search_custname=='') || (payinqty=='') || (paydate=='')){
-				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
-			}else{
-				$('#form1').submit();				
-			}
-		}
 		
 	});
-	
-</script>
-
+</script> 
 </head>
-
 <body>
-
-    <div id="wrapper">
+	<div id="wrapper">
 
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
 			<div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">เพิ่มรายการโอนเข้า</h1>
+                    <h1 class="page-header">เงินส่วนกลาง</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -139,15 +102,15 @@
             </div>
 			
         </div>
-			
-            <div class="row">
+		
+		 <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">ยอดโอนเข้า</h1>
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
+         </div>
+		
+		<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -159,10 +122,11 @@
                                 <thead>
                                     <tr>
 										<th>ลำดับ</th>
-                                        <th>ลูกค้า</th>                                     
-                                        <th>จำนวนเงิน</th>
+                                        <th>รายได้จาก</th>                                     
+                                        <th>ยอด</th>
                                         <th>วันที่</th>
-										<th>ผู้รับเงิน</th>
+										<th>เงินออก</th>
+										<th>คงเหลือ</th>
 										<th>ดูบิล</th>
                                     </tr>
                                 </thead>
@@ -173,12 +137,10 @@
 										  $row = mysql_fetch_array($result);
 									  ?>
 										<tr class="gradeA">
-											<td style='width: 2%;'><?php echo $row['pay_id'];?></td>
-											<td><a href="../order/order_detail.php?o_id=<?php echo $row['o_id'] ?>"><?php echo $row['cust_name']; ?></td>
-											<td><?php echo number_format($row['pay_amount'], 0, '.', ','); ?></td>
-											<td><?php echo $row['pay_date']; ?></td>
-											<td><?php echo $row['e_name']; ?></td>
-											<td><a href="../images/receive/<?php echo $row['pay_bill'];?>" target="_blank">ดูบิล</a></td>											
+											<td><?php echo $row['m_id']; ?></td>
+											<td><?php echo number_format($row['m_in'], 0, '.', ','); ?></td>
+											<td><?php echo number_format($row['m_remain'], 0, '.', ','); ?></td>
+											<td><a href="../images/mcenter/<?php echo $row['m_bill'];?>" target="_blank">ดูบิล</a></td>											
 										</tr>
 									<?php } ?>
 
@@ -193,16 +155,11 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
 
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
-
-   
-
 </body>
-
 </html>

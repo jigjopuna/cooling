@@ -77,22 +77,8 @@
 					<strong>- แช่แข็งสินค้าได้มาก</strong> มากกว่า 10 ต้น ขึ้นไป<br>
 				</p>
 				
-				
-					
-				
-					
-					
-					
-				<p class="p_article">
-					
-					<br><br>
-					หวังว่าบทความนี้จะเป็นประโยชน์ นะครับ ^^<br><br>
-					สนใจสอบถามข้อมูล ยินดีให้บริการ<br>
-					โทร 082-360-1523<br>
-					Line: @topcooling (พิมพ์ @ ข้างหน้าด้วย)<br>
-		
 
-				</p>
+				<?php include('../../sources/inc/inc_contact_art.php');?>
 				<br>
 				<br>
 				<!--<p class="text -primary">ตัวอย่าง*</p>-->
@@ -113,70 +99,7 @@
 
 
 
- 
- <div class="section-testimonial">
-	<div class="heading">
-	บทความที่เกี่ยวข้อง
-	</div>
-	 
-	<div class="container">
-		<div class="row">
-			<div class="blog-slider" >
-				<div class="articles"><a href="" target="_blank">
-					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-						<span>+ อ่านต่อ</span>
-						</div>
-						<div class="blog-content">
-							<span class="blog-time">Nov 6, 2016</span>
-							<h2 class="blog-title">ห้องเย็นห้องแรก ยากจริงไหม</h2>
-							<p class="blog-excerpt"><p> หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น.</p></p>
-						</div>
-					</div>
-					</a>
-				</div>
-
-			<div class="articles"><a href="" target="_blank">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time">Nov 6, 2016</span>
-						<h2 class="blog-title">ห้องเย็นราคาแพงดีจริงๆ หรือ</h2>
-						<p class="blog-excerpt"><p>หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น..</p></p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			
-			<div class="articles"><a href="" target="_blank">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time">Nov 6, 2016</span>
-						<h2 class="blog-title">5 วิธีง่ายๆ ในการดูแลห้องเย็น</h2>
-						<p class="blog-excerpt"><p>หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น.</p></p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-				<a class="blog-readmore" href="https://www.tocooling.com/blog" target="_blank">อ่านทั้งหมด ></a>
-			</div>
-		</div>
-	</div>	
-</div>
-
-
+<?php include('../../sources/inc/inc_article-relate.php');?>
 <?php include('../../sources/inc/inc_footer.php');?>
 
 </body>

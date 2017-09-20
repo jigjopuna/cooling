@@ -11,7 +11,7 @@
 <meta name="description" content="ห้องเย็นแช่ไก่เป็นตัว แช่แข็งยังไงไม่ให้อะไหล่เน่า ไก่ไม่เขียว รักษาคุณภาพไก่ได้นาน ขายได้ราคาดี แช่ตุนเก็บไว้ได้">
 <meta property="og:title" content="รู้ยัง ไก่ หนึ่งในเนื้อสัตว์ที่ต้องใช้ห้องเย็นประสิทธิภาพ ทำไม?"/>
 <meta property="og:type" content="article"/>
-<meta property="og:image" content="../../content/images/article/kicken.gif">
+<meta property="og:image" content="../../content/images/article/chicken/chicken.gif">
 <meta property="og:url" content="https://topcooling.net/th/article/chicken.php"/>
 <meta property="og:description" content="ห้องเย็นแช่ไก่เป็นตัว แช่แข็งยังไงไม่ให้อะไหล่เน่า ไก่ไม่เขียว รักษาคุณภาพไก่ได้นาน ขายได้ราคาดี แช่ตุนเก็บไว้ได้"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
@@ -41,7 +41,7 @@
 				แช่แข็งไก่ต้องใช้ห้องเย็นแบบไหน	
 				
 				</div><br><br>
-				<img src="../../content/images/article/kicken.gif" alt="ห้องเย็นแช่ไก่"><br><br>
+				<img src="../../content/images/article/chicken/chicken.gif" alt="ห้องเย็นแช่ไก่"><br><br>
 			
 				<div class="p_article">
 												
@@ -77,20 +77,13 @@
 				แต่หากต้องเก็บแช่แข็งไก่ไว้ในห้องเย็นห้อง <span class="text-strong">แช่ข็งนานๆ</span> แนะนำเป็นอุณหภูมิที่เย็นกว่า <u>-15</u> องศาครับ
 				</div>
 
-				<p class="p_article">		
-					<br>
-					หวังว่าบทความนี้จะเป็นประโยชน์ นะครับ ^^<br><br>
-					สนใจสอบถามข้อมูล ยินดีให้บริการ<br>
-					<img src="../../content/images/social/call40x40.png" style="height:40px; width:40px; display: inline-block;"/> 082-360-1523, 093-230-5559<br>
-					
-					<img src="../../content/images/social/line40.png" style="height:40px; width:40px; display: inline-block;"/> <a href="http://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank">@topcooling (พิมพ์ @ ข้างหน้าด้วย)</a><br> 
-					
-					<img src="../../content/images/social/fb40x40.png" style="height:40px; width:40px; display: inline-block;"/> <a href="https://www.facebook.com/pg/410001105718634" target="_blank">Inbox เฟสบุค คลิก</a><br>
-
-				</p>
+				<?php include('../../sources/inc/inc_contact_art.php');?>
 				<br>
 				<br>
 				<!--<p class="text -primary">ตัวอย่าง*</p>-->
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/7YScc8TlmWI" frameborder="0" allowfullscreen></iframe>
+			<br>
+				<br>
 			</div>
 
 		</div>
@@ -105,73 +98,7 @@
 		</div>
 	</div>
 </div>
-
-
-
- 
- <div class="section-testimonial">
-	<div class="heading">
-	บทความที่เกี่ยวข้อง
-	</div>
-	 
-	<div class="container">
-		<div class="row">
-			<div class="blog-slider" >
-				<div class="articles"><a href="" target="_blank">
-					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-						<span>+ อ่านต่อ</span>
-						</div>
-						<div class="blog-content">
-							<span class="blog-time">Nov 6, 2016</span>
-							<h2 class="blog-title">ห้องเย็นห้องแรก ยากจริงไหม</h2>
-							<p class="blog-excerpt"><p> หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น.</p></p>
-						</div>
-					</div>
-					</a>
-				</div>
-
-			<div class="articles"><a href="" target="_blank">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time">Nov 6, 2016</span>
-						<h2 class="blog-title">ห้องเย็นราคาแพงดีจริงๆ หรือ</h2>
-						<p class="blog-excerpt"><p>หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น..</p></p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			
-			<div class="articles"><a href="" target="_blank">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time">Nov 6, 2016</span>
-						<h2 class="blog-title">5 วิธีง่ายๆ ในการดูแลห้องเย็น</h2>
-						<p class="blog-excerpt"><p>หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น.</p></p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-				<a class="blog-readmore" href="https://www.tocooling.com/blog" target="_blank">อ่านทั้งหมด ></a>
-			</div>
-		</div>
-	</div>	
-</div>
-
-
+<?php include('../../sources/inc/inc_article-relate.php');?>
 <?php include('../../sources/inc/inc_footer.php');?>
 
 </body>

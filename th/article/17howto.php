@@ -9,14 +9,14 @@
 <meta name="copyright" content="topcooling 2017"/>
 <meta name="keywords" content="ห้องเย็นคำถาม">
 <meta name="description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร">
-<meta property="og:title" content="17 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ"/>
+<meta property="og:title" content="19 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/17howto/17.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/17howto.php"/>
 <meta property="og:description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
-<title>17 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ</title>
+<title>19 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ</title>
 
 <script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
 <script src="../../js/main.js"></script>
@@ -37,7 +37,7 @@
 				
 				<div class="heading" style="text-align: center;">
 				
-				17 ข้อต้องรู้ก่อนมีห้องเย็น	
+				19 ข้อต้องรู้ก่อนมีห้องเย็น	
 				
 				</div><br><br>
 				<img src="../../content/images/article/17howto/17.jpg" alt="ห้องเย็น"><br><br>
@@ -49,7 +49,7 @@
 				  <br><br>
 				1. อยากได้ห้องเย็นมีขนาดและราคาเท่าไหร่บ้าง<br>
 				2. เก็บของ.....เท่านี้ใช้ห้องเย็นขนาดไหนดี<br>
-				3. ห้องฝั่งกับห้องสำเร็จรูปต่างกันยังไง<br>
+				3. ห้องฝังกับห้องสำเร็จรูปต่างกันยังไง<br>
 				4. ห้องเย็นมือสองมีรับประกันไหม<br>
 				5. สภาพห้องเย็นมือสองเป็นยังไง<br>
 				6. ใช้ไฟเท่าไหร่ต้องขอไฟฟ้าไหม<br>
@@ -77,16 +77,16 @@
 				<span class="topic-article">2 . เก็บของ.....เท่านี้ใช้ห้องเย็นขนาดไหนดี</span><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				ในข้อที่ 1 ได้พูดถึง <span class="text-strong">ปัจจัย</span> ในการเลือกขนาดห้องเย็น คือ ประเภทสินค้า และปริมาณที่จะเก็บ <span class="text-strong">ยกตัวอย่าง</span> ห้องเย็นสำเร็จรูปขนาดเล็กที่สุด 3 x 3 x 2.4 เมตร จะเก็บเนื้อสัตว์ได้ 2-3 ต้น ผักผลไม้ น้ำแข้ง ไอศรีม ได้จะ 1-2 ตัน
-				หากเก็บหรือแช่แข็ง <span class="text-strong">สินค้าที่มากๆ</span>  หลายสิบตัน จำเป็นต้องขยายห้องเย็น และจะแนะนำเป็น <span class="text-strong">ห้องเย็นแบบฝั่ง</span> ถ้าเก็บสินค้าเยอะๆ  แล้วห้องเย็นแบบฝั่งกับห้องเย็นสำเร็จรูปต่างยังไงให้อ่านข้อ 3 ต่อครับ
+				หากเก็บหรือแช่แข็ง <span class="text-strong">สินค้าที่มากๆ</span>  หลายสิบตัน จำเป็นต้องขยายห้องเย็น และจะแนะนำเป็น <span class="text-strong">ห้องเย็นแบบฝัง</span> ถ้าเก็บสินค้าเยอะๆ  แล้วห้องเย็นแบบฝังกับห้องเย็นสำเร็จรูปต่างยังไงให้อ่านข้อ 3 ต่อครับ
 				<br><br>
 				
-				<span class="topic-article" id="topic3">3 . ห้องฝั่งกับห้องสำเร็จรูปต่างกันยังไง</span><br>
+				<span class="topic-article" id="topic3">3 . ห้องฝังกับห้องสำเร็จรูปต่างกันยังไง</span><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<table style="width: 100%; margin: 0 auto; border: 1px solid black;">
 					<tr style="border: 1px solid black;">
 					
 						<th>รายการ</th>
-						<th>ห้องเย็นแบบฝั่ง</th>
+						<th>ห้องเย็นแบบฝัง</th>
 						<th>ห้องเย็นสำเร็จรูป</th>
 					</tr>
 					
@@ -123,7 +123,7 @@
 				
 				<br><br>
 				
-				<span class="topic-article">6. ใช้ไฟเท่าไหร่ต้องขอไฟฟ้าไหม</span><br>
+				<span class="topic-article" id="topic6">6. ใช้ไฟเท่าไหร่ต้องขอไฟฟ้าไหม</span><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				แนะนำให้ใช้ไฟ 380 โวลล์ หรือไฟ 3 เฟส ครับ หรือหากไม่สะดวก ไฟบ้าน 220 โวลล์ ก็ใช้งานได้เช่นกัน <span class="text-strong">แต่</span> 
 				ต้องให้มั่นใจว่าที่บ้านไฟไม่ตกและบ้านไม่ปลายสายของสายไฟฟ้า  เพราะถ้าไฟไม่พอจะมีผลกระทบกับเครื่องใช้ไฟฟ้าภายในบ้าน อาจจะมีอายุการใช้งานน้อยลง<br>
@@ -135,7 +135,7 @@
 				<span class="topic-article">7. พื้นที่เท่าไรในการวางห้องเย็น</span><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				ห้องเย็นสำเร็จรูป จำเป็นต้องวางในพื้นที่ที่ค่อนข้างโล่งและ <span class="text-strong">หลังคาสูง</span>  เพราะการเคลื่อนย้ายหรือการขนส่งจะใช้รถเครน (รถเฮียบ) ยกและวาง 
-				ต้องใช้พื้นที่พอสมควร ซึ่งต่างจากห้องเย็นแบบฝั่ง ที่เราจะเข้าไปประกอบขึ้นห้องที่หน้างานเลยจึงไม่มีปัญหาเรื่องหลังคาหรือความสูง
+				ต้องใช้พื้นที่พอสมควร ซึ่งต่างจากห้องเย็นแบบฝัง ที่เราจะเข้าไปประกอบขึ้นห้องที่หน้างานเลยจึงไม่มีปัญหาเรื่องหลังคาหรือความสูง
 				
 				<br><br>
 				<span class="topic-article"> 8. อยากเห็นภาพส่งรูปให้ดูหน่อย</span><br>
@@ -200,26 +200,32 @@
 				<span class="topic-article" > 17. มือสองกับของใหม่ราคาต่างกันเยอะไหม </span><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				ห้องเย็นมือสองจะถูกกว่า มือหนึ่งค่อนข้างเยอะ เทียบเป็นเงินจะประมาณ <span class="text-strong">1 แสนบาท </span>แต่เพื่อให้เหมาะกับการใช้งานของลูกค้า ผมจะขอ  <span class="text-strong">แนะนำ</span> แบบนี้นะครับ<br><br>
+
 				
 				<strong>ลูกค้าที่เพิ่งมีห้องเย็นเป็นห้องแรกหรือธุรกิจกำลังขยายและเติบโต</strong> และพื้นที่ที่จะวางห้องเย็นยังไม่แน่นอน ในอนาคตอาจจะย้ายไปโรงงานหรือสถานที่ที่ใหญ่ขึ้น
 				แบบนี้ผมจะแนะนำห้องเย็นสำเร็จรูปจะเป็นมือหนึ่งหรือมือสองก็ได้ เนื่องจากว่าจะแบบนี้ <span class="text-strong">ย้ายห้องได้</span> เพราะลูกค้าไม่เคยใช้ห้องเย็น อยากให้ลองใช้งานดูก่อน หากโอเคแล้ว ต้องการจะทำห้องที่ใหญ่ขึ้นก็ทำได้ หรือ ถ้าไม่โอเคจะได้เสียเงินมาก <br><br>
 				
-				<strong>ลูกค้าที่เคยมีห้องเย็นมาแล้ว</strong> และห้องเย็นจะตั้งอยู่ตรงนี้แน่นอนไม่เคลื่อนย้ายไปไหน จะแนะนำให้เป็นแบบฝั่ง แต่แบบฝั่งจะมีเป็นมือหนึ่งอย่างเดียว ห้องฝั่งกับห้องสำเร็จคืออะไร<a href="#topic3"> อ่านต่อในข้อ3 ด้านบนได้ครับ</a>
-				
-				
+				<strong>ลูกค้าที่เคยมีห้องเย็นมาแล้ว</strong> และจะตั้งอยู่ตรงนี้แน่นอนไม่เคลื่อนย้ายไปไหน จะแนะนำให้เป็นแบบฝัง แต่แบบฝังจะมีเป็นมือหนึ่งอย่างเดียว ห้องฝังกับห้องสำเร็จคืออะไร<a href="#topic3"> อ่านต่อในข้อ3 ด้านบนได้ครับ</a>
 				<br><br>
 				
-				<p class="p_article">		
-					<br>
-					หวังว่าบทความนี้จะเป็นประโยชน์ นะครับ ^^<br><br>
-					สนใจสอบถามข้อมูล ยินดีให้บริการ<br>
-					<img src="../../content/images/social/call40x40.png" style="height:40px; width:40px; display: inline-block;"/> 082-360-1523, 093-230-5559<br>
-					
-					<img src="../../content/images/social/line40.png" style="height:40px; width:40px; display: inline-block;"/> <a href="http://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank">@topcooling (พิมพ์ @ ข้างหน้าด้วย)</a><br> 
-					
-					<img src="../../content/images/social/fb40x40.png" style="height:40px; width:40px; display: inline-block;"/> <a href="https://www.facebook.com/pg/410001105718634" target="_blank">Inbox เฟสบุค คลิก</a><br>
+				<span class="topic-article" > 18. การเตรียมตัวก่อนมีห้องเย็น </span><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				สิ่งที่ลูกค้าจะเตรียมก่อนมีห้องเย็น จะมี 2 อย่าง หลักๆ คือ<br>
+				<strong>- <u>ไฟฟ้า</u></strong> ลูกค้าต้องเดินสายจะตู้ไฟในบ้านมายังบริเวณที่จะวางห้องเย็น ให้ดูข้อมูลเรื่องการเช็คไฟฟ้าใน <a href="#topic6">หัวข้อที่ 6 ด้านบน</a> <br>
+				<strong>- <u> สถานที่วาง</u></strong> เตรียมสถานที่ที่จะ <span class="text-strong">วางห้องเย็น</span>  พื้นอาจจะต้องเรียบแข็งแรงที่จะรองรับน้ำหนักของสินค้าได้ หลังคาคลุมหัองเย็นหากตั้งไว้ในที่แจ้ง<br><br>
+				
+				<span class="topic-article" > 19. ห้องเย็นกับตู้แช่ต่างกันยังไง </span><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				ห้องเย็นๆ หรือตู้เย็นๆ  ท่านใดที่ยังไม่เคยสัมผัสกับห้องเย็นๆ มาก่อน อาจจะยังไม่มองภาพไม่ออกว่า ห้องเย็นกับตู้แช่แข็งต่างกันอย่างไร ง่ายๆ ครับ<br>
+				- เก็บของได้เยอะกว่าตูแช่แข็งหรือตู้แช่เย็นใหญ่ๆ <br>
+				- เลือกขนาดห้องได้ตามที่อยากได้<br>
+				- อยากให้เย็นแค่ไหนก็ทำได้ <br>
+				  ลองดูคลิปด้านล่างนี้ครับ<br><br>
+				
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/TB2hEO-GU3A" frameborder="0" allowfullscreen></iframe>
+				<br><br>
 
-				</p>
+				<?php include('../../sources/inc/inc_contact_art.php');?>
 				<br>
 				<br>
 				<!--<p class="text -primary">ตัวอย่าง*</p>-->
@@ -239,71 +245,7 @@
 </div>
 
 
-
- 
- <div class="section-testimonial">
-	<div class="heading">
-	บทความที่เกี่ยวข้อง
-	</div>
-	 
-	<div class="container">
-		<div class="row">
-			<div class="blog-slider" >
-				<div class="articles"><a href="" target="_blank">
-					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-						<span>+ อ่านต่อ</span>
-						</div>
-						<div class="blog-content">
-							<span class="blog-time">Nov 6, 2016</span>
-							<h2 class="blog-title">ห้องเย็นห้องแรก ยากจริงไหม</h2>
-							<p class="blog-excerpt"><p> หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น.</p></p>
-						</div>
-					</div>
-					</a>
-				</div>
-
-			<div class="articles"><a href="" target="_blank">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time">Nov 6, 2016</span>
-						<h2 class="blog-title">ห้องเย็นราคาแพงดีจริงๆ หรือ</h2>
-						<p class="blog-excerpt"><p>หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น..</p></p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			
-			<div class="articles"><a href="" target="_blank">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time">Nov 6, 2016</span>
-						<h2 class="blog-title">5 วิธีง่ายๆ ในการดูแลห้องเย็น</h2>
-						<p class="blog-excerpt"><p>หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น.</p></p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-				<a class="blog-readmore" href="https://www.tocooling.com/blog" target="_blank">อ่านทั้งหมด ></a>
-			</div>
-		</div>
-	</div>	
-</div>
-
-
+<?php include('../../sources/inc/inc_article-relate.php');?>
 <?php include('../../sources/inc/inc_footer.php');?>
 
 </body>

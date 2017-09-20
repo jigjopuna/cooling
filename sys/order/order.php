@@ -157,7 +157,7 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row_all['o_id']; ?></td>
-											<td><a href="order_detail.php?o_id=<?php echo $row_all['o_id'] ?>"><?php echo $row_all['cust_name']; ?></td>
+											<td><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></td>
 											<td><?php echo $row_all['o_status']; ?></td>
 											<td><?php echo $row_all['cust_corp']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td>

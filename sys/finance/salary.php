@@ -2,10 +2,7 @@
 	  require_once('../include/connect.php');
 	
 	//โอนเข้ามา
-	$sql = "SELECT op.pay_id, c.cust_name, op.pay_amount, op.pay_date, o.o_id, e.e_name, op.pay_bill
-			FROM ((tb_orders o JOIN tb_ord_pay op ON o.o_id = op.o_id) 
-				 JOIN tb_customer c ON c.cust_id = o.o_cust) JOIN tb_emp e ON e.e_id = op.o_emp_receive
-			ORDER BY op.pay_date DESC";
+	$sql = "SELECT e.e_id, e.e_name, s.sal_amount, s.sal_bill, s.sal_date, s.sal_comment FROM tb_emp e JOIN tb_salary s ON e.e_id = s.sal_emp";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
@@ -16,7 +13,7 @@
 <html lang="en">
 
 <head>
-<title>รับเงิน</title>
+<title>ค่าตอบแทนพนักงาน</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
@@ -75,9 +72,67 @@
 
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
+			
+			
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">ค่าตอบแทนพนักงาน</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+								ค่าตอบแทนพนักงาน
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                                <thead>
+                                    <tr>
+										<th>รหัสพนักงาน</th>
+                                        <th>ชื่อ</th>                                     
+                                        <th>จำนวนเงิน</th>
+                                        <th>วันที่</th>
+										<th>คอมเม้น</th>
+										<th>ดูบิล</th>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+									<?php 
+										for($i=1; $i<=$num; $i++){
+										  $row = mysql_fetch_array($result);
+									  ?>
+										<tr class="gradeA">
+											<td style='width: 10%;'><?php echo $row['e_id'];?></td>
+											<td><?php echo $row['e_name']; ?></td>
+											<td><?php echo number_format($row['sal_amount'], 0, '.', ','); ?></td>
+											<td><?php echo $row['sal_date']; ?></td>
+											<td><?php echo $row['sal_comment']; ?></td>				
+											<td><a href="../images/salary/<?php echo $row['sal_bill'];?>" target="_blank">ดูสลิป</a></td>		
+													
+										</tr>
+									<?php } ?>
+
+                                    
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+			
+			
 			<div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">เพิ่มรายการโอนเข้า</h1>
+                    <h1 class="page-header">กรอกเดือนพนักงาน</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -86,7 +141,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							เพิ่มรายการโอนเข้า
+							กรอกเดือนพนักงาน
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -94,8 +149,8 @@
 								<form action="../db/finance/addpayin.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess"> หมายเลข ออเดอร์ </label>
-											<input type="text" class="form-control" id="search_custname" name="search_custname" placeholder="ใส่ชื่อลูกค้า">
+											<label class="control-label" for="inputSuccess">ชื่อพนักงาน </label>
+											<input type="text" class="form-control" id="search_custname" name="search_custname">
 										</div>
 										
 										<div class="form-group has-success">
@@ -112,7 +167,7 @@
 											<input type="file" class="form-control require" id="payinbill" name="payinbill">
 										</div>
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">คนรับเงิน</label>
+											<label class="control-label" for="inputSuccess">คอมเม้นท์</label>
 											<input type="text" class="form-control" id="search_emp" name="search_emp">
 										</div>
 										
@@ -139,61 +194,6 @@
             </div>
 			
         </div>
-			
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">ยอดโอนเข้า</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-								ยอดโอนเข้า
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
-                                <thead>
-                                    <tr>
-										<th>ลำดับ</th>
-                                        <th>ลูกค้า</th>                                     
-                                        <th>จำนวนเงิน</th>
-                                        <th>วันที่</th>
-										<th>ผู้รับเงิน</th>
-										<th>ดูบิล</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-									<?php 
-										for($i=1; $i<=$num; $i++){
-										  $row = mysql_fetch_array($result);
-									  ?>
-										<tr class="gradeA">
-											<td style='width: 2%;'><?php echo $row['pay_id'];?></td>
-											<td><a href="../order/order_detail.php?o_id=<?php echo $row['o_id'] ?>"><?php echo $row['cust_name']; ?></td>
-											<td><?php echo number_format($row['pay_amount'], 0, '.', ','); ?></td>
-											<td><?php echo $row['pay_date']; ?></td>
-											<td><?php echo $row['e_name']; ?></td>
-											<td><a href="../images/receive/<?php echo $row['pay_bill'];?>" target="_blank">ดูบิล</a></td>											
-										</tr>
-									<?php } ?>
-
-                                    
-                                </tbody>
-                            </table>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
 
         </div>
         <!-- /#page-wrapper -->

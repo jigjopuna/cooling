@@ -57,16 +57,7 @@
 					
 					
 					
-				<div class="p_article">
-					
-					<br><br>
-					หวังว่าบทความนี้จะเป็นประโยชน์ นะครับ ^^<br><br>
-					สนใจสอบถามข้อมูล ยินดีให้บริการ<br>
-					โทร 082-360-1523<br>
-					Line: @topcooling (พิมพ์ @ ข้างหน้าด้วย)<br>
-		
-
-				</div>
+				<?php include('../../sources/inc/inc_contact_art.php');?>
 				<br>
 				<!--<p class="text -primary">ตัวอย่าง*</p>-->
 			</div>

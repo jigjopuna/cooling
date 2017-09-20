@@ -51,6 +51,10 @@
                                 </li>
 								
 								<li>
+                                    <a href="../finance/salary.php">เงินเดือน</a>
+                                </li>
+								
+								<li>
                                     <a href="../finance/summary.php">สรุปการเงิน</a>
                                 </li>
 							
