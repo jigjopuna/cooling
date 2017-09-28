@@ -51,7 +51,7 @@
                                 </li>
 								
 								<li>
-                                    <a href="../finance/salary.php">เงินเดือน</a>
+                                    <a href="finance/salary.php">เงินเดือน</a>
                                 </li>
 								
 								<li>

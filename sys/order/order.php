@@ -77,11 +77,11 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 							<div class="row">
-								<form action="../db/finance/addpo.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
+								<form action="../db/order/addorder.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess"> สินค้า/รายการ </label>
-											<input type="text" class="form-control" id="poname" name="poname">
+											<label class="control-label" for="inputSuccess">ชื่อลูกค้า </label>
+											<input type="text" class="form-control" id="search_custname" name="search_custname">
 										</div>
 										
 										
@@ -92,23 +92,15 @@
 											<label class="control-label" for="inputSuccess">วันที่</label>
 											<input type="text" class="form-control" id="date_pay" name="date_pay">
 										</div>
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">คอมเม้นท์</label>
-											<input type="text" class="form-control" id="poment" name="poment">
-										</div>
+
 									</div>
 									
 									
 									<div class="col-lg-4">
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">บิล/เอกสาร</label>
-											<input type="file" class="form-control require" id="pobill" name="pobill">
-										</div>
+										
 										
 										<div class="form-group has-success">
-											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกรายการสั่งซื้อ</button>
+											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกออเดอร์ใหม่</button>
 										</div>
 									</div>
 									

@@ -41,7 +41,7 @@
 			$('.btn-success').click(validation);
 			$('#podate').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#search_custname").autocomplete({
-				source: "../../ajax/search_cust.php",
+				source: "../../ajax/search_ord.php",
 				minLength: 1
 			});
 		});

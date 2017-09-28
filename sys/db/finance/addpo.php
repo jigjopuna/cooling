@@ -17,9 +17,12 @@
 	$poment  = trim($_POST['poment']);
 	
 	$podate = trim($_POST['podate']);
+	$search_custname = trim($_POST['search_custname']);
 	$today = date("Ymd");
 	
 	echo "today = ", $today, "<br>"; 
+	
+	
 	
 
 	echo "poname = ", $poname, "<br>";
@@ -103,6 +106,7 @@
 			po_comment  = '$poment', 
 			po_bill_img = '$filename', 
 			po_date     = '$podate', 
+			po_orders   = '$search_custname',
 			po_time =  now()";
 	
 	$result1 = mysql_query($sql);

@@ -342,6 +342,37 @@ $(document).ready(function()
     )(channelIndex);
   }
  }
+ 
+ //custom
+ $.getJSON("https://api.thingspeak.com/channels/328382/feeds.json?results=288", function (data) {
+			var chname = data.channel.name;
+			var countfeeds = Object.keys(data.feeds);
+			/*for(var i=0; i< countfeeds.length; i++){
+				alert(data.feeds[i].field1);
+			}*/
+			
+			var xx = Object.values(data.feeds);
+			var result = [];
+			var j = 0;
+			for(var key in xx) {
+				var value = xx[key];			
+				if(j<=key){
+					result[j] = value.field1;
+					j = j+1;
+				}
+			}
+			var sum = 0;
+			for( var i = 0; i < result.length; i++ ){
+				sum += parseFloat(result[i]);
+			}
+			var avg = sum/result.length;
+
+			$('#demo1').html(" The average is: " + avg); 
+			//$("#reply").html(JSON.stringify(result));
+			$('#demo').html("max : "+ Math.max.apply(null, result)+ "min : " + Math.min.apply(null, result));
+
+		});
+ //end custom
 });
       
 function loadOneChannel(){ 
@@ -482,6 +513,8 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 			</tr>
 		</table>
 	</div>-->
-	
+	<div id="demo"></div>
+	<div id="demo1"></div>
+	<div id="reply"></div>
   </body>
 </html>
