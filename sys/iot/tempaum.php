@@ -1,7 +1,7 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	
-	$json_url = "https://api.thingspeak.com/channels/328382/feeds.json?results=1";
+	$json_url = "https://api.thingspeak.com/channels/351322/feeds.json?results=1";
 	$json = file_get_contents($json_url);
 	$data = json_decode($json);
 	$tempnow = $data->feeds[0]->field1;
@@ -30,7 +30,7 @@ var channelsLoaded = 0;
 // fieldList shows which field you want to load, and which axis to display that field on, 
 // the 'T' Temperature left axis, or the 'O' Other right axis.
 var channelKeys =[];
-channelKeys.push({channelNumber:328382, name:'TempMonitor',key:'231DBP3HQNI2MY9P', fieldList:[{field:1,axis:'O'}]});
+channelKeys.push({channelNumber:351322, name:'nittayas',key:'KMYTFGKOIZSSB8XM', fieldList:[{field:1,axis:'O'}]});
 
 
 // user's timezone offset
@@ -353,7 +353,7 @@ $(document).ready(function()
  }
  
  //custom
- $.getJSON("https://api.thingspeak.com/channels/328382/feeds.json?results=288", function (data) {
+ $.getJSON("https://api.thingspeak.com/channels/351322/feeds.json?results=288", function (data) {
 			var chname = data.channel.name;
 			var countfeeds = Object.keys(data.feeds);
 			/*for(var i=0; i< countfeeds.length; i++){
@@ -527,4 +527,5 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 	<div id="demo1"></div>
 	<div id="reply"></div>
   </body>
+  <!--webpom_kub@hotmail.com-->
 </html>

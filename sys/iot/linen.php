@@ -1,12 +1,12 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");
-	define('LINE_TOKEN','5NyGjwO4G92GOhIYVb6i3jeAu7Uwowx6kBLtjDKsmwZ');
-	$json_url = "https://api.thingspeak.com/channels/333590/feeds.json?results=288";
+	define('LINE_TOKEN','2UhB3XtIL2zPJLAm38RLHioi9OMup0D71zaewNOO2UB');
+	$json_url = "https://api.thingspeak.com/channels/346872/feeds.json?results=288";
 	$json = file_get_contents($json_url);
 	$data = json_decode($json);
 	
-	$json_url1 = "https://api.thingspeak.com/channels/333590/feeds.json?results=1";
+	$json_url1 = "https://api.thingspeak.com/channels/346872/feeds.json?results=1";
 	$json1 = file_get_contents($json_url1);
 	$data1 = json_decode($json1);
 	$tempnow = $data1->feeds[0]->field1;
@@ -48,7 +48,7 @@
 	}
 	
 	
-	$msg = "ห้องเย็นคุณหนึ่ง อุณหภูมิปัจจุบัน ".date("Y-m-d h:i:sa")." ".$tempnow." องศาเซลเซียส"." เฉลี่ย ".$avg." องศา". " สูงสุด ".$maxtemp. " ดูกราฟได้ที่ http://topcooling.net/sys/iot/tempn.php";
+	$msg = "ห้องเย็นอุณหภูมิปัจจุบัน ".date("Y-m-d h:i:sa")." ".$tempnow." องศาเซลเซียส"." เฉลี่ย ".$avg." องศา". " สูงสุด ".$maxtemp. " ดูกราฟได้ที่ http://topcooling.net/sys/iot/tempcha.php";
 	$res = notify_message($msg);
 	var_dump($res);
 	echo $res;

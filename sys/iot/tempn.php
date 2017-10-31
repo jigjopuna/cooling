@@ -353,7 +353,7 @@ $(document).ready(function()
  }
  
  //custom
- $.getJSON("https://api.thingspeak.com/channels/328382/feeds.json?results=288", function (data) {
+ $.getJSON("https://api.thingspeak.com/channels/333590/feeds.json?results=288", function (data) { 
 			var chname = data.channel.name;
 			var countfeeds = Object.keys(data.feeds);
 			/*for(var i=0; i< countfeeds.length; i++){
