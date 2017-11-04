@@ -5,7 +5,7 @@
 	$sql = "SELECT op.pay_id, c.cust_name, op.pay_amount, op.pay_date, o.o_id, e.e_name, op.pay_bill
 			FROM ((tb_orders o JOIN tb_ord_pay op ON o.o_id = op.o_id) 
 				 JOIN tb_customer c ON c.cust_id = o.o_cust) JOIN tb_emp e ON e.e_id = op.o_emp_receive
-			ORDER BY op.pay_date DESC";
+			ORDER BY op.pay_date DESC LIMIT 0,50";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
@@ -95,7 +95,7 @@
 									<div class="col-lg-4">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess"> หมายเลข ออเดอร์ </label>
-											<input type="text" class="form-control" id="search_custname" name="search_custname" placeholder="ใส่ชื่อลูกค้า">
+											<input type="text" class="form-control" id="search_ord" name="search_ord" placeholder="ใส่ชื่อลูกค้า">
 										</div>
 										
 										<div class="form-group has-success">

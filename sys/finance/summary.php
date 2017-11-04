@@ -1,6 +1,8 @@
 <?php session_start();
 	  require_once('../include/connect.php');
 	
+	$today = date("Y-m-d");
+	
 	//payout
 	$sqlout = "SELECT e.e_id, e.e_name, SUM(po_price) poprice FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id  GROUP BY po_buyer";
 	$resultout= mysql_query($sqlout);
@@ -11,7 +13,7 @@
 	$resultin = mysql_query($sqlin);
 	$numin = mysql_num_rows($resultin);
 	
-	$today = date("Y-m-d");
+	
 	
 ?>
 <!DOCTYPE html>

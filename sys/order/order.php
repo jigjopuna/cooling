@@ -7,9 +7,13 @@
 	$num = mysql_num_rows($result);*/
 	
 	//Product Expandtion
-	$sql_all = "SELECT * FROM (tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) JOIN province p ON c.cust_province = p.id";
+	$sql_all = "SELECT o.o_id, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_size, ost.ost_status 
+				FROM ((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) JOIN province p ON c.cust_province = p.id) 
+					 JOIN tb_ord_status ost ON ost.ost_id = o.o_status";
 	$result_all = mysql_query($sql_all);
 	$num_all = mysql_num_rows($result_all);
+	
+
 	
 ?>
 <!DOCTYPE html>
@@ -133,12 +137,13 @@
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
-										<th style='width: 2%;'>ลำดับ</th>
-                                        <th>ลูกค้า</th>
-                                        <th>สถานะ</th>
-                                        <th>บริษัท</th>
-                                        <th>เบอร์ติดต่อ</th>
-                                        <th>จังหวัด</th>
+										<th style='width: 5%;'>ลำดับ</th>
+                                        <th style='width: 15%;'>ลูกค้า</th>
+										<th style='width: 15%;'>จังหวัด</th>
+                                        <th style='width: 15%;'>สถานะ</th>      
+                                        <th style='width: 15%;'>ขนาดห้อง</th>
+										<th style='width: 5%;'>อุณหภูมิ</th>
+										<th style='width: 15%;'>เบอร์ติดต่อ</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -148,12 +153,23 @@
 										  $row_all = mysql_fetch_array($result_all);
 									  ?>
 										<tr class="gradeA">
-											<td><?php echo $row_all['o_id']; ?></td>
-											<td><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></td>
-											<td><?php echo $row_all['o_status']; ?></td>
-											<td><?php echo $row_all['cust_corp']; ?></td>
+											<td><?php echo $row_all['o_id']; ?></td>  
+											<td><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></td>	
+											<td><?php echo $row_all['pro_name']; ?></td>   
+											
+											<?php if($row_all['o_status']==5) { ?>
+												<td style="background-color: #cce29a"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php } else if($row_all['o_status']==1) { ?>
+												<td style="background-color: yellow"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php } else { ?>
+												<td><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<? } ?>
+											
+											
+											<td><?php echo $row_all['o_size']; ?></td>
+											<td><?php echo $row_all['o_temp']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td>
-											<td><?php echo $row_all['pro_name']; ?></td>               
+											          
 										</tr>
 									<?php } ?>
 

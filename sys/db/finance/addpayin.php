@@ -6,9 +6,11 @@
 </head>
 <body>
 <?php 
+	$monery = mysql_fetch_array(mysql_query("SELECT cash_now FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,1"));
+	$cur_cash = $monery['cash_now'];
 	
 	//1. receive data
-	$cust_order = trim($_POST['search_custname']);
+	$cust_order = trim($_POST['search_ord']);
 	$payamount  = trim($_POST['payamount']);
 	
 	$emp = trim($_POST['search_emp']);
@@ -29,10 +31,7 @@
 	
 	echo "today = ", $today, "<br>"; 
 	
-	
-	
-	
-	
+
 	$target_dir = "../../images/receive/";
 	$filename = time().$_FILES["payinbill"]["name"];
 	$target_file = $target_dir . basename($filename);
@@ -43,7 +42,7 @@
 	echo "filename = ", $filename, "<br>";
 	echo "target_file = ", $target_file, "<br>";
 	echo "imageFileType = ", $imageFileType, "<br>";
-	exit();
+	//exit();
 	
 	if(file_exists($_FILES['payinbill']['tmp_name']) || is_uploaded_file($_FILES['myfile']['tmp_name'])) {
 		// Check if image file is a actual image or fake image
@@ -93,21 +92,40 @@
 
 	//2. insert into database	
 	$sql = "INSERT INTO tb_ord_pay SET 
-			o_id     = '$cust_order', 
+			o_id        = '$cust_order', 
 			pay_amount  = '$payamount', 
 			pay_bill    = '$filename', 
 			o_emp_receive    = '$emp',  
-			pay_date     = '$paydate', 
-			pay_time =  now()";
-	
+			pay_date    = '$paydate', 
+			pay_time    =  now()";
+			
 	$result1 = mysql_query($sql);
 	
-	exit("
-		<script>
-			alert('บันทึกเงินเข้าเรียบร้อยแล้วจร้า ^^ ');
-			window.location='../../finance/inpay.php';
-		</script>
-	");
+	$update_cash = $cur_cash + $payamount;
+	
+	if($result1){ 
+		$a = mysql_insert_id($conn);
+		$work_list = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_in = '$payamount', cash_date = '$podate', cash_now = '$update_cash'";
+		$result6 = mysql_query($work_list);
+		
+		if($result6){
+			exit("
+				<script>
+					alert('บันทึกเงินเข้าเรียบร้อยแล้วจร้า ^^ ');
+					window.location='../../finance/inpay.php';
+				</script>
+			");
+		}else{
+			exit("
+				<script>
+					alert('บันทึกเงินไม่เข้า TT ');
+					window.location='../../finance/inpay.php';
+				</script>
+			");
+		}
+	}//end cash
+	
+	
 	
 ?>
 </body>

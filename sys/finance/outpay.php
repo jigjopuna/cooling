@@ -2,15 +2,19 @@
 	  require_once('../include/connect.php');
 	
 	//PO LIST
-	$sql = "SELECT p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_bill_img, p.po_date, p.po_shop, e.e_id, e.e_name   
+	$sql = "SELECT p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
 			FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
-			ORDER BY po_id DESC";
+			ORDER BY po_id DESC LIMIT 0,100";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
 	$sql_buyer = "SELECT e_id, e_name FROM tb_emp WHERE e_type = 1";
 	$result_buyer = mysql_query($sql_buyer);
 	$num_buyer = mysql_num_rows($result_buyer);
+	
+	
+	$monery = mysql_fetch_array(mysql_query("SELECT cash_now FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,1"));
+	$cur_cash = $monery['cash_now'];
 	
 	$today = date("Y-m-d");
 	
@@ -44,7 +48,64 @@
 				source: "../../ajax/search_ord.php",
 				minLength: 1
 			});
+			$('#pocredit').change(credit);
+			$('#pobuyer').change(chk_cash); 
+			$('#poprice').blur(chkfieldcash);
 		});
+		/*
+		ตอนซื้อของเราอยากรู้ว่าเอาเงินส่วนไหนไปซื้อ เงินกองกลาง หรือ เงินส่วนตัว ถ้าเงินส่วนตัวซื้อแบบเครดิตหรือเปล่า
+		ถ้าซื้อเครดิตจะใช้เงินส่วนกลางไม่ได้
+		ถ้าจะซื้อด้วยเงินส่วนกลาง จะต้องเช็คก่อนว่าเงินกองกลางพอไหม
+		*/
+		
+		/*เช็คตอนที่กรอกราคาเสร็จให้เช็คว่าใส่ราคามาเป็นตัวเลขหรือเปล่า และ เช็คว่า จะซื้อด้วยเงินกองกลางหรือเปล่า ถ้าเป็นเงินกองกลางก็ให้เช็คเงินกองกลางก่อนว่าพอไหม*/
+		function chkfieldcash(){
+			if((isNaN($(this).val()))){
+				alert('กรุณาใส่ราคาด้วยตัวเลขค่ะ');
+				return false;
+			}
+			if($('#pobuyer').val()==10){
+				chk_cash();
+			}		
+		}
+		
+		function credit(){
+			if($(this).prop('checked') == true){
+				//alert('checked');
+				$('#pobuyer option').last().prop('disabled',true);
+				$('#pobuyer option:first-child').prop('selected',true);
+			}else{
+				//alert('un checked'); 
+				$('#pobuyer option').last().prop('disabled', false);
+			}
+		}//end credit
+		
+		function chk_cash(){
+			//if cash center
+			if($('#pobuyer').val()==10){ 
+				var url = "../../ajax/cash_center.php";
+				var param = "poprice="+$("#poprice").val();
+				   
+				$.ajax({
+					url      : url,
+					data     : param,
+					dataType : "html",
+					type     : "POST",
+					success: function(result){
+						//$("body").html(result);	
+						var cash_now = result;
+						if(cash_now == 1){
+							alert('เงินส่วนกลางไม่พอ'); 
+							$('#btn').prop('disabled',true);
+						}else{
+							$('#btn').prop('disabled',false);
+						}
+					}
+				});//end ajax 
+			}else{
+				$('#btn').prop('disabled',false);
+			}
+		}
 		
 		function validation(){
 			var poname = $('#poname').val();
@@ -81,7 +142,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							เพิ่มรายการสั่งซื้อ
+							เงินกองกลางมีอยู่ <?php echo number_format($cur_cash, 0, '.', ',') ;?> บาท
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -101,6 +162,11 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ราคา </label>
 											<input type="text" class="form-control" id="poprice" name="poprice">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">เครดิต</label>
+											<input type="checkbox" class="form-control" id="pocredit" name="pocredit">
 										</div>
 									</div>
 																		
@@ -149,7 +215,7 @@
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกรายการสั่งซื้อ</button>
 										</div>
 									</div>
-									
+									<input type="hidden" name="curr_cash" id="curr_cash" value="<?php echo $cur_cash?>">
 								</form>
 							 </div> <!-- row -->
                            
@@ -197,13 +263,23 @@
 										for($i=1; $i<=$num; $i++){
 										  $row = mysql_fetch_array($result);
 									  ?>
-										<tr class="gradeA">
+										<tr class="gradeA"> 
 											<td><?php echo number_format($row['po_id'], 0, '.', ''); ?></td>
-											<td><a href="order_detail.php?o_id=<?php echo $row['po_id'] ?>"><?php echo $row['po_name']; ?></td>
+											<td><a href="po_detail.php?po_id=<?php echo $row['po_id'] ?>"><?php echo $row['po_name']; ?></td>
 											<td><?php echo number_format($row['po_qty'], 0, '.', ''); ?></td>
 											<td><?php echo number_format($row['po_price'], 0, '.', ','); ?></td>
 											<td><?php echo $row['po_shop']; ?></td>
-											<td><?php echo $row['e_name']; ?></td>
+											
+											<?php if($row['po_credit']==1) { ?>
+												<?php if($row['po_credit_complete']==1) { ?>
+													<td style="color:green; text-decoration:underline; font-weight:bold;"><?php echo $row['e_name']; ?></td>
+												<? }else{ ?>
+													<td style="color:orange; text-decoration:underline; font-weight:bold;"><?php echo $row['e_name']; ?></td>
+												<?php } ?>
+											<? }else{ ?>
+												<td><?php echo $row['e_name']; ?></td>
+											<?php } ?>
+											
 											<td><?php echo $row['po_comment']; ?></td>
 											<td><?php echo $row['po_date']; ?></td>
 											<td><a href="../images/bill/<?php echo $row['po_bill_img'];?>" target="_blank">ดูบิล</a></td>											

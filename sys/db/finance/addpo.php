@@ -1,4 +1,4 @@
-  <?php require_once('../../include/connect.php'); ?>
+ <?php require_once('../../include/connect.php'); ?>
 <!doctype html>
 <html>
 <head>
@@ -7,7 +7,7 @@
 <body>
 <?php 
 	
-	//1. receive data
+
 	$poname = trim($_POST['poname']);
 	$poqty  = trim($_POST['poqty']);
 	$poprice  = trim($_POST['poprice']);
@@ -17,8 +17,18 @@
 	$poment  = trim($_POST['poment']);
 	
 	$podate = trim($_POST['podate']);
+	$pocredit = trim($_POST['pocredit']);
+	
 	$search_custname = trim($_POST['search_custname']);
+	$curr_cash = trim($_POST['curr_cash']);
 	$today = date("Ymd");
+	
+	if($pocredit=='on'){ 
+		$po_credit = 1;
+	}else{
+		$po_credit = 0;
+		
+	}
 	
 	echo "today = ", $today, "<br>"; 
 	
@@ -34,6 +44,8 @@
 	
 	echo "poment = ", $poment, "<br>";
 	echo "podate = ", $podate, "<br>";
+	echo "pocredit = ", $pocredit, "<br>";
+
 	
 	
 	
@@ -93,10 +105,7 @@
 		}
 	}//end check is has file
 	
-	
 
-
-	//2. insert into database	
 	$sql = "INSERT INTO tb_po SET 
 			po_name     = '$poname', 
 			po_qty      = '$poqty', 
@@ -106,17 +115,67 @@
 			po_comment  = '$poment', 
 			po_bill_img = '$filename', 
 			po_date     = '$podate', 
-			po_orders   = '$search_custname',
+			po_orders   = '$search_custname', 
+			po_credit   = '$po_credit', 
 			po_time =  now()";
 	
 	$result1 = mysql_query($sql);
 	
-	exit("
-		<script>
-			alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ^^ ');
-			window.location='../../finance/outpay.php';
-		</script>
-	");
+	//อัปเดทเงินกองกลาง ในกรณีที่ใช้เงินส่วนกลางซื้อของ
+	if($pobuyer == 10){
+		if($poprice > $curr_cash){
+			exit("
+				<script>
+					alert('เงินกองกลางไม่พอ ');
+					window.location='../../finance/outpay.php';
+				</script>
+			 ");
+		}else{
+			$update_cash = $curr_cash - $poprice;		
+			if($result1){ // เอาค่า PK ที่เพิ่งบันทึกลงในตารางสั่งซื้อมา ผูกไว้ในตารางเงินกองกลาง tb_cash_center
+				$a = mysql_insert_id($conn);
+				$work_list = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_out = '$poprice', cash_date = '$podate', cash_now = '$update_cash', cash_times = now()";
+				$result6 = mysql_query($work_list);
+			}
+			
+			if($result6) {
+				//echo 'Successful inserts: ';
+				exit("
+					<script>
+						alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ');
+						window.location='../../finance/outpay.php';
+					</script>");
+			} else {
+			   // echo 'query failed: ' ;
+			   exit("
+					<script>
+						alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ');
+						 window.location='../../finance/outpay.php';
+					</script>");
+			}
+			
+		}
+		
+	}else{
+		
+		if($result1) {
+				//echo 'Successful inserts: ';
+				exit("
+					<script>
+						alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ');
+						window.location='../../finance/outpay.php';
+					</script>");
+			} else {
+			   // echo 'query failed: ' ;
+			   exit("
+					<script>
+						alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ');
+						 window.location='../../finance/outpay.php';
+					</script>");
+			}
+	}
+	
+	
 	
 ?>
 </body>

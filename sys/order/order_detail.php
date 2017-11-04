@@ -9,7 +9,6 @@
 	$o_id = trim($_GET['o_id']);
 	$cust_name = $_GET['cust_name'];
 	
-	
 	//list all product this order
 	//$sql_prd = "SELECT * FROM tb_ord_prod orpd JOIN tb_product p ON orpd.p_id = p.p_id WHERE orpd.o_id = '$o_id'";
 	$sql_prd = "SELECT po.po_id, po.po_name, po.po_price, po.po_qty, po.po_bill_img, e.e_name FROM tb_po po JOIN tb_emp e ON po.po_buyer = e.e_id WHERE po.po_orders = '$o_id'";
@@ -21,6 +20,11 @@
 	$sql_pay = "SELECT * FROM tb_ord_pay opy JOIN tb_orders ord on opy.o_id = ord.o_id WHERE opy.o_id = '$o_id' ORDER BY opy.pay_date";
 	$result_pay = mysql_query($sql_pay);
 	$num_pay= mysql_num_rows($result_pay);
+	
+	
+	//find quotation docs
+	$quot = mysql_fetch_array(mysql_query("SELECT o_quotation FROM tb_orders WHERE o_id='$o_id'"));
+	
 
 	
 ?>
@@ -47,7 +51,10 @@
 	?>
 <script>
 	$(document).ready(function(){ 
-		$('#quotationfile').click(function(){window.location = '../quotation/files/20170906-tamarind-petchaboon.pdf';});
+		var quots = $('#quot').html();
+		$('#quotationfile').click(function(){
+			window.location = '../quotation/files/'+quots;
+		});
 	
 	});
 	
@@ -159,6 +166,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+			<div id="quot" style="display:none;"><?php echo $quot['o_quotation'];?></div>
 			<button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%;">ใบเสนอราคา</button>
 			
 

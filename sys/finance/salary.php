@@ -146,11 +146,11 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 							<div class="row">
-								<form action="../db/finance/addpayin.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
+								<form action="../db/finance/salary.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ชื่อพนักงาน </label>
-											<input type="text" class="form-control" id="search_custname" name="search_custname">
+											<input type="text" class="form-control" id="search_emp" name="search_emp">
 										</div>
 										
 										<div class="form-group has-success">
@@ -163,12 +163,12 @@
 																		
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">บิล/เอกสาร</label>
-											<input type="file" class="form-control require" id="payinbill" name="payinbill">
+											<label class="control-label" for="inputSuccess">sal_commentบิล/เอกสาร</label>
+											<input type="file" class="form-control require" id="sal_bill" name="sal_bill">
 										</div>
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">คอมเม้นท์</label>
-											<input type="text" class="form-control" id="search_emp" name="search_emp">
+											<input type="text" class="form-control" id="sal_comment" name="sal_comment">
 										</div>
 										
 									</div>
