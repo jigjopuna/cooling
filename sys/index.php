@@ -1,6 +1,8 @@
 <?php session_start();
 	include('include/connect.php');
 	
+	$dates = date("Y-m-d");
+	
 	//for left nav menu path include/navcust.php
 	$sql = "SELECT * FROM tb_category ORDER BY cat_name";
 	$result = mysql_query($sql);
@@ -11,6 +13,11 @@
 	$sql_all = "SELECT c.cat_id, c.cat_name, count(*) cnteachcate FROM tb_product p JOIN tb_category c ON p.p_cate = c.cat_id GROUP BY p_cate ORDER BY cnteachcate DESC";
 	$result_all = mysql_query($sql_all);
 	$num_all = mysql_num_rows($result_all);
+	
+	
+	include('include/sql_report1.php');
+	
+	
 	
 	 
 ?>
@@ -84,6 +91,7 @@
 
     <style>
 		.split-type { background-color: #ebf3aa !important;  }
+		.text_bold { font-weight:bold; }
 		
 	</style>
 
@@ -112,7 +120,7 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <div class="row">
+           <!-- <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -204,9 +212,76 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- /.row -->
       
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							สรุปภาพรวม
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="row">
+								
+									<div class="col-lg-4">
+										<span class="text_bold">วันนี้เงินเข้าแยกตามคน</span><br>
+										<?php for($i=1; $i<=$num_income; $i++) { 
+											$row_income = mysql_fetch_array($result_income); 
+										?>
+											<?php echo $row_income['e_name']." : ".number_format($row_income['income'], 0, '.', ',')."<br>";?>
+										<?php } ?>
+										<hr>
+										<span class="text_bold">ยอดเงินเข้าทั้งหมดวันนี้รวมของทุกคน</span><br>
+										<?php echo $incomes;?>
+										<hr>
+									</div>												
+												
+									<div class="col-lg-4">
+										<span class="text_bold">ค่าใช้จ่ายเงินสดวันนี้</span><br>
+										<?php for($i=1; $i<=$num_cash; $i++) { 
+											$row_cash = mysql_fetch_array($result_cash); 
+										?>
+											<?php echo $row_cash['e_name']." : ".number_format($row_cash['poprice1'], 0, '.', ',')."<br>";?>
+										<?php } ?>
+										<hr>
+										<span class="text_bold">ค่าใช้จ่ายเครดิตวันนี้</span><br>
+										<?php for($i=1; $i<=$num_credit; $i++) { 
+											$row_credit = mysql_fetch_array($result_credit); 
+										?>
+											<?php echo $row_credit['e_name']." : ".number_format($row_credit['poprice1'], 0, '.', ',')."<br>";?>
+										<?php } ?>
+										<hr>
+										<span class="text_bold">ค่าใช้จ่ายทั้งหมดวันนี้ทั้ง เงินสดและเครดิต</span><br>
+										<?php echo $paydates;?>
+										<hr>
+										
+									</div>
+									
+									
+									<div class="col-lg-4">
+										<span class="text_bold">เครดิตคงค้างที่ยังไม่ได้จ่าย</span><br>
+										<?php for($i=1; $i<=$num_remain; $i++) { 
+											$row_remain = mysql_fetch_array($result_remain); 
+										?>
+											<?php echo $row_remain['e_name']." : ".number_format($row_remain['poprice2'], 0, '.', ',')."<br>";?>
+										<?php } ?>
+										<hr>
+										<span class="text_bold">เงินกองกลางคงเหลือ</span><br>
+										<?php echo $cur_cash;?>
+									</div>
+							 </div> <!-- row -->
+                           
+                        </div>
+						<!-- /.panel -->
+					</div>
+                <!-- /.col-lg-12 -->
+				</div>
+			
+			</div>
+			
 			
 			
 			<div class="row">

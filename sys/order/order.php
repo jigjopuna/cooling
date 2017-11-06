@@ -84,7 +84,7 @@
 								<form action="../db/order/addorder.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ชื่อลูกค้า </label>
+											<label class="control-label" for="inputSuccess">ย้ายจาก </label>
 											<input type="text" class="form-control" id="search_custname" name="search_custname">
 										</div>
 										
@@ -93,7 +93,7 @@
 																		
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">วันที่</label>
+											<label class="control-label" for="inputSuccess">ไป</label>
 											<input type="text" class="form-control" id="date_pay" name="date_pay">
 										</div>
 

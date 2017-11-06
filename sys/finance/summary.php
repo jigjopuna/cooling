@@ -13,7 +13,15 @@
 	$resultin = mysql_query($sqlin);
 	$numin = mysql_num_rows($resultin);
 	
+	//check cash each person shine and paitoon
+	$row_cash_each_emp = mysql_fetch_array(mysql_query("SELECT cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,1"));
 	
+	//find employee finance position หาคนรับเงิน
+	$result_emp = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_type = 1");
+	$num_emp = mysql_num_rows($result_emp);
+	
+	$result_empto = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_type = 1");
+	$num_empto = mysql_num_rows($result_empto);
 	
 ?>
 <!DOCTYPE html>
@@ -39,7 +47,7 @@
 	
 	<script>
 		$(document).ready(function(){
-			
+			$('#fromtransfer option:last-child, #totransfer option:last-child').prop('disabled',true);
 		});
 	</script> 
 </head>
@@ -142,6 +150,81 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+			
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							โยกย้ายเงินกองกลาง
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body"> 
+							<div class="row"> 
+								&nbsp;&nbsp;&nbsp;&nbsp;ชูเกียรติ : <?php echo number_format($row_cash_each_emp['cash1'], 0, '.', ','). " บาท ";?>  ไพรฑูรย์ :  <?php echo number_format($row_cash_each_emp['cash2'], 0, '.', ','). " บาท ";?>
+								<br><br>
+								<form action="../db/finance/transfer.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">โยกย้ายเงินจาก </label>
+											<select class="form-control" id="fromtransfer" name="fromtransfer" class="select_tran">
+												<option value="0">เลือกต้นทาง</option> 
+												<?php 
+													for($i=1; $i<=$num_emp; $i++){
+														$row_emp = mysql_fetch_array($result_emp);
+													
+												?>						
+												<option value="<?php echo $row_emp['e_id']?>"><?php echo $row_emp['e_name']?></option>
+												
+												<?php } ?>											
+											</select>
+										</div>
+										
+										<div class="form-group has-success">
+											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกโอนเงิน</button>
+										</div>
+										
+									</div>
+																		
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ไป</label>
+											<select class="form-control" id="totransfer" name="totransfer" class="select_tran">
+												<option value="0">เลือกปลายทาง</option> 
+												<?php 
+													for($i=1; $i<=$num_empto; $i++){
+														$row_empto = mysql_fetch_array($result_empto);
+													
+												?>						
+												<option value="<?php echo $row_empto['e_id']?>"><?php echo $row_empto['e_name']?></option>
+												
+												<?php } ?>											
+											</select>
+										</div>
+									</div>
+									
+									
+									<div class="col-lg-4">
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">จำนวนเงิน (บาท)</label>
+											<input type="text" class="form-control" id="tr_amount" name="tr_amount">
+										</div>
+										
+									</div>
+									
+								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+        </div>
+		
+		
 
         </div>
         <!-- /#page-wrapper -->
