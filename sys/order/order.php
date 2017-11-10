@@ -93,7 +93,7 @@
 																		
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ไป</label>
+											<label class="control-label" for="inputSuccess">วันที่</label>
 											<input type="text" class="form-control" id="date_pay" name="date_pay">
 										</div>
 

@@ -12,10 +12,15 @@
 	$result_buyer = mysql_query($sql_buyer);
 	$num_buyer = mysql_num_rows($result_buyer);
 	
+	//ดูว่าเงินส่วนกลางของชายหรือพี่ไพรฑูรย์ถูกใช่ไป
+	$result_emp = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
+	$num_emp = mysql_num_rows($result_emp);
 	
-	$monery = mysql_fetch_array(mysql_query("SELECT cash_now FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,1"));
+	
+	$monery = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
 	$cur_cash = $monery['cash_now'];
-	
+	$cash1 = $monery['cash1'];
+	$cash2 = $monery['cash2'];
 	$today = date("Y-m-d");
 	
 ?>
@@ -51,6 +56,7 @@
 			$('#pocredit').change(credit);
 			$('#pobuyer').change(chk_cash); 
 			$('#poprice').blur(chkfieldcash);
+			$('#owner_money').hide();
 		});
 		/*
 		ตอนซื้อของเราอยากรู้ว่าเอาเงินส่วนไหนไปซื้อ เงินกองกลาง หรือ เงินส่วนตัว ถ้าเงินส่วนตัวซื้อแบบเครดิตหรือเปล่า
@@ -102,8 +108,10 @@
 						}
 					}
 				});//end ajax 
+				$('#owner_money').show();  //ถ้าเลือกส่วนกลางให้แสดงชื่อว่าใช้ส่วนกลางบัญชีชายหรือพี่ไพรฑูรย์
 			}else{
 				$('#btn').prop('disabled',false);
+				$('#owner_money').hide();
 			}
 		}
 		
@@ -113,10 +121,15 @@
 			var poprice = $('#poprice').val();
 			var pobuyer = $('select[name=pobuyer]').val();
 			var podate = $('#podate').val(); 
-			if((poname=='') || (poqty=='') || (poprice=='') || (pobuyer=='') || (pobuyer<0) || (podate=='')){
+			var cashcenter = $('#pobuyer option:selected').val();
+			var ownercash = $('#ownercash option:selected').val(); 
+			
+			if((poname=='') || (poqty=='') || (poprice=='') || (pobuyer=='') || (pobuyer<=0) || (podate=='')){
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
-			}else{
-				$('#form1').submit();				
+			}else if(cashcenter==10 && ownercash==0) {
+				alert("เลือกบัญชีส่วนกลางด้วยค่ะ");				
+			}else {
+				$('#form1').submit();
 			}
 		}
 
@@ -142,7 +155,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							เงินกองกลางมีอยู่ <?php echo number_format($cur_cash, 0, '.', ',') ;?> บาท
+							เงินกองกลางมีอยู่ <?php echo number_format($cur_cash, 0, '.', ',') ;?> บาท <?php echo "<br><strong>ชูเกียรติ :</strong> ".number_format($cash1, 0, '.', ',').' <br> <strong>ไพรฑูรย์ :</strong> '.number_format($cash2, 0, '.', ',')." บาท"?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -179,13 +192,28 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">คนจ่าย </label>
 											<select class="form-control" id="pobuyer" name="pobuyer">
-												<option value="">เลือกคนจ่าย</option> 
+												<option value="0">เลือกคนจ่าย</option> 
 												<?php 
 													for($i=1; $i<=$num_buyer; $i++){
 														$row_buyer = mysql_fetch_array($result_buyer);
 													
 												?>						
-												<option value="<?php echo $row_buyer[e_id]?>"><?php echo $row_buyer[e_name]?></option>
+												<option value="<?php echo $row_buyer['e_id']?>"><?php echo $row_buyer['e_name']?></option>
+												
+												<?php } ?>
+											</select>
+										</div>
+										
+										<div class="form-group has-success" id="owner_money">
+											<label class="control-label" for="inputSuccess">ส่วนกลางบัญชี</label>
+											<select class="form-control" name="owner_money" id="ownercash">
+												<option value="0">เลือกเจ้าของบัญชี</option> 
+												<?php 
+													for($i=1; $i<=$num_emp; $i++){
+														$row_emp = mysql_fetch_array($result_emp);													
+												?>		
+												
+												<option value="<?php echo $row_emp['e_id']?>"><?php echo $row_emp['e_name']?></option>
 												
 												<?php } ?>
 											</select>

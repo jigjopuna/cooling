@@ -17,10 +17,10 @@
 	$row_cash_each_emp = mysql_fetch_array(mysql_query("SELECT cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,1"));
 	
 	//find employee finance position หาคนรับเงิน
-	$result_emp = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_type = 1");
+	$result_emp = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
 	$num_emp = mysql_num_rows($result_emp);
 	
-	$result_empto = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_type = 1");
+	$result_empto = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
 	$num_empto = mysql_num_rows($result_empto);
 	
 ?>
@@ -47,7 +47,7 @@
 	
 	<script>
 		$(document).ready(function(){
-			$('#fromtransfer option:last-child, #totransfer option:last-child').prop('disabled',true);
+			//$('#fromtransfer option:last-child, #totransfer option:last-child').prop('disabled',true);
 		});
 	</script> 
 </head>

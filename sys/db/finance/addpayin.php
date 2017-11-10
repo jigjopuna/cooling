@@ -6,8 +6,13 @@
 </head>
 <body>
 <?php 
-	$monery = mysql_fetch_array(mysql_query("SELECT cash_now FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,1"));
-	$cur_cash = $monery['cash_now'];
+
+	$rowcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	$cur_cash = $rowcash['cash_now'];
+	$cash1 = $rowcash['cash1'];
+	$cash2 = $rowcash['cash2'];
+	
+	
 	
 	//1. receive data
 	$cust_order = trim($_POST['search_ord']);
@@ -19,6 +24,16 @@
 	
 	$podate = trim($_POST['podate']);
 	$today = date("Ymd");
+	
+	if($emp == 2){
+		$cash1 = $cash1 + $payamount;
+		$update_cash = $cur_cash + $payamount;
+	}else if ($emp == 3){
+		$cash2 = $cash2 + $payamount;
+		$update_cash = $cur_cash + $payamount;
+	}else{
+		exit("<script> alert('เลือกผู้รับเงินด้วยจร้า'); window.location='../../finance/inpay.php';</script>");
+	}
 	
 	
 
@@ -101,11 +116,10 @@
 			
 	$result1 = mysql_query($sql);
 	
-	$update_cash = $cur_cash + $payamount;
 	
 	if($result1){ 
 		$a = mysql_insert_id($conn);
-		$work_list = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_in = '$payamount', cash_date = '$podate', cash_now = '$update_cash'";
+		$work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_now = '$update_cash', cash1 = '$cash1', cash2='$cash2', cash_times=now()";
 		$result6 = mysql_query($work_list);
 		
 		if($result6){
@@ -124,9 +138,7 @@
 			");
 		}
 	}//end cash
-	
-	
-	
+		
 ?>
 </body>
 </html>     

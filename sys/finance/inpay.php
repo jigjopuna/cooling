@@ -53,10 +53,11 @@
 		});
 		
 		function validation(){
-			var search_custname = $('#search_custname').val();
+			var search_custname = $('#search_custname').val(); 
 			var payinqty = $('#payinqty').val();
 			var paydate = $('#paydate').val();
-			if((search_custname=='') || (payinqty=='') || (paydate=='')){
+			var search_emp = $('#search_emp').val();
+			if((search_custname=='') || (payinqty=='') || (paydate=='') || (search_emp=='')){ 
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
 			}else{
 				$('#form1').submit();				

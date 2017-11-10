@@ -29,8 +29,10 @@
 	$num_remain = mysql_num_rows($result_remain);
 
 	//เงินกองกลางคงเหลือ
-	$monery = mysql_fetch_array(mysql_query("SELECT cash_now FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,1"));
-	$cur_cash = number_format($monery['cash_now'], 0, '.', ',');
+	$monery = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	$cur_cash = number_format($monery['cash_now'], 0, '.', ','); 
+	$cash1 = number_format($monery['cash1'], 0, '.', ','); 
+	$cash2 = number_format($monery['cash2'], 0, '.', ','); 
 	
 	//ค่าใช้จ่ายทั้งหมดวันนี้ทั้ง เงินสดและเครดิต
 	$sumdates = mysql_fetch_array(mysql_query("SELECT SUM(po_price) paydates FROM tb_po WHERE po_date = '$dates'"));

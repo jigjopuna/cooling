@@ -270,7 +270,11 @@
 										<?php } ?>
 										<hr>
 										<span class="text_bold">เงินกองกลางคงเหลือ</span><br>
-										<?php echo $cur_cash;?>
+										<?php echo $cur_cash. ' บาท';?><br><hr>
+										<span class="text_bold">ชูเกียรติ คงเหลือ</span><br>
+										<?php echo $cash1. ' บาท';?><br>
+										<span class="text_bold">ไพรฑูรย์ คงเหลือ </span><br>
+										<?php echo $cash2. ' บาท';?>
 									</div>
 							 </div> <!-- row -->
                            
