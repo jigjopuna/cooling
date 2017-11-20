@@ -3,10 +3,26 @@
 	$arrcredit = array();
 	$arrremain = array();
 	
-	// ซื้อของจ่ายเงินสด หรือ สำรองจ่ายไปก่อน
+	// ซื้อของจ่ายเงินสด หรือ สำรองจ่ายไปก่อน ชาย พี่ ส่วนกลาง
 	$sql_cash = "SELECT e.e_id, e.e_name, SUM(po_price) poprice1 FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id WHERE p.po_date = '$dates' AND p.po_credit != 1 GROUP BY po_buyer";
 	$result_cash = mysql_query($sql_cash );
 	$num_cash = mysql_num_rows($result_cash);
+	
+	//แยกส่วนกลางแต่ละบัญชี
+	$sql_cashemp = "SELECT e.e_name, SUM(po_price) priceemp FROM tb_po p JOIN tb_emp e ON p.po_subyer = e.e_id WHERE p.po_date = '$dates' GROUP BY po_subyer";
+	$result_cashemp = mysql_query($sql_cashemp);
+	$num_cashemp = mysql_num_rows($result_cashemp);
+	
+	//จ่ายเงินพนักงาน
+	$sql_paysal =  "SELECT e.e_name, SUM(sal.sal_amount) salaries 
+					FROM (tb_salary sal JOIN tb_cash_center cs ON sal.sal_id = cs.cash_salary)
+						  JOIN tb_emp e ON e.e_id = sal.sal_emp
+					WHERE sal.sal_date = '$dates'
+					GROUP BY sal.sal_emp";
+	$result_paysal = mysql_query($sql_paysal);
+	$num_paysal = mysql_num_rows($result_paysal);
+	
+	
 	
 	// ซื้อของแบบเครดิต ยังไม่จ่ายเงิน
 	$sql_credit = "SELECT e.e_id, e.e_name, SUM(po_price) poprice1 FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id WHERE p.po_date = '$dates' AND p.po_credit = 1 GROUP BY po_buyer";

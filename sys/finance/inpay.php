@@ -9,6 +9,10 @@
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
+	//find employee finance position หาคนรับเงิน
+	$result_emp = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
+	$num_emp = mysql_num_rows($result_emp);
+	
 	$today = date("Y-m-d");
 	
 ?>
@@ -56,8 +60,8 @@
 			var search_custname = $('#search_custname').val(); 
 			var payinqty = $('#payinqty').val();
 			var paydate = $('#paydate').val();
-			var search_emp = $('#search_emp').val();
-			if((search_custname=='') || (payinqty=='') || (paydate=='') || (search_emp=='')){ 
+			var emp_receive = $('#emp_receive').val();
+			if((search_custname=='') || (payinqty=='') || (paydate=='') || (emp_receive==0)){ 
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
 			}else{
 				$('#form1').submit();				
@@ -112,10 +116,26 @@
 											<label class="control-label" for="inputSuccess">บิล/เอกสาร</label>
 											<input type="file" class="form-control require" id="payinbill" name="payinbill">
 										</div>
+										
 										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">คนรับเงิน </label>
+											<select class="form-control" id="emp_receive" name="emp_receive">
+												<option value="0">เลือกผู้รับเงิน</option> 
+												<?php 
+													for($i=1; $i<=$num_emp; $i++){
+														$row_emp = mysql_fetch_array($result_emp);
+													
+												?>						
+												<option value="<?php echo $row_emp['e_id']?>"><?php echo $row_emp['e_name']?></option>
+												
+												<?php } ?>											
+											</select>
+										</div>
+										
+										<!--<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">คนรับเงิน</label>
 											<input type="text" class="form-control" id="search_emp" name="search_emp">
-										</div>
+										</div>-->
 										
 									</div>
 									

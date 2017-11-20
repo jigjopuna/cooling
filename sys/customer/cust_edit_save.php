@@ -14,7 +14,7 @@
 	$email = trim($_POST['email']);
 	$other = trim($_POST['other']);
 	$line_id = trim($_POST['line_id']);
-
+	$cust_map = trim($_POST['cust_map']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +58,8 @@
 				cust_email = '$email', 
 				cust_zip = '$zipcode', 
 				cust_lineid = '$line_id', 
-				cust_other = '$other' 
+				cust_other = '$other', 
+				cust_location = '$cust_map'  
 			WHERE cust_id = '$cust_id'
 			";
 	$result = mysql_query($sql);

@@ -6,7 +6,7 @@
 	/*$sql = "select * from member_emp";
 	$sql .= " where name like '$keyword%'";*/
 	$sql = "SELECT o.o_id, c.cust_name
-			FROM tb_orders o JOIN tb_customer c ON o.o_id = c.cust_id
+			FROM tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id
 			WHERE c.cust_name LIKE '%$keyword%'";
 				
 	$result = mysql_query($sql);

@@ -18,7 +18,7 @@
 	$cust_order = trim($_POST['search_ord']);
 	$payamount  = trim($_POST['payamount']);
 	
-	$emp = trim($_POST['search_emp']);
+	$emp = trim($_POST['emp_receive']);
 	$paydate  = trim($_POST['paydate']);
 	$poment  = trim($_POST['poment']);
 	

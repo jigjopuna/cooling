@@ -28,6 +28,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="../content/images/favicon.png">
     <?php require_once('include/metatagsys.php');?>
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
@@ -243,21 +244,45 @@
 										<span class="text_bold">ค่าใช้จ่ายเงินสดวันนี้</span><br>
 										<?php for($i=1; $i<=$num_cash; $i++) { 
 											$row_cash = mysql_fetch_array($result_cash); 
+											$row_cash['e_id'];
 										?>
-											<?php echo $row_cash['e_name']." : ".number_format($row_cash['poprice1'], 0, '.', ',')."<br>";?>
+											<?php 
+												//echo $row_cash['e_name']." (ส่วนตัว) : ".number_format($row_cash['poprice1'], 0, '.', ',')." บาท<br>";
+												
+												echo $row_cash['e_name'];
+												if($row_cash['e_id']!=10) echo '( ส่วนตัว)';
+												echo ' : '.number_format($row_cash['poprice1'], 0, '.', ',')." บาท<br>";
+											?>
 										<?php } ?>
+										
+										<!--ค่าใช้จ่ายเงินสดส่วนกลางแยกตามคน-->
+										<?php for($i=1; $i<=$num_cashemp; $i++) { 
+											$row_cashemp = mysql_fetch_array($result_cashemp); 
+										?>
+											<?php echo "&nbsp;&nbsp;&nbsp;&nbsp;-".$row_cashemp['e_name']." : ".number_format($row_cashemp['priceemp'], 0, '.', ',')." บาท<br>";?>
+										<?php } ?>
+										
 										<hr>
 										<span class="text_bold">ค่าใช้จ่ายเครดิตวันนี้</span><br>
 										<?php for($i=1; $i<=$num_credit; $i++) { 
 											$row_credit = mysql_fetch_array($result_credit); 
 										?>
-											<?php echo $row_credit['e_name']." : ".number_format($row_credit['poprice1'], 0, '.', ',')."<br>";?>
+											<?php echo $row_credit['e_name']." : ".number_format($row_credit['poprice1'], 0, '.', ',')." บาท<br>";?>
 										<?php } ?>
 										<hr>
 										<span class="text_bold">ค่าใช้จ่ายทั้งหมดวันนี้ทั้ง เงินสดและเครดิต</span><br>
 										<?php echo $paydates;?>
 										<hr>
 										
+										
+										<!--จ่ายเงินเดือนพนักงาน-->
+										<span class="text_bold">จ่ายเงินพนักงาน</span><br> 
+										<?php for($i=1; $i<=$num_paysal; $i++) { 
+											$row_paysal = mysql_fetch_array($result_paysal); 
+										?>
+											<?php echo $row_paysal['e_name']." : ".number_format($row_paysal['salaries'], 0, '.', ',')." บาท<br>";?>
+										<?php } ?>
+																				
 									</div>
 									
 									

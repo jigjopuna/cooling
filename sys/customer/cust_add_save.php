@@ -12,6 +12,7 @@
 	$email = trim($_POST['email']);
 	$other = trim($_POST['other']);
 	$line_id = trim($_POST['line_id']);
+	$cust_map = trim($_POST['cust_map']);
 
 ?>
 <!DOCTYPE html>
@@ -44,6 +45,7 @@
 	echo "phoneno : ".$phoneno. "<br>";
 	echo "email : ".$email. "<br>";
 	echo "other : ".$other. "<br>";
+	echo "cust_map : ".$cust_map. "<br>";
 	
 	$sql = "INSERT INTO tb_customer SET 
 				cust_name = '$cust_name', 
@@ -56,7 +58,8 @@
 				cust_email = '$email', 
 				cust_zip = '$zipcode', 
 				cust_lineid = '$line_id', 
-				cust_other = '$other'
+				cust_other = '$other', 
+				cust_location = '$cust_map'
 			";
 	$result = mysql_query($sql);
 	

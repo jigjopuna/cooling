@@ -207,6 +207,11 @@
 										</div>
 										
 										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">แผ่นที่</label>
+											<input type="text" class="form-control" id="cust_map" name="cust_map">
+										</div>
+										
+										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกข้อมูลลูกค้า</button>
 										</div>
 										

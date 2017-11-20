@@ -23,6 +23,14 @@
 	$cash2 = $monery['cash2'];
 	$today = date("Y-m-d");
 	
+	
+	//find employee finance position หาคนรับเงิน
+	$result_from = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
+	$num_from = mysql_num_rows($result_from);
+	
+	$result_empto = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
+	$num_empto = mysql_num_rows($result_empto);
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,8 +55,9 @@
 	
 	<script>
 		$(document).ready(function(){
-			$('.btn-success').click(validation);
-			$('#podate').datepicker({dateFormat: 'yy-mm-dd'});
+			$('#btn').click(validation);
+			$('#btn_tr').click(validation_tr);
+			$('#podate, #tr_date').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#search_custname").autocomplete({
 				source: "../../ajax/search_ord.php",
 				minLength: 1
@@ -57,6 +66,8 @@
 			$('#pobuyer').change(chk_cash); 
 			$('#poprice').blur(chkfieldcash);
 			$('#owner_money').hide();
+			$('#fromtransfer').change(cash_transfer);
+			$('#totransfer option').prop("disabled", true);		
 		});
 		/*
 		ตอนซื้อของเราอยากรู้ว่าเอาเงินส่วนไหนไปซื้อ เงินกองกลาง หรือ เงินส่วนตัว ถ้าเงินส่วนตัวซื้อแบบเครดิตหรือเปล่า
@@ -122,7 +133,11 @@
 			var pobuyer = $('select[name=pobuyer]').val();
 			var podate = $('#podate').val(); 
 			var cashcenter = $('#pobuyer option:selected').val();
-			var ownercash = $('#ownercash option:selected').val(); 
+			var ownercash = $('#ownercash option:selected').val();
+			if(isNaN(poprice)|| isNaN(poqty)){
+				alert('กรุณาใส่จำนวนเงินเป็นตัวเลขค่ะ');
+				return false;
+			}			
 			
 			if((poname=='') || (poqty=='') || (poprice=='') || (pobuyer=='') || (pobuyer<=0) || (podate=='')){
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
@@ -131,6 +146,35 @@
 			}else {
 				$('#form1').submit();
 			}
+		}
+		
+		
+		function validation_tr(){
+			var fromtransfer = $('#fromtransfer').val();
+			var totransfer = $('#totransfer').val();
+			var tr_amount = $('#tr_amount').val();
+			if(isNaN(tr_amount)){
+				alert('กรุณาใส่จำนวนเงินเป็นตัวเลขค่ะ');
+				return false;
+			}
+			
+			if((fromtransfer==0) || (totransfer==0) || (tr_amount=='')){
+				alert("เลือกผู้โอนกับรับโอน หรือกรอกเงินด้วยค่ะ"); 
+			}else {
+				$('#form2').submit();
+			}
+		}
+		
+		function cash_transfer(){
+			var cashtr = $('#fromtransfer option:selected').val();	
+			$('#totransfer option:eq(0)').prop("selected", true);
+			if(cashtr==2 ){				
+				$('#totransfer option:eq(2)').prop("disabled", false);	
+				$('#totransfer option:eq(1)').prop("disabled", true);
+			}else if (cashtr==3 ){
+				$('#totransfer option:eq(1)').prop("disabled", false);
+				$('#totransfer option:eq(2)').prop("disabled", true);				
+			}else{ }
 		}
 
 	</script> 
@@ -155,7 +199,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							เงินกองกลางมีอยู่ <?php echo number_format($cur_cash, 0, '.', ',') ;?> บาท <?php echo "<br><strong>ชูเกียรติ :</strong> ".number_format($cash1, 0, '.', ',').' <br> <strong>ไพรฑูรย์ :</strong> '.number_format($cash2, 0, '.', ',')." บาท"?>
+							เงินกองกลางมีอยู่ <?php echo number_format($cur_cash, 0, '.', ',') ;?> บาท <?php echo "<br><strong>ชูเกียรติ :</strong> ".number_format($cash1, 0, '.', ',').' บาท <br> <strong>ไพรฑูรย์ :</strong> '.number_format($cash2, 0, '.', ',')." บาท"?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -198,7 +242,14 @@
 														$row_buyer = mysql_fetch_array($result_buyer);
 													
 												?>						
-												<option value="<?php echo $row_buyer['e_id']?>"><?php echo $row_buyer['e_name']?></option>
+												<option value="<?php echo $row_buyer['e_id']?>">
+													<?php if($row_buyer['e_id']==10) { ?>
+														<?php echo $row_buyer['e_name'];?>
+													<?php } else { ?>
+														<?php echo $row_buyer['e_name'].' (ส่วนตัว)';?>
+													<?php } ?>
+													
+												</option>
 												
 												<?php } ?>
 											</select>
@@ -213,7 +264,7 @@
 														$row_emp = mysql_fetch_array($result_emp);													
 												?>		
 												
-												<option value="<?php echo $row_emp['e_id']?>"><?php echo $row_emp['e_name']?></option>
+												<option value="<?php echo $row_emp['e_id']?>"><?php echo $row_emp['e_name'];?></option>
 												
 												<?php } ?>
 											</select>
@@ -252,6 +303,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+			
 			
         </div>
 			
@@ -326,6 +378,83 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+			
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							โยกย้ายเงินกองกลาง
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body"> 
+							<div class="row"> 
+								<form action="../db/finance/transfer.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">โยกย้ายเงินจาก </label>
+											<select class="form-control" id="fromtransfer" name="fromtransfer" class="select_tran">
+												<option value="0">เลือกต้นทาง</option> 
+												<?php 
+													for($i=1; $i<=$num_from; $i++){
+														$row_from = mysql_fetch_array($result_from);													
+												?>						
+												<option value="<?php echo $row_from['e_id']?>"><?php echo $row_from['e_name']?></option>
+												
+												<?php } ?>											
+											</select>
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">วันที่</label>
+											<input type="text" class="form-control" id="tr_date" name="tr_date" value="<?php echo $today;?>">
+										</div>
+
+									</div>
+																		
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ไป</label>
+											<select class="form-control" id="totransfer" name="totransfer" class="select_tran">
+												<option value="0">เลือกปลายทาง</option> 
+												<?php 
+													for($i=1; $i<=$num_empto; $i++){
+														$row_empto = mysql_fetch_array($result_empto);
+													
+												?>						
+												<option value="<?php echo $row_empto['e_id']?>"><?php echo $row_empto['e_name']?></option>
+												
+												<?php } ?>											
+											</select>
+										</div>
+										
+										<div class="form-group has-success">
+											<button id="btn_tr" type="button" class="btn btn-lg btn-success btn-block">บันทึกโอนเงิน</button>
+										</div>
+										
+									</div>
+									
+									
+									<div class="col-lg-4">
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">จำนวนเงิน (บาท)</label>
+											<input type="text" class="form-control" id="tr_amount" name="tr_amount">
+										</div>
+										
+									</div>
+									
+								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+        </div>
+		<!-- /.row -->
 
         </div>
         <!-- /#page-wrapper -->

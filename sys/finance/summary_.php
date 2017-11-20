@@ -6,29 +6,10 @@
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
+	
 	$today = date("Y-m-d");
 	
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<title>ค่าตอบแทนพนักงาน</title>
-<?php require_once ('../include/header.php');?>
-<?php require_once('../include/metatagsys.php');?>
-<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
-<script src="../../js/jquery-ui-1-12-1.min.js"></script>
-	<?php 
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
-	
-	?>
 
 <script>
 	$(document).ready(function(){ 
@@ -60,15 +41,14 @@
 			}
 		}
 		
+		$('#paydate').datepicker({dateFormat: 'yy-mm-dd'});	
 	});
+	
 	
 </script>
 
 </head>
 
-<body>
-
-    <div id="wrapper">
 
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
@@ -130,14 +110,14 @@
             <!-- /.row -->
 			
 			
+
+
 			<div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">กรอกเดือนพนักงาน</h1>
+                    <h1 class="page-header">กรอกเดือนพนักงาน</h1>                 
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-			
-			<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
@@ -158,7 +138,7 @@
 											<input type="text" class="form-control" id="payamount" name="payamount">
 										</div>
 										
-										
+	
 									</div>
 																		
 									<div class="col-lg-4">
@@ -170,39 +150,17 @@
 											<label class="control-label" for="inputSuccess">คอมเม้นท์</label>
 											<input type="text" class="form-control" id="sal_comment" name="sal_comment">
 										</div>
+
+										
 										
 									</div>
-									
-									
-									<div class="col-lg-4">
-										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">วันที่</label>
 											<input type="text" class="form-control" id="paydate" name="paydate" value="<?php echo $today;?>">
 										</div>
+										
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกรายการสั่งซื้อ</button>
 										</div>
-									</div>
-									
-								</form>
-							 </div> <!-- row -->
-                           
-                        </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-			
-        </div>
-
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-   
-
 </body>
 
 </html>

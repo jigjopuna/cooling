@@ -27,15 +27,15 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="../index.php" target="_blank"><i class="fa fa-dashboard fa-fw"></i> หน้าหลัก</a>
+                            <a href="../index.php"><i class="fa fa-dashboard fa-fw"></i> หน้าหลัก</a>
                         </li>
 						
 						<li>
-                            <a href="../quotation/q.php" target="_blank"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา</a>
+                            <a href="../quotation/q.php"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา</a>
                         </li>
 						
 						<li>
-                            <a href="../quotation/q_fome.php" target="_blank"><i class="fa fa-dashboard fa-fw"></i>ต้นทุนห้องโฟม</a>
+                            <a href="../quotation/q_fome.php"><i class="fa fa-dashboard fa-fw"></i>ต้นทุนห้องโฟม</a>
                         </li>
 						
 						<li>
@@ -85,10 +85,6 @@
                                     <a href="../order/order.php">รายการออเดอร์</a>
                                 </li>
 								
-								<li>
-                                    <a href="../order/order_add.php">เพิ่มออเดอร์</a>
-                                </li>
-							
                             </ul>
                         </li>
 						
@@ -108,28 +104,17 @@
                             </ul>
                         </li>
 						
+						 <li>
+                            <a href="../report/report.php" target="_blank"><i class="fa fa-bar-chart-o fa-fw"></i>รายงาน <span class="fa arrow"></span></a>                       
+                        </li>
+						
+						
 						
 						 <li>
                             <a href="logout.php" target="_blank"><i class="fa fa-edit fa-fw"></i> ออกจากระบบ </a>
                         </li>
 						
-                        <li>
-                            <a href="../index.php"><i class="fa fa-bar-chart-o fa-fw"></i> รายการสินค้า <span class="fa arrow"></span></a>
-                            <!--<ul class="nav nav-second-level">
-								<?php 
-									/*for($i=1; $i<=$num; $i++){
-										$row = mysql_fetch_array($result);*/
-
-								?>
-                                <li>
-                                    <a href="<?php //echo $row['cat_id']?>.php?cate_id=<?php //echo $row['cat_id']?>"><?php //echo $row['cat_name']?></a>
-                                </li>
-								
-								<?php //} ?>
-                            </ul>-->
-                            <!-- /.nav-second-level -->
-                        </li>
-						
+                       
                        
                   
                     </ul>

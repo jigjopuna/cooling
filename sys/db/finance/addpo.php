@@ -156,8 +156,10 @@
 						exit("<script>alert('เงินกองกลางพี่ไพรฑูรย์ไม่พอ'); window.location='../../finance/outpay.php';</script>");
 					}else{
 						$temp_cash2 = $cash2 - $poprice;
-						$new_cash = $curr_cash - $poprice;
-						$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_out = '$poprice', cash_date = '$podate', cash_now = '$update_cash', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2'";
+						$new_cash = $curr_cash - $poprice; 
+						/*echo $temp_cash2." | ".$new_cash;
+						exit();*/
+						$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_out = '$poprice', cash_date = '$podate', cash_now = '$new_cash', cash_times = now(), cash1 = '$cash1', cash2 = '$temp_cash2'";
 					}
 									
 				}else{

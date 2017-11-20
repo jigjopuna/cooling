@@ -84,10 +84,15 @@
 								<form action="../db/order/addorder.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ย้ายจาก </label>
+											<label class="control-label" for="inputSuccess">ลูกค้า </label>
 											<input type="text" class="form-control" id="search_custname" name="search_custname">
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">อุณหภูมิ </label>
+											<input type="text" class="form-control" id="ord_temp" name="ord_temp">
+										</div>
+
 										
 									</div>
 																		
@@ -96,12 +101,17 @@
 											<label class="control-label" for="inputSuccess">วันที่</label>
 											<input type="text" class="form-control" id="date_pay" name="date_pay">
 										</div>
-
+										
+										
 									</div>
 									
 									
 									<div class="col-lg-4">
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ขนาดห้อง </label>
+											<input type="text" class="form-control" id="ord_size" name="ord_size">
+										</div>
 										
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกออเดอร์ใหม่</button>
@@ -160,10 +170,14 @@
 											<?php if($row_all['o_status']==5) { ?>
 												<td style="background-color: #cce29a"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
 											<?php } else if($row_all['o_status']==1) { ?>
-												<td style="background-color: yellow"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
-											<?php } else { ?>
+												<td style="background-color: #f7f3ba"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php } else if($row_all['o_status']==7){ ?>
+												<td style="background-color: #feacc3"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<? } else if($row_all['o_status']==6) { ?>
+												<td style="background-color: #baf7ee"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php } else {?>
 												<td><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
-											<? } ?>
+											<?php } ?>
 											
 											
 											<td><?php echo $row_all['o_size']; ?></td>
