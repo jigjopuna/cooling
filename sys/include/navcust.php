@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">ยินดีต้อนรับคุณ</a>
+                <a class="navbar-brand" href="index.html">ยินดีต้อนรับคุณ <?php echo $_SESSION['ss_emp_name'];?> </a>
             </div>
             <!-- /.navbar-header -->
  
@@ -109,11 +109,11 @@
                         </li>
 						
 						 <li>
-                            <a href="report/report.php" target="_blank"><i class="fa fa-bar-chart-o fa-fw"></i>รายงาน <span class="fa arrow"></span></a>                       
+                            <a href="report/selectreport.php"><i class="fa fa-bar-chart-o fa-fw"></i>รายงาน <span class="fa arrow"></span></a>                       
                         </li>
 						
 						 <li>
-                            <a href="logout.php" target="_blank"><i class="fa fa-edit fa-fw"></i> ออกจากระบบ </a>
+                            <a href="pages/login/logout.php" target="_blank"><i class="fa fa-edit fa-fw"></i> ออกจากระบบ </a>
                         </li>
 						
 						

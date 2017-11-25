@@ -27,6 +27,7 @@
 	
 	<script>
 		$(document).ready(function(){
+			$('#btn').click(validation);
 			$("#rep_datecover, #rep_monthcover, #rep_weekcover").hide();
 			$('#rep_date').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#rep_time").change(showtime);
@@ -53,6 +54,12 @@
 			}else{
 				
 			}
+		}
+		
+		function validation(){		
+			
+			$('#form1').submit();
+			
 		}
 
 
@@ -83,7 +90,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 							<div class="row">
-								<form action="../db/finance/addpo.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
+								<form action="resultreport.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<label class="control-label" for="inputSuccess">เลือกรายงาน </label>
 											<select class="form-control" id="sel_rep" name="sel_rep">
@@ -154,7 +161,7 @@
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">ดูรายงาน</button>
 										</div>
 									</div>
-									<input type="hidden" name="curr_cash" id="curr_cash" value="<?php echo $cur_cash?>">
+									
 								</form>
 							 </div> <!-- row -->
                            

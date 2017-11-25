@@ -21,36 +21,48 @@
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
+		if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ'); window.location = '../pages/login/login.php';</script>");}
+		
+		$role_ = mysql_fetch_array(mysql_query("SELECT ro_stock FROM tb_role WHERE ro_emp_id = '$e_id'"));
+		$rolestock = $role_['ro_stock'];
 	
 	?>
 
 <script>
 	$(document).ready(function(){
 		$('.btn-success').click(validation);
-		$("#search_custname").autocomplete({
-				source: "../../ajax/search_cust.php",
+		$('#pudate').datepicker({dateFormat: 'yy-mm-dd'}); 
+		$("#search_tool").autocomplete({
+				source: "../../ajax/search_tool.php",
 				minLength: 1
 		});
-		
-		function validation(){
-			var search_custname = $('#search_custname').val();
-			var payinqty = $('#payinqty').val();
-			var paydate = $('#paydate').val();
-			if((search_custname=='') || (payinqty=='') || (paydate=='')){
+		var ro_stock = $('#rolestock').html();
+		if(ro_stock==1){
+			$('#puwh option:eq(2)').prop("selected", true);
+			$('#puwh option:eq(0)').prop("disabled", true);
+			$('#puwh option:eq(1)').prop("disabled", true);
+		}else if(ro_stock==2){
+			$('#puwh option:eq(1)').prop("selected", true);
+			$('#puwh option:eq(0)').prop("disabled", true);
+			$('#puwh option:eq(2)').prop("disabled", true);
+			
+		}else{}
+	});
+	
+	function validation(){
+			var search_tool = $('#search_tool').val();
+			var puqty = $('#puqty').val();
+			var pudate = $('#paydate').val();
+			if(isNaN(search_tool)){
+				alert('กรุณาเลือกรายการสต็อกให้ถูกต้องนะคะ');
+				return false;
+			}
+			if((search_tool=='') || (puqty=='') || (pudate=='')){
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
 			}else{
 				$('#form1').submit();				
 			}
 		}
-		
-	});
 	
 </script>
 
@@ -62,10 +74,76 @@
 
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">ใส่ของเพิ่ม (เพิ่มสต็อก)</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+							ใส่ของเพิ่ม (เพิ่มสต็อก)<br>
+							รวม นครปฐม กระทุ่มแบน
+						</div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="row">
+								<form action="../db/stock/pushstock.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess"> สินค้า/รายการ </label>
+											<input type="text" class="form-control" id="search_tool" name="search_tool">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">จำนวน</label>
+											<input type="text" class="form-control" id="puqty" name="puqty">
+										</div>
+										
+										
+									</div>
+																		
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">โกดัง </label>
+											<select class="form-control" id="puwh" name="puwh">
+												<!--value จะผูกกับรหัส emp ชายกับพี่ไพรฑูรย์ -->
+												<option value="0">เลือกโกดัง</option> 					
+												<option value="3">กระทุ่มแบน</option>
+												<option value="2">นครปฐม</option>
+												
+											</select>
+										</div>
+										
+									</div>
+									
+									
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">วันที่</label>
+											<input type="text" class="form-control" id="pudate" name="pudate" value="<?php echo $today;?>">
+										</div>
+										
+										<div class="form-group has-success">
+											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">เพิ่มสต็อก</button>
+										</div>
+									</div>
+									
+								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>		
+        </div>
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">ยอดโอนเข้า</h1>
+                    <h1 class="page-header">สต็อกอะไหล่</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -74,7 +152,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-								ยอดโอนเข้า
+								สต็อกอะไหล่
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -83,8 +161,8 @@
                                     <tr>
                                         <th>ลำดับ</th>                                     
                                         <th>อะไหล่</th>
-                                        <th>ประเภท</th>
-										<th>สต็อก</th>
+                                        <th>นครปฐม</th>
+										<th>กระทุ่มแบน</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,12 +170,16 @@
 									<?php 
 										for($i=1; $i<=$num; $i++){
 										  $row = mysql_fetch_array($result);
+										  
+										  $stock = $row['t_stock'];
+										  $stock1 = $row['t_stock1'];
+										  $allstock = $stock + $stock1;
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row['t_id']; ?></td>
-											<td><?php echo $row['t_name']; ?></td>
-											<td><?php echo $row['to_typename']; ?></td>
-											<td><?php echo $row['t_stock']; ?></td>
+											<td><?php echo $row['t_name'].' ('.$allstock.')'; ?></td>
+											<td><?php echo $stock; ?></td>
+											<td><?php echo $stock1; ?></td>
 										</tr>
 									<?php } ?>
 
@@ -119,7 +201,7 @@
 
     </div>
    
-
+	<div style="display:none" id="rolestock"><?php echo $rolestock;?></div>
 </body>
 
 </html>

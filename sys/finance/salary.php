@@ -2,7 +2,7 @@
 	  require_once('../include/connect.php');
 	
 	//โอนเข้ามา
-	$sql = "SELECT e.e_id, e.e_name, s.sal_amount, s.sal_bill, s.sal_date, s.sal_comment FROM tb_emp e JOIN tb_salary s ON e.e_id = s.sal_emp";
+	$sql = "SELECT s.sal_id, e.e_name, s.sal_amount, s.sal_bill, s.sal_date, s.sal_comment FROM tb_emp e JOIN tb_salary s ON e.e_id = s.sal_emp";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
@@ -92,7 +92,7 @@
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
-										<th>รหัสพนักงาน</th>
+										<th>ลำดับ</th>
                                         <th>ชื่อ</th>                                     
                                         <th>จำนวนเงิน</th>
                                         <th>วันที่</th>
@@ -106,7 +106,7 @@
 										  $row = mysql_fetch_array($result);
 									  ?>
 										<tr class="gradeA">
-											<td style='width: 10%;'><?php echo $row['e_id'];?></td>
+											<td style='width: 10%;'><?php echo $row['sal_id'];?></td>
 											<td><?php echo $row['e_name']; ?></td>
 											<td><?php echo number_format($row['sal_amount'], 0, '.', ','); ?></td>
 											<td><?php echo $row['sal_date']; ?></td>

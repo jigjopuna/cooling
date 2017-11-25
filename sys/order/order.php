@@ -7,9 +7,11 @@
 	$num = mysql_num_rows($result);*/
 	
 	//Product Expandtion
-	$sql_all = "SELECT o.o_id, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_size, ost.ost_status 
-				FROM ((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) JOIN province p ON c.cust_province = p.id) 
-					 JOIN tb_ord_status ost ON ost.ost_id = o.o_status";
+	$sql_all = "SELECT o.o_id, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_size, ost.ost_status, e.e_name 
+				FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
+					 JOIN province p ON c.cust_province = p.id) 
+					 JOIN tb_ord_status ost ON ost.ost_id = o.o_status)
+					 JOIN tb_emp e ON e.e_id = o.o_emp";
 	$result_all = mysql_query($sql_all);
 	$num_all = mysql_num_rows($result_all);
 	
@@ -150,10 +152,11 @@
 										<th style='width: 5%;'>ลำดับ</th>
                                         <th style='width: 15%;'>ลูกค้า</th>
 										<th style='width: 15%;'>จังหวัด</th>
-                                        <th style='width: 15%;'>สถานะ</th>      
+                                        <th style='width: 10%;'>สถานะ</th>      
                                         <th style='width: 15%;'>ขนาดห้อง</th>
 										<th style='width: 5%;'>อุณหภูมิ</th>
 										<th style='width: 15%;'>เบอร์ติดต่อ</th>
+										<th style='width: 15%;'>ผู้รับผิดชอบ</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -183,6 +186,7 @@
 											<td><?php echo $row_all['o_size']; ?></td>
 											<td><?php echo $row_all['o_temp']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td>
+											<td><?php echo $row_all['e_name']; ?></td>
 											          
 										</tr>
 									<?php } ?>

@@ -1,8 +1,8 @@
 <?php session_start();
 	  require_once('../include/connect.php');
 	
-	//โอนเข้ามา
-	$sql = "SELECT ordp.orpd_id, t.t_name, e.e_name, c.cust_name, ordp.orpd_date, ordp.orpd_qty
+
+	$sql = "SELECT ordp.orpd_id, t.t_name, e.e_name, c.cust_name, ordp.orpd_date, ordp.orpd_qty, ordp.orpd_e_aprv
 			FROM (((tb_ord_prod ordp JOIN tb_orders o ON o.o_id = ordp.o_id) 
 				JOIN tb_customer c ON c.cust_id = o.o_cust) 
 				JOIN tb_emp e ON e.e_id = ordp.ot_emp)
@@ -10,6 +10,12 @@
 
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
+	
+	//รายชื่อคนจ่ายของ (ให้เบิก)
+	$sql_apove = "SELECT ro.ro_emp_id, e.e_name FROM tb_role ro JOIN tb_emp e on ro.ro_emp_id = e.e_id WHERE ro_stock > 0";
+	$result_apove = mysql_query($sql_apove);
+	$num_apove = mysql_num_rows($result_apove);
+	
 	
 	$today = date("Y-m-d");
 	
@@ -38,7 +44,7 @@
 <script>
 	$(document).ready(function(){
 		$('.btn-success').click(validation);
-		$('#stodate').datepicker({dateFormat: 'yy-mm-dd'});
+		$('#stodate').datepicker({dateFormat: 'yy-mm-dd'}); 
 		$("#search_tool").autocomplete({
 				source: "../../ajax/search_tool.php",
 				minLength: 1
@@ -87,7 +93,8 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							เบิกของ
+							เบิกของ<br>
+							รวม นครปฐม กระทุ่มแบน
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -116,8 +123,7 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">คนเบิก</label>
 											<input type="text" class="form-control" id="search_emp" name="search_emp">
-										</div>
-										
+										</div>										
 									</div>
 									
 									
@@ -166,6 +172,7 @@
 										<th>คนเบิก</th>
 										<th>จำนวน</th>
                                         <th>วันที่เบิก</th>
+										<th>คนจ่าย</th>
 										
                                     </tr>
                                 </thead>
@@ -181,9 +188,10 @@
 											<td><?php echo $row['cust_name']; ?></td>
 											<td><?php echo $row['e_name']; ?></td>
 											<td><?php echo $row['orpd_qty']; ?></td>
-											<td><?php echo $row['orpd_date']; ?></td>											
+											<td><?php echo $row['orpd_date']; ?></td>	
+											<td><?php echo $row['orpd_e_aprv']; ?></td>											
 										</tr>
-									<?php } ?>
+									<?php } //end main for?>
 
                                     
                                 </tbody>
