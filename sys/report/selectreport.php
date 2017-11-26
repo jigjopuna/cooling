@@ -1,8 +1,5 @@
 <?php session_start();
 	  require_once('../include/connect.php');
-	
-
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +12,7 @@
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
+		if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ');window.location = '../pages/login/login.php';</script>");}
 	
 	?>
 	
@@ -31,6 +22,8 @@
 			$("#rep_datecover, #rep_monthcover, #rep_weekcover").hide();
 			$('#rep_date').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#rep_time").change(showtime);
+			$("#sel_rep").change(reports);
+			
 			$("#search_custname").autocomplete({
 				source: "../../ajax/search_ord.php",
 				minLength: 1
@@ -59,6 +52,22 @@
 		function validation(){		
 			
 			$('#form1').submit();
+			
+		}
+		
+		function reports(){
+			var rep_type = ($(this).val());
+			if(rep_type==1){
+				$('#form1').attr('action','salreport.php');
+			}else if(rep_type==2){
+				$('#form1').attr('action','sellreport.php');
+			}else if(rep_type==3){
+				$('#form1').attr('action','tranreport.php');
+			}else if(rep_type==4){
+				$('#form1').attr('action','poreport.php');
+			}else{
+				$('#form1').attr('action','allreport.php');
+			}
 			
 		}
 
@@ -90,7 +99,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 							<div class="row">
-								<form action="resultreport.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
+								<form action="" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<label class="control-label" for="inputSuccess">เลือกรายงาน </label>
 											<select class="form-control" id="sel_rep" name="sel_rep">

@@ -31,21 +31,19 @@
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
+		if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ'); window.location = '../pages/login/login.php';</script>");}
+		
+		$role_ = mysql_fetch_array(mysql_query("SELECT ro_stock FROM tb_role WHERE ro_emp_id = '$e_id'"));
+		$rolestock = $role_['ro_stock'];
 	
 	?>
 
 <script>
 	$(document).ready(function(){
-		$('.btn-success').click(validation);
+		$('#btn').click(validation);
+		$('#btntransfer').click(transvalidate);
 		$('#stodate').datepicker({dateFormat: 'yy-mm-dd'}); 
-		$("#search_tool").autocomplete({
+		$("#search_tool, #tools").autocomplete({
 				source: "../../ajax/search_tool.php",
 				minLength: 1
 		});
@@ -59,18 +57,58 @@
 				minLength: 1
 		});
 		
-		function validation(){
-			var search_custname = $('#search_custname').val();
-			var payinqty = $('#payinqty').val();
-			var paydate = $('#paydate').val();
-			if((search_custname=='') || (payinqty=='') || (paydate=='')){
-				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
-			}else{
-				$('#form1').submit();				
-			}
-		}
-		
+		var ro_stock = $('#rolestock').html();
+		if(ro_stock==1){
+			$('#stktrwh option:eq(1)').prop("selected", true);
+			$('#stktrwh option:eq(0)').prop("disabled", true);
+			$('#stktrwh option:eq(2)').prop("disabled", true);
+		}else if(ro_stock==2){
+			$('#stktrwh option:eq(2)').prop("selected", true);
+			$('#stktrwh option:eq(0)').prop("disabled", true);
+			$('#stktrwh option:eq(1)').prop("disabled", true);
+			
+		}else{}		
 	});
+	
+	function validation(){
+		var search_tool = $('#search_tool').val();
+		var berkqty = $('#berkqty').val();
+		var search_emp = $('#search_emp').val();
+		var search_ord = $('#search_ord').val();
+		var stodate = $('#stodate').val();
+		if(isNaN(berkqty)){
+			alert('กรุณาจำนวนเบิกเป็นตัวเลข');
+			return false;
+		}
+		if(isNaN(search_emp)){
+			alert('เลือกคนเบิกให้ถูกต้อง');
+			return false;
+		}
+		if(isNaN(search_ord)){
+			alert('เลือกลูกค้า  ให้ถูกต้อง');
+			return false;
+		}
+		if((search_tool=='') || (berkqty=='') || (search_emp=='') || (search_ord=='') || (stodate=='')){
+			alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
+		}else{
+			$('#form1').submit();				
+		}
+	}
+	
+	function transvalidate(){
+		var transferqty = $('#transferqty').val(); 
+		var tools = $('#tools').val();
+		if(isNaN(transferqty)){
+			alert('กรุณาจำนวนโยกย้ายเป็นตัวเลข');
+			return false;
+		}
+		if((transferqty=='') || (tools=='')){
+			alert("ใส่ข้อมูลโยกย้ายให้ครบนะค่ะ"); 
+		}else{
+			$('#form2').submit();				
+		}		
+	}
+		
 	
 </script>
 
@@ -93,16 +131,16 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							เบิกของ<br>
-							รวม นครปฐม กระทุ่มแบน
+							เบิกของ
+							
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 							<div class="row">
-								<form action="../db/stock/addberk.php" method="post" name="form1" id="form1"">
+								<form action="../db/stock/addberk.php" method="post" name="form1" id="form1">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess"> ของ </label>
+											<label class="control-label" for="inputSuccess"> ของ (รวม นครปฐม กระทุ่มแบน)</label>
 											<input type="text" class="form-control" id="search_tool" name="search_tool">
 										</div>
 										
@@ -132,6 +170,12 @@
 											<label class="control-label" for="inputSuccess">วันที่เบิก</label>
 											<input type="text" class="form-control" id="stodate" name="stodate" value="<?php echo $today;?>">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">คอมเม้นท์</label>
+											<input type="text" class="form-control" id="comment" name="comment">
+										</div>
+										
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกการเบิก</button>
 										</div>
@@ -205,6 +249,70 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+			
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							โยกย้าย
+							
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="row">
+								<form action="../db/stock/transferstk.php" method="post" name="form1" id="form2">
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess"> ของ (รวม นครปฐม กระทุ่มแบน)</label>
+											<input type="text" class="form-control" id="tools" name="tools">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">วันที่</label>
+											<input type="text" class="form-control" id="tran_date" name="tran_date" value="<?php echo $today;?>">
+										</div>
+										
+										
+										
+									</div>
+																		
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">จำนวน</label>
+											<input type="text" class="form-control" id="transferqty" name="transferqty">
+										</div>									
+									</div>
+									
+									
+									<div class="col-lg-4">
+									
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ไป</label>
+											<select class="form-control" id="stktrwh" name="stktrwh">
+												<!--value จะผูกกับรหัส emp ชายกับพี่ไพรฑูรย์ -->
+												<option value="0">เลือกโกดัง</option> 					
+												<option value="3">กระทุ่มแบน</option>
+												<option value="2">นครปฐม</option>
+												
+											</select>
+										</div>	
+										
+										<div class="form-group has-success">
+											<button id="btntransfer" type="button" class="btn btn-lg btn-success btn-block">บันทึกโยกย้าย</button>
+										</div>
+									</div>
+									
+								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+        </div>
 
         </div>
         <!-- /#page-wrapper -->
@@ -212,7 +320,7 @@
     </div>
     <!-- /#wrapper -->
 
-   
+<div style="display:none" id="rolestock"><?php echo $rolestock;?></div>   
 
 </body>
 

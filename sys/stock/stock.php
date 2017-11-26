@@ -84,8 +84,8 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							ใส่ของเพิ่ม (เพิ่มสต็อก)<br>
-							รวม นครปฐม กระทุ่มแบน
+							ใส่ของเพิ่ม (เพิ่มสต็อก)
+							
 						</div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -93,7 +93,7 @@
 								<form action="../db/stock/pushstock.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess"> สินค้า/รายการ </label>
+											<label class="control-label" for="inputSuccess"> สินค้า/รายการ (รวม นครปฐม กระทุ่มแบน )</label>
 											<input type="text" class="form-control" id="search_tool" name="search_tool">
 										</div>
 										
