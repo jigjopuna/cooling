@@ -30,9 +30,10 @@
 
 <script>
 	$(document).ready(function(){
-		$('.btn-success').click(validation);
+		$('#btn').click(validation); 
+		$('#btncost').click(validcost);
 		$('#pudate').datepicker({dateFormat: 'yy-mm-dd'}); 
-		$("#search_tool").autocomplete({
+		$(".search_tool").autocomplete({
 				source: "../../ajax/search_tool.php",
 				minLength: 1
 		});
@@ -48,6 +49,28 @@
 			
 		}else{}
 	});
+	function validcost(){ 
+		var tools = $('#tool').val();
+		var costs = $('#cost').val();
+		if(isNaN(tools)){
+			alert('กรุณาเลือกรายการให้ถูกต้องนะคะ');
+			return false;
+		}
+		if(isNaN(costs)){
+			alert('กรุณาใส่ราคาเป็นตัวเลขนะคะ');
+			return false;
+		}
+			
+		if(tools=='' || costs==''){
+			alert("ใส่ข้อมูลต้นทุนให้ครบนะค่ะ");
+			return false;
+		}else{
+			$('#form2').submit();
+			
+		}
+		
+	}
+	
 	
 	function validation(){
 			var search_tool = $('#search_tool').val();
@@ -58,7 +81,8 @@
 				return false;
 			}
 			if((search_tool=='') || (puqty=='') || (pudate=='')){
-				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
+				alert("ใส่ข้อมูลให้ครบนะค่ะ");
+				return false;				
 			}else{
 				$('#form1').submit();				
 			}
@@ -94,7 +118,7 @@
 									<div class="col-lg-4">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess"> สินค้า/รายการ (รวม นครปฐม กระทุ่มแบน )</label>
-											<input type="text" class="form-control" id="search_tool" name="search_tool">
+											<input type="text" class="form-control search_tool" id="search_tool" name="search_tool">
 										</div>
 										
 										<div class="form-group has-success">
@@ -163,6 +187,8 @@
                                         <th>อะไหล่</th>
                                         <th>นครปฐม</th>
 										<th>กระทุ่มแบน</th>
+										<th>ต้นทุน (บาท) นครปฐม</th>
+										<th>ต้นทุน (บาท) กระทุ่มแบน</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -177,9 +203,11 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row['t_id']; ?></td>
-											<td><?php echo $row['t_name'].' ('.$allstock.')'; ?></td>
+											<td><a href="stocklog.php?t_id=<?php echo $row['t_id']?>"><?php echo $row['t_name'].' ('.$allstock.')'; ?></td>
 											<td><?php echo $stock; ?></td>
 											<td><?php echo $stock1; ?></td>
+											<td><?php echo $row['t_cost']; ?></td>
+											<td><?php echo $row['t_cost1']; ?></td>
 										</tr>
 									<?php } ?>
 
@@ -195,6 +223,58 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">ใส่ต้นทุนอะไหล่</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+							ใส่ต้นทุนอะไหล่
+							
+						</div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="row">
+								<form action="../db/stock/addcost.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess"> สินค้า/รายการ (รวม นครปฐม กระทุ่มแบน )</label>
+											<input type="text" class="form-control search_tool" id="tool" name="tool">
+										</div>
+										
+										<div class="form-group has-success">
+											<button id="btncost" type="button" class="btn btn-lg btn-success btn-block">ใส่ต้นทุน</button>
+										</div>
+									</div>
+																		
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ต้นทุน (ราคา)</label>
+											<input type="text" class="form-control" id="cost" name="cost">
+										</div>
+										
+										
+									</div>
+									
+									
+									<div class="col-lg-4">
+									
+									</div>
+									
+								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>		
+        </div>
 
         </div>
         <!-- /#page-wrapper -->

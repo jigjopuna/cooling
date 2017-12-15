@@ -2,19 +2,26 @@
 	  require_once('../include/connect.php');
 	
 
-	$sql = "SELECT ordp.orpd_id, t.t_name, e.e_name, c.cust_name, ordp.orpd_date, ordp.orpd_qty, ordp.orpd_e_aprv
+	$sql = "SELECT ordp.orpd_id,t.t_id, t.t_name, e.e_name, c.cust_name, ordp.orpd_date, ordp.orpd_qty, ordp.orpd_e_aprv
 			FROM (((tb_ord_prod ordp JOIN tb_orders o ON o.o_id = ordp.o_id) 
 				JOIN tb_customer c ON c.cust_id = o.o_cust) 
 				JOIN tb_emp e ON e.e_id = ordp.ot_emp)
 				JOIN tb_tools t ON ordp.ot_id = t.t_id";
-
+				
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
+		
+		
+	$sql_tr = "SELECT e.e_name, orpd.orpd_id, orpd.orpd_date, orpd.orpd_qty, t.t_name, t.t_id, orpd.orpd_wh FROM (tb_ord_prod orpd JOIN tb_emp e ON e.e_id = orpd.orpd_e_aprv) JOIN tb_tools t ON t.t_id = orpd.ot_id WHERE orpd.o_id = 0 LIMIT 0,100";
+	$result_tr= mysql_query($sql_tr);
+	$num_tr = mysql_num_rows($result_tr);
+	
+	
 	
 	//รายชื่อคนจ่ายของ (ให้เบิก)
-	$sql_apove = "SELECT ro.ro_emp_id, e.e_name FROM tb_role ro JOIN tb_emp e on ro.ro_emp_id = e.e_id WHERE ro_stock > 0";
+	/*$sql_apove = "SELECT ro.ro_emp_id, e.e_name FROM tb_role ro JOIN tb_emp e on ro.ro_emp_id = e.e_id WHERE ro_stock > 0";
 	$result_apove = mysql_query($sql_apove);
-	$num_apove = mysql_num_rows($result_apove);
+	$num_apove = mysql_num_rows($result_apove);*/
 	
 	
 	$today = date("Y-m-d");
@@ -228,12 +235,86 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row['orpd_id']; ?></td>
-											<td><?php echo $row['t_name']; ?></td>
+											<td><a href="stocklog.php?t_id=<?php echo $row['t_id']?>"><?php echo $row['t_name']; ?></a></td>
 											<td><?php echo $row['cust_name']; ?></td>
 											<td><?php echo $row['e_name']; ?></td>
 											<td><?php echo $row['orpd_qty']; ?></td>
 											<td><?php echo $row['orpd_date']; ?></td>	
 											<td><?php echo $row['orpd_e_aprv']; ?></td>											
+										</tr>
+									<?php } //end main for?>
+
+                                    
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+			
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">รายการโยกย้าย</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+								รายการทโยกย้าย
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>                                     
+                                        <th>รายการ</th>
+										<th>จำนวน</th>
+										<th>คนจ่าย</th>
+										<th>วันที่</th>
+										<th>จาก</th>
+										<th>ไป</th>
+										
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+									<?php 
+										for($i=1; $i<=$num_tr; $i++){
+										  $row_tr = mysql_fetch_array($result_tr);
+									  ?>
+										<tr class="gradeA">
+											<td><?php echo $row_tr['orpd_id']; ?></td>
+											<td><a href="stocklog.php?t_id=<?php echo $row_tr['t_id']?>"><?php echo $row_tr['t_name']; ?></a></td>
+											<td><?php echo $row_tr['orpd_qty']; ?></td>
+											<td><?php echo $row_tr['e_name']; ?></td>	
+											<td><?php echo $row_tr['orpd_date']; ?></td>
+											<td><?php 
+													if($row_tr['orpd_wh']==2){
+														echo 'นครปฐม';
+													}else{
+														echo 'กระทุ่มแบน';			
+													}
+												?>
+											</td>
+											
+											<td><?php 
+													if($row_tr['orpd_wh']==2){
+														echo 'กระทุ่มแบน';
+													}else{
+														echo 'นครปฐม';			
+													}
+												?>
+											</td>											
 										</tr>
 									<?php } //end main for?>
 

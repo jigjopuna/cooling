@@ -57,6 +57,10 @@
 								<li>
                                     <a href="finance/summary.php">สรุปการเงิน</a>
                                 </li>
+								
+								<li>
+                                    <a href="finance/bill.php">บิล/ใบเสร็จ</a>
+                                </li>
 							
                             </ul>
                         </li>
@@ -98,6 +102,10 @@
 								
 								<li>
                                     <a href="stock/stock.php">ดูสต็อก</a>
+                                </li>
+								
+								<li>
+                                    <a href="stock/sell.php">ขายของ</a>
                                 </li>
 							
                             </ul>

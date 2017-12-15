@@ -10,10 +10,14 @@
 	$cust_name = $_GET['cust_name'];
 	
 	//list all product this order
-	//$sql_prd = "SELECT * FROM tb_ord_prod orpd JOIN tb_product p ON orpd.p_id = p.p_id WHERE orpd.o_id = '$o_id'";
-	$sql_prd = "SELECT po.po_id, po.po_name, po.po_price, po.po_qty, po.po_bill_img, e.e_name FROM tb_po po JOIN tb_emp e ON po.po_buyer = e.e_id WHERE po.po_orders = '$o_id'";
+	
+	$sql_prd = "SELECT orpd.orpd_id, t.t_name, orpd.orpd_qty, orpd.orpd_date, orpd.orpd_e_aprv, orpd.ot_emp, e_name
+	FROM ((tb_ord_prod orpd JOIN tb_orders o ON o.o_id = orpd.o_id) JOIN tb_tools t ON t.t_id = orpd.ot_id) JOIN tb_emp e ON e.e_id = orpd.ot_emp
+	WHERE orpd.o_id = '$o_id'";
 	$result_prd = mysql_query($sql_prd);
 	$num_prd = mysql_num_rows($result_prd);
+	
+	$row_count_prod = mysql_fetch_array(mysql_query(("SELECT COUNT(o_id) countprod FROM tb_ord_prod WHERE o_id = '$o_id'")));
 	
 	
 	//order pay
@@ -77,7 +81,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							รายละเอียดสินค้า
+							รายละเอียดสินค้า   <?php echo $row_count_prod['countprod']. ' รายการ'; ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -85,11 +89,11 @@
                                 <thead>
                                     <tr>
 										<th style='width: 2%;'>ลำดับ</th>
-                                        <th>สินค้า</th>
-                                        <th>ราคา</th>
+                                        <th>รายการ</th>
                                         <th>จำนวน</th>
-										<th>เอาเงินจาก</th>
-										<th>ดูบิล</th>
+                                        <th>คนเบิก</th>
+										<th>คนจ่าย</th>
+										<th>วันที่</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -99,12 +103,12 @@
 										  $row_prd = mysql_fetch_array($result_prd);
 									  ?>
 										<tr class="gradeA">
-											<td><?php echo $row_prd['po_id']; //$row_prd['p_name']; ?></td>
-											<td><?php echo $row_prd['po_name']; //$row_prd['p_model']; ?></td>
-											<td><?php echo $row_prd['po_price']; //$row_prd['orpd_qty']; ?></td> 
-											<td><?php echo $row_prd['po_qty']; ?></td>
-											<td><?php echo $row_prd['e_name']; ?></td>											
-											<td><a href="../images/bill/<?php echo $row_prd['po_bill_img'];?>" target="_blank">ดูบิล</a></td>																													
+											<td><?php echo $row_prd['orpd_id']; ?></td>
+											<td><?php echo $row_prd['t_name']; ?></td>
+											<td><?php echo $row_prd['orpd_qty']; ?></td> 
+											<td><?php echo $row_prd['e_name']; ?></td>
+											<td><?php echo $row_prd['orpd_e_aprv']; ?></td>	
+											<td><?php echo $row_prd['orpd_date']; ?></td>												
 										</tr>
 									<?php } ?>
 

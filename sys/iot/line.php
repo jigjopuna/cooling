@@ -1,7 +1,7 @@
 <?php 
 	define('LINE_API',"https://notify-api.line.me/api/notify");
-	define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');
-	$json_url = "https://api.thingspeak.com/channels/333590/feeds.json?results=288";
+	define('LINE_TOKEN','PLdljftwpLCKZuiYyrwWUxYoCSqyGdvobFEElyskg4M');
+	$json_url = "https://api.thingspeak.com/channels/381597/feeds.json?results=288";
 	$json = file_get_contents($json_url);
 	$data = json_decode($json);
 
@@ -41,7 +41,7 @@
 	}
 	
 	
-	$msg = "ห้องเย็นคุณหนึ่ง อุณหภูมิเฉลี่ยวันนี้ ".$avg." องศาเซลเซียส". " สูงสุด ".$maxtemp. " ดูกราฟได้ที่ http://topcooling.net/sys/iot/tempn.php";
+	$msg = "ห้องเย็นพี่แหน่ง อุณหภูมิเฉลี่ยวันนี้ ".$avg." องศาเซลเซียส". " สูงสุด ".$maxtemp. " ดูกราฟได้ที่ http://topcooling.net/sys/iot/tempfirstcoconut.php";
 	$res = notify_message($msg);
 	var_dump($res);
 	echo $res;

@@ -526,6 +526,7 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 	<div id="demo"></div>
 	<div id="demo1"></div>
 	<div id="reply"></div>
+	<?php require_once('../../include/inc_banner_iot.php');?>
   </body>
   <!--webpom_kub@hotmail.com-->
 </html>

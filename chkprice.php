@@ -147,8 +147,8 @@
 				<ul class="navbar-menu">
 				 
 				 
-				<li><a href="" target="_blank">ติดต่อเรา</a></li>
-				<li><a href="/faq">คำถามที่พบบ่อย</a></li>
+				<li><a href="#contact-list">ติดต่อเรา</a></li>
+				<li><a href="th/article/17howto.php">คำถามที่พบบ่อย</a></li>
 				 
 				<li><a class="btn-border" style="cursor:pointer;">เข้าสู่ระบบ</a></li>
 			</div>
@@ -418,7 +418,102 @@
 
 
  
- <
+<div class="section-testimonial">
+	<div class="heading">
+	ขั้นตอนก่อนสร้างห้องเย็น <!--ดูแลบำรักษาห้องเย็นง่ายๆ -->
+	</div>
+	 
+	<div class="container">
+		<div class="row">
+			<div class="blog-slider" >
+			
+			
+				<div class="articles"><a href="th/article/17howto.php" target="_blank">
+					<div class="blog-box">
+						<div class="blog-img" style="background: url('sources/assets/images/17howto.jpg');">
+						<span>+ อ่านต่อ</span>
+						</div>
+						<div class="blog-content">
+							<span class="blog-time"></span>
+							<h2 class="blog-title">19 ข้อต้องรู้ก่อนมีห้องเย็น</h2>
+							<p class="blog-excerpt">เชื่อว่าหลายท่านที่กำลังมองหาห้องเย็นสักห้อง กำลังตัดสินใจอยู่ ให้อ่านบทความนี้ จะช่วยท่านตัดใจได้ดี และถูกต้องแน่นอน จากประสบการณ์ตรง กว่า 30 ปี</p>
+						</div>
+					</div>
+					</a>
+				</div>
+				
+				<div class="articles"><a href="th/article/outside.php" target="_blank">
+					<div class="blog-box">
+						<div class="blog-img" style="background: url('content/images/article/out-side/outside-01.jpg');">
+						<span>+ อ่านต่อ</span>
+						</div>
+						<div class="blog-content">
+							<span class="blog-time "></span>
+							<h2 class="blog-title ">วางแผนออกแบบ ดูหน้างาน</h2>
+							<p class="blog-excerpt ">การวางแผน และดูหน้างานที่สิ่งจำเป็นอย่างมาก เพราะเราต้องป้องกันปัญหาที่เกิดจากปัจจัยภายนอก ที่มีผลกระทบกับห้องเย็น เช่น ความชื้น อุณหภูมิ แมลง เป็นต้น</p>
+						</div>
+					</div>
+					</a>
+				</div>
+				
+				
+			
+			
+			
+
+			<div class="articles"><a href="th/article/pre-design.php" target="_blank">
+				<div class="blog-box">
+					<div class="blog-img" style="background: url('content/images/article/design-room/main-post.jpg');">
+					<span>+ อ่านต่อ</span>
+					</div>
+					<div class="blog-content">
+						<span class="blog-time"></span>
+						<h2 class="blog-title ">ออกแบบห้องเย็น 3D ฟรี ก่อนทำจริง</h2>
+						<p class="blog-excerpt">หมดปัญหาเรื่องได้ห้องเย็นที่ไม่ตรงกับความต้องการ เราออกแบบให้เห็นภาพจริง 3 มิติ ก่อนสร้างห้องเย็นทุกครั้ง   เราอยากให้ลูกค้าได้ห้องเย็นที่ดีที่สุดเพื่อตอบโจทย์ธุรกิจของลูกคัา</p>
+					</div>
+				</div>
+				</a>
+			</div>
+			
+			<div class="articles"><a href="th/article/brief.php" target="_blank">
+					<div class="blog-box">
+						<div class="blog-img" style="background: url('sources/assets/images/delivery.jpg');">
+						<span>+ อ่านต่อ</span>
+						</div>
+						<div class="blog-content">
+							<span class="blog-time "></span>
+							<h2 class="blog-title ">คุยรายละเอียด ความต้องการของลูกค้า</h2>
+							<p class="blog-excerpt ">เพราะห้องเย็นแต่ละห้องไม่เหมือนกัน และสินค้าที่แช่ในห้องเย็นก็แตกต่างกัน เพื่อให้ห้องเย็นมีประสิทธิภาพสูงสุดและเหมาะกับ สินค้าของลูกค้า เราจะออกแบบให้ตรงกับความต้องการมากที่สุด</p>
+						</div>
+					</div>
+					</a>
+				</div>
+			
+				<div class="articles"><a href="#" target="_blank">
+					<div class="blog-box">
+						<div class="blog-img" style="background: url('sources/assets/images/chktemp.jpg');">
+						<span>+ อ่านต่อ</span>
+						</div>
+						<div class="blog-content">
+							<span class="blog-time "></span>
+							<h2 class="blog-title ">มีระบบ Cloud อัจฉริยะ เช็คอุณหภูมิผ่านมือถือ</h2>
+							<p class="blog-excerpt ">เพราะสินค้าในห้องเย็นมีมูลค่าสูงมาก หากมีระบบนี้ จะช่วยลดความเสี่ยงห้องเย็นไม่เย็นไปได้อย่างมาก ตรวจสอบอุณหภูมิได้ตลอด 24 ชม. แม้ไม่ได้อยู่หน้าห้องเย็น</p>
+						</div>
+					</div>
+					</a>
+				</div>
+			
+			
+			
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<a class="blog-readmore" href="https://www.tocooling.com/blog" target="_blank">อ่านทั้งหมด ></a>
+			</div>
+		</div>
+	</div>	
+</div>
 
 <div class="section-calculate">
 	<div class="heading">
@@ -434,115 +529,8 @@
 	</div>
 </div>
 
-
-
-
-<div class="section-contact">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-4">
-
-				<ul class="contact-list">
-
-				 
-					<li>
-						<div class="row">
-							<div class="col-md-1 col-xs-2">
-								Line
-							</div>
-							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;">@topcooling</a>
-							</div>
-						</div>
-					</li>
-					
-					<li>
-						<div class="row">
-							<div class="col-md-1 col-xs-2">
-								โทร
-							</div>
-							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;">082-360-1523</a>
-							</div>
-						</div>
-					</li>
-					
-					<li>
-						<div class="row">
-							<div class="col-md-1 col-xs-2">
-								email
-							</div>
-							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;">topcooling.ltd@gmail.com</a>
-							</div>
-						</div>
-					</li>
-					
-					
-					<li>
-						<div class="row">
-							<div class="col-md-1 col-xs-2">
-								<i class="fa fa-map-marker"></i>
-							</div>
-							<div class="col-md-11 col-xs-10">
-								บริษัททอปคูลลิงค์จำกัด</br>
-								28/1 ม.6 ต.ทัพหลวง</br>
-								อ.เมือง จ.นครปฐม 73000
-							</div>
-						</div>
-					</li>
-				</ul>
-				<div class="footer-social">
-					<ul>
-					<li><a href="https://www.facebook.com/pg/410001105718634" target="_blank"><img src="sources/assets/images/icon-fb.svg" target="_blank" alt=""></a></li>
-					<li><a href="" target="_blank"><img src="sources/assets/images/icon-tw.svg" target="_blank" alt=""></a></li>
-					<li><a href="" target="_blank"><img src="sources/assets/images/icon-google.svg" target="_blank" alt=""></a></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="col-sm-2">
-				<ul class="footer-menu">
-					<li>เกี่ยวกับ Topcooling</li>
-					<li><a href="">ให้ข้อมูลและราคาห้องเย็น</a></li>
-					<li><a href="" target="_blank">จำหน่ายอุปกรณ์ห้องเย็น</a></li>
-					<li><a href="">ขอใบเสนอราคาห้องเย็น</a></li>
-				</ul>
-			</div>
-			<div class="col-sm-2">
-			<ul class="footer-menu">
-				<li>สร้างห้องเย็น</li>
-				<li><a href="http://www.topcooling.net">ปรึกษาห้องเย็น</a></li>
-				<li><a href="">คำถามที่พบบ่อย</a></li>
-			 
-			</ul>
-			</div>
-
-		</div>
-	</div>
-</div> <!--end section-contact-->
+<?php include('include/inc_1_footer.php');?>
  
-<div class="section-footer-end">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-			<div class="copyright-text">
-			Copyright 2017 Topcooling.Co, Ltd.
-			</div>
-			</div>
-			<div class="col-md-4">
-				<ul class="menu-footer-end">
-					<li><a href="/term" target="_blank">ข้อตกลงและเงื่อนไข</a></li>
-					<li><a href="/privacy" target="_blank">นโยบายความเป็นส่วนตัว</a></li>
-				</ul>
-			</div>
-			<div class="col-md-2">
-			<div class="pull-rignt">
-			<label>ทอปคูลลิงค์</label>
-			</div>
-			</div>
-		</div>
-	</div>
-</div>
+
 </body>
 </html>

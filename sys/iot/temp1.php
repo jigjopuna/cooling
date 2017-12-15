@@ -442,5 +442,7 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
       <input id="Update" name="Update" type="checkbox"><span style="font-family: Lucida Grande;">Update
         Chart</span> <span id="Latency" style="font-family: Lucida Grande;">(Latency)</span>
     </div>
+	<?php require_once('../../include/inc_banner_iot.php');?>
+	
   </body>
 </html>
