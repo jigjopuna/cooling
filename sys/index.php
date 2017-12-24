@@ -29,6 +29,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="../content/images/favicon.png">
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="icon" sizes="192x192" href="images/ERP128.jpg">
+	<link rel="apple-touch-icon" sizes="128x128" href="images/ERP128.jpg">
     <?php require_once('include/metatagsys.php');?>
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
@@ -237,6 +240,31 @@
 										<hr>
 										<span class="text_bold">ยอดเงินเข้าทั้งหมดวันนี้รวมของทุกคน</span><br>
 										<?php echo $incomes;?>
+										<hr>
+										
+										
+										<span class="text_bold">โยกย้ายเงิน</span><br>
+										<?php 
+											if($num_trancash==0) {
+												echo 'ไม่มีโยกย้าย';
+											}else{
+												for($i=1; $i<=$num_trancash; $i++){
+													$row_trancash = mysql_fetch_array($result_trancash);
+													
+													if($row_trancash['cash_salary']==23){
+														$cashid = $row_trancash['cash_id']-1;
+														$rowdifcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center WHERE cash_id = $cashid"));
+														$diff = number_format($rowdifcash['cash1']-$row_trancash['cash1'], 0, '.', ',');
+														//exit();
+														echo 'ชายโยกไปพี่ไพรฑูรย์ '.$diff.' บาท<br>';
+													}else{
+														$cashid = $row_trancash['cash_id']-1;
+														$rowdifcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center WHERE cash_id = $cashid"));
+														$diff = number_format($rowdifcash['cash2']-$row_trancash['cash2'], 0, '.', ',');
+														echo 'พี่ไพรฑูรย์โยกไป ชาย '.$diff.' บาท<br>';
+													}
+												}
+											} ?>
 										<hr>
 									</div>												
 												

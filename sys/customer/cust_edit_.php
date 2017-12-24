@@ -13,8 +13,6 @@
 												JOIN amphur a ON a.id=c.cust_amphur)
 												JOIN tumbon t ON t.id = c.cust_tumbon )
 										 WHERE cust_id = '$cust_id'"));
-										 
-	$mapcust = $cust['cust_location'];
 
 
 ?>
@@ -205,11 +203,6 @@
 											<input type="text" class="form-control" id="phoneno" name="phoneno" value="<?php echo $cust['cust_tel']?>">
 										</div>
 										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">แผ่นที่</label>
-											<input type="text" class="form-control" id="cust_map" name="cust_map" value="<?php echo $mapcust;?>">
-										</div>
-										
 										
 										
 
@@ -235,11 +228,8 @@
 										</div>
 										
 										<div class="form-group has-success">
-											<?php if($mapcust!= '') { ?>
-												<a href="https://www.google.com/maps/?q=<?php echo $mapcust;?>"><button id="" type="button" class="btn btn-lg btn-success btn-block">แผ่นที่</button></a>
-											<?php } else { ?>
-												<button id="" type="button" class="btn btn-lg btn-block">No Maps</button>
-											<?php } ?>
+											<label class="control-label" for="inputSuccess">แผ่นที่</label>
+											<input type="text" class="form-control" id="cust_map" name="cust_map" value="<?php echo $cust['cust_location']?>">
 										</div>
 										
 										<div class="form-group has-success">

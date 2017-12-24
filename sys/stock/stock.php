@@ -7,6 +7,10 @@
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
+	$sql_push = "SELECT t.t_name, t.t_id, ps.pu_id, ps.pu_wh, ps.pu_qty, ps.pu_date FROM tb_pushstock ps JOIN tb_tools t ON t.t_id = ps.pu_tid";
+	$result_push= mysql_query($sql_push);
+	$num_push = mysql_num_rows($result_push);
+	
 	$today = date("Y-m-d");
 	
 ?>
@@ -189,6 +193,7 @@
 										<th>กระทุ่มแบน</th>
 										<th>ต้นทุน (บาท) นครปฐม</th>
 										<th>ต้นทุน (บาท) กระทุ่มแบน</th>
+										<th>ราคากลาง</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -208,6 +213,7 @@
 											<td><?php echo $stock1; ?></td>
 											<td><?php echo $row['t_cost']; ?></td>
 											<td><?php echo $row['t_cost1']; ?></td>
+											<td><?php echo $row['t_cost_center']; ?></td>
 										</tr>
 									<?php } ?>
 
@@ -223,6 +229,65 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+			
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">ประวัติใส่สต็อก</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+								ประวัติใส่สต็อก
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>                                     
+                                        <th>อะไหล่</th>
+										<th>จำนวน</th>
+                                        <th>สโตร์</th>
+										<th>วันที่</th>
+									
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+									<?php 
+										for($i=1; $i<=$num_push; $i++){
+										  $row_push = mysql_fetch_array($result_push);
+									  ?>
+										<tr class="gradeA">
+											<td><?php echo $row_push['pu_id']; ?></td>
+											<td><a href="stocklog.php?t_id=<?php echo $row_push['t_id']?>"><?php echo $row_push['t_name']; ?></td>
+											<td><?php echo $row_push['pu_qty']; ?></td>
+					
+											<?php if($row_push['pu_wh']==2) { ?>
+												<td><?php echo 'นครปฐม'; ?></td>
+											<? } else if ($row_push['pu_wh']==3){ ?>
+												<td><?php echo 'กระทุ่มแบน'; ?></td>
+											<? } ?>
+											<td><?php echo $row_push['pu_date']; ?></td>
+										</tr>
+									<?php } ?>
+
+                                    
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
 			
 			<div class="row">
                 <div class="col-lg-12">

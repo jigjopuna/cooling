@@ -76,6 +76,10 @@
 								<li>
                                     <a href="../customer/cust_add.php">เพิ่มลูกค้า</a>
                                 </li>
+								
+								<li>
+                                    <a href="../customer/cust_iot.php">IoT ลูกค้า</a>
+                                </li>
 							
                             </ul>
                         </li>

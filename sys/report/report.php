@@ -10,8 +10,18 @@
 </head>
 <body>
 <?php 
+ /* $d1 = '2017-12-18';
+  $date = date_create($d1);
+  date_modify($date, '-1 day');
+  $d2 = date_format($date, 'Y-m-d');
+  http://php.net/manual/en/datetime.modify.php
+  
+  echo 'd2 : '.$d2.'<br>';
+  exit();*/
+  
   $yesterday = date('Y-m-d',strtotime("-1 days"));
   $dates = date('Y-m-d');
+  //$dates = '2017-12-23';
   
   include('../include/sql_report1.php'); 
   
@@ -122,13 +132,13 @@ body {
 			<div id="pay" style="width:100%; /*height:350px;*/"> 
 				<div class="box"><span class="topic">เงินเข้า</span><br>
 					<?php for($i=1; $i<=$num_income; $i++) { 
-											$row_income = mysql_fetch_array($result_income); 
-										?>
-											<?php echo $row_income['e_name']." : ".number_format($row_income['income'], 0, '.', ',')." บาท<br>";?>
-										<?php } ?>
-										<br><br>
-										<span class="topic">ยอดเงินเข้าทั้งหมด</span><br>
-										<?php echo $incomes." บาท";?>
+						$row_income = mysql_fetch_array($result_income); 
+					?>
+					<?php echo $row_income['e_name']." : ".number_format($row_income['income'], 0, '.', ',')." บาท<br>";?>
+					<?php } ?>
+					<br><br>
+					<span class="topic">ยอดเงินเข้าทั้งหมด</span><br>
+					<?php echo $incomes." บาท";?>
 				</div>
 				
 				<div class="box boxleft">
@@ -188,7 +198,33 @@ body {
 						<span class="">ไพรฑูรย์ คงเหลือ </span><br>
 						<?php echo $cash2. ' บาท';?>
 				</div>
-				<div class="box" style="/*background-color:green;*/">.</div>
+				<div class="box" style="/*background-color:green;*/">
+					<span class="topic">โยกย้ายเงิน</span><br>
+					<?php
+						if($num_trancash==0) {
+							echo 'ไม่มีโยกย้าย';
+						}else{
+							for($i=1; $i<=$num_trancash; $i++){
+								$row_trancash = mysql_fetch_array($result_trancash);					
+								if($row_trancash['cash_salary']==23){
+									$cashid = $row_trancash['cash_id']-1;
+									$rowdifcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center WHERE cash_id = $cashid"));
+									$diff = number_format($rowdifcash['cash1']-$row_trancash['cash1'], 0, '.', ',');
+									
+									echo 'ชายโยกไปพี่ไพรฑูรย์ '.$diff.' บาท<br>';
+								
+								}else{
+									
+									$cashid = $row_trancash['cash_id']-1;
+									$rowdifcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center WHERE cash_id = $cashid"));
+									$diff = number_format($rowdifcash['cash2']-$row_trancash['cash2'], 0, '.', ',');
+									echo 'พี่ไพรฑูรย์โยกไป ชาย '.$diff.' บาท<br>';
+								}
+							}
+					} ?>
+					
+					
+				</div>
 			</div>
 			
 			<div id="podetail" style="/*background-color:olive;*/ width:100%; /*height:200px;*/ float:none; overflow:hidden;">

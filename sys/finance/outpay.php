@@ -2,7 +2,7 @@
 	  require_once('../include/connect.php');
 	
 	//PO LIST
-	$sql = "SELECT p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
+	$sql = "SELECT p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
 			FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
 			ORDER BY po_id DESC LIMIT 0,100";
 	$result= mysql_query($sql);
@@ -43,13 +43,10 @@
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
+		if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ');window.location = '../pages/login/login.php';</script>");}
+		$role = mysql_fetch_array(mysql_query("SELECT ro_po FROM tb_role WHERE ro_emp_id = '$e_id'"));
+		$rolepo = $role['ro_po'];
+		
 	
 	?>
 	
@@ -83,6 +80,7 @@
 			}
 			if($('#pobuyer').val()==10){
 				chk_cash();
+				
 			}		
 		}
 		
@@ -124,6 +122,7 @@
 				$('#btn').prop('disabled',false);
 				$('#owner_money').hide();
 			}
+			disablemp();
 		}
 		
 		function validation(){
@@ -176,6 +175,21 @@
 				$('#totransfer option:eq(2)').prop("disabled", true);				
 			}else{ }
 		}
+		
+		function disablemp(){
+			var roles = $('#role').html();
+			if(roles==1){ //นครปฐม
+				$('#ownercash option:eq(1)').prop("selected", true);
+				$('#ownercash option:eq(2)').prop("disabled", true);
+				$('#ownercash option:eq(1)').prop("disabled", false);
+				$('#ownercash option:eq(0)').prop("disabled", true);				
+			}else if(roles==2){ //กระทุ่มแบน
+				$('#ownercash option:eq(2)').prop("selected", true);
+				$('#ownercash option:eq(1)').prop("disabled", true);
+				$('#ownercash option:eq(2)').prop("disabled", false);
+				$('#ownercash option:eq(0)').prop("disabled", true);
+			}
+		}
 
 	</script> 
 </head>
@@ -190,7 +204,7 @@
 		    
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">เพิ่มรายการสั่งซื้อ</h1>
+                    <h1 class="page-header">เพิ่มรายการสั่งซื้อ </h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -342,6 +356,8 @@
 									<?php 
 										for($i=1; $i<=$num; $i++){
 										  $row = mysql_fetch_array($result);
+										  $subyer = $row['po_subyer'];
+										  if($subyer==2){ $names = "ชูเกียรติ"; }else if ($subyer==3){$names = "ไพรฑูรย์"; }
 									  ?>
 										<tr class="gradeA"> 
 											<td><?php echo number_format($row['po_id'], 0, '.', ''); ?></td>
@@ -357,7 +373,13 @@
 													<td style="color:orange; text-decoration:underline; font-weight:bold;"><?php echo $row['e_name']; ?></td>
 												<?php } ?>
 											<? }else{ ?>
-												<td><?php echo $row['e_name']; ?></td>
+												
+												<?php if($subyer==0) { ?>
+													<td><?php echo $row['e_name']; ?></td>
+												<? }else{ ?>
+													<td><?php echo $row['e_name'].' ('.$names.')'; ?></td>
+												<? } ?>
+												
 											<?php } ?>
 											
 											<td><?php echo $row['po_comment']; ?></td>
@@ -463,7 +485,7 @@
     <!-- /#wrapper -->
 
    
-
+	<div id="role" style="display:none"><?php echo $rolepo;?></div>
 </body>
 
 </html>

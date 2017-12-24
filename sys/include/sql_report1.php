@@ -54,6 +54,16 @@
 	$sumdates = mysql_fetch_array(mysql_query("SELECT SUM(po_price) paydates FROM tb_po WHERE po_date = '$dates'"));
 	$paydates = number_format($sumdates['paydates'], 0, '.', ',');
 	
+	
+	//โยกย้ายเงิน  
+	/*
+		23 หมายถึงโยกย้ายเงินจากชายไปพี่ไพรฑูรย์ 
+		24 โยกย้ายเงินจากพี่ไพรฑูรย์ ไป ชาย
+	*/
+	$sql_trancash = "SELECT cash_id, cash_salary, cash_now, cash1, cash2 FROM tb_cash_center WHERE (cash_salary = 23 OR cash_salary = 24) AND cash_date = '$dates'";
+	$result_trancash = mysql_query($sql_trancash);
+	$num_trancash = mysql_num_rows($result_trancash);
+	
 
 	
 ?>

@@ -11,11 +11,13 @@
 	
 	//list all product this order
 	
-	$sql_prd = "SELECT orpd.orpd_id, t.t_name, orpd.orpd_qty, orpd.orpd_date, orpd.orpd_e_aprv, orpd.ot_emp, e_name
+	$sql_prd = "SELECT orpd.orpd_id, t.t_name, orpd.orpd_qty, orpd.orpd_date, orpd.orpd_e_aprv, orpd.ot_emp, e_name, t.t_cost, t.t_cost1, t.t_cost_center 
 	FROM ((tb_ord_prod orpd JOIN tb_orders o ON o.o_id = orpd.o_id) JOIN tb_tools t ON t.t_id = orpd.ot_id) JOIN tb_emp e ON e.e_id = orpd.ot_emp
 	WHERE orpd.o_id = '$o_id'";
 	$result_prd = mysql_query($sql_prd);
 	$num_prd = mysql_num_rows($result_prd);
+	
+	$row_sumcost = mysql_fetch_array(mysql_query("SELECT SUM(orpd_cost) sumcost FROM tb_ord_prod WHERE o_id = '$o_id'"));
 	
 	$row_count_prod = mysql_fetch_array(mysql_query(("SELECT COUNT(o_id) countprod FROM tb_ord_prod WHERE o_id = '$o_id'")));
 	
@@ -93,6 +95,8 @@
                                         <th>จำนวน</th>
                                         <th>คนเบิก</th>
 										<th>คนจ่าย</th>
+										<th>ทุนต่อชิ้น</th>
+										<th>ทุนรวม</th>
 										<th>วันที่</th>
                                     </tr>
                                 </thead>
@@ -101,18 +105,26 @@
 									<?php 
 										for($i=1; $i<=$num_prd; $i++){
 										  $row_prd = mysql_fetch_array($result_prd);
+										  $qty_cost = $row_prd['orpd_qty'];
+										  $cost = $row_prd['t_cost'];
+										  $cost1 = $row_prd['t_cost1'];
+										  $cost_center = $row_prd['t_cost_center'];
 									  ?>
-										<tr class="gradeA">
+										<tr class="gradeA"> 
 											<td><?php echo $row_prd['orpd_id']; ?></td>
 											<td><?php echo $row_prd['t_name']; ?></td>
-											<td><?php echo $row_prd['orpd_qty']; ?></td> 
+											<td><?php echo $qty_cost; ?></td> 
 											<td><?php echo $row_prd['e_name']; ?></td>
-											<td><?php echo $row_prd['orpd_e_aprv']; ?></td>	
+											<td><?php echo $row_prd['orpd_e_aprv']; ?></td>
+											<td><?php echo number_format($cost_center, 0, '.', ','); ?></td>  
+											<td><?php echo number_format($cost_center*$qty_cost, 0, '.', ','); ?></td> 
 											<td><?php echo $row_prd['orpd_date']; ?></td>												
 										</tr>
 									<?php } ?>
-
-                                    
+									<tr>
+										<td colspan='6'>&nbsp;</td>
+										<td colspan='2'><?php echo number_format($row_sumcost['sumcost'], 0, '.', ','); ?></td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->

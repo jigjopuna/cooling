@@ -7,7 +7,7 @@
 <?php 
 	require_once('../include/connect.php');
 	define('LINE_API',"https://notify-api.line.me/api/notify");
-	define('LINE_TOKEN','yyt9GuxI6UWyOqGzbDgJbc5rfL5qtOYsLzoD8UbsA76');
+	define('LINE_TOKEN','FqDeF0S1QKAO0K5R5ziEgjk5XbUeK7SIp7OYMOKPcHf');
 	
 	$dates = date("Y-m-d");
 

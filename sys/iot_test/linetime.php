@@ -1,8 +1,7 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
-	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	//define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');
-	define('LINE_TOKEN','kgREBDuC59lTFEXCThqsVkGh3x5GgSAYtbNftbYozsg');
+	define('LINE_API',"https://notify-api.line.me/api/notify");
+	define('LINE_TOKEN','2UhB3XtIL2zPJLAm38RLHioi9OMup0D71zaewNOO2UB');
 	$json_url = "https://api.thingspeak.com/channels/346872/feeds.json?results=288";
 	$json = file_get_contents($json_url);
 	$data = json_decode($json);
@@ -11,6 +10,25 @@
 	$json1 = file_get_contents($json_url1);
 	$data1 = json_decode($json1);
 	$tempnow = $data1->feeds[0]->field1;
+	$createat = $data1->feeds[0]->created_at;
+	$pieces = explode("T", $createat);
+	
+	//echo date_format($createat, 'Y-m-d H:i:s');
+	echo '<br>'.$pieces[0].'<br>'.$pieces[1];
+	exit();
+	
+	/*
+		1 ชม. = 12  point
+		2 ชม. = 24 
+		4 ชม. = 48
+		6 ชม. = 72
+	
+	set point  -15 ภายใน 3 ชม.
+	 
+	6 ชม. เอาค่าแรกกับค่าสุดท้าย เช่น 20, -5  ต่างกัน 25
+	               20, 11 
+		
+	*/
 	
 	
 	$arrtemp = array();
@@ -49,7 +67,7 @@
 	}
 	
 	
-	$msg = "ห้องเย็นอุณหภูมิปัจจุบัน ".date("Y-m-d h:i:sa")." ".$tempnow." องศาเซลเซียส"." เฉลี่ย ".$avg." องศา". " สูงสุด ".$maxtemp. " ดูกราฟได้ที่ http://topcooling.net/sys/iot/tempaphilap.php";
+	$msg = "ห้องเย็นอุณหภูมิปัจจุบัน ".date("Y-m-d h:i:sa")." ".$tempnow." องศาเซลเซียส"." เฉลี่ย ".$avg." องศา". " สูงสุด ".$maxtemp. " ดูกราฟได้ที่ http://topcooling.net/sys/iot/tempcha.php";
 	$res = notify_message($msg);
 	var_dump($res);
 	echo $res;

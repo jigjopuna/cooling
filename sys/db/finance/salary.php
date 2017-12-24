@@ -6,7 +6,10 @@
 </head>
 <body>
 <?php 
-	
+	$rowcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	$curr_cash = $rowcash['cash_now'];
+	$cash1 = $rowcash['cash1'];
+	$cash2 = $rowcash['cash2'];
 
 	$emp_id = trim($_POST['search_emp']);
 	$payamount  = trim($_POST['payamount']);
@@ -23,12 +26,32 @@
 		
 	}*/
 	
+	//เช็คว่าชายหรือพี่ไพรฑูรย์ใครเป็นคนจ่ายให้พนักงาน โดยเอาเงินกองกลางจ่าย
+	$rowempstore = mysql_fetch_array(mysql_query("SELECT e_company FROM tb_emp WHERE e_id = '$emp_id'"));
+	$empstore = $rowempstore['e_company'];
+	
 	echo "today = ", $today, "<br>"; 
 
 	echo "emp_id = ", $emp_id, "<br>";
 	echo "payamount = ", $payamount, "<br>";
 	echo "sal_comment = ", $sal_comment, "<br>";
 	echo "paydate = ", $paydate, "<br>";
+	echo "empstore = ", $empstore, "<br>";
+	
+	if($empstore==1){ // พนังานนครปฐมหักเงินกองกลางชาย	
+		if($cash1 < $payamount){
+			exit("<script>alert('เงินกองกลางชายไม่พอ'); window.location='../../finance/salary.php';</script>");
+		}
+	}else if ($empstore==2){ //พนังานกระทุ่มแบนหักเงินกองกลางพี่ไพรฑูรย์
+		if($cash2 < $payamount){
+			exit("<script>alert('เงินกองกลางพี่ไพรฑูรย์ไม่พอ'); window.location='../../finance/salary.php';</script>");
+		}else{
+	
+		}								
+	}else{
+					
+	}
+	
 	
 	
 	$target_dir = "../../images/salary/";
@@ -98,17 +121,32 @@
 	$result1 = mysql_query($sql);
 	
 	if($result1) {
-		//echo 'Successful inserts: ';
-		exit("
-			<script>
-				alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ');
-				window.location='../../finance/salary.php';
-			</script>");
+		$a = mysql_insert_id($conn);
+		if($empstore==1){ // พนังานนครปฐมหักเงินกองกลางชาย	
+			$temp_cash1 = $cash1 - $payamount;
+			$new_cash = $curr_cash - $payamount;
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_salary = '$a', cash_out = '$payamount', cash_date = '$paydate', cash_now = '$new_cash', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2'";
+			
+		}else if ($empstore==2){ //พนังานกระทุ่มแบนหักเงินกองกลางพี่ไพรฑูรย์
+			$temp_cash2 = $cash2 - $payamount;
+			$new_cash = $curr_cash - $payamount; 
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_salary = '$a', cash_out = '$payamount', cash_date = '$paydate', cash_now = '$new_cash', cash_times = now(), cash1 = '$cash1', cash2 = '$temp_cash2'";					
+		}
+		
+		$result6 = mysql_query($cal_cash);
+		if($result6) {
+			//echo 'Successful inserts: ';
+			exit("<script>alert('บันทึกจ่ายเงินพนักงานเรียบร้อยแล้วจร้า ');window.location='../../finance/salary.php';</script>");
+		} else {
+			 // echo 'query failed: ' ;
+			exit("<script>alert('บันทึกเงินเดือนไม่สำเร็จ');window.location='../../finance/salary.php';</script>");
+		}			
+				
 	} else {
 		// echo 'query failed: ' ;
 		exit("
 			<script>
-				alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ');
+				alert('บันทึกจ่ายเงินไม่สำเร็จ ติดต่อผู้ดูแลระบบ');
 				window.location='../../finance/salary.php';
 			</script>");
 	}
@@ -116,4 +154,4 @@
 ?>
 </body>
 </html>     
-</html>     
+    

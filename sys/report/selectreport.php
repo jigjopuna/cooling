@@ -65,9 +65,12 @@
 				$('#form1').attr('action','tranreport.php');
 			}else if(rep_type==4){
 				$('#form1').attr('action','poreport.php');
-			}else{
-				$('#form1').attr('action','allreport.php');
+			}else if(rep_type==5){
+				$('#form1').attr('action','stockreport.php');
+			}else if(rep_type==6){
+				$('#form1').attr('action','burkreport.php');
 			}
+
 			
 		}
 
@@ -104,11 +107,12 @@
 										<label class="control-label" for="inputSuccess">เลือกรายงาน </label>
 											<select class="form-control" id="sel_rep" name="sel_rep">
 												<option value="0">เลือกรายงาน</option>
-												<option value="1">เงินเดือน</option>
+												<option value="1" disabled >เงินเดือน</option>
 												<option value="2">ยอดขาย</option>
 												<option value="3">ยอดโอน</option>
 												<option value="4">ซื้อของ</option>
-												<option value="5">ทั้งหมด</option>
+												<option value="5">การใส่สต็อค</option>
+												<option value="6">การเบิกสต็อค</option>
 											
 											</select>
 									</div>
@@ -117,10 +121,10 @@
 										<label class="control-label" for="inputSuccess">ช่วงเวลา </label>
 											<select class="form-control" id="rep_time" name="rep_time">
 												<option value="0">เลือกช่วงเวลา</option>
-												<option value="1">รายวัน</option>
-												<option value="2">รายสัปดาห์</option>
+												<option value="1" disabled>รายวัน</option>
+												<option value="2" disabled>รายสัปดาห์</option>
 												<option value="3">รายเดือน</option>
-												<option value="4">รายปี</option>		
+												<option value="4" disabled>รายปี</option>		
 											</select>
 									</div>
 									

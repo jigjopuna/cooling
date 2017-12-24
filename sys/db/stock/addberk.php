@@ -25,15 +25,18 @@
 	$empid = trim($_POST['search_emp']);
 	$stodate  = trim($_POST['stodate']);
 	
+	
 	/*ตอนเบิกให้ตัดสต็อก*/
 	
 	if($role==1) {
-		$rowchkst = mysql_fetch_array(mysql_query("SELECT t_stock FROM tb_tools WHERE t_id = '$toolid'"));
+		$rowchkst = mysql_fetch_array(mysql_query("SELECT t_stock, t_cost_center FROM tb_tools WHERE t_id = '$toolid'"));
 		$chkst = $rowchkst['t_stock'];
+		$cost_center = $rowchkst['t_cost_center']*$berkqty;
 		if($chkst < $berkqty) { exit("<script>alert('สต็อคที่นครปฐมไม่พอเบิกนะคะ'); window.location = '../../stock/stockout.php';</script>"); }
 	}else if($role==2){
-		$rowchkst = mysql_fetch_array(mysql_query("SELECT t_stock1 FROM tb_tools WHERE t_id = '$toolid'"));
-		$chkst = $rowchkst['t_stock1'];
+		$rowchkst = mysql_fetch_array(mysql_query("SELECT t_stock1, t_cost_center FROM tb_tools WHERE t_id = '$toolid'"));
+		$chkst = $rowchkst['t_stock1']*$berkqty;
+		$cost_center = $rowchkst['t_cost_center'];
 			if($chkst < $berkqty) { exit("<script>alert('สต็อคที่กระทุ่มแบนไม่พอเบิกนะคะ'); window.location = '../../stock/stockout.php';</script>"); }
 	}else{}
 	
@@ -45,6 +48,7 @@
 	echo "ordid = ", $ordid, "<br>";
 	echo "empid = ", $empid, "<br>";
 	echo "chkst = ", $chkst, "<br>";
+	echo "cost_center = ", $cost_center, "<br>";
 	
 	$substk = $chkst - $berkqty;
 	/*echo 'substk : '.$substk;
@@ -62,6 +66,7 @@
 			ot_emp     = '$empid', 
 			orpd_wh    = '$warehouse', 
 			orpd_e_aprv= '$e_id', 
+			orpd_cost  = '$cost_center', 
 			orpd_time  =  now()";
 	
 	$result1 = mysql_query($sql);

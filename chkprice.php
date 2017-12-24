@@ -475,7 +475,7 @@
 				</a>
 			</div>
 			
-			<div class="articles"><a href="th/article/brief.php" target="_blank">
+				<div class="articles"><a href="th/article/brief.php" target="_blank">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('sources/assets/images/delivery.jpg');">
 						<span>+ อ่านต่อ</span>
