@@ -20,12 +20,32 @@
 	$row_sumcost = mysql_fetch_array(mysql_query("SELECT SUM(orpd_cost) sumcost FROM tb_ord_prod WHERE o_id = '$o_id'"));
 	
 	$row_count_prod = mysql_fetch_array(mysql_query(("SELECT COUNT(o_id) countprod FROM tb_ord_prod WHERE o_id = '$o_id'")));
-	
-	
+	$sumprod = $row_sumcost['sumcost'];
 	//order pay
 	$sql_pay = "SELECT * FROM tb_ord_pay opy JOIN tb_orders ord on opy.o_id = ord.o_id WHERE opy.o_id = '$o_id' ORDER BY opy.pay_date";
 	$result_pay = mysql_query($sql_pay);
 	$num_pay= mysql_num_rows($result_pay);
+	
+	
+	/*
+		sum cost from tb_po
+		ค่าใช้แต่ละออเดอร์จะมาจาก 2 ตารางคือ tb_ord_prod กับ tb_po  
+		tb_ord_prod จะเป็นทุนที่มาจากสต็อค
+		tb_po จะเป็นทุนที่ไม่ได้มาจากสต็อค เช่น ค่ารถเฮียบ ค่าช่างติดหน้างาน เป็นต้น
+	*/
+	
+	
+	$rowpocost = mysql_fetch_array(mysql_query("SELECT SUM(po_price) poprice, COUNT(po_id) cntpoid FROM tb_po WHERE po_orders = '$o_id'"));
+	$pocost = number_format($rowpocost['poprice'], 0, '.', ',');
+	$pocount = number_format($rowpocost['cntpoid'], 0, '.', ',');
+	
+	/*echo 'pocost : '.$pocost.'<br>';
+	echo 'pocount : '.$pocount;
+	exit();*/
+	$sql_po = "SELECT * FROM tb_po WHERE po_orders = '$o_id'";
+	$result_po = mysql_query($sql_po);
+	$num_po = mysql_num_rows($result_po);
+	
 	
 	
 	//find quotation docs
@@ -83,7 +103,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							รายละเอียดสินค้า   <?php echo $row_count_prod['countprod']. ' รายการ'; ?>
+							รายละเอียดสินค้า   <?php echo $row_count_prod['countprod']+$pocount. ' รายการ'; ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -121,9 +141,26 @@
 											<td><?php echo $row_prd['orpd_date']; ?></td>												
 										</tr>
 									<?php } ?>
+									
+									<?php 
+										for($i=1; $i<=$num_po; $i++){
+										  $row_po = mysql_fetch_array($result_po);
+									  ?>
+										<tr class="gradeA"> 
+											<td><?php echo $row_po['po_id']; ?></td>
+											<td><?php echo $row_po['po_name']; ?></td>
+											<td>&nbsp;</td>
+											<td>&nbsp;</td>
+											<td>&nbsp;</td>
+											<td>&nbsp;</td>
+											<td><?php echo $row_po['po_price']; ?></td>
+											<td><?php echo $row_po['po_date']; ?></td>												
+										</tr>
+									<?php } ?>
+									
 									<tr>
 										<td colspan='6'>&nbsp;</td>
-										<td colspan='2'><?php echo number_format($row_sumcost['sumcost'], 0, '.', ','); ?></td>
+										<td colspan='2'><?php echo $pocost; ?></td>
                                     </tr>
                                 </tbody>
                             </table>

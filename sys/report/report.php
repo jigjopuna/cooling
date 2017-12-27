@@ -100,6 +100,8 @@ body {
     }
 .box {width: 45%; float:left; margin-left: 20px; padding-bottom: 20px;}
 #header{ background-color:#EEEEE; width: 100%; text-align: center; height:60px; font-size: 2em;  }
+.header{ background-color:#EEEEE; width: 100%; text-align: center; height:50px; font-size: 2em;  }
+.header1{ background-color:#EEEEE; width: 100%; text-align: center; height:40px; font-size: 1.7em;  }
 .topic { font-size: 18px; font-weight: bold; text-decoration: underline; }
 #pay, #income { border-bottom: 1px solid #EEEEEE; overflow: hidden; margin-bottom:35px;}
 
@@ -227,6 +229,14 @@ body {
 				</div>
 			</div>
 			
+
+        </div>  <!--end subpage-->
+    </div> <!--end page-->
+	
+	
+	
+	<div class="page">
+        <div class="subpage">
 			<div id="podetail" style="/*background-color:olive;*/ width:100%; /*height:200px;*/ float:none; overflow:hidden;">
 				
 					<table style="width:100%; border: 1px solid black;">
@@ -255,28 +265,6 @@ body {
 					</table><br><br>
 					
 					
-					<table style="width:100%; border: 1px solid black;">
-						<tr>
-							<td colspan="4" align="center">ลูกค้าโอน</td>
-						</tr>
-						<tr>
-							<td>#</td>
-							<td>ชื่อลูกค้า</td>
-							<td>จำนวนโอน</td>
-							<td>คนรับเงิน</td>
-						</tr>
-						<?php for($i=1; $i<=$num_getcash; $i++) {  
-							$row_getcash = mysql_fetch_array($result_getcash);
-						?>
-							<tr>
-								<td><?php echo $i;?></td>
-								<td><?php echo $row_getcash['cust_name'];?></td>
-								<td><?php echo number_format($row_getcash['pay_amount'], 0, '.', ',');?></td>
-								<td><?php echo $row_getcash['e_name'];?></td>
-							</tr>
-						<?php } ?>
-						
-					</table>
 					
 						
 					
@@ -309,6 +297,269 @@ body {
 					<td><?php echo $row_sal['sal_date'];?></td>
 				</tr>
 						<?php } ?>
+						
+			</table><br><br>
+					<table style="width:100%; border: 1px solid black;">
+						<tr>
+							<td colspan="4" align="center">ลูกค้าโอน</td>
+						</tr>
+						<tr>
+							<td>#</td>
+							<td>ชื่อลูกค้า</td>
+							<td>จำนวนโอน</td>
+							<td>คนรับเงิน</td>
+						</tr>
+						<?php for($i=1; $i<=$num_getcash; $i++) {  
+							$row_getcash = mysql_fetch_array($result_getcash);
+						?>
+							<tr>
+								<td><?php echo $i;?></td>
+								<td><?php echo $row_getcash['cust_name'];?></td>
+								<td><?php echo number_format($row_getcash['pay_amount'], 0, '.', ',');?></td>
+								<td><?php echo $row_getcash['e_name'];?></td>
+							</tr>
+						<?php } ?>
+						
+					</table>
+		</div>	
+    </div> <!--end page-->
+	
+	
+	<div class="page">
+        <div class="subpage">
+			<div class="header">สรุปประจำวันที่  <?php echo $dates; ?></div>
+			<div class="header1">สโตร์นครปฐม</div>
+			<table style="width:100%; border: 1px solid black;">
+						<tr>
+							<td colspan="5" align="center">รายการซื้อ <?php if($cntbuynkpt=='') echo 0; else echo $cntbuynkpt;?> รายการ</td>
+						</tr>
+						<tr>
+							<td>#</td>
+							<td>รายการ</td>
+							<td>ราคา</td>
+							<td>วันที่</td>
+						</tr>
+						<?php for($i=1; $i<=$num_ponkpt; $i++) {  
+							$row_ponkpt = mysql_fetch_array($result_ponkpt);
+						?>
+							<tr>
+								<td><?php echo $row_ponkpt['po_id'];?></td>
+								<td><?php echo $row_ponkpt['po_name'];?></td>
+								<td><?php echo number_format($row_ponkpt['po_price'], 0, '.', ',');?></td>
+								<td><?php echo $row_ponkpt['po_date'];?></td>
+							</tr>
+						<?php } ?>
+						<tr>
+							<td>&nbsp; </td>
+							<td>รวม </td>
+							<td><?php echo $sumbuynkpt; ?>  </td>
+							<td>บาท </td>
+						</tr>
+						
+					</table><br><br>
+					
+					
+					
+					
+					<table style="width:100%; border: 1px solid black;">
+						<tr>
+							<td colspan="6" align="center">ใส่สต็อคสโตร์นครปฐม <?php if($cntstknkpt=='') echo 0; else echo $cntstknkpt; ?> รายการ</td>
+						</tr>
+						<tr>
+							<td>#</td>
+							<td>รายการ</td>
+							<td>จำนวน</td>
+							<td>ราคากลาง</td>
+							<td>สต็อคนครปฐม</td>
+							<td>สต็อคกระทุ่มแบน</td>
+						</tr>
+						
+						<?php for($i=1; $i<=$num_stknkpt; $i++) {  
+							$row_stknkpt = mysql_fetch_array($result_stknkpt);
+						?>
+							<tr>
+								<td><?php echo $row_stknkpt['pu_id'];?></td>
+								<td><?php echo $row_stknkpt['t_name'];?></td>
+								<td><?php echo $row_stknkpt['pu_qty'];?></td>
+								<td><?php echo $row_stknkpt['t_cost_center'];?></td>
+								<td><?php echo $row_stknkpt['t_stock'];?></td>
+								<td><?php echo $row_stknkpt['t_stock1'];?></td>
+							</tr>
+						<?php } ?>
+						<tr>
+							<td>&nbsp; </td>
+							<td>&nbsp; </td>
+							<td>รวม </td>
+							<td><?php echo $coststknkpt; ?> </td>
+							<td>บาท </td>
+						</tr>
+	
+						
+					</table>
+		</div>	
+    </div> <!--end page-->
+	
+	<div class="page">
+        <div class="subpage">
+			<table style="width:100%; border: 1px solid black;">
+				<tr>
+					<td colspan="6" align="center">เบิกของ สโตร์นครปฐม <?php if($cntburkktb=='') echo 0; else echo $cntburknkpt?> รายการ</td>
+				</tr>
+				<tr>
+					<td>#</td>
+					<td>รายการ</td>
+					<td>จำนวน</td>
+					<td>ราคากลาง</td>
+					<td>คนเบิก</td>
+					<td>งานลูกค้า</td>
+				</tr>
+				<?php for($i=1; $i<=$num_burknkpt; $i++) {  
+					$row_burknkpt = mysql_fetch_array($result_burknkpt);
+				?>
+				
+				<tr>
+					<td><?php echo $row_burknkpt['orpd_id'];?></td>
+					<td><?php echo $row_burknkpt['t_name'];?></td>
+					<td><?php echo $row_burknkpt['orpd_qty'];?></td>
+					<td><?php echo $row_burknkpt['t_cost_center'];?></td>
+					<td><?php echo $row_burknkpt['e_name'];?></td>
+					<td><?php echo $row_burknkpt['cust_name'];?></td>
+				</tr>
+				<?php } ?>
+				
+				<tr>
+					<td>&nbsp; </td>
+					<td>&nbsp; </td>
+					<td>รวม </td>
+					<td><?php echo $costburknkpt; ?> </td>
+					<td>บาท </td>
+					<td>&nbsp; </td>
+				</tr>
+						
+			</table>
+		</div>	
+    </div> <!--end page-->
+	
+	
+	
+	
+	
+						<!--Kratumban-->
+	
+	
+	<div class="page">
+        <div class="subpage">
+			<div class="header">สรุปประจำวันที่  <?php echo $dates; ?></div>
+			<div class="header1">สโตร์กระทุ่มแบน</div>
+			<table style="width:100%; border: 1px solid black;">
+				<tr>
+							<td colspan="5" align="center">รายการซื้อ <?php echo $cntbuyktb;?> รายการ</td>
+						</tr>
+						<tr>
+							<td>#</td>
+							<td>รายการ</td>
+							<td>ราคา</td>
+							<td>วันที่</td>
+						</tr>
+						<?php for($i=1; $i<=$num_poktb; $i++) {  
+							$row_poktb = mysql_fetch_array($result_poktb);
+						?>
+							<tr>
+								<td><?php echo $row_poktb['po_id'];?></td>
+								<td><?php echo $row_poktb['po_name'];?></td>
+								<td><?php echo number_format($row_poktb['po_price'], 0, '.', ',');?></td>
+								<td><?php echo $row_poktb['po_date'];?></td>
+							</tr>
+						<?php } ?>
+						<tr>
+							<td>&nbsp; </td>
+							<td>รวม </td>
+							<td><?php echo $sumbuyrow_poktb; ?>  </td>
+							<td>บาท </td>
+						</tr>
+						
+			</table><br><br>
+			
+			<table style="width:100%; border: 1px solid black;">
+						<tr>
+							<td colspan="6" align="center">ใส่สต็อคสโตร์กระทุ่มแบน <?php if($cntstkktb=='') echo 0; else echo $cntstkktb; ?> รายการ</td>
+						</tr>
+						<tr>
+							<td>#</td>
+							<td>รายการ</td>
+							<td>จำนวน</td>
+							<td>ราคากลาง</td>
+							<td>สต็อคนครปฐม</td>
+							<td>สต็อคกระทุ่มแบน</td>
+						</tr>
+						
+						<?php for($i=1; $i<=$num_stkktb; $i++) {  
+							$row_stkktb = mysql_fetch_array($result_stkktb);
+						?>
+							<tr>
+								<td><?php echo $row_stkktb['pu_id'];?></td>
+								<td><?php echo $row_stkktb['t_name'];?></td>
+								<td><?php echo $row_stkktb['pu_qty'];?></td>
+								<td><?php echo $row_stkktb['t_cost_center'];?></td>
+								<td><?php echo $row_stkktb['t_stock'];?></td>
+								<td><?php echo $row_stkktb['t_stock1'];?></td>
+							</tr>
+						<?php } ?>
+						<tr>
+							<td>&nbsp; </td>
+							<td>&nbsp; </td>
+							<td>รวม </td>
+							<td><?php echo $coststkktb; ?> </td>
+							<td>บาท </td>
+						</tr>
+	
+						
+					</table>
+		</div>	
+    </div> <!--end page-->
+	
+	
+	
+	
+	
+					
+	
+	<div class="page">
+        <div class="subpage">
+			<table style="width:100%; border: 1px solid black;">
+				<tr>
+					<td colspan="6" align="center">เบิกของ สโตร์กระทุ่มแบน <?php if($cntburkktb=='') echo 0; else echo $cntburkktb?> รายการ</td>
+				</tr>
+				<tr>
+					<td>#</td>
+					<td>รายการ</td>
+					<td>จำนวน</td>
+					<td>ราคากลาง</td>
+					<td>คนเบิก</td>
+					<td>งานลูกค้า</td>
+				</tr>
+				<?php for($i=1; $i<=$num_burkktb; $i++) {  
+					$row_burkktb = mysql_fetch_array($result_burkktb );
+				?>
+				
+				<tr>
+					<td><?php echo $row_burkktb['orpd_id'];?></td>
+					<td><?php echo $row_burkktb['t_name'];?></td>
+					<td><?php echo $row_burkktb['orpd_qty'];?></td>
+					<td><?php echo $row_burkktb['t_cost_center'];?></td>
+					<td><?php echo $row_burkktb['e_name'];?></td>
+					<td><?php echo $row_burkktb['cust_name'];?></td>
+				</tr>
+				<?php } ?>
+				
+				<tr>
+					<td>&nbsp; </td>
+					<td>&nbsp; </td>
+					<td>รวม </td>
+					<td><?php echo $costburkktb; ?> </td>
+					<td>บาท </td>
+					<td>&nbsp; </td>
+				</tr>
 						
 			</table>
 		</div>	

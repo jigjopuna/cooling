@@ -64,6 +64,92 @@
 	$result_trancash = mysql_query($sql_trancash);
 	$num_trancash = mysql_num_rows($result_trancash);
 	
+	$nkpt = 2;
+	$ktb  = 3;
+
+	//-----------------------นครปฐม---------------------------------
+	//ซื้อ
+	$rowbuynkpt = mysql_fetch_array(mysql_query("SELECT COUNT(po_id) countpo, SUM(po_price) sumpo FROM tb_po WHERE po_date = '$dates' AND po_subyer = $nkpt"));
+	$cntbuynkpt = $rowbuynkpt['countpo'];
+	$sumbuynkpt = number_format($rowbuynkpt['sumpo'], 0, '.', ',');
+	
+	
+	//เพิ่มสต็อค
+	$rowstknkpt = mysql_fetch_array(mysql_query("SELECT SUM(pu.pu_qty*t.t_cost_center) coststk, COUNT(pu.pu_id) countpu FROM tb_pushstock pu JOIN tb_tools t ON t.t_id = pu.pu_tid WHERE pu_date = '$dates' AND pu.pu_wh = $nkpt"));
+	$cntstknkpt = $rowstknkpt['countpu'];
+	$coststknkpt = number_format($rowstknkpt['coststk'], 0, '.', ',');
+
+	//เบิก
+	$rowburknkpt = mysql_fetch_array(mysql_query("SELECT COUNT(orpd.orpd_id) countburk, SUM(orpd.orpd_cost) costburk FROM tb_ord_prod orpd JOIN tb_tools t ON t.t_id = orpd.ot_id WHERE orpd_date = '$dates' AND orpd_wh = $nkpt"));
+	$cntburknkpt = $rowburknkpt['countburk'];
+	$costburknkpt = number_format($rowburknkpt['costburk'], 0, '.', ',');
+	
+	//nktp cash center
+	$rowcashnkpt = mysql_fetch_array(mysql_query("SELECT cash1 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	$cashnkpt = number_format($rowcashnkpt['cash1'], 0, '.', ',');
+	
+	//ซื้อ
+	$sql_ponkpt = "SELECT po_id, po_subyer, po_buyer, po_name, po_price, po_date FROM tb_po WHERE po_date = '$dates' AND po_subyer = $nkpt";
+	$result_ponkpt = mysql_query($sql_ponkpt);
+	$num_ponkpt = mysql_num_rows($result_ponkpt);
+	
+	
+	//เพิ่มสต็อค
+	$sql_stknkpt = "SELECT pu.pu_id, pu.pu_qty, pu.pu_date, t.t_name, t.t_cost_center, t.t_stock, t.t_stock1 FROM tb_pushstock pu JOIN tb_tools t ON t.t_id = pu.pu_tid WHERE pu_date = '$dates' AND pu.pu_wh = $nkpt";
+	$result_stknkpt = mysql_query($sql_stknkpt);
+	$num_stknkpt = mysql_num_rows($result_stknkpt);
+	
+	
+	//เบิก
+	$sql_burknkpt = "SELECT t.t_name, t.t_cost_center, orpd.orpd_id, orpd.orpd_qty, orpd.orpd_date, e.e_name, c.cust_name FROM (((tb_ord_prod orpd JOIN tb_tools t ON t.t_id = orpd.ot_id) JOIN tb_emp e ON e.e_id = orpd.ot_emp) JOIN tb_orders o ON o.o_id = orpd.o_id) JOIN tb_customer c ON c.cust_id = o.o_cust WHERE orpd_date = '$dates' AND orpd.orpd_wh = $nkpt";
+	$result_burknkpt = mysql_query($sql_burknkpt);
+	$num_burknkpt = mysql_num_rows($result_burknkpt);
+  
+    /*echo "num_ponkpt : ".$num_ponkpt.'<br>';
+	echo "num_stknkpt : ".$num_stknkpt.'<br>';
+	echo "num_burknkpt : ".$num_burknkpt.'<br>';*/
+	
+	//exit();
+	
+	//----------------------------กระทุ่มแบน--------------------------------
+	
+	//ซื้อ
+	$rowbuyktb = mysql_fetch_array(mysql_query("SELECT COUNT(po_id) countpo, SUM(po_price) sumpo FROM tb_po WHERE po_date = '$dates' AND po_subyer = $ktb"));
+	$cntbuynktb = $rowbuyktb['countpo'];
+	$sumbuyktb = number_format($rowbuyktb['sumpo'], 0, '.', ',');
+	
+	
+	//เพิ่มสต็อค
+	$rowstkktbt = mysql_fetch_array(mysql_query("SELECT SUM(pu.pu_qty*t.t_cost_center) coststk, COUNT(pu.pu_id) countpu FROM tb_pushstock pu JOIN tb_tools t ON t.t_id = pu.pu_tid WHERE pu_date = '$dates' AND pu.pu_wh = $ktb"));
+	$cntstkktb = $rowstkktb['countpu'];
+	$coststkktb = number_format($rowstkktb['coststk'], 0, '.', ',');
+
+	//เบิก
+	$rowburkktb = mysql_fetch_array(mysql_query("SELECT COUNT(orpd.orpd_id) countburk, SUM(orpd.orpd_cost) costburk FROM tb_ord_prod orpd JOIN tb_tools t ON t.t_id = orpd.ot_id WHERE orpd_date = '$dates' AND orpd_wh = $ktb"));
+	$cntburkktb = $rowburkktb['countburk'];
+	$costburkktb = number_format($rowburkktb['costburk'], 0, '.', ',');
+	
+	//nktp cash center
+	$rowcashktb = mysql_fetch_array(mysql_query("SELECT cash1 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	$cashktb = number_format($rowcashktb['cash1'], 0, '.', ',');
+	
+	//ซื้อ
+	$sql_poktb = "SELECT po_id, po_subyer, po_buyer, po_name, po_price, po_date FROM tb_po WHERE po_date = '$dates' AND po_subyer = $ktb";
+	$result_poktb = mysql_query($sql_poktb);
+	$num_poktb = mysql_num_rows($result_poktb);
+	
+	
+	//เพิ่มสต็อค
+	$sql_stkktb = "SELECT pu.pu_id, pu.pu_qty, pu.pu_date, t.t_name, t.t_cost_center, t.t_stock, t.t_stock1 FROM tb_pushstock pu JOIN tb_tools t ON t.t_id = pu.pu_tid WHERE pu_date = '$dates' AND pu.pu_wh = $ktb";
+	$result_stkktb = mysql_query($sql_stkktb);
+	$num_stkktb = mysql_num_rows($result_stkktb);
+	
+	
+	//เบิก
+	$sql_burkktb = "SELECT t.t_name, t.t_cost_center, orpd.orpd_id, orpd.orpd_qty, orpd.orpd_date, e.e_name, c.cust_name FROM (((tb_ord_prod orpd JOIN tb_tools t ON t.t_id = orpd.ot_id) JOIN tb_emp e ON e.e_id = orpd.ot_emp) JOIN tb_orders o ON o.o_id = orpd.o_id) JOIN tb_customer c ON c.cust_id = o.o_cust WHERE orpd_date = '$dates' AND orpd.orpd_wh = $ktb";
+	$result_burkktb = mysql_query($sql_burkktb);
+	$num_burkktb = mysql_num_rows($result_burkktb);
+	
 
 	
 ?>

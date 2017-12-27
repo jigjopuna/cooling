@@ -7,7 +7,8 @@
 <?php 
 	require_once('../include/connect.php');
 	define('LINE_API',"https://notify-api.line.me/api/notify");
-	define('LINE_TOKEN','FqDeF0S1QKAO0K5R5ziEgjk5XbUeK7SIp7OYMOKPcHf');
+	//define('LINE_TOKEN','FqDeF0S1QKAO0K5R5ziEgjk5XbUeK7SIp7OYMOKPcHf'); //กลุ่มเอกสาร
+	define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');
 	
 	$dates = date("Y-m-d");
 	//$dates = '2017-12-21';
