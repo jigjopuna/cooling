@@ -8,12 +8,12 @@
 <?php require_once ('../../include/googlebot.php');?>
 <meta name="copyright" content="topcooling 2017"/>
 <meta name="keywords" content="ห้องเย็นคำถาม">
-<meta name="description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร">
+<meta name="description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร โทร 082-360-1523">
 <meta property="og:title" content="19 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/17howto/17.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/17howto.php"/>
-<meta property="og:description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร"/>
+<meta property="og:description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร โทร 082-360-1523"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>19 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ</title>

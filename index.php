@@ -459,7 +459,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="blog-slider" >
-				<div class="articles"><a href="th/article/17howto.php" target="_blank">
+				<div class="articles"><a href="th/article/17howto.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('sources/assets/images/17howto.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -473,7 +473,7 @@
 					</a>
 				</div>
 
-				<div class="articles"><a href="#" target="_blank">
+				<div class="articles"><a href="#">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('sources/assets/images/chktemp.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -488,7 +488,7 @@
 				</div>
 			
 			
-			<div class="articles"><a href="" target="_blank">
+			<div class="articles"><a href="">
 				<div class="blog-box">
 					<div class="blog-img" style="background: url('sources/assets/images/comp.jpg');">
 					<span>+ อ่านต่อ</span>
@@ -525,7 +525,7 @@
 			<div class="blog-slider" >
 			
 			
-				<div class="articles"><a href="th/article/brief.php" target="_blank">
+				<div class="articles"><a href="th/article/brief.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('sources/assets/images/delivery.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -539,7 +539,7 @@
 					</a>
 				</div>
 				
-				<div class="articles"><a href="th/article/outside.php" target="_blank">
+				<div class="articles"><a href="th/article/outside.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('content/images/article/out-side/outside-01.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -558,7 +558,7 @@
 			
 			
 
-			<div class="articles"><a href="th/article/pre-design.php" target="_blank">
+			<div class="articles"><a href="th/article/pre-design.php">
 				<div class="blog-box">
 					<div class="blog-img" style="background: url('content/images/article/design-room/main-post.jpg');">
 					<span>+ อ่านต่อ</span>
@@ -612,15 +612,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="blog-slider" >
-				<div class="articles"><a href="" target="_blank">
+				<div class="articles"><a href="th/article/icestorage.php">
 					<div class="blog-box">
-						<div class="blog-img" style="background: url('sources/assets/images/comp.jpg');">
+						<div class="blog-img" style="background: url('sources/assets/images/compare.jpg');">
 						<span>+ อ่านต่อ</span>
 						</div>
 						<div class="blog-content">
-							<span class="blog-time "></span>
-							<h2 class="blog-title ">เหตุผลที่ควรมีห้องเย็น</h2>
-							<p class="blog-excerpt "> ทำไมต้องมีห้องเย็น หากท่านมีเหตุลผลตรงกับหัวข้อในบทความนี้  บ่งบอกได้ว่าควรจะมีห้องเย็น</p>
+							<span class="blog-time"></span>
+							<h2 class="blog-title">ห้องเย็นเก็บน้ำแข็ง</h2>
+							<p class="blog-excerpt"> จะมีห้องเย็นเก็บน้ำแข็ง โดยเฉพาะโรงน้ำแข็ง จะต้องเตรียมตัวอย่างไรบ้าง เก็บน้ำแข็งได้กี่ตัน ใช้เครื่องกี่แรง ถึงจะเก็บน้ำแข็งได้ดี มีคุณภาพ</p>
 						</div>
 					</div>
 					</a>

@@ -6,29 +6,29 @@
 	<div class="container">
 		<div class="row">
 			<div class="blog-slider" >
-				<div class="articles"><a href="how-to-freeze-room.php" target="_blank">
+				<div class="articles"><a href="17howto.php">
 					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
+						<div class="blog-img" style="background: url('../../sources/assets/images/17howto.jpg');">
 						<span>+ อ่านต่อ</span>
 						</div>
 						<div class="blog-content">
 							<span class="blog-time"></span>
-							<h2 class="blog-title">ไม่รู้จะเริ่มสร้างห้องเย็นยังไง </h2>
-							<p class="blog-excerpt"> ต้องการทำห้องเย็น แต่ไม่รู้จะเริ่มต้นหาข้อมูลจากที่ไหน สร้างห้องเย็นยังไง บทความนี้ จะช่วยให้เข้าใจทุกอย่างมากขึ้น </p>
+							<h2 class="blog-title">19 ข้อ ต้องรู้ก่อนมีห้องเย็น</h2>
+							<p class="blog-excerpt">เชื่อว่าหลายท่านที่กำลังมองหาห้องเย็นสักห้อง กำลังตัดสินใจอยู่ ให้อ่านบทความนี้ จะช่วยท่านตัดใจได้ดี และถูกต้องแน่นอน จากประสบการณ์ตรง กว่า 30 ปี</p>
 						</div>
 					</div>
 					</a>
 				</div>
 
-			<div class="articles"><a href="" target="_blank">
+			<div class="articles"><a href="#">
 				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
+					<div class="blog-img" style="background: url('../../sources/assets/images/chktemp.jpg');">
 					<span>+ อ่านต่อ</span>
 					</div>
 					<div class="blog-content">
 						<span class="blog-time"></span>
-						<h2 class="blog-title">ห้องเย็นราคาแพงดีจริงๆ หรือ</h2>
-						<p class="blog-excerpt">หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น..</p>
+						<h2 class="blog-title">ระบบ Cloud อัจฉริยะ เช็คอุณหภูมิผ่านมือถือ</h2>
+						<p class="blog-excerpt">เพราะสินค้าในห้องเย็นมีมูลค่าสูงมาก หากมีระบบนี้ จะช่วยลดความเสี่ยงห้องเย็นไม่เย็นไปได้อย่างมาก ตรวจสอบอุณหภูมิได้ตลอด 24 ชม. แม้ไม่ได้อยู่หน้าห้องเย็น</p>
 					</div>
 				</div>
 				</a>

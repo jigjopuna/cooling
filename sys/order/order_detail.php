@@ -36,8 +36,8 @@
 	
 	
 	$rowpocost = mysql_fetch_array(mysql_query("SELECT SUM(po_price) poprice, COUNT(po_id) cntpoid FROM tb_po WHERE po_orders = '$o_id'"));
-	$pocost = number_format($rowpocost['poprice'], 0, '.', ',');
-	$pocount = number_format($rowpocost['cntpoid'], 0, '.', ',');
+	$pocost = $rowpocost['poprice'];
+	$pocount = $rowpocost['cntpoid'];
 	
 	/*echo 'pocost : '.$pocost.'<br>';
 	echo 'pocount : '.$pocount;
@@ -102,8 +102,8 @@
 			<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-							รายละเอียดสินค้า   <?php echo $row_count_prod['countprod']+$pocount. ' รายการ'; ?>
+                        <div class="panel-heading">;
+							รายละเอียดสินค้า   <?php echo number_format($row_count_prod['countprod']+$pocount, 0, '.', ',').' รายการ'; ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -153,14 +153,14 @@
 											<td>&nbsp;</td>
 											<td>&nbsp;</td>
 											<td>&nbsp;</td>
-											<td><?php echo $row_po['po_price']; ?></td>
+											<td><?php echo number_format($row_po['po_price'], 0, '.', ','); ?></td>
 											<td><?php echo $row_po['po_date']; ?></td>												
 										</tr>
 									<?php } ?>
 									
 									<tr>
-										<td colspan='6'>&nbsp;</td>
-										<td colspan='2'><?php echo $pocost; ?></td>
+										<td colspan='6'>&nbsp;</td> 
+										<td colspan='2'><?php echo number_format($pocost+$sumprod, 0, '.', ','); ?></td>
                                     </tr>
                                 </tbody>
                             </table>
