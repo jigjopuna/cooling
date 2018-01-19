@@ -10,7 +10,10 @@
 	define('LINE_TOKEN','2UhB3XtIL2zPJLAm38RLHioi9OMup0D71zaewNOO2UB');
 	
 	$periodset = 72;
-	$hours = 5;
+	$hours = $periodset/12;
+	$settemp = -10;
+	$mintemp = Null;
+	
 	$json_url = "https://api.thingspeak.com/channels/346872/feeds.json?results=$periodset";
 	$json = file_get_contents($json_url);
 	$data = json_decode($json);
@@ -55,13 +58,15 @@
 	//Hostinger Time Server
 	$dates = date('Y-m-d H:i:s');
 	echo '<br>  hostinger time : '.$dates;
-	
+
 	
 	for($k=0; $k<=$periodset; $k++){
 		$arrdate[$k] = $data->feeds[$k]->created_at;
 		$arrtemp[$k] = $data->feeds[$k]->field1;			
-		//echo '<br><br>'.$arrdate[$k]."<br>";				
+		echo '<br>'.$arrtemp[$k];				
 	}
+
+	
 	//เวลาย้อนหลัง
 	$spd = explode("T", $arrdate[0]);
 	$predate = $spd[0];
@@ -78,20 +83,22 @@
 	$d3 = explode("-", $postdate);
 	$t3 = explode(":", $postime);
 	
-	echo '<br>'.$pretime.'<br>'.$d2[0].'-'.$d2[1].'-'.$d2[2].' | '.$t2[0].'-'.$t2[1].'-'.$t2[2];
-	echo '<br><br>'.$postime.'<br>'.$d3[0].'-'.$d3[1].'-'.$d3[2].' | '.$t3[0].'-'.$t3[1].'-'.$t3[2];
+	echo '<br>pretime : '.$pretime.'<br>'.$d2[0].'-'.$d2[1].'-'.$d2[2].' | '.$t2[0].'-'.$t2[1].'-'.$t2[2];
+	echo '<br><br>postime : '.$postime.'<br>'.$d3[0].'-'.$d3[1].'-'.$d3[2].' | '.$t3[0].'-'.$t3[1].'-'.$t3[2];
 	$a = (int)$d3[2];
 	$b = (int)$d2[2];
 	$diffday = $a-$b;
 	$c = (int)$t3[0];
 	$d = (int)$t2[0];
 	$difftime = $c - $d;
+	echo "<br> ||| <br>";
 	//ถ้าวันเดียวกัน ok แต่ถ้าคนละวันต้องเช็คต่อว่า เวลานั้นห่างกันตามจำนวนชั่วโมงที่กำหนดไว้หรือเปล่า
 	if($predate==$postdate){ 
 		echo '<br>the same';
+		process();
 		//a();
 	} else {
-		//echo '<br>44444<br>'.$d2[2].' | '. $d3[2].' : '.$diffday;
+		echo '<br>คนละวัน วันก่อนหน้า : '.$d2[2].' |วันปัจจับัน : '. $d3[2].' เวลาห่าง  '.$diffday.'วัน';
 		if($diffday > 1){ //ผลต่างของวันที่ ต่างกันมากกว่า 1 วัน แสดงว่า ลูกค้าปิด wifi หรือ IoT มีปัญหา
 			echo 'เก็บข้อมูลไม่ครบอาจเกิดจากการปิด wifi หรือ ตัว IoT มีปัญหา กรุณาติดต่อผู้ดูแล'; 
 		}else if($diffday == 1) {
@@ -135,31 +142,32 @@
 										ตี6      06	00	=	6
 	
 			*/
-			echo '<br> | '.$t3[0].' | '.$t2[0]. ' : '.$difftime;
+			echo '<br> H '.$t3[0].' | '.$t2[0]. ' : '.$difftime;
+			echo '<br> hours : '.$hours.'<br>';
 			if($hours==3){
 				if($t3[0]-$t2[0] <= -21){
-					echo '<br>in time';
+					echo '<br>in time -21';
 				}else{
-					echo '<br>in time';
+					echo '<br>in time -21 1';
 				}
 			}else if ($hours==4){
 				if($difftime <= -20){
 					process();
 				}else{
-					echo '<br>เก็บข้อมูลไม่ครบอาจเกิดจากการปิด wifi หรือ ตัว IoT มีปัญหา กรุณาติดต่อผู้ดูแล';
+					echo '<br>เก็บข้อมูลไม่ครบอาจเกิดจากการปิด wifi หรือ ตัว IoT มีปัญหา กรุณาติดต่อผู้ดูแล -20';
 				}
 			}else if ($hours==5){
 				if($difftime <= -19 || $difftime==$hours){
 					process();
 				}else{
-					echo '<br>เก็บข้อมูลไม่ครบอาจเกิดจากการปิด wifi หรือ ตัว IoT มีปัญหา กรุณาติดต่อผู้ดูแล';
+					echo '<br>เก็บข้อมูลไม่ครบอาจเกิดจากการปิด wifi หรือ ตัว IoT มีปัญหา กรุณาติดต่อผู้ดูแล -19';
 				}
 			}else if ($hours==6){
 				
 				if($difftime <= -18 || $difftime==$hours){
 					process();
 				}else{
-					echo '<br>เก็บข้อมูลไม่ครบอาจเกิดจากการปิด wifi หรือ ตัว IoT มีปัญหา กรุณาติดต่อผู้ดูแล';
+					echo '<br>เก็บข้อมูลไม่ครบอาจเกิดจากการปิด wifi หรือ ตัว IoT มีปัญหา กรุณาติดต่อผู้ดูแล -18';
 				}
 			}
 			
@@ -172,7 +180,7 @@
 	function process(){
 		echo '<br>in process<br>';
 	}	
-			
+
 	exit();
 	
 	/*

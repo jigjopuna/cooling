@@ -122,7 +122,7 @@
 				$('#btn').prop('disabled',false);
 				$('#owner_money').hide();
 			}
-			disablemp();
+			//disablemp();
 		}
 		
 		function validation(){

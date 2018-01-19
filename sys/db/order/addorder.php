@@ -12,6 +12,7 @@
 	$o_date = trim($_POST['date_pay']);  
 	$ord_size = trim($_POST['ord_size']);
 	$ord_temp = trim($_POST['ord_temp']);
+	$voltage = trim($_POST['voltage']);
 	
 	/*echo "search_custname = ", $search_custname, "<br>";
 	echo "o_date = ", $o_date, "<br>";	
@@ -24,6 +25,7 @@
 			o_status =  1,			
 			o_date =  '$o_date', 
 			o_size = '$ord_size', 
+			o_voltage = '$voltage', 
 			o_temp = '$ord_temp'";
 	
 	$result1 = mysql_query($sql);

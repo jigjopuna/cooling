@@ -7,7 +7,7 @@
 	$num = mysql_num_rows($result);*/
 	
 	//Product Expandtion
-	$sql_all = "SELECT o.o_id, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_size, ost.ost_status, e.e_name 
+	$sql_all = "SELECT o.o_id, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
 				FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
 					 JOIN province p ON c.cust_province = p.id) 
 					 JOIN tb_ord_status ost ON ost.ost_id = o.o_status)
@@ -104,6 +104,15 @@
 											<input type="text" class="form-control" id="date_pay" name="date_pay">
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">คอม 220/380</label>
+											<select class="form-control" id="voltage" name="voltage">
+												<option value="0">เลือกแรงดัน</option> 
+												<option value="220">220</option>
+												<option value="380">380</option>
+												
+											</select>
+										</div>
 										
 									</div>
 									
@@ -151,10 +160,11 @@
                                     <tr>
 										<th style='width: 5%;'>ลำดับ</th>
                                         <th style='width: 15%;'>ลูกค้า</th>
-										<th style='width: 15%;'>จังหวัด</th>
+										<th style='width: 10%;'>จังหวัด</th>
                                         <th style='width: 10%;'>สถานะ</th>      
-                                        <th style='width: 15%;'>ขนาดห้อง</th>
+                                        <th style='width: 10%;'>ขนาดห้อง</th>
 										<th style='width: 5%;'>อุณหภูมิ</th>
+										<th style='width: 5%;'>คอม 220/380</th>
 										<th style='width: 15%;'>เบอร์ติดต่อ</th>
 										<th style='width: 15%;'>ผู้รับผิดชอบ</th>
                                     </tr>
@@ -185,6 +195,7 @@
 											
 											<td><?php echo $row_all['o_size']; ?></td>
 											<td><?php echo $row_all['o_temp']; ?></td>
+											<td><?php echo $row_all['o_voltage']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td>
 											<td><?php echo $row_all['e_name']; ?></td>
 											          
