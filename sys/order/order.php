@@ -1,6 +1,8 @@
 <?php session_start();
 	  require_once('../include/connect.php');
 	  
+	 $dates = date('Y-m-d');
+	  
 	  //for left nav menu path include/navproduct.php
 	/*$sql = "SELECT * FROM tb_category ORDER BY cat_name";
 	$result = mysql_query($sql);
@@ -41,7 +43,7 @@
 <script>
 	$(document).ready(function(){
 		$('.btn-success').click(validation);
-		$('#date_pay').datepicker({dateFormat: 'yy-mm-dd'});
+		$('#date_pay, #date_delivery').datepicker({dateFormat: 'yy-mm-dd'});
 		$("#search_custname").autocomplete({
 				source: "../../ajax/search_cust.php",
 				minLength: 1
@@ -94,6 +96,11 @@
 											<label class="control-label" for="inputSuccess">อุณหภูมิ </label>
 											<input type="text" class="form-control" id="ord_temp" name="ord_temp">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">กำหนดส่ง</label>
+											<input type="text" class="form-control" id="date_delivery" name="date_delivery">
+										</div>
 
 										
 									</div>
@@ -101,7 +108,7 @@
 									<div class="col-lg-4">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">วันที่</label>
-											<input type="text" class="form-control" id="date_pay" name="date_pay">
+											<input type="text" class="form-control" id="date_pay" name="date_pay" value="<?php echo $dates;?>">
 										</div>
 										
 										<div class="form-group has-success">
@@ -114,6 +121,13 @@
 											</select>
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ใบเสนอราคา</label>
+											<input type="file" class="form-control require" id="ord_quotation" name="ord_quotation">
+										</div>
+										
+										
+										
 									</div>
 									
 									
@@ -125,8 +139,15 @@
 										</div>
 										
 										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ราคาขาย</label>
+											<input type="text" class="form-control" id="ord_price" name="ord_price">
+										</div>
+										
+										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกออเดอร์ใหม่</button>
 										</div>
+										
+										
 									</div>
 									
 								</form>

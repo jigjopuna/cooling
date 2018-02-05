@@ -27,6 +27,10 @@
 	$num_pay= mysql_num_rows($result_pay);
 	
 	
+	//หายอดโอนรวมทุกงวด
+	$row_find_pay = mysql_fetch_array(mysql_query(("SELECT SUM(pay_amount) sumallpay FROM tb_ord_pay WHERE o_id = '$o_id'")));
+	$sumalltranfer = $row_find_pay['sumallpay'];
+	
 	/*
 		sum cost from tb_po
 		ค่าใช้แต่ละออเดอร์จะมาจาก 2 ตารางคือ tb_ord_prod กับ tb_po  
@@ -41,15 +45,17 @@
 	
 	/*echo 'pocost : '.$pocost.'<br>';
 	echo 'pocount : '.$pocount;
+	echo 'sumprod : '.$sumprod;
 	exit();*/
+	
 	$sql_po = "SELECT * FROM tb_po WHERE po_orders = '$o_id'";
 	$result_po = mysql_query($sql_po);
 	$num_po = mysql_num_rows($result_po);
 	
 	
 	
-	//find quotation docs
-	$quot = mysql_fetch_array(mysql_query("SELECT o_quotation FROM tb_orders WHERE o_id='$o_id'"));
+	//find quotation docs get price and delivery date
+	$quot = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders WHERE o_id='$o_id'"));
 	
 
 	
@@ -102,8 +108,10 @@
 			<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">;
-							รายละเอียดสินค้า   <?php echo number_format($row_count_prod['countprod']+$pocount, 0, '.', ',').' รายการ'; ?>
+                        <div class="panel-heading">
+							รายละเอียดสินค้า   <?php echo number_format($row_count_prod['countprod']+$pocount, 0, '.', ',').' รายการ'; ?><br>
+							กำหนดส่ง :  <?php echo $quot['o_delivery_date'];?> <br>
+							ราคาขาย :  <?php echo number_format($quot['o_price'], 0, '.', ',');?> บาท<br>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -160,7 +168,13 @@
 									
 									<tr>
 										<td colspan='6'>&nbsp;</td> 
-										<td colspan='2'><?php echo number_format($pocost+$sumprod, 0, '.', ','); ?></td>
+										
+										<td colspan='2'>
+											<?php 
+												echo number_format($pocost+$sumprod, 0, '.', ','); 
+												// pocost คือต้นทุนที่ไม่ใช่อะไหล่เช่น ค่าเดินทาง ค่าที่พักเป็นต้น sumprod คือต้นทุนอะไหล่
+											?>
+										</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -219,6 +233,19 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+			
+			
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+							กำไร : <?php echo number_format($sumalltranfer-($pocost+$sumprod), 2, '.', ',');?> บาท
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
 			<div id="quot" style="display:none;"><?php echo $quot['o_quotation'];?></div>
 			<button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%;">ใบเสนอราคา</button>
 			

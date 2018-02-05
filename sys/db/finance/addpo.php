@@ -28,6 +28,8 @@
 	$cash1 = $rowcash['cash1'];
 	$cash2 = $rowcash['cash2'];
 	
+	$e_id = trim($_POST['e_id']);
+	
 	$today = date("Ymd");
 	
 	if($pocredit=='on'){ 
@@ -58,6 +60,7 @@
 	
 	echo "poment = ", $poment, "<br>";
 	echo "podate = ", $podate, "<br>";
+	echo "pocredit = ", $pocredit, "<br>";
 	echo "pocredit = ", $pocredit, "<br>";
 	
 	$target_dir = "../../images/bill/";
@@ -129,6 +132,7 @@
 			po_date     = '$podate', 
 			po_orders   = '$search_custname', 
 			po_credit   = '$po_credit', 
+			po_emp      = '$e_id', 
 			po_time =  now()";
 	
 	$result1 = mysql_query($sql);

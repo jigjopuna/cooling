@@ -2,7 +2,7 @@
 	  require_once('../include/connect.php');
 	
 	//PO LIST
-	$sql = "SELECT p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
+	$sql = "SELECT p.po_emp, p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
 			FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
 			ORDER BY po_id DESC LIMIT 0,100";
 	$result= mysql_query($sql);
@@ -308,7 +308,8 @@
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกรายการสั่งซื้อ</button>
 										</div>
 									</div>
-									<input type="hidden" name="curr_cash" id="curr_cash" value="<?php echo $cur_cash?>">
+									<input type="hidden" name="curr_cash" id="curr_cash" value="<?php echo $cur_cash?>">   
+									<input type="hidden" name="e_id" id="e_id" value="<?php echo $e_id?>"> 
 								</form>
 							 </div> <!-- row -->
                            
@@ -348,6 +349,7 @@
 										<th>คอมเม้นท์</th>
 										<th>วันที่</th>
 										<th>เอกสาร</th>
+										<th>คนลงรายการ</th>
 										
                                     </tr>
                                 </thead>
@@ -385,6 +387,7 @@
 											<td><?php echo $row['po_comment']; ?></td>
 											<td><?php echo $row['po_date']; ?></td>
 											<td><a href="../images/bill/<?php echo $row['po_bill_img'];?>" target="_blank">ดูบิล</a></td>											
+										    <td><?php echo $row['po_emp']; ?></td>
 										</tr>
 									<?php } ?>
 

@@ -27,7 +27,7 @@
   
   $row_yokyod = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center WHERE cash_date = '$yesterday' ORDER BY cash_id DESC LIMIT 1"));
   
-  $result_po = mysql_query("SELECT e.e_name, p.po_buyer, p.po_subyer, p.po_name, p.po_price FROM tb_po p JOIN tb_emp e ON e.e_id = p.po_buyer WHERE p.po_date = '$dates'");
+  $result_po = mysql_query("SELECT e.e_name, p.po_buyer, p.po_subyer, p.po_name, p.po_price, p.po_shop FROM tb_po p JOIN tb_emp e ON e.e_id = p.po_buyer WHERE p.po_date = '$dates'");
   $num_po = mysql_num_rows($result_po);
   
   $result_getcash = mysql_query("SELECT e.e_name, c.cust_name, ordp.pay_amount FROM ((tb_ord_pay ordp JOIN tb_orders ord ON ord.o_id = ordp.o_id) JOIN tb_customer c ON c.cust_id = ord.o_cust) JOIN tb_emp e ON e.e_id = ordp.o_emp_receive WHERE ordp.pay_date = '$dates'");
@@ -100,7 +100,7 @@ body {
     }
 .box {width: 45%; float:left; margin-left: 20px; padding-bottom: 20px;}
 #header{ background-color:#EEEEE; width: 100%; text-align: center; height:60px; font-size: 2em;  }
-.header{ background-color:#EEEEE; width: 100%; text-align: center; height:50px; font-size: 2em;  }
+.header{ background-color:#EEEEE; width: 100%; text-align: center; height:50px; font-size: 2em;  text-decoration: underline;}
 .header1{ background-color:#EEEEE; width: 100%; text-align: center; height:40px; font-size: 1.7em;  }
 .topic { font-size: 18px; font-weight: bold; text-decoration: underline; }
 #pay, #income { border-bottom: 1px solid #EEEEEE; overflow: hidden; margin-bottom:35px;}
@@ -241,7 +241,7 @@ body {
 				
 					<table style="width:100%; border: 1px solid black;">
 						<tr>
-							<td colspan="5" align="center">รายการสั่งซื้อ</td>
+							<td colspan="6" align="center" class='header'>รายการสั่งซื้อ / ค่าใช้จ่าย</td>
 						</tr>
 						<tr>
 							<td>#</td>
@@ -249,6 +249,7 @@ body {
 							<td>ราคา</td>
 							<td>คนซื้อ</td>
 							<td>บัญชี</td>
+							<td>ร้านค้า</td>
 						</tr>
 						<?php for($i=1; $i<=$num_po; $i++) {  
 							$row_po = mysql_fetch_array($result_po);
@@ -259,8 +260,15 @@ body {
 								<td><?php echo number_format($row_po['po_price'], 0, '.', ',');?></td>
 								<td><?php echo $row_po['e_name'];?></td>
 								<td><?php if($row_po['po_subyer']==2) echo "ชูเกียรติ"; else echo "ไพรฑูรย์";?></td>
+								<td><?php echo $row_po['po_shop'];?></td>
 							</tr>
 						<?php } ?>
+						
+						<tr style="background-color: yellow">
+							<td colspan='2' align="center">ยอดรวม</td>
+							<td><?php echo $paydates;?></td>
+							<td>บาท</td>
+						</tr>
 						
 					</table><br><br>
 					
@@ -279,7 +287,7 @@ body {
         <div class="subpage">
 			<table style="width:100%; border: 1px solid black;">
 				<tr>
-					<td colspan="4" align="center">เงินเดือน</td>
+					<td colspan="4" align="center" class='header'>เงินเดือน</td>
 				</tr>
 				<tr>
 					<td>#</td>
@@ -301,7 +309,7 @@ body {
 			</table><br><br>
 					<table style="width:100%; border: 1px solid black;">
 						<tr>
-							<td colspan="4" align="center">ลูกค้าโอน</td>
+							<td colspan="4" align="center" class='header'>ลูกค้าโอน</td>
 						</tr>
 						<tr>
 							<td>#</td>

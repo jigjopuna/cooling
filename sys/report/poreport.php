@@ -13,6 +13,8 @@
 	  
 	  $select_month =  $year.'-'.$rep_month.'%';
 	  
+	 
+	  
 	  
 	 /* echo "reptype : ".$reptype."<br>";
 	  echo "rep_time : ".$rep_time."<br>";
@@ -32,7 +34,14 @@
 	  
 	 
 	if($rep_time==1){
-			  
+		$result_po = mysql_query("SELECT e.e_name, p.po_bill_img, p.po_shop, p.po_buyer, p.po_subyer, p.po_name, p.po_price, p.po_qty, p.po_credit, p.po_credit_complete FROM tb_po p JOIN tb_emp e ON e.e_id = p.po_buyer WHERE p.po_date = '$rep_date'");
+		$num_po = mysql_num_rows($result_po);
+		
+		$rowsum_ = mysql_fetch_array(mysql_query("SELECT SUM(po_price) poprice FROM tb_po WHERE po_date LIKE '$rep_date'"));		  
+		$rowcount_ = mysql_fetch_array(mysql_query("SELECT count(po_id) countpo FROM tb_po WHERE po_date LIKE '$rep_date'"));
+		$rowsum = $rowsum_['poprice'];
+		$rowcount = $rowcount_['countpo'];
+		
 	}else if($rep_time==2){
 			  
 	}else if($rep_time==3){
@@ -106,49 +115,51 @@
                                 <thead>
                                     <tr>
 										<th>ลำดับ</th>
-                                        <th>รายการ</th>                                     
-                                        <th>จำนวน</th>
+                                        <th>รายการ</th>
+										<th>จำนวน</th>										
                                         <th>ราคา</th>
-                                        <th>ร้านค้า</th>
-										<th>คนจ่าย</th>
-										<th>คอมเม้นท์</th>
+										<th>ร้านค้า</th>
+                                        <!--<th>คนซื้อ</th>
+										<th>บัญชี</th>-->
 										<th>วันที่</th>
-										<th>เอกสาร</th>
+										<th>บิล</th>
 										
                                     </tr>
                                 </thead>
                                 <tbody>
                                     
 									<?php 
-										for($i=1; $i<=$num_detail; $i++){
-										  $row_detail = mysql_fetch_array($result_detail);
+										for($i=1; $i<=$num_po; $i++){
+										  $row_po = mysql_fetch_array($result_po);
 									  ?>
 										<tr class="gradeA"> 
-											<td><?php echo number_format($row_detail['po_id'], 0, '.', ''); ?></td>
-											<td><a href="po_detail.php?po_id=<?php echo $row_detail['po_id'] ?>"><?php echo $row_detail['po_name']; ?></td>
-											<td><?php echo number_format($row_detail['po_qty'], 0, '.', ''); ?></td>
-											<td><?php echo number_format($row_detail['po_price'], 0, '.', ','); ?></td>
-											<td><?php echo $row_detail['po_shop']; ?></td>
+											<td><?php echo $i; ?></td>
+											<td><a href="po_detail.php?po_id=<?php echo $row_po['po_id'] ?>"><?php echo $row_po['po_name']; ?></td>
+											<td><?php echo number_format($row_po['po_qty'], 0, '.', ''); ?></td>
+											<td><?php echo number_format($row_po['po_price'], 0, '.', ','); ?></td>
+											<td><?php echo $row_po['po_shop']; ?></td>
 											
-											<?php if($row_detail['po_credit']==1) { ?>
-												<?php if($row_detail['po_credit_complete']==1) { ?>
-													<td style="color:green; text-decoration:underline; font-weight:bold;"><?php echo $row['e_name']; ?></td>
-												<? }else{ ?>
-													<td style="color:orange; text-decoration:underline; font-weight:bold;"><?php echo $row['e_name']; ?></td>
-												<?php } ?>
-											<? }else{ ?>
-												<td><?php echo $row_detail['e_name']; ?></td>
-											<?php } ?>
+											<!--< if($row_po['po_credit']==1) { ?>
+												<if($row_po['po_credit_complete']==1) { ?>
+													<td style="color:green; text-decoration:underline; font-weight:bold;">< echo $row['e_name']; ?></td>
+												< }else{ ?>
+													<td style="color:orange; text-decoration:underline; font-weight:bold;">< echo $row['e_name']; ?></td>
+												<} ?>
+											< }else{ ?>
+												<td>< echo $row_po['e_name']; ?></td>
+											< } ?>-->
 											
-											<td><?php echo $row_detail['po_comment']; ?></td>
-											<td><?php echo $row_detail['po_date']; ?></td>
-											<td><a href="../images/bill/<?php echo $row_detail['po_bill_img'];?>" target="_blank">ดูบิล</a></td>											
+											<td><?php echo $curdate; ?></td>
+											<td><a href="../images/bill/<?php echo $row_po['po_bill_img'];?>" target="_blank">ดูบิล</a></td>											
 										</tr>
 									<?php } ?>
 
                                     
                                 </tbody>
                             </table>
+							
+							<a href="print/poreport.php?dates=<?php echo $rep_date;?>" target=""><button class="btn btn-lg btn-success btn-block">ปริ้นรายการซื้อ</button></a>
+										
                             <!-- /.table-responsive -->
                         </div>
                         <!-- /.panel-body -->

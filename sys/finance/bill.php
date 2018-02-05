@@ -88,9 +88,10 @@
 												<option value="2">ไม่ VAT</option>
 											</select>
 										</div>
+										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ราคา </label>
-											<input type="text" class="form-control" id="vatprice" name="vatprice">
+											<label class="control-label" for="inputSuccess">วันที่</label>
+											<input type="text" class="form-control" id="vatdate" name="vatdate" value="<?php echo $today;?>">
 										</div>
 										
 									</div>
@@ -110,14 +111,9 @@
 										</div>
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">วันที่</label>
-											<input type="text" class="form-control" id="vatdate" name="vatdate" value="<?php echo $today;?>">
-										</div>
-
-										
-										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">พิมพ์</button>
 										</div>
+										
 									</div>
 									
 								</form>

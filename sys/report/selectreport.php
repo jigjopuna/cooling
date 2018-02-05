@@ -121,7 +121,7 @@
 										<label class="control-label" for="inputSuccess">ช่วงเวลา </label>
 											<select class="form-control" id="rep_time" name="rep_time">
 												<option value="0">เลือกช่วงเวลา</option>
-												<option value="1" disabled>รายวัน</option>
+												<option value="1">รายวัน</option>
 												<option value="2" disabled>รายสัปดาห์</option>
 												<option value="3">รายเดือน</option>
 												<option value="4" disabled>รายปี</option>		
