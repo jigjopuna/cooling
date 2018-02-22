@@ -1,42 +1,36 @@
 <?php session_start();
 	  require_once('../include/connect.php');
-	  
-	 $dates = date('Y-m-d');
-	  
-	  //for left nav menu path include/navproduct.php
-	/*$sql = "SELECT * FROM tb_category ORDER BY cat_name";
-	$result = mysql_query($sql);
-	$num = mysql_num_rows($result);*/
-	
-	//Product Expandtion
-	$sql_all = "SELECT o.o_id, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
-				FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
-					 JOIN province p ON c.cust_province = p.id) 
-					 JOIN tb_ord_status ost ON ost.ost_id = o.o_status)
-					 JOIN tb_emp e ON e.e_id = o.o_emp";
-	$result_all = mysql_query($sql_all);
-	$num_all = mysql_num_rows($result_all);
-	
-
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
-	
+		if($e_id==""){ exit("<script>alert('กรุณา Login ก่อนนะคะ'); window.location = '../pages/login/login.php';</script>");}
+		
+		$role_ = mysql_fetch_array(mysql_query("SELECT ro_order FROM tb_role WHERE ro_emp_id = '$e_id'"));
+		$role = $role_['ro_order'];	
+		if($role!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูออเดอร์นะคะ'); window.location = '../index.php';</script>");}
+		
+		$dates = date('Y-m-d');
+	  
+		//for left nav menu path include/navproduct.php
+		/*$sql = "SELECT * FROM tb_category ORDER BY cat_name";
+		$result = mysql_query($sql);
+		$num = mysql_num_rows($result);*/
+		
+		//Product Expandtion
+		$sql_all = "SELECT o.o_id, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
+					FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
+						 JOIN province p ON c.cust_province = p.id) 
+						 JOIN tb_ord_status ost ON ost.ost_id = o.o_status)
+						 JOIN tb_emp e ON e.e_id = o.o_emp";
+		$result_all = mysql_query($sql_all);
+		$num_all = mysql_num_rows($result_all);
+		
 	?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
@@ -52,8 +46,12 @@
 		function validation(){
 			var search_custname = $('#search_custname').val();
 			var payinqty = $('#payinqty').val();
-			var paydate = $('#paydate').val();
-			if((search_custname=='') || (payinqty=='') || (paydate=='')){
+			var paydate = $('#paydate').val(); 
+			var ord_control = $('#ord_control').val();
+			var ord_door = $('#ord_door').val();
+			var ord_coilh = $('#ord_coilh').val();
+			var date_delivery = $('#date_delivery').val();
+			if((search_custname=='') || (payinqty=='') || (paydate=='') || (ord_control==0) || (ord_door==0) || (ord_coilh==0) || (date_delivery='')){
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
 			}else{
 				$('#form1').submit();				
@@ -75,7 +73,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-			
+			 
 			<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -100,6 +98,37 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">กำหนดส่ง</label>
 											<input type="text" class="form-control" id="date_delivery" name="date_delivery">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ตำแหน่งประตู</label>
+											<select class="form-control" id="ord_door" name="ord_door">
+												<option value="0">เลือก</option>
+												<option value="1">ด้านหน้า</option> 
+												<option value="2">ด้านข้างซ้าย</option>
+												<option value="3">ด้านข้างขวา</option>	
+											</select>
+										</div>
+										
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ตำแหน่งแผงไฟ</label>
+											<select class="form-control" id="ord_control" name="ord_control">
+												<option value="0">เลือก</option>
+												<option value="1">ด้านหน้า</option> 
+												<option value="2">ด้านข้างซ้าย</option>
+												<option value="3">ด้านข้างขวา</option>	
+											</select>
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ประเภทห้อง</label>
+											<select class="form-control" id="ord_type" name="ord_type">
+												<option value="0">เลือก</option>
+												<option value="1">ห้องสำเร็จรูป</option> 
+												<option value="2">ห้องฝั่ง</option>
+												<option value="3">blast freeze (บลาส ฟรีซ)</option>
+											</select>
 										</div>
 
 										
@@ -126,6 +155,24 @@
 											<input type="file" class="form-control require" id="ord_quotation" name="ord_quotation">
 										</div>
 										
+										<?php if(($e_id==9)||($e_id==25)) { ?>
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ออก VAT</label>
+											<input type="checkbox" class="form-control" id="ord_vat" name="ord_vat">
+										</div>
+										<?php } ?>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ของใหม่/มือสอง</label>
+											<select class="form-control" id="ord_new" name="ord_new">
+												<option value="0">เลือก</option>
+												<option value="1">ของใหม่ทั้งหมด</option> 
+												<option value="2">มือสองทั้งหมด</option>
+												<option value="3">ผนังมือสอง เครื่องใหม่</option>
+												<option value="4">ผนังใหม่ เครื่องมือสอง</option>	
+											</select>
+										</div>
+										
 										
 										
 									</div>
@@ -141,6 +188,22 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ราคาขาย</label>
 											<input type="text" class="form-control" id="ord_price" name="ord_price">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">สี</label>
+											<input type="text" class="form-control" id="ord_color" name="ord_color" value="สีฟ้ามาตราฐาน">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ตำแหน่งคอล์ยร้อน</label>
+											<select class="form-control" id="ord_coilh" name="ord_coilh">
+												<option value="0">เลือก</option>
+												<option value="4">ด้านหลัง</option> 
+												<option value="2">ด้านข้างซ้าย</option>
+												<option value="3">ด้านข้างขวา</option>
+												<option value="5">ด้านบน</option>	
+											</select>
 										</div>
 										
 										<div class="form-group has-success">

@@ -15,6 +15,7 @@
 	$other = trim($_POST['other']);
 	$line_id = trim($_POST['line_id']);
 	$cust_map = trim($_POST['cust_map']);
+	$cust_tax = trim($_POST['taxid']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,6 +48,7 @@
 	echo "email : ".$email. "<br>";
 	echo "other : ".$other. "<br>";
 	
+	
 	$sql = "UPDATE tb_customer SET 
 				cust_name = '$cust_name', 
 				cust_corp = '$cust_corp', 
@@ -59,6 +61,7 @@
 				cust_zip = '$zipcode', 
 				cust_lineid = '$line_id', 
 				cust_other = '$other', 
+				cust_tax = '$cust_tax',  
 				cust_location = '$cust_map'  
 			WHERE cust_id = '$cust_id'
 			";

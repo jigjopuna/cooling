@@ -38,6 +38,7 @@
                             <a href="../quotation/q_fome.php"><i class="fa fa-dashboard fa-fw"></i>ต้นทุนห้องโฟม</a>
                         </li>
 						
+						
 						<li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>การเงิน <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -64,7 +65,8 @@
 							
                             </ul>
                         </li>
-						
+						 
+						 <?php //if($role_['ro_cust']!=0) { ?>
 						 <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> ลูกค้า <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -83,8 +85,9 @@
 							
                             </ul>
                         </li>
+						 <?php //} ?>
 						
-						
+						<?php //if($role_['ro_order']!=0) { ?>
 						<li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> ออเดอร์ <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -95,6 +98,7 @@
 								
                             </ul>
                         </li>
+						<?php //} ?>
 						
 
 						<li>
@@ -116,10 +120,11 @@
                             </ul>
                         </li>
 						
+						<?php //if($role_['ro_report']!=0) { ?>
 						 <li>
                             <a href="../report/selectreport.php"><i class="fa fa-bar-chart-o fa-fw"></i>รายงาน <span class="fa arrow"></span></a>                       
                         </li>
-						
+						<?php //} ?>
 						
 						
 						 <li>

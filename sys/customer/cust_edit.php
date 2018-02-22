@@ -183,6 +183,11 @@
 											</select>
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">หมายเลขผู้เสียภาษี</label>
+											<input type="text" class="form-control" id="taxid" name="taxid" value="<?php echo $cust['cust_tax']?>">
+										</div>
+										
 									</div>
 									
 									<div class="col-lg-4">

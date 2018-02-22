@@ -71,23 +71,10 @@
 											<input type="text" class="form-control" id="search_custname" name="search_custname">
 										</div>
 										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">รายการ </label>
-											<input type="text" class="form-control" id="vatlist" name="vatlist">
-										</div>
 										
 									</div>
 																		
 									<div class="col-lg-4">
-											
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">VAT </label>
-											<select class="form-control" id="vattype" name="vattype">
-												<option value="0">เลือก VAT</option>
-												<option value="1">VAT 7%</option>
-												<option value="2">ไม่ VAT</option>
-											</select>
-										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">วันที่</label>
@@ -96,14 +83,11 @@
 										
 									</div>
 									
-									
 									<div class="col-lg-4">
-										
-
-										
+					
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">หัวบิล </label>
-											<select class="form-control" id="vatcompany" name="vatcompany">
+											<select class="form-control" id="corp_addr" name="corp_addr">
 												<option value="0">เลือกหัวบริษัท</option>
 												<option value="1">Top Cooling</option>
 												<option value="2">PT WALL</option>

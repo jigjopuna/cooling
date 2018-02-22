@@ -16,6 +16,18 @@
 	$ord_price = trim($_POST['ord_price']);
 	$date_delivery = trim($_POST['date_delivery']);
 	
+	$ord_door = trim($_POST['ord_door']);
+	$ord_color = trim($_POST['ord_color']);
+	$ord_vat = trim($_POST['ord_vat']);
+	
+	$ord_control = trim($_POST['ord_control']);
+	$ord_coilh = trim($_POST['ord_coilh']);
+	
+	$o_newold = trim($_POST['ord_new']);
+	$o_type = trim($_POST['ord_type']);
+	
+	if($ord_vat=='on') $o_vat = 1;
+	
 	/*echo "search_custname = ", $search_custname, "<br>";
 	echo "o_date = ", $o_date, "<br>";	
 	exit();*/
@@ -86,12 +98,25 @@
 			o_delivery_date = '$date_delivery', 
 			o_quotation = '$filename', 
 			o_voltage = '$voltage', 
+			o_door = '$ord_door', 
+			o_vat = '$o_vat', 
+			o_color = '$ord_color', 
+			o_control = '$ord_control', 
+			o_coil = '$ord_coilh', 
+			o_newold = '$o_newold', 
+			o_type = '$o_type', 
 			o_temp = '$ord_temp'";
-	
 	$result1 = mysql_query($sql);
 	
 	if($result1) {
-		exit("<script>alert('บันทึกออเดอร์ใหม่เรียบร้อยแล้วจร้า ^^ '); window.location='../../order/order.php';</script>");
+		$a = mysql_insert_id($conn);
+		$work_list = "INSERT INTO tb_tax SET vat_ord = '$a'";
+		$result6 = mysql_query($work_list);
+		if($result6){
+			exit("<script>alert('บันทึกออเดอร์ใหม่เรียบร้อยแล้วจร้า ^^ '); window.location='../../order/order.php';</script>");
+		}else{
+			 exit("<script>alert('บันทึกออเดอร์ไม่สำเร็จ ติดต่อผู้ดูแลระบบ1'); window.location='../../order/order.php';</script>");
+		}
 	} else {
 		 exit("<script>alert('บันทึกออเดอร์ไม่สำเร็จ ติดต่อผู้ดูแลระบบ'); window.location='../../order/order.php';</script>");
 	}

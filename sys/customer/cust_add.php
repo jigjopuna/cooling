@@ -127,7 +127,7 @@
                         <div class="panel-body">
 							<div class="row">
 								<form action="cust_add_save.php" id="form1" name="form" method="post">
-									<div class="col-lg-4">
+									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess"> ชื่อ-นามสกุลลูกค้า </label>
 											<input type="text" class="form-control" id="cust_name" name="cust_name">
@@ -159,9 +159,14 @@
 											</select>
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">หมายเลขผู้เสียภาษี</label>
+											<input type="text" class="form-control" id="taxid" name="taxid">
+										</div>
+										
 									</div>
 									
-									<div class="col-lg-4">
+									<div class="col-lg-3">
 									
 										
 										
@@ -186,7 +191,7 @@
 
 									</div>
 									
-									<div class="col-lg-4">
+									<div class="col-lg-3">
 									
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">Email</label>
@@ -213,6 +218,17 @@
 										
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกข้อมูลลูกค้า</button>
+										</div>
+										
+									</div>
+									
+			
+			
+									<div class="col-lg-3">
+									
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">Email</label>
+											<input type="text" class="form-control" id="email" name="email">
 										</div>
 										
 									</div>

@@ -13,6 +13,7 @@
 	$other = trim($_POST['other']);
 	$line_id = trim($_POST['line_id']);
 	$cust_map = trim($_POST['cust_map']);
+	$cust_tax = trim($_POST['taxid']);
 
 ?>
 <!DOCTYPE html>
@@ -58,6 +59,7 @@
 				cust_email = '$email', 
 				cust_zip = '$zipcode', 
 				cust_lineid = '$line_id', 
+				cust_tax = '$cust_tax', 
 				cust_other = '$other', 
 				cust_location = '$cust_map'
 			";

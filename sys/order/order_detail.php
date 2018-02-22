@@ -84,8 +84,13 @@
 <script>
 	$(document).ready(function(){ 
 		var quots = $('#quot').html();
+		var ord_id = $('#ord_id').html();
+		
 		$('#quotationfile').click(function(){
 			window.location = '../quotation/files/'+quots;
+		});
+		$('#process').click(function(){
+			window.location = '../../admin/job.php'+'?e_id='+ord_id;
 		});
 	
 	});
@@ -109,9 +114,70 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							รายละเอียดสินค้า   <?php echo number_format($row_count_prod['countprod']+$pocount, 0, '.', ',').' รายการ'; ?><br>
-							กำหนดส่ง :  <?php echo $quot['o_delivery_date'];?> <br>
-							ราคาขาย :  <?php echo number_format($quot['o_price'], 0, '.', ',');?> บาท<br>
+							<strong>รายละเอียดสินค้า</strong>   <?php echo number_format($row_count_prod['countprod']+$pocount, 0, '.', ',').' รายการ'; ?><br>
+							<strong>กำหนดส่ง : &nbsp;&nbsp;&nbsp;</strong> <?php echo $quot['o_delivery_date'];?> <br>
+							<strong>ราคาขาย : &nbsp;&nbsp;&nbsp;</strong> <?php echo number_format($quot['o_price'], 0, '.', ',');?> บาท<br>
+							<strong>ประตู : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <?php 
+							if($quot['o_door']==1){ 
+								echo ' ด้านหน้า'; 
+							}else if($quot['o_door']==2){ 
+								echo ' ด้านข้างซ้าย'; 
+							}else if($quot['o_door']==3){ 
+								echo ' ด้านข้างขวา';
+							}?><br>
+							
+							<strong>แผงไฟ : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <?php 
+							if($quot['o_control']==1){ 
+								echo ' ด้านหน้า'; 
+							}else if($quot['o_control']==2){ 
+								echo ' ด้านข้างซ้าย'; 
+							}else if($quot['o_control']==3){ 
+								echo ' ด้านข้างขวา';
+							}
+							
+							?> <br>
+							
+							<strong>คอล์ยร้อน : &nbsp;&nbsp;&nbsp; </strong> <?php 
+							if($quot['o_coil']==1){ 
+								echo ' ด้านหน้า'; 
+							}else if($quot['o_coil']==2){ 
+								echo ' ด้านข้างซ้าย'; 
+							}else if($quot['o_coil']==3){ 
+								echo ' ด้านข้างขวา';
+							}else if($quot['o_coil']==4){ 
+								echo ' ด้านหลัง';
+							}else if($quot['o_coil']==5){ 
+								echo ' ด้านบน';
+							}
+							
+							?> <br>
+							
+							<strong>สี :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>  <?php echo $quot['o_color'];?> <br>
+							
+							<strong>อุปกรณ์ : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> <?php 
+							if($quot['o_newold']==1){ 
+								echo ' ของใหม่ทั้งหมด'; 
+							}else if($quot['o_newold']==2){ 
+								echo ' มือสองทั้งหมด'; 
+							}else if($quot['o_newold']==3){ 
+								echo ' ผนังมือสอง เครื่องใหม่';
+							}else if($quot['o_newold']==4){ 
+								echo ' ผนังใหม่ เครื่องมือสอง';
+							}
+					
+							?> <br>
+							
+							<strong>ประเภทห้อง :  </strong> <?php 
+							if($quot['o_type']==1){ 
+								echo ' ห้องสำเร็จรูป'; 
+							}else if($quot['o_type']==2){ 
+								echo ' ห้องฝั่ง'; 
+							}else if($quot['o_type']==3){ 
+								echo ' ห้องบลาสฟรีซ';
+							}
+					
+							?> <br>
+							<?php if($quot['o_vat']==1) echo 'ออก VAT'; else echo 'ไม่ออก VAT'; ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -247,12 +313,13 @@
             </div>
 			
 			<div id="quot" style="display:none;"><?php echo $quot['o_quotation'];?></div>
-			<button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%;">ใบเสนอราคา</button>
+			<button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:left;">ใบเสนอราคา</button>
+			<button id="process" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:right;">ใบดำเนินการ</button>
 			
 
         </div>
         <!-- /#page-wrapper -->
-
+		<div id="ord_id" style="display:none"><?php echo $o_id;?></div>
     </div>
     <!-- /#wrapper -->
 

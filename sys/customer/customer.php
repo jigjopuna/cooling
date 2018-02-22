@@ -1,37 +1,32 @@
 <?php session_start();
 	  require_once('../include/connect.php');
-	  
-	  //for left nav menu path include/navproduct.php
-	$sql = "SELECT * FROM tb_category ORDER BY cat_name";
-	$result = mysql_query($sql);
-	$num = mysql_num_rows($result);
-	
-	//Product Expandtion
-	$sql_all = "SELECT * FROM tb_customer c JOIN province p ON c.cust_province = p.id";
-	$result_all = mysql_query($sql_all);
-	$num_all = mysql_num_rows($result_all);
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 	<?php 
+		
 		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
+		if($e_id==""){ exit("<script>alert('กรุณา Login ก่อนนะคะ'); window.location = '../pages/login/login.php';</script>");}
+		
+		$role_ = mysql_fetch_array(mysql_query("SELECT * FROM tb_role WHERE ro_emp_id = '$e_id'"));
+		$role = $role_['ro_cust'];	
+		if($role!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูข้อมูลลูกค้านะคะ'); window.location = '../index.php';</script>");}
+		
+		//for left nav menu path include/navproduct.php
+		$sql = "SELECT * FROM tb_category ORDER BY cat_name";
+		$result = mysql_query($sql);
+		$num = mysql_num_rows($result);
+		
+		//Product Expandtion
+		$sql_all = "SELECT * FROM tb_customer c JOIN province p ON c.cust_province = p.id";
+		$result_all = mysql_query($sql_all);
+		$num_all = mysql_num_rows($result_all);
 	
 	?>
 </head>
-
 <body>
 
     <div id="wrapper">

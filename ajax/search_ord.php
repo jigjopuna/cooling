@@ -3,11 +3,16 @@
 	$keyword = $_GET['term'];		
 	$data = array();
 	
-	/*$sql = "select * from member_emp";
-	$sql .= " where name like '$keyword%'";*/
+	/*
+	$sql = "select * from member_emp";
+	$sql .= " where name like '$keyword%'";
+	ถ้าลูกค้ามีมากกว่า 1 ออเดอร์ จะเอาออเดอร์ล่าสุดเท่านั้น
+	*/
+	
+	
 	$sql = "SELECT o.o_id, c.cust_name
 			FROM tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id
-			WHERE c.cust_name LIKE '%$keyword%'";
+			WHERE c.cust_name LIKE '%$keyword%' ORDER BY o.o_id DESC LIMIT 1";
 				
 	$result = mysql_query($sql);
 	$num = mysql_num_rows($result);
