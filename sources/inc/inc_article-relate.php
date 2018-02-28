@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="blog-slider" >
-				<div class="articles"><a href="17howto.php">
+				<div class="articles"><a href="https://topcooling.net/th/article/17howto.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('../../sources/assets/images/17howto.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -20,7 +20,7 @@
 					</a>
 				</div>
 
-			<div class="articles"><a href="#">
+			<div class="articles"><a href="https://topcooling.net/th/art_iot/iot.php">
 				<div class="blog-box">
 					<div class="blog-img" style="background: url('../../sources/assets/images/chktemp.jpg');">
 					<span>+ อ่านต่อ</span>

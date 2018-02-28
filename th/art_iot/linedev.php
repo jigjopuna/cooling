@@ -39,8 +39,7 @@
 				
 				วิธีการสมัคร Line
 				
-				</div><br><br>
-				<img src="../../content/images/article/ice/ice600x400.jpg" alt="ห้องเย็นเก็บน้ำแข็ง"><br><br>
+				</div><br>
 			
 				<div class="p_article">
 					<h2>วิธีการสมัคร Line</h2>

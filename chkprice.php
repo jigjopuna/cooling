@@ -415,7 +415,29 @@
 	</div>
 </div>-->
 
+<div class="section-testimonial">
+	<div class="heading">
+	ห้องเย็นมือสอง ประกอบใหม่
+	</div>
+	 
+	<div class="container">
+		<div class="row">
+			<img src="content/images/secondhand.jpg" width="100%" alt="ห้องเย็นมือสอง">
+		</div>
+	</div>	
+</div>
 
+ <div class="section-testimonial">
+	<div class="heading">
+	ห้องเย็นสำเร็จรูปตั้งพื้น ของใหม่
+	</div>
+	 
+	<div class="container">
+		<div class="row">
+			<img src="content/images/new.jpg" width="100%" alt="ห้องเย็นราคา">
+		</div>
+	</div>	
+</div>
 
  
 <div class="section-testimonial">
@@ -428,7 +450,7 @@
 			<div class="blog-slider" >
 			
 			
-				<div class="articles"><a href="th/article/17howto.php" target="_blank">
+				<div class="articles"><a href="th/article/17howto.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('sources/assets/images/17howto.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -442,7 +464,7 @@
 					</a>
 				</div>
 				
-				<div class="articles"><a href="th/article/outside.php" target="_blank">
+				<div class="articles"><a href="th/article/outside.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('content/images/article/out-side/outside-01.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -461,7 +483,7 @@
 			
 			
 
-			<div class="articles"><a href="th/article/pre-design.php" target="_blank">
+			<div class="articles"><a href="th/article/pre-design.php">
 				<div class="blog-box">
 					<div class="blog-img" style="background: url('content/images/article/design-room/main-post.jpg');">
 					<span>+ อ่านต่อ</span>
@@ -475,7 +497,7 @@
 				</a>
 			</div>
 			
-				<div class="articles"><a href="th/article/brief.php" target="_blank">
+			<div class="articles"><a href="th/article/brief.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('sources/assets/images/delivery.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -489,7 +511,7 @@
 					</a>
 				</div>
 			
-				<div class="articles"><a href="#" target="_blank">
+				<div class="articles"><a href="https://topcooling.net/th/art_iot/iot.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('sources/assets/images/chktemp.jpg');">
 						<span>+ อ่านต่อ</span>

@@ -8,12 +8,12 @@
 <?php require_once ('../../include/googlebot.php');?>
 <meta name="copyright" content="topcooling 2017"/>
 <meta name="keywords" content="ห้องเย็นคำถาม">
-<meta name="description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร โทร 082-360-1523">
+<meta name="description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร">
 <meta property="og:title" content="19 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/17howto/17.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/17howto.php"/>
-<meta property="og:description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร โทร 082-360-1523"/>
+<meta property="og:description" content="ข้อมูลห้องเย็น กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>19 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ</title>
@@ -149,7 +149,23 @@
 				
 				<span class="topic-article"> 9. เข้าไปดูของห้องจริงได้ไหม</span><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				ลูกค้าสามารถเข้าชมและลองใช้งานห้องเย็นก่อนได้ครับ โดยเดินทางที่ Topcooling ที่จังหวัดนครปฐม <a href="" target="_blank">ตามแผนที่นี้ได้เลย</a>
+				ลูกค้าสามารถเข้าชมและลองใช้งานห้องเย็นก่อนได้ครับ โดยเดินทางที่ Topcooling ที่จังหวัดนครปฐม ตามแผนที่นี้ได้เลย<br><br>
+				
+				<div id="map" style="width:100%; height: 400px;"></div>
+				<script>
+				  function initMap() {
+					var uluru = {lat: 13.878940, lng: 100.008990};
+					var map = new google.maps.Map(document.getElementById('map'), {
+					  zoom: 10,
+					  center: uluru
+					});
+					var marker = new google.maps.Marker({
+					  position: uluru,
+					  map: map
+					});
+				  }
+				</script>
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCEninHT4zh2BRAKt9CwoHik235Yc6IG0&callback=initMap"></script>
 				
 				<br><br>
 				
@@ -176,7 +192,7 @@
 				<img src="../../content/images/article/17howto/iot.jpg" alt="ห้องเย็นไฮเทค"><br><br>
 				
 				ระบบจะแจ้งเตือนเราไปยังแอปไลน์ หรือ เฟสบุค ที่ทุกคนใช้งานกันอยู่ทุกวัน จะบอกเราล่วงหน้าว่าจะเกิดอะไรขึ้นบ้าง โดยเราจะวัดกระแสและแรงดันการทำงานของ
-				ระบบห้องเย็น หากมีแนวโน้มที่จะเกิดปัญหาระบบจะแจ้งเตือน เราจะได้แก้ไขปัญหาได้ทันท่วงที ก่อนที่จะ <span class="text-strong">เกิดปัญหา</span>  และทำความเสียหายสินค้าในห้องเย็น
+				ระบบห้องเย็น หากมีแนวโน้มที่จะเกิดปัญหาระบบจะแจ้งเตือน เราจะได้แก้ไขปัญหาได้ทันท่วงที ก่อนที่จะ <span class="text-strong">เกิดปัญหา</span>  และทำความเสียหายสินค้าในห้องเย็น  <a href="../art_iot/iot.php" target="_blank">ข้อมูลเพิ่มเติม</a>
 				
 				<br><br>
 				
@@ -225,9 +241,12 @@
 				- อยากให้เย็นแค่ไหนก็ทำได้ <br>
 				  ลองดูคลิปด้านล่างนี้ครับ<br><br>
 				
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/TB2hEO-GU3A" frameborder="0" allowfullscreen></iframe>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/TB2hEO-GU3A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<br><br><br>
+				<span class="topic-article"> มาดูคลิป ตัวอย่างการเก็บแช่หมูกัน </span><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				<br><br>
-
+				
 				<?php include('../../sources/inc/inc_contact_art.php');?>
 				<br>
 				<br>

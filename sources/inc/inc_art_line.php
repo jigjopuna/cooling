@@ -20,7 +20,7 @@
 					</a>
 				</div>
 
-			<div class="articles"><a href="#">
+			<div class="articles"><a href="iot.php">
 				<div class="blog-box">
 					<div class="blog-img" style="background: url('../../sources/assets/images/chktemp.jpg');">
 					<span>+ อ่านต่อ</span>

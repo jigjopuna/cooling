@@ -449,7 +449,29 @@
 	
 </div>
  
+<div class="section-testimonial">
+	<div class="heading">
+	ห้องเย็นมือสอง ประกอบใหม่
+	</div>
+	 
+	<div class="container">
+		<div class="row">
+			<img src="content/images/secondhand.jpg" width="100%" alt="ห้องเย็นมือสอง">
+		</div>
+	</div>	
+</div>
 
+ <div class="section-testimonial">
+	<div class="heading">
+	ห้องเย็นสำเร็จรูปตั้งพื้น ของใหม่
+	</div>
+	 
+	<div class="container">
+		<div class="row">
+			<img src="content/images/new.jpg" width="100%" alt="ห้องเย็นราคา">
+		</div>
+	</div>	
+</div>
  
  <div class="section-testimonial">
 	<div class="heading">
@@ -473,7 +495,7 @@
 					</a>
 				</div>
 
-				<div class="articles"><a href="#">
+				<div class="articles"><a href="th/art_iot/iot.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('sources/assets/images/chktemp.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -494,7 +516,7 @@
 					<span>+ อ่านต่อ</span>
 					</div>
 					<div class="blog-content">
-						<span class="blog-time ">Nov 6, 2016</span>
+						<span class="blog-time ">Feb 6, 2018</span>
 						<h2 class="blog-title ">5 วิธีง่ายๆ ในการดูแลห้องเย็น</h2>
 						<p class="blog-excerpt "><p>หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น.</p></p>
 					</div>
@@ -585,9 +607,9 @@
 		</div>
 	</div>	
 </div>
- 
- 
- 
+
+
+
 
 
 <div class="section-calculate">
@@ -602,6 +624,7 @@
 	<div class="btn -primary">
 		ค้นหาราคาอุปกรณ์ห้องเย็น
 	</div>
+		
 </div>
  
 <div class="section-testimonial">
@@ -662,8 +685,19 @@
 			<div class="col-xs-12">
 				<a class="blog-readmore" href="https://www.tocooling.com/blog" target="_blank">อ่านทั้งหมด ></a>
 			</div>
+		</div><br><br><br>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<br><br>
+			</div>
 		</div>
+		
 	</div>	
+	
+	
 </div>
 
 

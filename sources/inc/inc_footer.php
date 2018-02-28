@@ -26,7 +26,7 @@
 								Line
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;">@topcooling</a>
+								<a href="https://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank" style="color: white;">@topcooling</a>
 							</div>
 						</div>
 					</li>
@@ -60,7 +60,7 @@
 								<i class="fa fa-map-marker"></i>
 							</div>
 							<div class="col-md-11 col-xs-10">
-								บริษัททอปคูลลิงค์จำกัด</br>
+								บริษัทท็อปคูลลิงค์จำกัด</br>
 								28/1 ม.6 ต.ทัพหลวง</br>
 								อ.เมือง จ.นครปฐม 73000
 							</div>
@@ -87,8 +87,8 @@
 			<div class="col-sm-2">
 			<ul class="footer-menu">
 				<li>สร้างห้องเย็น</li>
-				<li><a href="http://www.topcooling.net">ปรึกษาห้องเย็น</a></li>
-				<li><a href="">คำถามที่พบบ่อย</a></li>
+				<li><a href="https://topcooling.net">ปรึกษาห้องเย็น</a></li>
+				<li><a href="https://topcooling.net/th/article/17howto.php">คำถามที่พบบ่อย</a></li>
 			 
 			</ul>
 			</div>
@@ -102,7 +102,7 @@
 		<div class="row">
 			<div class="col-md-6">
 			<div class="copyright-text">
-			Copyright 2017 Topcooling.Co, Ltd.
+			Copyright 2018 Topcooling.Co, Ltd.
 			</div>
 			</div>
 			<div class="col-md-4">
@@ -113,7 +113,7 @@
 			</div>
 			<div class="col-md-2">
 			<div class="pull-rignt">
-			<label>ทอปคูลลิงค์</label>
+			<label>ท็อปคูลลิงค์</label>
 			</div>
 			</div>
 		</div>

@@ -1,3 +1,18 @@
+<div id="map" style="width:100%; height: 400px;"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 13.878940, lng: 100.008990};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCEninHT4zh2BRAKt9CwoHik235Yc6IG0&callback=initMap"></script>
 <div class="section-contact">
 	<div class="container">
 		<div class="row">
@@ -12,7 +27,7 @@
 								Line
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;">@topcooling</a>
+								<a href="https://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank" style="color: white;">@topcooling</a>
 							</div>
 						</div>
 					</li>
@@ -46,7 +61,7 @@
 								<i class="fa fa-map-marker"></i>
 							</div>
 							<div class="col-md-11 col-xs-10">
-								บริษัททอปคูลลิงค์จำกัด</br>
+								บริษัทท็อปคูลลิงค์จำกัด</br>
 								28/1 ม.6 ต.ทัพหลวง</br>
 								อ.เมือง จ.นครปฐม 73000
 							</div>
@@ -73,8 +88,8 @@
 			<div class="col-sm-2">
 			<ul class="footer-menu">
 				<li>สร้างห้องเย็น</li>
-				<li><a href="http://www.topcooling.net">ปรึกษาห้องเย็น</a></li>
-				<li><a href="">คำถามที่พบบ่อย</a></li>
+				<li><a href="https://www.topcooling.net">ปรึกษาห้องเย็น</a></li>
+				<li><a href="th/article/17howto.php">คำถามที่พบบ่อย</a></li>
 			 
 			</ul>
 			</div>
@@ -82,13 +97,14 @@
 		</div>
 	</div>
 </div> <!--end section-contact-->
- 
+
+
 <div class="section-footer-end">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
 			<div class="copyright-text">
-			Copyright 2017 Topcooling.Co, Ltd.
+			Copyright 2018 Topcooling.Co, Ltd.
 			</div>
 			</div>
 			<div class="col-md-4">
@@ -99,7 +115,7 @@
 			</div>
 			<div class="col-md-2">
 			<div class="pull-rignt">
-			<label>ทอปคูลลิงค์</label>
+			<label>ท็อปคูลลิงค์</label>
 			</div>
 			</div>
 		</div>
