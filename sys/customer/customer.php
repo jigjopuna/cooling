@@ -1,11 +1,13 @@
 <?php session_start();
 	  require_once('../include/connect.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php require_once ('../include/header.php');?>
-<?php require_once('../include/metatagsys.php');?>
+	<?php require_once('../include/header.php');?>
+	<?php require_once('../include/metatagsys.php');?>
+	<?php require_once('../include/inc_role.php'); ?>
 	<?php 
 		
 		$e_id = $_SESSION[ss_emp_id];
@@ -30,7 +32,6 @@
 <body>
 
     <div id="wrapper">
-
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
             <div class="row">

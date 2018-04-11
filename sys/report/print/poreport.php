@@ -12,7 +12,7 @@
 <?php 
 		$dates = trim($_GET['dates']);
 		
-		$result_po = mysql_query("SELECT e.e_name, p.po_bill_img, p.po_shop, p.po_buyer, p.po_subyer, p.po_name, p.po_price, p.po_qty, p.po_credit, p.po_credit_complete FROM tb_po p JOIN tb_emp e ON e.e_id = p.po_buyer WHERE p.po_date = '$dates'");
+		$result_po = mysql_query("SELECT e.e_name, p.po_bill_img, p.po_shop, p.po_buyer, p.po_subyer, p.po_name, p.po_price, p.po_qty, p.po_credit, p.po_credit_complete, p.po_date FROM tb_po p JOIN tb_emp e ON e.e_id = p.po_buyer WHERE p.po_date LIKE '$dates'");
 		$num_po = mysql_num_rows($result_po);
 		
 		$rowsum_ = mysql_fetch_array(mysql_query("SELECT SUM(po_price) poprice FROM tb_po WHERE po_date LIKE '$dates'"));		  
@@ -118,7 +118,7 @@ body {
 								<td><?php echo $row_po['po_qty'];?></td>
 								<td><?php echo number_format($row_po['po_price'], 0, '.', ',');?></td>
 								<td><?php echo $row_po['po_shop'];?></td>
-								<td><?php echo $dates;?></td>
+								<td><?php echo $row_po['po_date'];?></td>
 							</tr>
 						<?php } ?>
 						<tr>

@@ -12,14 +12,10 @@
 	//Product Summary
 	$sql_all = "SELECT c.cat_id, c.cat_name, count(*) cnteachcate FROM tb_product p JOIN tb_category c ON p.p_cate = c.cat_id GROUP BY p_cate ORDER BY cnteachcate DESC";
 	$result_all = mysql_query($sql_all);
-	$num_all = mysql_num_rows($result_all);
-	
+	$num_all = mysql_num_rows($result_all);	
 	
 	include('include/sql_report1.php');
-	
-	
-	
-	 
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,13 +32,20 @@
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
 		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = 'pages/login/login.php';
-				</script>");
+			exit("<script>alert('กรุณา Login ก่อนนะคะ');window.location = 'pages/login/login.php';</script>");
 		}
-	
+		$role = mysql_fetch_array(mysql_query("SELECT * FROM tb_role WHERE ro_emp_id = '$e_id'"));
+		/*$sqls = "SELECT * FROM tb_role WHERE ro_emp_id = '$e_id'";
+		$res = mysql_query($sqls);
+		$nums = mysql_num_rows($res);
+		$rows = mysql_fetch_array($res);
+		
+		echo 'nums : '.$nums;
+		echo '<br>';
+		echo 'cust : '.$rows['ro_cust'];
+		exit();*/
+		
+		
 	?>
 
     <title>ระบบห้องเย็น ERP</title>

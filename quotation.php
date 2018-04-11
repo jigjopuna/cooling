@@ -23,6 +23,9 @@
 	$temp_before  = $_POST['temp_before']; 
 	$timeperiod  = $_POST['timeperiod'];
 	$qty  = $_POST['qty'];
+	
+	$sql = "INSERT INTO tb_quo_log SET qo_w = '$r_width', qo_h = '$r_height', qo_l='$r_length', qo_temp = '$temparature', qo_tempb='$temp_before', qo_peroid = '$timeperiod'";
+	$result = mysql_query($sql);
 	$percentprice = 1.1;$stdardwall = 1.2;
 	$aluminium_lenght = 6;
 	

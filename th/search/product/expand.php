@@ -1,5 +1,5 @@
 <?php 
-    require_once('../../sys/include/connect.php');
+    require_once('../../../sys/include/connect.php');
 	/*trim($_GET["productname"])*/
 	$cate_id = 4;
 	$productname = 'Expansion Valve';
@@ -43,7 +43,7 @@
 	<meta name="keywords" content="ราคา <?php echo $productname; ?>, ราคาห้องเย็น" />
     <meta name="description" content="อยากรู้ราคา <?php echo $productname; ?> อยู่ใช่ไหมล่ะ เข้ามาดูอะไหล่และอุปกรณ์ห้องเย็นได้เลย พร้อมบริการ โดย Topcooling">
     <meta name="author" content="">
-	<?php require_once('../../include/google-verify.php');?>
+	<?php require_once('../../../include/google-verify.php');?>
 	<meta property="og:url" content="<?php echo $cate_id;?>.php?p_cate=<?php echo $cate_id;?>" />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="<?php echo $productname.' '.'ราคาและราละเอียด';?>" />
@@ -52,17 +52,17 @@
 
     <title><?php echo $productname.' '.'ราคาและราละเอียด';?></title>
 	
-	<?php require_once('../../include/inc_css.php');?>
+	<?php require_once('../../../include/inc_css.php');?>
 
 
 </head>
 
 <body id="page-top" class="index">
-<?php require_once('../../include/googltag.php');?>
+<?php require_once('../../../include/googltag.php');?>
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container">
-            <?php require_once('../../include/inc_menu_cat.php');?>
+            <?php require_once('../../../include/inc_menu_cat.php');?>
         </div>
         <!-- /.container-fluid -->
     </nav>
@@ -274,13 +274,13 @@
 	
 
     <!-- Clients Aside -->
-	<?php require_once('../../include/inc_expand_partner.php');?> 
+	<?php require_once('../../../include/inc_expand_partner.php');?> 
 
     <!-- Contact Section -->
-    <?php require_once('../../include/inc_contact_footer.php');?>
+    <?php require_once('../../../include/inc_contact_footer.php');?>
 
     <!-- Script Section -->
-    <?php require_once('../../include/inc_script_footer.php');?>
+    <?php require_once('../../../include/inc_script_footer.php');?>
 
     
 	<script>

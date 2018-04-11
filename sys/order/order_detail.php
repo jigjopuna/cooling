@@ -70,17 +70,7 @@
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <?php require_once('../include/metatagsys.php');?>
-	<?php 
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
-	
-	?>
+<?php require_once('../include/inc_role.php'); ?>
 <script>
 	$(document).ready(function(){ 
 		var quots = $('#quot').html();

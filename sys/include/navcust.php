@@ -1,3 +1,15 @@
+<?php 
+	$ro_order   = $role['ro_order'];
+	$ro_finance = $role['ro_finance'];
+	$ro_po      = $role['ro_po'];
+	$ro_stock   = $role['ro_stock'];
+	$ro_salary  = $role['ro_salary'];
+	$ro_report  = $role['ro_report'];
+	$ro_quotation = $role['ro_quotation'];
+	$ro_income  = $role['income'];
+	$ro_cust = $role['ro_cust'];
+
+?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -30,14 +42,19 @@
                             <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> หน้าหลัก</a>
                         </li>
 						
+						
+						<?php if($ro_quotation!=0) { ?>
 						<li>
                             <a href="quotation/q.php"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา</a>
                         </li>
+						<?php } ?>
 						
 						<li>
                             <a href="quotation/q_fome.php"><i class="fa fa-dashboard fa-fw"></i>ต้นทุนห้องโฟม</a>
                         </li>
 						
+						
+						<?php if($ro_finance!=0) { ?>
 						<li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>การเงิน <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -64,7 +81,10 @@
 							
                             </ul>
                         </li>
+						<?php } ?>
 						
+						
+						<?php if($ro_cust!=0) { ?>
 						 <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>ลูกค้า <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -83,7 +103,10 @@
 							
                             </ul>
                         </li>
+						<?php } ?>
 						
+						
+						<?php if($ro_order!=0) { ?>
 						<li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>ออเดอร์ <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -91,11 +114,11 @@
                                 <li>
                                     <a href="order/order.php">รายการออเดอร์</a>
                                 </li>
-								
-							
                             </ul>
                         </li>
+						<?php } ?>
 						
+						<?php if($ro_stock!=0) { ?>
 						<li>
                             <a href="stock/stockout.php"><i class="fa fa-bar-chart-o fa-fw"></i> สต็อก / เบิกของ <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -114,15 +137,19 @@
 							
                             </ul>
                         </li>
+						<?php } ?>
 						
 						
 						<li>
                             <a href="index.php"><i class="fa fa-dashboard fa-fw"></i>อุปกรณ์ห้องเย็น</a>
                         </li>
 						
+						
+						<?php if($ro_report!=0) { ?>
 						 <li>
                             <a href="report/selectreport.php"><i class="fa fa-bar-chart-o fa-fw"></i>รายงาน <span class="fa arrow"></span></a>                       
                         </li>
+						<?php } ?>
 						
 						 <li>
                             <a href="pages/login/logout.php" target="_blank"><i class="fa fa-edit fa-fw"></i> ออกจากระบบ </a>

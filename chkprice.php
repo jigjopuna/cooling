@@ -5,17 +5,16 @@
 <title>ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | Topcooling</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 <meta name="keywords" content="เช็คราคาห้องเย็น" />
-<meta name="description" content="รู้ราคาห้องเย็นภายใน 1 นาที เคยไหม ไม่รู้ว่าจะหาข้อมูลห้องเย็นได้จากไหน ลองดูข้อมูลห้องเย็นได้ที่นี่ " />
+<meta name="description" content="รู้ราคาห้องเย็นภายใน 1 นาที เคยไหม ไม่รู้ว่าจะหาข้อมูลห้องเย็นได้จากไหน ลองดูข้อมูลห้องเย็นได้ที่นี่" />
 <title>เช็คราคาห้องเย็น Top Cooling</title>
-<meta property="og:url" content="http://topcooling.net/chkprice.php" />
+<meta property="og:url" content="https://topcooling.net/chkprice.php" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="เช็คราคาห้องเย็น Top Cooling" />
 <meta property="og:description" content="รู้ราคาห้องเย็นภายใน 1 นาที เคยไหม ไม่รู้ว่าจะหาข้อมูลห้องเย็นได้จากไหน ลองดูข้อมูลห้องเย็นได้ที่นี่ " />
-<meta property="og:image" content="img/about/coolr639x309.jpg" />
+<meta property="og:image" content="content/images/secondhand.jpg" />
 <?php require_once ('include/google_verify.php');?>
 
-
-<link rel="shortcut icon" href="/assets/img/favicon.ico">
+<link rel="shortcut icon" href="content/images/favicon.png">
 <link rel="stylesheet" href="sources/css/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
  
@@ -353,31 +352,54 @@
 			<div class="col-md-12">
 				<div class="heading">
 				 
-				วิธีการใช้งาน ตรวจสอบราคาห้องเย็น<span class="hidden-xs"></span> 
+				<u>วิธีการใช้งาน ตรวจสอบราคาห้องเย็น</u><span class="hidden-xs"></span> 
 				</div>
 				<p>
-				1. ใส่ขนาดห้องเย็นที่ต้องการ<br><br>
-	2. เลือกอุณหภูมิที่ต้องการ เช่น ต้องแช่หมู ไก่ ปลา ให้ได้อุณภูมิที่ต้องการเลือกได้เลย ถ้าอยากได้อุณหภูมิ -20 องศา ก็เลือก 0 ถึง -20 องศา<br><br>
-	3. ระยะเวลาลดอุณหภูมิสินค้า คือเมื่อเอาสินค้าเข้าห้องเย็นแล้ว ต้องการให้สินค้าเย็นให้ได้ -20 องศา ภายในกี่ชั่วโมง<br><br>
-	4. อุณหภูมิสินค้าก่อนเข้าห้อง หมายถึงสินค้าที่ยังไม่ได้แช่เย็นก่อนเข้าห้องเย็นอุณหภูมิเท่า ทั่วไปๆ ก็ประมาณ 20 ถึง 25 องศา<br><br>
-	5. ปริมาณ หมายถึง 1 วันจะเอาสินค้าเข้าห้องเย็นกี่กิโล ช่องนี้ใส่คราวๆ ก็ได้ครับ<br><br>
+	1. <span class="topic-article">ใส่ขนาด</span> ห้องเย็นที่ต้องการ<br><br>
+	2. <span class="topic-article">เลือกอุณหภูมิ</span>  ที่ต้องการเช่น ต้องแช่หมู ไก่ ปลา ให้ได้อุณภูมิที่ต้องการเลือกได้เลย ถ้าอยากได้อุณหภูมิ -20 องศา ก็เลือก 0 ถึง -20 องศา<br><br>
+	3. <span class="topic-article">ระยะเวลาลดอุณหภูมิ</span>  สินค้า คือเมื่อเอาสินค้าเข้าห้องเย็นแล้ว ต้องการให้สินค้าเย็นให้ได้ -20 องศา ภายในกี่ชั่วโมง<br><br>
+	4. <span class="topic-article">อุณหภูมิสินค้าก่อนเข้าห้อง</span>   หมายถึงสินค้าที่ยังไม่ได้แช่เย็นก่อนเข้าห้องเย็นอุณหภูมิเท่า ทั่วไปๆ ก็ประมาณ 20 ถึง 25 องศา<br><br>
+	5. <span class="topic-article">ปริมาณ </span>  หมายถึง 1 วันจะเอาสินค้าเข้าห้องเย็นกี่กิโล ช่องนี้ใส่คราวๆ ก็ได้ครับ<br><br>
 	6. กดปุ่ม "คำนวณราคา" จากนั้นใบเสนอราคาจะแสดงขึ้นมา<br><br>
 	
-	<strong>หมายเหตุ</strong> : ราคานี้เป็นราคาห้องเย็นมือหนึ่ง<br><br>
+	<strong>หมายเหตุ</strong> : ราคานี้เป็นราคาห้องเย็น <span class="text-strong">แบบฝั่ง</span> (ติดตั้งหน้างาน) แบบราคาเบื้องต้น มี <span class="text-strong">ราคาพิเศษ</span> ให้ ติดต่อผม 082-360-1523 ครับ<br><br>
 	ระบบห้องนี้สร้างขึ้นมาเพื่ออำนวยความสะดวกให้กับทุกคนที่ต้องการทราบราคาห้องเย็น แต่ไม่รู้ว่าจะไปหาข้อมูลได้ที่ไหน<br><br>
 	
-	หามีข้อสงสัยติดต่อ 082-360-1523
+	หามีข้อสงสัยติดต่อ 082-360-1523<br>
+	Line ID : @topcooling (พิมพ์ @ ข้างหน้าด้วย)<br><br>
+	
+	หากต้องการ <span class="text-strong">ห้องเย็นสำเร็จรูป</span> แบบเคลื่อนย้ายได้ให้เลื่อนมาด้านล่างดูราคาได้ครับ
 				</p>
 				
 			</div>
-			
-			
-			
-		
-		</div>
-		
+		</div>		
 	</div>
 </div>
+
+<!--<div class="section-testimonial">
+	<div class="heading">
+	หยุดทำการ 3 วัน นะครับ 
+	</div>
+	<p style="font-size: 22px;">
+		หยุด 3 วันนะครับ ไปต่างประเทศ<br>
+		จะเปิดทำการอีกครั้งวันที่ 14 มีนาคม<br><br>
+
+		ระหว่างนี้ยังสามารถส่งข้อความ<br>
+		ทาง Facebook และ Line ได้อยู่นะครับ<br><br>
+
+		โทรอาจจะไม่ติด<br><br>
+
+		FB : <a href="https://goo.gl/55am5r" target="_blank">goo.gl/55am5r</a><br>
+		Line ID : @topcooling (ใส่ @ ข้างหน้าด้วย)<br>
+		Line QR : <a href="https://goo.gl/S9zZcF" target="_blank">goo.gl/S9zZcF</a><br>
+	</p><br><br>
+	 
+	<div class="container">
+		<div class="row">
+			<img style="width:60%;" src="content/images/holiday.jpg" width="100%" alt="ห้องเย็นมือสอง">
+		</div>
+	</div>	
+</div>-->
 
 <!--<div id="sec2" class="section-2">
 	<div class="container">
@@ -417,17 +439,17 @@
 
 <div class="section-testimonial">
 	<div class="heading">
-	ห้องเย็นมือสอง ประกอบใหม่
+	ราคาห้องเย็นสำเร็จรูป
 	</div>
 	 
 	<div class="container">
 		<div class="row">
-			<img src="content/images/secondhand.jpg" width="100%" alt="ห้องเย็นมือสอง">
+			<img src="content/images/pricebanner2.jpg" width="100%" alt="ห้องเย็นมือสอง">
 		</div>
 	</div>	
 </div>
 
- <div class="section-testimonial">
+<!-- <div class="section-testimonial">
 	<div class="heading">
 	ห้องเย็นสำเร็จรูปตั้งพื้น ของใหม่
 	</div>
@@ -437,7 +459,7 @@
 			<img src="content/images/new.jpg" width="100%" alt="ห้องเย็นราคา">
 		</div>
 	</div>	
-</div>
+</div>-->
 
  
 <div class="section-testimonial">

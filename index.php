@@ -334,6 +334,32 @@
 		</div>
 	</div>
 </div>
+
+<!--<div class="section-testimonial">
+	<div class="heading">
+	หยุดทำการ 3 วัน นะครับ 
+	</div>
+	<p style="font-size: 22px;">
+		หยุด 3 วันนะครับ ไปต่างประเทศ<br>
+		จะเปิดทำการอีกครั้งวันที่ 14 มีนาคม<br><br>
+
+		ระหว่างนี้ยังสามารถส่งข้อความ<br>
+		ทาง Facebook และ Line ได้อยู่นะครับ<br><br>
+
+		โทรอาจจะไม่ติด<br><br>
+
+		FB : <a href="https://goo.gl/55am5r" target="_blank">goo.gl/55am5r</a><br>
+		Line ID : @topcooling (ใส่ @ ข้างหน้าด้วย)<br>
+		Line QR : <a href="https://goo.gl/S9zZcF" target="_blank">goo.gl/S9zZcF</a><br>
+	</p><br><br>
+	 
+	<div class="container">
+		<div class="row">
+			<img style="width:60%;" src="content/images/holiday.jpg" width="100%" alt="ห้องเย็นมือสอง">
+		</div>
+	</div>	
+</div>-->
+
 <style>
 
 .accessories:hover {
@@ -345,6 +371,18 @@
     transition: opacity 0.5s ease-in-out;
 }
 </style>
+ <div class="section-testimonial">
+	<div class="heading">
+	ห้องเย็นสำเร็จรูปตั้งพื้นของใหม่และมือสอง
+	</div>
+	 
+	<div class="container">
+		<div class="row">
+			<img src="content/images/pricebanner2.jpg" width="100%" alt="ห้องเย็นราคา">
+		</div>
+	</div>	
+</div>
+
 <div class="section-better">
 	<div class="container">
 		<div class="row">
@@ -449,7 +487,7 @@
 	
 </div>
  
-<div class="section-testimonial">
+<!--<div class="section-testimonial">
 	<div class="heading">
 	ห้องเย็นมือสอง ประกอบใหม่
 	</div>
@@ -459,19 +497,9 @@
 			<img src="content/images/secondhand.jpg" width="100%" alt="ห้องเย็นมือสอง">
 		</div>
 	</div>	
-</div>
+</div>-->
 
- <div class="section-testimonial">
-	<div class="heading">
-	ห้องเย็นสำเร็จรูปตั้งพื้น ของใหม่
-	</div>
-	 
-	<div class="container">
-		<div class="row">
-			<img src="content/images/new.jpg" width="100%" alt="ห้องเย็นราคา">
-		</div>
-	</div>	
-</div>
+
  
  <div class="section-testimonial">
 	<div class="heading">

@@ -24,8 +24,8 @@
 	  echo "curdate : ".$curdate."<br>";
 	  echo "year : ".$year."<br>";
 	  echo "month : ".$month."<br>";
-	  echo "select_month : ".$select_month."<br>";*/
- 
+	  echo "select_month : ".$select_month."<br>";*/ 
+	  
 	  //exit();
 
 ?>
@@ -39,12 +39,9 @@
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <?php 
-	$e_id = $_SESSION['ss_emp_id'];
-	if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ');window.location = '../pages/login/login.php';</script>");}
+	include('../include/inc_role.php');
+	include('../include/inc_ro_report.php');
 	
-	/*$role_ = mysql_fetch_array(mysql_query("SELECT ro_stock FROM tb_role WHERE ro_emp_id = '$e_id'"));
-	$role = $role_['ro_stock'];*/
-		
 	if($rep_time==1){
 			  
 	}else if($rep_time==2){

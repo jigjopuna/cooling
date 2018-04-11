@@ -13,22 +13,6 @@
 <html lang="en">
 
 <head>
-
-    <title>เพิ่มลูกค้า</title>
-	
-	<?php require_once ('../include/header.php');?>
-	<?php require_once('../include/metatagsys.php');?>
-	<?php 
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
-	
-	?>
 	<script src="../js/jquery-1.11.1.min.js"></script>
 	<script>
 		$(document).ready(function(){
@@ -101,13 +85,17 @@
 			
 		}
 	</script>  
+    <title>เพิ่มลูกค้า</title>	
+	<?php require_once('../include/header.php');?>
+	<?php require_once('../include/metatagsys.php');?>
+	<?php require_once('../include/inc_role.php'); ?>
+
 </head>
 
 <body>
 
     <div id="wrapper">
 		<?php require_once ('../include/navproduct.php');?>
-
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -159,10 +147,7 @@
 											</select>
 										</div>
 										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">หมายเลขผู้เสียภาษี</label>
-											<input type="text" class="form-control" id="taxid" name="taxid">
-										</div>
+										
 										
 									</div>
 									
@@ -186,7 +171,10 @@
 											<input type="text" class="form-control" id="phoneno" name="phoneno">
 										</div>
 										
-										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">หมายเลขผู้เสียภาษี</label>
+											<input type="text" class="form-control" id="taxid" name="taxid">
+										</div>
 										
 
 									</div>
@@ -216,19 +204,40 @@
 											<input type="text" class="form-control" id="cust_map" name="cust_map">
 										</div>
 										
-										<div class="form-group has-success">
-											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกข้อมูลลูกค้า</button>
-										</div>
-										
 									</div>
 									
 			
 			
 									<div class="col-lg-3">
-									
+										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">Email</label>
-											<input type="text" class="form-control" id="email" name="email">
+											<label class="control-label" for="inputSuccess">อุณหภูมิต่ำสุด</label>
+											<input type="text" class="form-control" id="temp_min" name="temp_min" value="-10">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">อุณหภูมิสูงสุด</label>
+											<input type="text" class="form-control" id="temp_max" name="temp_max" value="20">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ระยะเวลา (ชั่วโมง)</label>
+											<select class="form-control" name="temp_period" id="temp_period"> 
+												<option value="3">3 </option>
+												<option value="4">4 </option>
+												<option value="5">5 </option>
+												<option value="6">6 </option>
+											</select>
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">แสดงผล</label>
+											<input type="checkbox" class="form-control" id="sendline" name="sendline" checked="checked">
+										</div>
+										
+										
+										<div class="form-group has-success">
+											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกข้อมูลลูกค้า</button>
 										</div>
 										
 									</div>
