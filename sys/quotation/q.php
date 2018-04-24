@@ -15,15 +15,21 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
+	<meta charset="UTF-8">
     <title>Admin ใบเสนอราคา</title>
+	
+	<?php 
+		require_once('../include/inc_role.php'); 
+		require_once ('../include/navproduct.php');
+		//if($ro_order!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูออเดอร์นะคะ'); window.location = '../index.php';</script>");}
+	?>
 	
 	<?php require_once('../include/metatagsys.php');?>
 	<?php require_once ('../include/header.php');?>
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
+		
 		if($e_id==""){
 			exit("
 				<script>

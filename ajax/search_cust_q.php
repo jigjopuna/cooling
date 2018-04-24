@@ -5,22 +5,22 @@
 	
 	/*$sql = "select * from member_emp";
 	$sql .= " where name like '$keyword%'";*/
-	$sql = "SELECT cust_id, cust_name FROM tb_customer WHERE cust_name LIKE '%$keyword%'";
+	$sql = "SELECT qcust_id, qcust_name FROM tb_quo_cust WHERE qcust_name LIKE '%$keyword%'";
 	
 	$result = mysql_query($sql);
 	$num = mysql_num_rows($result);
 
 	if ($num==0){
 		$data[] = array(
-					"label" => "ไม่พบชื่อลูกค้าที่สั่งซื้อ",
+					"label" => "ไม่พบชื่อลูกค้า",
 					"value" => ""
 						);
 	}
 
 	 while($row = mysql_fetch_array($result)){ 
 			$data[] = array(
-						"label" => $row['cust_name'],
-						"value" => $row['cust_id']
+						"label" => $row['qcust_name'],
+						"value" => $row['qcust_id']
 							);
 	  }
 

@@ -44,7 +44,17 @@
 						
 						<?php if($ro_quotation!=0) { ?>
 						<li>
-                            <a href="../quotation/q.php"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา</a>
+                            <a href="#"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+								
+                                <li>
+                                    <a href="../quotation/q.php">ห้องฝั่ง</a>
+                                </li>
+								
+								<li>
+                                    <a href="../quotation/cust_q.php">ห้องสำเร็จ</a>
+                                </li>
+                            </ul>
                         </li>
 						<?php } ?>
 						
@@ -91,7 +101,14 @@
                                 </li>
 								
 								<li>
-                                    <a href="../customer/cust_add.php">เพิ่มลูกค้า</a>
+                                    <a href="../customer/cust_waitpay.php">ลูกค้ารอมัดจำ</a>
+                                </li>
+								
+								
+								<li>
+                                    <!--<a href="../customer/cust_add.php">เพิ่มลูกค้า</a>-->
+									<a href="../customer/cust_qoutation.php">เพิ่มลูกค้า</a>
+									
                                 </li>
 								
 								<li>

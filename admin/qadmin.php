@@ -93,21 +93,27 @@
 	
 	if($timeperiod==6){
 		$condensingtime = 5;
+	}
+	else if ($timeperiod==8){
+		$condensingtime = 8;
+		
 	}else if ($timeperiod==12){
 		$condensingtime = 10;
-	}
-	else if ($timeperiod==15){
+		
+	}else if ($timeperiod==15){
 		$condensingtime = 13.5;
-	}
-	else if ($timeperiod==18){
+		
+	}else if ($timeperiod==18){
 		$condensingtime = 15;
-	}
-	else if ($timeperiod==21){
+		
+	}else if ($timeperiod==21){
 		$condensingtime = 17.5;
-	}
-	else if ($timeperiod==24){
+		
+	}else if ($timeperiod==24){
 		$condensingtime = 20;
 	}
+	
+	
 	
 	
 	//Temparature 0

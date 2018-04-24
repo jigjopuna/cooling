@@ -18,6 +18,7 @@
 		$(document).ready(function(){
 			multiList();
 			$('#btn').click(validation);
+			
 
 	});//end ready
 	
@@ -61,25 +62,37 @@
 		
 		
 		function validation(){
-			var custname = $('#cust_name').val();
-			if(custname==''){
-				$('#cust_name ').val("ยังไม่ได้ใส่ชื่อลูกค้า");
-			}
-			
-			if($('#province').val()==0){
+			if($('#chk_custallow:checked').length != 1){
+				//ให้ข้อมูล
+				if($('#province').val()==0){
 				 alert('เลือกจังหวัดด้วยนะค่ะ');
 				 return false;
+				}
+				
+				if($('#amphur').val()==0){
+					 alert('เลือกอำเภอด้วยนะค่ะ');
+					 return false;
+				}
+				
+				if($('#tumbon').val()==0){
+					 alert('เลือกตำบลด้วยนะค่ะ');
+					 return false;
+				}
+	
+			}// end if ให้ข้อมูล
+			
+			var custname = $('#cust_name').val();
+			if(custname==''){
+				alert('ยังไม่ได้ใส่ชื่อลูกค้า');
+				return false;
 			}
 			
-			if($('#amphur').val()==0){
-				 alert('เลือกอำเภอด้วยนะค่ะ');
-				 return false;
+			var phoneno = $('#phoneno').val();
+			if(phoneno==''){
+				alert('ใส่เบอร์ลูกค้าด้วย');
+				return false;
 			}
 			
-			if($('#tumbon').val()==0){
-				 alert('เลือกตำบลด้วยนะค่ะ');
-				 return false;
-			}
 			
 			$('#form1').submit();
 			
@@ -99,7 +112,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">เพิ่มลูกค้า</h1>
+                    <h1 class="page-header">เพิ่มลูกค้า เพื่อขอใบเสนอราคา</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -109,12 +122,12 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							เพิ่มลูกค้า
+							เพิ่มลูกค้า เพื่อขอใบเสนอราคา
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 							<div class="row">
-								<form action="cust_add_save.php" id="form1" name="form" method="post">
+								<form action="../db/cust/custqou.php" id="form1" name="form" method="post">
 									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess"> ชื่อ-นามสกุลลูกค้า </label>
@@ -122,10 +135,18 @@
 										</div>
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">บริษัท</label>
-											<input type="text" class="form-control" id="cust_corp" name="cust_corp">
+											<label class="control-label" for="inputSuccess">เบอร์ติดต่อ</label>
+											<input type="text" class="form-control" id="phoneno" name="phoneno">
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ลูกค้าไม่ให้ข้อมูล</label>
+											<input type="checkbox" class="form-control" id="chk_custallow" name="chk_custallow">
+										</div>
+									</div>
+
+									
+									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">จังหวัด </label>
 											<select class="form-control" id="province" name="province">
@@ -149,8 +170,6 @@
 									</div>
 									
 									<div class="col-lg-3">
-									
-										
 										
 										<div class="form-group">
 										  <label for="comment">ที่อยู่</label>
@@ -162,74 +181,14 @@
 											<label class="control-label" for="inputSuccess">รหัสไปรษณีย์</label>
 											<input type="text" class="form-control" id="zipcode" name="zipcode">
 										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">เบอร์ติดต่อ</label>
-											<input type="text" class="form-control" id="phoneno" name="phoneno">
-										</div>
-										
+									</div>
+									
+			
+			
+									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">หมายเลขผู้เสียภาษี</label>
 											<input type="text" class="form-control" id="taxid" name="taxid">
-										</div>
-										
-
-									</div>
-									
-									<div class="col-lg-3">
-									
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">Email</label>
-											<input type="text" class="form-control" id="email" name="email">
-										</div>
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">อื่นๆ </label>
-											<input type="text" class="form-control" id="other" name="other">
-										</div>
-										
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">Line </label>
-											<input type="text" class="form-control" id="line_id" name="line_id">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">แผ่นที่</label>
-											<input type="text" class="form-control" id="cust_map" name="cust_map">
-										</div>
-										
-									</div>
-									
-			
-			
-									<div class="col-lg-3">
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">อุณหภูมิต่ำสุด</label>
-											<input type="text" class="form-control" id="temp_min" name="temp_min" value="-10">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">อุณหภูมิสูงสุด</label>
-											<input type="text" class="form-control" id="temp_max" name="temp_max" value="20">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ระยะเวลา (ชั่วโมง)</label>
-											<select class="form-control" name="temp_period" id="temp_period"> 
-												<option value="3">3 </option>
-												<option value="4">4 </option>
-												<option value="5">5 </option>
-												<option value="6">6 </option>
-											</select>
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">แสดงผล</label>
-											<input type="checkbox" class="form-control" id="sendline" name="sendline" checked="checked">
 										</div>
 										
 										
