@@ -195,7 +195,7 @@
 				<div class="wrapper">
 				<div class="form-header">
 				<div class="heading">
-				ขอใบเสนอราคาห้องเย็น
+				ขอใบเสนอราคาห้องเย็นฝั่ง
 				</div>
 				</div>
 
@@ -484,9 +484,44 @@
 			
 		</div>
 	</div>
-	
 </div>
  
+ 
+ <div class="section-4">
+	<div class="container">
+		<div class="row -step">
+			<div class="col-md-12">
+				<div class="heading">
+				ห้องเย็นมือสองประกอบใหม่
+				</div>
+			</div>
+		</div>
+		
+		<div class="row -step-list">
+			<div class="col-sm-6 -step-item">
+				<img src="content/images/cool/300px.jpg" style="width:300px; height:300px;">
+				<p>
+					<div class="heading">ห้องเย็นมือสองประกอบใหม่</div>
+					ประหยัดงบประมาณ <br>
+					ได้ห้องเย็นใกล้เคียงกับของใหม่<br>
+					รับประกันนาน 6 เดือน <br>
+					เคลื่อนย้ายได้สะดวก <br>
+					
+				</p>
+			</div>
+			<div class="col-sm-6 -step-item">
+				<img src="content/images/cool/300px.jpg" style="width:300px; height:300px;">
+				<p>
+					<div class="heading">ห้องเย็นแบบฝั่งประกอบเร็ว</div>
+					ใช้ระยะเวลาประกอบสั้น ติดตั้ง 2 ถึง 3 วัน<br>
+					รับประกันนาน 1 เดือน <br>
+					เคลื่อนย้ายได้สะดวก <br>
+				</p>
+			</div>
+			
+		</div>
+	</div>
+</div>
 <!--<div class="section-testimonial">
 	<div class="heading">
 	ห้องเย็นมือสอง ประกอบใหม่

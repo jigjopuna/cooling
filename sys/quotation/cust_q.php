@@ -21,21 +21,33 @@
 		});
 		
 		function validation(){
-			/*var search_custname = $('#search_custname').val();
-			var payinqty = $('#payinqty').val();
-			var paydate = $('#paydate').val(); 
-			var ord_control = $('#ord_control').val();
-			var ord_door = $('#ord_door').val();
-			var ord_coilh = $('#ord_coilh').val();
-			var date_delivery = $('#date_delivery').val();
-			if((search_custname=='') || (payinqty=='') || (paydate=='') || (ord_control==0) || (ord_door==0) || (ord_coilh==0) || (date_delivery='')){
-				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
-			}else{
+			var search_custname = $('#search_custname').val();
+			var ord_temp = $('#ord_temp').val();
+			var ship_cost = $('#ship_cost').val();
+			
+			var voltage = $('#voltage').val();
+			var r_width = $('#r_width').val(); 
+			var r_lenght = $('#r_lenght').val();
+			var r_high = $('#r_high').val();
+			var ord_color = $('#ord_color').val(); 
+			
+			var ord_price = $('#ord_price').val();
+			if((search_custname=='') || (ship_cost=='') || (voltage==0) || (r_width==0) || (r_lenght==0)){
+				alert("ใส่ข้อมูลให้ครบและถูกต้องนะค่ะ"); 
+				return false;
+			}else if((ord_price==0) || (isNaN(ord_price))){
+				alert("ใส่ราคาขายให้ถูกต้องด้วยนะค่ะ"); 
+				return false;				
+			}else if((ord_temp=='') ||isNaN(ord_temp)){
+				alert("ใส่อุณหภูมิเป็นตัวเลขด้วยนะค่ะ"); 
+				return false;				
+			}
+			else{
 				$('#form1').submit();				
-			}*/
-			$('#form1').submit();
+			}
 		}		
 	});
+
 </script>
 </head>
 
@@ -121,6 +133,11 @@
 											<input type="text" class="form-control" id="ord_color" name="ord_color" value="สีฟ้ามาตราฐาน">
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ออก VAT</label>
+											<input type="checkbox" class="form-control" id="ord_vat" name="ord_vat">
+										</div>
+										
 										<!--<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">จำนวน</label>
 											<input type="text" class="form-control" id="ord_qty" name="ord_qty" value="1">
@@ -129,14 +146,6 @@
 									
 																		
 									<div class="col-lg-3">
-										<?php if(($e_id==9)||($e_id==25)) { ?>
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ออก VAT</label>
-											<input type="checkbox" class="form-control" id="ord_vat" name="ord_vat">
-										</div>
-										<?php } ?>
-										
-										
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ของแถม</label>
@@ -153,15 +162,19 @@
 											<input type="text" class="form-control" id="additional_price" name="additional_price">
 										</div>
 										
-										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ประเภทห้อง</label>
+											<select class="form-control" id="r_type" name="r_type">
+												<option value="2">ห้องมือสอง</option> 
+												<option value="1">ห้องใหม่</option>
+											</select>
+										</div>
 										
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ราคาขาย</label>
 											<input type="text" class="form-control" id="ord_price" name="ord_price">
 										</div>
-										
-										
 									</div>
 
 									

@@ -4,9 +4,9 @@
 	$cust_id = trim($_GET['cust_id']);
 
 	//for left nav menu path include/navproduct.php
-	$sql = "SELECT * FROM tb_category ORDER BY cat_name";
+	/*$sql = "SELECT * FROM tb_category ORDER BY cat_name";
 	$result = mysql_query($sql);
-	$num = mysql_num_rows($result);
+	$num = mysql_num_rows($result);*/
 	
 	$cust = mysql_fetch_array(mysql_query("SELECT * 
 										 FROM (((tb_customer c JOIN province p ON p.id=c.cust_province)

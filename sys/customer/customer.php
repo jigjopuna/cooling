@@ -64,7 +64,7 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row_all['cust_id']; ?></td>
-											<td><a href="cust_edit.php?cust_id=<?php echo $row_all['cust_id'] ?>" target="_blank"><?php echo $row_all['cust_name']; ?></a></td>
+											<td><a href="cust_edit.php?cust_id=<?php echo $row_all['cust_id'] ?>"><?php echo $row_all['cust_name']; ?></a></td>
 											<td><?php echo $row_all['cust_corp']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td>
 											<td><?php echo $row_all['pro_name'] ;?></td>

@@ -16,7 +16,7 @@
 		$role = $role_['ro_cust'];	
 		if($role!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูข้อมูลลูกค้านะคะ'); window.location = '../index.php';</script>");}
 		
-		$sql_all = "SELECT * FROM  tb_quo_cust q JOIN province p ON q.qcust_prov = p.id";
+		$sql_all = "SELECT * FROM  tb_quo_cust";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 	?>
@@ -62,9 +62,9 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row_all['qcust_id']; ?></td>
-											<td><a href="cust_edit.php?cust_id=<?php echo $row_all['qcust_id'] ?>" target="_blank"><?php echo $row_all['qcust_name']; ?></a></td>
+											<td><a href="custquo_edit.php?custquo_id=<?php echo $row_all['qcust_id'] ?>"><?php echo $row_all['qcust_name']; ?></a></td>
 											<td><?php echo $row_all['cust_tel']; ?></td>
-											<td><?php echo $row_all['pro_name'] ;?></td>
+											<td><?php echo $row_all['qcust_prov'] ;?></td>
 											<td><?php echo $row_all['qcust_day'] ;?></td>
 											<td>
 												<a href="../db/cust/pay.php?qcust_id=<?php echo $row_all['qcust_id'] ?>" onclick="return confirm('ลูกค้ามัดจำแล้วใช่ไหม?');">

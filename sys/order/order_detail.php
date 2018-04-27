@@ -57,6 +57,8 @@
 	//find quotation docs get price and delivery date
 	$quot = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders WHERE o_id='$o_id'"));
 	
+	$comm = mysql_fetch_array(mysql_query("SELECT o_note FROM tb_orders WHERE o_id='$o_id'"));
+	$comments = $comm['o_note'];
 
 	
 ?>
@@ -76,14 +78,27 @@
 		var quots = $('#quot').html();
 		var ord_id = $('#ord_id').html();
 		
+		$("#notes").click(function(){
+			var note = $('#o_note').val();
+			if(note==''){
+				alert("ใส่คอมเม้นด้วยนะคะ"); 
+			}else{
+				$('#form1').submit();
+			}
+		});
 		$('#quotationfile').click(function(){
 			window.location = '../quotation/files/'+quots;
 		});
 		$('#process').click(function(){
 			window.location = '../../admin/job.php'+'?e_id='+ord_id;
 		});
+		
 	
 	});
+	
+	
+	
+	
 	
 </script>
 </head>
@@ -300,6 +315,39 @@
                         </div>
                     </div>
                 </div>
+            </div>
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+							คอมเม้นท์ Comment
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                              <form action="../db/order/order_note.php" id="form1" name="form" method="post">
+                                <tbody>
+                                   <tr>
+										<td> 
+											<div class="form-group">
+											  <input type="text" class="form-control" id="o_note" name="o_note" value="<?php echo $comments;?>">
+											  <input type="hidden" name="orders_id" value="<?php echo $o_id;?>">
+											</div> 
+										</td>
+										<td> <button type="button" id="notes" class="btn btn-lg btn-primary btn-block" style="float:left;">บันทึก</button>  </td>
+								   </tr>
+                                   
+                                </tbody>
+							   </form>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
             </div>
 			
 			<div id="quot" style="display:none;"><?php echo $quot['o_quotation'];?></div>

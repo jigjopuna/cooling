@@ -679,7 +679,7 @@
 		});
 		
 		$("#search_custname").autocomplete({
-				source: "../ajax/search_cust.php",
+				source: "../ajax/search_cust_q.php",
 				minLength: 1
 		});
 		
@@ -702,8 +702,8 @@
 				<div class="cust" style="float:left; width:65%; line-height:18px;">
 					<?php //require_once('../include/custaddress.php'); ?>
 					<span>ค้นหาลูกค้า : <input type="text" name="search_custname" id="search_custname"></span> <br>
-					<span><a href="../sys/customer/cust_add.php" target="_blank">เพิ่มชื่อลูกค้า</a> </span><br>
-					<span><a href="../sys/customer/customer.php" target="_blank">ดูข้อมูลลูกค้า</a> </span><br>
+					<span><a href="../sys/customer/cust_qoutation.php" target="_blank">เพิ่มชื่อลูกค้า</a> </span><br>
+					<span><a href="../sys/customer/cust_waitpay.php" target="_blank">ดูข้อมูลลูกค้า</a> </span><br>
 					
 					
 					<!--<span>ค้นหาจากเบอร์โทร :  <input type="text" name="search_custphone" id="search_custphone">	</span><br>-->

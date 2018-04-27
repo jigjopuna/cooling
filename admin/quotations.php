@@ -24,15 +24,20 @@
 	
 	$cust_id = trim($_POST['search_custname']);
 	
-	$row = mysql_fetch_array(mysql_query("SELECT * FROM ((tb_quo_cust q JOIN tumbon t ON t.id = q.qcust_tumbon) JOIN amphur a ON q.qcuat_amphur = a.id) JOIN province p ON q.qcust_prov = p.id WHERE qcust_id = '$cust_id'"));
+	
+	$chkdetail = mysql_fetch_array(mysql_query("SELECT qcust_prov FROM tb_quo_cust WHERE qcust_id = '$cust_id'"));
+	$rowchkdetail = $chkdetail['qcust_prov'];
+	
+	//ถ้าลูกค้าให้ข้อมูลมาแค่ชื่อกับเบอร์โทร ไม่ต้อง Join กับตารางจังหวัด เพราะข้อมูลจะไม่ขึ้น
+	if($rowchkdetail < 90){
+		$row = mysql_fetch_array(mysql_query("SELECT qcust_name, qcust_tel FROM tb_quo_cust WHERE qcust_id = '$cust_id'"));
+	}else{
+		$row = mysql_fetch_array(mysql_query("SELECT * FROM ((tb_quo_cust q JOIN tumbon t ON t.id = q.qcust_tumbon) JOIN amphur a ON q.qcuat_amphur = a.id) JOIN province p ON q.qcust_prov = p.id WHERE qcust_id = '$cust_id'"));
+		
+	}
 	$cust_name = $row['qcust_name'];
 	$cust_province = $row['qcust_prov'];
 	
-	
-	//ถ้าลูกค้าไม่ให้ข้อมูล ไม่ต้อง join กับ ตาราง province เพราะข้อมูลจะไม่ขึ้นเลย
-	if($cust_province <= 90){
-		$row = mysql_fetch_array(mysql_query("SELECT * FROM tb_quo_cust"));
-	}
 	
 	$ord_temp = trim($_POST['ord_temp']);
 	$date_pay = trim($_POST['date_pay']);
@@ -50,16 +55,38 @@
 	$ord_coilh = trim($_POST['ord_coilh']);
 	$ord_door = trim($_POST['ord_door']);
 	$ord_control = trim($_POST['ord_control']);
+	$r_type = trim($_POST['r_type']);
+	if($r_type==1){$type_r = '';}else{ $type_r = 'มือสอง';}
+	
 	//$ord_qty = trim($_POST['ord_qty']);
 	
 	$amount =  $ship_cost + $additional_price + $ord_price;
 	
-	$round1 = $amount*0.5;
-	$round2 = $amount*0.3;
-	$round3 = $amount*0.2;
+	 $incvat = 0;
 	
 	
 	
+	if($ord_vat=='on'){
+		$vat = 0.07; //100,000*0.7
+		$vats = $amount*$vat;
+		$incvat = $amount+$vats;
+		
+		$round1 = $incvat*0.5;
+		$round2 = $incvat*0.3;
+		$round3 = $incvat*0.2;
+		
+	}else{
+		$round1 = $amount*0.5;
+		$round2 = $amount*0.3;
+		$round3 = $amount*0.2;
+		$incvat = $amount;
+	}
+	
+	/*echo 'amount : '.$amount.'<br>'; 
+	echo 'vat : '.$vat.'<br>'; 
+	echo 'vats : '.$vats.'<br>'; 
+	echo 'incvat : '.$incvat.'<br>'; */
+
 	
 	
 	
@@ -155,7 +182,7 @@
 			<div id="product_price" style="margin-top:105px; clear:both">
 				<table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
 					<tr>
-						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็นสำเร็จรูป</td>
+						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็นสำเร็จรูป<?php echo $type_r;?></td>
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
@@ -374,11 +401,11 @@
 			<div id="product_price" style="margin-top:105px; clear:both">
 				<table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
 					<tr>
-						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็นสำเร็จรูป</td>
+						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็นสำเร็จรูป<?php echo $type_r;?></td>
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอห้อง</td>
+						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอห้อง<?php echo $type_r;?></td>
 						<td colspan="2" style="width: 13%;" class="rlb">กว้าง  (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว   (เมตร)</td>
 						<td style="width: 13%" class="b">สูง  (เมตร)</td> 
@@ -413,14 +440,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ประตูสวิง และม่านพลาสติกกันความเย็น  ขนาด   1.80 เมตร  1 ชุด</td>
-						<td colspan="2" class="l"> </td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ระบบไฟฟ้า 380 V.</td>
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ระบบไฟฟ้า <?php echo $voltage?> V.</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -473,7 +493,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l"><span style="text-decoration: underline;">สีขอบแหล็กห้องเย็น</span> : <?php echo $ord_color; ?></td>
+						<td class="l"><span style="text-decoration: underline;">สีขอบเหล็กห้องเย็น</span> : <?php echo $ord_color; ?></td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
@@ -487,16 +507,16 @@
 						<td class="t l" align="right"><?php echo number_format($amount, 2, '.', ',');?></td>
 					</tr>
 					
-					<!--<tr>
+					<tr>
 						<td></td>
 						<td colspan="3" class="rl">VAT 7%</td>
-						<td class="rt l" align="right"></td>
-					</tr>-->
+						<td class="rt l" align="right"><?php echo number_format($vats, 2, '.', ','); ?></td>
+					</tr>
 					
 					<tr>
 						<td></td>
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
-						<td class="rt l" align="right"><?php echo number_format($amount, 2, '.', ',');?> </td>
+						<td class="rt l" align="right"><?php echo number_format($incvat, 2, '.', ',');?> </td>
 					</tr>
 				
 				</table>
@@ -549,7 +569,7 @@
 							<td align="left">  ภายใน 20 วัน นับจากวันที่เสนอราคา</td>
 						</tr>
 						<tr>
-							<td align="left">  ส่งสินค้าภายใน 20 วันหลังจากได้รับมัดจำงวดที่ 1</td>
+							<td align="left">  ส่งสินค้าภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
 						</tr>
 					</table>
 				</div>

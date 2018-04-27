@@ -254,15 +254,45 @@
 	/*$mrmixt = 
 	$crmixt = */
 	
+	$cust_addr = '';
+	$cust_prov = '';
+	$pro_amp = '';
+	$cust_tum = '';
+	$cust_zip = '';
+	$cust_ = '';
+	$cust_tax = '';
+	
 	if($search_custname!=''){ 
-		$cust_name = mysql_fetch_array(mysql_query("SELECT sub_cust.cust_corp, sub_cust.cust_name, sub_cust.cust_address, sub_cust.cust_tel, sub_cust.cust_email, sub_cust.cust_zip, p.pro_name, a.amp_name, tum_name
+		/*$cust_name = mysql_fetch_array(mysql_query("SELECT sub_cust.cust_corp, sub_cust.cust_name, sub_cust.cust_address, sub_cust.cust_tel, sub_cust.cust_email, sub_cust.cust_zip, p.pro_name, a.amp_name, tum_name
 													FROM ((province p JOIN (SELECT * FROM tb_customer c1 WHERE c1.cust_id = '$search_custname') as sub_cust ON sub_cust.cust_province = p.id) 
 														  JOIN amphur a ON a.id  = sub_cust.cust_amphur) 
 														  JOIN tumbon t ON t.id = sub_cust.cust_tumbon
-													"));
-	}
+													"));*/
+		$chkdetail = mysql_fetch_array(mysql_query("SELECT qcust_prov FROM tb_quo_cust WHERE qcust_id = '$search_custname'"));
+		$rowchkdetail = $chkdetail['qcust_prov'];
+		
+		//ถ้าลูกค้าให้ข้อมูลมาแค่ชื่อกับเบอร์โทร ไม่ต้อง Join กับตารางจังหวัด เพราะข้อมูลจะไม่ขึ้น
+		if($rowchkdetail < 90){
+			$row = mysql_fetch_array(mysql_query("SELECT qcust_name, qcust_tel FROM tb_quo_cust WHERE qcust_id = '$search_custname'"));
+		}else{
+			$row = mysql_fetch_array(mysql_query("SELECT * FROM ((tb_quo_cust q JOIN tumbon t ON t.id = q.qcust_tumbon) JOIN amphur a ON q.qcuat_amphur = a.id) JOIN province p ON q.qcust_prov = p.id WHERE qcust_id = '$search_custname'"));
+			
+			$cust_addr = $row['qcust_addr'];
+			$cust_prov = $row['pro_name'];
+			$cust_amp = $row['amp_name'];
+			$cust_tum = $row['tum_name'];
+			$cust_zip = $row['qcust_zip'];
+			$cust_tax = $row['qcust_tax'];
+			
+		}
+		$cust_name = $row['qcust_name'];
+		$cust_tel = $row['qcust_tel'];	
+
+		
+		
+	}// end search_custname
 	
-	$cname = $cust_name['cust_name'];
+	/*$cname = $cust_name['cust_name'];
 	$aname = $cust_name['cust_address'];
 	$amp_name = $cust_name['amp_name'];
 	$tname = $cust_name['tum_name'];
@@ -270,7 +300,8 @@
 	$zname = $cust_name['cust_zip'];
 	$telname = $cust_name['cust_tel'];
 	$cemail = $cust_name['cust_email'];
-	$ccorp = $cust_name['cust_corp'];
+	$ccorp = $cust_name['cust_corp'];*/
+	//qcust_id	qcust_name	qcust_addr	qcust_prov	qcuat_amphur	qcust_tumbon	qcust_tel	qcust_zip	qcust_tax	qcust_status	qcust_day	qcust_date pro_name amp_name tum_name
 
 	
 	
@@ -290,7 +321,19 @@
 </head>
 <body>
 <?php require_once('../include/googletag.php');?> 
-<?php //require_once('../include/debug-quotation.php'); ?>
+<?php //require_once('../include/debug-quotation.php'); 
+		/*echo "cust_name : ".$cust_name .'<br>';
+		echo "cust_addr :".$cust_addr .'<br>';
+		echo "cust_prov :".$cust_prov .'<br>';
+		echo "cust_amp : ".$cust_amp .'<br>';
+		echo "cust_tum :".$cust_tum .'<br>';
+		echo "cust_zip :".$cust_zip .'<br>';
+		echo "cust_tax ".$cust_tax .'<br>';
+		echo "cust_tel :".$cust_tel .'<br>';*/
+		
+		//exit();
+		
+?>
 
 <script>
 	$(document).ready(function(){
@@ -318,9 +361,24 @@
 			
 			<div style="margin-top:85px;">
 				<div id="addr_origin" style="float:left; width:65%; line-height:18px;">
-					<?php require_once('../include/custaddress.php'); ?>
-				
-				</div><!--end cust-->
+					<span>ลูกค้า :  <?php echo $cust_name; ?></span>  <br>
+					<span>ที่อยู่ : <?php echo $cust_addr; ?>  </span>
+					
+					<?php 
+							if($rowchkdetail > 90){
+								if($rowchkdetail==102){
+									echo 'หกดหกดฟห<br>แขวง'. $cust_tum.' '.$cust_amp.' '.$cust_prov;
+									
+								}else{
+									echo '<br>ตำบล'. $cust_tum.' อำเภอ'.$cust_amp.' จังหวัด'.$cust_prov;
+									
+								}
+								echo ' '.$cust_zip;
+							}
+							
+						?> 
+					<br><span>เลขที่ประจำตัวผู้เสียภาษี  :  <?php echo $cust_tax; ?></span>  
+				</div>
 				
 				<?php 
 					if($corp_addr == 1){
