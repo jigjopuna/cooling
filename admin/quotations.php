@@ -625,7 +625,7 @@
 			<?php include('../include/quotation_head.php'); ?>
 			
 			<div id="product_price" style="margin-top:105px; clear:both">
-				<img src="../content/images/cool/standard.jpg" style="width:60%;">
+				<img src="../content/images/cool/standard.jpg" style="width:60%; margin-left:150px;">
 
 			</div><!--end product_price-->
 			

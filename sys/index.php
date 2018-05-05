@@ -325,12 +325,14 @@
 											<?php echo $row_remain['e_name']." : ".number_format($row_remain['poprice2'], 0, '.', ',')."<br>";?>
 										<?php } ?>
 										<hr>
-										<span class="text_bold">เงินกองกลางคงเหลือ</span><br>
+										<span class="text_bold">เงินจากลูกค้าเหลือ</span><br>
 										<?php echo $cur_cash. ' บาท';?><br><hr>
-										<span class="text_bold">ชูเกียรติ คงเหลือ</span><br>
+										<span class="text_bold">เงินซื้อของ คงเหลือ</span><br>
 										<?php echo $cash1. ' บาท';?><br>
-										<span class="text_bold">ไพรฑูรย์ คงเหลือ </span><br>
-										<?php echo $cash2. ' บาท';?>
+										<span class="text_bold">เงินจ่ายพนักงานคงเหลือ </span><br>
+										<?php echo $cash_emp. ' บาท';?><br>
+										<span class="text_bold">เงินกองกลางคงเหลือ</span><br>
+										<?php echo $cash_temp. ' บาท';?>
 									</div>
 							 </div> <!-- row -->
                            

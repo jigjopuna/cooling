@@ -165,7 +165,6 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ตำแหน่งคอล์ยร้อน</label>
 											<select class="form-control" id="ord_coilh" name="ord_coilh">
-												<option value="0">เลือก</option>
 												<option value="4">ด้านหลัง</option> 
 												<option value="2">ด้านข้างซ้าย</option>
 												<option value="3">ด้านข้างขวา</option>
@@ -176,7 +175,6 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ตำแหน่งประตู</label>
 											<select class="form-control" id="ord_door" name="ord_door">
-												<option value="0">เลือก</option>
 												<option value="1">ด้านหน้า</option> 
 												<option value="2">ด้านข้างซ้าย</option>
 												<option value="3">ด้านข้างขวา</option>	
@@ -187,7 +185,6 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ตำแหน่งแผงไฟ</label>
 											<select class="form-control" id="ord_control" name="ord_control">
-												<option value="0">เลือก</option>
 												<option value="1">ด้านหน้า</option> 
 												<option value="2">ด้านข้างซ้าย</option>
 												<option value="3">ด้านข้างขวา</option>	
@@ -196,9 +193,7 @@
 										
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกออเดอร์ใหม่</button>
-										</div>
-										
-										
+										</div>																
 									</div>
 									
 								</form>

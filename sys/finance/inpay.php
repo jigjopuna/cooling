@@ -110,7 +110,6 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">คนรับเงิน </label>
 											<select class="form-control" id="emp_receive" name="emp_receive">
-												<option value="0">เลือกผู้รับเงิน</option> 
 												<?php 
 													for($i=1; $i<=$num_emp; $i++){
 														$row_emp = mysql_fetch_array($result_emp);

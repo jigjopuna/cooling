@@ -17,10 +17,12 @@
 	$num_emp = mysql_num_rows($result_emp);
 	
 	
-	$monery = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	$monery = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2, cash_emp, cash_temp FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
 	$cur_cash = $monery['cash_now'];
 	$cash1 = $monery['cash1'];
 	$cash2 = $monery['cash2'];
+	$cash_emp = $monery['cash_emp'];
+	$cash_temp = $monery['cash_temp'];
 	$today = date("Y-m-d");
 	
 	
@@ -56,8 +58,8 @@
 			$('#pobuyer').change(chk_cash); 
 			$('#poprice').blur(chkfieldcash);
 			$('#owner_money').hide();
-			$('#fromtransfer').change(cash_transfer);
-			$('#totransfer option').prop("disabled", true);		
+			//$('#fromtransfer').change(cash_transfer);
+			//$('#totransfer option').prop("disabled", true);		
 		});
 		/*
 		ตอนซื้อของเราอยากรู้ว่าเอาเงินส่วนไหนไปซื้อ เงินกองกลาง หรือ เงินส่วนตัว ถ้าเงินส่วนตัวซื้อแบบเครดิตหรือเปล่า
@@ -103,7 +105,7 @@
 						//$("body").html(result);	
 						var cash_now = result;
 						if(cash_now == 1){
-							alert('เงินส่วนกลางไม่พอ'); 
+							alert('เงินซื้อของไม่พอ'); 
 							$('#btn').prop('disabled',true);
 						}else{
 							$('#btn').prop('disabled',false);
@@ -157,7 +159,7 @@
 			}
 		}
 		
-		function cash_transfer(){
+		/*function cash_transfer(){
 			var cashtr = $('#fromtransfer option:selected').val();	
 			$('#totransfer option:eq(0)').prop("selected", true);
 			if(cashtr==2 ){				
@@ -167,7 +169,7 @@
 				$('#totransfer option:eq(1)').prop("disabled", false);
 				$('#totransfer option:eq(2)').prop("disabled", true);				
 			}else{ }
-		}
+		}*/
 		
 		function disablemp(){
 			var roles = $('#role').html();
@@ -203,7 +205,10 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							เงินกองกลางมีอยู่ <?php echo number_format($cur_cash, 0, '.', ',') ;?> บาท <?php echo "<br><strong>ชูเกียรติ :</strong> ".number_format($cash1, 0, '.', ',').' บาท <br> <strong>ไพรฑูรย์ :</strong> '.number_format($cash2, 0, '.', ',')." บาท"?>
+							<strong>เงินจากลูกค้าเหลือ :  </strong><?php echo number_format($cur_cash, 0, '.', ',') ;?> บาท  <br> 
+							<strong>เงินซื้อของมีอยู่ : </strong> 
+							<?php echo number_format($cash1, 0, '.', ',') ;?> บาท 
+							<?php echo "<br><strong>เงินจ่ายพนักงาน :</strong> ".number_format($cash_emp, 0, '.', ',').' บาท <br> <strong>เงินกองกลาง :</strong> '.number_format($cash_temp, 0, '.', ',')." บาท"?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -404,19 +409,13 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body"> 
 							<div class="row"> 
-								<form action="../db/finance/transfer.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
+								<form action="../db/finance/transfer1.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">โยกย้ายเงินจาก </label>
 											<select class="form-control" id="fromtransfer" name="fromtransfer" class="select_tran">
-												<option value="0">เลือกต้นทาง</option> 
-												<?php 
-													for($i=1; $i<=$num_from; $i++){
-														$row_from = mysql_fetch_array($result_from);													
-												?>						
-												<option value="<?php echo $row_from['e_id']?>"><?php echo $row_from['e_name']?></option>
-												
-												<?php } ?>											
+												<option value="1">เงินเข้าจากลูกค้า</option>
+																					
 											</select>
 										</div>
 										
@@ -431,15 +430,10 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ไป</label>
 											<select class="form-control" id="totransfer" name="totransfer" class="select_tran">
-												<option value="0">เลือกปลายทาง</option> 
-												<?php 
-													for($i=1; $i<=$num_empto; $i++){
-														$row_empto = mysql_fetch_array($result_empto);
-													
-												?>						
-												<option value="<?php echo $row_empto['e_id']?>"><?php echo $row_empto['e_name']?></option>
-												
-												<?php } ?>											
+												<option value="1">กองเงินซื้อของ</option> 
+												<option value="2">กองเงินค่าแรงพนักงาน</option> 
+												<option value="3">กองเงินสำรอง</option> 	
+												<option value="4">เงินกำไร</option>
 											</select>
 										</div>
 										

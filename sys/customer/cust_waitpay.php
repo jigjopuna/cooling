@@ -67,13 +67,14 @@
 											<td><?php echo $row_all['qcust_prov'] ;?></td>
 											<td><?php echo $row_all['qcust_day'] ;?></td>
 											<td>
-												<a href="../db/cust/pay.php?qcust_id=<?php echo $row_all['qcust_id'] ?>" onclick="return confirm('ลูกค้ามัดจำแล้วใช่ไหม?');">
-													<?php if($row_all['qcust_status']==0){ ?>
+												<?php if($row_all['qcust_status']==0){ ?>
+													<a href="../db/cust/pay.php?qcust_id=<?php echo $row_all['qcust_id'] ?>" onclick="return confirm('ลูกค้ามัดจำแล้วใช่ไหม?');">
 														<button id="btns" type="button" class="btn btn-lg btn-success btn-block">อัปเดทลูกค้า</button>
-													<?php }else{ ?>
+													</a>
+												<?php }else{ ?>
 														<button id="btns" type="button" class="btn btn-lg btn-primary btn-block">ลูกค้ามัดจำแล้ว</button>
-													<?php } ?>
-												</a>
+												<?php } ?>
+																
 											</td>
 											
 										</tr>

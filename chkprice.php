@@ -437,6 +437,73 @@
 	</div>
 </div>-->
 
+
+<div class="section-4">
+	<div class="container">
+		<!--<div class="row -step">
+			<div class="col-md-12">
+				<div class="heading">
+				ห้องเย็นมือสองประกอบใหม่
+				</div>
+			</div>
+		</div>-->
+		
+		<div class="row -step-list">
+			<div class="col-sm-6 -step-item">
+				<a href="th/article/secondhand.php">
+					<img src="content/images/cool/300px.jpg" style="width:300px; height:300px;">
+				</a>
+				<!--<p>-->
+					<div class="heading">
+						<a href="th/article/secondhand.php">
+							ห้องเย็นมือสองประกอบใหม่
+						</a>
+					</div>
+						
+					<div style="font-size:17px;">
+					ยกไปวางที่หน้างาน พร้อมใช้งานทันที <br>
+					พื้นที่วางห้องเย็น ควรสูงกว่า 2.6 ม.<br>
+					เคลื่อนย้ายได้สะดวก <br>
+					ไม่เหมาะกับพื้นที่เล็กๆ ที่ขนย้ายไม่สะดวก<br>
+					ประหยัดงบประมาณ <br>
+					ได้ห้องเย็นใกล้เคียงกับของใหม่<br>
+					รับประกันนาน 6 เดือน <br>
+					เวลาผลิต 20 - 25 วัน <br>
+					</div>
+					<a href="th/article/secondhand.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 130,000 </span>
+				<!--</p>-->
+			</div>
+			<div class="col-sm-6 -step-item">
+				<!--<a href="th/article/speedlock.php">-->
+					<img src="content/images/cool/speed300.jpg" style="width:300px; height:300px;">
+				<!--</a>-->
+				<!--<p style="font-size:20px;">-->
+					<div class="heading">
+						<!--<a href="th/article/speedlock.php">-->
+							ห้องเย็นแบบฝั่งประกอบเร็ว
+						<!--</a>-->	
+					</div>
+						
+					<div style="font-size:17px;">
+					ประกอบติดตั้งห้องเย็น ที่หน้างาน<br>
+					ติดตั้งกับพื้นที่ทุกรูปแบบ (พื้นที่เรียบ)<br>
+					ใช้เวลาติดตั้ง 1 ถึง 2 วัน ใช้งานได้ทันที<br>
+					อุปกรณ์ของใหม่ได้คุณภาพทั้งหมด<br>
+					สามารถรื้อและขนย้ายได้<br>
+					ต่อขยายห้องได้ในอนาคต<br>
+					รับประกันนาน 1 ปี <br>
+					มีระบบเช็คอุณหภูมิผ่านมือถือ<br>
+					</div>
+					<!--<a href="th/article/speedlock.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>-->
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 250,000 </span>
+				<!--</p>-->
+			</div>
+			
+		</div>
+	</div>
+</div>
+
 <div class="section-testimonial">
 	<div class="heading">
 	ราคาห้องเย็นสำเร็จรูป

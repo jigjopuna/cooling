@@ -45,11 +45,20 @@
 	$num_remain = mysql_num_rows($result_remain);
 
 	//เงินกองกลางคงเหลือ
-	$monery = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	/*
+		cash_now = กองเงินรับเข้าาจากลูกค้า
+		cash1 = กองเงินซื้อของ
+		cash2 = กองเงินกำไร
+		cash_emp = กองเงินไว้จ่ายพนักงาน
+		cash_temp = กองไว้เผื่อทำอะไร
+	*/
+	
+	$monery = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2, cash_emp, cash_temp FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
 	$cur_cash = number_format($monery['cash_now'], 0, '.', ','); 
 	$cash1 = number_format($monery['cash1'], 0, '.', ','); 
-	$cash2 = number_format($monery['cash2'], 0, '.', ','); 
-	
+	$cash2 = number_format($monery['cash2'], 0, '.', ',');
+	$cash_emp = number_format($monery['cash_emp'], 0, '.', ',');	
+	$cash_temp = number_format($monery['cash_temp'], 0, '.', ',');
 	//ค่าใช้จ่ายทั้งหมดวันนี้ทั้ง เงินสดและเครดิต
 	$sumdates = mysql_fetch_array(mysql_query("SELECT SUM(po_price) paydates FROM tb_po WHERE po_date = '$dates'"));
 	$paydates = number_format($sumdates['paydates'], 0, '.', ',');

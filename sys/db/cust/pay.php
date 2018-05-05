@@ -54,7 +54,7 @@
 	
 	if($result){
 		mysql_query("UPDATE tb_quo_cust SET qcust_status = 1 WHERE qcust_id='$qcust_id'");
-		exit("<script> alert('อัปเดทเป็นลูกค้าที่สั่งซื้อแล้ว'); window.location='../../quotation/cust_q.php';</script>");
+		exit("<script> alert('อัปเดทเป็นลูกค้าที่สั่งซื้อแล้ว'); window.location='../../finance/inpay.php';</script>");
 	}else{
 		exit("<script> alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ'); window.location='../../customer/cust_qoutation.php';</script>");
 	}

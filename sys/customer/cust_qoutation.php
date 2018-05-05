@@ -78,6 +78,12 @@
 					 alert('เลือกตำบลด้วยนะค่ะ');
 					 return false;
 				}
+				
+				var phoneno = $('#phoneno').val();
+				if(phoneno==''){
+					alert('ใส่เบอร์ลูกค้าด้วย');
+					return false;
+				}
 	
 			}// end if ให้ข้อมูล
 			
@@ -87,11 +93,7 @@
 				return false;
 			}
 			
-			var phoneno = $('#phoneno').val();
-			if(phoneno==''){
-				alert('ใส่เบอร์ลูกค้าด้วย');
-				return false;
-			}
+			
 			
 			
 			$('#form1').submit();

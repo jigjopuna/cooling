@@ -8,7 +8,7 @@
 <?php 
 	
 
-	$rowcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	$rowcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2, cash_emp, cash_temp FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
 	
 	$poname = trim($_POST['poname']);
 	$poqty  = trim($_POST['poqty']);
@@ -27,6 +27,8 @@
 	$curr_cash = $rowcash['cash_now'];
 	$cash1 = $rowcash['cash1'];
 	$cash2 = $rowcash['cash2'];
+	$cash_emp = $rowcash['cash_emp'];
+	$cash_temp = $rowcash['cash_temp'];
 	
 	$e_id = trim($_POST['e_id']);
 	
@@ -138,37 +140,11 @@
 	$result1 = mysql_query($sql);
 	
 	//อัปเดทเงินกองกลาง ในกรณีที่ใช้เงินส่วนกลางซื้อของ
-	if($pobuyer == 10){
-		if($poprice > $curr_cash){
-			exit("<script>alert('เงินกองกลางไม่พอ '); window.location='../../finance/outpay.php';</script>");
-		}else{		
+	if($pobuyer == 10){{		
 			if($result1){ // เอาค่า PK ที่เพิ่งบันทึกลงในตารางสั่งซื้อมา ผูกไว้ในตารางเงินกองกลาง tb_cash_center
 				$a = mysql_insert_id($conn);
-				if($owner_money==2){
-					/*เลขเป็นบัญชีของชายให้ 
-					 ตอนซื้อของถ้าเลือกจ่ายเป็นส่วนกลางแล้วก็ต้องเช็คว่าเอาจากบัญชีไหนมา ถ้าบัญชีนั้นเงินไม่พอก็ต้องบอกไม่พอ 
-					*/
-					if($cash1 < $poprice){
-						exit("<script>alert('เงินกองกลางชายไม่พอ'); window.location='../../finance/outpay.php';</script>");
-					}else{
-						$temp_cash1 = $cash1 - $poprice;
-						$new_cash = $curr_cash - $poprice;
-						$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_out = '$poprice', cash_date = '$podate', cash_now = '$new_cash', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2'";
-					}
-				}else if ($owner_money==3){
-					if($cash2 < $poprice){
-						exit("<script>alert('เงินกองกลางพี่ไพรฑูรย์ไม่พอ'); window.location='../../finance/outpay.php';</script>");
-					}else{
-						$temp_cash2 = $cash2 - $poprice;
-						$new_cash = $curr_cash - $poprice; 
-						/*echo $temp_cash2." | ".$new_cash;
-						exit();*/
-						$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_out = '$poprice', cash_date = '$podate', cash_now = '$new_cash', cash_times = now(), cash1 = '$cash1', cash2 = '$temp_cash2'";
-					}
-									
-				}else{
-					
-				}
+				$temp_cash1 = $cash1 - $poprice;
+				$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_out = '$poprice', cash_date = '$podate', cash_now = '$curr_cash', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_temp = '$cash_temp'";		
 				$result6 = mysql_query($cal_cash);
 			}
 			
@@ -193,18 +169,10 @@
 		
 		if($result1) {
 				//echo 'Successful inserts: ';
-				exit("
-					<script>
-						alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ');
-						window.location='../../finance/outpay.php';
-					</script>");
+				exit("<script>alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ! ');window.location='../../finance/outpay.php';</script>");
 			} else {
 			   // echo 'query failed: ' ;
-			   exit("
-					<script>
-						alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ');
-						 window.location='../../finance/outpay.php';
-					</script>");
+			   exit("<script>alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ !'); window.location='../../finance/outpay.php';</script>");
 			}
 	}
 	

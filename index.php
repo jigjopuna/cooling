@@ -383,80 +383,72 @@
 	</div>	
 </div>
 
-<div class="section-better">
+
+ <div class="section-4">
 	<div class="container">
-		<div class="row">
-		<div class="heading"></div>
-		</div>
-		<div class="col-md-4 accessories">
-				<div class="better-img">
-				<a><img src="sources/assets/images/com_white_line.png" alt=""></a>
-				</div>
-				<div class="better-text">
-				จำหน่ายอะไหล่</br>
-				และอุปกรณ์ห้องเย็น
-				</div>
-			</div>
-		<div class="row">
-			<div class="col-md-4 accessories">
-				<div class="better-img">
-				<!--<img src="sources/assets/images/person-learning-by-reading" alt="">-->
-				</div>
-				<div class="better-text">
-				สื่อการเรียนรู้</br>
-				สำหรับผู้ที่มีห้องเย็น
-				</div>
-			</div>
-			<div class="col-md-4 accessories">
-				<div class="better-img">
-				<img src="sources/assets/images/com_white.png" alt="">
-				</div>
-				<div class="better-text">
-				คำนวนฉนวน </br>สำหรับเก็บความเย็น
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
-
-
-<!--<div id="sec2" class="section-2">
-	<div class="container">
-		<div class="row -intro" id="refinance-meaning">
-			<div class="col-md-6">
+		<!--<div class="row -step">
+			<div class="col-md-12">
 				<div class="heading">
-				 
-				ห้องเย็นช่วยธุรกิจเราดีขึ้นได้อย่างไร<span class="hidden-xs"></span> 
+				ห้องเย็นมือสองประกอบใหม่
 				</div>
-				<p>
-				ช่วยให้สินค้าที่ต้องการความเย็นรักษาระดับคุณภาพสินค้า ได้นานขึ้น</br>
-				ช่วยลดตู้แช่แข็งจำนวนมาก ค่าไฟแพง ดูแลขนย้ายสินค้าลำบาก </br>
-				ห้องเย็นทำให้สินค้าเราสดใหม่อยู่เสมอ หมดปัญหาเรื่องของเน่าเสีย
-				</p>
-				<p class="text -primary">ตัวอย่าง*</p>
-				<img src="sources/assets/images/pic-money-1.png">
+			</div>
+		</div>-->
+		
+		<div class="row -step-list">
+			<div class="col-sm-6 -step-item">
+				<a href="th/article/secondhand.php">
+					<img src="content/images/cool/300px.jpg" style="width:300px; height:300px;">
+				</a>
+				<!--<p>-->
+					<div class="heading">
+						<a href="th/article/secondhand.php">
+							ห้องเย็นมือสองประกอบใหม่
+						</a>
+					</div>
+						
+					<div style="font-size:17px;">
+					ยกไปวางที่หน้างาน พร้อมใช้งานทันที <br>
+					พื้นที่วางห้องเย็น ควรสูงกว่า 2.6 ม.<br>
+					เคลื่อนย้ายได้สะดวก <br>
+					ไม่เหมาะกับพื้นที่เล็กๆ ที่ขนย้ายไม่สะดวก<br>
+					ประหยัดงบประมาณ <br>
+					ได้ห้องเย็นใกล้เคียงกับของใหม่<br>
+					รับประกันนาน 6 เดือน <br>
+					เวลาผลิต 20 - 25 วัน <br>
+					</div>
+					<a href="th/article/secondhand.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 130,000 </span>
+				<!--</p>-->
+			</div>
+			<div class="col-sm-6 -step-item">
+				<!--<a href="th/article/speedlock.php">-->
+					<img src="content/images/cool/speed300.jpg" style="width:300px; height:300px;">
+				<!--</a>-->
+				<!--<p style="font-size:20px;">-->
+					<div class="heading">
+						<!--<a href="th/article/speedlock.php">-->
+							ห้องเย็นแบบฝั่งประกอบเร็ว
+						<!--</a>-->	
+					</div>
+						
+					<div style="font-size:17px;">
+					ประกอบติดตั้งห้องเย็น ที่หน้างาน<br>
+					ติดตั้งกับพื้นที่ทุกรูปแบบ (พื้นที่เรียบ)<br>
+					ใช้เวลาติดตั้ง 1 ถึง 2 วัน ใช้งานได้ทันที<br>
+					อุปกรณ์ของใหม่ได้คุณภาพทั้งหมด<br>
+					สามารถรื้อและขนย้ายได้<br>
+					ต่อขยายห้องได้ในอนาคต<br>
+					รับประกันนาน 1 ปี <br>
+					มีระบบเช็คอุณหภูมิผ่านมือถือ<br>
+					</div>
+					<!--<a href="th/article/speedlock.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>-->
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 250,000 </span>
+				<!--</p>-->
 			</div>
 			
-			<div class="col-md-6">
-				<div class="img-2-bubble bounce">
-				ประหยัดเงินสูงสุด
-				<span>1,619,468 บาท</span>
-				</div>
-				<img class="img-2" src="sources/assets/images/pic-money-2.png">
-			</div>
-		</div>
-		<div class="row">
-		<p class="text -small">
-		* ข้อมูลที่แสดงข้างต้นเป็นเพียงตัวอย่าง จากการการคำนวณที่วงเงินกู้ 3 ล้านบาท ระยะเวลาผ่อน
-		ที่เหลือ 25 ปี และเลือกชำระคืนแบบผ่อนเท่ากันทุกเดือน โดยคิดจากอัตราดอกเบี้ย 6.8% ต่อปี
-		และรีไฟแนนซ์คิดจากอัตราดอกเบี้ย 3.75% ต่อปี (โปรดอ่าน <a href="/term" style="color: grey;">ข้อตกลงและเงื่อนไข</a> ของ )
-		</p>
-		
 		</div>
 	</div>
-</div>-->
-
+</div>
 
 <div class="section-4">
 	<div class="container">
@@ -486,42 +478,6 @@
 	</div>
 </div>
  
- 
- <div class="section-4">
-	<div class="container">
-		<div class="row -step">
-			<div class="col-md-12">
-				<div class="heading">
-				ห้องเย็นมือสองประกอบใหม่
-				</div>
-			</div>
-		</div>
-		
-		<div class="row -step-list">
-			<div class="col-sm-6 -step-item">
-				<img src="content/images/cool/300px.jpg" style="width:300px; height:300px;">
-				<p>
-					<div class="heading">ห้องเย็นมือสองประกอบใหม่</div>
-					ประหยัดงบประมาณ <br>
-					ได้ห้องเย็นใกล้เคียงกับของใหม่<br>
-					รับประกันนาน 6 เดือน <br>
-					เคลื่อนย้ายได้สะดวก <br>
-					
-				</p>
-			</div>
-			<div class="col-sm-6 -step-item">
-				<img src="content/images/cool/300px.jpg" style="width:300px; height:300px;">
-				<p>
-					<div class="heading">ห้องเย็นแบบฝั่งประกอบเร็ว</div>
-					ใช้ระยะเวลาประกอบสั้น ติดตั้ง 2 ถึง 3 วัน<br>
-					รับประกันนาน 1 เดือน <br>
-					เคลื่อนย้ายได้สะดวก <br>
-				</p>
-			</div>
-			
-		</div>
-	</div>
-</div>
 <!--<div class="section-testimonial">
 	<div class="heading">
 	ห้องเย็นมือสอง ประกอบใหม่
