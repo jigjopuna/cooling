@@ -450,13 +450,13 @@
 		
 		<div class="row -step-list">
 			<div class="col-sm-6 -step-item">
-				<a href="th/article/secondhand.php">
+				<a href="th/article/sumred.php">
 					<img src="content/images/cool/300px.jpg" style="width:300px; height:300px;">
 				</a>
 				<!--<p>-->
 					<div class="heading">
-						<a href="th/article/secondhand.php">
-							ห้องเย็นมือสองประกอบใหม่
+						<a href="th/article/sumred.php">
+							ห้องเย็นสำเร็จรูปตั้งพื้น
 						</a>
 					</div>
 						
@@ -464,25 +464,25 @@
 					ยกไปวางที่หน้างาน พร้อมใช้งานทันที <br>
 					พื้นที่วางห้องเย็น ควรสูงกว่า 2.6 ม.<br>
 					เคลื่อนย้ายได้สะดวก <br>
+					โครงสร้างเหล็กแข็งแรง<br>
 					ไม่เหมาะกับพื้นที่เล็กๆ ที่ขนย้ายไม่สะดวก<br>
-					ประหยัดงบประมาณ <br>
-					ได้ห้องเย็นใกล้เคียงกับของใหม่<br>
-					รับประกันนาน 6 เดือน <br>
-					เวลาผลิต 20 - 25 วัน <br>
+					รับประกัน 1 ปีเต็ม <br>
+					เวลาผลิต 25 - 30 วัน <br>
+					มีระบบเช็คอุณหภูมิผ่านมือถือ<br>
 					</div>
-					<a href="th/article/secondhand.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>
-					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 130,000 </span>
+					<a href="th/article/sumred.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 250,000 </span>
 				<!--</p>-->
 			</div>
 			<div class="col-sm-6 -step-item">
-				<!--<a href="th/article/speedlock.php">-->
+				<a href="th/article/speedlock.php">
 					<img src="content/images/cool/speed300.jpg" style="width:300px; height:300px;">
-				<!--</a>-->
+				</a>
 				<!--<p style="font-size:20px;">-->
 					<div class="heading">
-						<!--<a href="th/article/speedlock.php">-->
+						<a href="th/article/speedlock.php">
 							ห้องเย็นแบบฝั่งประกอบเร็ว
-						<!--</a>-->	
+						</a>
 					</div>
 						
 					<div style="font-size:17px;">
@@ -496,7 +496,7 @@
 					มีระบบเช็คอุณหภูมิผ่านมือถือ<br>
 					</div>
 					<!--<a href="th/article/speedlock.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>-->
-					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 250,000 </span>
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 292,000 </span>
 				<!--</p>-->
 			</div>
 			
@@ -506,12 +506,24 @@
 
 <div class="section-testimonial">
 	<div class="heading">
+	ห้องเย็นฝั่งประกอบเร็วติดตั้งหน้างาน
+	</div>
+	 
+	<div class="container">
+		<div class="row">
+			<img src="content/images/speedlock-1400-900.jpg" width="100%" alt="ห้องเย็นมือสอง">
+		</div>
+	</div>	
+</div>
+
+<div class="section-testimonial">
+	<div class="heading">
 	ราคาห้องเย็นสำเร็จรูป
 	</div>
 	 
 	<div class="container">
 		<div class="row">
-			<img src="content/images/pricebanner2.jpg" width="100%" alt="ห้องเย็นมือสอง">
+			<img src="content/images/sumred-land-1200-700.jpg" width="100%" alt="ห้องเย็นมือสอง">
 		</div>
 	</div>	
 </div>
@@ -531,7 +543,7 @@
  
 <div class="section-testimonial">
 	<div class="heading">
-	ขั้นตอนก่อนสร้างห้องเย็น <!--ดูแลบำรักษาห้องเย็นง่ายๆ -->
+	ข้อมูลห้องเย็นที่น่าสนใจ
 	</div>
 	 
 	<div class="container">
@@ -546,14 +558,14 @@
 						</div>
 						<div class="blog-content">
 							<span class="blog-time"></span>
-							<h2 class="blog-title">20 ข้อต้องรู้ก่อนมีห้องเย็น</h2>
+							<h2 class="blog-title">17 ข้อต้องรู้ก่อนมีห้องเย็น</h2>
 							<p class="blog-excerpt">เชื่อว่าหลายท่านที่กำลังมองหาห้องเย็นสักห้อง กำลังตัดสินใจอยู่ ให้อ่านบทความนี้ จะช่วยท่านตัดใจได้ดี และถูกต้องแน่นอน จากประสบการณ์ตรง กว่า 30 ปี</p>
 						</div>
 					</div>
 					</a>
 				</div>
 				
-				<div class="articles"><a href="th/article/outside.php">
+				<!--<div class="articles"><a href="th/article/outside.php">
 					<div class="blog-box">
 						<div class="blog-img" style="background: url('content/images/article/out-side/outside-01.jpg');">
 						<span>+ อ่านต่อ</span>
@@ -565,14 +577,52 @@
 						</div>
 					</div>
 					</a>
+				</div>-->
+			<div class="articles"><a href="th/article/3phase.php">
+				<div class="blog-box">
+					<div class="blog-img" style="background: url('sources/assets/images/3phase-s.jpg');">
+					<span>+ อ่านต่อ</span>
+					</div>
+					<div class="blog-content">
+						<span class="blog-time"></span>
+						<h2 class="blog-title">ทำไมห้องเย็นต้องใช้ไฟฟ้า 3 เฟส</h2>
+						<p class="blog-excerpt">ไฟฟ้า 3 เฟสกับห้องเย็นเป็นของคู่กัน ช่วยประหยัดราคาต้นทุนค่าไฟในระยะยาว และยืดอายุการใช้งานของอุปกรณ์ไฟฟ้า</p>
+					</div>
 				</div>
+				</a>
+			</div>
 				
 				
 			
-			
-			
+			<div class="articles"><a href="th/article/speedlock.php">
+					<div class="blog-box">
+						<div class="blog-img" style="background: url('content/images/cool/307_230px_speedlock.jpg');">
+						<span>+ อ่านต่อ</span>
+						</div>
+						<div class="blog-content">
+							<span class="blog-time"></span>
+							<h2 class="blog-title">ห้องเย็นแบบฝั่งประกอบเร็ว</h2>
+							<p class="blog-excerpt">ประกอบติดตั้งห้องเย็น ที่หน้างาน ติดตั้งกับพื้นที่ทุกรูปแบบ (พื้นที่เรียบ) ใช้เวลาติดตั้ง 1 ถึง 2 วัน ใช้งานได้ทันที  สามารถรื้อและขนย้ายได้ </p>
+						</div>
+					</div>
+				</a>
+			</div>
+				
+			<div class="articles"><a href="th/article/sumred.php" target="_blank">
+					<div class="blog-box">
+						<div class="blog-img" style="background: url('content/images/cool/307_230px_sumred.jpg');">
+						<span>+ อ่านต่อ</span>
+						</div>
+						<div class="blog-content">
+							<span class="blog-time"></span>
+							<h2 class="blog-title">ห้องเย็นสำเร็จรูป</h2>
+							<p class="blog-excerpt">ยกไปวางที่หน้างาน พร้อมใช้งานทันที เคลื่อนย้ายได้สะดวก ประหยัดงบประมาณ ได้ห้องเย็นใกล้เคียงกับของใหม่ รับประกันนาน 6 เดือน </p>
+						</div>
+					</div>
+				</a>
+			</div>
 
-			<div class="articles"><a href="th/article/pre-design.php">
+			<!--<div class="articles"><a href="th/article/pre-design.php">
 				<div class="blog-box">
 					<div class="blog-img" style="background: url('content/images/article/design-room/main-post.jpg');">
 					<span>+ อ่านต่อ</span>
@@ -584,7 +634,7 @@
 					</div>
 				</div>
 				</a>
-			</div>
+			</div>-->
 			
 			<div class="articles"><a href="th/article/brief.php">
 					<div class="blog-box">

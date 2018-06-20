@@ -11,7 +11,7 @@
 <meta name="description" content="ห้องเย็นเราโฟกัสที่รายละเอียดทุกจุดของงาน คุณภาพต้องมาก่อน ในราคาที่เหมาะสม ให้ลูกค้ามั่นใจได้ว่าได้ห้องเย็นที่ดีแน่นอน ได้รับมาตราฐานเป็นที่ยอมรับของคนใช้ห้องเย็น">
 <meta property="og:title" content="ห้องเย็นตรวจสอบคุณภาพก่อนส่งทุกห้อง"/>
 <meta property="og:type" content="article"/>
-<meta property="og:image" content="../../content/images/pricebanner2.jpg">
+<meta property="og:image" content="../../content/images/cool/qc.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/predelivery.php"/>
 <meta property="og:description" content="ห้องเย็นเราโฟกัสที่รายละเอียดทุกจุดของงาน คุณภาพต้องมาก่อน ในราคาที่เหมาะสม ให้ลูกค้ามั่นใจได้ว่าได้ห้องเย็นที่ดีแน่นอน ได้รับมาตราฐานเป็นที่ยอมรับของคนใช้ห้องเย็น"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">

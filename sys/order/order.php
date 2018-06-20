@@ -8,7 +8,7 @@
 <?php require_once('../include/metatagsys.php');?>
 	<?php 
 		$dates = date('Y-m-d');
-		$sql_all = "SELECT o.o_id, o.o_note, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
+		$sql_all = "SELECT o.o_id, o.o_note, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
 					FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
 						 JOIN province p ON c.cust_province = p.id) 
 						 JOIN tb_ord_status ost ON ost.ost_id = o.o_status)
@@ -261,7 +261,7 @@
 											<?php } ?>
 											
 											<td><?php echo $row_all['pro_name']; ?></td>
-											<td><?php echo $row_all['o_size']; ?></td>
+											<td><?php echo $row_all['o_width'].' x '.$row_all['o_size'].' x '.$row_all['o_high']; ?></td>
 											<td><?php echo $row_all['o_temp']; ?></td>
 											<td><?php echo $row_all['o_voltage']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td>

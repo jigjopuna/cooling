@@ -43,21 +43,31 @@
                         </li>
 						
 						
-						<?php if($ro_quotation!=0) { ?>
+						
 						<li>
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-								
+                            <ul class="nav nav-second-level"> 
+								<?php if($ro_quotation == 1 || $ro_quotation == 2) { ?>
                                 <li>
-                                    <a href="quotation/q.php">ห้องฝั่ง</a>
+                                    <a href="quotation/q.php">ห้องฝั่ง </a>
                                 </li>
+								<?php } ?>
 								
+								
+								<?php if($ro_quotation == 1  ||  $ro_quotation == 3) { ?>
 								<li>
                                     <a href="quotation/cust_q.php">ห้องสำเร็จ</a>
                                 </li>
+								<?php } ?>
+								
+								<?php if($ro_quotation == 1 ||  $ro_quotation == 4) { ?>
+								<li>
+                                    <a href="quotation/speedlock.php">ห้อง Speed Lock </a>
+                                </li>
+								<?php } ?>
                             </ul>
                         </li>
-						<?php } ?>
+						
 						
 						
 						<li>
@@ -147,8 +157,18 @@
                                     <a href="stock/stock.php">ดูสต็อก</a>
                                 </li>
 								
+								
+								<li>
+                                    <a href="stock/buy.php">ซื้อของ</a>
+                                </li>
+								
 								<li>
                                     <a href="stock/sell.php">ขายของ</a>
+                                </li>
+								
+								
+								<li>
+                                    <a href="stock/seller.php">ร้านค้า</a>
                                 </li>
 							
                             </ul>

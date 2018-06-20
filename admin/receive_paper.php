@@ -147,7 +147,7 @@
 					
 					<tr>
 						<td>1</td>
-						<td>ห้องเย็นเก็บสินค้า อุณหภูมิ <?php echo $row_order['o_temp']?> องศา ขนาดวัดภายนอก <?php echo $row_order['o_size']?> เมตร</td>
+						<td>ห้องเย็นเก็บสินค้า อุณหภูมิ <?php echo $row_order['o_temp']?> องศา ขนาดวัดภายนอก <?php echo $row_order['o_width'].' x '.$row_order['o_size'].' x '.$row_order['o_high'];?> เมตร</td>
 						<td align='right'>1</td>
 						<td align='center'>ห้อง</td>
 						<td align='center'><?php echo number_format($vatprice, 0, '.', ',');?></td>
@@ -255,7 +255,7 @@
 					
 					<tr>
 						<td>1</td>
-						<td>ห้องเย็นเก็บสินค้า อุณหภูมิ <?php echo $row_order['o_temp']?> องศา ขนาดวัดภายนอก <?php echo $row_order['o_size']?> เมตร (งวดที่ 2)</td>
+						<td>ห้องเย็นเก็บสินค้า อุณหภูมิ <?php echo $row_order['o_temp']?> องศา ขนาดวัดภายนอก <?php echo $row_order['o_width'].' x '.$row_order['o_size'].' x '.$row_order['o_high'];?> เมตร (งวดที่ 2)</td>
 						<td align='right'>1</td>
 						<td align='center'>ห้อง</td>
 						<td align='center'><?php echo number_format($ngod2, 0, '.', ',');?></td>
@@ -363,7 +363,7 @@
 					
 					<tr>
 						<td>1</td>
-						<td>ห้องเย็นเก็บสินค้า อุณหภูมิ <?php echo $row_order['o_temp']?> องศา ขนาดวัดภายนอก <?php echo $row_order['o_size']?> เมตร (งวดที่ 3)</td>
+						<td>ห้องเย็นเก็บสินค้า อุณหภูมิ <?php echo $row_order['o_temp']?> องศา ขนาดวัดภายนอก <?php echo $row_order['o_width'].' x '.$row_order['o_size'].' x '.$row_order['o_high'];?> เมตร (งวดที่ 3)</td>
 						<td align='right'>1</td>
 						<td align='center'>ห้อง</td>
 						<td align='center'><?php echo number_format($ngod3, 0, '.', ',');?></td>

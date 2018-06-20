@@ -1,3 +1,8 @@
+<?php session_start(); 
+	  require_once('../include/connect.php');
+	  require_once('../sys/include/inc_role.php'); 
+	  
+?>
 <!doctype html>
 <html>
 <head>
@@ -14,6 +19,7 @@
 </head>
 <body>
 <?php 
+
    require_once('../include/connect.php');
    require_once('../include/thaibaht.php');
 
@@ -700,11 +706,16 @@
 			
 			<div id="contect_detail" style="margin-top:85px;">
 				<div class="cust" style="float:left; width:65%; line-height:18px;">
-					<?php //require_once('../include/custaddress.php'); ?>
-					<span>ค้นหาลูกค้า : <input type="text" name="search_custname" id="search_custname"></span> <br>
-					<span><a href="../sys/customer/cust_qoutation.php" target="_blank">เพิ่มชื่อลูกค้า</a> </span><br>
-					<span><a href="../sys/customer/cust_waitpay.php" target="_blank">ดูข้อมูลลูกค้า</a> </span><br>
-					
+					<?php //require_once('../include/custaddress.php'); ?> 
+					<?php if($role['ro_cust'] == 1) { ?>
+						<span>ค้นหาลูกค้า : <input type="text" name="search_custname" id="search_custname"></span> <br>
+						<span><a href="../sys/customer/cust_qoutation.php" target="_blank">เพิ่มชื่อลูกค้า</a> </span><br>
+						<span><a href="../sys/customer/cust_waitpay.php" target="_blank">ดูข้อมูลลูกค้า</a> </span><br>
+					<?php }else{ ?>
+						<span>ลูกค้า</span> <br>
+						<span>&nbsp;</span><br>
+						<span>&nbsp;</span><br>
+					<?php } ?>
 					
 					<!--<span>ค้นหาจากเบอร์โทร :  <input type="text" name="search_custphone" id="search_custphone">	</span><br>-->
 				
@@ -758,30 +769,30 @@
 					<tr>
 						<td>1. <input name="m1" class="pdesc" type="text" value="<?php echo $row_condensing['cat_name']." "; if($row_condensing['cat_id']==1){  echo $row_condensing['p_name'];  } echo $row_condensing['p_model']." ";  echo $row_condensing['p_hp']."HP "; echo $row_condensing['p_volt']."V";?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m1q" class="punit" type="text" value="<?php echo $condensingmaxqty; ?>"></td>
-						<td class="l" align="right"><input name="m1p" class="punit" type="text" value="<?php echo number_format($row_condensing['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_condensing['p_price_sell']*$percentprice*$condensingmaxqty, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m1p" class="punit" type="text" value="<?php echo number_format($row_condensing['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_condensing['p_price_sell']*$percentprice*$condensingmaxqty, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>2. <input name="m2" class="pdesc" type="text" value="<?php echo $row_cooler['cat_name']." "; echo $row_cooler['p_name']; echo $row_cooler['p_model']." "; echo $row_cooler['p_volt']."V ".$row_cooler['p_amp']."A" ;?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m2q" class="punit" type="text" value="<?php echo $qtycooler; ?>"></td>
-						<td class="l" align="right"><input name="m2p" class="punit" type="text" value="<?php echo number_format($row_cooler['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_cooler['p_price_sell']*$percentprice*$qtycooler, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m2p" class="punit" type="text" value="<?php echo number_format($row_cooler['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_cooler['p_price_sell']*$percentprice*$qtycooler, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>3. <input name="m3" class="pdesc" type="text" value="<?php echo $row_dc['cat_name']." "; echo $row_dc['p_name'];   echo $row_dc['p_model'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m3q" class="punit" type="text" value="<?php echo $condensingmaxqty; ?>"></td>
-						<td class="l" align="right"><input name="m3p" class="punit" type="text" value="<?php echo number_format($row_dc['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_dc['p_price_sell']*$percentprice*$condensingmaxqty, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m3p" class="punit" type="text" value="<?php echo number_format($row_dc['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_dc['p_price_sell']*$percentprice*$condensingmaxqty, 2, '.', ','); ?></td>
 					</tr>
 					
 					
 					<tr>
 						<td>4. <input name="m4" class="pdesc" type="text" value="<?php echo $row_expand['cat_name']." "; echo $row_expand['p_name'];  echo $row_expand['p_model'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m4q" class="punit" type="text" value="<?php echo $expandmaxqty; ?>"></td>
-						<td class="l" align="right"><input name="m4p" class="punit" type="text" value="<?php echo number_format($row_expand['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_expand['p_price_sell']*$percentprice*$expandmaxqty, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m4p" class="punit" type="text" value="<?php echo number_format($row_expand['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_expand['p_price_sell']*$percentprice*$expandmaxqty, 2, '.', ','); ?></td>
 					</tr>
 					
 					
@@ -789,67 +800,67 @@
 					<tr>
 						<td>5. <input name="m5" class="pdesc" type="text" value="<?php echo $row_tube2['cat_name']."ทางกลับ"; echo " Type ".$row_tube2['p_type']." Size "; echo $row_tube2['p_size'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m5q" class="punit" type="text" value="<?php echo $qtycooler*2; ?>"></td>
-						<td class="l" align="right"><input name="m5p" class="punit" type="text" value="<?php echo number_format($row_tube2['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_tube2['p_price_sell']*$percentprice*2*$qtycooler, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m5p" class="punit" type="text" value="<?php echo number_format($row_tube2['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_tube2['p_price_sell']*$percentprice*2*$qtycooler, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>6. <input name="m6" class="pdesc" type="text" value="<?php echo $row_tube1['cat_name']."ทางส่ง"; echo " Type ".$row_tube1['p_type']." Size "; echo $row_tube1['p_size'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m6q" class="punit" type="text" value="<?php echo $qtycooler*2; ?>"></td>
-						<td class="l" align="right"><input name="m6p" class="punit" type="text" value="<?php echo number_format($row_tube1['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_tube1['p_price_sell']*$percentprice*2*$qtycooler, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m6p" class="punit" type="text" value="<?php echo number_format($row_tube1['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_tube1['p_price_sell']*$percentprice*2*$qtycooler, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>7. <input name="m7" class="pdesc" type="text" value="<?php echo $row_curve1['cat_name']." Size ".$row_curve1['p_size']; ?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m7q" class="punit" type="text" value="<?php echo $condensingmaxqty*5;?>"></td>
-						<td class="l" align="right"><input name="m7p" class="punit" type="text" value="<?php echo number_format($row_curve1['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_curve1['p_price_sell']*$percentprice*5*$condensingmaxqty, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m7p" class="punit" type="text" value="<?php echo number_format($row_curve1['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_curve1['p_price_sell']*$percentprice*5*$condensingmaxqty, 2, '.', ','); ?></td>
 						
 					</tr>
 					
 					<tr>
 						<td>8. <input name="m8" class="pdesc" type="text" value="<?php echo $row_curve2['cat_name']." Size ".$row_curve2['p_size']; ?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m8q" class="punit" type="text" value="<?php echo $condensingmaxqty*5;?>"></td>
-						<td class="l" align="right"><input name="m8p" class="punit" type="text" value="<?php echo number_format($row_curve2['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format(($row_curve2['p_price_sell']*$percentprice*5*$condensingmaxqty), 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m8p" class="punit" type="text" value="<?php echo number_format($row_curve2['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format(($row_curve2['p_price_sell']*$percentprice*5*$condensingmaxqty), 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>9. <input name="m9" class="pdesc" type="text" value="<?php echo $row_curve3['cat_name']." Size ".$row_curve3['p_size']; ?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m9q" class="punit" type="text" value="<?php echo $qtycooler?>"></td>
-						<td class="l" align="right"><input name="m9p" class="punit" type="text" value="<?php echo number_format($row_curve3['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_curve3['p_price_sell']*$percentprice*$qtycooler, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m9p" class="punit" type="text" value="<?php echo number_format($row_curve3['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_curve3['p_price_sell']*$percentprice*$qtycooler, 2, '.', ','); ?></td>
 						
 					</tr>
 					
 					<tr>
 						<td>10. <input name="m10" class="pdesc" type="text" value="<?php echo $row_ins['cat_name']." "; echo $row_ins['p_name']; echo " Size ";  echo $row_ins['p_size'].'"'. "  หนา ".$row_ins['p_thin'] ;?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m10q" class="punit" type="text" value="<?php echo $qtycooler*2*3;?>"></td>
-						<td class="l" align="right"><input name="m10p" class="punit" type="text" value="<?php echo number_format($row_ins['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_ins['p_price_sell']*$percentprice*$qtycooler*2*3, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m10p" class="punit" type="text" value="<?php echo number_format($row_ins['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_ins['p_price_sell']*$percentprice*$qtycooler*2*3, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>11. <input name="m11" class="pdesc" type="text" value="<?php echo $row_numya['cat_name']." "; echo $row_numya['p_name'];   echo $row_numya['p_model'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m11q" class="punit" type="text" value="<?php echo $condensingmaxqty*$numyaQty; ?>"></td>
-						<td class="l" align="right"><input name="m11p" class="punit" type="text" value="<?php echo number_format($row_numya['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_numya['p_price_sell']*$percentprice*$numyaQty*$condensingmaxqty, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m11p" class="punit" type="text" value="<?php echo number_format($row_numya['p_price_sell']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_numya['p_price_sell']*$percentprice*$numyaQty*$condensingmaxqty, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>12. <input name="m12" class="pdesc" type="text" value="<?php echo "สายไฟและท่อเดินสายไฟ"?>"></td>
 						<td colspan="2" class="l" align="center"><input name="m12q" class="punit" type="text" value="<?php echo $condensingmaxqty; ?>"></td>
-						<td class="l" align="right"><input name="m12p" class="punit" type="text" value="<?php echo number_format($cable*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($cable*$percentprice*$condensingmaxqty, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="m12p" class="punit" type="text" value="<?php echo number_format($cable*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($cable*$percentprice*$condensingmaxqty, 2, '.', ','); ?></td>
 						
 					</tr>
 					
 					<tr>
 						<td>13. <input name="m13" class="pdesc" type="text" value="ค่าแรงและค่าติดตั้งเครื่อง"></td>
 						<td colspan="2" class="l" align="center"><input name="labormachineunit" style="width:45px;" class="punit" type="text" value="1"> ชุด</td>
-						<td class="l" align="right"><input name="labormachinepirce" class="punit" type="text" value="0"></td>
-						<td class="l" align="right"></td>
+						<td class="l hide" align="right"><input name="labormachinepirce" class="punit" type="text" value="0"></td>
+						<td class="l hide" align="right"></td>
 					</tr>
 					
 					<tr>
@@ -1253,8 +1264,13 @@
 			
 			<div id="contect_detail" style="margin-top:85px;">
 				<div class="cust" style="float:left; width:65%; line-height:18px;">
+				<?php if($role['ro_cust'] == 1) { ?>
 					<?php require_once('../include/custaddress1.php'); ?>
-				
+				<? } else { ?>
+					<span>ลูกค้า</span> <br>
+						<span>&nbsp;</span><br>
+						<span>&nbsp;</span><br>
+				<? }  ?>
 				</div><!--end cust-->
 				
 				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
@@ -1305,87 +1321,87 @@
 					<tr>
 						<td>1.<input name="r1" class="pdesc" type="text" value="<?php echo "แผ่นฉนวนสำเร็จรูปสำหรับผนังและเพดาน "." หนา ".$row_isowall['pr_size']." นิ้ว Type ".$row_isowall['pr_type'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="r1q" style="width:45px;" class="punit" type="text" value="<?php echo $isosidearea+$isoceilarea;?>"> ตร.ม.</td>
-						<td class="l" align="right"><input name="r1p" class="punit" type="text" value="<?php echo number_format($row_isowall['pr_sell_price'], 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_isowall['pr_sell_price']*($isosidearea+$isoceilarea), 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r1p" class="punit" type="text" value="<?php echo number_format($row_isowall['pr_sell_price'], 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_isowall['pr_sell_price']*($isosidearea+$isoceilarea), 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>2. <input name="r2" class="pdesc" type="text" value='<?php echo "แผ่นฉนวนพื้น หนา ".$row_flr_cost['pr_size']." นิ้ว ความหนาแน่น ".$row_flr_cost['pr_density']."lb";?>'></td>
 						<td colspan="2" class="l" align="center"><input name="r2q" style="width:45px;" class="punit" type="text" value="<?php echo $flr_area?>"> ตร.ม.</td>
-						<td class="l" align="right"><input name="r2p" class="punit" type="text" value="<?php echo number_format($row_flr_cost['pr_sell_price'], 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($fome_flr_cost, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r2p" class="punit" type="text" value="<?php echo number_format($row_flr_cost['pr_sell_price'], 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($fome_flr_cost, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>3. <input name="r3" class="pdesc" type="text" value="<?php echo $row_plastic['catr_name'];?>"></?></td>
 						<td colspan="2" class="l" align="center"><input name="r3q" style="width:45px;" class="punit" type="text" value="<?php echo $var_florom?>"> ตร.ม.</td>
-						<td class="l" align="right"><input name="r3p" class="punit" type="text" value="<?php echo number_format($row_plastic['pr_sell_price'], 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_plastic['pr_sell_price']*$var_florom, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r3p" class="punit" type="text" value="<?php echo number_format($row_plastic['pr_sell_price'], 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_plastic['pr_sell_price']*$var_florom, 2, '.', ','); ?></td>
 					</tr>
 					
 					
 					<tr>
 						<td>4. <input name="r4" class="pdesc" type="text" value="<?php echo $row_aluminium['catr_name']."หน้าตัดต่างๆ ชนิดชุบอโนไดส์";?>"></?></td>
 						<td colspan="2" class="l" align="center"><input name="r4q" style="width:45px;" class="punit" type="text" value="1"> ชุด </td>
-						<td class="l" align="right"><input name="r4p" class="punit" type="text" value="<?php echo number_format($all_price_chak, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($all_price_chak, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r4p" class="punit" type="text" value="<?php echo number_format($all_price_chak, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($all_price_chak, 2, '.', ','); ?></td>
 					</tr>
 					
 					
 					<tr>
 						<td>5. <input name="r5" class="pdesc" type="text" value="<?php echo $row_seal['catr_name'];?>"></td> 
 						<td colspan="2" class="l" align="center"><input name="r5q" style="width:45px;" class="punit" type="text" value="<?php echo $seland_?>"> หลอด</td>
-						<td class="l" align="right"><input name="r5p" class="punit" type="text" value="<?php echo number_format($row_seal['pr_sell_price']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_seal['pr_sell_price']*$seland_, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r5p" class="punit" type="text" value="<?php echo number_format($row_seal['pr_sell_price']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_seal['pr_sell_price']*$seland_, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>6. <input name="r6" class="pdesc" type="text" value="<?php echo $row_silicon['catr_name']."ชนิดกันเชื้อรา";?>"></td> 
 						<td colspan="2" class="l" align="center"><input name="r6q" style="width:45px;" class="punit" type="text" value="<?php echo $silicon_?>"> หลอด</td>
-						<td class="l" align="right"><input name="r6p" class="punit" type="text" value="<?php echo number_format($row_silicon['pr_sell_price']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_silicon['pr_sell_price']*$silicon_, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r6p" class="punit" type="text" value="<?php echo number_format($row_silicon['pr_sell_price']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_silicon['pr_sell_price']*$silicon_, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>7. <input name="r_pressure" class="pdesc" type="text" value="<?php echo $row_pressure['catr_name'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="r_pressureq" style="width:45px;" class="punit" type="text" value="<?php echo $count_pressure?>"> ตัว</td>
-						<td class="l" align="right"><input name="r_pressure_p" class="punit" type="text" value="<?php echo number_format($pressure_cost, 2, '.', ','); ?>"></td>
-						<td class="l" align="right"><?php echo number_format($b_pressure_price, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r_pressure_p" class="punit" type="text" value="<?php echo number_format($pressure_cost, 2, '.', ','); ?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($b_pressure_price, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>8. <input name="r7" class="pdesc" type="text" value="<?php echo $row_door['catr_name'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="r7q" style="width:45px;" class="punit" type="text" value="1"> หน่วย</td>
-						<td class="l" align="right"><input name="r7p" class="punit" type="text" value="<?php echo number_format($row_door['pr_sell_price'], 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_door['pr_sell_price'], 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r7p" class="punit" type="text" value="<?php echo number_format($row_door['pr_sell_price'], 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_door['pr_sell_price'], 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>9. <input name="r8" class="pdesc" type="text" value="<?php echo $row_man['catr_name'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="r8q" style="width:45px;" class="punit" type="text" value="1"> หน่วย</td>
-						<td class="l" align="right"><input name="r8p" class="punit" type="text" value="<?php echo number_format($row_man['pr_sell_price'], 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_man['pr_sell_price'], 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r8p" class="punit" type="text" value="<?php echo number_format($row_man['pr_sell_price'], 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_man['pr_sell_price'], 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>10. <input name="r9" class="pdesc" type="text" value="<?php echo $row_gerneral['catr_name'];?>"></td>
 						<td colspan="2" class="l" align="center"><input name="r9q" style="width:45px;" class="punit" type="text" value="<?php echo $var_room?>"> ตร.ม.</td>
-						<td class="l" align="right"><input name="r9p" class="punit" type="text" value="<?php echo number_format($row_gerneral['pr_sell_price']*$percentprice, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($row_gerneral['pr_sell_price']*$var_room, 2, '.', ','); ?></td>
+						<td class="l hide" align="right"><input name="r9p" class="punit" type="text" value="<?php echo number_format($row_gerneral['pr_sell_price']*$percentprice, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($row_gerneral['pr_sell_price']*$var_room, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td>11. <input name="r10" class="pdesc" type="text" value="ค่าแรงและค่าติดตั้งห้อง"></td>
 						<td colspan="2" class="l" align="center"><input name="laborroomunit" style="width:45px;" class="punit" type="text" value="1"> ชุด</td>
-						<td class="l" align="right"><input name="laborroomprice" class="punit" type="text" value="<?php echo number_format($laborcost, 2, '.', ',');?>"></td>
-						<td class="l" align="right"><?php echo number_format($laborcost, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><input name="laborroomprice" class="punit" type="text" value="<?php echo number_format($laborcost, 2, '.', ',');?>"></td>
+						<td class="l hide" align="right"><?php echo number_format($laborcost, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>12. <input name="r11" class="pdesc" type="text" value="ค่าขนส่งห้อง"></td>
 						<td colspan="2" class="l" align="center"><input name="shiproomunit" style="width:40px;" class="punit" type="text" value="1"> เที่ยว</td>
-						<td class="l" align="right"><input name="shiproomprice" class="punit" type="text" value="0"></td>
-						<td class="l" align="right"></td>        
+						<td class="l hide" align="right"><input name="shiproomprice" class="punit" type="text" value="0"></td>
+						<td class="l hide" align="right"></td>        
 					</tr>
 					 
 				
@@ -1460,8 +1476,13 @@
 			
 			<div id="contect_detail" style="margin-top:85px;">
 				<div class="cust" style="float:left; width:65%; line-height:18px;">
+				<?php if($role['ro_cust'] == 1) { ?>
 					<?php require_once('../include/custaddress2.php'); ?>
-				
+				<? } else { ?>
+					<span>ลูกค้า</span> <br>
+						<span>&nbsp;</span><br>
+						<span>&nbsp;</span><br>
+				<? }  ?>
 				</div><!--end cust-->
 				
 				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">

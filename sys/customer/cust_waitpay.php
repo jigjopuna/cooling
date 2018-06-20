@@ -9,13 +9,6 @@
 		require_once('../include/metatagsys.php');
 		require_once('../include/inc_role.php');
 		
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){ exit("<script>alert('กรุณา Login ก่อนนะคะ'); window.location = '../pages/login/login.php';</script>");}
-		
-		$role_ = mysql_fetch_array(mysql_query("SELECT * FROM tb_role WHERE ro_emp_id = '$e_id'"));
-		$role = $role_['ro_cust'];	
-		if($role!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูข้อมูลลูกค้านะคะ'); window.location = '../index.php';</script>");}
-		
 		$sql_all = "SELECT * FROM  tb_quo_cust";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
@@ -46,10 +39,12 @@
                                     <tr>
 										<th>ลำดับ</th>
                                         <th>ชื่อลูกค้า</th>
+										<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
 										<th>เบอร์ติดต่อ</th>
 										<th>จังหวัด</th>
 										<th>วันที่ลงระบบ</th>
 										<th>มัดจำ</th>
+									    <?php } ?>
 										
                                     </tr>
                                 </thead>  
@@ -62,21 +57,30 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row_all['qcust_id']; ?></td>
-											<td><a href="custquo_edit.php?custquo_id=<?php echo $row_all['qcust_id'] ?>"><?php echo $row_all['qcust_name']; ?></a></td>
-											<td><?php echo $row_all['cust_tel']; ?></td>
-											<td><?php echo $row_all['qcust_prov'] ;?></td>
-											<td><?php echo $row_all['qcust_day'] ;?></td>
-											<td>
-												<?php if($row_all['qcust_status']==0){ ?>
-													<a href="../db/cust/pay.php?qcust_id=<?php echo $row_all['qcust_id'] ?>" onclick="return confirm('ลูกค้ามัดจำแล้วใช่ไหม?');">
-														<button id="btns" type="button" class="btn btn-lg btn-success btn-block">อัปเดทลูกค้า</button>
-													</a>
-												<?php }else{ ?>
-														<button id="btns" type="button" class="btn btn-lg btn-primary btn-block">ลูกค้ามัดจำแล้ว</button>
-												<?php } ?>
-																
-											</td>
 											
+											<?php if($ro_cust == 1) { ?>
+												<td><a href="custquo_edit.php?custquo_id=<?php echo $row_all['qcust_id'] ?>"><?php echo $row_all['qcust_name']; ?></a></td>
+											<?php } else { ?>
+												<td><?php echo $row_all['qcust_name']; ?></td>
+											<?php } ?>
+											
+											
+											
+											<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
+												<td><?php echo $row_all['cust_tel']; ?></td>
+												<td><?php echo $row_all['qcust_prov'] ;?></td>
+												<td><?php echo $row_all['qcust_day'] ;?></td>
+												<td>
+													<?php if($row_all['qcust_status']==0){ ?>
+														<a href="../db/cust/pay.php?qcust_id=<?php echo $row_all['qcust_id'] ?>" onclick="return confirm('ลูกค้ามัดจำแล้วใช่ไหม?');">
+															<button id="btns" type="button" class="btn btn-lg btn-success btn-block">อัปเดทลูกค้า</button>
+														</a>
+													<?php }else{ ?>
+															<button id="btns" type="button" class="btn btn-lg btn-primary btn-block">ลูกค้ามัดจำแล้ว</button>
+													<?php } ?>
+																	
+												</td>
+											<?php } ?>
 										</tr>
 									<?php } ?>
 

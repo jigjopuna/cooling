@@ -207,10 +207,12 @@
 						<td style="width: 1%" class="r">&nbsp;</td>
 					</tr>
 					
+					<?php if($r_type!=1) { ?>
 					<tr border='1' align="center"> 
 						<td align="left"><span class="text_emunder">ทำสีภำยนอกให้มีสีสันสดใสเหมือนของใหม่</span ></td>
 						<td style="width: 1%" class="r">&nbsp;</td>
 					</tr>
+					<?php } ?>
 					
 					<tr border='1' align="center">
 						<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text_emunder">วัสดุและอุปกรณ์สำหรับใช้ประกอบติดตั้ง</span ></td>
@@ -309,11 +311,11 @@
 							<td align="left" style="text-decoration: underline; font-weight: bold; font-size: 18px;">เงื่อนไขการรับประกัน</td>
 						</tr>
 						<tr>
-							<td align="left">  - ทางบริษัทยินดีรับประกันแผ่นฉนวนห้องเย็นเป็นเวลา  6  เดือน </td>
+							<td align="left">  - ทางบริษัทยินดีรับประกันแผ่นฉนวนห้องเย็นเป็นเวลา <?php if($r_type!=1){echo ' 6 เดือน ';}else{ echo ' 1 ปี ';} ?></td>
 						</tr>
 						
 						<tr>
-							<td align="left">   - ทางบริษัทยินดีรับประกันเครื่องทำความเย็นเป็นเวลา   6 เดือน </td>
+							<td align="left">   - ทางบริษัทยินดีรับประกันเครื่องทำความเย็นเป็นเวลา   <?php if($r_type!=1){echo ' 6 เดือน ';}else{ echo ' 1 ปี ';} ?> </td>
 						</tr>
 						
 						<tr>

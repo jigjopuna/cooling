@@ -12,7 +12,7 @@
 	$cash1 = $rowcash['cash1'];
 	$cash2 = $rowcash['cash2'];
 	$cash_emp = $rowcash['cash_emp'];
-	$cash_temp = $rowcash['tcash_emp'];
+	$cash_temp = $rowcash['cash_temp'];
 	
 	
 	
@@ -39,14 +39,20 @@
 	
 	
 
-	echo "cust_order = ", $cust_order, "<br>";
-	echo "payamount = ", $payamount, "<br>";
-	echo "payinbill = ", $payinbill, "<br>";
-
-	echo "emp = ", $emp, "<br>";
-	echo "paydate = ", $paydate, "<br>";
+	echo "cust_order = ". $cust_order. "<br>";
+	echo "payamount = ". $payamount. "<br>";
+	echo "payinbill = ". $payinbill. "<br>";
+	echo "emp = ". $emp. "<br>";
+	echo "paydate = ". $paydate. "<br>";
+	echo "today = ". $today. "<br><br><br>"; 
 	
-	echo "today = ", $today, "<br>"; 
+	echo "cur_cash = ". $cur_cash. "<br>";
+	echo "cash1 = ". $cash1. "<br>";
+	echo "cash2 = ". $cash2. "<br>";
+	echo "cash_emp = ". $cash_emp. "<br>";
+	echo "cash_temp = ". $cash_temp. "<br>";
+	//exit();
+	
 	
 
 	$target_dir = "../../images/receive/";
@@ -125,19 +131,9 @@
 		$result6 = mysql_query($work_list);
 		
 		if($result6){
-			exit("
-				<script>
-					alert('บันทึกเงินเข้าเรียบร้อยแล้วจร้า ^^ ');
-					window.location='../../finance/inpay.php';
-				</script>
-			");
+			exit("<script>alert('บันทึกเงินเข้าเรียบร้อยแล้วจร้า ^^ ');window.location='../../finance/inpay.php';</script>");
 		}else{
-			exit("
-				<script>
-					alert('บันทึกเงินไม่เข้า TT ');
-					window.location='../../finance/inpay.php';
-				</script>
-			");
+			exit("<script>alert('บันทึกเงินไม่เข้า TT ');window.location='../../finance/inpay.php';</script>");
 		}
 	}//end cash
 		

@@ -7,17 +7,7 @@
 <head>
 	<?php require_once('../include/header.php');?>
 	<?php require_once('../include/metatagsys.php');?>
-	<?php require_once('../include/inc_role.php'); ?>
-	<?php 
-		
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){ exit("<script>alert('กรุณา Login ก่อนนะคะ'); window.location = '../pages/login/login.php';</script>");}
-		
-		$role_ = mysql_fetch_array(mysql_query("SELECT * FROM tb_role WHERE ro_emp_id = '$e_id'"));
-		$role = $role_['ro_cust'];	
-		if($role!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูข้อมูลลูกค้านะคะ'); window.location = '../index.php';</script>");}
-		
-		
+	<?php require_once('../include/inc_role.php');
 		$sql_all = "SELECT * FROM tb_customer c JOIN province p ON c.cust_province = p.id";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
@@ -47,12 +37,14 @@
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
-										<th>ลำดับ</th>
+										<th>ลำดับ </th>
                                         <th>ชื่อลูกค้า</th>
-                                        <th>บริษัท</th>
-										<th>เบอร์ติดต่อ</th>
-										<th>จังหวัด</th>
-										<th>วันที่ลงระบบ</th>
+										<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
+											<th>บริษัท</th>
+											<th>เบอร์ติดต่อ</th>
+											<th>จังหวัด</th>
+											<th>วันที่ลงระบบ</th>
+										<?php } ?>
 										
                                     </tr>
                                 </thead>
@@ -64,11 +56,19 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row_all['cust_id']; ?></td>
-											<td><a href="cust_edit.php?cust_id=<?php echo $row_all['cust_id'] ?>"><?php echo $row_all['cust_name']; ?></a></td>
-											<td><?php echo $row_all['cust_corp']; ?></td>
-											<td><?php echo $row_all['cust_tel']; ?></td>
-											<td><?php echo $row_all['pro_name'] ;?></td>
-											<td><?php echo $row_all['cust_date'] ;?></td>
+											
+											<?php if($ro_cust == 1) { ?>
+												<td><a href="cust_edit.php?cust_id=<?php echo $row_all['cust_id'] ?>"><?php echo $row_all['cust_name']; ?></a></td>
+											<?php } else { ?>
+												<td><?php echo $row_all['cust_name']; ?></td>
+											<?php } ?>
+											
+											<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
+												<td><?php echo $row_all['cust_corp']; ?></td>
+												<td><?php echo $row_all['cust_tel']; ?></td>
+												<td><?php echo $row_all['pro_name'] ;?></td>
+												<td><?php echo $row_all['cust_date'] ;?></td>
+											<?php } ?>
 										</tr>
 									<?php } ?>
 

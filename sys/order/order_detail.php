@@ -57,6 +57,16 @@
 	//find quotation docs get price and delivery date
 	$quot = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders WHERE o_id='$o_id'"));
 	
+	//image
+	$imgs = $quot['o_attach'];
+    list($img1, $img2,$img3, $img4, $img5) = explode(':',$imgs);
+	/*echo 'img1 : '.$img1.'<br>';
+	echo 'img2 : '.$img2;
+	echo 'img3 : '.$img3;
+	echo 'img4 : '.$img4;
+	echo 'img5 : '.$img5;
+	exit();*/
+	
 	$comm = mysql_fetch_array(mysql_query("SELECT o_note FROM tb_orders WHERE o_id='$o_id'"));
 	$comments = $comm['o_note'];
 
@@ -71,6 +81,10 @@
 <title>ออเดอร์ลูกค้า</title>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
+<style>
+	.o_image { width: 65%; margin-top:20px;}
+	@media screen and (max-width: 1024px){.o_image { width: 100%; }}
+</style>
 <?php require_once('../include/metatagsys.php');?>
 <?php require_once('../include/inc_role.php'); ?>
 <script>
@@ -81,11 +95,23 @@
 		$("#notes").click(function(){
 			var note = $('#o_note').val();
 			if(note==''){
-				alert("ใส่คอมเม้นด้วยนะคะ"); 
+				alert("ใส่คอมเม้นด้วยนะคะ");
+				return false;
 			}else{
 				$('#form1').submit();
+			}	
+		});
+		
+		$("#picattach").click(function(){
+			var imgs = $('#imgattach').val();
+			if(imgs==''){
+				alert('ใส่รูปด้วยนะคะ');
+				return false;
+			}else{
+				$('#form2').submit();
 			}
 		});
+		
 		$('#quotationfile').click(function(){
 			window.location = '../quotation/files/'+quots;
 		});
@@ -349,6 +375,75 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+						 ใส่รูป
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							  <table width="100%" class="table table-striped table-bordered table-hover data_table">
+								<form action="../db/order/orderattach.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
+								   <tbody>
+										<tr>
+										<td> 
+											<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">แนบรูป</label>
+											<input type="file" class="form-control require" id="imgattach" name="imgattach">
+											</div>
+										</td>
+										<td> <button type="button" id="picattach" class="btn btn-lg btn-primary btn-block" style="float:left;">บันทึกรูป</button>  </td>
+								      </tr>
+                                   
+                                   </tbody>
+								   <input type="hidden" name="o_ids" id="o_ids" value="<?php echo $o_id?>"> 
+								</form>
+							  </table>                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+		
+		<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+						 รูป
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="col-lg-12"> 
+								<?php if($img1 != '') { ?>
+									<img class="o_image" src="../images/orderdetail/<?php echo $img1;?>">
+								<?php } ?>
+								
+								<?php if($img2 != '') { ?>
+									<img class="o_image" src="../images/orderdetail/<?php echo $img2;?>">
+								<?php } ?>
+								
+								<?php if($img3 != '') { ?>
+									<img class="o_image" src="../images/orderdetail/<?php echo $img3;?>">
+								<?php } ?>
+								
+								<?php if($img4 != '') { ?>
+									<img class="o_image" src="../images/orderdetail/<?php echo $img4;?>">
+								<?php } ?>
+								
+								<?php if($img5 != '') { ?>
+									<img class="o_image" src="../images/orderdetail/<?php echo $img5;?>">
+								<?php } ?>
+							</div>
+							
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
 			
 			<div id="quot" style="display:none;"><?php echo $quot['o_quotation'];?></div>
 			<button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:left;">ใบเสนอราคา</button>

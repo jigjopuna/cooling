@@ -57,7 +57,7 @@
 		<?php 
 			require_once('../include/inc_role.php'); 
 			require_once ('../include/navproduct.php');
-			if($ro_order!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูออเดอร์นะคะ'); window.location = '../index.php';</script>");}
+			//if($ro_order!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูออเดอร์นะคะ'); window.location = '../index.php';</script>");}
 		?>
         <div id="page-wrapper">
 			<div class="row">

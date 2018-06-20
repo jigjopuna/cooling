@@ -520,7 +520,7 @@
 		<div class="row">
 			<div class="col-md-6">
 			<div class="copyright-text">
-			Copyright 2017 Topcooling.Co, Ltd.
+			Copyright 2018 Topcooling.Co, Ltd.
 			</div>
 			</div>
 			<div class="col-md-4">

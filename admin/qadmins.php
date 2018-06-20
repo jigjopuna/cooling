@@ -10,6 +10,24 @@
 	<link type="text/css" rel="stylesheet" href="../css/redmond/jquery-ui-1.8.12.custom.css">
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
 	<script src="../js/jquery-ui-1.9.1.custom.min.js"></script>
+	<style>
+		
+		@media print {
+			#sorn { display:none;}
+		}
+	
+	<script>
+		$(document).ready(function(){
+			$('#sorn').click(function(){
+				$('.hide').css('display','none');
+			});
+			
+			$('.printbutton').click(function(){
+				alert($(this).next().val());
+			});
+		});
+		
+	</script>
 	
 </head>
 <body>
@@ -1626,7 +1644,7 @@
 		</div>
 		
 	</form>
-	
+<div><input type='button' id='sorn' value="ซ่อน"></div>	
 </div>
 <span style="float:right;"><?php echo $total_result_t;?></span>
 </body>

@@ -58,8 +58,10 @@
 			$('#pobuyer').change(chk_cash); 
 			$('#poprice').blur(chkfieldcash);
 			$('#owner_money').hide();
+			
 			//$('#fromtransfer').change(cash_transfer);
 			//$('#totransfer option').prop("disabled", true);		
+			
 		});
 		/*
 		ตอนซื้อของเราอยากรู้ว่าเอาเงินส่วนไหนไปซื้อ เงินกองกลาง หรือ เงินส่วนตัว ถ้าเงินส่วนตัวซื้อแบบเครดิตหรือเปล่า
@@ -69,14 +71,17 @@
 		
 		/*เช็คตอนที่กรอกราคาเสร็จให้เช็คว่าใส่ราคามาเป็นตัวเลขหรือเปล่า และ เช็คว่า จะซื้อด้วยเงินกองกลางหรือเปล่า ถ้าเป็นเงินกองกลางก็ให้เช็คเงินกองกลางก่อนว่าพอไหม*/
 		function chkfieldcash(){
+			/*เช็คก่อนว่าเอาเงินสำรองมาซื้อหรือเปล่าถ้าใช้ก็ไม่ต้อง validate หรือเช็ค เงินซื้อของ*/
+			if ($('#posumrong').is(':checked')) { var sumrong = 1;  } else { var sumrong = 2; }
 			if((isNaN($(this).val()))){
 				alert('กรุณาใส่ราคาด้วยตัวเลขค่ะ');
 				return false;
 			}
-			if($('#pobuyer').val()==10){
-				chk_cash();
-				
-			}		
+			if(($('#pobuyer').val()==10) && (sumrong == 2)){
+				chk_cash();				
+			}else{
+				$('#btn').prop('disabled',false);
+			}
 		}
 		
 		function credit(){
@@ -185,6 +190,7 @@
 				$('#ownercash option:eq(0)').prop("disabled", true);
 			}
 		}
+		
 
 	</script> 
 </head>
@@ -262,26 +268,35 @@
 												
 												<?php } ?>
 											</select>
+											
+											
 										</div>
 										
-										<div class="form-group has-success" id="owner_money">
+										<!--<div class="form-group has-success" id="owner_money">
 											<label class="control-label" for="inputSuccess">ส่วนกลางบัญชี</label>
 											<select class="form-control" name="owner_money" id="ownercash">
 												<option value="0">เลือกเจ้าของบัญชี</option> 
 												<?php 
-													for($i=1; $i<=$num_emp; $i++){
-														$row_emp = mysql_fetch_array($result_emp);													
+													/*for($i=1; $i<=$num_emp; $i++){
+														$row_emp = mysql_fetch_array($result_emp);	*/												
 												?>		
 												
-												<option value="<?php echo $row_emp['e_id']?>"><?php echo $row_emp['e_name'];?></option>
+												<option value="<?php //echo $row_emp['e_id']?>"><?php //echo $row_emp['e_name'];?></option>
 												
-												<?php } ?>
+												<?php //} ?>
 											</select>
-										</div>
+										</div>-->
+										
+										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">คอมเม้นท์</label>
 											<input type="text" class="form-control" id="poment" name="poment">
 										</div>
+										
+										<div class="form-group has-success">
+												<label class="control-label" for="inputSuccess">ใช้เงินสำรองจ่าย</label>
+												<input type="checkbox" class="form-control" id="posumrong" name="posumrong">
+											</div>
 									</div>
 									
 									
@@ -336,9 +351,9 @@
                                 <thead>
                                     <tr>
 										<th>ลำดับ</th>
-                                        <th>รายการ</th>                                     
+                                        <th>รายการ</th>  
+										<th>ราคา</th>										
                                         <th>จำนวน</th>
-                                        <th>ราคา</th>
                                         <th>ร้านค้า</th>
 										<th>คนจ่าย</th>
 										<th>คอมเม้นท์</th>
@@ -359,8 +374,8 @@
 										<tr class="gradeA"> 
 											<td><?php echo number_format($row['po_id'], 0, '.', ''); ?></td>
 											<td><a href="po_detail.php?po_id=<?php echo $row['po_id'] ?>"><?php echo $row['po_name']; ?></td>
-											<td><?php echo number_format($row['po_qty'], 0, '.', ''); ?></td>
 											<td><?php echo number_format($row['po_price'], 0, '.', ','); ?></td>
+											<td><?php echo number_format($row['po_qty'], 0, '.', ''); ?></td>
 											<td><?php echo $row['po_shop']; ?></td>
 											
 											<?php if($row['po_credit']==1) { ?>

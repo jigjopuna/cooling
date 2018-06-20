@@ -340,7 +340,14 @@
 		$("#addr_origin").clone().appendTo(".cust");
 		$("#corp_addr_ini").clone().appendTo(".cover_header");
 		$("#contact_ini").clone().appendTo(".cover_contact");
+		
+		$('#sorn').click(function(){
+			$('.hide').html('');
+		});
 	});
+	
+		
+	
 </script>
 
 <div class="book">
@@ -428,43 +435,43 @@
 					<tr>
 						<td>1. <?php echo $m1;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m1q;?></td>
-						<td class="l" align="right"><?php echo number_format($m1p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m1t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m1p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m1t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>2. <?php echo $m2;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m2q;?></td>
-						<td class="l" align="right"><?php echo number_format($m2p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m2t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m2p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m2t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>3. <?php echo $m3;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m3q;?></td>
-						<td class="l" align="right"><?php echo number_format($m3p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m3t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m3p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m3t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>4. <?php echo $m4;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m4q;?></td>
-						<td class="l" align="right"><?php echo number_format($m4p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m4t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m4p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m4t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>5. <?php echo $m5;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m5q;?></td>
-						<td class="l" align="right"><?php echo number_format($m5p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m5t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m5p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m5t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>6. <?php echo $m6;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m6q;?></td>
-						<td class="l" align="right"><?php echo number_format($m6p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m6t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m6p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m6t, 2, '.', ',');?></td>
 					</tr>
 					
 					
@@ -472,58 +479,58 @@
 					<tr>
 						<td>7. <?php echo $m7;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m7q;?></td>
-						<td class="l" align="right"><?php echo number_format($m7p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m7t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m7p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m7t, 2, '.', ',');?></td>
 					</tr>
 					
 					
 					<tr>
 						<td>8. <?php echo $m8;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m8q;?></td>
-						<td class="l" align="right"><?php echo number_format($m8p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m8t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m8p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m8t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>9. <?php echo $m9;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m9q;?></td>
-						<td class="l" align="right"><?php echo number_format($m9p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m9t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m9p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m9t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>10. <?php echo $m10;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m10q;?></td>
-						<td class="l" align="right"><?php echo number_format($m10p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m10t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m10p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m10t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>11. <?php echo $m11;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m11q;?></td>
-						<td class="l" align="right"><?php echo number_format($m11p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m11t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m11p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m11t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>12. <?php echo $m12;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $m12q;?></td>
-						<td class="l" align="right"><?php echo number_format($m12p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($m12t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m12p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($m12t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>13. <?php echo $m13;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $labormachineunit;?></td>
-						<td class="l" align="right"><?php echo number_format($labormachinepirce*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($lbmt, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($labormachinepirce*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($lbmt, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>14. <?php echo $m14;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $shipmachineunit;?></td>
-						<td class="l" align="right"><?php echo number_format($shipmachineprice*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($shmt, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($shipmachineprice*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($shmt, 2, '.', ',');?></td>
 					</tr>
 
 					<tr>
@@ -656,86 +663,86 @@
 					<tr>
 						<td>1. <?php echo $r1;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r1q;?></td>
-						<td class="l" align="right"><?php echo number_format($r1p+$fomeadd, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($r1t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r1p+$fomeadd, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r1t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>2. <?php echo $r2;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r2q;?></td>
-						<td class="l" align="right"><?php echo number_format($r2p+$fomeadd, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($r2t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r2p+$fomeadd, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r2t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>3. <?php echo $r3;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r3q;?></td>
-						<td class="l" align="right"><?php echo number_format($r3p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($r3t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r3p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r3t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>4. <?php echo $r4;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r4q;?></td>
-						<td class="l" align="right"><?php echo number_format($r4p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($r4t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r4p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r4t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>5. <?php echo $r5;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r5q;?></td>
-						<td class="l" align="right"><?php echo number_format($r5p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($r5t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r5p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r5t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>6. <?php echo $r6;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r6q;?></td>
-						<td class="l" align="right"><?php echo number_format($r6p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($r6t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r6p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r6t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>7. <?php echo $r_pressure;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r_pressureq;?></td>
-						<td class="l" align="right"><?php echo number_format($r_pressure_p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($rpressure_t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r_pressure_p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($rpressure_t, 2, '.', ',');?></td>
 					</tr>
 					
 					
 					<tr>
 						<td>8. <?php echo $r7;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r7q;?></td>
-						<td class="l" align="right"><?php echo number_format($r7p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($r7t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r7p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r7t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>9. <?php echo $r8;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r8q;?></td>
-						<td class="l" align="right"><?php echo number_format($r8p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($r8t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r8p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r8t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>10. <?php echo $r9;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $r9q;?></td>
-						<td class="l" align="right"><?php echo number_format($r9p*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($r9t, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r9p*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($r9t, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>11. <?php echo $r10;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $laborroomunit;?></td>
-						<td class="l" align="right"><?php echo number_format($laborroomprice*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($lbrt, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($laborroomprice*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($lbrt, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td>12. <?php echo $r11;?> </td>
 						<td colspan="2" class="l" align="center"><?php echo $shiproomunit;?></td>
-						<td class="l" align="right"><?php echo number_format($shiproomprice*$percentprofit, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($shrt, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($shiproomprice*$percentprofit, 2, '.', ',');?></td>
+						<td class="l hide" align="right"><?php echo number_format($shrt, 2, '.', ',');?></td>
 					</tr>
 
 					<tr>
@@ -918,6 +925,15 @@
 					</tr>
 					
 					<tr class="highs" style="">
+						<td class="l" colspan="5"> - งานเมนไฟฟ้ามายังห้องเย็น ของบริษัท และไฟที่ใช้ในการติดตั้ง </td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l" colspan="5">- งานคอนกรีตภายในและภานนอกของห้องเย็นทั้งหมด</td>
+					</tr>
+					
+					
+					<tr class="highs" style="">
 						<td class="l" colspan="5">- งานเพิ่มเติมจากแบบและ Quotation </td>
 					</tr>
 					
@@ -997,6 +1013,7 @@
     </div> <!--end page-->
 	
 </div>
+<div><input type='button' id='sorn' value="ซ่อน"></div>
 <span style="float:right;"></span>
 </body>
 </html>

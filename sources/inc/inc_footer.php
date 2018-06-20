@@ -38,7 +38,7 @@
 								โทร
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;">082-360-1523</a>
+								<a href="" style="color: white;"> <!--098-970-2339--> 082-360-1523 หรือ 084-013-7350</a>
 							</div>
 						</div>
 					</li>
@@ -49,7 +49,7 @@
 								email
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;">topcooling.ltd@gmail.com</a>
+								<a href="" style="color: white;"> &nbsp;&nbsp;topcooling.ltd@gmail.com</a>
 							</div>
 						</div>
 					</li>

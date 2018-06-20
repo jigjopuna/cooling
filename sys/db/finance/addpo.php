@@ -22,6 +22,7 @@
 	
 	$podate = trim($_POST['podate']);
 	$pocredit = trim($_POST['pocredit']);
+	$posumrong = trim($_POST['posumrong']);
 	
 	$search_custname = trim($_POST['search_custname']);
 	$curr_cash = $rowcash['cash_now'];
@@ -29,29 +30,34 @@
 	$cash2 = $rowcash['cash2'];
 	$cash_emp = $rowcash['cash_emp'];
 	$cash_temp = $rowcash['cash_temp'];
+
 	
 	$e_id = trim($_POST['e_id']);
 	
 	$today = date("Ymd");
 	
+	if($posumrong=='on'){ 
+		$sumrong = 1; //เอาเงินสำรองซื้อ
+		if($cash_temp < $poprice) { exit("<script>alert('เงินกอง สำรองจ่าย ไม่พอ '); window.location='../../finance/outpay.php';</script>"); }
+		$temp_cash1 = $cash1; //เงินซื้อของ
+		$temp_cash2 = $cash_temp - $poprice; //เงินสำรอง
+	}else{
+		$sumrong = 0;	//เอาเงินซื้อของซื้อ
+		$temp_cash1 = $cash1 - $poprice; //เงินซื้อของ
+		$temp_cash2 = $cash_temp; //เงินสำรอง
+	}
+
 	if($pocredit=='on'){ 
 		$po_credit = 1;
 	}else{
 		$po_credit = 0;	
+		if(($cash1 < $poprice) && ($sumrong == 0)) { exit("<script>alert('เงินซื้อของไม่พอ '); window.location='../../finance/outpay.php';</script>"); }
 	}
-	
-	if($owner_money == 2){
-		if($cash1 < $poprice) { exit("<script>alert('เงินกองกลางชายไม่พอ '); window.location='../../finance/outpay.php';</script>"); }
-	}else if($owner_money == 3){
-		if($cash2 < $poprice) { exit("<script>alert('เงินกองกลางพี่ไพรฑูรย์ไม่พอ '); window.location='../../finance/outpay.php';</script>"); }
-	}else{}
-	
-	
-	echo "today = ", $today, "<br>"; 
-	
 	
 	
 
+	
+	echo "today = ", $today, "<br>"; 
 	echo "poname = ", $poname, "<br>";
 	echo "poqty = ", $poqty, "<br>";
 	echo "poprice = ", $poprice, "<br>";
@@ -140,40 +146,26 @@
 	$result1 = mysql_query($sql);
 	
 	//อัปเดทเงินกองกลาง ในกรณีที่ใช้เงินส่วนกลางซื้อของ
-	if($pobuyer == 10){{		
-			if($result1){ // เอาค่า PK ที่เพิ่งบันทึกลงในตารางสั่งซื้อมา ผูกไว้ในตารางเงินกองกลาง tb_cash_center
-				$a = mysql_insert_id($conn);
-				$temp_cash1 = $cash1 - $poprice;
-				$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_out = '$poprice', cash_date = '$podate', cash_now = '$curr_cash', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_temp = '$cash_temp'";		
-				$result6 = mysql_query($cal_cash);
-			}
-			
-			if($result6) {
-				//echo 'Successful inserts: ';
-				exit("
-					<script>
-						alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ');
-						window.location='../../finance/outpay.php';
-					</script>");
-			} else {
-			   // echo 'query failed: ' ;
-			   exit("
-					<script>
-						alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ');
-						 window.location='../../finance/outpay.php';
-					</script>");
-			}			
+	if($pobuyer == 10 && $po_credit == 0){				
+		if($result1){ // เอาค่า PK ที่เพิ่งบันทึกลงในตารางสั่งซื้อมา ผูกไว้ในตารางเงินกองกลาง tb_cash_center
+			$a = mysql_insert_id($conn);
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_out = '$poprice', cash_date = '$podate', cash_now = '$curr_cash', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_temp = '$temp_cash2'";		
+			$result6 = mysql_query($cal_cash);
 		}
-		
+			
+		if($result6) {
+			exit("<script>alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ');window.location='../../finance/outpay.php';</script>");
+		} else {
+		    exit("<script>alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ');window.location='../../finance/outpay.php';</script>");
+		}			
+				
 	}else{
-		
+	
 		if($result1) {
-				//echo 'Successful inserts: ';
-				exit("<script>alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ! ');window.location='../../finance/outpay.php';</script>");
-			} else {
-			   // echo 'query failed: ' ;
-			   exit("<script>alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ !'); window.location='../../finance/outpay.php';</script>");
-			}
+			exit("<script>alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ! ');window.location='../../finance/outpay.php';</script>");
+		} else {
+			 exit("<script>alert('บันทึกข้อมูลไม่สำเร็จ ติดต่อผู้ดูแลระบบ !'); window.location='../../finance/outpay.php';</script>");
+		}
 	}
 	
 	

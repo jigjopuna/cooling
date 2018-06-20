@@ -35,7 +35,7 @@
 				minLength: 1
 			});
 			
-			chk_hide_credit();
+			//chk_hide_credit();
 			
 			
 			$('#pocredit').change(credit);
@@ -168,6 +168,11 @@
 											<label class="control-label" for="inputSuccess">เครดิต</label>
 											<input type="checkbox" class="form-control" id="pocredit" name="pocredit" <?php if( $row['po_credit']==1) echo "checked" ?>>
 										</div>
+										
+										<div class="form-group has-success">
+												<label class="control-label" for="inputSuccess">ใช้เงินสำรองจ่าย</label>
+												<input type="checkbox" class="form-control" id="posumrong" name="posumrong">
+											</div>
 									</div>
 																		
 									<div class="col-lg-4">

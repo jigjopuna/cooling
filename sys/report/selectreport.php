@@ -1,5 +1,29 @@
 <?php session_start();
 	  require_once('../include/connect.php');
+	  
+	  $year = date("Y");
+	  
+	  $sql = "SELECT MONTHNAME(o_date) month, COUNT(o_id) ordqty, SUM(o_price) price
+			  FROM tb_orders
+			  WHERE o_date LIKE '$year%'
+			  GROUP BY YEAR(o_date), MONTH(o_date)";
+	  $result = mysql_query($sql);
+	  $num = mysql_num_rows($result);
+	  
+	  
+	  $sumyear = mysql_fetch_array(mysql_query("
+					    SELECT SUM(A.price) sumyear
+						FROM (
+							SELECT MONTHNAME(o_date) month, COUNT(o_id) ordqty, SUM(o_price) price
+							FROM tb_orders
+							WHERE o_date LIKE '2018%'
+							GROUP BY YEAR(o_date), MONTH(o_date)
+							) AS A"));
+	 $yearamount = $sumyear['sumyear'];
+	  
+	   
+	  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -175,12 +199,63 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-			
-			
+            </div>	
         </div>
 
 		<!-- /.row -->
+		
+		
+		<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">รายงานประจำเดือน</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+								<span style="background-color: yellow;">ยอดขายปี <?php echo $year.' : '.number_format($yearamount, 0, '.', ',');?>  บาท </span>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                                <thead>
+                                    <tr>
+										<th>ลำดับ</th>
+										<th>เดือน</th>
+                                        <th>จำนวนห้อง</th> 
+										<th>ยอดขาย</th>
+										
+                                    </tr>
+                                </thead>
+                                <tbody>
+									<?php 
+										for($i=1; $i<=$num; $i++){
+										  $row = mysql_fetch_array($result);
+									  ?>
+										<tr class="gradeA">
+											<td><?php echo $i; ?></td>
+											<td><?php echo $row['month']; ?></td>
+											<td><?php echo number_format($row['ordqty'], 0, '.', ','); ?></td>
+											<td><?php echo number_format($row['price'], 0, '.', ','); ?></td>
+											
+										</tr>
+									<?php } ?>
+
+                                    
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
 
         </div>
         <!-- /#page-wrapper -->

@@ -328,11 +328,12 @@
 										<span class="text_bold">เงินจากลูกค้าเหลือ</span><br>
 										<?php echo $cur_cash. ' บาท';?><br><hr>
 										<span class="text_bold">เงินซื้อของ คงเหลือ</span><br>
-										<?php echo $cash1. ' บาท';?><br>
+										<?php if($role['ro_finance'] == 0) { echo number_format($monery['cash1']/4, 0, '.', ',') . ' บาท'."<br>"; }else{ echo $cash1 . ' บาท'."<br>"; }?>
 										<span class="text_bold">เงินจ่ายพนักงานคงเหลือ </span><br>
 										<?php echo $cash_emp. ' บาท';?><br>
 										<span class="text_bold">เงินกองกลางคงเหลือ</span><br>
-										<?php echo $cash_temp. ' บาท';?>
+										<?php if($role['ro_finance'] == 0) { echo number_format($monery['cash_temp']/4, 0, '.', ',') . ' บาท'; }else{ echo $cash_temp . ' บาท'; }?>
+									
 									</div>
 							 </div> <!-- row -->
                            

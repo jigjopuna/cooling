@@ -371,14 +371,27 @@
     transition: opacity 0.5s ease-in-out;
 }
 </style>
- <div class="section-testimonial">
+<div class="section-testimonial">
 	<div class="heading">
-	ห้องเย็นสำเร็จรูปตั้งพื้นของใหม่และมือสอง
+	ห้องเย็นฝั่งประกอบเร็วติดตั้งหน้างาน
 	</div>
 	 
 	<div class="container">
 		<div class="row">
-			<img src="content/images/pricebanner2.jpg" width="100%" alt="ห้องเย็นราคา">
+			<img src="content/images/speedlock-1400-900.jpg" width="100%" alt="ห้องเย็นราคา">
+		</div>
+	</div>	
+</div>
+
+
+<div class="section-testimonial">
+	<div class="heading">
+	ห้องเย็นสำเร็จรูปตั้งพื้น
+	</div>
+	 
+	<div class="container">
+		<div class="row">
+			<img src="content/images/sumred-land-1200-700.jpg" width="100%" alt="ห้องเย็นราคา">
 		</div>
 	</div>	
 </div>
@@ -396,13 +409,13 @@
 		
 		<div class="row -step-list">
 			<div class="col-sm-6 -step-item">
-				<a href="th/article/secondhand.php">
+				<a href="th/article/sumred.php">
 					<img src="content/images/cool/300px.jpg" style="width:300px; height:300px;">
 				</a>
 				<!--<p>-->
 					<div class="heading">
-						<a href="th/article/secondhand.php">
-							ห้องเย็นมือสองประกอบใหม่
+						<a href="th/article/sumred.php">
+							ห้องเย็นสำเร็จรูปตั้งพื้น
 						</a>
 					</div>
 						
@@ -410,25 +423,25 @@
 					ยกไปวางที่หน้างาน พร้อมใช้งานทันที <br>
 					พื้นที่วางห้องเย็น ควรสูงกว่า 2.6 ม.<br>
 					เคลื่อนย้ายได้สะดวก <br>
+					โครงสร้างเหล็กแข็งแรง<br>
 					ไม่เหมาะกับพื้นที่เล็กๆ ที่ขนย้ายไม่สะดวก<br>
-					ประหยัดงบประมาณ <br>
-					ได้ห้องเย็นใกล้เคียงกับของใหม่<br>
-					รับประกันนาน 6 เดือน <br>
-					เวลาผลิต 20 - 25 วัน <br>
+					รับประกัน 1 ปีเต็ม <br>
+					เวลาผลิต 25 - 30 วัน <br>
+					มีระบบเช็คอุณหภูมิผ่านมือถือ<br>
 					</div>
-					<a href="th/article/secondhand.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>
-					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 130,000 </span>
+					<a href="th/article/sumred.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 250,000 </span>
 				<!--</p>-->
 			</div>
 			<div class="col-sm-6 -step-item">
-				<!--<a href="th/article/speedlock.php">-->
+				<a href="th/article/speedlock.php">
 					<img src="content/images/cool/speed300.jpg" style="width:300px; height:300px;">
-				<!--</a>-->
+				</a>
 				<!--<p style="font-size:20px;">-->
 					<div class="heading">
-						<!--<a href="th/article/speedlock.php">-->
+						<a href="th/article/speedlock.php">
 							ห้องเย็นแบบฝั่งประกอบเร็ว
-						<!--</a>-->	
+						</a>
 					</div>
 						
 					<div style="font-size:17px;">
@@ -441,8 +454,8 @@
 					รับประกันนาน 1 ปี <br>
 					มีระบบเช็คอุณหภูมิผ่านมือถือ<br>
 					</div>
-					<!--<a href="th/article/speedlock.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>-->
-					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 250,000 </span>
+					<a href="th/article/speedlock.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 292,000 </span>
 				<!--</p>-->
 			</div>
 			
@@ -507,7 +520,7 @@
 						</div>
 						<div class="blog-content">
 							<span class="blog-time"></span>
-							<h2 class="blog-title">20 ข้อต้องรู้ก่อนมีห้องเย็น</h2>
+							<h2 class="blog-title">17 ข้อต้องรู้ก่อนมีห้องเย็น</h2>
 							<p class="blog-excerpt">เชื่อว่าหลายท่านที่กำลังมองหาห้องเย็นสักห้อง กำลังตัดสินใจอยู่ ให้อ่านบทความนี้ จะช่วยท่านตัดใจได้ดี และถูกต้องแน่นอน จากประสบการณ์ตรง กว่า 30 ปี</p>
 						</div>
 					</div>
@@ -521,23 +534,23 @@
 						</div>
 						<div class="blog-content">
 							<span class="blog-time "></span>
-							<h2 class="blog-title ">มีระบบ Cloud อัจฉริยะ เช็คอุณหภูมิผ่านมือถือ</h2>
-							<p class="blog-excerpt ">เพราะสินค้าในห้องเย็นมีมูลค่าสูงมาก หากมีระบบนี้ จะช่วยลดความเสี่ยงห้องเย็นไม่เย็นไปได้อย่างมาก ตรวจสอบอุณหภูมิได้ตลอด 24 ชม. แม้ไม่ได้อยู่หน้าห้องเย็น</p>
+							<h2 class="blog-title">มีระบบ Cloud อัจฉริยะ เช็คอุณหภูมิผ่านมือถือ</h2>
+							<p class="blog-excerpt">เพราะสินค้าในห้องเย็นมีมูลค่าสูงมาก หากมีระบบนี้ จะช่วยลดความเสี่ยงห้องเย็นไม่เย็นไปได้อย่างมาก ตรวจสอบอุณหภูมิได้ตลอด 24 ชม. แม้ไม่ได้อยู่หน้าห้องเย็น</p>
 						</div>
 					</div>
 					</a>
 				</div>
 			
 			
-			<div class="articles"><a href="">
+			<div class="articles"><a href="th/article/3phase.php">
 				<div class="blog-box">
-					<div class="blog-img" style="background: url('sources/assets/images/comp.jpg');">
+					<div class="blog-img" style="background: url('sources/assets/images/3phase-s.jpg');">
 					<span>+ อ่านต่อ</span>
 					</div>
 					<div class="blog-content">
-						<span class="blog-time ">Feb 6, 2018</span>
-						<h2 class="blog-title ">5 วิธีง่ายๆ ในการดูแลห้องเย็น</h2>
-						<p class="blog-excerpt "><p>หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น.</p></p>
+						<span class="blog-time"></span>
+						<h2 class="blog-title">ทำไมห้องเย็นต้องใช้ไฟฟ้า 3 เฟส</h2>
+						<p class="blog-excerpt">ไฟฟ้า 3 เฟสกับห้องเย็นเป็นของคู่กัน ช่วยประหยัดราคาต้นทุนค่าไฟในระยะยาว และยืดอายุการใช้งานของอุปกรณ์ไฟฟ้า</p>
 					</div>
 				</div>
 				</a>
@@ -668,15 +681,15 @@
 					</a>
 				</div>
 
-			<div class="articles"><a href="" target="_blank">
+			<div class="articles"><a href="th/article/3phase.php">
 				<div class="blog-box">
-					<div class="blog-img" style="background: url('sources/assets/images/comp.jpg');">
+					<div class="blog-img" style="background: url('sources/assets/images/3phase-s.jpg');">
 					<span>+ อ่านต่อ</span>
 					</div>
 					<div class="blog-content">
 						<span class="blog-time "></span>
-						<h2 class="blog-title ">5 อย่างที่ต้องรู้ก่อนมีห้องเย็น</h2>
-						<p class="blog-excerpt "> ห้องเย็นเป็นสิ่งที่จำเป็นกับธุรกิจท่าน เพื่อให้ธุรกิจเติบโตได้ได้อย่างก้าวกระโดด อาจต้องมีความรู้เบื้องต้นเกี่ยวกับห้องเย็น</p>
+						<h2 class="blog-title ">ทำไมห้องเย็นต้องใช้ไฟฟ้า 3 เฟส</h2>
+						<p class="blog-excerpt ">ไฟฟ้า 3 เฟสกับห้องเย็นเป็นของคู่กัน ช่วยประหยัดราคาต้นทุนค่าไฟในระยะยาว และยืดอายุการใช้งานของอุปกรณ์ไฟฟ้า</p>
 					</div>
 				</div>
 				</a>

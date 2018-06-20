@@ -1,140 +1,117 @@
 <?php session_start();
 	  require_once('../include/connect.php');
 	
-	$today = date("Y-m-d");
-	
-	//payout
-	$sqlout = "SELECT e.e_id, e.e_name, SUM(po_price) poprice FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id  GROUP BY po_buyer";
-	$resultout= mysql_query($sqlout);
-	$numout = mysql_num_rows($resultout);
-	
-	//payin
-	$sqlin = "SELECT e.e_id, e.e_name, SUM(o.pay_amount) payamount FROM tb_ord_pay o JOIN tb_emp e ON o.o_emp_receive = e.e_id GROUP BY o.o_emp_receive";
-	$resultin = mysql_query($sqlin);
-	$numin = mysql_num_rows($resultin);
-	
-	//check cash each person shine and paitoon
-	$row_cash_each_emp = mysql_fetch_array(mysql_query("SELECT cash1, cash2 FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,1"));
-	
-	//find employee finance position หาคนรับเงิน
-	$result_emp = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
-	$num_emp = mysql_num_rows($result_emp);
-	
-	$result_empto = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
-	$num_empto = mysql_num_rows($result_empto);
+	$sql = "SELECT * FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,100";
+	$result= mysql_query($sql);
+	$num = mysql_num_rows($result);
 	
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+<title>รายการสั่งซื้อ</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
-	<?php 
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
-	
-	?>
+<?php require_once('../include/inc_role.php'); ?>
 	
 	<script>
 		$(document).ready(function(){
-			//$('#fromtransfer option:last-child, #totransfer option:last-child').prop('disabled',true);
+			$('#btn').click(validation);
+			$('#btn_tr').click(validation_tr);
+			$('#podate, #tr_date').datepicker({dateFormat: 'yy-mm-dd'});
+			$("#search_custname").autocomplete({
+				source: "../../ajax/search_ord.php",
+				minLength: 1
+			});
+				
 		});
+		
 	</script> 
 </head>
 
 <body>
 
     <div id="wrapper">
-
-        <?php require_once ('../include/navproduct.php');?>
-        <div id="page-wrapper">
+        <?php 
+			require_once ('../include/navproduct.php');
+			if($ro_finance!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูการเงินนะคะ'); window.location = '../index.php';</script>");}
+		?>
 		
-		    
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">สรุปรายรับ / รายจ่าย (รวมทุกคน)</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-			
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-								สรุปรายจ่าย
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
-                                <thead>
-                                    <tr>
-                                        <th>ชื่อ</th>                                     
-                                        <th>รายจ่าย</th>
-										
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-									<?php 
-										for($i=1; $i<=$numout; $i++){
-										  $rowout = mysql_fetch_array($resultout);
-									  ?>
-										<tr class="gradeA">
-											<td><a href="outpayeachother.php?e_id=<?php echo $rowout['e_id']; ?>"><?php echo $rowout['e_name']; ?></a></td>
-											<td><?php echo number_format($rowout['poprice'], 0, '.', ','); ?></td>
-												
-										</tr>
-									<?php } ?>
-
-                                    
-                                </tbody>
-                            </table>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
+        <div id="page-wrapper">
 			
 			<div class="row">
                 <div class="col-lg-12">
+                    <h1 class="page-header">ความเคลื่อนไหวเงิน</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-								สรุปรายรับ
+								รายการเคลื่อนไหว
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
-                                        <th>ชื่อ</th>                                     
-                                        <th>รายรับ</th>
+										<th>ลำดับ</th>
+                                        <th>ซื้อของ</th>                                     
+                                        <th>ออเดอร์</th>
+                                        <th>เงินเข้า</th>
+                                        <th>เงินออก</th>
+										<th>เงินซื้อของเหลือ</th>
+										<th>เงินสำรอง</th>
+										<th>เงินจ่ายพนักงาน</th>
+										<th>เงินกำไร</th>
+										<th>เวลา</th>
 										
                                     </tr>
                                 </thead>
                                 <tbody>
                                     
 									<?php 
-										for($i=1; $i<=$numin; $i++){
-										  $rowin = mysql_fetch_array($resultin);
+										for($i=1; $i<=$num; $i++){
+										  $row = mysql_fetch_array($result);
+										  
 									  ?>
-										<tr class="gradeA">
-											<td><a href="outpayeachother.php?e_id=<?php echo $rowin['e_id']; ?>"><?php echo $rowin['e_name']; ?></a></td>
-											<td><?php echo number_format($rowin['payamount'], 0, '.', ','); ?></td>												
+										<tr class="gradeA"> 
+											<td><?php echo $row['cash_id']; ?></td>
+											<td><?php echo number_format($row['cash_po'], 0, '.', ','); ?></td>
+											<td><?php echo $row['cash_ord']; ?></td>
+											
+											<?php if($row['cash_in'] != 0) { ?>
+												<td style="background-color:pink"><?php echo number_format($row['cash_in'], 0, '.', ','); ?></td>
+											<?php }else{ ?>
+												<td><?php echo number_format($row['cash_in'], 0, '.', ','); ?></td>
+											<?php }?>
+											
+											<?php if($row['cash_out'] != 0) { ?>
+												<td style="background-color:#e1fb45"><?php echo number_format($row['cash_out'], 0, '.', ','); ?></td>
+											<?php }else{ ?>
+												<td><?php echo number_format($row['cash_out'], 0, '.', ','); ?></td>
+											<?php }?>
+											
+											
+											<?php if(($row['cash_in'] != 0) && ($row['cash_out'] != 0) && ($row['cash_out'] != 0)) { ?>
+												<td><?php echo number_format($row['cash1'], 0, '.', ','); ?></td>
+												<td><?php echo number_format($row['cash_temp'], 0, '.', ','); ?></td>
+												<td><?php echo number_format($row['cash_emp'], 0, '.', ','); ?></td>
+											<?php }else{ ?>
+												<td><?php echo number_format($row['cash1'], 0, '.', ','); ?></td>
+												<td><?php echo number_format($row['cash_temp'], 0, '.', ','); ?></td>
+												<td><?php echo number_format($row['cash_emp'], 0, '.', ','); ?></td>
+											<?php }?>
+											
+											
+											
+											<td><?php echo number_format($row['cash2'], 0, '.', ','); ?></td>
+											<td><?php echo $row['cash_times']; ?></td>
 										</tr>
 									<?php } ?>
 
@@ -149,7 +126,8 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
+       
+		<!-- /.row -->
 
         </div>
         <!-- /#page-wrapper -->
@@ -158,7 +136,7 @@
     <!-- /#wrapper -->
 
    
-
+	<div id="role" style="display:none"><?php echo $rolepo;?></div>
 </body>
 
 </html>
