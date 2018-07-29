@@ -1,79 +1,219 @@
+<?php 
+    require_once('../../sys/include/connect.php');
+	/*trim($_GET["productname"])*/
+	$cate_id = 4;
+	$productname = 'Expansion Valve';
+	$sql = "SELECT p_id, p_name, p_cate, p_price, p_model, p_inlet, p_outlet, p_temp ,p_numya  FROM tb_prodacces WHERE p_cate = '$cate_id'";
+	$result = mysql_query($sql);
+	$num = mysql_num_rows($result);
+	
+	//แยกยี่ห้อ	
+	$sql_brand = "SELECT p_name brand FROM tb_prodacces WHERE p_cate = '$cate_id' GROUP BY p_name";
+	$result_brand = mysql_query($sql_brand);
+	$num_brand = mysql_num_rows($result_brand);
+	
+	//inlet	
+	$sql_inlet = "SELECT p_inlet  FROM tb_prodacces WHERE p_cate = '$cate_id' GROUP BY p_inlet";
+	$result_inlet = mysql_query($sql_inlet);
+	$num_inlet = mysql_num_rows($result_inlet);
+	
+	//outlet	
+	$sql_outlet = "SELECT p_outlet FROM tb_prodacces WHERE p_cate = '$cate_id' GROUP BY p_outlet";
+	$result_outlet = mysql_query($sql_outlet);
+	$num_outlet = mysql_num_rows($result_outlet);
+	
+	
+	//numya	
+	$sql_numya = "SELECT p_numya FROM tb_prodacces WHERE p_cate = '$cate_id' GROUP BY p_numya";
+	$result_numya = mysql_query($sql_numya);
+	$num_numya = mysql_num_rows($result_numya);
+	
+	//count all category
+	$count = mysql_fetch_array(mysql_query("SELECT count(p_id) countcate FROM tb_prodacces WHERE p_cate = '$cate_id'"));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="ราคา <?php echo $productname; ?>, ราคาห้องเย็น" />
+    <meta name="description" content="อยากรู้ราคา <?php echo $productname; ?> อยู่ใช่ไหมล่ะ เข้ามาดูอะไหล่และอุปกรณ์ห้องเย็นได้เลย พร้อมบริการ โดย Topcooling">
     <meta name="author" content="">
+	<?php require_once('../../include/google_verify.php');?>
+	<meta property="og:url" content="<?php echo $cate_id;?>.php?p_cate=<?php echo $cate_id;?>" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="<?php echo $productname.' '.'ราคาและราละเอียด';?>" />
+	<meta property="og:description" content="อยากรู้ราคา <?php echo $productname; ?> อยู่ใช่ไหมล่ะ เข้ามาดูอะไหล่และอุปกรณ์ห้องเย็นได้เลย พร้อมบริการ โดย Topcooling" />
+	<meta property="og:image" content="../../img/product/<?php echo $cate_id;?>/fb.jpg" />
 
-    <title>Agency - Start Bootstrap Theme</title>
+    <title><?php echo $productname.' '.'ราคาและราละเอียด';?></title>
+	
+	<?php require_once('../../include/inc_css.php');?>
 
-    <?php require_once('../../include/inc_css.php');?>
 
-  </head>
+</head>
 
-  <body id="page-top">
-
+<body id="page-top" class="index">
+<?php require_once('../../include/googletag.php');?>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <?php require_once('../../include/inc_menu_cat.php');?>
-      </div>
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <?php require_once('../../include/inc_menu_cat.php');?>
+        </div>
+        <!-- /.container-fluid -->
     </nav>
 
     <!-- Header -->
-    <header class="masthead">
-      <div class="container">
-        <div class="intro-text">
-          <div class="intro-lead-in">Welcome To Our Studio!</div>
-          <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To Our Studio!</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
         </div>
-      </div>
     </header>
 
-    <!-- Services -->
+    <!-- Services Section -->
     <section id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Services</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">E-Commerce</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Responsive Design</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-              <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Web Security</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="container">
+            
+                <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							ค้นหา <?php echo $productname; ?>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							
+                            <div class="row">
+								<form action="../search/expands.php" method="post" name="form_search" id="form_search">
+									<div class="col-lg-3">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">เลือกยี่ห้อ <?php echo $productname; ?> </label>
+											<select class="form-control" id="brand_search" name="brand_search">
+												<option value="0">เลือกยี่ห้อ</option>
+											<?php 
+												for($i=1; $i<=$num_brand; $i++){
+													$row_brand = mysql_fetch_array($result_brand);
+											?>
+												
+												<option value="<?php echo $row_brand['brand']; ?>"><?php echo $row_brand['brand']; ?></option>
+												
+												<?php } ?>
+											</select>
+											<p class="help-block text-danger"></p>
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ช่วงราคา</label>
+											<select class="form-control" id="price_search" name="price_search">
+												<option value="0">ราคา</option>
+												<option value="1">2,000 - 5,000 บาท</option>
+												<option value="2">5,000 - 7,000 บาท</option>
+												<option value="3">7,000 - 12,000 บาท</option>
+												<option value="4">12,000 - 20,000 บาท</option>
+											</select>
+											<p class="help-block text-danger"></p>
+										</div>
+										
+										
+										
+									 </div> <!-- row -->
+									 
+									 
+									 
 
-    <!-- Portfolio Grid -->
-    <section class="bg-light" id="portfolio">
+									<div class="col-lg-3">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ท่อเข้า (นิ้ว)</label>
+											<select class="form-control" id="inlet_search" name="inlet_search">
+												<option value="0">เลือกท่อเข้า</option>
+											<?php 
+												for($i=1; $i<=$num_inlet; $i++){
+													$row_inlet = mysql_fetch_array($result_inlet);
+											?>
+												
+												<option value="<?php echo $row_inlet['p_inlet']; ?>"><?php echo $row_inlet['p_inlet']; ?></option>
+												
+												<?php } ?>
+											</select>
+											<p class="help-block text-danger"></p>
+										</div>
+										
+									 </div> <!-- row -->
+									 
+									 
+									 
+
+									<div class="col-lg-3">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ท่ออก (นิ้ว)</label>
+											<select class="form-control" id="outlet_search" name="outlet_search">
+												<option value="0">เลือกท่อออก</option>
+											<?php 
+												for($i=1; $i<=$num_outlet; $i++){
+													$row_outlet = mysql_fetch_array($result_outlet);
+											?>
+												
+												<option value="<?php echo $row_outlet['p_outlet']; ?>"><?php echo $row_outlet['p_outlet']; ?></option>
+												
+												<?php } ?>
+											</select>
+											<p class="help-block text-danger"></p>
+										</div>
+
+									 </div> <!-- row -->
+									 
+
+									<div class="col-lg-3">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">น้ำยา</label>
+											<select class="form-control" id="numya_search" name="numya_search">
+												<option value="0">เลือกน้ำยา</option>
+											<?php 
+												for($i=1; $i<=$num_numya; $i++){
+													$row_numya = mysql_fetch_array($result_numya);
+											?>
+												
+												<option value="<?php echo $row_numya['p_numya']; ?>"><?php echo $row_numya['p_numya']; ?></option>
+												
+												<?php } ?>
+											</select>
+											<p class="help-block text-danger"></p>
+										</div>
+										
+										<div class="form-group has-success">
+											<button type="button" class="btn btn-lg btn-success btn-block" id="btn_search">ค้นหา</button>
+										</div>
+									
+										
+									 </div> <!-- row -->
+								 
+									<input type="hidden" value="<?php echo $cate_id; ?>" name="cate_id">	
+									<input type="hidden" value="<?php echo $productname; ?>" name="productname">
+								</form>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+       
+            </div>
+
+        </div>
+    </section>
+	
+	
+	<section class="bg-light" id="portfolio">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -170,511 +310,85 @@
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="timeline">
-              <li>
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>2009-2011</h4>
-                    <h4 class="subheading">Our Humble Beginnings</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>March 2011</h4>
-                    <h4 class="subheading">An Agency is Born</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>December 2012</h4>
-                    <h4 class="subheading">Transition to Full Service</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>July 2014</h4>
-                    <h4 class="subheading">Phase Two Expansion</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <h4>Be Part
-                    <br>Of Our
-                    <br>Story!</h4>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section class="bg-light" id="team">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
-              <h4>Kay Garland</h4>
-              <p class="text-muted">Lead Designer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
-              <h4>Larry Parker</h4>
-              <p class="text-muted">Lead Marketer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
-              <h4>Diana Pertersen</h4>
-              <p class="text-muted">Lead Developer</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Clients -->
-    <section class="py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <form id="contactForm" name="sentMessage" novalidate>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required data-validation-required-message="Please enter your name.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required data-validation-required-message="Please enter your email address.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required data-validation-required-message="Please enter your phone number.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <textarea class="form-control" id="message" placeholder="Your Message *" required data-validation-required-message="Please enter a message."></textarea>
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
+	
+	<section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
                 <div class="col-lg-12 text-center">
-                  <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                    <h2 class="section-heading"><?php echo $productname; ?></h2>
+                    <h3 class="section-subheading text-muted">รายละเอียด  <?php echo $productname; ?></h3>
                 </div>
-              </div>
-            </form>
-          </div>
+            </div>
+            
+            <div class="row">
+				<p><?php echo $productname; ?> มีทั้งหมด :  <?php echo $count['countcate']; ?> รายการ</p>
+                
+				
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover table-striped">
+					<thead>
+							<th>#</th>
+							<th>รูป</th>
+							<th>ชื่อ/ยี่ห้อ </th>
+							<th>Model</th>
+							<th>ท่อเข้า</th>
+							<th>ท่อออก</th>
+							<th>น้ำยา</th>
+							<th>ราคา</th>
+							<th colspan="2">.</th>
+									 
+					</thead>
+					<tbody>
+					  <?php 
+							for ($i=1; $i<=$num; $i++){
+										
+						       $row = mysql_fetch_array($result);
+					  ?>
+							<tr class="odd gradeX">
+								<td><?php echo $i; ?></td> 
+								<td width="70px;"><a href="../productdetail/<?php echo $cate_id;?>.php?p_id=<?php echo $row['p_id']?>&amp;p_cate=<?php echo $cate_id;?>" target="_blank"><img src="../../img/product/4/s/com01.jpg"></a></td>
+								<td><a href="../productdetail/<?php echo $cate_id;?>.php?p_id=<?php echo $row['p_id']?>&amp;p_cate=<?php echo $cate_id;?>" target="_blank"><?php echo $row['p_name']?></a></td>
+								<td><?php echo $row['p_model']?></td>
+								<td><?php echo $row['p_inlet']?></td>
+								<td><?php echo $row['p_outlet']?></td>
+								<td><?php echo $row['p_numya']?></td>
+								<td align="right"><?php echo number_format($row['p_price'], 0, '.', ',');?></td>
+								<td><button type="button" class="btn btn-lg btn-success btn-block btn_buy" value="<?php echo $row['p_id']?>" >สั่งซื้อ</button></td>
+								<td><button type="button" class="btn btn-lg btn-success btn-block btn_q"  value="<?php echo $row['p_id']?>">ใบเสนอราคา</button></td>
+
+							</tr>
+					<?php } ?>	
+					  
+					</tbody>
+				  </table>
+				</div>
+					
+            </div>
         </div>
-      </div>
     </section>
+	
+	
+	 
+	
 
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2018</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <!-- Clients Aside -->
+	<?php require_once('../../include/inc_expand_partner.php');?> 
 
-    <!-- Portfolio Modals -->
+    <!-- Contact Section -->
+    <?php require_once('../../include/inc_contact_footer.php');?>
 
-    <!-- Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Threads</li>
-                    <li>Category: Illustration</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Script Section -->
+    <?php require_once('../../include/inc_script_footer.php');?>
 
-    <!-- Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Explore</li>
-                    <li>Category: Graphic Design</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+	<script>
+		$(document).ready(function(){
+			$('#btn_search').click(function(){$('#form_search').submit();});	
+			$('.btn_q').click(function(){window.location = '../quotation/q_add.php?p_id='+$(this).val();});
+			$('.btn_buy').click(function(){window.location = '../basket/basket_add.php?p_id='+$(this).val();});
+		});
+	</script>
 
-    <!-- Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Finish</li>
-                    <li>Category: Identity</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 4 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Lines</li>
-                    <li>Category: Branding</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 5 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Southwest</li>
-                    <li>Category: Website Design</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 6 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Window</li>
-                    <li>Category: Photography</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
-
-  </body>
+</body>
 
 </html>

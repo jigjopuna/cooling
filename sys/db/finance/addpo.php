@@ -11,6 +11,7 @@
 	$rowcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2, cash_emp, cash_temp FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
 	
 	$poname = trim($_POST['poname']);
+	$poprodtype = trim($_POST['poprodtype']);
 	$poqty  = trim($_POST['poqty']);
 	$poprice  = trim($_POST['poprice']);
 	
@@ -139,6 +140,7 @@
 			po_bill_img = '$filename', 
 			po_date     = '$podate', 
 			po_orders   = '$search_custname', 
+			po_cate		= '$poprodtype', 	
 			po_credit   = '$po_credit', 
 			po_emp      = '$e_id', 
 			po_time =  now()";

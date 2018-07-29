@@ -1,0 +1,1 @@
+<!--<img src="https://topcooling.net/content/images/holiday.jpg" style="width:100%;" alt="ห้องเย็น"><br><br>-->

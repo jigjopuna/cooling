@@ -189,10 +189,10 @@
                                     <tr>
                                         <th>ลำดับ</th>                                     
                                         <th>อะไหล่</th>
-                                        <th>นครปฐม</th>
-										<th>กระทุ่มแบน</th>
-										<th>ต้นทุน (บาท) นครปฐม</th>
-										<th>ต้นทุน (บาท) กระทุ่มแบน</th>
+                                        <th>สต็อก</th>
+										<!--<th>กระทุ่มแบน</th>-->
+										<th>ต้นทุน (บาท)<!-- นครปฐม--></th>
+										<!--<th>ต้นทุน (บาท) กระทุ่มแบน</th>-->
 										<th>ราคากลาง</th>
                                     </tr>
                                 </thead>
@@ -210,9 +210,9 @@
 											<td><?php echo $row['t_id']; ?></td>
 											<td><a href="stocklog.php?t_id=<?php echo $row['t_id']?>"><?php echo $row['t_name'].' ('.$allstock.')'; ?></td>
 											<td><?php echo $stock; ?></td>
-											<td><?php echo $stock1; ?></td>
+											
 											<td><?php echo $row['t_cost']; ?></td>
-											<td><?php echo $row['t_cost1']; ?></td>
+											
 											<td><?php echo $row['t_cost_center']; ?></td>
 										</tr>
 									<?php } ?>

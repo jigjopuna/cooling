@@ -159,6 +159,22 @@
 	$result_burkktb = mysql_query($sql_burkktb);
 	$num_burkktb = mysql_num_rows($result_burkktb);
 	
+	
+	$money = mysql_fetch_array(mysql_query("
+		SELECT SUM(s.sub) total FROM (
+			SELECT c.cust_name, oid, o_cust, payamount, o_price, sub 
+			FROM tb_customer c JOIN (
+				SELECT o.o_id oid, o.o_cust, b.o_id, b.payamount, o.o_price,  o.o_price - b.payamount as sub
+				FROM tb_orders o JOIN (
+					 SELECT o_id, SUM(pay_amount) as payamount
+					 FROM tb_ord_pay 
+					 GROUP BY o_id) AS b
+					WHERE o.o_id = b.o_id AND o.o_status != 5) AS t
+				WHERE c.cust_id = t.o_cust
+			) as s
+		"));
+	
+	$yod = $money['total'];
 
 	
 ?>

@@ -43,6 +43,9 @@
 				
 				<img src="../../content/images/article/17howto/17.jpg" alt="ห้องเย็น"><br><br>
 				
+				
+				<?php include('../../sources/inc/inc_holiday.php');?>
+				
 				<div class="p_article">
 					<h2> ทำไมต้องรู้ข้อมูลห้องเย็น</h2>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;หลายๆ คนคงเคยคิดว่า <span class="text-strong">การเลือกซื้อห้องเย็น</span> แค่เลือกขนาดของห้องก็พอ แล้วนำอาหารหรือสินค้าต่างๆ เข้าไปเก็บในห้องเย็นเลย ผมก็เคยคิดแบบนี้ แต่จริงๆ แล้วการเลือกห้องเย็นนั้นมี <span class="text-strong">ปัจจัย</span> หลายอย่าง ที่เราต้องมาพิจารณา 

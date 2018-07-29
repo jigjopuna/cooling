@@ -9,6 +9,7 @@
 	$num = mysql_num_rows($result);
 	
 	
+	
 	//Product Summary
 	$sql_all = "SELECT c.cat_id, c.cat_name, count(*) cnteachcate FROM tb_product p JOIN tb_category c ON p.p_cate = c.cat_id GROUP BY p_cate ORDER BY cnteachcate DESC";
 	$result_all = mysql_query($sql_all);
@@ -234,14 +235,14 @@
 							<div class="row">
 								
 									<div class="col-lg-4">
-										<span class="text_bold">วันนี้เงินเข้าแยกตามคน</span><br>
-										<?php for($i=1; $i<=$num_income; $i++) { 
-											$row_income = mysql_fetch_array($result_income); 
+										<!--<span class="text_bold">วันนี้เงินเข้าแยกตามคน</span><br>-->
+										<?php //for($i=1; $i<=$num_income; $i++) { 
+											//$row_income = mysql_fetch_array($result_income); 
 										?>
-											<?php echo $row_income['e_name']." : ".number_format($row_income['income'], 0, '.', ',')."<br>";?>
-										<?php } ?>
-										<hr>
-										<span class="text_bold">ยอดเงินเข้าทั้งหมดวันนี้รวมของทุกคน</span><br>
+											<?php //echo $row_income['e_name']." : ".number_format($row_income['income'], 0, '.', ',')."<br>";?>
+										<?php //} ?>
+
+										<span class="text_bold">ยอดเงินเข้าทั้งหมดวันนี้ <!--รวมของทุกคน--></span><br>
 										<?php echo $incomes;?>
 										<hr>
 										
@@ -269,6 +270,8 @@
 												}
 											} ?>
 										<hr>
+										<span class="text_bold">เงินที่กำลังจะเข้า</span><br>
+										<a href="finance/insoon.php"><?php echo number_format($yod, 0, '.', ',')?></a>
 									</div>												
 												
 									<div class="col-lg-4">

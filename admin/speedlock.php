@@ -248,8 +248,8 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
 			
@@ -462,8 +462,8 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
 			
@@ -689,8 +689,8 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
 			

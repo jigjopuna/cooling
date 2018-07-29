@@ -516,6 +516,18 @@
 	</div>	
 </div>
 
+<div class="section-testimonial"> 
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<span style="font-size:36px;" class="topic-article"> คลิปประกอบห้องเย็น</span><br><br><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/D9E0P3XkbqA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<br><br>
+			</div>
+		</div>	
+	</div>	
+</div>
+
 <div class="section-testimonial">
 	<div class="heading">
 	ราคาห้องเย็นสำเร็จรูป
@@ -688,6 +700,18 @@
 	<div class="btn -primary">
 		ค้นหาราคาอุปกรณ์ห้องเย็น
 	</div>
+</div>
+
+<div class="section-testimonial"> 
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<br><br>
+			</div>
+		</div>	
+	</div>	
 </div>
 
 <?php include('include/inc_1_footer.php');?>

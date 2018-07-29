@@ -80,16 +80,15 @@
 									</div>
 									
 									<div class="col-lg-4">
-					
-										<div class="form-group has-success">
+										<!--<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">หัวบิล </label>
 											<select class="form-control" id="corp_addr" name="corp_addr">
 												<option value="0">เลือกหัวบริษัท</option>
 												<option value="1">Top Cooling</option>
 												<option value="2">PT WALL</option>
 											</select>
-										</div>
-										
+										</div>-->
+										<input type="hidden" name="corp_addr" value="1">
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">พิมพ์</button>
 										</div>

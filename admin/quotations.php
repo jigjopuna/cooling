@@ -172,8 +172,8 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
 			
@@ -392,8 +392,8 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
 			
@@ -462,12 +462,14 @@
 						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
 					</tr>
 					
+					<?php if($r_type==1) { ?>
 					<tr class="highs" style="">
 						<td class="l">3. ระบบ IOT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
+					<?php } ?>
 					
 					<?php if($gift != '') { ?>
 						<tr class="highs" style="">
@@ -618,8 +620,8 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
 			

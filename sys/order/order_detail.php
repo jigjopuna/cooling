@@ -86,7 +86,7 @@
 	@media screen and (max-width: 1024px){.o_image { width: 100%; }}
 </style>
 <?php require_once('../include/metatagsys.php');?>
-<?php require_once('../include/inc_role.php'); ?>
+<?php require_once('../include/inc_role.php');?>
 <script>
 	$(document).ready(function(){ 
 		var quots = $('#quot').html();
@@ -223,6 +223,9 @@
 										<th>ทุนต่อชิ้น</th>
 										<th>ทุนรวม</th>
 										<th>วันที่</th>
+										<?php if($role['ro_ed_ord_dt']==1) { ?>
+											<th>.</th>
+										<? } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -243,7 +246,11 @@
 											<td><?php echo $row_prd['orpd_e_aprv']; ?></td>
 											<td><?php echo number_format($cost_center, 0, '.', ','); ?></td>  
 											<td><?php echo number_format($cost_center*$qty_cost, 0, '.', ','); ?></td> 
-											<td><?php echo $row_prd['orpd_date']; ?></td>												
+											<td><?php echo $row_prd['orpd_date']; ?></td>
+											
+											<?php if($role['ro_ed_ord_dt']==1) { ?>
+												<td><a href="ord_deta_ed.php?t_id=<?php echo $row_prd['orpd_id'];?>&o_id=<?php echo $o_id;?>">แก้ไข</a></td>	
+											<? } ?>
 										</tr>
 									<?php } ?>
 									
@@ -259,12 +266,19 @@
 											<td>&nbsp;</td>
 											<td>&nbsp;</td>
 											<td><?php echo number_format($row_po['po_price'], 0, '.', ','); ?></td>
-											<td><?php echo $row_po['po_date']; ?></td>												
+											<td><?php echo $row_po['po_date']; ?></td>
+											<?php if($role['ro_ed_ord_dt']==1) { ?>
+												<td><a href="ord_deta_edpo.php?po_id=<?php echo $row_po['po_id'];?>">แก้ไข</a></td>
+											<?php } ?>
 										</tr>
 									<?php } ?>
 									
 									<tr>
-										<td colspan='6'>&nbsp;</td> 
+										<?php if($role['ro_ed_ord_dt']==1) { ?>
+											<td colspan='7'>&nbsp;</td> 
+										<?php }else { ?>
+											<td colspan='6'>&nbsp;</td> 
+										<?php } ?>
 										
 										<td colspan='2'>
 											<?php 

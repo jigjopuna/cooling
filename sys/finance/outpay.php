@@ -33,6 +33,11 @@
 	$result_empto = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
 	$num_empto = mysql_num_rows($result_empto);
 	
+	//ประเภทสินค้า การสั่งซื้อ
+	$sql_tooltype = "SELECT * FROM tb_tools_type";
+	$result_tooltype = mysql_query($sql_tooltype);
+	$num_tooltype = mysql_num_rows($result_tooltype);
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +57,10 @@
 			$('#podate, #tr_date').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#search_custname").autocomplete({
 				source: "../../ajax/search_ord.php",
+				minLength: 1
+			});
+			$("#poshop").autocomplete({
+				source: "../../ajax/search_seller.php",
 				minLength: 1
 			});
 			$('#pocredit').change(credit);
@@ -128,11 +137,12 @@
 		function validation(){
 			var poname = $('#poname').val();
 			var poqty = $('#poqty').val();
-			var poprice = $('#poprice').val();
+			var poprice = $('#poprice').val(); 
+			var poprodtype = $('#poprodtype').val();
 			var pobuyer = $('select[name=pobuyer]').val();
 			var podate = $('#podate').val(); 
 			var cashcenter = $('#pobuyer option:selected').val();
-			var ownercash = $('#ownercash option:selected').val();
+			var ownercash = $('#ownercash option:selected').val(); 
 			if(isNaN(poprice)|| isNaN(poqty)){
 				alert('กรุณาใส่จำนวนเงินเป็นตัวเลขค่ะ');
 				return false;
@@ -142,6 +152,8 @@
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
 			}else if(cashcenter==10 && ownercash==0) {
 				alert("เลือกบัญชีส่วนกลางด้วยค่ะ");				
+			}else if(poprodtype==0) {
+				alert("เลือกประเภทสินค้าด้วยค่ะ");				
 			}else {
 				$('#form1').submit();
 			}
@@ -227,6 +239,20 @@
 										</div>
 										
 										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ประเภทสินค้า </label>
+											<select class="form-control" id="poprodtype" name="poprodtype">
+												<option value="0">เลือกประเภทสินค้า</option> 
+												<?php 
+													for($i=1; $i<=$num_tooltype; $i++){
+														$row_tooltype = mysql_fetch_array($result_tooltype);
+													
+												?>						
+													<option value="<?php echo $row_tooltype['to_typeid'];?>"><?php echo $row_tooltype['to_typename']?></option>
+												<?php } ?>
+											</select>
+										</div>
+										
+										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">จำนวน</label>
 											<input type="text" class="form-control" id="poqty" name="poqty">
 										</div>
@@ -268,8 +294,6 @@
 												
 												<?php } ?>
 											</select>
-											
-											
 										</div>
 										
 										<!--<div class="form-group has-success" id="owner_money">

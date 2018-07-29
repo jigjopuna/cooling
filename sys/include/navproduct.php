@@ -97,6 +97,10 @@
 								<li>
                                     <a href="../finance/bill.php">บิล/ใบเสร็จ</a>
                                 </li>
+								
+								<li>
+                                    <a href="../finance/credit.php">เครดิต</a>
+                                </li>
 							
                             </ul>
                         </li>
@@ -173,12 +177,43 @@
                         </li>
 						<?php } ?>
 						
+						<li>
+                            <a href="shoptcl/dashboard.php"><i class="fa fa-dashboard fa-fw"></i> SHOP <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+								
+                                <li>
+                                    <a href="shoptcl/stockout.php">แก้ไขข้อมูลสินค้า</a>
+                                </li>
+								
+								<li>
+                                    <a href="shoptcl/stock.php">เพิ่มสินค้า</a>
+                                </li>
+								
+								
+								<li>
+                                    <a href="shoptcl/buy.php">ออเดอร์</a>
+                                </li>
+								
+								<li>
+                                    <a href="shoptcl/sell.php">ยอดเงินเข้า</a>
+                                </li>
+								
+								
+								<li>
+                                    <a href="shoptcl/seller.php">STOCK</a>
+                                </li>
+							
+                            </ul>
+                        </li>
+						
 						
 						<?php if($ro_report!=0) { ?>
 						 <li>
                             <a href="../report/selectreport.php"><i class="fa fa-bar-chart-o fa-fw"></i>รายงาน <span class="fa arrow"></span></a>                       
                         </li>
 						<?php } ?>
+						
+						
 						
 						
 						 <li>

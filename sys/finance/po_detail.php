@@ -8,9 +8,16 @@
 	$row = mysql_fetch_array($result);
 	
 	
+	
+	
 	$sql_buyer = "SELECT e_id, e_name FROM tb_emp WHERE e_type = 1";
 	$result_buyer = mysql_query($sql_buyer);
 	$num_buyer = mysql_num_rows($result_buyer);
+	
+	//ประเภทสินค้า การสั่งซื้อ
+	$sql_tooltype = "SELECT * FROM tb_tools_type";
+	$result_tooltype = mysql_query($sql_tooltype);
+	$num_tooltype = mysql_num_rows($result_tooltype);
 
 	$today = date("Y-m-d");
 	
@@ -164,15 +171,29 @@
 											<input type="text" class="form-control" id="poprice" name="poprice" value="<?php echo $row['po_price']?>">
 										</div>
 										
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ประเภทสินค้า </label>
+											<select class="form-control" id="poprodtype" name="poprodtype">
+												<option value="0">เลือกประเภทสินค้า</option> 
+												<?php 
+													for($i=1; $i<=$num_tooltype; $i++){
+														$row_tooltype = mysql_fetch_array($result_tooltype);
+													
+												?>						
+												<option value="<?php echo $row_tooltype['to_typeid']?>" <?php if( $row_tooltype['to_typeid']==$row['po_cate']) echo "selected" ?>><?php echo $row_tooltype['to_typename']?></option>
+												
+												<?php } ?>
+											</select>
+										</div>
+										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">เครดิต</label>
 											<input type="checkbox" class="form-control" id="pocredit" name="pocredit" <?php if( $row['po_credit']==1) echo "checked" ?>>
 										</div>
 										
-										<div class="form-group has-success">
-												<label class="control-label" for="inputSuccess">ใช้เงินสำรองจ่าย</label>
-												<input type="checkbox" class="form-control" id="posumrong" name="posumrong">
-											</div>
+										
+										
 									</div>
 																		
 									<div class="col-lg-4">
@@ -203,6 +224,11 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">จ่ายเครดิต</label>
 											<input type="checkbox" class="form-control" id="pocreditcomp" name="pocreditcomp" <?php if( $row['po_credit_complete']==1) echo "checked" ?>>
+										</div>
+										
+										<div class="form-group has-success">
+												<label class="control-label" for="inputSuccess">ใช้เงินสำรองจ่าย</label>
+												<input type="checkbox" class="form-control" id="posumrong" name="posumrong">
 										</div>
 										
 									</div>

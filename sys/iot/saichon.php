@@ -5,6 +5,10 @@
 		pass : webpom123456
 		ssid : fleldfest_2.4G
 		pass : 0996436523
+		
+		API Keys : ZQ3QXPF1TP97N8FLZQ3
+		Channel ID: 503456
+		Author: saichonform
 	*/
 	
 	date_default_timezone_set("Asia/Bangkok");	
@@ -38,7 +42,7 @@ var channelsLoaded = 0;
 // fieldList shows which field you want to load, and which axis to display that field on, 
 // the 'T' Temperature left axis, or the 'O' Other right axis.
 var channelKeys =[];
-channelKeys.push({channelNumber:503456, name:'saichonform',key:'ZQ3QXPF1TP97N8FL', fieldList:[{field:1,axis:'O'}]});
+channelKeys.push({channelNumber:503456, name:'saichonform',key:'ZQ3QXPF1TP97N8FLZQ3', fieldList:[{field:1,axis:'O'}]});
  
 // user's timezone offset
 var myOffset = new Date().getTimezoneOffset();

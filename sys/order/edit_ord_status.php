@@ -3,7 +3,7 @@
 	  
 	$o_id = $_GET['o_id'];
 
-	$sql = "SELECT * FROM tb_ord_status";
+	$sql = "SELECT * FROM tb_ord_status ORDER BY ost_status";
 	$result = mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
@@ -107,6 +107,7 @@
 									
 									<div class="col-lg-4"></div>
 									<input type="hidden" name="order_id" value="<?php echo $o_id;?>" >
+									<input type="hidden" name="e_ids" value="<?php echo $e_id;?>" >
 								</form>
 							 </div> <!-- row -->
 							

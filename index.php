@@ -140,16 +140,15 @@
 			</div>
 			<div class="col-md-8 col-xs-6 navbar-right">
 				<button id="navbar-mobile-btn" class="hamburger-btn hamburger-btn--menu">
-				<span></span>
-				<span></span>
-				<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
 				</button>
-				<ul class="navbar-menu">
-				 
-				 
-				<li><a href="#contact-list">ติดต่อเรา</a></li>
-				<li><a href="https://topcooling.net/th/article/17howto.php">คำถามที่พบบ่อย</a></li>
-				 
+				<ul class="navbar-menu">			 
+					<li><a href="/th/article/sumred.php">ห้องเย็นสำเร็จรูป</a></li>
+					<li><a href="/th/article/speedlock.php">ห้องเย็นฝั่ง</a></li>
+					<li><a href="#contact-list">ติดต่อเรา</a></li>
+					<li><a href="/th/article/17howto.php">คำถามที่พบบ่อย</a></li>
 				<li><a class="btn-border" style="cursor:pointer;"></a></li>
 			</div>
 		</div>
@@ -172,25 +171,25 @@
 </div>
 
 </div>
-<div class="section-header">
+<div class="section-header" style="min-height:871px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
 				<div class="heading">
-			ยินดีต้อนรับเข้าสู่บริการห้องเย็นที่รวดเร็ว</br>
+			<!--ยินดีต้อนรับเข้าสู่บริการห้องเย็นที่รวดเร็ว</br>-->
 			<p style="padding-top: 5px; font-size: 34px;">
-			ปรึกษาปัญหาห้องได้ทุกเรื่องเป็นกันเอง
+			<!--ปรึกษาปัญหาห้องได้ทุกเรื่องเป็นกันเอง-->
 			</p>
 			</div>
-			<div id="videoModalButton" class="btn -primary">
+			<!--<div id="videoModalButton" class="btn -primary">
 			ชมวิธีการใช้งานเว็บไซต์ <i style="font-size: 18px; vertical-align: baseline;" class="fa fa-play-circle-o"></i>
-			</div>
-			<div style="color: #ffffff; margin-top: 10px;">
+			</div>-->
+			<!--<div style="color: #ffffff; margin-top: 10px;">
 			หรือ <div style="display: inline; cursor: pointer;" class="link">ศึกษาเพิ่มเติม</div>
-			</div>
+			</div>-->
 		</div>
 		<div class="col-sm-6" style="padding-left: 0px; padding-right: 0px;">
-		<form id="form1" name="form" method="post" action="quotation.php">
+		<!--<form id="form1" name="form" method="post" action="quotation.php">
 			<div class="dealbox">
 				<div class="wrapper">
 				<div class="form-header">
@@ -198,20 +197,6 @@
 				ขอใบเสนอราคาห้องเย็นฝั่ง
 				</div>
 				</div>
-
-				
-				<!--<div class="form-group">
-					<div class="form-select">
-						<div class="row">
-							<div class="col-xs-3" style="font-size:20px;">ขนาดห้อง</div>
-							<div class="col-xs-3"><input id="" name="temp_before" class="baht" placeholder="กว้าง"></div>
-							<div class="col-xs-3"><input id="" name="temp_before" class="baht" placeholder="ยาว"></div>
-							<div class="col-xs-3"><input id="" name="temp_before" class="baht" placeholder="สูง" style="width:100%"></div>
-							
-						</div>
-					</div>
-				</div> -->
-				
 				
 				<div class="form-group">
 					<div class="form-select">
@@ -219,12 +204,7 @@
 							<div class="col-xs-6" style="text-align: left;">ห้องกว้าง (m)</div>
 							<div class="col-xs-6">
 								<input id="r_width" name="r_width" class="select-box" placeholder="เมตร">
-								<!--<select class="select-box" id="r_width" name="r_width">
-									<option value="" disabled selected>เมตร</option>
-									<option value="1">1 เมตร</option>
-									<option value="2">2 เมตร</option>
-								</select>
-							<div class="select-arrow"></div>-->
+								
 							</div>
 							<span class="alert-text col-xs-12" style="display:block; text-align: left;"></span>
 						</div>
@@ -237,12 +217,7 @@
 							<div class="col-xs-6" style="text-align: left;">ห้องยาว (m)</div>
 							<div class="col-xs-6">
 								<input id="r_length" name="r_length" class="select-box" placeholder="เมตร">
-								<!--<select class="select-box" id="r_length" name="r_length">
-									<option value="" disabled selected>เมตร</option>
-									<option value="1">1 เมตร</option>
-									<option value="2">2 เมตร</option>
-								</select>
-							<div class="select-arrow"></div>-->
+								
 							</div>
 							<span class="alert-text col-xs-12" style="display:block; text-align: left;"></span>
 						</div>
@@ -255,12 +230,7 @@
 							<div class="col-xs-6" style="text-align: left;">ห้องสูง (m)</div>
 							<div class="col-xs-6">
 								<input id="r_height" name="r_height" class="select-box" placeholder="เมตร">
-								<!--<select class="select-box" id="r_height" name="r_height">
-									<option value="" disabled selected>เมตร</option>
-									<option value="1">1 เมตร</option>
-									<option value="2">2 เมตร</option>
-								</select>
-							<div class="select-arrow"></div>-->
+								
 							</div>
 							<span class="alert-text col-xs-12" style="display:block; text-align: left;"></span>
 						</div>
@@ -329,9 +299,27 @@
 				</div>
 				</div>
 			</div>
-		</form>
+		</form>-->
 		</div>
 		</div>
+	</div>
+</div>
+
+<div id="" class="section-2">
+	<div class="container">
+		<div class="row -intro" id="refinance-meaning">
+			
+			<div class="col-md-12">
+				<div class="heading">
+				เกี่ยวกับ Topcooling
+				</div>
+				<div style="font-size:19px;">
+				 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เราเป็นผู้เชี่ยวชาญในด้านการผลิต ออกแบบ และติดตั้งห้องเย็นสำเร็จรูป ห้องเย็นฝั่งประกอบเร็ว ในอุตสาหกรรมความเย็น นอกจากนี้เรายังพัฒนาห้องเย็น  เพื่อให้ SME หรือ บุคคลทั่วไปสามารถเข้าถึง ใช้งานห้องเย็นได้ง่ายและสะดวก ในราคาที่เหมาะสม<br><br><br>
+ 
+				ด้วยปัญหาของผู้ใช้งานห้องเย็นในด้านการดูแลรักษา และซ่อมบำรุงพัฒนาเทคโนโลยี เราจึงมีระบบตรวจสอบอุณหภูมิห้องเย็นผ่านอินเตอร์เน็ต ลดความเสี่ยงสินค้าภายในห้องเย็นเสียหาย เพื่อให้สอดคล้องกับ Thailand 4.0
+				</div>
+			</div>
+		</div>		
 	</div>
 </div>
 
@@ -371,6 +359,19 @@
     transition: opacity 0.5s ease-in-out;
 }
 </style>
+
+
+
+<div class="">
+	<div class="heading">
+	</div>
+	 
+	<div class="container">
+			<?php include('sources/inc/inc_holiday.php');?>
+		<div class="row">
+		</div>
+	</div>	
+</div>
 <div class="section-testimonial">
 	<div class="heading">
 	ห้องเย็นฝั่งประกอบเร็วติดตั้งหน้างาน
@@ -383,6 +384,19 @@
 	</div>	
 </div>
 
+
+
+<div class="section-testimonial"> 
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<span style="font-size:36px;" class="topic-article"> คลิปประกอบห้องเย็น</span><br><br><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/D9E0P3XkbqA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<br><br>
+			</div>
+		</div>	
+	</div>	
+</div>
 
 <div class="section-testimonial">
 	<div class="heading">
@@ -641,6 +655,8 @@
 </div>
 
 
+
+<?php include('include/inc_img_footer.php'); ?>
 
 
 

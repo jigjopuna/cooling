@@ -12,27 +12,17 @@
 <meta property="og:title" content="ห้องเย็นฝั่งประกอบเร็ว ติดตั้งหน้างาน"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/pricebanner2.jpg">
-<meta property="og:url" content="https://topcooling.net/th/article/secondhand.php"/>
+<meta property="og:url" content="https://topcooling.net/th/article/speedlock.php"/>
 <meta property="og:description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝั่งประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>ห้องเย็นฝั่งประกอบเร็ว ติดตั้งหน้างาน</title>
 
-<script type="text/javascript" src="../../js/jquery-libs-3-2-1-min"></script>
-<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-<script>
-	$(document).ready(function(){
-		$('.btn').click(function(){			
-			window.open('../../index.php', '_newtab');
-		});	
-		$("#navbar-mobile-btn").click(function(){
-			$('.navbar-menu').toggle();
-		});
-
-	});	
-</script>
+<script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
+<script src="../../js/main.js"></script>
 <style>
-
+.bolds { font-weight: bold; font-size: 22px;}
+.boldun { font-weight: bold; font-size: 22px; text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -42,6 +32,7 @@
 </div>
 
 <?php include('../../sources/inc/inc_menu.php');?>
+
 
 <div id="sec2" class="section-2">
 	<div class="container">
@@ -281,70 +272,7 @@
 </div>
 
 
-
-
-<div class="section-testimonial">
-	<div class="heading">
-	บทความที่เกี่ยวข้อง
-	</div>
-	 
-	<div class="container">
-		<div class="row">
-			<div class="blog-slider">
-				<div class="articles"><a href="https://topcooling.net/th/article/17howto.php">
-					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../sources/assets/images/17howto.jpg');">
-						<span>+ อ่านต่อ</span>
-						</div>
-						<div class="blog-content">
-							<span class="blog-time"></span>
-							<h2 class="blog-title">20 ข้อ ต้องรู้ก่อนมีห้องเย็น</h2>
-							<p class="blog-excerpt">เชื่อว่าหลายท่านที่กำลังมองหาห้องเย็นสักห้อง กำลังตัดสินใจอยู่ ให้อ่านบทความนี้ จะช่วยท่านตัดใจได้ดี และถูกต้องแน่นอน จากประสบการณ์ตรง กว่า 30 ปี</p>
-						</div>
-					</div>
-					</a>
-				</div>
-
-			<div class="articles"><a href="https://topcooling.net/th/art_iot/iot.php">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/speedlock307x230.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time"></span>
-						<h2 class="blog-title">ห้องเย็นแบบฝั่งประกอบเร็ว</h2>
-						<p class="blog-excerpt">ติดตั้งรวดเร็ว 1-2 วัน ใช้งานได้ทันที ได้มาตรฐานอุตสาหกรรม ใช้งานง่าย รื้อหรือขนย้ายสะดวก ต่อขยายห้องในอนาคตได้ รับประกัน 1 ปีเต็ม </p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			
-			<div class="articles"><a href="" target="_blank">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/comp.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time"></span>
-						<h2 class="blog-title">5 วิธีง่ายๆ ในการดูแลห้องเย็น</h2>
-						<p class="blog-excerpt">หากเคยเจอปัญหานี้ เรื่องใหญ่แน่นอน มีห้องเย็นแต่ดันไม่เย็น สินค้าเสียหายแน่นอน ถ้าไม่รีบซ่อมหรือทำให้ห้องเย็นกลับมาเย็น แต่เรามีวิธีดูสาเหตุและวีธีแก้ไขเบื้องต้น.</p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-				<a class="blog-readmore" href="https://www.tocooling.com/blog" target="_blank">อ่านทั้งหมด &gt;</a>
-			</div>
-		</div>
-	</div>	
-</div>
-
+<?php include('../../sources/inc/inc_article-relate.php');?>
 <?php include('../../include/inc_map.php');?>
 <?php include('../../sources/inc/inc_footer.php');?>
 

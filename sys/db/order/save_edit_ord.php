@@ -8,8 +8,8 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G'); 
-	
+	define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  
+	//define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt'); 
 	function notify_message($message){
 
 		$queryData = array('message' => $message);
@@ -32,6 +32,11 @@
 	//1. receive data
 	$ord_status = trim($_POST['ord_status']);	 
 	$order_id = trim($_POST['order_id']);
+	$e_ids = trim($_POST['e_ids']);
+	
+	
+	$rowemp = mysql_fetch_array(mysql_query("SELECT e_name FROM tb_emp WHERE e_id = '$e_ids'"));
+	$emps = $rowemp['e_name'];
 	
 	/*echo "ord_status = ", $ord_status, "<br>";
 	echo "order_id = ", $order_id, "<br>";	
@@ -49,7 +54,7 @@
 	$result1 = mysql_query($sql);
 	
 	if($result1){
-		$msg = "ออเดอร์ของคุณ ".$custname.' เปลี่ยนเป็นสถานะ '.$statusname;
+		$msg = "ออเดอร์ของคุณ ".$custname.' เปลี่ยนเป็นสถานะ '.$statusname. ' ('.$emps. ')';
 		$res = notify_message($msg);
 		exit("
 			<script>

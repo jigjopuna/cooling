@@ -14,7 +14,7 @@
 	
 	date_default_timezone_set("Asia/Bangkok");	
 	
-	$json_url = "https://api.thingspeak.com/channels/520234/feeds.json?results=1";
+	$json_url = "https://api.thingspeak.com/channels/520231/feeds.json?results=1";
 	$json = file_get_contents($json_url);
 	$data = json_decode($json);
 	$tempnow = $data->feeds[0]->field1;
@@ -43,7 +43,7 @@ var channelsLoaded = 0;
 // fieldList shows which field you want to load, and which axis to display that field on, 
 // the 'T' Temperature left axis, or the 'O' Other right axis.
 var channelKeys =[];
-channelKeys.push({channelNumber:520234, name:'temperatureok',key:'UEPDPATPPBB5ZD21', fieldList:[{field:1,axis:'O'}]});
+channelKeys.push({channelNumber:520231, name:'somchais',key:'BVJO533TJLJFDERV', fieldList:[{field:1,axis:'O'}]});
  
 // user's timezone offset
 var myOffset = new Date().getTimezoneOffset();
@@ -365,7 +365,7 @@ $(document).ready(function()
  }
  
  //custom
- $.getJSON("https://api.thingspeak.com/channels/520234/feeds.json?results=288", function (data) {
+ $.getJSON("https://api.thingspeak.com/channels/520231/feeds.json?results=288", function (data) {
 			var chname = data.channel.name;
 			var countfeeds = Object.keys(data.feeds);
 			/*for(var i=0; i< countfeeds.length; i++){

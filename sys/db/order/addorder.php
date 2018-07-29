@@ -7,10 +7,16 @@
 <body>
 <?php 
 	
-	//1. receive data
+	//1. receive data  ord_length ord_high 
 	$search_custname = trim($_POST['search_custname']);
 	$o_date = trim($_POST['date_pay']);  
 	$ord_size = trim($_POST['ord_size']);
+	$ord_width = trim($_POST['ord_width']);
+	$ord_high = trim($_POST['ord_high']); 
+	
+	$ord_prov = trim($_POST['ord_prov']);
+	
+	
 	$ord_temp = trim($_POST['ord_temp']);
 	$voltage = trim($_POST['voltage']);
 	$ord_price = trim($_POST['ord_price']);
@@ -25,6 +31,9 @@
 	
 	$o_newold = trim($_POST['ord_new']);
 	$o_type = trim($_POST['ord_type']);
+	
+	$cusprod = trim($_POST['cusprod']);
+	$cusproduct = trim($_POST['cusproduct']);
 	
 	if($ord_vat=='on') $o_vat = 1;
 	
@@ -94,6 +103,8 @@
 			o_emp = 2, 
 			o_date =  '$o_date', 
 			o_size = '$ord_size', 
+			o_width	= '$ord_width', 
+			o_high = '$ord_high', 
 			o_price = '$ord_price', 
 			o_delivery_date = '$date_delivery', 
 			o_quotation = '$filename', 
@@ -104,6 +115,9 @@
 			o_control = '$ord_control', 
 			o_coil = '$ord_coilh', 
 			o_newold = '$o_newold', 
+			o_cuprovin = '$ord_prov',  
+			o_cuprodtyp = '$cusprod', 
+			o_cuprod = '$cusproduct',
 			o_type = '$o_type', 
 			o_temp = '$ord_temp'";
 	$result1 = mysql_query($sql);

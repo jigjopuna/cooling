@@ -66,6 +66,7 @@
 	
 	/*$area_room = ((($r_width*$r_height)*2)+ (($r_length*$r_height)*2) + (($r_length*$r_width)))*1.1;  ไม่นับพื้น*/
 	$area_room = ((($r_width*$r_height)*2)+ (($r_length*$r_height)*2) + (($r_length*$r_width)));
+	$floor = $r_length*$r_width;
 
 	
 	$cute = $r_width*$r_length*$r_height;
@@ -265,13 +266,13 @@
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ เครื่อง</td>
+						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ  พื้นที่ทั้งหมด <?php echo $area_room+$floor; ?> ตร.ม.</td>
 						<td colspan="2" style="width: 13%;" class="rlb">กว้าง (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว (เมตร)</td>
 						<td style="width: 13%" class="b">สูง (เมตร)</td>
 					</tr>
 					<tr align="center">
-						<td align="left"> <?php echo $area_room; ?> ตารางเมตร (ผนังเพดาน)</td>
+						<td align="left"> ผนังเพดาน <?php echo $area_room; ?> ตร.ม.   พื้น <?php echo $floor; ?> ตร.ม. </td>
 						<td class="l"><?php echo $r_width?></td>
 						<td class="r"></td>
 						<td><?php echo $r_length?></td>

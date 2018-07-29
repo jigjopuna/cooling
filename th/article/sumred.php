@@ -250,6 +250,7 @@
 
 
 <?php include('../../sources/inc/inc_article-relate.php');?>
+<?php include('../../include/inc_map.php');?>
 <?php include('../../sources/inc/inc_footer.php');?>
 
 </body>
