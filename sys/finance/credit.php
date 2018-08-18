@@ -2,8 +2,8 @@
 	  require_once('../include/connect.php');
 	
 	//ยังไม่ได้จ่ายเครดิต
-	$sql = "SELECT s.sl_name, p.po_emp, p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
-			FROM (tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id) JOIN tb_sellers s ON s.sl_id = p.po_shop
+	$sql = "SELECT p.po_emp, p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
+			FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
 			WHERE p.po_credit = 1 AND p.po_credit_complete != 1 
 			ORDER BY po_id DESC LIMIT 0,30";
 	$result= mysql_query($sql);
@@ -11,8 +11,8 @@
 	
 	
 	//จ่ายเครดิตแล้ว ประวัติ
-	$sql_jai = "SELECT s.sl_name, p.po_emp, p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
-			FROM (tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id) JOIN tb_sellers s ON s.sl_id = p.po_shop
+	$sql_jai = "SELECT p.po_emp, p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
+			FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
 			WHERE p.po_credit = 1 AND p.po_credit_complete = 1 
 			ORDER BY po_id DESC LIMIT 0,30";
 	$result_jai= mysql_query($sql_jai);

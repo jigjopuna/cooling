@@ -182,25 +182,25 @@
                             <ul class="nav nav-second-level">
 								
                                 <li>
-                                    <a href="shoptcl/stockout.php">แก้ไขข้อมูลสินค้า</a>
+                                    <a href="../shoptcl/product.php">แก้ไขข้อมูลสินค้า</a>
                                 </li>
 								
 								<li>
-                                    <a href="shoptcl/stock.php">เพิ่มสินค้า</a>
-                                </li>
-								
-								
-								<li>
-                                    <a href="shoptcl/buy.php">ออเดอร์</a>
-                                </li>
-								
-								<li>
-                                    <a href="shoptcl/sell.php">ยอดเงินเข้า</a>
+                                    <a href="../shoptcl/product_add.php">เพิ่มสินค้า</a>
                                 </li>
 								
 								
 								<li>
-                                    <a href="shoptcl/seller.php">STOCK</a>
+                                    <a href="../shoptcl/buy.php">ออเดอร์</a>
+                                </li>
+								
+								<li>
+                                    <a href="../shoptcl/sell.php">ยอดเงินเข้า</a>
+                                </li>
+								
+								
+								<li>
+                                    <a href="../shoptcl/seller.php">STOCK</a>
                                 </li>
 							
                             </ul>

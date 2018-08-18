@@ -6059,6 +6059,22 @@ input[type="radio"].checked + label:before {
   }
 }
 
+table.accessories {
+		border-collapse: collapse;
+		width: 100%;
+		font-size: 0.7em;
+}
+
+table.accessories th, table.accessories td {
+		text-align: left;
+		padding: 8px;
+		border-bottom: 1px solid black;
+}
+.tb_strong { font-weight:bold; font-size: 1.2em; }
+table.accessories tr:nth-child(even) {background-color: #c9e8f9;}
+table.accessories td:first-child {font-weight:bold; }
+
+	
 .p_article  { font-size: 20px; line-height: 2;  }
 
 .p_article h2 { font-size:2em; color: brown; text-decoration:underline; line-height: 1.5em; }

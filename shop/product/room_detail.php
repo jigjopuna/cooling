@@ -326,9 +326,7 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="../images/product/room/<?php echo $row['pr_img'];?>00.jpg" alt="<?php echo $prod_name;?>">
-									
-									
+									<img src="../images/product/room/<?php echo $row['pr_img'];?>/00.jpg" alt="<?php echo $prod_name;?>">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">

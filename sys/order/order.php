@@ -320,9 +320,11 @@
 												<td style="background-color: #feacc3"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
 											<? } else if($row_all['o_status']==6) { ?>
 												<td style="background-color: #baf7ee"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
-											<?php } else {?>
+											<?php } else if($row_all['o_status']==9){?>
+												<td style="background-color: #fc637c; font-weight:bold;"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php } else{ ?>
 												<td><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
-											<?php } ?>
+											<?php }  ?>
 											
 											<td><?php echo $row_all['pro_name']; ?></td>
 											<td><?php echo $row_all['o_width'].' x '.$row_all['o_size'].' x '.$row_all['o_high']; ?></td>

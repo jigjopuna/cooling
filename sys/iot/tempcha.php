@@ -459,6 +459,12 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
   </head>
   <body style="background-color: white;">
   <?php require_once('../../include/googletag.php');?>
+	<div style="clear:both; width:100%; margin: auto; background-color:#f678a7;">
+		<p align="center">ระบบการเก็บอุณหภูมิห้องเย็นออนไลน์ จะหมดอายุในวันที่ 31 สิหาคม 2561 นี้</p>
+		<p align="center">หากลูกค้าต้องการต่ออายุการใช้งาน สามารถต่ออายุได้ จะมีค่าธรรมเนียมบริการรายปึ <strong><u>3,900</u></strong> บาท</p>
+		<p align="center">สามารถชำระค่าธรรมเนียมได้ที่ ชื่อบัญชี ชูเกียรติ เทียนอำไพ เลขที่ปัญชี <strong><u>855-2-05499-8</u></strong>  ธนาคารกสิกรไทย บัญชีออมทรัพย์</p>
+		<p align="center">หากชำระแล้วส่งหลักฐานมาได้ที่ Line: <strong><u>@topcooling</u></strong> หรือ โทร 082-360-1523</p>
+	</div>
 	<div id="curtime" style="margin: auto 0; font-size: 30px; float:none; width: 100%; text-align: center;" > อุณหภูมิ ตอนนี้  <?php echo $tempnow; ?> องศา</div>
     <div id="chart-container" style="height: 600px;"><br>
       ระบบควบคุมห้องเย็น <br>
@@ -526,7 +532,7 @@ function loadChannelHistory(sentChannelIndex,channelNumber,key,sentFieldList,sen
 	<div id="demo"></div>
 	<div id="demo1"></div>
 	<div id="reply"></div>
-	<?php require_once('../../include/inc_banner_iot.php');?>
+	<?php //require_once('../../include/inc_banner_iot.php');?>
   </body>
   <!--webpom_kub@hotmail.com-->
 </html>

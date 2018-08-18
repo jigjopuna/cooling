@@ -2346,4 +2346,5 @@ input.num-product::-webkit-inner-spin-button {
     margin: 0; 
 }
 
-
+.text-strong { color:red; font-weight:bold; }
+.topic-article {font-size:1.8em; color: brown; font-weight:bold; text-decoration: underline}
