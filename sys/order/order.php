@@ -8,7 +8,7 @@
 <?php require_once('../include/metatagsys.php');?>
 	<?php 
 		$dates = date('Y-m-d');
-		$sql_all = "SELECT o.o_id, o.o_note, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
+		$sql_all = "SELECT o.o_type, o.o_id, o.o_note, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
 					FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
 						 JOIN province p ON c.cust_province = p.id) 
 						 JOIN tb_ord_status ost ON ost.ost_id = o.o_status)
@@ -128,6 +128,7 @@
 												<option value="1">ห้องสำเร็จรูป</option> 
 												<option value="2">ห้องฝั่ง</option>
 												<option value="3">blast freeze (บลาส ฟรีซ)</option>
+												<option value="4">Master Cold</option>
 											</select>
 										</div>
 										
@@ -297,7 +298,7 @@
 										<th style='width: 5%;'>อุณหภูมิ</th>
 										<th style='width: 5%;'>คอม 220/380</th>
 										<th style='width: 15%;'>เบอร์ติดต่อ</th>
-										<th style='width: 10%;'>ผู้รับผิดชอบ</th>
+										<th style='width: 10%;'>ห้อง</th>
 										<th style='width: 10%;'>คอมเม้น</th>
                                     </tr>
                                 </thead>
@@ -331,7 +332,26 @@
 											<td><?php echo $row_all['o_temp']; ?></td>
 											<td><?php echo $row_all['o_voltage']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td>
-											<td><?php echo $row_all['e_name']; ?></td>
+											<td>
+											
+												<?php 
+												
+													$ty_room = $row_all['o_type'];
+													if($ty_room==1){
+														echo 'ห้องสำเร็จรูป';
+													}else if($ty_room==2){
+														echo 'ห้องฝัง';
+													}else if($ty_room==3){
+														echo 'ห้องบลาสฟรีส';
+													}else if($ty_room==4){
+														echo 'Master Cold';
+													}else{
+														echo 'no data';
+													}
+												
+												?>
+											
+											</td>
 											<td><?php echo $row_all['o_note']; ?></td>
 											          
 										</tr>

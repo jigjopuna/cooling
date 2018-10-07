@@ -6,7 +6,8 @@
 			FROM (((tb_ord_prod ordp JOIN tb_orders o ON o.o_id = ordp.o_id) 
 				JOIN tb_customer c ON c.cust_id = o.o_cust) 
 				JOIN tb_emp e ON e.e_id = ordp.ot_emp)
-				JOIN tb_tools t ON ordp.ot_id = t.t_id";
+				JOIN tb_tools t ON ordp.ot_id = t.t_id 
+			ORDER BY ordp.orpd_id DESC  LIMIT 0,200";
 				
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);

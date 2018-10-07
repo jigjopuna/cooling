@@ -246,8 +246,8 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
@@ -460,8 +460,8 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
@@ -501,7 +501,7 @@
 			
 					
 					<tr class="highs" style="">
-						<td class="l">1. ชุด Condensing <?php echo $comp.' รุ่น '.$model;?></td>
+						<td class="l">1. ชุด Condensing <strong><u><?php echo $comp?></u></strong> <?php echo '  รุ่น '.$model;?></td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="right"><?php echo number_format($bevat/*$comprice+$coilyenprice*/, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php echo number_format($bevat/*$comprice+$coilyenprice*/, 2, '.', ','); ?></td>
@@ -515,7 +515,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">2. ผนังห้องเย็น โฟม PU 4 นิ้ว ensity 38-40 kg/m3 เหล็ก BHP 0.55 เมตร </td>
+						<td class="l">2. ผนังห้องเย็น โฟม <strong><u>PU 4 นิ้ว</u></strong> ensity 38-40 kg/m3 เหล็ก BHP 0.55 เมตร </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
@@ -529,14 +529,14 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;ระบบควบคุมไฟฟ้า <?php echo $voltage;?> V พร้อมระบบความปลอดภัยทางไฟฟ้า</td>
+						<td class="l">&nbsp;&nbsp;&nbsp;ระบบควบคุมไฟฟ้า <strong><u><?php echo $voltage;?> V</u></strong> พร้อมระบบความปลอดภัยทางไฟฟ้า</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ระบบ IOT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td class="l">3. ระบบ IoT</u></strong> สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
@@ -687,8 +687,8 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>

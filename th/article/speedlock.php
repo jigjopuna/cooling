@@ -8,15 +8,15 @@
 <?php require_once ('../../include/googlebot.php');?>
 <meta name="copyright" content="topcooling"/>
 <meta name="keywords" content="ห้องเย็นมือสอง, ห้องเย็นราคา, ห้องเย็นสำเร็จรูป">
-<meta name="description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝั่งประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ">
-<meta property="og:title" content="ห้องเย็นฝั่งประกอบเร็ว ติดตั้งหน้างาน"/>
+<meta name="description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝังประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ">
+<meta property="og:title" content="ห้องเย็นฝังประกอบเร็ว ติดตั้งหน้างาน"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/pricebanner2.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/speedlock.php"/>
-<meta property="og:description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝั่งประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ"/>
+<meta property="og:description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝังประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
-<title>ห้องเย็นฝั่งประกอบเร็ว ติดตั้งหน้างาน</title>
+<title>ห้องเย็นฝังประกอบเร็ว ติดตั้งหน้างาน</title>
 
 <script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
 <script src="../../js/main.js"></script>
@@ -36,10 +36,12 @@
 
 <div id="sec2" class="section-2">
 	<div class="container">
-		<div class="row" id="">
-			<div class="col-md-12">
-				<div class="heading" style="text-align: center;">ห้องเย็นฝั่งประกอบเร็ว </div><br><br>
-				<img src="../../content/images/speedlock-1400-900.jpg" style="max-width: 1500px;" alt="ห้องเย็นฝั่ง"><br><br>
+		
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/D9E0P3XkbqA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<br><br>
 			</div>
 		</div>
 		
@@ -59,7 +61,7 @@
 			
 			<div class="col-md-6">
 				<div class="p_article">
-					<h2>ห้องเย็นฝั่งมันดียังไง</h2>
+					<h2>ห้องเย็นฝังมันดียังไง</h2>
 					- ติดตั้งง่าย รวดเร็ว<br>
 					- ใช้งานได้ทุกสถานที่ แม้ในพื้นที่แคบๆ <br>
 					- พร้อมใช้งานภายใน 14 วัน<br>
@@ -187,13 +189,12 @@
 			</div>
 		</div>
 		
-		<div class="row">
-			<div class="col-xs-12">
-				<span style="font-size:36px;" class="topic-article"> ดูคลิปประกอบห้องเย็นกัน</span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/P0j6i647xnA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-				<br><br>
+		<div class="row" id="">
+			<div class="col-md-12">
+				<div class="heading" style="text-align: center;">ห้องเย็นฝังประกอบเร็ว </div><br><br>
+				<img src="../../content/images/speedlock-1400-900.jpg" style="max-width: 1500px;" alt="ห้องเย็นฝัง"><br><br>
 			</div>
-		</div><br><br>
+		</div>
 		
 		<div class="row" id="">
 			<div class="col-md-6">

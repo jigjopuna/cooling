@@ -47,11 +47,21 @@
 		});
 		
 		function validation(){
-			var search_custname = $('#search_custname').val(); 
+			var search_ord = $('#search_ord').val(); 
 			var payinqty = $('#payinqty').val();
 			var paydate = $('#paydate').val();
 			var emp_receive = $('#emp_receive').val();
-			if((search_custname=='') || (payinqty=='') || (paydate=='') || (emp_receive==0)){ 
+			
+			if(search_ord==''){
+				alert('กรุณาเลือกลูกค้าด้วยนะค่ะ');
+				return false;
+			   }
+				if((isNaN(search_ord))){
+				alert('กรุณาใส่เลขออเดอร์ลูกค้านะค่ะ');
+				return false;
+			}
+			
+			if((search_ord=='') || (payinqty=='') || (paydate=='') || (emp_receive==0)){ 
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
 			}else{
 				$('#form1').submit();				

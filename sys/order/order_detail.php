@@ -84,6 +84,7 @@
 <style>
 	.o_image { width: 65%; margin-top:20px;}
 	@media screen and (max-width: 1024px){.o_image { width: 100%; }}
+	@media print{ .page{ background-color:red;}}
 </style>
 <?php require_once('../include/metatagsys.php');?>
 <?php require_once('../include/inc_role.php');?>
@@ -275,7 +276,7 @@
 									
 									<tr>
 										<?php if($role['ro_ed_ord_dt']==1) { ?>
-											<td colspan='7'>&nbsp;</td> 
+											<td colspan='7'><a href="ord_report.php?o_id=<?php echo $o_id;?>&custname=<?php echo $cust_name;?>" target="_blank">ปริ้น</a></td> 
 										<?php }else { ?>
 											<td colspan='6'>&nbsp;</td> 
 										<?php } ?>

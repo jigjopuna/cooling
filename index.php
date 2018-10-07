@@ -327,9 +327,9 @@
 	<div class="heading">
 	หยุดทำการ 3 วัน นะครับ 
 	</div>
-	<p style="font-size: 22px;">
+	<p style="font-size: 28px;">
 		หยุด 3 วันนะครับ ไปต่างประเทศ<br>
-		จะเปิดทำการอีกครั้งวันที่ 14 มีนาคม<br><br>
+		จะเปิดทำการอีกครั้งวันที่ 27 กันยายน 2561<br><br>
 
 		ระหว่างนี้ยังสามารถส่งข้อความ<br>
 		ทาง Facebook และ Line ได้อยู่นะครับ<br><br>
@@ -343,7 +343,7 @@
 	 
 	<div class="container">
 		<div class="row">
-			<img style="width:60%;" src="content/images/holiday.jpg" width="100%" alt="ห้องเย็นมือสอง">
+			<img style="width:100%;" src="content/images/holiday1.jpg" width="100%" alt="ห้องเย็นมือสอง">
 		</div>
 	</div>	
 </div>-->
@@ -654,7 +654,12 @@
 	</div>	
 </div>
 
-
+<div class="row" id="" style="margin-top: 20px;">
+			<div class="col-md-12"><br><br>
+				<div class="heading" style="text-align: center;">ห้องเย็นสวยๆ  </div><br><br>
+				
+			</div>
+		</div>
 
 <?php include('include/inc_img_footer.php'); ?>
 

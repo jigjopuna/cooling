@@ -3,7 +3,7 @@
 	  
 	$o_id = $_GET['o_id'];
 
-	$sql = "SELECT * FROM tb_ord_status ORDER BY ost_status";
+	$sql = "SELECT * FROM tb_ord_status WHERE ost_type = 1 ORDER BY ost_status";
 	$result = mysql_query($sql);
 	$num = mysql_num_rows($result);
 	

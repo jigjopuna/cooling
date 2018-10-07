@@ -97,8 +97,8 @@
 					
 					<span class="topic-article">สรุป</span><br>	
 					สมาร์ทห้องเย็นจะช่วย <span class="text-strong">อำนวยความสะดวก</span> ให้หลายๆ ฝ่าย ทั้งผู้บริหาร ผู้แล และผู้ปฏิบัติงานห้องเย็น เราสามารถทำนายการทำงานของห้องเย็นได้โดยการสังเกตุพฤติกรรมของห้องเย็นเก็บเป็นสถิติ
-					ลดความเสียง ประหยัดเวลาและค่าใช้จ่ายในการดูแลห้องเย็น
-
+					ลดความเสียง ประหยัดเวลาและค่าใช้จ่ายในการดูแลห้องเย็น<br><br>	
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/AooYt1QwE60" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 					
 					<?php include('../../sources/inc/inc_contact_art.php');?>
 					<br>
