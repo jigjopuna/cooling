@@ -196,6 +196,12 @@
 	}
 	
 	
+	if($voltage == "220"){
+		$firefa = "Single Phase 220V";
+	}else{
+		$firefa = "3 Phase 380V";
+	}
+	
 	//echo 'cust_name : '.$row['qcust_name'].'<br>'; qcust_name	qcust_addr	qcust_prov
 	/*echo 'ord_temp : '.$ord_temp.'<br>';
 	echo 'date_pay : '.$date_pay.'<br>';
@@ -508,7 +514,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l"> &nbsp;&nbsp;&nbsp;ชุดคอล์ยเย็น <?php echo $coilyen;?></td>
+						<td class="l"> &nbsp;&nbsp;&nbsp; - ชุดคอล์ยเย็น <strong><u>EDEN</u></strong> FEME0290-302B <?php //echo $coilyen;?></td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -522,21 +528,34 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;2CB/PU ผิวเรียบ พร้อมอุปกรณ์ติดตั้ง</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - 2CB/PU ผิวเรียบ พร้อมอุปกรณ์ติดตั้ง</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;ระบบควบคุมไฟฟ้า <strong><u><?php echo $voltage;?> V</u></strong> พร้อมระบบความปลอดภัยทางไฟฟ้า</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - ระบบไฟฟ้า ควบคุมห้องเย็น <strong><u><?php echo $firefa;?> </u></strong> </td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ระบบ IoT</u></strong> สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - พร้อมระบบความปลอดภัยทางไฟฟ้า</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">3. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - และแจ้งเตือนหากห้องเย็นมีปัญหาผ่านมือถือ</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>

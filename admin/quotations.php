@@ -119,6 +119,13 @@
 		$control = ' ข้างขวา';
 	}
 	
+	if($voltage == "220"){
+		$firefa = "Single Phase 220V";
+	}else{
+		$firefa = "3 Phase 380V";
+	}
+	
+	
 	
 	//echo 'cust_name : '.$row['qcust_name'].'<br>'; qcust_name	qcust_addr	qcust_prov
 	/*echo 'ord_temp : '.$ord_temp.'<br>';

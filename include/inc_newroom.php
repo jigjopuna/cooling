@@ -26,14 +26,14 @@
 					
 					
 					<tr class="highs" style="">
-						<td class="l">1. ชุด Condensing Copeland <strong><u>5HP</u></strong> รุ่น ZB 29 KQE</td>
+						<td class="l">1. ชุด Condensing Copeland <strong><u>3HP</u></strong> รุ่น ZB 31 KQE</td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="center"><?php echo number_format($ord_price, 0, '.', ','); ?></td>
 						<td class="l" align="right"><?php echo number_format($ord_price, 2, '.', ','); ?></td> 
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l"> &nbsp;&nbsp;&nbsp;ชุดคอล์ยเย็น ALFA <strong><u>BLEH352A7</u></strong></td>
+						<td class="l"> &nbsp;&nbsp;&nbsp;ชุดคอล์ยเย็น <strong><u>EDEN</u></strong> FEME0290-302B</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -47,21 +47,34 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;2CB/PU ผิวเรียบ พร้อมอุปกรณ์ติดตั้ง</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - 2CB/PU ผิวเรียบ พร้อมอุปกรณ์ติดตั้ง</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;ระบบควบคุมไฟฟ้า <strong><u><?php echo $voltage;?> V</u></strong> พร้อมระบบความปลอดภัยทางไฟฟ้า</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - ระบบควบคุมไฟฟ้า <strong><u><?php echo $firefa;?> </u></strong> พร้อมระบบความปลอดภัยทางไฟฟ้า</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ระบบ IoT เช็คอุณหภูมิห้องเย็น และแจ้งเตือนหากห้องเย็นมีปัญหาผ่านมือถือ</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - ประตูบานสวิงขนาด <strong><u>0.9 x 1.9 เมตร</u></strong> กว้าง สูง </td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">3. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - และแจ้งเตือนหากห้องเย็นมีปัญหาผ่านมือถือ</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>

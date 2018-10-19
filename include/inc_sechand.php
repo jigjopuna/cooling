@@ -39,16 +39,23 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ระบบไฟฟ้า <strong><u><?php echo $voltage?> V.</u></strong></td>
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ระบบไฟฟ้า <strong><u><?php echo $firefa?> </u></strong></td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - คอมเพรสเซอร์ของใหม่</td>
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - คอมเพรสเซอร์ Copeland ของใหม่</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ประตูบานสวิงขนาด <strong><u>0.75 x 1.8 เมตร</u></strong> กว้าง สูง </td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
 
@@ -61,7 +68,13 @@
 					
 					<?php if($r_type==1) { ?>
 					<tr class="highs" style="">
-						<td class="l">3. ระบบ IOT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td class="l">3. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - และแจ้งเตือนหากห้องเย็นมีปัญหาผ่านมือถือ</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
