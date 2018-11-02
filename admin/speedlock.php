@@ -645,10 +645,10 @@
 							<td align="left"></td>
 						</tr>
 						<tr>
-							<td align="left">บัญชีธนาคารกสิกรไทย (ออมทรัพย์)</td>
+							<td align="left">บัญชีธนาคารกสิกรไทย</td>
 							<td align="left"></td>
 							<tr>
-							<td colspan="2" align="left"> ชูเกียรติ เทียนอำไพ   เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;">855-2-05499-8</span></td>
+							<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 855-2-16309-6</span></td>
 						</tr>
 						</tr>
 					</table>

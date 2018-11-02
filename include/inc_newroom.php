@@ -33,7 +33,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l"> &nbsp;&nbsp;&nbsp;ชุดคอล์ยเย็น <strong><u>EDEN</u></strong> FEME0290-302B</td>
+						<td class="l"> &nbsp;&nbsp;&nbsp; - ชุดคอล์ยเย็น <strong><u>EDEN</u></strong> FEME0290-302B</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>

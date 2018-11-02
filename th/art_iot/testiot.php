@@ -100,10 +100,7 @@
 				<img src="../../content/images/speedlock-1400-900.jpg" style="max-width: 1500px;" alt="ห้องเย็นราคา"><br><br>
 			</div>
 		</div>
-		
-		
-		
-		
+
 		<div class="row" id="">
 			<div class="col-md-12">
 				<?php include('../../sources/inc/inc_contact_art.php');?>

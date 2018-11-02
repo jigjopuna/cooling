@@ -14,7 +14,7 @@
 						 JOIN tb_ord_status ost ON ost.ost_id = o.o_status)
 						 JOIN tb_emp e ON e.e_id = o.o_emp 
 					ORDER BY o.o_id DESC
-					LIMIT 0, 50";
+					LIMIT 0, 200";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 		

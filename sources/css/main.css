@@ -6078,7 +6078,8 @@ table.accessories td:first-child {font-weight:bold; }
 .p_article  { font-size: 20px; line-height: 2;  }
 
 .p_article h2 { font-size:2em; color: brown; text-decoration:underline; line-height: 1.5em; }
-.text-strong { font-size: bold; text-decoration: underline; color:red; }
+.text-large { font-size:1.6em; color: #3893E8; text-decoration:underline; line-height: 1.5em; font-family: "Thaisans_neue_regular"; }
+.text-strong { font-weight: bold; text-decoration: underline; color:red; }
 .h1-2-7em { font-size: 2.7em; text-decoration: underline; color: brown; margin:0;} 
 .topic-article {font-family:'Thaisans_neue_regular'; font-size:1.8em; color: brown; font-weight:bold; text-decoration: underline}
 .bolds { font-weight: bold; font-size: 22px;}
