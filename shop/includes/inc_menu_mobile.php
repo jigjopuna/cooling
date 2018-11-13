@@ -79,10 +79,16 @@
 					<li class="item-menu-mobile">
 						<a href="machass.php">อุปกรณ์เครื่อง</a>
 						<ul class="sub-menu">
-							<li><a href="">Sign Gas</a></li>
-							<li><a href="">Expantion Valv</a></li>
-							<li><a href="">ท่อทองแดง</a></li>
-							<li><a href="">อุปกรณ์อื่นๆ</a></li>
+							<?php 
+								$sqlmass1 = "SELECT * FROM tb_category WHERE cat_type = 2 AND cat_publish = 1";
+								$resultmass1 = mysql_query($sqlmass1);
+								$nummass1 = mysql_num_rows($resultmass1);
+										
+								for($i=1; $i<=$nummass1; $i++) { 
+									$rowmass1 = mysql_fetch_array($resultmass1);
+								?>
+								<li><a href=""><?php echo $rowmass1['cat_name'];?></a></li>
+							<?php } ?>
 						</ul>
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>

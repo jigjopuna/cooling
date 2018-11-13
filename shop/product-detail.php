@@ -8,7 +8,7 @@
 		  $sql = "SELECT * FROM tb_productroom WHERE pr_id = '$prod_id'";
 		  $currmenu = 3;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
 		  $menuname = 'อุปกรณ์ห้องเย็น';
-		  $url = '../room.php';
+		  $url = 'room.php';
 		  
 		  $row = mysql_fetch_array(mysql_query($sql));
 		  $prodname =  $row['pr_name'];
@@ -41,11 +41,11 @@
 	<!--<meta property="og:image" content="https://topcooline.net/shop/images/<?php //echo $pr_img?>"/>-->
 	<meta property="og:image" content="images/product/room/<?php echo $pr_img;?>/5.jpg"/>
 	
-	<?php require_once('includes/google-verify.php');?>
+	
 	<?php include('includes/inc_css.php'); ?>
 </head>
 <body class="animsition">
-
+	<?php require_once('includes/google-verify.php');?>
 	<!-- Header -->
 	<header class="header1">
 		<!-- Header desktop -->
@@ -122,7 +122,7 @@
 
 	<!-- breadcrumb -->
 	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
-		<a href="../index.php" class="s-text16">
+		<a href="index.php" class="s-text16">
 			หน้าแรก
 			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
 		</a>
@@ -183,7 +183,7 @@
 
 				
 				<div class="p-t-33 p-b-60">
-				<?php if($prod_type == 'm') { //m==machine?>
+				<?php //if($prod_type == 'm') { ?>
 					<div class="flex-m flex-w p-b-10">
 						<div class="s-text15 w-size15 t-center">
 							Size
@@ -215,7 +215,7 @@
 							</select>
 						</div>
 					</div>
-				<?php } ?>
+				<?php //} ?>
 
 					<div class="flex-r-m flex-w p-t-10">
 						<div class="w-size16 flex-m flex-w">
@@ -315,7 +315,7 @@
 	<div id="dropDownSelect1"></div>
 	<div id="dropDownSelect2"></div>
 	<div id="cattype" style="display:none;"><?php echo $currmenu; ?></div>
-<?php include('includes/inc_js.php');?>
-
+    
+	<?php include('includes/inc_js.php');?>
 </body>
 </html>

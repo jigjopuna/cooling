@@ -11,7 +11,7 @@
 <meta name="description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝังประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ">
 <meta property="og:title" content="ห้องเย็นฝังประกอบเร็ว ติดตั้งหน้างาน"/>
 <meta property="og:type" content="article"/>
-<meta property="og:image" content="../../content/images/pricebanner2.jpg">
+<meta property="og:image" content="../../content/images/article/speedlock.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/speedlock.php"/>
 <meta property="og:description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝังประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">

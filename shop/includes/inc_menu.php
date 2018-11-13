@@ -1,3 +1,4 @@
+				
 				<div class="wrap_menu">
 					<nav class="menu">
 						<ul class="main_menu">
@@ -44,14 +45,24 @@
 									<li><a href="">สายไฟต่างๆ</a></li>
 								</ul>
 							</li>
-
+							
+							
 							<li class="catetype5">
 								<a href="machass.html">อุปกรณ์เครื่อง</a>
 								<ul class="sub_menu">
-									<li><a href="">Sign Gas</a></li>
-									<li><a href="">Expantion Valve</a></li>
+									<?php 
+										$sqlmass = "SELECT * FROM tb_category WHERE cat_type = 2 AND cat_publish = 1";
+										$resultmass = mysql_query($sqlmass);
+										$nummass = mysql_num_rows($resultmass);
+										
+										for($i=1; $i<=$nummass; $i++) { 
+											$rowmass = mysql_fetch_array($resultmass);
+									?>
+									<li><a href=""><?php echo $rowmass['cat_name'];?></a></li>
+									<!--<li><a href="">Expantion Valve</a></li>
 									<li><a href="">ท่อทองแดง</a></li>
-									<li><a href="">อุปกรณ์อื่นๆ</a></li>
+									<li><a href="">อุปกรณ์อื่นๆ</a></li>-->
+									<?php } ?>
 								</ul>
 							</li>
 

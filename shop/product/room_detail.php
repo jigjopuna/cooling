@@ -19,6 +19,7 @@
 	  $result = mysql_query($sql);
 	  $num = mysql_num_rows($result);
 	  
+	  
 
       $result_more = mysql_query($sql_more);
 	  $num_more = mysql_num_rows($result_more);
@@ -310,7 +311,7 @@
 						</div>-->
 
 						<span class="s-text8 p-t-5 p-b-5">
-							มีทั้งหมด 10 รายการ <!--Showing 1–12 of 16 results-->
+							มีทั้งหมด <?php echo $num;?>  รายการ  <!--Showing 1–12 of 16 results-->
 						</span>
 					</div>
 

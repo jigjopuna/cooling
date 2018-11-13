@@ -4,7 +4,7 @@
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">ห้องเย็นปสำเร็จรูป  (เคลื่อนย้ายได้)  <strong><u>ยาว <?php echo $r_lenght; ?> เมตร</u></strong></td>
+						<td style="width: 60%" align="left">ห้องเย็นสำเร็จรูป  (เคลื่อนย้ายได้)  <strong><u>ยาว <?php echo $r_lenght; ?> เมตร</u></strong></td>
 						<td colspan="2" style="width: 13%;" class="rlb">กว้าง  (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว   (เมตร)</td>
 						<td style="width: 13%" class="b">สูง  (เมตร)</td> 

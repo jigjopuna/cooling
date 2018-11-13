@@ -17,7 +17,7 @@
 <html lang="en">
 
 <head>
-<title>SHOP PRODUCT</title>
+<title>อุปกรณ์ห้อง</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">

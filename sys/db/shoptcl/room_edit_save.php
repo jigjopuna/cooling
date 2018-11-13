@@ -51,6 +51,12 @@
 	echo 'pr_img : '.$pr_img.'<br>';
 	echo 'pr_vdo : '.$pr_vdo.'<br>';
 	echo 'pr_publish : '.$pr_publish.'<br>';
+	
+	if($pr_publish=='on'){
+		$publish = 1;
+	}else{
+		$publish = 0;
+	}
 
 	
 	$sql = "UPDATE tb_productroom SET 
@@ -73,14 +79,14 @@
 				pr_stock = '$pr_stock', 
 				pr_img = '$pr_img', 
 				pr_vdo = '$pr_vdo', 
-				pr_publish = '$pr_publish' 
+				pr_publish = '$publish' 
 				WHERE pr_id = '$pr_id'";
 	$result1 = mysql_query($sql);
 	if($result1) {
 		 exit("<script>alert('แก้ไขรายการสำเร็จ '); window.location='../../shoptcl/product.php';</script>");
 		
 	} else {
-		 exit("<script>alert('บันทึกออเดอร์ไม่สำเร็จ ติดต่อผู้ดูแลระบบ'); window.location='../../shoptcl/product.php';</script>");
+		 exit("<script>alert('บันทึกไม่สำเร็จ ติดต่อผู้ดูแลระบบ'); window.location='../../shoptcl/product.php';</script>");
 	}
 	
 ?>

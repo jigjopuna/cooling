@@ -8,9 +8,10 @@
                                 <thead>
                                     <tr>
 										<th>ลำดับ</th>
-                                        <th>ร้าน</th>                                     
-                                        <th>เบอร์</th>
-                                        <th>บัญชี</th>
+                                        <th>ชื่อสินค้า</th>                                     
+                                        <th>Model</th>
+                                        <th>ราคาลด</th>
+										<th>ราคาเต็ม</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -19,6 +20,7 @@
 										$row = mysql_fetch_array($resultajax);
 								?>
 										<tr class='gradeA'> 
+											<td><?php echo $row['pr_id'];?></td>
 											<td><a href="room_edit.php?pr_id=<?php echo $row['pr_id'];?>"><?php echo $row['pr_name'];?></a></td>
 											<td><?php echo $row['pr_price'];?></td>
 											<td><?php echo $row['pr_sellprice'];?></td>
