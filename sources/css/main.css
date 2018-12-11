@@ -6071,6 +6071,7 @@ table.accessories th, table.accessories td {
 		border-bottom: 1px solid black;
 }
 .tb_strong { font-weight:bold; font-size: 1.2em; }
+.tb_textcenter{ text-align: center !important;}
 table.accessories tr:nth-child(even) {background-color: #c9e8f9;}
 table.accessories td:first-child {font-weight:bold; }
 

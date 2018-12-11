@@ -1,6 +1,10 @@
 <?php session_start(); 
 	  require_once('../includes/connect.php');
-  
+	  $currmenu = 3;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
+	  
+	  $sql_catroom = "SELECT * FROM tb_categoryroom";
+	  $result_catroom = mysql_query($sql_catroom);
+	  $num_catroom = mysql_num_rows($result_catroom);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,96 +37,22 @@
 			<div class="wrap_header">
 				<!-- Logo -->
 				<a href="index.html" class="logo">
-					<img src="../images/icons/logo.png" alt="IMG-LOGO">
+					<img src="../images/icons/logo.jpg" alt="ห้องเย็น tcl">
 				</a>
 
 				<!-- Menu -->
-				<?php include('../includes/inc_menu.php');?>
+				<?php include('../includes/inc_menu1.php');?>
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="../images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
+					<?php include('../includes/account-user.php');?>
+					
 
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
-						<img src="../images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
 						<!-- Header cart noti -->
-						<div class="header-cart header-dropdown">
-							<ul class="header-cart-wrapitem">
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-01.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											White Shirt With Pleat Detail Back
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $19.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-02.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Converse All Star Hi Black Canvas
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-03.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Nixon Porter Leather Watch In Tan
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-									</div>
-								</li>
-							</ul>
-
-							<div class="header-cart-total">
-								Total: $75.00
-							</div>
-
-							<div class="header-cart-buttons">
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										View Cart
-									</a>
-								</div>
-
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Check Out
-									</a>
-								</div>
-							</div>
-						</div>
+						<?php include('../includes/inc_minibasket1.php');?>
 					</div>
 				</div>
 			</div>
@@ -132,96 +62,22 @@
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
 			<a href="index.html" class="logo-mobile">
-				<img src="../images/icons/logo.png" alt="IMG-LOGO">
+				<img src="../images/icons/logo.jpg" alt="IMG-LOGO">
 			</a>
 
 			<!-- Button show menu -->
 			<div class="btn-show-menu">
 				<!-- Header Icon mobile -->
 				<div class="header-icons-mobile">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="../images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
+					<?php include('../includes/account-user.php');?>
 
 					<span class="linedivide2"></span>
 
 					<div class="header-wrapicon2">
-						<img src="../images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
 						<!-- Header cart noti -->
-						<div class="header-cart header-dropdown">
-							<ul class="header-cart-wrapitem">
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-01.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											White Shirt With Pleat Detail Back
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $19.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-02.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Converse All Star Hi Black Canvas
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-03.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Nixon Porter Leather Watch In Tan
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-									</div>
-								</li>
-							</ul>
-
-							<div class="header-cart-total">
-								Total: $75.00
-							</div>
-
-							<div class="header-cart-buttons">
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										View Cart
-									</a>
-								</div>
-
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Check Out
-									</a>
-								</div>
-							</div>
-						</div>
+						<?php include('../includes/inc_minibasket_mobile1.php');?>
 					</div>
+					
 				</div>
 
 				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
@@ -260,18 +116,18 @@
 				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
 					<!--  -->
 					<div class="flex-sb-m flex-w p-b-35">
-						<div class="flex-w">
+						<!--<div class="flex-w">
 							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-								<!--<select class="selection-2" name="sorting">
+								<select class="selection-2" name="sorting">
 									<option>Default Sorting</option>
 									<option>Popularity</option>
 									<option>Price: low to high</option>
 									<option>Price: high to low</option>
-								</select> -->
+								</select> 
 							</div>
 
 							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-								<!--<select class="selection-2" name="sorting">
+								<select class="selection-2" name="sorting">
 									<option>Price</option>
 									<option>$0.00 - $50.00</option>
 									<option>$50.00 - $100.00</option>
@@ -279,51 +135,54 @@
 									<option>$150.00 - $200.00</option>
 									<option>$200.00+</option>
 
-								</select> -->
+								</select> 
 							</div>
-						</div>
+						</div>-->
 
 						<span class="s-text8 p-t-5 p-b-5">
-							มีทั้งหมด 10 รายการ <!--Showing 1–12 of 16 results-->
+							มีทั้งหมด <?php echo $num_catroom; ?> หมวดหมู่ <!--Showing 1–12 of 16 results-->
 						</span>
 					</div>
 
 					<!-- Product -->
 					
 					<div class="row">
+						<?php 
+							for($i=1; $i<=$num_catroom; $i++){
+							$row_catroom = mysql_fetch_array($result_catroom);
+						?>
 						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
+							
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="../images/product/room/banpub/banpub_low/banpub_low1.jpg" alt="">
+									<a href="room_detail.php?cate=<?php echo $row_catroom['catr_id']; ?>">
+										<img src="../images/category/room/<?php echo $row_catroom['catr_id']; ?>.jpg" alt="ห้องเย็น <?php echo $row_catroom['catr_name']; ?>">
+									
+									</a>
+									<!--<img src="../images/item-02.jpg" alt="IMG-PRODUCT">-->
 
-									<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
-
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											
-										</div>
-									</div>
 								</div>
-
+							  
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-										โฟมผนังห้องชนิด PU PS และ PIR									</a>
+									<a href="room_detail.php?cate=<?php echo $row_catroom['catr_id']; ?>" class="block2-name dis-block s-text3 p-b-5">
+										<?php echo $row_catroom['catr_name']; ?>
+										<!--โฟมผนังห้องชนิด PU PS และ PIR-->
+									</a>
 
 									<span class="block2-price m-text6 p-r-5">
+										
 									</span>
 								</div>
 							</div>
 						</div>
 						
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
+								<?php } ?>
+						
+						<!--<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+							
 							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="../images/product/room/banpub/banpub_low/banpub_low1.jpg" alt="">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -331,28 +190,27 @@
 											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
 										</a>
 
-										<div class="block2-btn-addcart w-size1 trans-0-4">
-											
-										</div>
+										
 									</div>
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="room_detail.php?cate=5" class="block2-name dis-block s-text3 p-b-5">
 										ประตูห้องเย็น บานเลื่อน บานสวิง
 									</a>
 
 									<span class="block2-price m-text6 p-r-5">
+										
 									</span>
 								</div>
 							</div>
 						</div>
 						
 						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
+							
 							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="../images/product/room/banpub/banpub_low/banpub_low1.jpg" alt="">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -367,21 +225,22 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="room_detail.php?cate=5&subcate=2" class="block2-name dis-block s-text3 p-b-5">
 										อุปกรณ์ประตูห้องเย็น บานพับขาสูง ขาต่ำ และกลอนประตู
 									</a>
 
 									<span class="block2-price m-text6 p-r-5">
+										
 									</span>
 								</div>
 							</div>
 						</div>
 						
 						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
+							
 							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="../images/product/room/banpub/banpub_low/banpub_low1.jpg" alt="">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -396,21 +255,52 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="room_detail.php?cate=6" class="block2-name dis-block s-text3 p-b-5">
+										ม่านห้องเย็น
+									</a>
+
+									<span class="block2-price m-text6 p-r-5">
+										
+									</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+							
+							<div class="block2">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
+
+									<div class="block2-overlay trans-0-4">
+										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										</a>
+
+										<div class="block2-btn-addcart w-size1 trans-0-4">
+											
+										</div>
+									</div>
+								</div>
+
+								<div class="block2-txt p-t-20">
+									<a href="room_detail.php?cate=3" class="block2-name dis-block s-text3 p-b-5">
 										อลูมิเนียมห้องเย็น ฉากโค้ง ตัวที และอื่นๆ 
 									</a>
 
 									<span class="block2-price m-text6 p-r-5">
+										
 									</span>
 								</div>
 							</div>
 						</div>
 						
 						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
+							
 							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="../images/product/room/banpub/banpub_low/banpub_low1.jpg" alt="">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -419,27 +309,28 @@
 										</a>
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
-											
+										
 										</div>
 									</div>
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="room_detail.php?cate=8" class="block2-name dis-block s-text3 p-b-5">
 										ซิลิโคน / ซีลแลนซ์ และอุปกรณ์
 									</a>
 
 									<span class="block2-price m-text6 p-r-5">
+										
 									</span>
 								</div>
 							</div>
 						</div>
 						
 						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
+							
 							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="../images/product/room/banpub/banpub_low/banpub_low1.jpg" alt="">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -454,21 +345,22 @@
 								</div>
 
 								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
+									<a href="room_detail.php?cate=10" class="block2-name dis-block s-text3 p-b-5">
 										วาล์วปรับแรงดัน Pressure Report
 									</a>
 
 									<span class="block2-price m-text6 p-r-5">
+										
 									</span>
 								</div>
 							</div>
 						</div>
 						
 						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							<!-- Block2 -->
+							
 							<div class="block2">
-								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<img src="../images/product/room/banpub/banpub_low/banpub_low1.jpg" alt="">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
+									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -488,14 +380,12 @@
 									</a>
 
 									<span class="block2-price m-text6 p-r-5">
+										
 									</span>
 								</div>
 							</div>
-						</div>
-						
-					
-						
-						
+						</div>-->
+
 					<!-- Pagination
 					<div class="pagination flex-m flex-w p-t-26">
 						<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
@@ -522,7 +412,7 @@
 	<!-- Container Selection -->
 	<div id="dropDownSelect1"></div>
 	<div id="dropDownSelect2"></div>
-	<div id="cattype" style="display:none;"><?php echo 3; ?></div>
+	<div id="cattype" style="display:none;"><?php echo $currmenu; ?></div>
 	<?php include('../includes/inc_js_sub.php');?>
 </body>
 </html>

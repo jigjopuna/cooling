@@ -8,7 +8,7 @@
 							</li> 
 							
 							<li class="catetype2">
-								<a href="machine.php">เครื่องทำความเย็น</a>
+								<a href="product/machine.php">เครื่องทำความเย็น</a>
 								<ul class="sub_menu">
 									<li><a href="">Condensing Unit</a></li>
 									<li><a href="">คอมพรสเซอร์</a></li>
@@ -21,7 +21,7 @@
 							
 
 							<li class="catetype3">
-								<a href="room.php">อุปกรณ์ห้องเย็น</a>
+								<a href="product/room.php">อุปกรณ์ห้องเย็น</a>
 								<ul class="sub_menu">
 									<li><a href="product/room_detail.php?cate=1">โฟมผนังห้องเย็น</a></li>
 									<li><a href="product/room_detail.php?cate=3">อลูมิเนียม</a></li>
@@ -35,7 +35,7 @@
 							</li>
 
 							<li class="catetype4">
-								<a href="electric.html">ระบบไฟฟ้า</a>
+								<a href="product/electric.php">ระบบไฟฟ้า</a>
 								<ul class="sub_menu">
 									<li><a href="">Phase Protection</a></li>
 									<li><a href="">Carel</a></li>
@@ -48,7 +48,7 @@
 							
 							
 							<li class="catetype5">
-								<a href="machass.html">อุปกรณ์เครื่อง</a>
+								<a href="product/mass.php">อุปกรณ์เครื่อง</a>
 								<ul class="sub_menu">
 									<?php 
 										$sqlmass = "SELECT * FROM tb_category WHERE cat_type = 2 AND cat_publish = 1";
@@ -59,9 +59,6 @@
 											$rowmass = mysql_fetch_array($resultmass);
 									?>
 									<li><a href=""><?php echo $rowmass['cat_name'];?></a></li>
-									<!--<li><a href="">Expantion Valve</a></li>
-									<li><a href="">ท่อทองแดง</a></li>
-									<li><a href="">อุปกรณ์อื่นๆ</a></li>-->
 									<?php } ?>
 								</ul>
 							</li>
@@ -71,7 +68,7 @@
 							</li>
 
 							<li class="catetype7">
-								<a href="contact.html">ติดต่อ</a>
+								<a href="contact.php">ติดต่อ</a>
 							</li>
 						</ul>
 					</nav>

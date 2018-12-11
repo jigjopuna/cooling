@@ -26,7 +26,7 @@
 					
 					
 					<tr class="highs" style="">
-						<td class="l">1. ชุด Condensing Copeland <strong><u>3HP</u></strong> รุ่น ZB 31 KQE</td>
+						<td class="l">1. ชุด Condensing Copeland <strong><u>3HP</u></strong> รุ่น ZB 21 KQE</td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="center"><?php echo number_format($ord_price, 0, '.', ','); ?></td>
 						<td class="l" align="right"><?php echo number_format($ord_price, 2, '.', ','); ?></td> 
@@ -130,8 +130,8 @@
 					
 					<tr>
 						<td></td>
-						<td colspan="3" class="rl">VAT 7%</td>
-						<td class="rt l" align="right"><?php echo number_format($vats, 2, '.', ','); ?></td>
+						<td colspan="3" class="rl">ส่วนลด</td>
+						<td class="rt l" align="right"><?php //echo number_format($vats, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>

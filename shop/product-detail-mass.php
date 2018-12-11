@@ -18,7 +18,7 @@
 		  $descr1 =  $row['p_descr1'];
 		  $descr2 =  $row['p_descr2'];
 		  $descr3 =  $row['p_descr3'];
-		  $pr_img =  $row['p_img'];
+		  $p_image =  $row['p_image'];
 		  $video =  $row['p_vdo'];
 ?>
 <!DOCTYPE html>
@@ -35,7 +35,7 @@
 	<meta property="og:title" content="<?php echo $prodname?>"/>
 	<meta property="og:description" content="<?php echo $seo?>"/>
 	<!--<meta property="og:image" content="https://topcooline.net/shop/images/<?php //echo $pr_img?>"/>-->
-	<meta property="og:image" content="images/product/room/<?php echo $pr_img;?>/5.jpg"/>
+	<meta property="og:image" content="images/product/mass/<?php echo $p_image;?>/5.jpg"/>
 	
 	
 	<?php include('includes/inc_css.php'); ?>
@@ -60,17 +60,12 @@
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
+					<?php include('../includes/account-user1.php');?>
 
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
-						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
-						<!-- Header cart noti -->
+						<!-- Header cart noti fist paht-->
 						<?php include('includes/inc_minibasket.php');?>
 					</div>
 				</div>
@@ -88,18 +83,13 @@
 			<div class="btn-show-menu">
 				<!-- Header Icon mobile -->
 				<div class="header-icons-mobile">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
+					<?php include('../includes/account-user1.php');?>
 
 					<span class="linedivide2"></span>
 
 					<div class="header-wrapicon2">
-						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
 						<!-- Header cart noti -->
-						<?php include('includes/inc_minibasket.php');?>
+						<?php include('includes/inc_minibasket_mobile.php');?>
 					</div>
 				</div>
 
@@ -142,21 +132,21 @@
 					<div class="wrap-slick3-dots"></div>
 
 					<div class="slick3">
-						<div class="item-slick3" data-thumb="images/product/room/<?php echo $p_img;?>/11.jpg">
+						<div class="item-slick3" data-thumb="images/product/mass/<?php echo $p_image;?>/11.jpg">
 							<div class="wrap-pic-w">
-								<img src="images/product/room/<?php echo $p_img;?>/1.jpg" alt="">
+								<img src="images/product/mass/<?php echo $p_image;?>/1.jpg" alt="">
 							</div>
 						</div>
 
-						<div class="item-slick3" data-thumb="images/product/room/<?php echo $pr_img;?>/22.jpg">
+						<div class="item-slick3" data-thumb="images/product/mass/<?php echo $p_image;?>/22.jpg">
 							<div class="wrap-pic-w">
-								<img src="images/product/room/<?php echo $p_img;?>/2.jpg" alt="IMG-PRODUCT">
+								<img src="images/product/mass/<?php echo $p_image;?>/2.jpg" alt="IMG-PRODUCT">
 							</div>
 						</div>
 
-						<div class="item-slick3" data-thumb="images/product/room/<?php echo $pr_img;?>/33.jpg">
+						<div class="item-slick3" data-thumb="images/product/mass/<?php echo $p_image;?>/33.jpg">
 							<div class="wrap-pic-w">
-								<img src="images/product/room/<?php echo $p_img;?>/3.jpg" alt="IMG-PRODUCT">
+								<img src="images/product/mass/<?php echo $p_image;?>/3.jpg" alt="IMG-PRODUCT">
 							</div>
 						</div>
 					</div>
@@ -285,8 +275,11 @@
 				</div>
 			</div>
 		</div>
-	</div
-
+	</div>
+	
+	<section class="bgwhite p-t-60">
+		<?php  include('images/product/mass/'.$p_image.'/'.$p_image.'.php');?>
+	</section>
 
 	
 	<!-- Relate Product -->
@@ -297,7 +290,6 @@
 	<?php include('includes/inc_footer.php');?>
 	
 	
-
 
 
 	<!-- Back to top -->

@@ -33,11 +33,18 @@
 			$( "#tabledetail" ).empty();
 			$('#proname').removeClass('hide');
 				var poprodtype = $('#poprodtype').val();
-				if(poprodtype==1){
+				if(poprodtype==11){
 					$('#form1').attr('action','machinet.php');
 					$('#tabledetail').load("../../ajax/return_machine.php");
 					$("#prodname").autocomplete({			
 						source: "../../ajax/search_product.php",
+						minLength: 1
+					});
+				}else if(poprodtype==1){
+					$('#form1').attr('action','.php');
+					$('#tabledetail').load("../../ajax/return_mass.php");
+					$("#prodname").autocomplete({			
+						source: "../../ajax/search_productroom.php",
 						minLength: 1
 					});
 				}else if(poprodtype==2){
@@ -45,6 +52,13 @@
 					$('#tabledetail').load("../../ajax/return_room.php");
 					$("#prodname").autocomplete({			
 						source: "../../ajax/search_productroom.php",
+						minLength: 1
+					});
+				}else if(poprodtype==3){
+					$('#form1').attr('action','elec.php');
+					$('#tabledetail').load("../../ajax/return_elec.php");
+					$("#prodname").autocomplete({			
+						source: "../../ajax/search_elec.php",
 						minLength: 1
 					});
 				}

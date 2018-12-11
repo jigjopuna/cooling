@@ -18,7 +18,7 @@
 		  $descr1 =  $row['p_descr1'];
 		  $descr2 =  $row['p_descr2'];
 		  $descr3 =  $row['p_descr3'];
-		  $pr_img =  $row['p_img'];
+		  $p_img =  $row['p_image'];
 		  $video =  $row['p_vdo'];
 ?>
 <!DOCTYPE html>
@@ -67,9 +67,6 @@
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
-						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
 						<!-- Header cart noti -->
 						<?php include('includes/inc_minibasket.php');?>
 					</div>
@@ -148,13 +145,13 @@
 							</div>
 						</div>
 
-						<div class="item-slick3" data-thumb="images/product/room/<?php echo $pr_img;?>/22.jpg">
+						<div class="item-slick3" data-thumb="images/product/room/<?php echo $p_img;?>/22.jpg">
 							<div class="wrap-pic-w">
 								<img src="images/product/room/<?php echo $p_img;?>/2.jpg" alt="IMG-PRODUCT">
 							</div>
 						</div>
 
-						<div class="item-slick3" data-thumb="images/product/room/<?php echo $pr_img;?>/33.jpg">
+						<div class="item-slick3" data-thumb="images/product/room/<?php echo $p_img;?>/33.jpg">
 							<div class="wrap-pic-w">
 								<img src="images/product/room/<?php echo $p_img;?>/3.jpg" alt="IMG-PRODUCT">
 							</div>

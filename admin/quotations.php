@@ -446,10 +446,10 @@
 							<td align="left"></td>
 						</tr>
 						<tr>
-							<td align="left">บัญชีธนาคารกสิกรไทย (ออมทรัพย์)</td>
+							<td align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
 							<td align="left"></td>
 							<tr>
-							<td colspan="2" align="left"> ชูเกียรติ เทียนอำไพ   เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;">855-2-05499-8</span></td>
+							<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 047-8-18623-1</span></td>
 						</tr>
 						</tr>
 					</table>
@@ -518,6 +518,11 @@
 			
 			
 			<?php include('../include/quotation_head.php'); ?>
+			
+			<div id="" style="height:5px;; clear:both">
+				
+
+			</div><!--end product_price-->
 			
 			<div id="product_price" style="margin-top:105px; clear:both">
 				<img src="../content/images/cool/standard.jpg" style="width:60%; margin-left:150px;">

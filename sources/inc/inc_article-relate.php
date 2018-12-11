@@ -77,6 +77,20 @@
 				</a>
 			</div>
 			
+			<div class="articles"><a href="../../th/article/5cause.php">
+				<div class="blog-box">
+					<div class="blog-img" style="background: url('../../content/images/article/5cause/307x230.jpg');">
+					<span>+ อ่านต่อ</span>
+					</div>
+					<div class="blog-content">
+						<span class="blog-time"></span>
+						<h2 class="blog-title">5 สาเหตุหลักที่ห้องเย็นไม่เย็น</h2>
+						<p class="blog-excerpt">ห้องเย็น ปัญหาที่พบบ่อยๆ พร้อมวิธีการแก้ปัญหาง่ายๆ ที่ทุกคนดูเลหรือทำเองได้  ห้องเสีย ไม่เย็น อ่านแล้วช่วยแก้ไขได้</p>
+					</div>
+				</div>
+				</a>
+			</div>
+			
 			
 			
 			

@@ -592,6 +592,20 @@
 		<div class="row">
 			<div class="blog-slider" >
 			
+				<div class="articles"><a href="th/article/prepair.php">
+				<div class="blog-box">
+					<div class="blog-img" style="background: url('content/images/article/prepair/307x230.jpg');">
+					<span>+ อ่านต่อ</span>
+					</div>
+					<div class="blog-content">
+						<span class="blog-time"></span>
+						<h2 class="blog-title ">ห้องเย็นก่อนจะติดตั้งเราต้องเตรียมอะไรบ้าง</h2>
+						<p class="blog-excerpt">ก่อนมีห้องเย็นมาดูกันว่าเราต้องรู้ และต้องเตรียมอะไรบ้างทั้งเรื่องพื้นจัดวาง และระบบไฟฟ้า เรามีห้องเย็นให้เลือกหลายรูปแบบราคาถูกไม่แพง รวดเร็วติดตั้งง่าย ด่วนๆ</p>
+					</div>
+				</div>
+				</a>
+			</div>
+			
 			
 				<div class="articles"><a href="th/article/brief.php">
 					<div class="blog-box">
@@ -620,30 +634,7 @@
 					</div>
 					</a>
 				</div>
-				
-				
-			
-			
-			
 
-			<div class="articles"><a href="th/article/pre-design.php">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('content/images/article/design-room/main-post.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time"></span>
-						<h2 class="blog-title ">ออกแบบห้องเย็น 3D ฟรี ก่อนทำจริง</h2>
-						<p class="blog-excerpt">หมดปัญหาเรื่องได้ห้องเย็นที่ไม่ตรงกับความต้องการ เราออกแบบให้เห็นภาพจริง 3 มิติ ก่อนสร้างห้องเย็นทุกครั้ง   เราอยากให้ลูกค้าได้ห้องเย็นที่ดีที่สุดเพื่อตอบโจทย์ธุรกิจของลูกคัา</p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			
-			
-			
-			
 			</div>
 		</div>
 		<div class="row">
@@ -717,15 +708,15 @@
 			</div>
 			
 			
-			<div class="articles"><a href="" target="_blank">
+			<div class="articles"><a href="th/article/5cause.php" target="_blank">
 				<div class="blog-box">
-					<div class="blog-img" style="background: url('sources/assets/images/comp.jpg');">
+					<div class="blog-img" style="background: url('content/images/article/5cause/307x230.jpg');">
 					<span>+ อ่านต่อ</span>
 					</div>
 					<div class="blog-content">
 						<span class="blog-time "></span>
-						<h2 class="blog-title ">ไอเดียแนวคิดธุรกิจห้องเย็น</h2>
-						<p class="blog-excerpt "> ธุรกิจที่ประสบความสำเร็จในด้านอาหาร เกษตร ปศุสัตว์ และธุรกิจที่เกี่ยวข้อง มีห้องเย็นแล้วใช้ยังไงให้คุ้มค่ากับที่ลงทุน </p>
+						<h2 class="blog-title ">5 สาเหตุหลักที่ห้องเย็นไม่เย็น</h2>
+						<p class="blog-excerpt "> ห้องเย็น ปัญหาที่พบบ่อยๆ พร้อมวิธีการแก้ปัญหาง่ายๆ ที่ทุกคนดูเลหรือทำเองได้  ห้องเสีย ไม่เย็น อ่านแล้วช่วยแก้ไขได้</p>
 					</div>
 				</div>
 				</a>

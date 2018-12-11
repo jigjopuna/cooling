@@ -3,11 +3,16 @@
 	  $today = date("Y-m-d");
 	  
 	  $p_id = trim($_GET['p_id']);
+	  $type = trim($_GET['type']);
 	  $rowprod = mysql_fetch_array(mysql_query("SELECT * FROM tb_product WHERE p_id ='$p_id'"));
 	
-	
+	  if($type==1){
+		   $sql_catm = "SELECT * FROM  tb_category WHERE cat_type = 1"; 
+	  }else{
+		   $sql_catm = "SELECT * FROM  tb_category WHERE cat_type = 2"; 
+	  }
 	  //ประเภทสินค้า
-	  $sql_catm = "SELECT * FROM  tb_category"; 
+	 
 	  $result_catm = mysql_query($sql_catm);
 	  $num_catm = mysql_num_rows($result_catm);
 ?>

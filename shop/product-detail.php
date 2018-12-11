@@ -2,28 +2,7 @@
 	  require_once('includes/connect.php');
 	  $prod_type = trim($_GET['prod_type']);
 	  $prod_id = trim($_GET['p_id']);
-	  
-	  
-	  if($prod_type=='r'){
-		  $sql = "SELECT * FROM tb_productroom WHERE pr_id = '$prod_id'";
-		  $currmenu = 3;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
-		  $menuname = 'อุปกรณ์ห้องเย็น';
-		  $url = 'room.php';
-		  
-		  $row = mysql_fetch_array(mysql_query($sql));
-		  $prodname =  $row['pr_name'];
-		  $seo =  $row['pr_seo'];
-		  $descr1 =  $row['pr_descr1'];
-		  $descr2 =  $row['pr_descr2'];
-		  $descr3 =  $row['pr_descr3'];
-		  $pr_img =  $row['pr_img'];
-		  $video =  $row['pr_vdo'];
-		  
-	  }else if($prod_type=='m'){
-		  
-	  }
-	  
-	
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,10 +50,6 @@
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
-						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
-						<!-- Header cart noti -->
 						<?php include('includes/inc_minibasket.php');?>
 					</div>
 				</div>
@@ -99,9 +74,6 @@
 					<span class="linedivide2"></span>
 
 					<div class="header-wrapicon2">
-						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
 						<!-- Header cart noti -->
 					
 					<?php include('includes/inc_minibasket_mobile.php');?>

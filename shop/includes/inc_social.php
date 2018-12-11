@@ -8,12 +8,12 @@
 				</div>
 
 				<span class="topbar-child1">
-					ฟรีค่าขนส่งเมื่อซื้อมากกว่า 10,000 บาท
+					ฟรีค่าขนส่งเมื่อซื้อมากกว่า 30,000 บาท
 				</span>
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						Line: <a href="http://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank">@topcooling</a>
+						Line: <a href="http://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank">@tclshop</a>
 					</span>
 
 					<div class="topbar-language rs1-select2">

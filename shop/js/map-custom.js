@@ -12,11 +12,11 @@
             var draggable = selector_map.attr('data-draggable');
 
             if (img_pin == null) {
-                img_pin = 'images/icons/location.png';
+                img_pin = 'images/icons/location.jpg';
             }
             if (data_map_x == null || data_map_y == null) {
-                data_map_x = 40.007749;
-                data_map_y = -93.266572;
+                data_map_x = 13.878723; 
+                data_map_y = 100.008951;
             }
             if (scrollwhell == null) {
                 scrollwhell = 0;
@@ -33,7 +33,7 @@
                 map_zoom = 14;
 
             var locations = [
-                ['<div class="infobox"><p>Now that you visited our website, how' +
+                ['<div class="infobox"><p>แวะมาเยี่ยมชมเราได้นะคะ, how' +
                 ' <br>about checking out our office too?</p></div>'
                     , latitude, longitude, 2]
             ];

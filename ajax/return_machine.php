@@ -1,5 +1,5 @@
 <?php require_once('../include/connect.php'); 
-	$sqlajax = "SELECT * FROM tb_product";
+	$sqlajax = "SELECT * FROM tb_product p JOIN tb_category c ON p.p_cate = c.cat_id WHERE c.cat_type = 1";
 	$resultajax = mysql_query($sqlajax);
 	$numajax = mysql_num_rows($resultajax);
 
@@ -21,7 +21,7 @@
 								?>
 										<tr class='gradeA'> 
 											<td><?php echo $row['p_id'];?></td>
-											<td><a href="machine_edit.php?p_id=<?php echo $row['p_id'];?>"><?php echo $row['p_name'];?></a></td>
+											<td><a href="machine_edit.php?p_id=<?php echo $row['p_id'];?>&type=<?php echo $row['cat_type'];?>"><?php echo $row['p_name'];?></a></td>
 											<td><?php echo $row['p_model'];?></td>
 											<td><?php echo $row['p_sellprice'];?></td>
 											<td><?php echo $row['p_price'];?></td>

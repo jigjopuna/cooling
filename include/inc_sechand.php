@@ -1,10 +1,10 @@
 <table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
 					<tr>
-						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็นสำเร็จรูป </td>
+						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็นสำเร็จรูป มือสองประกอบใหม่ </td>
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">ห้องเย็นปสำเร็จรูป  (เคลื่อนย้ายได้)  <strong><u>มือสอง ยาว <?php echo $r_lenght; ?> เมตร</u></strong></td>
+						<td style="width: 60%" align="left">ห้องเย็นสำเร็จรูป  (เคลื่อนย้ายได้)  <strong><u>มือสอง ยาว <?php echo $r_lenght; ?> เมตร</u></strong></td>
 						<td colspan="2" style="width: 13%;" class="rlb">กว้าง  (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว   (เมตร)</td>
 						<td style="width: 13%" class="b">สูง  (เมตร)</td> 
@@ -123,12 +123,12 @@
 					
 					<tr>
 						<td></td>
-						<td colspan="3" class="rl">VAT 7%</td>
-						<td class="rt l" align="right"><?php echo number_format($vats, 2, '.', ','); ?></td>
+						<td colspan="3" class="rl">ส่วนลด</td>
+						<td class="rt l" align="right"><?php //echo number_format($vats, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td></td>
+						<td>ข้อมูลเพิ่มเติม https://topcooling.net/th/article/secondhand.php</td>
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
 						<td class="rt l" align="right"><?php echo number_format($incvat, 2, '.', ',');?> </td>
 					</tr>

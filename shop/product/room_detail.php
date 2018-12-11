@@ -2,9 +2,7 @@
 	  require_once('../includes/connect.php');
 	  $cate = trim($_GET['cate']);
 	  $subcate = trim($_GET['subcate']);
-	  
-	  
-	  
+
 	  //ดูว่ามี subcate ไหม subcate หมายถึง cate คือประตู subcate ส่วนย่อยของประตู
 	  if($cate != '' && $subcate != ''){
 		  $sql = "SELECT * FROM tb_productroom WHERE pr_cate = '$cate' AND pr_subcate = '$subcate' AND pr_publish = 1";
@@ -18,8 +16,6 @@
 	 
 	  $result = mysql_query($sql);
 	  $num = mysql_num_rows($result);
-	  
-	  
 
       $result_more = mysql_query($sql_more);
 	  $num_more = mysql_num_rows($result_more);
@@ -60,96 +56,22 @@
 			<div class="wrap_header">
 				<!-- Logo -->
 				<a href="index.html" class="logo">
-					<img src="../images/icons/logo.png" alt="IMG-LOGO">
+					<img src="../images/icons/logo.jpg" alt="ห้องเย็นท็อปคูลลิ่ง">
 				</a>
 
 				<!-- Menu -->
-				<?php include('../includes/inc_menu2.php');?>
+				<?php include('../includes/inc_menu1.php');?>
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="../images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
+					<?php include('../includes/account-user.php');?>
 
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
-						<img src="../images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
 						<!-- Header cart noti -->
-						<div class="header-cart header-dropdown">
-							<ul class="header-cart-wrapitem">
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-01.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											White Shirt With Pleat Detail Back
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $19.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-02.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Converse All Star Hi Black Canvas
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-03.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Nixon Porter Leather Watch In Tan
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-									</div>
-								</li>
-							</ul>
-
-							<div class="header-cart-total">
-								Total: $75.00
-							</div>
-
-							<div class="header-cart-buttons">
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										View Cart
-									</a>
-								</div>
-
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Check Out
-									</a>
-								</div>
-							</div>
-						</div>
+						<?php include('../includes/inc_minibasket1.php');?>
+						
 					</div>
 				</div>
 			</div>
@@ -159,95 +81,21 @@
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
 			<a href="index.html" class="logo-mobile">
-				<img src="../images/icons/logo.png" alt="IMG-LOGO">
+				<img src="../images/icons/logo.jpg" alt="top cooling ห้องเย็น">
 			</a>
 
 			<!-- Button show menu -->
 			<div class="btn-show-menu">
 				<!-- Header Icon mobile -->
 				<div class="header-icons-mobile">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="../images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
+					<?php include('../includes/account-user.php');?>
 
 					<span class="linedivide2"></span>
 
 					<div class="header-wrapicon2">
-						<img src="../images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
 						<!-- Header cart noti -->
-						<div class="header-cart header-dropdown">
-							<ul class="header-cart-wrapitem">
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-01.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											White Shirt With Pleat Detail Back
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $19.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-02.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Converse All Star Hi Black Canvas
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="../images/item-cart-03.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Nixon Porter Leather Watch In Tan
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-									</div>
-								</li>
-							</ul>
-
-							<div class="header-cart-total">
-								Total: $75.00
-							</div>
-
-							<div class="header-cart-buttons">
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										View Cart
-									</a>
-								</div>
-
-								<div class="header-cart-wrapbtn">
-									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Check Out
-									</a>
-								</div>
-							</div>
-						</div>
+						<?php include('../includes/inc_minibasket_mobile1.php');?>
+						
 					</div>
 				</div>
 
@@ -322,14 +170,24 @@
 							for($i=1; $i<=$num; $i++){
 								$row = mysql_fetch_array($result);
 								$prod_name = $row['pr_name'];
+								
+								if($cate==1 || $cate==2){
+									$prod_name1 = $prod_name . ' '.$row['pr_type'].' '.$row['pr_size'].' นิ้ว'; 
+								}else{
+									$prod_name1 = $prod_name;
+								}
+								
+								$prices = $row['pr_price'];
+								$costprice = $row['pr_sell_price'];
 						?>
 						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="../images/product/room/<?php echo $row['pr_img'];?>/00.jpg" alt="<?php echo $prod_name;?>">
-
-									<div class="block2-overlay trans-0-4">
+									<a href="../product-detail.php?prod_type=<?php echo $producttype;?>&p_id=<? echo $row['pr_id'];?>">
+										<img src="../images/product/room/<?php echo $row['pr_img'];?>/00.jpg" alt="<?php echo $prod_name1;?>">
+									</a>
+									<!--<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
 											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
@@ -340,16 +198,16 @@
 												ใส่ตะกร้า
 											</button>
 										</div>
-									</div>
+									</div>-->
 								</div>
 
 								<div class="block2-txt p-t-20">
 									<a href="../product-detail.php?prod_type=<?php echo $producttype;?>&p_id=<? echo $row['pr_id'];?>" class="block2-name dis-block s-text3 p-b-5">
-										<?php echo $prod_name;?>
+										<?php echo $prod_name1;?>
 									</a>
 
 									<span class="block2-price m-text6 p-r-5">
-										<span style="margin-right:50px;"><s>฿<?php echo number_format($row['pr_price'], 0, '.', ',');?> </s></span> <strong>฿<?php echo number_format($row['pr_sell_price'], 0, '.', ',');?></strong>
+										<span style="margin-right:50px;"><s>฿<?php echo number_format($prices, 0, '.', ',');?> </s></span> <strong>฿<?php echo number_format($costprice, 0, '.', ',');?></strong>
 									</span>
 								</div>
 							</div>

@@ -220,6 +220,14 @@
                 <div class="col-lg-3">
                    <a href="insoon.php"><button type="button" class="btn btn-lg btn-primary btn-block">ยอดกำลังจะโอนเข้า</button></a>
                 </div>
+                
+                 <div class="col-lg-3">
+                  
+                </div>
+                
+                 <div class="col-lg-3">
+                   <a href="period.php"><button type="button" class="btn btn-lg btn-primary btn-block">เช็คงวด</button></a>
+                </div>
             </div>
 			<div class="row">
                 <div class="col-lg-3">

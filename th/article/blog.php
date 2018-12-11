@@ -38,7 +38,7 @@
 		<div class="row" id="">
 			<div class="col-md-12">
 				<div class="heading" style="text-align: center;">
-					17 ข้อต้องรู้ก่อนมีห้องเย็น	
+					บทความห้องเย็น	
 				</div><br><br>
 				
 				<img src="../../content/images/article/17howto/17.jpg" alt="ห้องเย็น"><br><br>
@@ -47,12 +47,10 @@
 				<?php include('../../sources/inc/inc_holiday.php');?>
 				
 				<div class="p_article">
-					<a href="">1. ข้อมูลเครื่องทำความเย็น</a><br>
-					<a href="">2. ความรู้ระบบไฟฟ้า</a><br>
-					<a href="">3. ข้อมูลเกี่ยวกับอุปกรณ์ห้องเย็น</a><br>
-					<a href="">4. ข้อมูลอุปกรณ์เครื่อง</a><br>
-					<a href="">5. โครงสร้างห้องเย็น </a><br>
-				</div>
+					<a href="">1. ความรู้ทั่วไป</a><br>
+					<a href="">2. บทความห้องเย็น</a><br>
+					<a href="">3. บทความไฟฟ้าห้องเย็น</a><br>
+					<a href="">4. บทความเครื่องทำความเย็น </a><br>
 			</div>
 		</div>
 	</div>
@@ -60,40 +58,27 @@
 
  <div class="section-testimonial">
 	<div class="heading">
-	บทความเครื่องทำความเย็น
+	ความรู้ทั่วไป
 	</div>
 	 
 	<div class="container">
 		<div class="row">
 			<div class="blog-slider" >
 			
-				<div class="articles"><a href="../../th/article/speedlock.php">
+				<div class="articles"><a href="../../th/article/5cause.php">
 					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../content/images/cool/307_230px_speedlock.jpg');">
+						<div class="blog-img" style="background: url('../../content/images/article/5cause/307x230.jpg');">
 						<span>+ อ่านต่อ</span>
 						</div>
 						<div class="blog-content">
 							<span class="blog-time"></span>
-							<h2 class="blog-title">ห้องเย็นแบบฝั่งประกอบเร็ว</h2>
-							<p class="blog-excerpt">ประกอบติดตั้งห้องเย็น ที่หน้างาน ติดตั้งกับพื้นที่ทุกรูปแบบ (พื้นที่เรียบ) ใช้เวลาติดตั้ง 1 ถึง 2 วัน ใช้งานได้ทันที  สามารถรื้อและขนย้ายได้ </p>
+							<h2 class="blog-title">5 สาเหตุหลักที่ห้องเย็นไม่เย็น</h2>
+							<p class="blog-excerpt">ห้องเย็น ปัญหาที่พบบ่อยๆ พร้อมวิธีการแก้ปัญหาง่ายๆ ที่ทุกคนดูเลหรือทำเองได้  ห้องเสีย ไม่เย็น อ่านแล้วช่วยแก้ไขได้ </p>
 						</div>
 					</div>
 				</a>
 				</div>
 			
-				<div class="articles"><a href="../../th/article/sumred.php" target="_blank">
-					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../content/images/cool/307_230px_sumred.jpg');">
-						<span>+ อ่านต่อ</span>
-						</div>
-						<div class="blog-content">
-							<span class="blog-time"></span>
-							<h2 class="blog-title">ห้องเย็นสำเร็จรูป</h2>
-							<p class="blog-excerpt">ยกไปวางที่หน้างาน พร้อมใช้งานทันที เคลื่อนย้ายได้สะดวก ประหยัดงบประมาณ ได้ห้องเย็นใกล้เคียงกับของใหม่ รับประกันนาน 6 เดือน </p>
-						</div>
-					</div>
-				</a>
-				</div>
 				
 				<div class="articles"><a href="../../th/article/17howto.php">
 					<div class="blog-box">
@@ -123,19 +108,6 @@
 				</a>
 			</div>
 			
-			<div class="articles"><a href="../../th/art_iot/iot.php">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/chktemp.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time"></span>
-						<h2 class="blog-title">ทำไมห้องเย็นต้องใช้ไฟฟ้า 3 เฟส</h2>
-						<p class="blog-excerpt">เพราะสินค้าในห้องเย็นมีมูลค่าสูงมาก หากมีระบบนี้ จะช่วยลดความเสี่ยงห้องเย็นไม่เย็นไปได้อย่างมาก ตรวจสอบอุณหภูมิได้ตลอด 24 ชม. แม้ไม่ได้อยู่หน้าห้องเย็น</p>
-					</div>
-				</div>
-				</a>
-			</div>
 
 			</div>
 		</div>
@@ -157,47 +129,9 @@
 		<div class="row">
 			<div class="blog-slider" >
 			
-				<div class="articles"><a href="../../th/article/speedlock.php">
-					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../content/images/cool/307_230px_speedlock.jpg');">
-						<span>+ อ่านต่อ</span>
-						</div>
-						<div class="blog-content">
-							<span class="blog-time"></span>
-							<h2 class="blog-title">ห้องเย็นแบบฝั่งประกอบเร็ว</h2>
-							<p class="blog-excerpt">ประกอบติดตั้งห้องเย็น ที่หน้างาน ติดตั้งกับพื้นที่ทุกรูปแบบ (พื้นที่เรียบ) ใช้เวลาติดตั้ง 1 ถึง 2 วัน ใช้งานได้ทันที  สามารถรื้อและขนย้ายได้ </p>
-						</div>
-					</div>
-				</a>
-				</div>
-			
-				<div class="articles"><a href="../../th/article/sumred.php" target="_blank">
-					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../content/images/cool/307_230px_sumred.jpg');">
-						<span>+ อ่านต่อ</span>
-						</div>
-						<div class="blog-content">
-							<span class="blog-time"></span>
-							<h2 class="blog-title">ห้องเย็นสำเร็จรูป</h2>
-							<p class="blog-excerpt">ยกไปวางที่หน้างาน พร้อมใช้งานทันที เคลื่อนย้ายได้สะดวก ประหยัดงบประมาณ ได้ห้องเย็นใกล้เคียงกับของใหม่ รับประกันนาน 6 เดือน </p>
-						</div>
-					</div>
-				</a>
-				</div>
 				
-				<div class="articles"><a href="../../th/article/17howto.php">
-					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../sources/assets/images/17howto.jpg');">
-						<span>+ อ่านต่อ</span>
-						</div>
-						<div class="blog-content">
-							<span class="blog-time"></span>
-							<h2 class="blog-title">17 ข้อ ต้องรู้ก่อนมีห้องเย็น</h2>
-							<p class="blog-excerpt">หากกำลังมองหาห้องเย็นสักห้อง และตัดสินใจอยู่ ให้อ่านบทความนี้ จะช่วยท่านตัดใจได้ดีขึ้น และถูกต้องแน่นอน จากประสบการณ์ตรง กว่า 30 ปี</p>
-						</div>
-					</div>
-					</a>
-				</div>
+				
+				
 
 			<div class="articles"><a href="../../th/article/3phase.php">
 				<div class="blog-box">
@@ -275,48 +209,6 @@
 					</div>
 				</a>
 				</div>
-				
-				<div class="articles"><a href="../../th/article/17howto.php">
-					<div class="blog-box">
-						<div class="blog-img" style="background: url('../../sources/assets/images/17howto.jpg');">
-						<span>+ อ่านต่อ</span>
-						</div>
-						<div class="blog-content">
-							<span class="blog-time"></span>
-							<h2 class="blog-title">17 ข้อ ต้องรู้ก่อนมีห้องเย็น</h2>
-							<p class="blog-excerpt">หากกำลังมองหาห้องเย็นสักห้อง และตัดสินใจอยู่ ให้อ่านบทความนี้ จะช่วยท่านตัดใจได้ดีขึ้น และถูกต้องแน่นอน จากประสบการณ์ตรง กว่า 30 ปี</p>
-						</div>
-					</div>
-					</a>
-				</div>
-
-			<div class="articles"><a href="../../th/article/3phase.php">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/3phase-s.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time"></span>
-						<h2 class="blog-title">ทำไมห้องเย็นต้องใช้ไฟฟ้า 3 เฟส</h2>
-						<p class="blog-excerpt">ไฟฟ้า 3 เฟสกับห้องเย็นเป็นของคู่กัน ช่วยประหยัดราคาต้นทุนค่าไฟในระยะยาว และยืดอายุการใช้งานของอุปกรณ์ไฟฟ้า</p>
-					</div>
-				</div>
-				</a>
-			</div>
-			
-			<div class="articles"><a href="../../th/art_iot/iot.php">
-				<div class="blog-box">
-					<div class="blog-img" style="background: url('../../sources/assets/images/chktemp.jpg');">
-					<span>+ อ่านต่อ</span>
-					</div>
-					<div class="blog-content">
-						<span class="blog-time"></span>
-						<h2 class="blog-title">ทำไมห้องเย็นต้องใช้ไฟฟ้า 3 เฟส</h2>
-						<p class="blog-excerpt">เพราะสินค้าในห้องเย็นมีมูลค่าสูงมาก หากมีระบบนี้ จะช่วยลดความเสี่ยงห้องเย็นไม่เย็นไปได้อย่างมาก ตรวจสอบอุณหภูมิได้ตลอด 24 ชม. แม้ไม่ได้อยู่หน้าห้องเย็น</p>
-					</div>
-				</div>
-				</a>
-			</div>
 
 			</div>
 		</div>
