@@ -489,7 +489,7 @@
 						<td style="width: 13%" class="b">สูง  (เมตร)</td> 
 					</tr>
 					<tr align="center">
-						<td align="left">COLD ROOM TEMP  <?php echo $ord_temp; ?>C<Sup>o</Sup> ขนาดห้อง (วัดภายนอก) </td>
+						<td align="left">COLD ROOM TEMP  <span style="color:red; font-size:18px; font-weight:bold;"><?php echo $ord_temp; ?>C<Sup>o</Sup></span>ขนาดห้อง (วัดภายนอก) </td>
 						<td class="l"><?php echo $w; ?></td>
 						<td class="r"></td>
 						<td><?php echo $l; ?></td>
@@ -507,7 +507,8 @@
 			
 					
 					<tr class="highs" style="">
-						<td class="l">1. ชุด Condensing <strong><u><?php echo $comp?></u></strong> <?php echo '  รุ่น '.$model;?></td>
+						<!--<td class="l">1. ชุด Condensing <strong><u><?php //echo $comp?></u></strong> <?php //echo '  รุ่น '.$model;?></td>-->
+						<td class="l">1. ชุด Condensing <strong><u>Copeland <span style="color:red; font-size:18px;">3HP</span></u></strong>   รุ่น ZB 21 KQE</td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="right"><?php echo number_format($bevat/*$comprice+$coilyenprice*/, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php echo number_format($bevat/*$comprice+$coilyenprice*/, 2, '.', ','); ?></td>
@@ -549,7 +550,21 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - พื้นอลูมิเนียมลายกันลื่น</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">3. ประตูบานสวิงขนาด <strong><u>1.0 x 2.0 เมตร</u></strong>  กว้าง สูง</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">4. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
@@ -562,7 +577,7 @@
 					</tr>
 
 					<tr class="highs" style="">
-						<td class="l"> 4. ค่าติดตั้งและจัดส่งสินค้า</td>
+						<td class="l"> 5. ค่าติดตั้งและจัดส่งสินค้า</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"><?php if($ship_cost == 0) echo 'ฟรี'; ?></td>
 						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
@@ -588,12 +603,7 @@
 						</tr>
 					<?php } ?>
 					
-					<tr class="highs" style="">
-						<td class="l"><span style="text-decoration: underline;">ตำแหน่ง</span> ประตู : <?php echo $door; ?>, ตู้คอนโทรล : <?php echo $control; ?>, คอล์ยร้อน : <?php echo $coilh; ?></td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
+					
 					
 					<tr>
 						<td></td>
@@ -603,8 +613,8 @@
 					
 					<tr>
 						<td></td>
-						<td colspan="3" class="rl">VAT 7%</td>
-						<td class="rt l" align="right"><?php echo number_format($taxs, 2, '.', ','); ?></td>
+						<td colspan="3" class="rl">ส่วนลด</td>
+						<td class="rt l" align="right">10,000.00<?php //echo number_format($taxs, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>

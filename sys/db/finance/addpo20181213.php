@@ -14,8 +14,6 @@
 	$poprodtype = trim($_POST['poprodtype']);
 	$poqty  = trim($_POST['poqty']);
 	$poprice  = trim($_POST['poprice']);
-	$mudjum  = trim($_POST['mudjum']);
-	
 	
 	$poshop = trim($_POST['poshop']);
 	$pobuyer  = trim($_POST['pobuyer']);
@@ -33,17 +31,13 @@
 	$cash2 = $rowcash['cash2'];
 	$cash_emp = $rowcash['cash_emp'];
 	$cash_temp = $rowcash['cash_temp'];
-	
-	/*$rowshop = mysql_fetch_array(mysql_query("SELECT * FROM tb_sellers WHERE sl_id = '$poshop'"));
-	$sl_credit = $rowshop['sl_credit'];
-	$pocredit_max = $rowshop['sl_credit_max'];
-	$pocredit_date = $rowshop['sl_credit_date'];*/
+
 	
 	$e_id = trim($_POST['e_id']);
 	
 	$today = date("Ymd");
 	
-	/*if($posumrong=='on'){ 
+	if($posumrong=='on'){ 
 		$sumrong = 1; //เอาเงินสำรองซื้อ
 		if($cash_temp < $poprice) { exit("<script>alert('เงินกอง สำรองจ่าย ไม่พอ '); window.location='../../finance/outpay.php';</script>"); }
 		$temp_cash1 = $cash1; //เงินซื้อของ
@@ -52,52 +46,17 @@
 		$sumrong = 0;	//เอาเงินซื้อของซื้อ
 		$temp_cash1 = $cash1 - $poprice; //เงินซื้อของ
 		$temp_cash2 = $cash_temp; //เงินสำรอง
-	}*/
+	}
 
-	
-	/*
-	
-	
-		cash_now = กองเงินรับเข้าาจากลูกค้า
-		cash1 = กองเงินซื้อของ
-		cash2 = กองเงินกำไร
-		cash_emp = กองเงินไว้จ่ายพนักงาน
-		cash_temp = กองไว้เผื่อทำอะไร กองเงินสำรอง
-		
-		
-	   มัดจำซื้อของ จะเอาเงินจากส่วนกลางมัดจำ 
-	   หักเงินจากส่วนกลาง
-	   จะมี 2 กรณี 
-	   1. จ่ายสด   (หักเงินส่วนกลาง)
-	   2. เครดิตเครดิตสั่งของ  (ไม่หัก) โปรเซิร์ฟ
-	   3. มัดจำซื้อของ % ใส่ยอดเงินมัดจำ และจ่ายเต็มเมื่อรับของ (หักเงินส่วนกลาง)
-	   4. มัดจำซื้อของ % ใส่ยอดเงินมัดจำ จ่ายเงินเต็มเมื่อครบกำหนดเวลาดิว เช่น 30 วัน (หักเงินส่วนกลาง)  คุณบี ต้น
-	   
-	   ไม่หักส่วนก็ต่อเมื่อ ติ๊ก Credit และ มัดจำเป็น 0 
-	*/
-	
-	
-	
-	
 	if($pocredit=='on'){ 
 		$po_credit = 1;
-		$mudjum_1 = $mudjum;
-		if($mudjum!=0) { $temp_cash1 = $cash1 - $mudjum; } else { $temp_cash1 = $cash1; }
 	}else{
-		$po_credit = 0;
-		$mudjum_1 = 0;
-		$temp_cash1 = $cash1 - $poprice; //เงินซื้อของ
-		if(($cash1 < $poprice)) { exit("<script>alert('เงินซื้อของไม่พอ '); window.location='../../finance/outpay.php';</script>"); }
+		$po_credit = 0;	
+		if(($cash1 < $poprice) && ($sumrong == 0)) { exit("<script>alert('เงินซื้อของไม่พอ '); window.location='../../finance/outpay.php';</script>"); }
 	}
 	
-	$temp_cash2 = $cash_temp; //เงินสำรองเท่าเดิม
 	
-	echo "ซื้อของ = ", $poprice, "<br>"; 
-	echo "มัดจำ = ", $mudjum_1, "<br>";
-	echo "เงินคงเหลือก่อนซื้อ = ", $cash1, "<br>";
-	echo "เงินซื้องคงเหลือ = ", $temp_cash1, "<br>";
-	echo "เงินสำรอง = ", $temp_cash2, "<br>";
-	//exit();
+
 	
 	echo "today = ", $today, "<br>"; 
 	echo "poname = ", $poname, "<br>";
@@ -178,7 +137,6 @@
 			po_subyer    = '$owner_money',			
 			po_shop     = '$poshop', 
 			po_comment  = '$poment', 
-			po_mudjum   = '$mudjum_1', 
 			po_bill_img = '$filename', 
 			po_date     = '$podate', 
 			po_orders   = '$search_custname', 
@@ -190,7 +148,7 @@
 	$result1 = mysql_query($sql);
 	
 	//อัปเดทเงินกองกลาง ในกรณีที่ใช้เงินส่วนกลางซื้อของ
-	if($pobuyer == 10 /*&& $po_credit == 0*/){				
+	if($pobuyer == 10 && $po_credit == 0){				
 		if($result1){ // เอาค่า PK ที่เพิ่งบันทึกลงในตารางสั่งซื้อมา ผูกไว้ในตารางเงินกองกลาง tb_cash_center
 			$a = mysql_insert_id($conn);
 			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$a', cash_out = '$poprice', cash_date = '$podate', cash_now = '$curr_cash', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_temp = '$temp_cash2'";		

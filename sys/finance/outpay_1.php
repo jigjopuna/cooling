@@ -67,7 +67,7 @@
 			});
 			$('#pocredit').change(credit);
 			$('#pobuyer').change(chk_cash); 
-			//$('#poprice').blur(chkfieldcash);
+			$('#poprice').blur(chkfieldcash);
 			$('#owner_money').hide();
 			$('#mudjum').parent().hide();
 			
@@ -145,16 +145,15 @@
 			var poqty = $('#poqty').val();
 			var poprice = $('#poprice').val(); 
 			var poprodtype = $('#poprodtype').val();
-			var poshop = $('#poshop').val();
 			var pobuyer = $('select[name=pobuyer]').val();
 			var podate = $('#podate').val(); 
 			var cashcenter = $('#pobuyer option:selected').val();
 			var ownercash = $('#ownercash option:selected').val(); 
 			if($('#pocredit').prop('checked') == true){
 				if($('#mudjum').val()=='') { alert('กรุณาใส่เงินมัดจำด้วยค่ะ'); return false;}
-				if(isNaN(poshop)){ alert('เลือกร้านค้าให้ถูกต้องด้วยนะคะ'); return false;}
+				
 				//ถ้าซื้อโดยใช้เครดิตต้องใส่เลือกร้านค้าด้วย
-				if(poshop == '' || poshop == 0 )  { alert('กรุณาเลือกร้านค้าด้วยค่ะ'); return false;}
+				if($('#poshop').val() == '' || $('#poshop').val() == 0 )  { alert('กรุณาเลือกร้านค้าด้วยค่ะ'); return false;}
 			}else{ 
 				$('#mudjum').val(0);
 			}

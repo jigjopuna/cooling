@@ -21,6 +21,7 @@
 	$poprice  = trim($_POST['poprice']);
 	$pocreditcomp  = trim($_POST['pocreditcomp']);
 	$posumrong  = trim($_POST['posumrong']);
+	$remain  = trim($_POST['remain']);
 	
 	
 	
@@ -39,7 +40,7 @@
 	
 	if($posumrong=='on') { $sumrong = 1;} else { $sumrong = 0; }
 	if($pocredit=='on') { $po_credit = 1;} else {$po_credit = 0; }
-	if($pocreditcomp) {$pocreditcomps = 1;} else {$pocreditcomps = 0;}
+	if($pocreditcomp=='on') {$pocreditcomps = 1;} else {$pocreditcomps = 0;}
 	
 	/*echo "posumrong = ", $posumrong, "<br>";
 	echo "pocredit = ", $pocredit, "<br>";
@@ -49,45 +50,23 @@
 	echo "pocreditcomps = ", $pocreditcomps, "<br>";
 	exit();*/
 	
+	
+	//ถ้าเป็นเครดิต และ ยังไม่ได้ชำระเครดิต  
 	if($po_credit == 1 && $pocreditcomps == 1 && $sumrong == 0){
-		if($cash1 < $poprice){ exit("<script>alert('เงินซื้อของไม่พอจ่ายเครดิต นะจ๊ะ');window.location='../../finance/outpay.php';</script>"); }
+		if($cash1 < $remain){ exit("<script>alert('เงินซื้อของไม่พอจ่ายเครดิต นะจ๊ะ');window.location='../../finance/outpay.php';</script>"); }
 	}else if ($po_credit == 1 && $pocreditcomps == 1 && $sumrong == 1){
-		if($cash_temp < $poprice){ exit("<script>alert('เงินสำรองไม่พอจ่ายเครดิต นะจ๊ะ');window.location='../../finance/outpay.php';</script>"); }
+		if($cash_temp < $remain){ exit("<script>alert('เงินสำรองไม่พอจ่ายเครดิต นะจ๊ะ');window.location='../../finance/outpay.php';</script>"); }
 	}
 	
 	if($sumrong = 1){ 
 		$temp_cash1 = $cash1; //เงินซื้อของ
-		$temp_cash2 = $cash_temp - $poprice; //เงินสำรอง
+		$temp_cash2 = $cash_temp - $remain; //เงินสำรอง
 	}else{
-		$temp_cash1 = $cash1 - $poprice; //เงินซื้อของ
+		$temp_cash1 = $cash1 - $remain; //เงินซื้อของ
 		$temp_cash2 = $cash_temp; //เงินสำรอง
 	}
 	
-	
-	
-	
-	
-	echo "today = ", $today, "<br>"; 
-	echo "poname = ", $poname, "<br>";
-	echo "poqty = ", $poqty, "<br>";
-	echo "poprice = ", $poprice, "<br>";
 
-	echo "poshop = ", $poshop, "<br>";
-	echo "pobuyer = ", $pobuyer, "<br>";
-	echo "owner_money = ", $owner_money, "<br>";
-	
-	echo "poment = ", $poment, "<br>";
-	echo "podate = ", $podate, "<br>";
-	echo "pocredit = ", $pocredit, "<br>";
-	
-	echo "cash2 = ", $cash2, "<br>";
-	echo "cash1 = ", $cash1, "<br>";
-	echo "temp_cash1 = ", $temp_cash1, "<br>";
-	echo "temp_cash2 = ", $temp_cash2, "<br>";
-	
-	
-	
-	
 	$target_dir = "../../images/bill/";
 	$filename = time().$_FILES["pobill"]["name"];
 	$target_file = $target_dir . basename($filename);
@@ -144,7 +123,27 @@
 		}
 	}//end check is has file
 	
+	
+	
+	echo "today = ", $today, "<br>"; 
+	echo "poname = ", $poname, "<br>";
+	echo "poqty = ", $poqty, "<br>";
+	echo "poprice = ", $poprice, "<br>";
 
+	echo "poshop = ", $poshop, "<br>";
+	echo "pobuyer = ", $pobuyer, "<br>";
+	echo "owner_money = ", $owner_money, "<br>";
+	
+	echo "poment = ", $poment, "<br>";
+	echo "podate = ", $podate, "<br>";
+	echo "pocredit = ", $pocredit, "<br>";
+	
+	echo "cash2 = ", $cash2, "<br>";
+	echo "cash1 = ", $cash1, "<br>";
+	echo "temp_cash1 = ", $temp_cash1, "<br>";
+	echo "temp_cash2 = ", $temp_cash2, "<br>";
+	//exit();
+	
 	$sql = "UPDATE tb_po SET 
 			po_name     = '$poname', 
 			po_qty      = '$poqty', 
@@ -162,10 +161,11 @@
 	$result1 = mysql_query($sql);
 
 	if($result1){ 
-		if($po_credit == 1 && $pocreditcomps == 1){ // ต้องติ๊กชำระ เครดิตเท่านั้น ถึงจะมี Transaction ในตาราง tb_cash_center
-			//$temp_cash1 = $cash1 - $poprice;
-			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$poprice', cash_date = '$podate', cash_now = '$cash_now', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_temp = '$temp_cash2'";		
+		if($po_credit == 1 && $pocreditcomps == 1){ // ต้องติ๊กชำระ เครดิตเท่านั้น ถึงจะมี Transaction ในตาราง tb_cash_center และตัดเงินที่เหลือหลังมัดจำ
+			$temp_cash1 = $cash1 - $remain;
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_temp = '$temp_cash2'";		
 			$result6 = mysql_query($cal_cash);
+			
 		}
 		exit("<script>alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ');window.location='../../finance/outpay.php';</script>");
 	}else{

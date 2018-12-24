@@ -30,32 +30,63 @@
 		cash1 = กองเงินซื้อของ
 		cash2 = กองเงินกำไร
 		cash_emp = กองเงินไว้จ่ายพนักงาน
-		cash_temp = กองไว้เผื่อทำอะไร
+		cash_temp = กองไว้เผื่อทำอะไร กองเงินสำรอง
 	*/
-	if($curr_cash < $tr_amount){ exit("<script>alert('เงินไม่พอโยกย้าย'); window.location='../../finance/outpay.php';</script>"); }
 	
-	$current_cash = $curr_cash - $tr_amount;
-	if($totransfer == 1){
-		//เอาเงินลูกค้าโอนมาเข้ากองซื้อของ   SET cash_now = '$money_buy', cash1 = '$tr_amount'
-		$type = 'กองเงินซื้อของ';
-		$add = $cash1 + $tr_amount;
-		$sql = "INSERT INTO tb_cash_center SET cash_now = '$current_cash', cash_temp = '$cash_temp', cash1 = '$add', cash2 = '$cash2', cash_emp = '$cash_emp', cash_date = '$tr_date', cash_times = now()";
-	}else if($totransfer == 2){
-		//เอาเงินลูกค้าโอนมาเข้ากองเงินจ่ายพนักงาน   SET cash_now = '$cashtemp1', cash_emp = '$tr_amount'
-		$type = 'กองเงินไว้จ่ายพนักงาน';
-		$add = $cash_emp + $tr_amount;
-		$sql = "INSERT INTO tb_cash_center SET cash_now = '$current_cash', cash_temp = '$cash_temp', cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$add', cash_date = '$tr_date', cash_times = now()";
-	}else if($totransfer == 3){
-		//เอาเงินลูกค้าโอนมาเข้ากองเงินสำรอง   SET cash_now = '$cashtemp1', cash_emp = '$tr_amount'
-		$type = 'กองไว้เผื่อทำอะไร';
-		$add = $cash_temp + $tr_amount;
-		$sql = "INSERT INTO tb_cash_center SET cash_now = '$current_cash', cash_temp = '$add', cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_date = '$tr_date', cash_times = now()";
-	}
-	else if($totransfer == 4){
-		//เงินกำไร
-		$type = 'เงินกำไร';
-		$add = $cash2 + $tr_amount;
-		$sql = "INSERT INTO tb_cash_center SET cash_now = '$current_cash', cash_temp = '$cash_temp', cash1 = '$cash1', cash2 = '$add', cash_emp = '$cash_emp', cash_date = '$tr_date', cash_times = now()";
+	if($fromtransfer == 1){
+		if($curr_cash < $tr_amount){ exit("<script>alert('เงินไม่พอโยกย้าย'); window.location='../../finance/outpay.php';</script>"); }
+		//เงินปัจจุบัน  =  cash_now - จำนวนเงิน
+		$current_cash = $curr_cash - $tr_amount;
+		
+		if($totransfer == 1){
+			//เอาเงินลูกค้าโอนมาเข้ากองซื้อของ   SET cash_now = '$money_buy', cash1 = '$tr_amount'
+			$type = 'กองเงินซื้อของ';
+			$add = $cash1 + $tr_amount;
+			$sql = "INSERT INTO tb_cash_center SET cash_now = '$current_cash', cash_temp = '$cash_temp', cash1 = '$add', cash2 = '$cash2', cash_emp = '$cash_emp', cash_date = '$tr_date', cash_times = now()";
+		}else if($totransfer == 2){
+			//เอาเงินลูกค้าโอนมาเข้ากองเงินจ่ายพนักงาน   SET cash_now = '$cashtemp1', cash_emp = '$tr_amount'
+			$type = 'กองเงินไว้จ่ายพนักงาน';
+			$add = $cash_emp + $tr_amount;
+			$sql = "INSERT INTO tb_cash_center SET cash_now = '$current_cash', cash_temp = '$cash_temp', cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$add', cash_date = '$tr_date', cash_times = now()";
+		}else if($totransfer == 3){
+			//เอาเงินลูกค้าโอนมาเข้ากองเงินสำรอง   SET cash_now = '$cashtemp1', cash_emp = '$tr_amount'
+			$type = 'กองไว้เผื่อทำอะไร';
+			$add = $cash_temp + $tr_amount;
+			$sql = "INSERT INTO tb_cash_center SET cash_now = '$current_cash', cash_temp = '$add', cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_date = '$tr_date', cash_times = now()";
+		}
+		else if($totransfer == 4){
+			//เงินกำไร
+			$type = 'เงินกำไร';
+			$add = $cash2 + $tr_amount;
+			$sql = "INSERT INTO tb_cash_center SET cash_now = '$current_cash', cash_temp = '$cash_temp', cash1 = '$cash1', cash2 = '$add', cash_emp = '$cash_emp', cash_date = '$tr_date', cash_times = now()";
+		}
+
+	}else if ($fromtransfer == 2){ //โยกเงินซื้อของ
+		if($cash1 < $tr_amount){ exit("<script>alert('เงินซื้อของไม่พอโยกย้าย'); window.location='../../finance/outpay.php';</script>"); }
+		$sub = $cash1 - $tr_amount;
+		if($totransfer == 2){
+			//เอาเงินซื้อของโอนมาเข้าเงินเดือนพนักงาน   
+			$type = 'เงินซื้อของโอนมา เงินเดือนพนักงาน';
+			$add = $cash_emp + $tr_amount;
+			$sql = "INSERT INTO tb_cash_center SET cash1 = '$sub', cash_now = $curr_cash, cash2 = '$cash2', cash_emp = '$add', cash_temp = '$add', cash_date = '$tr_date', cash_times = now()";
+		}else if($totransfer == 3){
+			//เอาเงินซื้อของโอนมาเข้ากองเงินสำรอง
+			$type = 'เงินซื้อของโอนมา เงินสำรอง';
+			$add = $cash2 + $tr_amount;
+			$sql = "INSERT INTO tb_cash_center SET cash1 = '$sub', cash_now = $curr_cash, cash2 = '$cash2', cash_emp = '$cash_emp', cash_temp = '$add', cash_date = '$tr_date', cash_times = now()";
+		}else if($totransfer == 4){
+			//เอาเงินซื้อของโอนมาเข้ากองเงินสำรอง
+			$type = 'เงินซื้อของโอนมา เงินกำไร';
+			$add = $cash_temp + $tr_amount;
+			$sql = "INSERT INTO tb_cash_center SET cash1 = '$sub', cash_now = $curr_cash, cash2 = '$add', cash_emp = '$cash_emp', cash_temp = '$cash_temp', cash_date = '$tr_date', cash_times = now()";
+		}
+		
+	}else if ($fromtransfer == 3){
+
+	}else if ($fromtransfer == 4){
+
+	}else if ($fromtransfer == 5){
+
 	}
 	echo "today = ", $today, "<br>"; 
 	echo "fromtransfer = ", $fromtransfer, "<br>";

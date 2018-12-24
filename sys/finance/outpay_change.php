@@ -12,8 +12,6 @@
 	$result_buyer = mysql_query($sql_buyer);
 	$num_buyer = mysql_num_rows($result_buyer);
 	
-	
-	
 	//ดูว่าเงินส่วนกลางของชายหรือพี่ไพรฑูรย์ถูกใช่ไป
 	$result_emp = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
 	$num_emp = mysql_num_rows($result_emp);
@@ -67,9 +65,8 @@
 			});
 			$('#pocredit').change(credit);
 			$('#pobuyer').change(chk_cash); 
-			//$('#poprice').blur(chkfieldcash);
+			$('#poprice').blur(chkfieldcash);
 			$('#owner_money').hide();
-			$('#mudjum').parent().hide();
 			
 			//$('#fromtransfer').change(cash_transfer);
 			//$('#totransfer option').prop("disabled", true);		
@@ -99,14 +96,11 @@
 		function credit(){
 			if($(this).prop('checked') == true){
 				//alert('checked');
-				/*$('#pobuyer option').last().prop('disabled',true);
-				$('#pobuyer option:first-child').prop('selected',true);*/
-				$('#mudjum').parent().show();
-			
+				$('#pobuyer option').last().prop('disabled',true);
+				$('#pobuyer option:first-child').prop('selected',true);
 			}else{
 				//alert('un checked'); 
-				//$('#pobuyer option').last().prop('disabled', false);
-				$('#mudjum').parent().hide();
+				$('#pobuyer option').last().prop('disabled', false);
 			}
 		}//end credit
 		
@@ -124,7 +118,7 @@
 					success: function(result){
 						//$("body").html(result);	
 						var cash_now = result;
-						if(cash_now == 1 && $('#pocredit').prop('checked') == false){
+						if(cash_now == 1){
 							alert('เงินซื้อของไม่พอ'); 
 							$('#btn').prop('disabled',true);
 						}else{
@@ -145,21 +139,13 @@
 			var poqty = $('#poqty').val();
 			var poprice = $('#poprice').val(); 
 			var poprodtype = $('#poprodtype').val();
-			var poshop = $('#poshop').val();
 			var pobuyer = $('select[name=pobuyer]').val();
 			var podate = $('#podate').val(); 
 			var cashcenter = $('#pobuyer option:selected').val();
 			var ownercash = $('#ownercash option:selected').val(); 
-			if($('#pocredit').prop('checked') == true){
-				if($('#mudjum').val()=='') { alert('กรุณาใส่เงินมัดจำด้วยค่ะ'); return false;}
-				if(isNaN(poshop)){ alert('เลือกร้านค้าให้ถูกต้องด้วยนะคะ'); return false;}
-				//ถ้าซื้อโดยใช้เครดิตต้องใส่เลือกร้านค้าด้วย
-				if(poshop == '' || poshop == 0 )  { alert('กรุณาเลือกร้านค้าด้วยค่ะ'); return false;}
-			}else{ 
-				$('#mudjum').val(0);
-			}
 			if(isNaN(poprice)|| isNaN(poqty)){
-				alert('กรุณาใส่จำนวนเงินเป็นตัวเลขค่ะ'); return false;
+				alert('กรุณาใส่จำนวนเงินเป็นตัวเลขค่ะ');
+				return false;
 			}			
 			
 			if((poname=='') || (poqty=='') || (poprice=='') || (pobuyer=='') || (pobuyer<=0) || (podate=='')){
@@ -280,7 +266,6 @@
 											<label class="control-label" for="inputSuccess">เครดิต</label>
 											<input type="checkbox" class="form-control" id="pocredit" name="pocredit">
 										</div>
-										
 									</div>
 																		
 									<div class="col-lg-4">
@@ -332,15 +317,10 @@
 											<input type="text" class="form-control" id="poment" name="poment">
 										</div>
 										
-										<!--<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ใช้เงินสำรองจ่าย</label>
-											<input type="checkbox" class="form-control" id="posumrong" name="posumrong">
-										</div>-->
-										
-										<div class="form-group has-success ">
-											<label class="control-label" for="inputSuccess">มัดจำ </label>
-											<input type="text" class="form-control" id="mudjum" name="mudjum">
-										</div>
+										<div class="form-group has-success">
+												<label class="control-label" for="inputSuccess">ใช้เงินสำรองจ่าย</label>
+												<input type="checkbox" class="form-control" id="posumrong" name="posumrong">
+											</div>
 									</div>
 									
 									
