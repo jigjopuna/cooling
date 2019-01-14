@@ -6,6 +6,7 @@
 	  $rep_date = trim($_POST['rep_date']);
 	  $rep_month = trim($_POST['rep_month']);
 	  $rep_week = trim($_POST['rep_week']);
+	  $rep_year = trim($_POST['rep_year']);
 	  
 	  $curdate = date('Y-m-d');
 	  $year = date('Y');
@@ -16,19 +17,20 @@
 	 
 	  
 	  
-	 /* echo "reptype : ".$reptype."<br>";
+	/*  echo "reptype : ".$reptype."<br>";
 	  echo "rep_time : ".$rep_time."<br>";
 	  echo "rep_date : ".$rep_date."<br>";
 	  echo "rep_month : ".$rep_month."<br>";
 	  echo "rep_week : ".$rep_week."<br>";
+	  echo "rep_year : ".$rep_year."<br>";
 	  
 	  echo "curdate : ".$curdate."<br>";
 	  echo "year : ".$year."<br>";
 	  echo "month : ".$month."<br>";
-	  echo "select_month : ".$select_month."<br>";*/
+	  echo "select_month : ".$select_month."<br>";
 	  
 	  
-	  //exit();
+	  exit();*/
 	  
 	  
 	  
@@ -69,7 +71,7 @@
 <html lang="en">
 
 <head>
-<title>รายการสั่งซื้อ</title>
+<title>รายการจ่าย</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
@@ -97,7 +99,7 @@
 			  
 	}else if($rep_time==2){
 			  
-	}else if($rep_time==3){
+	}else if($rep_time==3){ 
 		$rowsum_ = mysql_fetch_array(mysql_query("SELECT SUM(po_price) po_amount FROM tb_po WHERE po_date LIKE '$select_month'"));		  
 		$rowcount_ = mysql_fetch_array(mysql_query("SELECT count(po_id) countpo FROM tb_po WHERE po_date LIKE '$select_month'"));
 			  
@@ -112,11 +114,44 @@
 					 
 		$result_detail = mysql_query($sqldetail);
 		$num_detail = mysql_num_rows($result_detail);	
+		
+		
+		$sql_group = "SELECT t.to_typename, SUM(p.po_price) price
+						FROM tb_po p JOIN tb_tools_type t ON t.to_typeid = p.po_cate 
+						WHERE p.po_date LIKE '$select_month' 
+						GROUP BY p.po_cate ORDER BY price DESC";
+		$result_group =  mysql_query($sql_group);
+		$num_group = mysql_num_rows($result_group);
 
 		$po_print = $select_month;
+		$times = 'เดือน'.$select_month;
 			  
-	}else if($rep_time==4){
+	}else if($rep_time==4){ //rep_year
+		$years = $rep_year.'%';
+		$rowsum_ = mysql_fetch_array(mysql_query("SELECT SUM(po_price) po_amount FROM tb_po WHERE po_date LIKE '$years'"));		  
+		$rowcount_ = mysql_fetch_array(mysql_query("SELECT count(po_id) countpo FROM tb_po WHERE po_date LIKE '$years'"));
 			  
+		$rowsum = $rowsum_['po_amount'];
+		$rowcount = $rowcount_['countpo'];
+			  
+			  
+		$sqldetail = "SELECT p.po_emp, p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
+					 FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
+					 WHERE p.po_date LIKE '$years' 
+					 ORDER BY po_id DESC LIMIT 0,100";
+					 
+		$result_detail = mysql_query($sqldetail);
+		$num_detail = mysql_num_rows($result_detail);	
+		
+		
+		$sql_group = "SELECT t.to_typename, SUM(p.po_price) price
+						FROM tb_po p JOIN tb_tools_type t ON t.to_typeid = p.po_cate 
+						WHERE p.po_date LIKE '$years' 
+						GROUP BY p.po_cate ORDER BY price DESC";
+		$result_group =  mysql_query($sql_group);
+		$num_group = mysql_num_rows($result_group);
+		$times = 'ปี '.$rep_year;
+
 	}else { } 
 ?>
 	
@@ -149,7 +184,48 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-								ยอดซื้อรวม <?php echo number_format($rowsum, 0, '.', ',').' บาท'. ' ทั้งหมด :'.$rowcount. ' รายการ';?>
+								สรุปรายการจ่ายซื้อของ  <?php echo $times;?>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                                <thead>
+                                    <tr>
+										<th>ลำดับ</th>
+                                        <th>รายการ</th>                                     
+                                        <th>ยอดซื้อ</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+									<?php 
+										for($i=1; $i<=$num_group; $i++){
+										  $row_group = mysql_fetch_array($result_group);
+									  ?>
+										<tr class="gradeA"> 
+											<td><?php echo $i; ?></td>
+											<td><?php echo $row_group['to_typename']; ?></td>
+											<td><?php echo number_format($row_group['price'], 2, '.', ','); ?></td>
+										</tr>
+									<?php } ?>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+								ยอดจ่ายรวม <?php echo number_format($rowsum, 0, '.', ',').' บาท'. ' ทั้งหมด :'.number_format($rowcount, 0, '.', ','). ' รายการ';?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -222,7 +298,7 @@
             </div>
             <!-- /.row -->
 
-		<!-- /.row -->
+
 
         </div>
         <!-- /#page-wrapper -->

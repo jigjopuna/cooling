@@ -18,7 +18,6 @@
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <?php require_once('include/inc_role.php'); ?>
-	
 	<script>
 		$(document).ready(function(){
 			$('#btn').click(validation);

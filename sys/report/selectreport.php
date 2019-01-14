@@ -16,7 +16,7 @@
 						FROM (
 							SELECT MONTHNAME(o_date) month, COUNT(o_id) ordqty, SUM(o_price) price
 							FROM tb_orders
-							WHERE o_date LIKE '2018%'
+							WHERE o_date LIKE '$year%'
 							GROUP BY YEAR(o_date), MONTH(o_date)
 							) AS A"));
 	 $yearamount = $sumyear['sumyear'];
@@ -39,7 +39,7 @@
 	<script>
 		$(document).ready(function(){
 			$('#btn').click(validation);
-			$("#rep_datecover, #rep_monthcover, #rep_weekcover").hide();
+			$("#rep_datecover, #rep_monthcover, #rep_weekcover, #rep_yearcover").hide();
 			$('#rep_date').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#rep_time").change(showtime);
 			$("#sel_rep").change(reports);
@@ -55,17 +55,21 @@
 			if(timesal==1){
 				$("#rep_datecover").show();
 				$("#rep_monthcover").hide();
+				$("#rep_yearcover").hide();
 				$("#rep_weekcover").hide();
 			}else if(timesal==2){
 				$("#rep_datecover").hide();
 				$("#rep_monthcover").hide();
+				$("#rep_yearcover").hide();
 				$("#rep_weekcover").show();
 			}else if(timesal==3){
 				$("#rep_datecover").hide();
 				$("#rep_monthcover").show();
+				$("#rep_yearcover").hide();
 				$("#rep_weekcover").hide();
 			}else{
-				
+				$("#rep_monthcover").hide();
+				$("#rep_yearcover").show();
 			}
 		}
 		
@@ -141,7 +145,7 @@
 												<option value="1">รายวัน</option>
 												<option value="2" disabled>รายสัปดาห์</option>
 												<option value="3">รายเดือน</option>
-												<option value="4" disabled>รายปี</option>		
+												<option value="4">รายปี</option>		
 											</select>
 									</div>
 									
@@ -184,6 +188,17 @@
 												<option value="3">3</option>
 												<option value="4">4</option>
 																				
+											</select>
+										</div>
+										
+										<div class="form-group has-success" id="rep_yearcover">
+											<label class="control-label" for="inputSuccess">เลือกปี</label>
+											<select class="form-control" id="rep_year" name="rep_year">
+												<option value="0">เลือกปี</option>
+												<option value="2017">2017</option>
+												<option value="2018">2018</option>
+												<option value="2019">2019</option>
+												<option value="2020">2020</option>								
 											</select>
 										</div>
 										

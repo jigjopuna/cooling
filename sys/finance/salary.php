@@ -16,6 +16,7 @@
 <title>ค่าตอบแทนพนักงาน</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
+<?php require_once('../include/inc_role.php'); ?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 	<?php 
@@ -69,13 +70,23 @@
 <body>
 
     <div id="wrapper">
-
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
-			
+		
+			<div class="row">
+                <div class="col-lg-4">
+					<a href="working1.php"><button type="button" class="btn btn-lg btn-success btn-block">บันทึกการทำงาน</button></a>
+				</div>
+				
+				<div class="col-lg-4">
+					<a href="../salary/report.php"><button type="button" class="btn btn-lg btn-success btn-block">ข้อมูลการทำงาน</button></a>
+				</div>
+                <!-- /.col-lg-12 -->
+            </div>
 			
             <div class="row">
                 <div class="col-lg-12">
+					
                     <h1 class="page-header">ค่าตอบแทนพนักงาน</h1>
                 </div>
                 <!-- /.col-lg-12 -->
