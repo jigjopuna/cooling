@@ -1,4 +1,5 @@
 <?php 
+	$ro_home = $role['ro_home'];
 	$ro_order   = $role['ro_order'];
 	$ro_finance = $role['ro_finance'];
 	$ro_po      = $role['ro_po'];
@@ -8,7 +9,7 @@
 	$ro_quotation = $role['ro_quotation'];
 	$ro_income  = $role['income'];
 	$ro_cust = $role['ro_cust'];
-	
+	$ro_shop = $role['ro_shop'];
 ?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -38,10 +39,11 @@
                             </div>
                             <!-- /input-group -->
                         </li>
+						<?php if($ro_home!=0) { ?>
                         <li>
                             <a href="../index.php"><i class="fa fa-dashboard fa-fw"></i> หน้าหลัก</a>
                         </li>
-						
+						<?php } ?>
 						
 						<li>
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา <span class="fa arrow"></span></a>
@@ -69,9 +71,9 @@
 						
 						
 						
-						<li>
+						<!--<li>
                             <a href="../quotation/q_fome.php"><i class="fa fa-dashboard fa-fw"></i>ต้นทุนห้องโฟม</a>
-                        </li>
+                        </li>-->
 						
 						<?php if($ro_finance!=0) { ?>
 						<li>
@@ -176,7 +178,7 @@
                             </ul>
                         </li>
 						<?php } ?>
-						
+						<?php if($ro_shop!=0) { ?>
 						<li>
                             <a href="shoptcl/dashboard.php"><i class="fa fa-dashboard fa-fw"></i> SHOP <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -205,7 +207,7 @@
 							
                             </ul>
                         </li>
-						
+						<?php } ?>
 						
 						<?php if($ro_report!=0) { ?>
 						 <li>

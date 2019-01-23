@@ -9,7 +9,7 @@
 		require_once('../include/metatagsys.php');
 		require_once('../include/inc_role.php');
 		
-		$sql_all = "SELECT * FROM  tb_quo_cust";
+		$sql_all = "SELECT * FROM  tb_quo_cust q JOIN province p ON p.id = q.qcust_prov";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 	?>
@@ -67,8 +67,8 @@
 											
 											
 											<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
-												<td><?php echo $row_all['cust_tel']; ?></td>
-												<td><?php echo $row_all['qcust_prov'] ;?></td>
+												<td><?php echo $row_all['qcust_tel']; ?></td>
+												<td><?php echo $row_all['pro_name'] ;?></td>
 												<td><?php echo $row_all['qcust_day'] ;?></td>
 												<td>
 													<?php if($row_all['qcust_status']==0){ ?>

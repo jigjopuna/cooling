@@ -7,6 +7,11 @@
 	$result = mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
+	$sql_cusprod = "SELECT * FROM tb_cus_prod_type";
+	$result_cusprod = mysql_query($sql_cusprod);
+	$num_cusprod = mysql_num_rows($result_cusprod);
+		
+	
 
 ?>
 <!DOCTYPE html>
@@ -141,10 +146,14 @@
 											<input type="text" class="form-control" id="phoneno" name="phoneno">
 										</div>
 										
-										<div class="form-group has-success">
+										<div class="form-group">
+										  <label for="comment">ที่อยู่</label>
+										  <textarea class="form-control" rows="5" id="address" name="address"></textarea>
+										</div>
+										<!--<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ลูกค้าไม่ให้ข้อมูล</label>
 											<input type="checkbox" class="form-control" id="chk_custallow" name="chk_custallow">
-										</div>
+										</div>-->
 									</div>
 
 									
@@ -173,24 +182,40 @@
 									
 									<div class="col-lg-3">
 										
-										<div class="form-group">
-										  <label for="comment">ที่อยู่</label>
-										  <textarea class="form-control" rows="5" id="address" name="address"></textarea>
-										</div>
-										
-
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">รหัสไปรษณีย์</label>
 											<input type="text" class="form-control" id="zipcode" name="zipcode">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">หมายเลขผู้เสียภาษี</label>
+											<input type="text" class="form-control" id="taxid" name="taxid">
+										</div>
+
+										
 									</div>
 									
 			
 			
 									<div class="col-lg-3">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">หมายเลขผู้เสียภาษี</label>
-											<input type="text" class="form-control" id="taxid" name="taxid">
+											<label class="control-label" for="inputSuccess">ประเภทสินค้าที่เก็บ</label>
+											<select class="form-control" id="cusprod" name="cusprod">
+												<option value="0">เลือกประเภทสินค้า</option> 
+												<?php 
+													for($i=1; $i<=$num_cusprod; $i++) { 
+														$row_cusprod = mysql_fetch_array($result_cusprod);
+												?>
+													<option value="<?php echo $row_cusprod['cusp_id']; ?>"><?php echo $row_cusprod['cusp_name'];?></option>
+												
+												<?php } ?>
+												
+											</select>
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">สินค้าที่เก็บ</label>
+											<input type="text" class="form-control" id="cusproduct" name="cusproduct">
 										</div>
 										
 										

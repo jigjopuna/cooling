@@ -49,6 +49,9 @@
 	$thatdate = $date."/".$nMonth."/".$year;
 	
 	$cust_id = trim($_POST['search_custname']);
+	$labor = 40000;
+	$jipata = 43000;
+	
 	
 	
 	$chkdetail = mysql_fetch_array(mysql_query("SELECT qcust_prov FROM tb_quo_cust WHERE qcust_id = '$cust_id'"));
@@ -71,13 +74,28 @@
 	$voltage = trim($_POST['voltage']);
 	$size = trim($_POST['sizes']);
 	
-	$comp = trim($_POST['comp']);
-	$comprice = trim($_POST['comprice']);
-	$model = trim($_POST['model']);
+	$percent = trim($_POST['percent']);
+	$profit = 1.5;
 	
-	$coilyen = trim($_POST['coilyen']);
-	$coilyenprice = trim($_POST['coilyenprice']);
-
+	
+	$r_width = trim($_POST['r_width']);
+	$r_lenght = trim($_POST['r_lenght']);
+	$r_high = trim($_POST['r_high']);
+	
+	$foam = trim($_POST['foam']);
+	$foaminch = trim($_POST['foaminch']);
+	
+	$doortype = trim($_POST['doortype']);
+	$d_width = trim($_POST['d_width']);
+	$d_high = trim($_POST['d_high']);
+	$floor1 = trim($_POST['floor1']);
+	$hp = trim($_POST['hp']);
+	$discount = trim($_POST['discount']);
+	
+	//เลือกเครื่องราคา มีทั้งหมด 3 แบบ ถูก กลาง แพง
+	$sql_basic = mysql_fetch_array(mysql_query("SELECT * FROM tb_machine_set WHERE set_hp = '$hp' AND set_type = 1"));
+	$basic_price = $sql_basic['set_price']; $basic_name = $sql_basic['set_name']; $basic_type = $sql_basic['set_type'];
+	
 	$ord_vat = trim($_POST['ord_vat']);
 	$gift = trim($_POST['gift']);
 	$additional = trim($_POST['additional']);
@@ -87,85 +105,56 @@
 	$ord_door = trim($_POST['ord_door']);
 	$ord_control = trim($_POST['ord_control']);
 	
-	//$ord_qty = trim($_POST['ord_qty']);
 	
-	$prices = $comprice + $coilyenprice;
+	$cute = ($r_width*$r_high*2) + ($r_lenght*$r_high*2) + ($r_width*$r_lenght*2);
 	
-	$amount =  $ship_cost + $additional_price + $prices;
-	$incvat = 0;
+	if($foam==1){ $foams = 'PU'; } else { $foams = 'PS'; }
+	if($doortype==1){ $doortypes = 'ประตูบานสวิง '; $pratoo = 26000; } else { $doortypes = 'ประตูบานเลื่อน'; $pratoo = 37000; }
 	
-	if($size == 1){
-		$w = 2.4; $l = 2.4; $h =2.4;
-		$bevat = 292000*0.93;
-		$incship = $bevat + $ship_cost;
-		
-		
-	}else if($size == 2){
-		$w = 2.4; $l = 3.6; $h =2.4;
-		$bevat = 327000*0.93;
-		$incship = $bevat + $ship_cost;
-		
-	}else if($size == 3){
-		$w = 2.4; $l = 4.8; $h =2.4;
-		$bevat = 358000*0.93;
-		$incship = $bevat + $ship_cost;
-		
-	}else if($size == 4){
-		$w = 2.4; $l = 6; $h =2.4;
-		$bevat = 400000*0.93;
-		$incship = $bevat + $ship_cost;
-		
-	}else if($size == 5){
-		$w = 3.6; $l = 3.6; $h =2.4;
-		$bevat = 366000*0.93;
-		$incship = $bevat + $ship_cost;
-		
-	}else if($size == 6){
-		$w = 3.6; $l = 4.8; $h =2.4;
-		$bevat = 398000*0.93;
-		$incship = $bevat + $ship_cost;
-		
-	}else if($size == 7){
-		$w = 3.6; $l = 6; $h =2.4;
-		$bevat = 435000*0.93;
-		$incship = $bevat + $ship_cost;
-		
+	$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_productroom WHERE pr_cate= 1 AND pr_size = '$foaminch' AND pr_type = '$foams'"));
+	$wall_price = $sql_wall['pr_sell_price']; 
+	
+	
+	$kumrai = (($cute*$wall_price)+$pratoo+$basic_price)*$profit;
+	
+	$befor_ship = $kumrai+$jipata+$labor;
+	$prettylast = $befor_ship+$ship_cost;
+	$total_price = $prettylast-$discount;
+	
+	$ngod1 = $total_price*0.5;
+	$ngod2 = $total_price*0.3;
+	$ngod3 = $total_price*0.2;
+	/*$befor_ship = ($cute*$wall_price)+$pratoo+$basic_price+$jipata+$labor;
+	$prettylast = ($cute*$wall_price)+$pratoo+$basic_price+$jipata+$labor+$ship_cost;
+	$total_price = ($cute*$wall_price)+$pratoo+$basic_price+$jipata+$labor+$ship_cost-$discount;
+	*/
+	
+	
+	if($hp==3){
+		$copeland=21;
+	}else if($hp==4){
+		$copeland=26;
+	}else if($hp==5){
+		$copeland=38;
+	}else if($hp==6){
+		$copeland=45;
+	}else if($hp==7){
+		$copeland=48;
+	}else if($hp==8){
+		$copeland=58;
 	}
-	$taxs = $incship*0.07;
+	 
+	
+	/*echo 'cute : '.$cute.'<br>';
+	echo 'wall_price : '.$wall_price.'<br>';
+	echo 'basic_price : '.$basic_price.'<br>';
+	echo 'jipata : '.$jipata.'<br>';
+	echo 'kumrai : '.$kumrai.'<br>';
+	echo 'prettylast : '.$prettylast.'<br>';
+	echo 'total_price : '.$total_price.'<br>';*/
 	
 	
-	if($ord_vat=='on'){
-		$vat = 0.07; //100,000*0.7
-		$vats = $amount*$vat;
-		$incvat = $amount+$vats;
-		
-		/*$round1 = $incvat*0.5;
-		$round2 = $incvat*0.3;
-		$round3 = $incvat*0.2;*/
-		
-		
-		$round1 = ($incship+$taxs)*0.5;
-		$round2 = ($incship+$taxs)*0.3;
-		$round3 = ($incship+$taxs)*0.2;
-		
-	}else{
-		/*$round1 = $amount*0.5;
-		$round2 = $amount*0.3;
-		$round3 = $amount*0.2;
-		$incvat = $amount;*/
-		
-		$round1 = $incship*0.5;
-		$round2 = $incship*0.3;
-		$round3 = $incship*0.2;
-	}
-	
-	/*echo 'amount : '.$amount.'<br>'; 
-	echo 'vat : '.$vat.'<br>'; 
-	echo 'vats : '.$vats.'<br>'; 
-	echo 'incvat : '.$incvat.'<br>'; */
 
-	
-	
 	if($ord_coilh==2){ 
 		$coilh = ' ข้างซ้าย'; 
 	}else if($ord_coilh==3){ 
@@ -175,9 +164,7 @@
 	}else if($ord_coilh==5){ 
 		$coilh = ' ข้างบน';
 	}
-							
-					
-							
+	
 							
 	if($ord_door==1){ 
 		$door = ' ข้างหน้า'; 
@@ -196,11 +183,13 @@
 	}
 	
 	
-	if($voltage == "220"){
+	if($voltage == 220){
 		$firefa = "Single Phase 220V";
 	}else{
 		$firefa = "3 Phase 380V";
 	}
+	
+	
 	
 	//echo 'cust_name : '.$row['qcust_name'].'<br>'; qcust_name	qcust_addr	qcust_prov
 	/*echo 'ord_temp : '.$ord_temp.'<br>';
@@ -217,7 +206,9 @@
 	echo 'ord_price : '.$ord_price.'<br>';
 	echo 'ord_coilh : '.$ord_coilh.'<br>';
 	echo 'ord_door : '.$ord_door.'<br>';
-	echo 'ord_control : '.$ord_control.'<br>';*/
+	echo 'ord_control : '.$ord_control.'<br>';
+	
+	*/
 	
 	$sql_log = "INSERT INTO tb_quotation_log SET 
 				qou_cust = '$cust_id', 
@@ -483,17 +474,17 @@
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">ห้องเย็นประกอบเร็ว ติดตั้งหน้างาน </td>
+						<td style="width: 60%" align="left">ห้องเย็นประกอบเร็ว ติดตั้งหน้างาน (<?php echo $cute; ?>) ตารางเมตร</td>
 						<td colspan="2" style="width: 13%;" class="rlb">กว้าง  (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว   (เมตร)</td>
 						<td style="width: 13%" class="b">สูง  (เมตร)</td> 
 					</tr>
 					<tr align="center">
-						<td align="left">COLD ROOM TEMP  <span style="color:red; font-size:18px; font-weight:bold;"><?php echo $ord_temp; ?>C<Sup>o</Sup></span>ขนาดห้อง (วัดภายนอก) </td>
-						<td class="l"><?php echo $w; ?></td>
+						<td align="left">COLD ROOM TEMP  <span style="color:red; font-size:18px; font-weight:bold;"><?php echo $ord_temp; ?>C<Sup>o</Sup></span> ขนาดห้อง (วัดภายนอก) </td>
+						<td class="l"><?php echo $r_width; ?></td>
 						<td class="r"></td>
-						<td><?php echo $l; ?></td>
-						<td class="l"><?php echo $h; ?> </td>
+						<td><?php echo $r_lenght; ?></td>
+						<td class="l"><?php echo $r_high; ?> </td>
 					</tr>
 					
 					<tr align="center" style="background: #DAD7D7; border: 1px black solid;">
@@ -508,10 +499,10 @@
 					
 					<tr class="highs" style="">
 						<!--<td class="l">1. ชุด Condensing <strong><u><?php //echo $comp?></u></strong> <?php //echo '  รุ่น '.$model;?></td>-->
-						<td class="l">1. ชุด Condensing <strong><u>Copeland <span style="color:red; font-size:18px;">3HP</span></u></strong>   รุ่น ZB 21 KQE</td>
+						<td class="l">1. ชุด Condensing <strong><u>Copeland <span style="color:red; font-size:18px;"><?php echo $hp;?>HP</span></u></strong>   รุ่น ZB <?php echo $copeland; ?> KQE</td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
-						<td class="l" align="right"><?php echo number_format($bevat/*$comprice+$coilyenprice*/, 2, '.', ','); ?></td>
-						<td class="l" align="right"><?php echo number_format($bevat/*$comprice+$coilyenprice*/, 2, '.', ','); ?></td>
+						<td class="l" align="right"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
+						<td class="l" align="right"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -522,14 +513,14 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">2. ผนังห้องเย็น โฟม <strong><u>PU 4 นิ้ว</u></strong> ensity 38-40 kg/m3 เหล็ก BHP 0.55 เมตร </td>
+						<td class="l">2. ผนังห้องเย็น โฟม <strong><u> <?php echo $foams." ".$foaminch; ?> นิ้ว</u></strong> ensity 38-40 kg/m3 เหล็ก BHP 0.55 เมตร </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - 2CB/PU ผิวเรียบ พร้อมอุปกรณ์ติดตั้ง</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - 2CB/<?php echo $foams;?> ผิวเรียบ พร้อมอุปกรณ์ติดตั้ง</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -549,15 +540,17 @@
 						<td class="l" align="right"></td>
 					</tr>
 					
+					<?php if($floor1==1){ ?>
 					<tr class="highs" style="">
 						<td class="l">&nbsp;&nbsp;&nbsp; - พื้นอลูมิเนียมลายกันลื่น</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
+					<?php } ?>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ประตูบานสวิงขนาด <strong><u>1.0 x 2.0 เมตร</u></strong>  กว้าง สูง</td>
+						<td class="l">3. <?php echo $doortypes; ?> ขนาด <strong><u><?php echo $d_width.' x '.$d_high?> เมตร</u></strong>  กว้าง สูง</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
@@ -608,19 +601,19 @@
 					<tr>
 						<td></td>
 						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
-						<td class="t l" align="right"><?php echo number_format($incship/*$amount*/, 2, '.', ',');?></td>
+						<td class="t l" align="right"><?php echo number_format($prettylast, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						<td></td>
 						<td colspan="3" class="rl">ส่วนลด</td>
-						<td class="rt l" align="right">10,000.00<?php //echo number_format($taxs, 2, '.', ','); ?></td>
+						<td class="rt l" align="right"><?php echo number_format($discount, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						<td></td>
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
-						<td class="rt l" align="right" id="totolprice"><?php echo number_format($incship+$taxs, 2, '.', ',');?> </td>
+						<td class="rt l" align="right" id="totolprice"><?php echo number_format($total_price, 2, '.', ',');?> </td>
 					</tr>
 				
 				</table>
@@ -637,17 +630,17 @@
 						</tr>
 						<tr>
 							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   50%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
-							<td align="left" style="width: 35%"><span class="cal_ngo1"><?php echo number_format($round1, 0, '.', ',');?></span> บาท</td>
+							<td align="left" style="width: 35%"><span class="cal_ngo1"><?php echo number_format($ngod1, 0, '.', ',');?></span> บาท</td>
 						</tr>
 						
 						<tr>
 							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระเมื่อจัดส่งอุปกรณ์ </td>
-							<td align="left"><span class="cal_ngo2"><?php echo number_format($round2, 0, '.', ',');?></span> บาท</td>
+							<td align="left"><span class="cal_ngo2"><?php echo number_format($ngod2, 0, '.', ',');?></span> บาท</td>
 						</tr>
 						
 						<tr>
 							<td align="left"> <span style="text-decoration: underline;">งวดที่ 3</span>   20% ชำระเมื่อใช้งานได้เรียบร้อย </td>
-							<td align="left"><span class="cal_ngo3"><?php echo number_format($round3, 0, '.', ',');?></span> บาท</td>
+							<td align="left"><span class="cal_ngo3"><?php echo number_format($ngod3, 0, '.', ',');?></span> บาท</td>
 						</tr>
 						
 						<tr>
@@ -755,5 +748,14 @@
 </div>
 <input type="button" value="คำนวนราคางวด" id="btn-calngod">
 <span style="float:right;"><?php echo $total_result_t;?></span>
+
+<div id="cute" style="display: none;"><?php echo $cute;?></div>
+<div id="wall_price" style="display: none;"><?php echo $wall_price; ?></div>
+<div id="basic_price" style="display: none;"><?php echo $basic_price;?></div>
+<div id="jipata" style="display: none;"><?php echo $jipata;?></div>
+<div id="kumrai" style="display: none;"><?php echo $kumrai;?></div>
+<div id="prettylast" style="display: none;"><?php echo $prettylast?></div>
+<div id="total_price" style="display: none;"><?php echo $total_price?></div>
+
 </body>
 </html>

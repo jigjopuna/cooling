@@ -1,6 +1,6 @@
 <?php session_start();
 	  require_once('../include/connect.php');
-	  $today = date("Y-m-d");
+	  $today = date("d-m-Y");
 ?>
 <!DOCTYPE html>
 <html lang="en">

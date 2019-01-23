@@ -9,6 +9,8 @@
 	$zipcode = trim($_POST['zipcode']);
 	$phoneno = trim($_POST['phoneno']);
 	$taxid = trim($_POST['taxid']);
+	$cusprod = trim($_POST['cusprod']);
+	$cusproduct = trim($_POST['cusproduct']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +33,8 @@
 	echo "address : ".$address. "<br>";
 	echo "zipcode : ".$zipcode. "<br>";
 	echo "phoneno : ".$phoneno. "<br>";
+	echo "cusprod : ".$cusprod. "<br>";
+	echo "cusproduct : ".$cusproduct. "<br>";
 	
 	//exit();
 	
@@ -44,6 +48,8 @@
 				qcust_tel = '$phoneno', 
 				qcust_zip = '$zipcode',  
 				qcust_tax = '$taxid', 
+				qcust_prod = '$cusproduct', 
+				qcust_prodtype = '$cusprod',
 				qcust_day = now()";
 	$result = mysql_query($sql);	
 	

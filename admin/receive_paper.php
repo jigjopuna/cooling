@@ -1,8 +1,6 @@
 <?php session_start();
 	  require_once('../include/connect.php');
       require_once('../include/thaibaht.php');
-	  
-	
 ?>
 <!doctype html>
 <html>
@@ -127,12 +125,13 @@
 				
 			
 			<div id="bill_title" style="/*background-color:green;*/ height: 40px; clear:both; margin-top: 100px; text-align: center; font-size: 2em; vertical-align: middle;">
-				<?php echo $bill_head;?>
+				<?php //echo $bill_head;?>
+				ใบเสร็จรับเงิน/ใบกำกับภาษี
 			</div>
 			<?php include('../include/billdetail.php'); ?>
 
 			<div id="detail" style="/*background-color: olive;*/ height:300px; float: none; margin-top: 15px;">
-				<table>
+				<table style="width: 100%;">
 					<tr>
 						<td style="width:5%;">No.</td>
 						<td style="width:40%;">รายการ</td>

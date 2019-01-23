@@ -99,7 +99,7 @@
 						wd_advance = '$a3', 
 						wd_note = '$a4', 
 						wd_halfday = '$a55',  
-						wd_day = now()
+						wd_day = now
 					";
 		$resultwork = mysql_query($sqlwork);
 	}
