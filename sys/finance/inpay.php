@@ -9,9 +9,7 @@
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
-	//find employee finance position หาคนรับเงิน
-	$result_emp = mysql_query("SELECT e_id, e_name FROM tb_emp WHERE e_cash = 1");
-	$num_emp = mysql_num_rows($result_emp);
+	
 	
 	$today = date("Y-m-d");
 	
@@ -116,26 +114,6 @@
 											<label class="control-label" for="inputSuccess">บิล/เอกสาร</label>
 											<input type="file" class="form-control require" id="payinbill" name="payinbill">
 										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">คนรับเงิน </label>
-											<select class="form-control" id="emp_receive" name="emp_receive">
-												<?php 
-													for($i=1; $i<=$num_emp; $i++){
-														$row_emp = mysql_fetch_array($result_emp);
-													
-												?>						
-												<option value="<?php echo $row_emp['e_id']?>"><?php echo $row_emp['e_name']?></option>
-												
-												<?php } ?>											
-											</select>
-										</div>
-										
-										<!--<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">คนรับเงิน</label>
-											<input type="text" class="form-control" id="search_emp" name="search_emp">
-										</div>-->
-										
 									</div>
 									
 									

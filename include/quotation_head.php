@@ -30,6 +30,6 @@
 					<span>วันที่ <?php echo $thatdate;?></span><br>
 					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
 					<span>โทร : 082-360-1523</span><br>
-					<span>Email: topcooling.ltd@gmail.com</span>
+					<span>Email: chookeid@topcooling.net</span>
 				</div><!--end oweneraddress-->
 			</div><!--end contect_detail-->

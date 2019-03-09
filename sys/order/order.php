@@ -8,7 +8,7 @@
 <?php require_once('../include/metatagsys.php');?>
 	<?php 
 		$dates = date('Y-m-d');
-		$sql_all = "SELECT o.o_type, o.o_id, o.o_note, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
+		$sql_all = "SELECT o.o_newold, o.o_type, o.o_id, o.o_note, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
 					FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
 						 JOIN province p ON c.cust_province = p.id) 
 						 JOIN tb_ord_status ost ON ost.ost_id = o.o_status)
@@ -39,22 +39,23 @@
 			var search_custname = $('#search_custname').val();
 			var payinqty = $('#payinqty').val();
 			var paydate = $('#paydate').val(); 
-			var ord_control = $('#ord_control').val();
-			var ord_door = $('#ord_door').val();
-			var ord_coilh = $('#ord_coilh').val();
 			var date_delivery = $('#date_delivery').val();
 			var cusprod = $('#cusprod').val();
 			var ord_price = $('#ord_price').val();
+			var ord_new = $('#ord_new').val();
 			
-			
-			
-			
-			if((search_custname=='') || (payinqty=='') || (paydate=='') || (ord_control==0) || (ord_door==0) || (ord_coilh==0) || (date_delivery='')){
+			if((search_custname=='') || (payinqty=='') || (paydate=='') || (date_delivery='')){
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
+				return false;
 			}else if(cusprod==0){
 				alert("ใส่ประเภทสินค้าด้วยนะค่ะ"); 
+				return false;
+			}else if(ord_new==0){
+				alert("มือหนึ่งหรือมือสองค่ะ"); 
+				return false;
 			}else if(ord_price < 1){
 				alert("ใส่ราขายด้วยนะคะ"); 
+				return false;
 			}else{
 				$('#form1').submit();				
 			}
@@ -183,8 +184,8 @@
 											<label class="control-label" for="inputSuccess">ของใหม่/มือสอง</label>
 											<select class="form-control" id="ord_new" name="ord_new">
 												<option value="0">เลือก</option>
-												<option value="1">ของใหม่ทั้งหมด</option> 
-												<option value="2">มือสองทั้งหมด</option>
+												<option value="1">มือหนึ่ง</option> 
+												<option value="2">มือสอง</option>
 												<option value="3">ผนังมือสอง เครื่องใหม่</option>
 												<option value="4">ผนังใหม่ เครื่องมือสอง</option>	
 											</select>
@@ -328,7 +329,13 @@
 											<?php }  ?>
 											
 											<td><?php echo $row_all['pro_name']; ?></td>
-											<td><?php echo $row_all['o_width'].' x '.$row_all['o_size'].' x '.$row_all['o_high']; ?></td>
+											
+											<?php if($row_all['o_newold'] == 1) { ?>
+												<td><?php echo $row_all['o_width'].' x '.$row_all['o_size'].' x '.$row_all['o_high']; ?></td>
+											<?php } else { ?>
+												<td style="color:red; font-weight:bold;"><?php echo $row_all['o_width'].' x '.$row_all['o_size'].' x '.$row_all['o_high']; ?></td>
+											<?php } ?>
+											
 											<td><?php echo $row_all['o_temp']; ?></td>
 											<td><?php echo $row_all['o_voltage']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td>

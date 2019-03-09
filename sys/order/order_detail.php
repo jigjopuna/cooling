@@ -11,7 +11,7 @@
 	
 	//list all product this order
 	
-	$sql_prd = "SELECT orpd.orpd_id, t.t_name, orpd.orpd_qty, orpd.orpd_date, orpd.orpd_e_aprv, orpd.ot_emp, e_name, t.t_cost, t.t_cost1, t.t_cost_center 
+	$sql_prd = "SELECT orpd.orpd_id, t.t_name, orpd.orpd_qty, orpd.orpd_date, orpd.orpd_e_aprv, orpd.ot_emp, e_name, t.t_cost, t.t_cost_center 
 	FROM ((tb_ord_prod orpd JOIN tb_orders o ON o.o_id = orpd.o_id) JOIN tb_tools t ON t.t_id = orpd.ot_id) JOIN tb_emp e ON e.e_id = orpd.ot_emp
 	WHERE orpd.o_id = '$o_id'";
 	$result_prd = mysql_query($sql_prd);

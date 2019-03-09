@@ -7,10 +7,13 @@
 	<link rel="shortcut icon" href="content/images/favicon.png">
 	<title>ใบเสนอราคาห้องเย็น Topcooling</title>
 	<link rel="stylesheet" href="../css/quotation.css">
+	<!--<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">-->
 	<style>
 		.text_strong { font-weight: bold; }
 		.text_emunder { text-decoration:underline; font-weight: bold; }
+		<!--body { font-family: 'Kanit', sans-serif; }-->
 	</style>
+	
 </head>
 <body>
 <?php 

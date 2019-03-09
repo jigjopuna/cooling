@@ -1,6 +1,6 @@
 <?php session_start();
 	  require_once('../include/connect.php');
-	
+
 	//stock
 	$sql = "SELECT *
 			FROM tb_tools t JOIN tb_tools_type tot ON t.t_type = tot.to_typeid";
@@ -12,27 +12,19 @@
 	$num_push = mysql_num_rows($result_push);
 	
 	$today = date("Y-m-d");
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+<title>รายการสั่งซื้อ</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
-	<?php 
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ'); window.location = '../pages/login/login.php';</script>");}
-		
-		$role_ = mysql_fetch_array(mysql_query("SELECT ro_stock FROM tb_role WHERE ro_emp_id = '$e_id'"));
-		$rolestock = $role_['ro_stock'];
+<?php require_once('../include/inc_role.php'); ?>
 	
-	?>
-
-<script>
+	<script>
 	$(document).ready(function(){
 		$('#btn').click(validation); 
 		$('#btncost').click(validcost);
@@ -93,13 +85,11 @@
 		}
 	
 </script>
-
 </head>
 
 <body>
 
-<div id="wrapper">
-
+    <div id="wrapper">
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
 			<div class="row">
@@ -108,6 +98,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+			
 			<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -137,9 +128,7 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">โกดัง </label>
 											<select class="form-control" id="puwh" name="puwh">
-												<!--value จะผูกกับรหัส emp ชายกับพี่ไพรฑูรย์ -->
-												<option value="0">เลือกโกดัง</option> 					
-												<option value="3">กระทุ่มแบน</option>
+												<!--value จะผูกกับรหัส emp ชายกับพี่ไพรฑูรย์ -->		
 												<option value="2">นครปฐม</option>
 												
 											</select>
@@ -162,14 +151,14 @@
 								</form>
 							 </div> <!-- row -->
                            
-                        </div>
-                    <!-- /.panel -->
-                </div>
+							</div>
+						<!-- /.panel -->
+					</div>
                 <!-- /.col-lg-12 -->
-            </div>		
-        </div>
-
-            <div class="row">
+				</div>		
+			</div><!-- End row-->
+			
+			<div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">สต็อกอะไหล่</h1>
                 </div>
@@ -194,6 +183,8 @@
 										<th>ต้นทุน (บาท)<!-- นครปฐม--></th>
 										<!--<th>ต้นทุน (บาท) กระทุ่มแบน</th>-->
 										<th>ราคากลาง</th>
+										<th>รูป</th>
+										
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -211,9 +202,10 @@
 											<td><a href="stocklog.php?t_id=<?php echo $row['t_id']?>"><?php echo $row['t_name'].' ('.$allstock.')'; ?></td>
 											<td><?php echo $stock; ?></td>
 											
-											<td><?php echo $row['t_cost']; ?></td>
+											<td><?php echo number_format($row['t_cost'], 0, '.', ','); ?></td> 
 											
-											<td><?php echo $row['t_cost_center']; ?></td>
+											<td><?php echo number_format($row['t_cost_center'], 0, '.', ','); ?></td>
+											<td><a href="<?php echo $row['t_image']; ?>" target="_blank">ดูรูป</a></td>
 										</tr>
 									<?php } ?>
 
@@ -229,7 +221,6 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-			
 			
 			<div class="row">
                 <div class="col-lg-12">
@@ -345,8 +336,10 @@
         <!-- /#page-wrapper -->
 
     </div>
+    <!-- /#wrapper -->
+
    
-	<div style="display:none" id="rolestock"><?php echo $rolestock;?></div>
+	<div id="role" style="display:none"><?php echo $rolepo;?></div>
 </body>
 
 </html>

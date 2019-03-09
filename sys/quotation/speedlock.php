@@ -70,7 +70,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 							<div class="row">
-								<form action="../../admin/speedlock.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
+								<form action="../../admin/speedlock_advance.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ลูกค้า </label>
@@ -93,12 +93,32 @@
 											<label class="control-label" for="inputSuccess">สูง</label>
 											<input type="text" class="form-control" id="r_high" name="r_high" value="2.4">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">สินค้า (เช่น หมู ปลา ทุเรียน)</label> 
+											<input type="text" class="form-control" id="prods" name="prods" value="" placeholder="หมู"> 
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ปริมาณสินค้าเข้าต่อวัน (kg)</label>
+											<input type="text" class="form-control" id="qtyperday" name="qtyperday" >
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">อุณหภูมิ <strong><u>ก่อนเข้า</u></strong> ห้องเย็น (องศา)</label>
+											<input type="text" class="form-control" id="tempbefore" name="tempbefore" >
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">อุณหภูมิ <strong><u>หลังเข้า</u></strong> ห้องเย็น (องศา)</label>
+											<input type="text" class="form-control" id="tempafter" name="tempafter" >
+										</div>
 									</div>
 									
 									
+									
+									
 									<div class="col-lg-3">
-										
-										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">โฟม</label>
 											<select class="form-control" id="foam" name="foam">
@@ -135,6 +155,15 @@
 											<input type="text" class="form-control" id="hp" name="hp" value="3">
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ระยะเวลาลดอุณหภูมิ (ชม.)</label>
+											<input type="text" class="form-control" id="hours" name="hours" >
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ปริมาณเต็มความจุ (ตัน)</label>
+											<input type="text" class="form-control" id="maxqty" name="maxqty" >
+										</div>
 										
 										<!--<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ออก VAT</label>
@@ -175,6 +204,10 @@
 											<input type="text" class="form-control" id="percent" name="percent" value="40">
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">โชว์  VAT (จริงๆ รวมไปแล้ว)</label>
+											<input type="checkbox" class="form-control" id="intvat" name="intvat">
+										</div>
 									</div>
 									
 									

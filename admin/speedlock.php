@@ -7,9 +7,18 @@
 	<link rel="shortcut icon" href="content/images/favicon.png">
 	<title>ใบเสนอราคาห้องเย็น Topcooling</title>
 	<link rel="stylesheet" href="../css/quotation.css">
+	<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 	<style>
 		.text_strong { font-weight: bold; }
 		.text_emunder { text-decoration:underline; font-weight: bold; }
+		.container { clear:both; border: 1px solid black; min-height:850px;}
+		.row { width: 100%; clear:both; padding-bottom: 60px; overflow: hidden;}
+		.col1 { float:left; width:45%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
+		.col2 { float:left; width:51%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
+		.col3 { float:left; width:53%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
+		.col4 { float:left; width:43%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
+		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
+		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; }
 		
 		@media print { 
 			 #btn-calngod { display: none !important; } 
@@ -107,12 +116,26 @@
 	
 	
 	$cute = ($r_width*$r_high*2) + ($r_lenght*$r_high*2) + ($r_width*$r_lenght*2);
+	if($foaminch==2){ 
+		$cens = (5.08*2)/100; 
+	} else if($foaminch==3) {
+		$cens = (7.62*2)/100; 
+	} else if($foaminch==4){
+		$cens = (10.16*2)/100; 
+	}else if($foaminch==5){
+		$cens = (12.70*2)/100; 
+	}else if($foaminch==6){
+		$cens = (15.24*2)/100; 
+	}else if($foaminch==8){
+		$cens = (20.32*2)/100; 
+	}
 	
 	if($foam==1){ $foams = 'PU'; } else { $foams = 'PS'; }
 	if($doortype==1){ $doortypes = 'ประตูบานสวิง '; $pratoo = 26000; } else { $doortypes = 'ประตูบานเลื่อน'; $pratoo = 37000; }
 	
 	$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_productroom WHERE pr_cate= 1 AND pr_size = '$foaminch' AND pr_type = '$foams'"));
 	$wall_price = $sql_wall['pr_sell_price']; 
+	
 	
 	
 	$kumrai = (($cute*$wall_price)+$pratoo+$basic_price)*$profit;
@@ -474,17 +497,37 @@
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">ห้องเย็นประกอบเร็ว ติดตั้งหน้างาน (<?php echo $cute; ?>) ตารางเมตร</td>
-						<td colspan="2" style="width: 13%;" class="rlb">กว้าง  (เมตร)</td>
+						<td style="width: 60%" align="left">ห้องเย็นประกอบเร็ว ติดตั้งหน้างาน ปริมาณแผ่นฉนวน (<?php echo $cute; ?>) ตารางเมตร</td>
+						<td style="width: 40%" class="b l" align="center" colspan="4"><strong>ขนาดห้องเย็น (กว้าง x ยาว x สูง) เมตร</strong></td>
+						<!--<td colspan="2" style="width: 13%;" class="rlb">กว้าง  (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว   (เมตร)</td>
-						<td style="width: 13%" class="b">สูง  (เมตร)</td> 
+						<td style="width: 13%" class="b">สูง  (เมตร)</td>-->
 					</tr>
+					
 					<tr align="center">
-						<td align="left">COLD ROOM TEMP  <span style="color:red; font-size:18px; font-weight:bold;"><?php echo $ord_temp; ?>C<Sup>o</Sup></span> ขนาดห้อง (วัดภายนอก) </td>
-						<td class="l"><?php echo $r_width; ?></td>
-						<td class="r"></td>
-						<td><?php echo $r_lenght; ?></td>
-						<td class="l"><?php echo $r_high; ?> </td>
+						<td align="left"><span style="font-size:17px; font-weight:bold; text-decoration: underline; "> อุณหภูมิในห้องเย็น</span> <span style="color:red; font-size:18px; font-weight:bold;"><?php echo $ord_temp; ?>C<Sup>o</Sup></span>  แช่หมูได้สูงสุด 4 ตัน</td>
+						<td class="l" align="left" colspan="4"> &nbsp;&nbsp;ขนาดวัดภายนอก <?php echo $r_width;?> x <?php echo $r_lenght;?> x <?php echo $r_high;?></td>
+					</tr>
+					
+					<tr align="center">
+						<td align="left">- ห้องเย็นแช่หมู สินค้าเข้าต่อวัน 1,000 kg </td>
+						<td class="l" align="left" colspan="4"> &nbsp;&nbsp;ขนาดวัดภายใน <?php echo number_format($r_width-$cens, 2, '.', ',');?> x <?php echo number_format($r_lenght-$cens, 2, '.', ',') ;?> x <?php echo number_format($r_high-$cens, 2, '.', ',');?></td>
+					</tr>
+					
+					<tr align="center">
+						<td align="left">- อุณหภูมิก่อนเข้า 20C<Sup>o</Sup> อุณหภูมิห้องที่ต้องการ -18C<Sup>o</Sup></td>
+						<td class="l"></td>
+						<td class=""></td>
+						<td></td>
+						<td class=""></td>
+					</tr>
+					
+					<tr align="center">
+						<td align="left">- ลดอุณหภูมิจาก  20C<Sup>o</Sup> ถึง  -18C<Sup>o</Sup> ปริมาณ 1,000 kg ใช้เวลา 20 ชม.</td>
+						<td class="l"></td>
+						<td class=""></td>
+						<td></td>
+						<td class=""></td>
 					</tr>
 					
 					<tr align="center" style="background: #DAD7D7; border: 1px black solid;">
@@ -494,11 +537,7 @@
 						<td class="l">Amount</td>
 					</tr>
 						
-					
-			
-					
 					<tr class="highs" style="">
-						<!--<td class="l">1. ชุด Condensing <strong><u><?php //echo $comp?></u></strong> <?php //echo '  รุ่น '.$model;?></td>-->
 						<td class="l">1. ชุด Condensing <strong><u>Copeland <span style="color:red; font-size:18px;"><?php echo $hp;?>HP</span></u></strong>   รุ่น ZB <?php echo $copeland; ?> KQE</td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="right"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
@@ -506,7 +545,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l"> &nbsp;&nbsp;&nbsp; - ชุดคอล์ยเย็น <strong><u>EDEN</u></strong> FEME0290-302B <?php //echo $coilyen;?></td>
+						<td class="l"> &nbsp;&nbsp;&nbsp; - ชุดคอล์ยเย็น <strong><u>Q-Coil</u></strong>  <?php //echo $coilyen;?></td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -599,19 +638,28 @@
 					
 					
 					<tr>
-						<td></td>
+						<td rowspan="3">
+							<div style="width:100%";>
+								<div style="width:30%; float:left;">
+									<img style="width:100px; height:100px;" src="../content/images/social/frame.png" />
+								</div>
+								<div style="width:70%; float:left; height:100px;">
+									<p align="left;" style="margin-top:35px;"> ข้อมูลเพิ่มเติม SCAN ME </p>
+								</div>
+							</div>
+						</td>
 						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
 						<td class="t l" align="right"><?php echo number_format($prettylast, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
-						<td></td>
+						
 						<td colspan="3" class="rl">ส่วนลด</td>
 						<td class="rt l" align="right"><?php echo number_format($discount, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td></td>
+						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
 						<td class="rt l" align="right" id="totolprice"><?php echo number_format($total_price, 2, '.', ',');?> </td>
 					</tr>
@@ -622,7 +670,7 @@
 			
 			
 			
-			<div id="amount" style="clear: both; margin-top: 20px;">
+			<div id="amount" style="clear: both; margin-top: 10px;">
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tr>
@@ -643,10 +691,6 @@
 							<td align="left"><span class="cal_ngo3"><?php echo number_format($ngod3, 0, '.', ',');?></span> บาท</td>
 						</tr>
 						
-						<tr>
-							<td align="left">รายละเอียดเลขที่บัญชีสำหรับโอนเงิน </td>
-							<td align="left"></td>
-						</tr>
 						<tr>
 							<td align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
 							<td align="left"></td>
@@ -674,12 +718,12 @@
 			
 			
 			<div id="footer" style="clear: both;">
-				<div style="width: 65%; float:left; margin-top: 50px;">
+				<div style="width: 65%; float:left; margin-top: 20px;">
 					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
 					<span>ลงชื่อ......................................</span> <br><br>
 					<span>วันที่ <?php echo $thatdate;?></span>
 				</div>
-				<div style="width: 35%; float:left; margin-top: 50px;">
+				<div style="width: 35%; float:left; margin-top: 20px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
 					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
@@ -742,9 +786,286 @@
 			</div><!--end note -->
 
         </div>  <!--end subpage-->
-    </div> <!--end page-->
+    </div> <!--end page 3-->
 	
-    
+	
+	<div class="page">
+        <div class="subpage">
+
+            <div id="cover_header">
+				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
+				
+				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
+				</div>
+			</div><!--end cover_header-->
+			
+			<div style="width: 100%; clear:both; height: 10px;">
+				<div style="float: right;">หน้า 4</div>
+			</div>
+			
+			<div style="width: 100%; clear:both; height: 40px;">
+				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายละเอียดแนบท้ายใบเสนอราคา</span></p>
+			</div>
+			
+			<div class="container">
+				<div class="row">
+					<div class="col3">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/002.jpg">
+						</div>
+					</div>
+					<div class="col4"><span class="topic">ชุดคอนเด็นซิ่งยูนิต ประกอบด้วย</span><br>
+						<p><span class="intopic">คอมเพรสเซอร์ :</span> Copeland 5HP รุ่น ZB 38 KQE 3 Phase ประเภท Scroll</p>
+						<p><span class="intopic">ชุดคอยล์ร้อน :</span> XMK ระบายความร้อนด้วยอากาศ 2 พัดลม</p>
+						<p><span class="intopic">ไฮ-โล เพรสเชอร์ :</span> อุปกรณ์วัดระดับแรงดันน้ำยา</p>
+						<p><span class="intopic">รีซีฟเวอร์และวาล์วนิรภัย :</span></p>
+						<p><span class="intopic">เช็ควาล์วและเซอร์วิสวาล์ว :</span> </p>
+						<p><span class="intopic">ดรายเออร์ :</span> อุปกรณ์กรอกสิ่งสกปรกออกจากระบบทำความเย็น</p></div>
+				</div> <!--end row-->
+				
+				<div class="row">
+					<div class="col1">
+						<span class="topic">คอยล์เย็นสำหรับเป่าลมเย็นในห้องเย็น</span><br>
+						<p><span class="intopic">รุ่น  :</span> Q</p>
+						<p><span class="intopic">ยี่ห้อ :</span> Q-Coil</p>
+						<p><span class="intopic">จำนวนพัดลม/ขนาดใบพัด :</span> 2 x 350 มิลลิเมตร</p>
+						<p><span class="intopic">ระยะส่งลม (Air Throw) :</span> อุปกรณ์ตัดต่อการทำงานของ คอมเพรสเซอร์ คอลย์ร้อน และ คอยล์เย็น</p>
+						<p><span class="intopic">ระยะครีบ (ฟิน) :</span> 7 มิลลิเมตร</p>
+						
+					</div>
+					<div class="col2">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/004.jpg">
+						</div>
+					</div>
+				</div> <!--end row-->
+				
+				
+				
+			</div><!--end container-->
+			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
+			<br><br><br>
+			<div class="note" style="clear: both; margin: 0 0 0 200px;">
+			</div><!--end note -->
+
+        </div>  <!--end subpage-->
+    </div> <!--end page 4 -->
+	
+	
+	<div class="page">
+        <div class="subpage">
+
+            <div id="cover_header">
+				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
+				
+				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
+				</div>
+			</div><!--end cover_header-->
+			
+			<div style="width: 100%; clear:both; height: 10px;">
+				<div style="float: right;">หน้า 5</div>
+			</div>
+			
+			<div style="width: 100%; clear:both; height: 40px;">
+				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายละเอียดแนบท้ายใบเสนอราคา</span></p>
+			</div>
+			
+			<div class="container">
+				<div class="row">
+					<div class="col1">
+						<span class="topic">อุปกรณ์ไฟฟ้า ประกอบด้วย</span><br>
+						<p><span class="intopic">เฟสโพรเทคชั่น :</span> WOP4 อุปกรณ์ป้องกันไฟฟ้าไม่ปกติ เช่น ไฟตก ไฟกระชาก ไฟขาดเฟส ไฟไม่บาลานซ์</p>
+						<p><span class="intopic">เทอร์โมมิเตอร์ ดิจิตอล :</span> ยี่ห้อ CAREL มาตราฐานระบดับโลก</p>
+						<p><span class="intopic">โอเวอร์โหลด :</span> อุปกรณ์ป้องกันกระแสไฟฟ้าเกินกำหนด</p>
+						<p><span class="intopic">แม็กเนติก :</span> อุปกรณ์ตัดต่อการทำงานของ คอมเพรสเซอร์ คอลย์ร้อน และ คอยล์เย็น</p>
+						<p><span class="intopic">ไฟแสดงสัญญาณ :</span> สถานะการทำงาน อุปกรณ์เครื่องต่างๆ ของห้องเย็น</p>
+						<p><span class="intopic">สวิตซ์ :</span> เปิด-ปิดการทำงานของเครื่องทำความเย็น</p>
+						<p><span class="intopic">ตู้ควบคุม :</span> ได้มาตารฐาน IP67 กันน้ำ กันฝุ่น</p>
+						
+					</div>
+					<div class="col2">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/0001.jpg">
+						</div>
+					</div>
+				</div> <!--end row-->
+				
+				<div class="row">
+					<div class="col3">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/003.jpg">
+						</div>
+						
+					</div>
+					<div class="col4">
+						
+						<span class="topic">อุปกรณ์ควบคุมระบบน้ำยาห้องเย็น</span><br>
+						<p><span class="intopic">น้ำยาทำความเย็น :</span> ชนิด R404a</p>
+						<p><span class="intopic">ท่อทองแดง : </span> Type L สำหรับส่งน้ำยาในระบบ รวมถึงข้อต่อต่างๆ</p>
+						<p><span class="intopic">ฉนวนหุ้มท่อ :</span> AeroFlex ป้องกันการเกิดหยดน้ำ และการรั่วซึมของน้ำยา </p>
+						<p><span class="intopic">ตัวยึดท่อทองแดง :</span> ก้ามปูยึดท่อ</p>
+						<p><span class="intopic">การเชื่อมท่อทองแดง :</span> ป้องกันการรั่วของท่อน้ำยา ตรวจสอบการตรวจรั่วได้มาตราฐาน</p>
+					</div>
+				</div> <!--end row-->
+				
+				
+				
+				
+				</div><!--end container-->
+			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
+			<br><br><br>
+			<div class="note" style="clear: both; margin: 0 0 0 200px;">
+			</div><!--end note -->
+
+        </div>  <!--end subpage-->
+    </div>
+  </div> <!--end page 5 -->
+  
+  <div class="page">
+        <div class="subpage">
+
+            <div id="cover_header">
+				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
+				
+				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
+				</div>
+			</div><!--end cover_header-->
+			
+			<div style="width: 100%; clear:both; height: 10px;">
+				<div style="float: right;">หน้า 6</div>
+			</div>
+			
+			<div style="width: 100%; clear:both; height: 40px;">
+				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายละเอียดแนบท้ายใบเสนอราคา</span></p>
+			</div>
+			
+			<div class="container">
+				
+				
+				<div class="row">
+					<div class="col3">
+						<span class="topic">ฮีทเตอร์สำหรับละลายน้ำแข็ง (Defrost)</span><br>
+						<p><span class="intopic">ฮีทเตอร์คอยเย็น :</span> ป้องกันน้ำแข็งเกาะบริเวณฟินที่คอยล์เย็น</p>
+						<p><span class="intopic">ฮีทเตอร์ขอบประตู :</span> ป้องกันหยดน้ำคอนเด็นที่อาจเกิดขึ้นบริเวณประตู</p>
+						<p><span class="intopic">วาล์วปรับแรงดัน :</span> ฮีตเตอร์วาล์วปรับแรงดันป้องกันน้ำแข็งเกาะ สำหรับปรับแรงดันในและนอกห้องเย็นให้เท่ากันป้องกันรอยรั่วบริเวณต่อของแผ่นฉนวน </p>
+						<p><span class="intopic">Dimmer :</span>สำหรับปรับความร้อนของฮีทเตอร์ขอบประตู</p>
+					</div>
+					<div class="col4">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/005.jpg">
+						</div>
+						
+					</div>
+				 </div> <!--end row-->
+				 
+				<div class="row">
+					<div class="col1">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/007.jpg">
+						</div>
+						
+					</div>
+					<div class="col2">
+						<span class="topic">ฉนวนโฟมผนังห้องเย็น</span><br>
+						<p><span class="intopic">ชนิดของฉนวน  :</span> PS (Polystyrene) </p>
+						<p><span class="intopic">ความหนาของฉนวนโฟม  :</span> 4 นิ้ว</p>
+						<p><span class="intopic">ยี่ห้อ :</span> BHP</p>
+						<p><span class="intopic">คุณสมบัติ :</span> ensity 38-40 kg/m3 เหล็ก  0.45 เมตร</p>
+						<p><span class="intopic">วัสดุเหล็ก :</span> เหล็กคัลเลอร์บอร์นผิวเรียบ</p>
+						<p><span class="intopic">วัสดุกันรั่วกันความชื้น :</span>  "บูทิวมาสติก" สำหรับใช้ฉีดเชื่อมรอยต่อของฉนวน</p>
+						<p><span class="intopic">ติดตั้ง :</span>  รีเวทสำหรับยึดแผ่นฉนวนกับอลูมิเนียม</p>
+						<p><span class="intopic">ติดตั้ง :</span>  อลูมิเนียมหน้าตัดต่างๆ ชนิดชุบด้วยอโนไดส์ สำหรับเป็นตัวเข้าลิ้น และมอบปิดรอยต่อส่วนต่างๆ ของห้องเย็น</p>
+
+					</div>
+				</div> <!--end row-->
+				
+				
+				
+				
+			</div><!--end container-->
+			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
+			<br><br><br>
+			<div class="note" style="clear: both; margin: 0 0 0 200px;">
+			</div><!--end note -->
+
+        </div>  <!--end subpage-->
+    </div>
+  </div> <!--end page 6 -->
+  
+  <div class="page">
+        <div class="subpage">
+
+            <div id="cover_header">
+				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
+				
+				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
+				</div>
+			</div><!--end cover_header-->
+			
+			<div style="width: 100%; clear:both; height: 10px;">
+				<div style="float: right;">หน้า 6</div>
+			</div>
+			
+			<div style="width: 100%; clear:both; height: 40px;">
+				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายละเอียดแนบท้ายใบเสนอราคา</span></p>
+			</div>
+			
+			<div class="container">
+				
+				<div class="row">
+					<div class="col1">
+						<span class="topic">ประตูห้องเย็น</span><br>
+						<p><span class="intopic">ชนิดประตู :</span> ประตูบานสวิง </p>
+						<p><span class="intopic">ขนาด :</span> 1.0 x 2.0 เมตร (กว้างสูง)</p>
+						<p><span class="intopic"></span>- อุปกรณ์นิรภัยสำหรับติดที่บานประตูภายในห้องเย็นเพื่อกระทุ้งเปิดจากด้านใน แม้ด้านนอดถูกล็อค</p>
+						<p><span class="intopic"></span>- กรอบบานประตูใชแผ่น "คัลเลอร์บอร์น" ครอบรอบบาน, วงกบประตูแผ่น"คัลเลอร์บอร์น" ครอบรอบด้าน</p>
+					</div>
+					<div class="col2">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/008.jpg">
+						</div>
+					</div>	
+				</div> <!--end row-->
+				
+				<div class="row">
+					<div class="col3">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/009.jpg">
+						</div>
+						
+					</div>
+					<div class="col4">
+						<span class="topic">พื้นห้องเย็น</span><br>
+						<p><span class="intopic">ชนิด :</span> พื้นสำเร็จรูป ปูทับด้วยอลูมิเนียมกันลื่น</p>
+						<p><span class="intopic">วัสดุกันรั่ว : </span> ซิลิโคน และซีลแลนด์ สำหรับใช้ฉีดเชื่อมรอยต่อของแผ่นฉนวน</p>
+						
+					</div>
+				</div> <!--end row-->
+			</div><!--end container-->
+			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
+			<br><br><br>
+			<div class="note" style="clear: both; margin: 0 0 0 200px;">
+			</div><!--end note -->
+
+        </div>  <!--end subpage-->
+    </div>
+  </div> <!--end page 7 -->
 </div>
 <input type="button" value="คำนวนราคางวด" id="btn-calngod">
 <span style="float:right;"><?php echo $total_result_t;?></span>

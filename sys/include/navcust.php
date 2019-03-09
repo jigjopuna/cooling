@@ -47,30 +47,9 @@
 						
 						
 						<li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level"> 
-								<?php if($ro_quotation == 1 || $ro_quotation == 2) { ?>
-                                <li>
-                                    <a href="quotation/q.php">ห้องฝั่ง </a>
-                                </li>
-								<?php } ?>
-								
-								
-								<?php if($ro_quotation == 1  ||  $ro_quotation == 3) { ?>
-								<li>
-                                    <a href="quotation/cust_q.php">ห้องสำเร็จ</a>
-                                </li>
-								<?php } ?>
-								
-								<?php if($ro_quotation == 1 ||  $ro_quotation == 4) { ?>
-								<li>
-                                    <a href="quotation/speedlock.php">ห้อง Speed Lock </a>
-                                </li>
-								<?php } ?>
-                            </ul>
+                            <a href="quotation/select_room.php"><i class="fa fa-dashboard fa-fw"></i>ใบเสนอราคา</a>
                         </li>
-						
-						
+					
 						
 						<!--<li>
                             <a href="quotation/q_fome.php"><i class="fa fa-dashboard fa-fw"></i>ต้นทุนห้องโฟม</a>
@@ -89,11 +68,11 @@
 								<li>
                                     <a href="finance/inpay.php">ยอดเงินเข้า</a>
                                 </li>
-								
+								<?php if($ro_salary != 0) { ?>
 								<li>
                                     <a href="finance/salary.php">เงินเดือน</a>
                                 </li>
-								
+								<?php } ?>
 								<li>
                                     <a href="finance/summary.php">สรุปการเงิน</a>
                                 </li>
@@ -117,11 +96,19 @@
                             <ul class="nav nav-second-level">
 								
                                 <li>
-                                    <a href="customer/customer.php">รายชื่อลูกค้า</a>
+                                    <a href="customer/customer.php">รายชื่อลูกค้า (ซื้อแล้ว)</a>
                                 </li>
 								
 								<li>
-                                    <a href="customer/cust_waitpay.php">ลูกค้ารอมัดจำ</a>
+                                    <a href="customer/cust_service.php">ลูกค้างานเซอร์วิส</a>
+                                </li>
+								
+								<li>
+                                    <a href="customer/cust_waitpay.php">ลูกค้ายังไม่ปิดการขาย</a>
+                                </li>
+								
+								<li>
+                                    <a href="customer/cust_part.php">ลูกค้าอะไหล่ และ IoT</a>
                                 </li>
 								
 								<li>
@@ -131,6 +118,10 @@
 								
 								<li>
                                     <a href="customer/cust_iot.php">IoT ลูกค้า</a>
+                                </li>
+								
+								<li>
+                                    <a href="customer/cust_sell.php">ผู้ติดต่อลูกค้า</a>
                                 </li>
 							
                             </ul>
@@ -145,6 +136,10 @@
 								
                                 <li>
                                     <a href="order/order.php">รายการออเดอร์</a>
+                                </li>
+								
+								<li>
+                                    <a href="order/service.php">งานเซอร์วิส</a>
                                 </li>
                             </ul>
                         </li>

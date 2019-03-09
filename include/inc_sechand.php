@@ -116,19 +116,28 @@
 					
 					
 					<tr>
-						<td></td>
+						<td rowspan="3">
+							<div style="width:100%";>
+								<div style="width:30%; float:left;">
+									<img style="width:100px; height:100px;" src="../content/images/social/frame2.png" />
+								</div>
+								<div style="width:70%; float:left; height:100px;">
+									<p align="left;" style="margin-top:35px;"> ข้อมูลเพิ่มเติม SCAN ME </p>
+								</div>
+							</div>
+						</td>
 						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
 						<td class="t l" align="right"><?php echo number_format($amount, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
-						<td></td>
+						
 						<td colspan="3" class="rl">ส่วนลด</td>
 						<td class="rt l" align="right"><?php //echo number_format($vats, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>ข้อมูลเพิ่มเติม https://topcooling.net/th/article/secondhand.php</td>
+						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
 						<td class="rt l" align="right"><?php echo number_format($incvat, 2, '.', ',');?> </td>
 					</tr>

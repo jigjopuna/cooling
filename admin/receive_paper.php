@@ -38,7 +38,10 @@
 	$row_order = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders WHERE o_id = '$ord_id'"));
 	$vatprice = $row_order['o_price'];
 	
-	/*echo 'vat_order : '.$row_order['o_vat'].'<br>';*/
+	/*
+		เงื่อนไข
+		จะคิด VAT เฉพาะมือหนึ่ง ใช้เงื่อนไข o_newold = 1 คือเท่ากับของใหม่ 
+	*/
 	
 	if($row_order['o_vat']==1){
 		$row_ordno = mysql_fetch_array(mysql_query("SELECT vat_id FROM tb_tax WHERE vat_ord='$ord_id'"));

@@ -26,7 +26,7 @@
 					
 					
 					<tr class="highs" style="">
-						<td class="l">1. ชุด Condensing Copeland <strong><u>3HP</u></strong> รุ่น ZB 21 KQE</td>
+						<td class="l">1. ชุด Condensing Copeland <strong><u><span style="color:red; font-size:18px;">3HP</span></u></strong> รุ่น ZB 21 KQE</td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="center"><?php echo number_format($ord_price, 0, '.', ','); ?></td>
 						<td class="l" align="right"><?php echo number_format($ord_price, 2, '.', ','); ?></td> 
@@ -40,7 +40,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">2. ผนังห้องเย็น โฟม  <strong><u>PU 4 นิ้ว</u></strong>  ensity 38-40 kg/m3 เหล็ก BHP 0.55 เมตร </td>
+						<td class="l">2. ผนังห้องเย็น โฟม  <strong><u><span style="color:red; font-size:18px;">PU 4 นิ้ว</span></u></strong>  ensity 38-40 kg/m3 เหล็ก BHP 0.55 เมตร </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
@@ -68,7 +68,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td class="l">3. ระบบ <span style="color:red; font-size:18px; font-weight:bold;">IoT</span> สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>

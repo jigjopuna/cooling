@@ -20,7 +20,7 @@
 	$cust_order = trim($_POST['search_ord']);
 	$payamount  = trim($_POST['payamount']);
 	
-	$emp = trim($_POST['emp_receive']);
+	$emp = 2; // ชายเป็นคนรับเงิน ตั้งค่าไว้เฉยๆ 
 	$paydate  = trim($_POST['paydate']);
 	$poment  = trim($_POST['poment']);
 	

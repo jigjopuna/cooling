@@ -16,20 +16,11 @@
 <title>ค่าตอบแทนพนักงาน</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
-<?php require_once('../include/inc_role.php'); ?>
+<?php require_once('../include/inc_role.php');
+	  if($role['ro_salary'] !=1 ){ exit("<script>alert('ไม่มีสิทธิ์ในการเข้าถึงนะคะ');window.location = '../index.php';</script>"); }
+?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
-	<?php 
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
-	
-	?>
 
 <script>
 	$(document).ready(function(){ 

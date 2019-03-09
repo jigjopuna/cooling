@@ -124,9 +124,11 @@
 	
 	if($result1) {
 		$a = mysql_insert_id($conn);
-		$work_list = "INSERT INTO tb_tax SET vat_ord = '$a'";
-		$result6 = mysql_query($work_list);
-		if($result6){
+		if($o_newold==1){
+			$work_list = "INSERT INTO tb_tax SET vat_ord = '$a'";
+			$result6 = mysql_query($work_list);
+		}
+		if($result1){
 			exit("<script>alert('บันทึกออเดอร์ใหม่เรียบร้อยแล้วจร้า ^^ '); window.location='../../order/order.php';</script>");
 		}else{
 			 exit("<script>alert('บันทึกออเดอร์ไม่สำเร็จ ติดต่อผู้ดูแลระบบ1'); window.location='../../order/order.php';</script>");

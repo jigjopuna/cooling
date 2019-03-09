@@ -11,28 +11,28 @@
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
-	<?php require_once('../include/inc_role.php'); ?>
-	
+<?php require_once('../include/inc_role.php'); ?>
 	<script>
 		$(document).ready(function(){
-			$('#btn').click(validation);	
-			$('#vatdate').datepicker({dateFormat: 'yy-mm-dd'});
+			$('#btn').click(validation);
+			$('#btn1').click(validation1);			
+			$('#vatdate, #servdate').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#search_custname").autocomplete({
 				source: "../../ajax/search_ord.php",
 				minLength: 1
-			});		
+			});
+			$("#search_custs").autocomplete({
+				source: "../../ajax/search_custservice.php",
+				minLength: 1
+			});
 		});
 		
-		
-		function validation(){		
-			
+		function validation(){
 			$('#form1').submit();
-			
 		}
-		
-
-
-
+		function validation1(){
+			$('#form2').submit();
+		}
 	</script> 
 </head>
 
@@ -42,8 +42,6 @@
 
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
-		
-		    
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">ใบเสร็จ</h1>
@@ -55,7 +53,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							ใบเสร็จ
+							ใบเสร็จลูกค้าห้องเย็น
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -105,6 +103,65 @@
             </div>
 			
 			
+        </div>
+		
+		<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							ใบเสร็จงานเซอร์วิส
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="row">
+								<form action="../../admin/receive_paper_serv.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
+									<div class="col-lg-3">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ลูกค้า </label>
+											<input type="text" class="form-control" id="search_custs" name="search_custs">
+										</div>
+									</div>
+																		
+									<div class="col-lg-3">
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">วันที่</label>
+											<input type="text" class="form-control" id="servdate" name="servdate" value="<?php echo $today;?>">
+										</div>
+										
+									</div>
+									
+									<div class="col-lg-3">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">VAT </label>
+											<input type="checkbox" class="form-control" id="servat" name="servat">
+										</div>
+									</div>
+									
+									<div class="col-lg-3">
+										<!--<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">หัวบิล </label>
+											<select class="form-control" id="corp_addr" name="corp_addr">
+												<option value="0">เลือกหัวบริษัท</option>
+												<option value="1">Top Cooling</option>
+												<option value="2">PT WALL</option>
+											</select>
+										</div>-->
+										<input type="hidden" name="corp_addr" value="1">
+										<div class="form-group has-success">
+											<button id="btn1" type="button" class="btn btn-lg btn-success btn-block">พิมพ์</button>
+										</div>
+										
+									</div>
+									
+								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
         </div>
 
 		<!-- /.row -->

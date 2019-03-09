@@ -1,4 +1,4 @@
- <?php require_once('../../include/connect.php'); ?>
+<?php require_once('../../include/connect.php'); ?>
 <!doctype html>
 <html>
 <head>

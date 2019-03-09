@@ -10,6 +10,10 @@
 	$phoneno = trim($_POST['phoneno']);
 	$taxid = trim($_POST['taxid']);
 	$cusprod = trim($_POST['cusprod']);
+	
+	$company = trim($_POST['company']);
+	$cust_status = trim($_POST['cust_status']);
+	
 	$cusproduct = trim($_POST['cusproduct']);
 ?>
 <!DOCTYPE html>
@@ -41,6 +45,8 @@
 	
 	$sql = "INSERT INTO tb_quo_cust SET 
 				qcust_name = '$cust_name', 
+				qcust_corp = '$company', 
+				qcust_progress = '$cust_status', 
 				qcust_addr = '$address', 
 				qcust_prov = '$province', 
 				qcuat_amphur = '$amphur', 
@@ -49,7 +55,8 @@
 				qcust_zip = '$zipcode',  
 				qcust_tax = '$taxid', 
 				qcust_prod = '$cusproduct', 
-				qcust_prodtype = '$cusprod',
+				qcust_prodtype = '$cusprod', 
+				qcust_emp = '$e_id', 
 				qcust_day = now()";
 	$result = mysql_query($sql);	
 	
