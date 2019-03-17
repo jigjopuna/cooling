@@ -1,17 +1,17 @@
 <?php session_start();
 	  require_once('../include/connect.php');
-	  $today = date("d-m-Y");
+	  
+	  $sql_vat = "SELECT * FROM tb_tax t JOIN tb_ord_type o ON t.vat_ord_type = o.ort_id ORDER BY t.vat_id DESC LIMIT 0,30";
+	  $result_vat = mysql_query($sql_vat);
+	  $num_vat = mysql_num_rows($result_vat);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<title>รายการสั่งซื้อ</title>
-<?php require_once ('../include/header.php');?>
-<?php require_once('../include/metatagsys.php');?>
-<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
-<script src="../../js/jquery-ui-1-12-1.min.js"></script>
-<?php require_once('../include/inc_role.php'); ?>
+	<?php require_once('../include/header.php');?>
+	<?php require_once('../include/metatagsys.php');?>
+	<?php require_once('../include/inc_role.php');?>
 	<script>
 		$(document).ready(function(){
 			$('#btn').click(validation);
@@ -35,14 +35,13 @@
 		}
 	</script> 
 </head>
-
 <body>
 
     <div id="wrapper">
-
         <?php require_once ('../include/navproduct.php');?>
         <div id="page-wrapper">
-            <div class="row">
+		
+			<div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">ใบเสร็จ</h1>
                 </div>
@@ -163,8 +162,60 @@
                 <!-- /.col-lg-12 -->
             </div>
         </div>
+		
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">เลขภาษี</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+								ประวัติหมายเลขกำกับภาษี
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                                <thead>
+                                    <tr>
+										<th>หมายเลข  VAT</th>
+										<th>ประเภทงาน</th>
+                                        <th>หมายเลขออเดอร์</th>
+										<th>วันที่</th>
+										
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+									<?php 
+										for($i=1; $i<=$num_vat; $i++){
+										  $row_vat = mysql_fetch_array($result_vat);
+									  ?>
+										<tr class="gradeA">
+											
+												<td>00<?php echo $row_vat['vat_ord']; ?></td>
+												<td><?php echo $row_vat['ort_name']; ?></td>
+												<td><?php echo $row_vat['vat_ord_no'] ;?></td>
+												<td><?php echo $row_vat['vat_date'] ;?></td>
+											
+										</tr>
+									<?php } ?>
 
-		<!-- /.row -->
+                                    
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
 
         </div>
         <!-- /#page-wrapper -->

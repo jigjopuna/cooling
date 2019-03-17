@@ -122,15 +122,19 @@
 		<!-- /.row -->
 		
 		<div class="row">
-                <div class="col-lg-3">
-                   <a href="buyseller.php"><button type="button" class="btn btn-lg btn-primary btn-block">ใบสั่งซื้อ</button></a>
-                </div>
+            <div class="col-lg-3">
+                <a href="buyseller.php"><button type="button" class="btn btn-lg btn-primary btn-block">ใบสั่งซื้อ</button></a>
             </div>
-			<div class="row">
-                <div class="col-lg-3">
+			
+			<div class="col-lg-3">
+                <a href="item_per_room.php"><button type="button" class="btn btn-lg btn-primary btn-block">ของต่อ 1 ห้อง</button></a>
+            </div>
+        </div>
+		<div class="row">
+             <div class="col-lg-3">
                   &nbsp;<br>&nbsp;<br>
-                </div>
-            </div>
+              </div>
+        </div>
 
         </div>
         <!-- /#page-wrapper -->

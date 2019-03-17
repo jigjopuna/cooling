@@ -6,6 +6,11 @@
 </head>
 <body>
 <?php 
+
+	//หาเลข VAT ออเดอร์ก่อนหน้า แล้ว +1
+	$sql_maxTax = mysql_fetch_array(mysql_query("SELECT MAX(vat_ord) maxvat FROM tb_tax"));
+	$maxvat = $sql_maxTax['maxvat']+1;
+
 	
 	//1. receive data  ord_length ord_high 
 	$search_custname = trim($_POST['search_custname']);
@@ -73,7 +78,7 @@
 			$uploadOk = 0;
 		}
 		// Check file size
-		if ($_FILES["ord_quotation"]["size"] > 3000000) { 
+		if ($_FILES["ord_quotation"]["size"] > 5000000) { 
 			echo "Sorry, your file is too large."; exit();
 			$uploadOk = 0;
 		}
@@ -120,14 +125,15 @@
 			o_cuprod = '$cusproduct',
 			o_type = '$o_type', 
 			o_temp = '$ord_temp'";
-	$result1 = mysql_query($sql);
+	$result1 = mysql_query($sql); 
 	
 	if($result1) {
 		$a = mysql_insert_id($conn);
 		if($o_newold==1){
-			$work_list = "INSERT INTO tb_tax SET vat_ord = '$a'";
+			$work_list = "INSERT INTO tb_tax SET vat_ord = '$maxvat', vat_ord_no = '$a', vat_ord_type = 1 ";
 			$result6 = mysql_query($work_list);
 		}
+		
 		if($result1){
 			exit("<script>alert('บันทึกออเดอร์ใหม่เรียบร้อยแล้วจร้า ^^ '); window.location='../../order/order.php';</script>");
 		}else{

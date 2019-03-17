@@ -22,8 +22,8 @@
 					เลขที่ใบกำกับ / Order No. : 
 					
 					<?php 
-						if($row_order['o_vat']==1){ 
-							echo '000'.$cust_ordno;
+						if($num_chkvat==1){ 
+							echo '00'.$row_vat;
 						} else { 
 							echo 'T000'.$ord_id;
 						}

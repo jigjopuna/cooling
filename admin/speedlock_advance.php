@@ -1,6 +1,5 @@
 <?php 
 	require_once('../include/connect.php');
-	require_once('../include/googletag.php');
 	$nDay   = date("w");
 	$nMonth = date("n");
 	$date   = date("j");

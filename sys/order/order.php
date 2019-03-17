@@ -22,6 +22,10 @@
 		$result_cusprod = mysql_query($sql_cusprod);
 		$num_cusprod = mysql_num_rows($result_cusprod);
 		
+		$sql_ordtype = "SELECT * FROM tb_ord_type WHERE ort_id < 6 ORDER BY ort_id";
+		$result_ordtype = mysql_query($sql_ordtype);
+		$num_ordtype = mysql_num_rows($result_ordtype);
+		
 	?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
@@ -126,12 +130,14 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ประเภทห้อง</label>
 											<select class="form-control" id="ord_type" name="ord_type">
-												<option value="1">ห้องสำเร็จรูป</option> 
-												<option value="2">ห้องฝั่ง</option>
-												<option value="3">blast freeze (บลาส ฟรีซ)</option>
-												<option value="4">Master Cold</option>
+												<?php for($i=1; $i<=$num_ordtype; $i++) { 
+													  $row_ordtype = mysql_fetch_array($result_ordtype);
+												?>
+												<option value="<?php echo $row_ordtype['ort_id'];?>"><?php echo $row_ordtype['ort_name'];?></option> 
+												<?php } ?>
 											</select>
 										</div>
+										
 										
 										
 										<div class="form-group has-success">

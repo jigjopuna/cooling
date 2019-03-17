@@ -28,6 +28,14 @@
 	
 	$ord_id = trim($_POST['search_custname']);
 	
+	$sql_chkvat = "SELECT vat_ord FROM tb_tax WHERE vat_ord_type = 1 AND vat_ord_no = '$ord_id'";
+	$result_chkvat = mysql_query($sql_chkvat);
+	$num_chkvat = mysql_num_rows($result_chkvat);
+	$chkvat = mysql_fetch_array($result_chkvat);
+	$row_vat = $chkvat['vat_ord'];
+	
+	//echo $ord_id .' | '. $num_chkvat .' | '.$row_vat;
+	
 	$vatdate = trim($_POST['vatdate']);
 	$corp_addr  = trim($_POST['corp_addr']);
 	/*echo 'e_id : '.$e_id.'<br>';

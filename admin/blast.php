@@ -1,6 +1,5 @@
 <?php 
 	require_once('../include/connect.php');
-	require_once('../include/googletag.php');
 	$nDay   = date("w");
 	$nMonth = date("n");
 	$date   = date("j");
@@ -102,7 +101,6 @@
 	$d_high = trim($_POST['d_high']);
 	$floor1 = trim($_POST['floor1']);
 	$mach = trim($_POST['mach']);
-	$discount = trim($_POST['discount']);
 	
 	//เลือกเครื่องราคา มีทั้งหมด 3 แบบ ถูก กลาง แพง
 	$sql_airblast = mysql_fetch_array(mysql_query("SELECT * FROM tb_machine_set WHERE set_id = '$mach' AND set_type = 3"));
@@ -153,10 +151,12 @@
 	
 	
 	$costs = ($cute*$wall_price)+$pratoo+$airblast_price+$jipata+$labor;
-	$rakakai = (($cute*$wall_price)+$pratoo+$airblast_price+$jipata+$labor)*$profit;
+	$rakakai = $costs*$profit;
 
 	$prettylast = $rakakai+$ship_cost;
-	$total_price = $prettylast-$discount;
+	$vats = $prettylast*0.07;
+	
+	$total_price = $prettylast+$vats;
 	
 	$ngod1 = $total_price*0.5;
 	$ngod2 = $total_price*0.3;
@@ -561,7 +561,7 @@
 			
 					<tr class="highs" style="">
 						<td class="l"> 2. ชุดคอล์ยเย็น  <?php echo $airblast_coilyen;?></td>
-						<td colspan="2" class="l" align="center">2 ชุด</td>
+						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
@@ -598,7 +598,7 @@
 					
 					<tr class="highs" style="">
 						<td class="l">4. Digital Control Box <strong><u><?php echo $firefa;?> </u></strong> </td>
-						<td colspan="2" class="l" align="center">2 BOX</td>
+						<td colspan="2" class="l" align="center">1 BOX</td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
@@ -619,7 +619,7 @@
 					
 					<tr class="highs" style="">
 						<td class="l">5. ระบบ <strong><u>IoT</u></strong> ตรวจสอบการทำงานของห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
-						<td colspan="2" class="l" align="center">2 BOX</td>
+						<td colspan="2" class="l" align="center">1 BOX</td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
@@ -725,8 +725,8 @@
 					
 					<tr>
 						
-						<td colspan="3" class="rl">ส่วนลด</td>
-						<td class="rt l" align="right"><?php echo number_format($discount, 2, '.', ','); ?></td>
+						<td colspan="3" class="rl">ภาษีมูลค่าเพิ่ม</td>
+						<td class="rt l" align="right"><?php echo number_format($vats, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
@@ -1139,7 +1139,8 @@
 <div id="wall_price" style="display: none;"><?php echo $wall_price; ?></div>
 <div id="airblast_price" style="display: none;"><?php echo $airblast_price;?></div>
 <div id="jipata" style="display: none;"><?php echo $jipata;?></div>
-<div id="kumrai" style="display: none;"><?php echo $kumrai;?></div>
+<div id="costs" style="display: none;"><?php echo $costs;?></div>
+<div id="rakakai" style="display: none;"><?php echo $rakakai;?></div>
 <div id="prettylast" style="display: none;"><?php echo $prettylast?></div>
 <div id="total_price" style="display: none;"><?php echo $total_price?></div>
 <div id="profit" style="display: none;"><?php echo $profit?></div>
@@ -1156,7 +1157,8 @@
 		echo 'ค่าแรงติดตั้ง : '. $labor.'<br>';
 		echo 'ราคาทุนไม่รวมกำไร : '. $costs.'<br>';
 		echo 'ราคาทุน : '. $rakakai.'<br>';
-		echo 'ราคาก่อนลด : '. $prettylast.'<br>';
+		echo 'ราคา + แรง + ส่ง : '. $prettylast.'<br>';
+		echo 'VAT : '. $vats.'<br>';
 		echo 'ราคาขายสุดท้าย : '. $total_price.'<br>';
 		echo 'กำไร % : '. $profit.'<br>';
 	?>
