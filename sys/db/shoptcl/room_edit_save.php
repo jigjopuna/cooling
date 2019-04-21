@@ -1,4 +1,5 @@
-<?php require_once('../../include/connect.php'); ?>
+<?php session_start();
+	  require_once('../../include/connect.php'); ?>
 <!doctype html>
 <html>
 <head>
@@ -6,6 +7,8 @@
 </head>
 <body>
 <?php 
+	require_once('../../include/inc_role.php');  
+	if($role['ro_shop']!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการ UPDATE SHOP นะคะ'); window.location = 'https://google.co.th';</script>");}
 	
 	//1. receive data  ord_length ord_high 
 	$pr_id = trim($_POST['pr_id']);
@@ -29,6 +32,10 @@
 	$pr_img = trim($_POST['pr_img']);
 	$pr_vdo = trim($_POST['pr_vdo']);
 	$pr_publish = trim($_POST['pr_publish']);
+	
+	if($pr_id== '' || $pr_name == '' || $pr_price == '' || $pr_sell_price < 1){
+		exit("<script>alert('กรอกข้อมูลไม่ถูกต้องนะคะ'); window.location = '../../shoptcl/product.php';</script>");
+	}
 	
 	echo 'pr_id : '.$pr_id.'<br>';
 	echo 'pr_name : '.$pr_name.'<br>';

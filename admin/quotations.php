@@ -18,7 +18,7 @@
 <body>
 <?php 
 	require_once('../include/connect.php');
-	require_once('../include/googletag.php');
+	/*require_once('../include/googletag.php');*/
 	$nDay   = date("w");
 	$nMonth = date("n");
 	$date   = date("j");
@@ -435,7 +435,7 @@
 						</tr>
 						
 						<tr>
-							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระเมื่อจัดส่งอุปกรณ์ </td>
+							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระก่อนจัดส่งอุปกรณ์ </td>
 							<td align="left"><?php echo number_format($round2, 0, '.', ',');?> บาท</td>
 						</tr>
 						

@@ -6,19 +6,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>อุปกรณ์ประกอบห้องเย็น</title>
+	<title>ห้องเย็น อุปกรณ์ไฟฟ้าครบวงจร และอะไหล่่</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include('../includes/inc_robot.php'); ?>
 	
 	<meta name="copyright" content="Topcooling Shop"/>
-	<meta name="keywords" content="อะไหล่ห้องเย็น, อุปกรณ์ห้องเย็น" />
-    <meta name="description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง">
-    <meta name="author" content="">
-	<meta property="og:url" content="" />
+	<meta name="keywords" content="อุปกรณ์ไฟฟ้าห้องเย็น, ไฟฟ้าห้องเย็น" />
+    <meta name="description" content="ขายอุปกรณ์ห้องเย็น เฟสโพรเทคชั่น แมกเนติก โอเวอร์โหลด คาเรล อิลิเวล ดิกเซล ตู้คอนโทรล หลอดแจ้งเตือนสถานะ เซ็นเซอร์อุณหภูมิ ราคาถูก คุณภาพ มีรับประกัน">
+    <meta name="author" content="topcooling">
+	<meta property="og:url" content="https://topcooling.net/shop/product/electric.php" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="ขายอุปกรณ์ห้องเย็น ทุกอย่างที่เกี่ยวกับห้องเย็น" />
-	<meta property="og:description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง" />
+	<meta property="og:title" content="ห้องเย็น อุปกรณ์ไฟฟ้าครบวงจร และอะไหล่่" />
+	<meta property="og:description" content="ขายอุปกรณ์ห้องเย็น เฟสโพรเทคชั่น แมกเนติก โอเวอร์โหลด คาเรล อิลิเวล ดิกเซล ตู้คอนโทรล หลอดแจ้งเตือนสถานะ เซ็นเซอร์อุณหภูมิ ราคาถูก คุณภาพ มีรับประกัน" />
 	<meta property="og:image" content="" />
 	<?php include('../includes/google-verify.php');?>
 	<?php include('../includes/inc_css_sub.php'); ?>
@@ -33,7 +33,7 @@
 
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="index.html" class="logo">
+				<a href="../index.php" class="logo">
 					<img src="../images/icons/logo.jpg" alt="ห้องเย็น tcl">
 				</a>
 
@@ -58,7 +58,7 @@
 		<!-- Header Mobile -->
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
+			<a href="../index.php" class="logo-mobile">
 				<img src="../images/icons/logo.jpg" alt="IMG-LOGO">
 			</a>
 

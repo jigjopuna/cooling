@@ -4,7 +4,7 @@
 						<ul class="main_menu">
 						
 							<li class="catetype1">
-								<a href="../index.php">หน้าแรก</a>
+								<a href="https://topcooling.net/shop/index.php">หน้าแรก</a>
 							</li> 
 							
 							<li class="catetype2">
@@ -21,21 +21,21 @@
 							
 
 							<li class="catetype3">
-								<a href="room.php">อุปกรณ์ห้องเย็น</a>
+								<a href="https://topcooling.net/shop/product/room.php">อุปกรณ์ห้องเย็น</a>
 								<ul class="sub_menu">
-									<li><a href="product/room_detail.php?cate=1">โฟมผนังห้องเย็น</a></li>
-									<li><a href="product/room_detail.php?cate=3">อลูมิเนียม</a></li>
-									<li><a href="product/room_detail.php?cate=4">ซิลิโคน</a></li>
-									<li><a href="product/room_detail.php?cate=10">วาล์วปรับแรงดัน</a></li>
-									<li><a href="product/room_detail.php?cate=5&subcate=1">ประตูห้องเย็น</a></li>
-									<li><a href="product/room_detail.php?cate=5&subcate=2">บานพับประตู</a></li>
-									<li><a href="product/room_detail.php?cate=5&subcate=2">กลอนประตู</a></li>
-									<li><a href="product/room_detail.php?cate=6">อุปกรณ์อื่นๆ</a></li>
+									<li><a href="room_detail.php?cate=1">โฟมผนังห้องเย็น</a></li>
+									<li><a href="room_detail.php?cate=3">อลูมิเนียม</a></li>
+									<li><a href="room_detail.php?cate=4">ซิลิโคน</a></li>
+									<li><a href="room_detail.php?cate=10">วาล์วปรับแรงดัน</a></li>
+									<li><a href="room_detail.php?cate=5&subcate=1">ประตูห้องเย็น</a></li>
+									<li><a href="room_detail.php?cate=5&subcate=2">บานพับประตู</a></li>
+									<li><a href="room_detail.php?cate=5&subcate=2">กลอนประตู</a></li>
+									<li><a href="room_detail.php?cate=6">อุปกรณ์อื่นๆ</a></li>
 								</ul>
 							</li>
 
 							<li class="catetype4">
-								<a href="electric.php">ระบบไฟฟ้า</a>
+								<a href="https://topcooling.net/shop/product/electric.php">ระบบไฟฟ้า</a>
 								<ul class="sub_menu">
 									<li><a href="">Phase Protection</a></li>
 									<li><a href="">Carel</a></li>
@@ -48,7 +48,7 @@
 							
 							
 							<li class="catetype5">
-								<a href="mass.php">อุปกรณ์เครื่อง</a>
+								<a href="https://topcooling.net/shop/product/mass.php">อุปกรณ์เครื่อง</a>
 								<ul class="sub_menu">
 									<?php 
 										$sqlmass = "SELECT * FROM tb_category WHERE cat_type = 2 AND cat_publish = 1";
@@ -64,11 +64,11 @@
 							</li>
 
 							<li class="catetype6">
-								<a href="../about.php">งานโครงสร้าง</a>
+								<a href="https://topcooling.net/shop/product/about.php">เครื่องมือช่าง</a>
 							</li>
 
 							<li class="catetype7">
-								<a href="../contact.php">ติดต่อ</a>
+								<a href="https://topcooling.net/shop/product/contact.php">ติดต่อ</a>
 							</li>
 						</ul>
 					</nav>

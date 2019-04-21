@@ -11,6 +11,7 @@
 	$taxid = trim($_POST['taxid']);
 	$cusprod = trim($_POST['cusprod']);
 	
+	$linefb = trim($_POST['linefb']);
 	$company = trim($_POST['company']);
 	$cust_status = trim($_POST['cust_status']);
 	
@@ -54,6 +55,7 @@
 				qcust_tel = '$phoneno', 
 				qcust_zip = '$zipcode',  
 				qcust_tax = '$taxid', 
+				qcust_line = '$linefb', 
 				qcust_prod = '$cusproduct', 
 				qcust_prodtype = '$cusprod', 
 				qcust_emp = '$e_id', 
@@ -61,7 +63,7 @@
 	$result = mysql_query($sql);	
 	
 	if($result){
-		exit("<script> alert('บันทึกข้อมูลลูกค้า สำเร็จ ขอใบเสนอราคาต่อได้'); window.location='../../quotation/cust_q.php';</script>");
+		exit("<script> alert('บันทึกข้อมูลลูกค้า สำเร็จ ขอใบเสนอราคาต่อได้'); window.location='../../quotation/select_room.php';</script>");
 	}else{
 		exit("<script> alert('บันทึกข้อมูลลูกค้าไม่สำเร็จ ติดต่อผู้ดูแลระบบ'); window.location='../../customer/cust_qoutation.php';</script>");
 	}

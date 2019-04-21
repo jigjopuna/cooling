@@ -197,6 +197,11 @@
 											<input type="text" class="form-control" id="phoneno" name="phoneno">
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">Line/FB ลูกค้า</label>
+											<input type="text" class="form-control" id="linefb" name="linefb">
+										</div>
+										
 									</div>
 									
 									<div class="col-lg-3">

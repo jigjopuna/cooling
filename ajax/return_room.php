@@ -8,8 +8,7 @@
                                 <thead>
                                     <tr>
 										<th>ลำดับ</th>
-                                        <th>ชื่อสินค้า</th>                                     
-                                        <th>Model</th>
+                                        <th>ชื่อสินค้า</th> 
                                         <th>ราคาลด</th>
 										<th>ราคาเต็ม</th>
                                     </tr>
@@ -21,10 +20,10 @@
 								?>
 										<tr class='gradeA'> 
 											<td><?php echo $row['pr_id'];?></td>
-											<td><a href="room_edit.php?pr_id=<?php echo $row['pr_id'];?>"><?php echo $row['pr_name'];?></a></td>
-											<td><?php echo $row['pr_price'];?></td>
-											<td><?php echo $row['pr_sellprice'];?></td>
-											<td><?php echo $row['pr_img'];?></td>
+											<td><a href="room_edit.php?pr_id=<?php echo $row['pr_id'];?>"><?php echo $row['pr_name'].' '.$row['pr_type'].' '.$row['pr_size'];?></a></td>
+											<td><?php echo number_format($row['pr_price'], 0, '.', ',');?></td>
+											<td><?php echo number_format($row['pr_sell_price'], 0, '.', ',');?></td>
+											
 											
 										</tr>
 								<?php } ?>

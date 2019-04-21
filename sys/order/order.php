@@ -8,62 +8,23 @@
 <?php require_once('../include/metatagsys.php');?>
 	<?php 
 		$dates = date('Y-m-d');
-		$sql_all = "SELECT o.o_newold, o.o_type, o.o_id, o.o_note, c.cust_name, c.cust_corp, c.cust_tel, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
-					FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
-						 JOIN province p ON c.cust_province = p.id) 
-						 JOIN tb_ord_status ost ON ost.ost_id = o.o_status)
-						 JOIN tb_emp e ON e.e_id = o.o_emp 
-					ORDER BY o.o_id DESC
-					LIMIT 0, 200";
+		$sql_all = "SELECT  ot.ort_name, o.o_id, o.o_note, c.cust_name, c.cust_corp, c.cust_tel, c.cust_lineid, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
+					FROM ((((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) JOIN province p ON c.cust_province = p.id) 
+						 JOIN tb_ord_status ost ON ost.ost_id = o.o_status) 
+						 JOIN tb_emp e ON e.e_id = o.o_emp) JOIN tb_ord_type ot ON ot.ort_type = o.o_type
+					WHERE o.o_type LIKE '1%'
+					ORDER BY o.o_id DESC LIMIT 0, 200";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 		
-		$sql_cusprod = "SELECT * FROM tb_cus_prod_type";
-		$result_cusprod = mysql_query($sql_cusprod);
-		$num_cusprod = mysql_num_rows($result_cusprod);
 		
-		$sql_ordtype = "SELECT * FROM tb_ord_type WHERE ort_id < 6 ORDER BY ort_id";
-		$result_ordtype = mysql_query($sql_ordtype);
-		$num_ordtype = mysql_num_rows($result_ordtype);
 		
 	?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <script>
 	$(document).ready(function(){
-		$('.btn-success').click(validation);
-		$('#date_pay, #date_delivery').datepicker({dateFormat: 'yy-mm-dd'});
-		$("#ord_prov").load("../../ajax/province_server.php");
-		$("#search_custname").autocomplete({
-				source: "../../ajax/search_cust.php",
-				minLength: 1
-		});
 		
-		function validation(){
-			var search_custname = $('#search_custname').val();
-			var payinqty = $('#payinqty').val();
-			var paydate = $('#paydate').val(); 
-			var date_delivery = $('#date_delivery').val();
-			var cusprod = $('#cusprod').val();
-			var ord_price = $('#ord_price').val();
-			var ord_new = $('#ord_new').val();
-			
-			if((search_custname=='') || (payinqty=='') || (paydate=='') || (date_delivery='')){
-				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
-				return false;
-			}else if(cusprod==0){
-				alert("ใส่ประเภทสินค้าด้วยนะค่ะ"); 
-				return false;
-			}else if(ord_new==0){
-				alert("มือหนึ่งหรือมือสองค่ะ"); 
-				return false;
-			}else if(ord_price < 1){
-				alert("ใส่ราขายด้วยนะคะ"); 
-				return false;
-			}else{
-				$('#form1').submit();				
-			}
-		}		
 	});
 </script>
 </head>
@@ -77,211 +38,10 @@
 			if($ro_order!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูออเดอร์นะคะ'); window.location = '../index.php';</script>");}
 		?>
         <div id="page-wrapper">
-			<div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">เพิ่มออเดอร์</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-			 
-			<div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"> 
-							เพิ่มออเดอร์
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-							<div class="row">
-								<form action="../db/order/addorder.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
-									<div class="col-lg-3">
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ลูกค้า </label>
-											<input type="text" class="form-control" id="search_custname" name="search_custname">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">อุณหภูมิ </label>
-											<input type="text" class="form-control" id="ord_temp" name="ord_temp" value="-18">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">กำหนดส่ง</label>
-											<input type="text" class="form-control" id="date_delivery" name="date_delivery">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">วันที่</label>
-											<input type="text" class="form-control" id="date_pay" name="date_pay" value="<?php echo $dates;?>">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">จังหวัดหน้างาน</label>
-											<select class="form-control" id="ord_prov" name="ord_prov">
-												<option value="1">เลือกจังหวัด</option> 
-											</select>
-										</div>
-										
-										
-									</div>
-									
-									
-									<div class="col-lg-3">
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ประเภทห้อง</label>
-											<select class="form-control" id="ord_type" name="ord_type">
-												<?php for($i=1; $i<=$num_ordtype; $i++) { 
-													  $row_ordtype = mysql_fetch_array($result_ordtype);
-												?>
-												<option value="<?php echo $row_ordtype['ort_id'];?>"><?php echo $row_ordtype['ort_name'];?></option> 
-												<?php } ?>
-											</select>
-										</div>
-										
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">กว้าง </label>
-											<input type="text" class="form-control" id="ord_width" name="ord_width" value="2.4">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ยาว </label>
-											<input type="text" class="form-control" id="ord_size" name="ord_size" value="3.0">
-										</div>
-										
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">สูง </label>
-											<input type="text" class="form-control" id="ord_high" name="ord_high" value="2.4">
-										</div>
-										
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">คอม 220/380</label>
-											<select class="form-control" id="voltage" name="voltage">
-												<option value="380">380</option>
-												<option value="220">220</option>
-												
-												
-											</select>
-										</div>
-										
-										
-										
-									</div>
-																		
-									<div class="col-lg-3">
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ใบเสนอราคา</label>
-											<input type="file" class="form-control require" id="ord_quotation" name="ord_quotation">
-										</div>
-										
-										<?php if(($e_id==9)||($e_id==25)) { ?>
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ออก VAT</label>
-											<input type="checkbox" class="form-control" id="ord_vat" name="ord_vat">
-										</div>
-										<?php } ?>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ของใหม่/มือสอง</label>
-											<select class="form-control" id="ord_new" name="ord_new">
-												<option value="0">เลือก</option>
-												<option value="1">มือหนึ่ง</option> 
-												<option value="2">มือสอง</option>
-												<option value="3">ผนังมือสอง เครื่องใหม่</option>
-												<option value="4">ผนังใหม่ เครื่องมือสอง</option>	
-											</select>
-										</div>
-										
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ประเภทสินค้าที่เก็บ</label>
-											<select class="form-control" id="cusprod" name="cusprod">
-												<option value="0">เลือกประเภทสินค้า</option> 
-												<?php 
-													for($i=1; $i<=$num_cusprod; $i++) { 
-														$row_cusprod = mysql_fetch_array($result_cusprod);
-												?>
-													<option value="<?php echo $row_cusprod['cusp_id']; ?>"><?php echo $row_cusprod['cusp_name'];?></option>
-												
-												<?php } ?>
-												
-											</select>
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">สินค้าที่เก็บ</label>
-											<input type="text" class="form-control" id="cusproduct" name="cusproduct">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ราคาขาย</label>
-											<input type="text" class="form-control" id="ord_price" name="ord_price" value="150000">
-										</div>
-									</div>
-									
-									
-									<div class="col-lg-3">
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ตำแหน่งคอล์ยร้อน</label>
-											<select class="form-control" id="ord_coilh" name="ord_coilh">
-												<option value="4">ด้านหลัง</option> 
-												<option value="2">ด้านข้างซ้าย</option>
-												<option value="3">ด้านข้างขวา</option>
-												<option value="5">ด้านบน</option>	
-											</select>
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ตำแหน่งประตู</label>
-											<select class="form-control" id="ord_door" name="ord_door">
-												<option value="1">ด้านหน้า</option> 
-												<option value="2">ด้านข้างซ้าย</option>
-												<option value="3">ด้านข้างขวา</option>	
-											</select>
-										</div>
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ตำแหน่งแผงไฟ</label>
-											<select class="form-control" id="ord_control" name="ord_control">
-												<option value="1">ด้านหน้า</option> 
-												<option value="2">ด้านข้างซ้าย</option>
-												<option value="3">ด้านข้างขวา</option>	
-											</select>
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">สี</label>
-											<input type="text" class="form-control" id="ord_color" name="ord_color" value="สีฟ้ามาตราฐาน">
-										</div>
-										
-										<div class="form-group has-success">
-											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกออเดอร์ใหม่</button>
-										</div>																
-									</div>
-									
-								</form>
-							 </div> <!-- row -->
-                           
-                        </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-			
-        </div>
 		
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">ออเดอร์ลูกค้า</h1>
+                    <h1 class="page-header">ออเดอร์ห้องเย็น</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -290,7 +50,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-								ออเดอร์ลูกค้า
+								ออเดอร์ห้องเย็น
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -302,7 +62,7 @@
 										 <th style='width: 10%;'>สถานะ</th>
 										<th style='width: 10%;'>จังหวัด</th>
                                         <th style='width: 10%;'>ขนาดห้อง</th>
-										<th style='width: 5%;'>อุณหภูมิ</th>
+										<th style='width: 5%;'>Line ลูกค้า</th>
 										<th style='width: 5%;'>คอม 220/380</th>
 										<th style='width: 15%;'>เบอร์ติดต่อ</th>
 										<th style='width: 10%;'>ห้อง</th>
@@ -342,29 +102,10 @@
 												<td style="color:red; font-weight:bold;"><?php echo $row_all['o_width'].' x '.$row_all['o_size'].' x '.$row_all['o_high']; ?></td>
 											<?php } ?>
 											
-											<td><?php echo $row_all['o_temp']; ?></td>
+											<td><?php echo $row_all['cust_lineid']; ?></td>
 											<td><?php echo $row_all['o_voltage']; ?></td>
-											<td><?php echo $row_all['cust_tel']; ?></td>
-											<td>
-											
-												<?php 
-												
-													$ty_room = $row_all['o_type'];
-													if($ty_room==1){
-														echo 'ห้องสำเร็จรูป';
-													}else if($ty_room==2){
-														echo 'ห้องฝัง';
-													}else if($ty_room==3){
-														echo 'ห้องบลาสฟรีส';
-													}else if($ty_room==4){
-														echo 'Master Cold';
-													}else{
-														echo 'no data';
-													}
-												
-												?>
-											
-											</td>
+											<td><?php echo $row_all['cust_tel']; ?></td> 
+											<td><?php echo $row_all['ort_name']; ?></td> 
 											<td><?php echo $row_all['o_note']; ?></td>
 											          
 										</tr>
@@ -382,6 +123,13 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">ออเดอร์ IoT</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
 
         </div>
         <!-- /#page-wrapper -->

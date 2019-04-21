@@ -102,17 +102,17 @@
 									
 									
 									<div class="col-lg-3">
-										<a href="#"><div id="r_machine" class="r_box"><p>เครื่องอย่างเดียว</p></div></a>
+										<a href="condensing.php"><div id="r_machine" class="r_box"><p>เครื่องอย่างเดียว</p></div></a>
 									</div>
 									
 									
 									<div class="col-lg-3">
-										<a href="#"><div id="r_room" class="r_box"><p>ห้องอย่างเดียว</p></div></a>
+										<a href="rooms.php"><div id="r_room" class="r_box"><p>ห้องอย่างเดียว</p></div></a>
 									</div>
 									
 									
 									<div class="col-lg-3">
-										<a href="q_iotpart.php"><div id="r_iot" class="r_box"><p>IoT</p></div></a>
+										<a href="iots.php"><div id="r_iot" class="r_box"><p>IoT</p></div></a>
 									</div>
 									
 									<div class="col-lg-3">

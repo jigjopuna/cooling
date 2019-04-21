@@ -2,15 +2,24 @@
 	  require_once('../includes/connect.php');
 	  $cate = trim($_GET['cate']);
 	  $subcate = trim($_GET['subcate']);
-
-	  //ดูว่ามี subcate ไหม subcate หมายถึง cate คือประตู subcate ส่วนย่อยของประตู
-	  if($cate != '' && $subcate != ''){
-		  $sql = "SELECT * FROM tb_productroom WHERE pr_cate = '$cate' AND pr_subcate = '$subcate' AND pr_publish = 1";
-		  
-	  }else{ //ถ้าไม่มี subcate ก็ให้เลือก cate อย่างเดียว เพราะเด่ว subcate เป็น 0 หรือ ค่าว่างเด่วจะมีปัญหา
-		  $sql = "SELECT * FROM tb_productroom WHERE pr_cate = '$cate' AND pr_publish = 1";	  
-	  }
 	  
+	  $sql_catroom1 = "SELECT * FROM tb_categoryroom";
+	  $result_catroom1 = mysql_query($sql_catroom1);
+	  $num_catroom1 = mysql_num_rows($result_catroom1);
+
+	  //ถ้าลูกค้ากด ALL ให้ query ทั้งตาราง
+	  if($cate == 0){
+		$sql = "SELECT * FROM tb_productroom WHERE pr_publish = 1";	  
+	  }else{
+		  
+		  //ดูว่ามี subcate ไหม subcate หมายถึง cate คือประตู subcate ส่วนย่อยของประตู
+		  if($cate != '' && $subcate != ''){
+			  $sql = "SELECT * FROM tb_productroom WHERE pr_cate = '$cate' AND pr_subcate = '$subcate' AND pr_publish = 1";
+			  
+		  }else{ //ถ้าไม่มี subcate ก็ให้เลือก cate อย่างเดียว เพราะเด่ว subcate เป็น 0 หรือ ค่าว่างเด่วจะมีปัญหา
+			  $sql = "SELECT * FROM tb_productroom WHERE pr_cate = '$cate' AND pr_publish = 1";	  
+		  }
+	  }
 	  // query สินค้าอื่นๆ ที่เกียวกับห้องที่เกี่ยวข้องที่ไม่ใช่ cate ที่เลือก  
 	  $sql_more = "SELECT * FROM tb_productroom WHERE pr_cate != '$cate' AND pr_publish = 1 AND pr_name != '' ORDER BY RAND() LIMIT 0 , 20";
 	 
@@ -28,19 +37,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>อุปกรณ์ประกอบห้องเย็น</title>
+	<title>หาซื้ออุปกรณ์อะไหล่ห้องเย็นที่ไหนดี ราคาถูกๆ</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include('../includes/inc_robot.php'); ?>
 	
 	<meta name="copyright" content="Topcooling Shop"/>
 	<meta name="keywords" content="อะไหล่ห้องเย็น, อุปกรณ์ห้องเย็น" />
-    <meta name="description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง">
+    <meta name="description" content="เรามีขายอะไหล่ห้องเย็นราคาถูกๆ ขายครับ ไม่ว่าจะเป็น กลอนประตู บานพับขาต่ำ ขาสูง วาล์วปรับแรงดัน แผ่นฉนวน PS PU โฟมขาว โฟมเหลือง">
     <meta name="author" content="">
 	<meta property="og:url" content="" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="ขายอุปกรณ์ห้องเย็น ทุกอย่างที่เกี่ยวกับห้องเย็น" />
-	<meta property="og:description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง" />
+	<meta property="og:title" content="หาซื้ออุปกรณ์อะไหล่ห้องเย็นที่ไหนดี ราคาถูกๆ" />
+	<meta property="og:description" content="เรามีขายอะไหล่ห้องเย็นราคาถูกๆ ขายครับ ไม่ว่าจะเป็น กลอนประตู บานพับขาต่ำ ขาสูง วาล์วปรับแรงดัน แผ่นฉนวน PS PU โฟมขาว โฟมเหลือง" />
 	<meta property="og:image" content="" />
 	<?php include('../includes/google-verify.php');?>
 	<?php include('../includes/inc_css_sub.php'); ?>
@@ -55,7 +64,7 @@
 
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="index.html" class="logo">
+				<a href="https://topcooling.net/shop/index.php" class="logo">
 					<img src="../images/icons/logo.jpg" alt="ห้องเย็นท็อปคูลลิ่ง">
 				</a>
 
@@ -80,8 +89,8 @@
 		<!-- Header Mobile -->
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
-				<img src="../images/icons/logo.jpg" alt="top cooling ห้องเย็น">
+			<a href="https://topcooling.net/shop/index.php" class="logo-mobile">
+				<img src="https://topcooling.net/shop/images/icons/logo.jpg" alt="top cooling ห้องเย็น">
 			</a>
 
 			<!-- Button show menu -->

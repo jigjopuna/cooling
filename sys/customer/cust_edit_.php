@@ -4,15 +4,17 @@
 	$cust_id = trim($_GET['cust_id']);
 
 	//for left nav menu path include/navproduct.php
-	$sql = "SELECT * FROM tb_category ORDER BY cat_name";
+	/*$sql = "SELECT * FROM tb_category ORDER BY cat_name";
 	$result = mysql_query($sql);
-	$num = mysql_num_rows($result);
+	$num = mysql_num_rows($result);*/
 	
 	$cust = mysql_fetch_array(mysql_query("SELECT * 
 										 FROM (((tb_customer c JOIN province p ON p.id=c.cust_province)
 												JOIN amphur a ON a.id=c.cust_amphur)
 												JOIN tumbon t ON t.id = c.cust_tumbon )
 										 WHERE cust_id = '$cust_id'"));
+										 
+	$mapcust = $cust['cust_location'];
 
 
 ?>
@@ -25,6 +27,7 @@
 	
 	<?php require_once ('../include/header.php');?>
 	<?php require_once('../include/metatagsys.php');?>
+
 	<?php 
 		$e_id = $_SESSION[ss_emp_id];
 		if($e_id==""){
@@ -148,7 +151,7 @@
                         <div class="panel-body">
 							<div class="row">
 								<form action="cust_edit_save.php" id="form1" name="form" method="post">
-									<div class="col-lg-4">
+									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess"> ชื่อ-นามสกุลลูกค้า </label>
 											<input type="text" class="form-control" id="cust_name" name="cust_name" value="<?php echo $cust['cust_name']?>">
@@ -180,13 +183,12 @@
 												<option value="<?php echo $cust['cust_tumbon']?>"><?php echo $cust['tum_name']?></option>											 							
 											</select>
 										</div>
-										
 									</div>
 									
-									<div class="col-lg-4">
 									
-										
-										
+									
+									
+									<div class="col-lg-3">
 										<div class="form-group">
 										  <label for="comment">ที่อยู่</label>
 										  <textarea class="form-control" rows="5" id="address" name="address"><?php echo $cust['cust_address']?></textarea>
@@ -203,13 +205,14 @@
 											<input type="text" class="form-control" id="phoneno" name="phoneno" value="<?php echo $cust['cust_tel']?>">
 										</div>
 										
-										
-										
-
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">หมายเลขผู้เสียภาษี</label>
+											<input type="text" class="form-control" id="taxid" name="taxid" value="<?php echo $cust['cust_tax']?>">
+										</div>
 									</div>
 									
-									<div class="col-lg-4">
 									
+									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">Email</label>
 											<input type="text" class="form-control" id="email" name="email" value="<?php echo $cust['cust_email']?>">
@@ -229,14 +232,56 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">แผ่นที่</label>
-											<input type="text" class="form-control" id="cust_map" name="cust_map" value="<?php echo $cust['cust_location']?>">
+											<input type="text" class="form-control" id="cust_map" name="cust_map" value="<?php echo $mapcust;?>">
 										</div>
+										
+										<div class="form-group has-success">
+											<?php if($mapcust!= '') { ?>
+												<a href="https://www.google.com/maps/?q=<?php echo $mapcust;?>"><button id="" type="button" class="btn btn-lg btn-success btn-block">แผ่นที่</button></a>
+											<?php } else { ?>
+												<button id="" type="button" class="btn btn-lg btn-block">No Maps</button>
+											<?php } ?>
+										</div>
+									</div>
+									
+
+									
+									
+									
+									<div class="col-lg-3">
+									
+										<div class="form-group has-success">
+												<label class="control-label" for="inputSuccess">อุณหภูมิต่ำสุด</label>
+												<input type="text" class="form-control" id="temp_min" name="temp_min" value="<?php echo $cust['cust_mintemp']?>">
+											</div>
+											
+											<div class="form-group has-success">
+												<label class="control-label" for="inputSuccess">อุณหภูมิสูงสุด</label>
+												<input type="text" class="form-control" id="temp_max" name="temp_max" value="<?php echo $cust['cust_maxtemp']?>">
+											</div>
+											
+											<div class="form-group has-success">
+												<label class="control-label" for="inputSuccess">ระยะเวลา (ชั่วโมง)</label>
+												<select class="form-control" name="temp_period" id="temp_period"> 
+													<option value="3">3 </option>
+													<option value="4">4 </option>
+													<option value="5">5 </option>
+													<option value="6">6 </option>
+												</select>
+											</div>
+											
+											<div class="form-group has-success">
+												<label class="control-label" for="inputSuccess">แสดงผล</label>
+												<input type="checkbox" class="form-control" id="sendline" name="sendline" checked="<?php if($cust['ust_notify']==1) echo 'checked'?>">
+											</div>
+										
 										
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกข้อมูลลูกค้า</button>
 										</div>
 										
 									</div>
+									
 									<input type="hidden" name="cust_id" value="<?php echo $cust_id?>">
 								</form>
 							 </div> <!-- row -->
@@ -253,7 +298,7 @@
 
     </div>
     <!-- /#wrapper -->
-
+ </div>
     <!-- jQuery -->
 
 

@@ -1,7 +1,9 @@
 <?php require_once('../include/connect.php'); 
-	$sqlajax = "SELECT * FROM tb_product p JOIN tb_category c ON p.p_cate = c.cat_id WHERE c.cat_type = 2 ORDER BY p.p_publish DESC";
-	$resultajax = mysql_query($sqlajax);
-	$numajax = mysql_num_rows($resultajax);
+		$sqlajax = "SELECT p.p_id, p.p_name, p.p_cate, p.p_hp, p.p_subcate, p.p_price, p.p_price_sell, p.p_stock, p.p_model, p.p_volt, p.p_amp, p.p_kg, p.p_size, p.p_publish, c.cat_name, c.cat_type, c.cat_publish
+					FROM tb_product p JOIN tb_category c ON p.p_cate = c.cat_id
+					WHERE c.cat_type = 1";
+		$resultajax = mysql_query($sqlajax);
+		$numajax = mysql_num_rows($resultajax);
 
 ?>
 <table width='100%' class='table table-striped table-bordered table-hover data_table'>
@@ -21,10 +23,18 @@
 								?>
 										<tr class='gradeA'> 
 											<td><?php echo $row['p_id'];?></td>
-											<td><a href="machine_edit.php?p_id=<?php echo $row['p_id'];?>&type=<?php echo $row['cat_type'];?>"><?php echo $row['p_name'];?></a></td>
+											<td>
+												<a href="machine_edit.php?p_id=<?php echo $row['p_id'];?>&type=<?php echo $row['cat_type'];?>">
+													<?php 
+														echo $row['p_name'].' ';
+														if($row['p_hp']!=0) { echo $row['p_hp'].'HP'; }
+													?>
+													
+													
+												</a></td>
 											<td><?php echo $row['p_model'];?></td>
-											<td><?php echo $row['p_sellprice'];?></td>
-											<td><?php echo $row['p_price'];?></td>
+											<td><?php echo number_format($row['p_price_sell'], 0, '.', ',');?></td>
+											<td><?php echo number_format($row['p_price'], 0, '.', ',');?></td>
 											
 										</tr>
 								<?php } ?>

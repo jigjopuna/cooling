@@ -5,26 +5,32 @@
 	  $sql_catroom = "SELECT * FROM tb_categoryroom";
 	  $result_catroom = mysql_query($sql_catroom);
 	  $num_catroom = mysql_num_rows($result_catroom);
+	  
+	  $sql_catroom1 = "SELECT * FROM tb_categoryroom";
+	  $result_catroom1 = mysql_query($sql_catroom1);
+	  $num_catroom1 = mysql_num_rows($result_catroom1);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>อุปกรณ์ประกอบห้องเย็น</title>
+	<title>ขายอุปกรณ์ประกอบห้องเย็น โฟมฉนวน ประตู บานพับ</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include('../includes/inc_robot.php'); ?>
-	
 	<meta name="copyright" content="Topcooling Shop"/>
 	<meta name="keywords" content="อะไหล่ห้องเย็น, อุปกรณ์ห้องเย็น" />
-    <meta name="description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง">
-    <meta name="author" content="">
-	<meta property="og:url" content="" />
+    <meta name="description" content="จำหน่ายอุปกรณ์ห้องเย็น ทุกอย่างที่เกี่ยวกับห้องเย็น กลอนประตูห้องเย็น บานพับประตูห้องเย็น  ซิลิโคน ซีลแลนท์ ราคาถูก มีสินค้าพร้อมส่ง ขอใบเสนอราคาง่าย">
+    <meta name="author" content="topcooling">
+	<meta property="og:url" content="https://topcooling.net/shop/product/room.php" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="ขายอุปกรณ์ห้องเย็น ทุกอย่างที่เกี่ยวกับห้องเย็น" />
-	<meta property="og:description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง" />
+	<meta property="og:title" content="ขายอุปกรณ์ประกอบห้องเย็น โฟมฉนวน ประตู บานพับ" />
+	<meta property="og:description" content="จำหน่ายอุปกรณ์ห้องเย็น ทุกอย่างที่เกี่ยวกับห้องเย็น กลอนประตูห้องเย็น บานพับประตูห้องเย็น  ซิลิโคน ซีลแลนท์ ราคาถูก มีสินค้าพร้อมส่ง ขอใบเสนอราคาง่าย" />
 	<meta property="og:image" content="" />
 	<?php include('../includes/google-verify.php');?>
 	<?php include('../includes/inc_css_sub.php'); ?>
+	<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
+
+
 </head>
 <body class="animsition">
 
@@ -33,11 +39,10 @@
 		<!-- Header desktop -->
 		<div class="container-menu-header">
 			<?php include('../includes/inc_social.php');?>
-
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="index.html" class="logo">
-					<img src="../images/icons/logo.jpg" alt="ห้องเย็น tcl">
+				<a href="https://topcooling.net/shop/index.php" class="logo">
+					<img src="https://topcooling.net/shop/images/icons/logo.jpg" alt="ห้องเย็น tcl">
 				</a>
 
 				<!-- Menu -->
@@ -61,8 +66,8 @@
 		<!-- Header Mobile -->
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
-				<img src="../images/icons/logo.jpg" alt="IMG-LOGO">
+			<a href="https://topcooling.net/shop/index.php" class="logo-mobile">
+				<img src="https://topcooling.net/shop/images/icons/logo.jpg" alt="อะไหล่ห้องเย็น">
 			</a>
 
 			<!-- Button show menu -->
@@ -146,17 +151,17 @@
 
 					<!-- Product -->
 					
+					
 					<div class="row">
 						<?php 
 							for($i=1; $i<=$num_catroom; $i++){
 							$row_catroom = mysql_fetch_array($result_catroom);
 						?>
-						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-							
+						<div class="col-sm-6 col-md-6 col-lg-3 p-b-50 2colmobile" style=" width:50%; float:left;">
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative">
-									<a href="room_detail.php?cate=<?php echo $row_catroom['catr_id']; ?>">
-										<img src="../images/category/room/<?php echo $row_catroom['catr_id']; ?>.jpg" alt="ห้องเย็น <?php echo $row_catroom['catr_name']; ?>">
+									<a href="https://topcooling.net/shop/product/room_detail.php?cate=<?php echo $row_catroom['catr_id']; ?>">
+										<img src="https://topcooling.net/shop/images/category/room/<?php echo $row_catroom['catr_id']; ?>.jpg" alt="ห้องเย็น <?php echo $row_catroom['catr_name']; ?>">
 									
 									</a>
 									<!--<img src="../images/item-02.jpg" alt="IMG-PRODUCT">-->
@@ -164,7 +169,7 @@
 								</div>
 							  
 								<div class="block2-txt p-t-20">
-									<a href="room_detail.php?cate=<?php echo $row_catroom['catr_id']; ?>" class="block2-name dis-block s-text3 p-b-5">
+									<a href="https://topcooling.net/shop/product/room_detail.php?cate=<?php echo $row_catroom['catr_id']; ?>" class="block2-name dis-block s-text3 p-b-5">
 										<?php echo $row_catroom['catr_name']; ?>
 										<!--โฟมผนังห้องชนิด PU PS และ PIR-->
 									</a>
@@ -414,5 +419,14 @@
 	<div id="dropDownSelect2"></div>
 	<div id="cattype" style="display:none;"><?php echo $currmenu; ?></div>
 	<?php include('../includes/inc_js_sub.php');?>
+	
+	<script>
+		$(document).ready(function(){
+			$("#search-product").autocomplete({
+				source: "../../ajax/search_prod_room_shop.php",
+				minLength: 1
+			});
+		});
+	</script>
 </body>
 </html>

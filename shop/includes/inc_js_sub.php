@@ -47,3 +47,5 @@
 			$('.catetype'+cates).addClass('sale-noti');
 		});
 	</script>
+	
+	<script src="../../js/jquery-ui-1-12-1.min.js"></script>

@@ -38,7 +38,7 @@
 								โทร
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;">082-360-1523 หรือ 084-013-7350 <!--098-970-2339--></a>
+								<a href="" style="color: white;">082-360-1523 หรือ 064-458-5689 <!--098-970-2339--></a>
 							</div>
 						</div>
 					</li>
@@ -104,7 +104,7 @@
 		<div class="row">
 			<div class="col-md-6">
 			<div class="copyright-text">
-			Copyright 2018 Topcooling.Co, Ltd.
+			Copyright 2019 Topcooling.Co, Ltd.
 			</div>
 			</div>
 			<div class="col-md-4">

@@ -33,8 +33,27 @@
 			$('#vatdate').datepicker({dateFormat: 'yy-mm-dd'});
 		});
 		
-		function validation(){		
-			$('#form1').submit();
+		function validation(){	
+			var p_name = $('#p_name').val();
+			var p_cate = $('#p_cate').val();
+			var p_price = $('#p_price').val();
+			var p_price_sell = $('#p_price_sell').val();
+			
+			if(p_name==''){
+				alert('กรุณาใส่ชื่อสินค้าด้วยค่ะ');
+				return false;
+			}else if(p_cate==''){
+				alert('กรุณาใส่ชื่อสินค้าด้วยค่ะ');
+				return false;
+			}else if(p_price=='' || p_price < 1){
+				alert('กรุณาใส่ราคาเต็มด้วยค่ะ');
+				return false;
+			}else if(p_price_sell=='' || p_price_sell < 1){
+				alert('กรุณาใส่ราคาขายด้วยค่ะ');
+				return false;
+			}else{			
+				$('#form1').submit();
+			}
 		}
 		
 

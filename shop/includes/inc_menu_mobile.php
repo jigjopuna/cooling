@@ -10,7 +10,7 @@
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child2-mobile">
 							<span class="topbar-email">
-								Line : @topcooling
+								Line : @tclshop
 							</span>
 
 							<div class="topbar-language rs1-select2">
@@ -34,7 +34,7 @@
 					
 					
 					<li class="item-menu-mobile">
-						<a href="index.php">หน้าแรก</a>
+						<a href="https://topcooling.net/shop/index.php">หน้าแรก</a>
 					</li>
 					
 					<li class="item-menu-mobile">
@@ -50,21 +50,23 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="room.php">อุปกรณ์ห้องเย็น</a>
+						<a href="https://topcooling.net/shop/product/room.php">อุปกรณ์ห้องเย็น</a>
 						<ul class="sub-menu">
-							<li><a href="">โฟมผนังห้องเย็น</a></li>
-							<li><a href="">อลูมิเนียม</a></li>
-							<li><a href="">ซิลิโคน</a></li>
-							<li><a href="">วาล์วปรับแรงดัน</a></li>
-							<li><a href="">ประตูห้องเย็น</a></li>
-							<li><a href="">บานพับประตู</a></li>
-							<li><a href="">กลอนประตู</a></li>
+							<li><a href="https://topcooling.net/shop/product/room_detail.php?cate=1">โฟมผนังห้องเย็น</a></li>
+							<li><a href="https://topcooling.net/shop/product/room_detail.php?cate=3">อลูมิเนียม</a></li>
+							<li><a href="https://topcooling.net/shop/product/room_detail.php?cate=4">ซิลิโคน</a></li>
+							<li><a href="https://topcooling.net/shop/product/room_detail.php?cate=10">วาล์วปรับแรงดัน</a></li>
+							<li><a href="https://topcooling.net/shop/product/room_detail.php?cate=5&subcate=1">ประตูห้องเย็น</a></li>
+							<li><a href="https://topcooling.net/shop/product/room_detail.php?cate=5&subcate=2">บานพับประตู</a></li>
+							<li><a href="https://topcooling.net/shop/product/room_detail.php?cate=5&subcate=2">กลอนประตู</a></li>
+							<li><a href="https://topcooling.net/shop/product/room_detail.php?cate=6">อุปกรณ์อื่นๆ </a></li>
 						</ul>
+									
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 					
 					<li class="item-menu-mobile">
-						<a href="electric.php">ระบบไฟฟ้า</a>
+						<a href="https://topcooling.net/shop/product/electric.php">ระบบไฟฟ้า</a>
 						<ul class="sub-menu">
 							<li><a href="">Phase Protection</a></li>
 							<li><a href="">Carel</a></li>
@@ -77,7 +79,7 @@
 					</li>
 					
 					<li class="item-menu-mobile">
-						<a href="machass.php">อุปกรณ์เครื่อง</a>
+						<a href="https://topcooling.net/shop/product/machass.php">อุปกรณ์เครื่อง</a>
 						<ul class="sub-menu">
 							<?php 
 								$sqlmass1 = "SELECT * FROM tb_category WHERE cat_type = 2 AND cat_publish = 1";
@@ -95,11 +97,11 @@
 
 
 					<li class="item-menu-mobile">
-						<a href="about.html">งานโครงสร้าง</a>
+						<a href="about.html">เครื่องมือช่าง</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="contact.html">ติดต่อ</a>
+						<a href="https://topcooling.net/shop/contact.php">ติดต่อ</a>
 					</li>
 				</ul>
 			</nav>

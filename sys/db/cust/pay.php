@@ -24,6 +24,7 @@
 	$qcuat_amphur = $row['qcuat_amphur'];
 	$qcust_tumbon = $row['qcust_tumbon'];
 	$qcust_tel = $row['qcust_tel'];
+	$qcust_line = $row['qcust_line'];
 	$qcust_zip = $row['qcust_zip'];
 	$qcust_tax = $row['qcust_tax'];
 	
@@ -45,6 +46,7 @@
 				cust_tumbon = '$qcust_tumbon', 
 				cust_tel = '$qcust_tel', 
 				cust_zip = '$qcust_zip',  
+				cust_lineid = '$qcust_line', 
 				cust_tax = '$qcust_tax', 
 				cust_day = now()";
 	$result = mysql_query($sql);	

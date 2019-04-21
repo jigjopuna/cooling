@@ -22,6 +22,7 @@
 					
 					</span><br>
 					<span>โทร :  <?php echo $row['qcust_tel']; ?> </span><br>
+					<span>หมายเลขประจำตัวผู้เสียภาษี :  <?php echo $row['qcust_tax']; ?> </span><br>
 				
 				</div><!--end cust-->
 				
@@ -30,6 +31,6 @@
 					<span>วันที่ <?php echo $thatdate;?></span><br>
 					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
 					<span>โทร : 082-360-1523</span><br>
-					<span>Email: chookeid@topcooling.net</span>
+					<span>Email: topcooling.ltd@gmail.com</span>
 				</div><!--end oweneraddress-->
 			</div><!--end contect_detail-->

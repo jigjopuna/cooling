@@ -1,0 +1,5 @@
+.banner-partner { float:left; width: 24%; background-color: blue; margin-top: 10px;}
+.banner-partner img { width: 100%;}
+@media (max-width:576px) {
+	.banner-partner { float:left; width: 50% !important; background-color: blue;}
+}

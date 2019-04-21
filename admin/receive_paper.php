@@ -22,7 +22,7 @@
 </head>
 <body>
 <?php 
-	require_once('../include/googletag.php');
+	/*require_once('../include/googletag.php');*/
 	$e_id = $_SESSION['ss_emp_id'];
 	if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ');window.location = '../../sys/pages/login/login.php';</script>");}
 	

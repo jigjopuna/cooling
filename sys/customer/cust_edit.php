@@ -1,46 +1,24 @@
 <?php session_start();
-	require_once('../include/connect.php');
-	$cate_id = trim($_GET['cate_id']);
-	$cust_id = trim($_GET['cust_id']);
-
-	//for left nav menu path include/navproduct.php
-	/*$sql = "SELECT * FROM tb_category ORDER BY cat_name";
-	$result = mysql_query($sql);
-	$num = mysql_num_rows($result);*/
+	  require_once('../include/connect.php');
+	  $cust_id = trim($_GET['cust_id']);
 	
-	$cust = mysql_fetch_array(mysql_query("SELECT * 
-										 FROM (((tb_customer c JOIN province p ON p.id=c.cust_province)
-												JOIN amphur a ON a.id=c.cust_amphur)
-												JOIN tumbon t ON t.id = c.cust_tumbon )
-										 WHERE cust_id = '$cust_id'"));
-										 
-	$mapcust = $cust['cust_location'];
-
-
+		$cust = mysql_fetch_array(mysql_query("SELECT * 
+											 FROM (((tb_customer c JOIN province p ON p.id=c.cust_province)
+													JOIN amphur a ON a.id=c.cust_amphur)
+													JOIN tumbon t ON t.id = c.cust_tumbon )
+											 WHERE cust_id = '$cust_id'"));
+											 
+		$mapcust = $cust['cust_location'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<?php require_once ('../include/header.php');?>
+<?php require_once('../include/metatagsys.php');?>
 
-    <title>แก้ไขข้อมูลลูกค้า</title>
-	
-	<?php require_once ('../include/header.php');?>
-	<?php require_once('../include/metatagsys.php');?>
-
-	<?php 
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){
-			exit("
-				<script>
-					alert('กรุณา Login ก่อนนะคะ');
-					window.location = '../pages/login/login.php';
-				</script>");
-		}
-	
-	?>
-	<script src="../js/jquery-1.11.1.min.js"></script>
-	<script>
+<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
+<script src="../../js/jquery-ui-1-12-1.min.js"></script>
+<script>
 		$(document).ready(function(){
 			multiList();
 			$('#btn').click(validation);
@@ -130,17 +108,19 @@
 <body>
 
     <div id="wrapper">
-		<?php require_once ('../include/navproduct.php');?>
-
+		<?php 
+			require_once('../include/inc_role.php'); 
+			require_once ('../include/navproduct.php');
+			if($ro_order!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูออเดอร์นะคะ'); window.location = '../index.php';</script>");}
+		?>
         <div id="page-wrapper">
-            <div class="row">
+			<div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">แก้ไขข้อมูลลูกค้า</h1>
+                    <h1 class="page-header">เพิ่มออเดอร์</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-	
+			 
 			<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -183,6 +163,12 @@
 												<option value="<?php echo $cust['cust_tumbon']?>"><?php echo $cust['tum_name']?></option>											 							
 											</select>
 										</div>
+										
+										<div class="form-group">
+										  <label for="comment">Token ไลน์</label>
+										  <textarea class="form-control" rows="5" id="token" name="token"><?php echo $cust['cust_token']?></textarea>
+										</div>
+										
 									</div>
 									
 									
@@ -293,14 +279,13 @@
             </div>
 			
         </div>
-
+        </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-
+   
 
 </body>
 

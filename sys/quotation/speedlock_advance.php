@@ -28,6 +28,8 @@
 			var sizes = $('#sizes').val(); 
 			var prods = $('#prods').val();
 			
+			var hp = $('#hp').val();
+			
 			var ord_price = $('#ord_price').val();
 			
 			if(search_custname==''){
@@ -38,6 +40,9 @@
 				return false;				
 			}else if(prods==''){
 				alert("ใส่สินค้าด้วยนะคะ"); 
+				return false;
+			}else if(hp==''){
+				alert("ใส่แรงม้าคอมเพรสเซอร์ด้วยนะคะ"); 
 				return false;
 			}else{
 				$('#form1').submit();				
@@ -150,24 +155,31 @@
 										
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">เลือกขนาดแรงม้า</label>
-											<input type="text" class="form-control" id="hp" name="hp" value="3">
+											<label class="control-label" for="inputSuccess">เลือกขนาดแรงม้า HP</label>
+											<input type="text" class="form-control" id="hp" name="hp" placeholder="3">
 										</div>
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ระยะเวลาลดอุณหภูมิ (ชม.)</label>
-											<input type="text" class="form-control" id="hours" name="hours" >
+											<label class="control-label" for="inputSuccess">จำนวนเครื่อง คอยล์เย็น แผงไฟ (ชุด)</label>
+											<input type="text" class="form-control" id="qtyhp" name="qtyhp" value="1">
+										</div>
+
+
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ยี่ห้อคอมเพรสเซอร์</label>
+											<select class="form-control" id="comp_name" name="comp_name">
+												<option value="1">COPELAND</option>
+												<option value="2">BITZER</option>
+												<option value="3">DANFOSS</option>
+											</select>
 										</div>
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ปริมาณเต็มความจุ (ตัน)</label>
-											<input type="text" class="form-control" id="maxqty" name="maxqty" >
+											<label class="control-label" for="inputSuccess">รุ่นคอมเพรสเซอร์</label>
+											<input type="text" class="form-control" id="comp_model" name="comp_model" placeholder="4PE-12">
 										</div>
-										
-										<!--<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ออก VAT</label>
-											<input type="checkbox" class="form-control" id="ord_vat" name="ord_vat" checked>
-										</div>-->
+
 									</div>
 									
 																		
@@ -181,7 +193,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ค่าขนส่ง </label>
-											<input type="text" class="form-control" id="ship_cost" name="ship_cost" value="6000">
+											<input type="text" class="form-control" id="ship_cost" name="ship_cost" value="8000">
 										</div>
 										
 										
@@ -204,9 +216,16 @@
 										</div>
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">โชว์  VAT (จริงๆ รวมไปแล้ว)</label>
-											<input type="checkbox" class="form-control" id="intvat" name="intvat">
+											<label class="control-label" for="inputSuccess">ปริมาณเต็มความจุ (ตัน)</label>
+											<input type="text" class="form-control" id="maxqty" name="maxqty" >
 										</div>
+										
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ระยะเวลาลดอุณหภูมิ (ชม.)</label>
+											<input type="text" class="form-control" id="hours" name="hours" value="18">
+										</div>
+										
 									</div>
 									
 									
@@ -214,49 +233,6 @@
 									
 									
 									<div class="col-lg-3">
-										<!--<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ตำแหน่งคอล์ยร้อน</label>
-											<select class="form-control" id="ord_coilh" name="ord_coilh">
-												<option value="4">ด้านหลัง</option> 
-												<option value="2">ด้านข้างซ้าย</option>
-												<option value="3">ด้านข้างขวา</option>
-												<option value="5">ด้านบน</option>	
-											</select>
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ตำแหน่งประตู</label>
-											<select class="form-control" id="ord_door" name="ord_door">
-												<option value="1">ด้านหน้า</option> 
-												<option value="2">ด้านข้างซ้าย</option>
-												<option value="3">ด้านข้างขวา</option>	
-											</select>
-										</div>
-										
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ตำแหน่งแผงไฟ</label>
-											<select class="form-control" id="ord_control" name="ord_control">
-												<option value="1">ด้านหน้า</option> 
-												<option value="2">ด้านข้างซ้าย</option>
-												<option value="3">ด้านข้างขวา</option>	
-											</select>
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ของแถม</label>
-											<input type="text" class="form-control" id="gift" name="gift">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">รายการเพิ่มเติม</label>
-											<input type="text" class="form-control" id="additional" name="additional">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ราคา รายการเพิ่มเติม</label>
-											<input type="text" class="form-control" id="additional_price" name="additional_price">
-										</div>-->
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ประตูกว้าง เมตร</label>
@@ -277,9 +253,27 @@
 										</div>
 										
 										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">เบ็ดเตล็ด</label>
+											<input type="text" class="form-control" id="bedtaled" name="bedtaled" value="43000">
+										</div>
+										
+										
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ค่าแรง</label>
+											<input type="text" class="form-control" id="labors" name="labors" value="40000">
+										</div>
+										
+										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ส่วนลด</label>
 											<input type="text" class="form-control" id="discount" name="discount" value="10000">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">โชว์  VAT (จริงๆ รวมไปแล้ว)</label>
+											<input type="checkbox" class="form-control" id="intvat" name="intvat" checked>
+										</div>
+										
 										
 										
 										<div class="form-group has-success">

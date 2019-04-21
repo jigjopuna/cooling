@@ -38,6 +38,17 @@ body {
 	td.b{border-bottom:solid black 1px;}
 	td.t{border-top:solid black 1px;}
 	tr td:first-child{ padding: 0 0 0 5px; }
+	
+	.text_strong { font-weight: bold; }
+		.text_emunder { text-decoration:underline; font-weight: bold; }
+		.container { clear:both; border: 1px solid black; min-height:850px;}
+		.row { width: 100%; clear:both; padding-bottom: 60px; overflow: hidden;}
+		.col1 { float:left; width:45%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
+		.col2 { float:left; width:51%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
+		.col3 { float:left; width:53%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
+		.col4 { float:left; width:43%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
+		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
+		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; 
     
     @page {
         size: A4;
@@ -54,6 +65,9 @@ body {
             box-shadow: initial;
             background: initial;
             page-break-after: always;
-			 
+			#btn-calngod { display: none !important; }
         }
+		
+	}
+
 

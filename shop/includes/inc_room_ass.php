@@ -4,48 +4,28 @@
 							Categories
 						</h4>
 
-						<ul class="p-b-54">
+						<ul class="p-b-4">
 							<li class="p-t-4">
-								<a href="#" class="s-text13 active1">
+								<a href="room_detail.php?cate=0" class="s-text13 active1">
 									All
 								</a>
 							</li>
 
+							<?php 
+								for($i=1; $i<=$num_catroom1; $i++){
+									$row_catroom1 = mysql_fetch_array($result_catroom1);
+									
+							?>
+							
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									ผนังห้องเย็น
-								</a>
-							</li>
-
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									อลูมิเนียม
-								</a>
-							</li>
-
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									ม่าน / ประตู
+								<a href="room_detail.php?cate=<?php echo $row_catroom1['catr_id']?>" class="s-text13">
+									<?php echo $row_catroom1['catr_name']; ?>
 								</a>
 							</li>
 							
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									กลอน / บานพับ ประตู
-								</a>
-							</li>
+							<?php } ?>
 
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									ซีลแลนท์ / ซิลิโคน
-								</a>
-							</li>
 							
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									อุปกรณ์ห้องอื่นๆ 
-								</a>
-							</li>
 						</ul>
 
 						<!--  -->
@@ -120,10 +100,12 @@
 						</div> -->
 
 						<div class="search-product pos-relative bo4 of-hidden">
-							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search Products...">
+							<form method="post" action="">
+								<input class="s-text7 size6 p-l-23 p-r-50" type="text" id="search-product" name="search-product" placeholder="Search Products...">
 
-							<button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
-								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
-							</button>
+								<button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+									<i class="fs-12 fa fa-search" aria-hidden="true"></i>
+								</button>
+							</form>
 						</div>
 					</div>

@@ -13,7 +13,7 @@
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						Line: <a href="http://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank">@tclshop</a>
+						Line: <a href="https://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank">@tclshop</a>
 					</span>
 
 					<div class="topbar-language rs1-select2">

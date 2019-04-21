@@ -37,12 +37,12 @@
 	
 	<meta name="copyright" content="Topcooling Shop"/>
 	<meta name="keywords" content="อะไหล่ห้องเย็น, อุปกรณ์ห้องเย็น" />
-    <meta name="description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง">
+    <meta name="description" content="จำหน่ายอุปกรณ์ไฟฟ้าห้องเย็น Phase Protection Overload Magnetic Carel Eliwell Dixell Control Box Light Lamp Sensor ราคาถูก คุณภาพ มีรับประกัน ส่งทั่วไทย">
     <meta name="author" content="">
 	<meta property="og:url" content="" />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="อุปกรณ์ไฟฟ้าห้องเย็นและระบบควบคุมห้องเย็น" />
-	<meta property="og:description" content="" />
+	<meta property="og:description" content="จำหน่ายอุปกรณ์ไฟฟ้าห้องเย็น Phase Protection Overload Magnetic Carel Eliwell Dixell Control Box Light Lamp Sensor ราคาถูก คุณภาพ มีรับประกัน ส่งทั่วไท" />
 	<meta property="og:image" content="" />
 	<?php include('../includes/google-verify.php');?>
 	<?php include('../includes/inc_css_sub.php'); ?>
