@@ -118,9 +118,9 @@
 						<td class="l"><span style="text-decoration: underline;">สีขอบเหล็กห้องเย็น</span> : <?php echo $ord_color; ?></td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
+						<td class="l" align="right"> </td>
 					</tr>
-
+  
 					
 					<tr>
 						<td></td>
