@@ -899,7 +899,7 @@
 					
 					<tr>
 						<td></td>
-						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
+						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน </td>
 						<td class="t l" align="right"><?php echo number_format($bftotal, 2, '.', ',');?></td>
 					</tr>
 
@@ -942,14 +942,14 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l" colspan="5"><strong><u>เงื่อนไขการชำระเงิน </u></strong></td>
+						<td class="l" colspan="5"><strong><u>เงื่อนไขการชำระเงิน </u></strong> &nbsp;&nbsp;&nbsp;&nbsp;(ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)</td>
 					</tr>
 					<tr class="highs" style="">   
-						<td class="l" colspan="5">งวดที่ 1   40%  ชำระเมื่อได้รับใบสั่งซื้อ (<?php echo number_format($atotal*0.4, 2, '.', ',');?> บาท) </td>
+						<td class="l" colspan="5">งวดที่ 1   50%  ชำระเมื่อได้รับใบสั่งซื้อ (<?php echo number_format($atotal*0.5, 2, '.', ',');?> บาท) </td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l" colspan="5">งวดที่ 2   40% ชำระเมื่อส่งอุปกรณ์ (<?php echo number_format($atotal*0.4, 2, '.', ',');?> บาท)</td>
+						<td class="l" colspan="5">งวดที่ 2   30% ชำระก่อนจัดส่งอุปกรณ์ (<?php echo number_format($atotal*0.3, 2, '.', ',');?> บาท)</td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -974,7 +974,7 @@
 					
 					<tr class="highs" style="">
 						<td class="l" colspan="5">
-						<span><?php if($corp_addr == 1){ echo 'บัญชีธนาคารกสิกรไทย ชูเกียรติ เทียนอำไพ   ออมทรัพย์  เลขที่บัญชี 855-2-05499-8 '; }else{ echo 'ธนาคารไทยพานิชย์ เลขที่ 147-237574-4 ออมทรัพย์ บัญชี บริษัท พี ที วอลล์ จำกัด' ;}	?></span> <br><br>
+						<span><?php if($corp_addr == 1){ echo 'บัญชีธนาคารกสิกรไทย  หจก. ท็อปคูลลิ่ง  เลขที่บัญชี   กระแสรายวัน  เลขที่บัญชี 047-8-18623-1 '; }	?></span> <br><br>
 						</td>
 					</tr>
 					

@@ -104,7 +104,7 @@
 	
 	
 	//เพิ่มสต็อค
-	$sql_stknkpt = "SELECT pu.pu_id, pu.pu_qty, pu.pu_date, t.t_name, t.t_cost_center, t.t_stock, t.t_stock1 FROM tb_pushstock pu JOIN tb_tools t ON t.t_id = pu.pu_tid WHERE pu_date = '$dates' AND pu.pu_wh = $nkpt";
+	$sql_stknkpt = "SELECT pu.pu_id, pu.pu_qty, pu.pu_date, t.t_name, t.t_cost_center, t.t_stock FROM tb_pushstock pu JOIN tb_tools t ON t.t_id = pu.pu_tid WHERE pu_date = '$dates' AND pu.pu_wh = $nkpt";
 	$result_stknkpt = mysql_query($sql_stknkpt);
 	$num_stknkpt = mysql_num_rows($result_stknkpt);
 	
@@ -149,7 +149,7 @@
 	
 	
 	//เพิ่มสต็อค
-	$sql_stkktb = "SELECT pu.pu_id, pu.pu_qty, pu.pu_date, t.t_name, t.t_cost_center, t.t_stock, t.t_stock1 FROM tb_pushstock pu JOIN tb_tools t ON t.t_id = pu.pu_tid WHERE pu_date = '$dates' AND pu.pu_wh = $ktb";
+	$sql_stkktb = "SELECT pu.pu_id, pu.pu_qty, pu.pu_date, t.t_name, t.t_cost_center, t.t_stock FROM tb_pushstock pu JOIN tb_tools t ON t.t_id = pu.pu_tid WHERE pu_date = '$dates' AND pu.pu_wh = $ktb";
 	$result_stkktb = mysql_query($sql_stkktb);
 	$num_stkktb = mysql_num_rows($result_stkktb);
 	

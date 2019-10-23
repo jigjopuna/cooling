@@ -17,7 +17,7 @@
 <html lang="en">
 
 <head>
-<title>รายการสั่งซื้อ</title>
+<title>สต็อค</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
@@ -112,7 +112,7 @@
 								<form action="../db/stock/pushstock.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess"> สินค้า/รายการ (รวม นครปฐม กระทุ่มแบน )</label>
+											<label class="control-label" for="inputSuccess"> สินค้า/รายการ </label>
 											<input type="text" class="form-control search_tool" id="search_tool" name="search_tool">
 										</div>
 										
@@ -202,9 +202,9 @@
 											<td><a href="stocklog.php?t_id=<?php echo $row['t_id']?>"><?php echo $row['t_name'].' ('.$allstock.')'; ?></td>
 											<td><?php echo $stock; ?></td>
 											
-											<td><?php echo number_format($row['t_cost'], 0, '.', ','); ?></td> 
+											<td><?php echo $row['t_cost']; ?></td>
 											
-											<td><?php echo number_format($row['t_cost_center'], 0, '.', ','); ?></td>
+											<td><?php echo $row['t_cost_center']; ?></td>
 											<td><a href="<?php echo $row['t_image']; ?>" target="_blank">ดูรูป</a></td>
 										</tr>
 									<?php } ?>
@@ -299,7 +299,7 @@
 								<form action="../db/stock/addcost.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess"> สินค้า/รายการ (รวม นครปฐม กระทุ่มแบน )</label>
+											<label class="control-label" for="inputSuccess"> สินค้า/รายการ</label>
 											<input type="text" class="form-control search_tool" id="tool" name="tool">
 										</div>
 										

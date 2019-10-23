@@ -32,18 +32,20 @@
 					</tr>
 					
 					<tr class="highs" style="">
+						<td class="l">ปริมาณสินค้าเข้าห้องเย็น 1 ตัน /วัน ใช้เวลา 18-20 ชั่วโมงในการลดอุณหภูมิ</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
 						<td class="l">1. ราคาห้องเย็นตามขนาดและรายการข้างต้น</td>
 						<td colspan="2" class="l" align="center">1</td>
 						<td class="l" align="center"><?php echo number_format($ord_price, 0, '.', ','); ?></td>
 						<td class="l" align="right"><?php echo number_format($ord_price, 2, '.', ','); ?></td> 
 					</tr>
 					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ระบบไฟฟ้า <strong><u><?php echo $firefa?> </u></strong></td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
+					
 					
 					<tr class="highs" style="">
 						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - คอมเพรสเซอร์ Copeland ของใหม่</td>
@@ -53,14 +55,42 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ประตูบานสวิงขนาด <strong><u>0.75 x 1.8 เมตร</u></strong> กว้าง สูง </td>
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - คอล์ยเย็น KUBA คอล์ยร้อน Emerson มือสอง</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">2. ผนังห้องเย็น โฟม  <strong><u><span style="color:red; font-size:18px;">PU 3 นิ้ว</span></u></strong> เหล็ก BHP 0.55 เมตร  มือสอง</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
+						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ประตูบานสวิงขนาด <strong><u>0.75 x 1.8 เมตร</u></strong> กว้าง สูง  มือสอง</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">3.  ระบบควบคุมไฟฟ้า <strong><u><?php echo $firefa;?> </u></strong> ชุดใหม่</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Digital Control CAREL พร้อมเซ็นเซอร์ ชุดใหม่ </td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
 
 					<tr class="highs" style="">
-						<td class="l">2. ค่าจัดส่งสินค้า</td>
+						<td class="l">4. ค่าจัดส่งสินค้า</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"><?php if($ship_cost == 0) echo 'ฟรี'; ?></td>
 						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
@@ -68,7 +98,7 @@
 					
 					<?php if($r_type==1) { ?>
 					<tr class="highs" style="">
-						<td class="l">3. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td class="l">5. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
@@ -83,7 +113,7 @@
 					
 					<?php if($gift != '') { ?>
 						<tr class="highs" style="">
-							<td class="l">4.  <?php echo $gift;?></td>
+							<td class="l">5.  <?php echo $gift;?></td>
 							<td colspan="2" class="l"></td>
 							<td class="l" align="center"></td>
 							<td class="l" align="right"></td>
@@ -92,19 +122,13 @@
 					
 					<?php if($additional  != '') { ?>
 						<tr class="highs" style="">
-							<td class="l" > <?php if($gift == ''){ echo '4. ' ; }  echo $additional;?></td>
-							<td colspan="2" align="center" class="l">1</td>
-							<td class="l" align="center"><?php echo number_format($additional_price, 0, '.', ',');?></td>
+							<td class="l" > <?php if($gift == ''){ echo '5. ' ; }  echo $additional;?></td>
+							<td colspan="2" align="center" class="l"></td>
+							<td class="l" align="center"><?php //echo number_format($additional_price, 0, '.', ',');?></td>
 							<td class="l" align="right"><?php echo number_format($additional_price, 2, '.', ',');?></td>
 						</tr>
 					<?php } ?>
 					
-					<tr class="highs" style="">
-						<td class="l"><span style="text-decoration: underline;">ตำแหน่ง</span> ประตู : <?php echo $door; ?>, ตู้คอนโทรล : <?php echo $control; ?>, คอล์ยร้อน : <?php echo $coilh; ?></td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
 					
 					<tr class="highs" style="">
 						<td class="l"><span style="text-decoration: underline;">สีขอบเหล็กห้องเย็น</span> : <?php echo $ord_color; ?></td>
@@ -139,7 +163,7 @@
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
-						<td class="rt l" align="right"><?php echo number_format($incvat, 2, '.', ',');?> </td>
+						<td class="rt l" align="right" id="totolprice"><?php echo number_format($incvat, 2, '.', ',');?> </td>
 					</tr>
 				
 				</table>

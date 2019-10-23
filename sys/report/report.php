@@ -309,7 +309,7 @@ body {
 			</table><br><br>
 					<table style="width:100%; border: 1px solid black;">
 						<tr>
-							<td colspan="4" align="center" class='header'>ลูกค้าโอน</td>
+							<td colspan="4" align="center">ลูกค้าโอน</td>
 						</tr>
 						<tr>
 							<td>#</td>

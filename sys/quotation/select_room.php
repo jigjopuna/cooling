@@ -130,6 +130,10 @@
 									<div class="col-lg-3">
 										<a href="q.php"><div id="r_rai" class="r_box"><p>ห้องฝั่งแบบเดิม</p></div></a>
 									</div>
+									
+									<div class="col-lg-3">
+										<a href="roomach_select.php"><div id="custang" class="r_box"><p>อุปกรณ์เครื่องห้อง</p></div></a>
+									</div>
 								</form>
 							 </div> <!-- row -->
                            

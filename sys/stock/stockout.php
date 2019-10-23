@@ -37,14 +37,7 @@
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
-	<?php 
-		$e_id = $_SESSION[ss_emp_id];
-		if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ'); window.location = '../pages/login/login.php';</script>");}
-		
-		$role_ = mysql_fetch_array(mysql_query("SELECT ro_stock FROM tb_role WHERE ro_emp_id = '$e_id'"));
-		$rolestock = $role_['ro_stock'];
-	
-	?>
+<?php require_once('../include/inc_role.php'); ?>
 
 <script>
 	$(document).ready(function(){
@@ -148,7 +141,7 @@
 								<form action="../db/stock/addberk.php" method="post" name="form1" id="form1">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess"> ของ (รวม นครปฐม กระทุ่มแบน)</label>
+											<label class="control-label" for="inputSuccess"> อะไหล่</label>
 											<input type="text" class="form-control" id="search_tool" name="search_tool">
 										</div>
 										

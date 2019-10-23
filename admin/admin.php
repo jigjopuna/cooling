@@ -1,5 +1,16 @@
-<?php session_start(); 
-	require_once('../include/inc_role.php');
+<?php 
+	$admin_user  = trim($_POST['admin_user']);
+	$admin_pass  = trim($_POST['admin_pass']);
+	
+	if(($admin_user!="topcooling")&&($admin_pass!="topvr")){
+		exit("
+			<script>
+				alert('You not have permittion');
+				window.location = '../admin.php';
+			</script>
+		");
+		
+	}
 ?>
 <!DOCTYPE html>
 <html>

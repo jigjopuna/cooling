@@ -88,12 +88,12 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<img src="../content/images/plt.jpg" style=" widht:80px; height:80px; float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>บริษัทพระลักษณ์ไทยจำกัด 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>PRARLUKTHAI CO.,LTD 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0735558006106 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -231,7 +231,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - ระบบจะเก็บข้อมูลไว้ที่คลาวด์ ทุกๆ 5 นาที หรือตามที่เราตั้งค่าไว้</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - ระบบจะเก็บข้อมูลไว้ที่คลาวด์ ทุกๆ 1 นาที หรือตามที่เราตั้งค่าไว้</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -327,12 +327,12 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<img src="../content/images/plt.jpg" style=" widht:80px; height:80px; float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>บริษัทพระลักษณ์ไทยจำกัด 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>PRARLUKTHAI CO.,LTD 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0735558006106 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -361,10 +361,10 @@
 
 						
 						<tr>
-							<td align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
+							<td align="left">บัญชีธนาคารกรุงเทพ</td>
 							<td align="left"></td>
 							<tr>
-								<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 047-8-18623-1</span></td>
+								<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> บจ. พระลักษณ์ไทย  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 275-4-64428-0</span></td>
 							</tr>
 						</tr>
 					</table>
@@ -423,12 +423,12 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<img src="../content/images/plt.jpg" style=" widht:80px; height:80px; float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>บริษัทพระลักษณ์ไทยจำกัด 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>PRARLUKTHAI CO.,LTD 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0735558006106 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -448,14 +448,14 @@
 					<div class="tew" style="padding: 20px;" >
 					<h2>ระบบห้องเย็นออนไลน์</h2>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					IDCAM Plus เป็นอุปกรณ์ (IoT) ที่ออกแบบให้ใช้งานกับห้องเย็นโดยเฉพาะ ช่วยให้ผู้ใช้งานสามารถ <span class="text-strong">ติดตาม</span> สถานะการทำงานของห้องเย็นได้ตลอดเวลาผ่านการเชื่อมต่ออินเตอร์เน็ตแบบ Real Time จะเก็บข้อมูลทุกๆ 5 นาที <br><br>
+					IDCAM Plus เป็นอุปกรณ์ (IoT) ที่ออกแบบให้ใช้งานกับห้องเย็นโดยเฉพาะ ช่วยให้ผู้ใช้งานสามารถ <span class="text-strong">ติดตาม</span> สถานะการทำงานของห้องเย็นได้ตลอดเวลาผ่านการเชื่อมต่ออินเตอร์เน็ตแบบ Real Time จะเก็บข้อมูลทุกๆ 1 นาที <br><br>
 					
 					<span class="text-large">ประโยชน์เด่นๆ</span> ของ IDCAM Plus ช่วย <span class="text-strong">ลดความเสี่ยง</span> ของที่เก็บหรือแช่แข็งไว้ในห้องเย็น เพราะเราจะไม่ให้ห้องเย็นลูกค้าเสีย โดยระบบนี้จะแจ้งเตือนทันทีหากอุณหภูมิให้ห้องเย็นไม่ได้อุณหภูมิตามที่เราต้องการหรือระบบห้องเย็นมีปัญหา เช่น กระแสไฟฟ้าสูง จนทำให้ระบบหยุดการทำงาน <br><br>
 
 					ถ้าระบบผิดปกติอย่างใดอย่างหนึ่งไม่ว่าจะเป็นอุณหภูมิหรือเรื่องเครื่องทำความเย็น ระบบจะ <span class="text-strong">แจ้ง Line</span> ให้ทราบทันที จะเป็น Line ส่วนตัวหรือ Line กลุ่มก็ได้ จะได้ช่วยกันดู
 					<br><br>
 
-					 โดยการทำงานของระบบนี้ จะเก็บข้อมูล ขึ้นระบบ <span class="text-strong">คลาวด์ (Cloud)</span> ทุกๆ 5 นาที หรือมากน้อยกว่านี้ก็ได้ตามต้องการ และเราสามารถวิเคราห์การทำงานของเครื่องได้จาก Big Data ที่เราเก็บข้อมูลไว้ และบริการการเรียกรายงาน Report ได้  มีรายละเอียดดังต่อไปนี้<br><br>
+					 โดยการทำงานของระบบนี้ จะเก็บข้อมูล ขึ้นระบบ <span class="text-strong">คลาวด์ (Cloud)</span> ทุกๆ 1 นาที หรือมากน้อยกว่านี้ก็ได้ตามต้องการ และเราสามารถวิเคราห์การทำงานของเครื่องได้จาก Big Data ที่เราเก็บข้อมูลไว้ และบริการการเรียกรายงาน Report ได้  มีรายละเอียดดังต่อไปนี้<br><br>
 
 					<strong><u>1. ทราบอุณหภูมิ</u></strong> ณ ปัจจุบันของห้องเย็น และดูย้อนหลังได้ <br><br>
 					<strong><u>2. ทราบสถานะการทำงาน</u></strong> ของเครื่องคอมเพรสเซอร์ ว่าทำงานหรือไม่ทำงาน ณ ขณะที่ดู<br><br>

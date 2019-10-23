@@ -2,7 +2,15 @@
 	  require_once('../include/connect.php');
 	  
 	  $year = date("Y");
+	  $month = date('m');
+	  if($month < 10){
+		  $months = '0'.$month;
+	  }else {
+		  $months = $month;
+	  }
 	  
+	  $select_month =  $year.'-'.$months.'%';
+	  //$select_month = '2019%';
 	  $sql = "SELECT MONTHNAME(o_date) month, COUNT(o_id) ordqty, SUM(o_price) price
 			  FROM tb_orders
 			  WHERE o_date LIKE '$year%'
@@ -20,7 +28,32 @@
 							GROUP BY YEAR(o_date), MONTH(o_date)
 							) AS A"));
 	 $yearamount = $sumyear['sumyear'];
-	  
+	 
+	 
+	 $row_kai = mysql_fetch_array(mysql_query("SELECT SUM(o_price) kai FROM tb_orders WHERE o_date LIKE '$select_month'"));
+	 $row_own = mysql_fetch_array(mysql_query("SELECT SUM(pay_amount) own FROM tb_ord_pay WHERE pay_date LIKE '$select_month'"));
+	 $row_buy = mysql_fetch_array(mysql_query("SELECT SUM(po_price) buys FROM tb_po WHERE po_date LIKE '$select_month' AND po_cate != 8 AND po_cate != 9 AND po_cate != 10"));
+	 $row_use = mysql_fetch_array(mysql_query("SELECT SUM(A.tontun) costs FROM (SELECT op.orpd_qty*t.t_cost tontun FROM tb_ord_prod op JOIN tb_tools t ON t.t_id = op.ot_id WHERE op.orpd_date LIKE '$select_month') AS A"));
+	 $row_service = mysql_fetch_array(mysql_query("SELECT SUM(po_price) service FROM tb_po WHERE po_date LIKE '$select_month' AND po_cate = 10"));
+	 $row_office = mysql_fetch_array(mysql_query("SELECT SUM(po_price) office FROM tb_po WHERE po_date LIKE '$select_month' AND po_cate = 8"));
+	 /*
+	 echo 'kai : '.$row_kai['kai'].'<br>';
+	 echo 'own : '.$row_own['own'].'<br>';
+	 echo 'buy : '.$row_buy['buys'].'<br>';
+	 echo 'use : '.$row_use['costs'].'<br>'; 
+	 */
+	 
+	 $yodkai = $row_kai['kai']; 
+	 $yodown = $row_own['own'];
+	 $yodbuy = $row_buy['buys'];
+	 $yoduse = $row_use['costs'];
+	 $yodservice = $row_service['service'];
+	 $yodoffice = $row_office['office'];
+     	
+	
+	 $profit = $yodown - $yoduse - $yodservice - $yodoffice;
+	
+	  	  
 	   
 	  
 
@@ -35,6 +68,8 @@
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <?php require_once('../include/inc_role.php'); ?>
+
+<link href="../vendor/morrisjs/morris.css" rel="stylesheet">
 	
 	<script>
 		$(document).ready(function(){
@@ -217,12 +252,74 @@
             </div>	
         </div>
 
+
 		<!-- /.row -->
-		
 		
 		<div class="row">
                 <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							เลือกรายงาน
+                        </div>
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>	
+        </div>
+		
+		
+	
+		<div class="row">
+                <div class="col-lg-12">
                     <h1 class="page-header">รายงานประจำเดือน</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    	ยอดขายห้องเย็น  : <?php echo number_format($yodkai, 2, '.', ','); ?> <br>    
+						ยอดโอนเข้า  : <?php echo number_format($yodown, 2, '.', ','); ?> <br>  
+						ยอดซื้อของ  : <?php echo number_format($yodbuy, 2, '.', ','); ?> <br> 
+						ยอดใช้ของ  : <?php echo number_format($yoduse, 2, '.', ','); ?> <br>  
+						ยอดงาน Service : <?php echo number_format($yodservice, 2, '.', ','); ?><br>
+						ยอดใช้จ่ายสำนักงาน : <?php echo number_format($yodoffice, 2, '.', ','); ?><br><br>
+						
+						
+						
+						กำไร = ยอดโอนเข้า - ยอดใช้ของ - งาน SERVICE - ค่าใช้จ่ายสำนักงาน <br>
+						<span style="background-color:yellow; font-size: 20px; font-weight:bold;"><?php echo number_format($profit, 2, '.', ','); ?></span><br><br><br>
+	 
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -278,7 +375,8 @@
     </div>
     <!-- /#wrapper -->
 
-   
+   <script src="../vendor/morrisjs/morris.min.js"></script>
+   <script src="../data/morris-data.js"></script>
 
 </body>
 

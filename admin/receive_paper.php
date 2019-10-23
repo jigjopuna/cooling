@@ -250,7 +250,7 @@
 			
 			
 			<div id="detail" style="/*background-color: olive;*/ height:300px; float: none; margin-top: 15px;">
-				<table>
+				<table style="width:100%">
 					<tr>
 						<td style="width:5%;">No.</td>
 						<td style="width:40%;">รายการ</td>
@@ -352,7 +352,7 @@
 			
 			
 			<div id="detail" style="/*background-color: olive;*/ height:300px; float: none; margin-top: 15px;">
-				<table>
+				<table style="width:100%">
 					<tr>
 						<td style="width:5%;">No.</td>
 						<td style="width:40%;">รายการ</td>

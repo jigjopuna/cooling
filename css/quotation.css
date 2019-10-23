@@ -48,7 +48,11 @@ body {
 		.col3 { float:left; width:53%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
 		.col4 { float:left; width:43%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
 		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
-		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; 
+		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; } 
+	
+	.header_report {  margin: auto; width: 30%; /*border: 3px solid #73AD21;*/ padding-left: 20px; font-size: 26px; font-size:bold; font-family: 'Kanit', sans-serif;  }
+	.header_date { font-size: 20px; }
+	#report_detail table tr{ font-size: 12px; height: 8px; }
     
     @page {
         size: A4;

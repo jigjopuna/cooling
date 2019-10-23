@@ -323,6 +323,26 @@
 	</div>
 </div>
 
+
+<div class="section-testimonial">
+	<div class="heading">
+	ก่อตั้ง หจก. มาแล้วกว่า 30 ปี
+	</div>
+	 
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-4 col-lg-4 p-b-50 2colmobile">
+				
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4 p-b-50 2colmobile">
+				<a href="content/images/social/commerce.jpg" target="_blank"><img src="content/images/social/commerce.jpg" class="img-portrit" style="width:100%" alt="ประวัติท็อปคูลลิ่ง"></a>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4 p-b-50 2colmobile">
+			</div>
+		</div>
+	</div>	
+</div>
+
 <!--<div class="section-testimonial">
 	<div class="heading">
 	หยุดทำการ 3 วัน นะครับ 
@@ -390,6 +410,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
+				<span style="font-size:36px;" class="topic-article"> มาตราฐานห้องเย็น TCL </span><br><br><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/mgwgA-hF-ns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+				<br><br>
+			</div>
+		</div>	
+	</div>	
+</div>
+
+<div class="section-testimonial"> 
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> คลิปประกอบห้องเย็น</span><br><br><br>
 				<iframe width="100%" height="400" src="https://www.youtube.com/embed/D9E0P3XkbqA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				<br><br>
@@ -444,7 +477,7 @@
 					มีระบบเช็คอุณหภูมิผ่านมือถือ<br>
 					</div>
 					<a href="th/article/sumred.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>
-					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 250,000 </span>
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 280,000 </span>
 				<!--</p>-->
 			</div>
 			<div class="col-sm-6 -step-item">
@@ -645,12 +678,7 @@
 	</div>	
 </div>
 
-<div class="row" id="" style="margin-top: 20px;">
-			<div class="col-md-12"><br><br>
-				<div class="heading" style="text-align: center;">ห้องเย็นสวยๆ  </div><br><br>
-				
-			</div>
-		</div>
+
 
 <?php include('include/inc_img_footer.php'); ?>
 

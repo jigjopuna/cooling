@@ -36,9 +36,23 @@
 		$('.btn-addcart-product-detail').each(function(){
 			var nameProduct = $('.product-detail-name').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "is added to wishlist !", "success");
+				var url = "ajax/addbasket.php";
+				var prod_id = $('#product_id').val();
+				var prod_type = $('#prod_type').val();
+				var qty = $('#num-product').val();
+				var params = "prod_id="+prod_id+"&qty="+qty+"&prod_type="+prod_type; 
+				$.post(url,params,function(data){
+					if(data==1){
+					  $('.header-icons-noti').html(data);
+					  swal(nameProduct, "เพิ่มในตะกร้าเรียบร้อยแล้ว", "success");
+					}else{
+					   swal(nameProduct, "เพิ่มสินค้าในตะกร้าไม่ได้ รบกวนติดต่อ TCL", "error");
+					}
+				
+				});//end post
 			});
 		});
+		
 	</script>
 	<script>
 		$(document).ready(function(){ 

@@ -2,7 +2,34 @@
 	  require_once('includes/connect.php');
 	  $prod_type = trim($_GET['prod_type']);
 	  $prod_id = trim($_GET['p_id']);
-
+	  
+	  
+	  if($prod_type=='r'){
+		  $sql = "SELECT * FROM tb_productroom WHERE pr_id = '$prod_id'";
+		  $currmenu = 3;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
+		  $menuname = 'อุปกรณ์ห้องเย็น';
+		  $url = 'room.php';
+		  
+		  $row = mysql_fetch_array(mysql_query($sql));
+		  $prodname =  $row['pr_name'];
+		  $seo =  $row['pr_seo'];
+		  $descr1 =  $row['pr_descr1'];
+		  $descr2 =  $row['pr_descr2'];
+		  $descr3 =  $row['pr_descr3'];
+		  $pr_img =  $row['pr_img'];
+		  $video =  $row['pr_vdo'];
+		  
+	  }else if($prod_type=='m'){
+		  
+	  }
+	  
+	  /*$takaid = $_SESSION['session_basket'];
+	  $getbas = "SELECT * FROM tb_inbasket WHERE bas_id='$takaid'";
+	  $nubbas = mysql_fetch_array(mysql_query("SELECT count(*) nubtaka FROM tb_inbasket WHERE bas_id='$takaid'"));
+	  echo $nubbas['nubtaka']; exit();*/
+	  
+	  
+	  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -196,7 +223,7 @@
 									<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
 								</button>
 
-								<input class="size8 m-text18 t-center num-product" type="number" name="num-product" value="1">
+								<input class="size8 m-text18 t-center num-product" type="number" name="num-product" id="num-product" value="1">
 
 								<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
 									<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
@@ -208,6 +235,8 @@
 								<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
 									Add to Cart
 								</button>
+								<input type="hidden" value="<?php echo $prod_id;?>" id="product_id">
+								<input type="hidden" value="<?php echo $prod_type;?>" id="prod_type">
 							</div>
 						</div>
 					</div>

@@ -1,5 +1,11 @@
 <?php session_start();
 	  require_once('../include/connect.php');
+	  $sql_com = "SELECT * FROM tb_com_brand"; $result_com = mysql_query($sql_com); $num_com = mysql_num_rows($result_com);
+	  $sql_coil = "SELECT * FROM tb_cooling_brand"; $result_coil = mysql_query($sql_coil); $num_coil = mysql_num_rows($result_coil);
+	  
+	  $sql_condensing = "SELECT t_id, t_name, t_model, t_cost, t_hp, t_cw5, t_cw20, t_attrib1, t_attrib2, t_attrib3 FROM tb_tools WHERE t_type = 11 AND t_subtype = 1";
+	  $result_condensing = mysql_query($sql_condensing);
+	  $num_condensing = mysql_num_rows($result_condensing);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -169,16 +175,31 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ยี่ห้อคอมเพรสเซอร์</label>
 											<select class="form-control" id="comp_name" name="comp_name">
-												<option value="1">COPELAND</option>
-												<option value="2">BITZER</option>
-												<option value="3">DANFOSS</option>
+											<?php for($i=1; $i<=$num_com; $i++) { 
+												$row_com = mysql_fetch_array($result_com);
+											?>
+												<option value="<?php echo $row_com['comp_id']?>"><?php echo $row_com['com_brand']?></option>
+											
+											<?php } ?>
 											</select>
 										</div>
 										
 										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ยี่ห้อคอยล์เย็น</label>
+											<select class="form-control" id="coil_name" name="coil_name">
+											<?php for($i=1; $i<=$num_coil; $i++) { 
+												$row_coil = mysql_fetch_array($result_coil);
+											?>
+												<option value="<?php echo $row_coil['cool_id']?>"><?php echo $row_coil['cool_brand']?></option>
+											
+											<?php } ?>
+											</select>
+										</div>
+										
+										<!--<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">รุ่นคอมเพรสเซอร์</label>
 											<input type="text" class="form-control" id="comp_model" name="comp_model" placeholder="4PE-12">
-										</div>
+										</div>-->
 
 									</div>
 									
@@ -227,8 +248,6 @@
 										</div>
 										
 									</div>
-									
-									
 									
 									
 									
@@ -293,6 +312,62 @@
             </div>
 			
         </div>
+		
+		
+			
+			<div class="ajax_machine">
+				<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+								ราคาเครื่อง
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                                <thead>
+                                    <tr>
+										<th style='width: 5%;'>ลำดับ</th>
+										 <th style='width: 10%;'>Model</th>
+										<th style='width: 10%;'>Cost</th>
+                                        <th style='width: 10%;'>HP</th>
+										<th style='width: 5%;'>CW5</th>
+										<th style='width: 5%;'>CW20</th>
+										<th style='width: 15%;'>Attri1</th>
+										<th style='width: 10%;'>Attri2</th>
+										<th style='width: 10%;'>Attri3</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+									<?php for($i=1; $i<=$num_condensing; $i++) { 
+										$row_condensing = mysql_fetch_array($result_condensing);
+									?>
+                                     <tr>
+										<td style='widtd: 5%;'><?php echo $row_condensing['t_id'];?></td>
+										<td style='widtd: 10%;'><?php echo $row_condensing['t_name'].' '.$row_condensing['t_model'];?></td>
+										<td style='widtd: 10%;'><?php echo number_format($row_condensing['t_cost'], 0, '.', ','); ?></td>
+                                        <td style='widtd: 10%;'><?php echo $row_condensing['t_hp'].'HP';?></td>
+										<td style='widtd: 5%;'><?php echo $row_condensing['t_cw5'];?></td>
+										<td style='widtd: 5%;'><?php echo $row_condensing['t_cw20'];?></td>
+										<td style='widtd: 15%;'><?php echo $row_condensing['t_attrib3']. ' ' .$row_condensing['t_attrib1'];?></td>
+										<td style='widtd: 10%;'><?php echo $row_condensing['t_attrib2'];?></td>
+										<td style='widtd: 10%;'><?php ?></td>
+                                    </tr>
+									<?php } ?>
+									
+                                    
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			</div><!-- end ajax machine-->
 
         </div>
         <!-- /#page-wrapper -->

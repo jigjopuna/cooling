@@ -15,5 +15,6 @@
        mysql_query('set names utf8'); 
 	   
 	   $httpurl = 'https://topcooling.net/';
-		
+	
+	   include('inc_addbasket_id.php');
 ?>

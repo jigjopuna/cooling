@@ -236,14 +236,12 @@
 	<!-- Blog -->
 	<section class="blog bgwhite p-t-94 p-b-65">
 		<div class="container">
-			
-
 			<div class="row">
 				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/blog-01.jpg" alt="IMG-BLOG">
+							<img src="images/product/machine/tecumseh/tecumseh01.jpg" alt="เครื่องห้องเย็น">
 						</a>
 					</div>
 				</div>
@@ -252,7 +250,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/blog-02.jpg" alt="IMG-BLOG">
+							<img src="images/product/machine/xmk/xmk01.jpg" alt="คอนเด็นซิ่ง ห้องเย็น">
 						</a>
 
 						
@@ -263,7 +261,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/blog-03.jpg" alt="IMG-BLOG">
+							<img src="images/product/coilyen/eden/eden01.jpg" alt="คอยล์เย็น">
 						</a>
 					</div>
 				</div>
@@ -286,253 +284,229 @@
 			<div class="row">
 				<div class="col-sm-10 col-md-8 col-lg-12 m-l-r-auto p-t-15 p-b-15">
 					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
-					<div class="banner-partner"><img src="images/logo/bitzer-logo.jpg" alt=""></div>
+					<div class="banner-partner"><img src="images/logo/copeland-logo.jpg" alt=""></div>
+					<div class="banner-partner"><img src="images/logo/tecumseh-logo.jpg" alt=""></div>
+					<div class="banner-partner"><img src="images/logo/emerson-logo.jpg" alt=""></div>
+					<div class="banner-partner"><img src="images/logo/alfa-logo.jpg" alt=""></div>
+					<div class="banner-partner"><img src="images/logo/carel-logo.jpg" alt=""></div>
+					<div class="banner-partner"><img src="images/logo/dixell-logo.jpg" alt=""></div>
+					<div class="banner-partner"><img src="images/logo/eliwell-logo.jpg" alt=""></div>
 				</div>
 
 			</div>
 		</div>
 	</section>
 	
-	
-	
-	<!-- Brand -->
-	<section class="instagram p-t-20">
+	<!-- Product -->
+	<section class="blog bgwhite p-t-94 p-b-65">
 		<div class="sec-title p-b-52 p-l-15 p-r-15">
 			<h3 class="m-text5 t-center">
-				แบรนด์ห้องเย็นชั้นนำระดับโลก
+				คอนเด็นซิ่งยูนิค (Condensing Unit)  
 			</h3>
 		</div>
-
-		<div class="flex-w">
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-03.jpg" alt="IMG-INSTAGRAM">
-
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;"> 
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
 					</div>
-				</a>
-			</div>
+				</div>
 
-			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-07.jpg" alt="IMG-INSTAGRAM">
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
 
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
+						
 					</div>
-				</a>
-			</div>
+				</div>
 
-			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-09.jpg" alt="IMG-INSTAGRAM">
-
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
 					</div>
-				</a>
-			</div>
-
-			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-13.jpg" alt="IMG-INSTAGRAM">
-
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
-					</div>
-				</a>
-			</div>
-
-			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-15.jpg" alt="IMG-INSTAGRAM">
-
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
-					</div>
-				</a>
-			</div>
-			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-03.jpg" alt="IMG-INSTAGRAM">
-
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
-					</div>
-				</a>
-			</div>
-
-			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-07.jpg" alt="IMG-INSTAGRAM">
-
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
-					</div>
-				</a>
-			</div>
-
-			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-09.jpg" alt="IMG-INSTAGRAM">
-
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
-					</div>
-				</a>
-			</div>
-
-			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-13.jpg" alt="IMG-INSTAGRAM">
-
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
-					</div>
-				</a>
-			</div>
-
-			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
-				<img src="images/gallery-15.jpg" alt="IMG-INSTAGRAM">
-
-				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
-					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
-						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
-						<span class="p-t-2">39</span>
-					</span>
-
-					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
-						<p class="s-text10 m-b-15 h-size1 of-hidden">
-							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
-						</p>
-
-						<span class="s-text9">
-							Photo by @nancyward
-						</span>
-					</div>
-				</a>
+				</div>
 			</div>
 		</div>
 	</section>
+	
+	
+	<section class="blog bgwhite p-t-94 p-b-65">
+		<div class="sec-title p-b-52 p-l-15 p-r-15">
+			<h3 class="m-text5 t-center">
+				คอมเพรสเซอร์ (Compressor)  
+			</h3>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;"> 
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+
+						
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<section class="blog bgwhite p-t-94 p-b-65">
+		<div class="sec-title p-b-52 p-l-15 p-r-15">
+			<h3 class="m-text5 t-center">
+				คอยล์ยเย็น (Evaperator)  
+			</h3>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;"> 
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+
+						
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<section class="blog bgwhite p-t-94 p-b-65">
+		<div class="sec-title p-b-52 p-l-15 p-r-15">
+			<h3 class="m-text5 t-center">
+				แท้งค์ (Tank)  
+			</h3>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;"> 
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+
+						
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<section class="blog bgwhite p-t-94 p-b-65">
+		<div class="sec-title p-b-52 p-l-15 p-r-15">
+			<h3 class="m-text5 t-center">
+				แผ่นฉนวนโฟม (PANEL)
+			</h3>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;"> 
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+
+						
+					</div>
+				</div>
+
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;">
+					<!-- Block3 -->
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/270x360.jpg" alt="IMG-BLOG">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	
 	
 	<!-- New Product -->
 	<section class="newproduct bgwhite p-t-45 p-b-105">
@@ -915,7 +889,234 @@
 		</div>
 	</section>
 
+	<!-- Brand -->
+	<section class="instagram p-t-20">
+		<div class="sec-title p-b-52 p-l-15 p-r-15">
+			<h3 class="m-text5 t-center">
+				แบรนด์ห้องเย็นชั้นนำระดับโลก
+			</h3>
+		</div>
 
+		<div class="flex-w">
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-03.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-07.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-09.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-13.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-15.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-03.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-07.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-09.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-13.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+
+			<!-- Block4 -->
+			<div class="block4 wrap-pic-w">
+				<img src="images/gallery-15.jpg" alt="IMG-INSTAGRAM">
+
+				<a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+					<div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+						<p class="s-text10 m-b-15 h-size1 of-hidden">
+							Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+						</p>
+
+						<span class="s-text9">
+							Photo by @nancyward
+						</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
 	
 
 	

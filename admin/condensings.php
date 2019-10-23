@@ -17,7 +17,20 @@
 	<link rel="stylesheet" href="../css/quotation.css">
 	<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 	<style>
+		.text_strong { font-weight: bold; }
+		.text_emunder { text-decoration:underline; font-weight: bold; }
+		.container { clear:both; border: 1px solid black; min-height:850px;}
+		.row { width: 100%; clear:both; padding-bottom: 60px; overflow: hidden;}
+		.col1 { float:left; width:45%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
+		.col2 { float:left; width:51%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
+		.col3 { float:left; width:53%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
+		.col4 { float:left; width:43%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
+		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
+		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; }
 		
+		@media print { 
+			 #btn-calngod,  #btn-addroom { display: none !important; } 
+		}
 
 	</style>
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
@@ -28,16 +41,23 @@
 		$("#btn-calngod").click(calucalatengod);
 	});
 	function calucalatengod(){
-		
-		var allprice = $('#totolprice').text().replace(/,/g, '');
-		var firsts = (allprice*0.5).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-		var seconds = (allprice*0.3).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-		var thirds = (allprice*0.2).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-		
-		
-		$('.cal_ngo1').text(firsts);
-		$('.cal_ngo2').text(seconds);
-		$('.cal_ngo3').text(thirds);
+		var installs = $('#installs').text();
+		if(installs == 0) {
+			var allprice = $('#totolprice').text().replace(/,/g, '');
+			var firsts = (allprice*0.7).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+			var seconds = (allprice*0.3).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+			$('.cal_ngo1').text(firsts);
+			$('.cal_ngo2').text(seconds);
+		}else{
+			var allprice = $('#totolprice').text().replace(/,/g, '');
+			var firsts = (allprice*0.5).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+			var seconds = (allprice*0.3).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+			var third = (allprice*0.2).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+			$('.cal_ngo1').text(firsts);
+			$('.cal_ngo2').text(seconds);
+			$('.cal_ngo3').text(third);
+			
+		}
 	}
 	
 
@@ -59,18 +79,98 @@
 	$cust_name = $row['qcust_name'];
 	$cust_province = $row['qcust_prov'];
 	
-	$combrand = trim($_POST['combrand']);
 	$condensing = trim($_POST['condensing']);
 	$coilyen = trim($_POST['coilyen']); 
+	$hascoilyen = trim($_POST['hascoilyen']);
 	
 	$controlbox = trim($_POST['controlbox']);
+	
+	$r_width = trim($_POST['r_width']);
+	$r_lenght = trim($_POST['r_lenght']);
+	$r_high = trim($_POST['r_high']);
+	
+	$ord_temp = trim($_POST['ord_temp']);
+	
+	
 	
 	$discount = trim($_POST['discount']);
 	$qtyhp = trim($_POST['qtyhp']);
 	$shipcost = trim($_POST['shipcost']);
+	
+	$hp = trim($_POST['hp']);
+	$combrand = trim($_POST['combrand']);
+	$install = trim($_POST['install']);
+	$install_price = trim($_POST['install_price']);
+	
+	//SELECT t_name, t_cost, t_model, t_hp, t_subcate FROM tb_tools WHERE t_type = 11 AND t_subtype = 1 AND t_cate = 4 AND t_subcate = 0  
 
+	
+	//เอาเครื่องอย่างเดียว
+	 
+	//เอาคอยเย็นด้วย
+	
+	//เอาตู้คอนโทรลด้วย
+	
+	//จ้างติดตั้งด้วย
+	
+	
+	if($controlbox == 'on'){ $contbox = 1; } else { $contbox = 0; }
+	if($hascoilyen == 'on'){ $meecoil = 1; } else { $meecoil = 0; }
+	if($install == 'on'){ $tidtung = 1; } else { $tidtung = 0; }
+
+	
 	$ngod1 = $total_price*0.5;
 	$ngod2 = $total_price*0.5;
+	
+	if($hp==3){
+		$copeland=21;
+		$fancon = 1;
+	}else if($hp==4){
+		$copeland=29;
+		$fancon = 1;
+	}else if($hp==5){
+		$copeland=38;
+		$fancon = 2;
+	}else if($hp==6){
+		$fancon = 2;
+	}else if($hp==7){
+		$copeland=48;
+		$fancon = 2;
+	}else if($hp==8){
+		$copeland=58;
+		$fancon = 2;
+	}
+	
+	
+	
+	$sql_com = "SELECT * FROM tb_com_brand";
+	$result_com = mysql_query($sql_com);
+	$num_com = mysql_num_rows($result_com);
+	
+	for($i=1; $i<=$num_com; $i++){
+		$row_com = mysql_fetch_array($result_com);
+		if($combrand == $row_com['comp_id']){
+		   $compressor_name = $row_com['com_brand'];
+		   $com_img = $row_com['com_img'];
+		   $comp_id = $row_com['comp_id'];
+		}
+	}
+	  
+	  
+	$sql_cool = "SELECT * FROM  tb_cooling_brand";
+	$result_cool = mysql_query($sql_cool);
+	$num_cool = mysql_num_rows($result_cool);
+	
+	for($i=1; $i<=$num_cool; $i++){
+		$row_cool = mysql_fetch_array($result_cool);
+		if($coilyen == $row_cool['cool_id']){
+		   $cool_name = $row_cool['cool_brand'];
+		   $cool_img = $row_cool['cool_img'];
+		}
+	}
+	if($comp_id==1) {
+		if($hp==1){ } else if($hp==2){ } else if($hp==3){ $hp1=21; }else if($hp==4){ $hp1=29; }else if($hp==5){ $hp1=38; }else if($hp==6){ $hp1=45; } else if($hp==7){ $hp1=48; }else if($hp==8){ $hp1=58; }
+	}	
 ?>
 </head>
 <body>
@@ -84,7 +184,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -96,9 +196,12 @@
 			<div id="product_price" style="margin-top:10px; clear:both; ">
 			
 					<table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
-					<tbody><tr>
+					<tbody>
+					<tr>
 						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดชุดเครื่องทำความเย็น</td>
 					</tr>
+					
+					
 					
 					
 					
@@ -107,6 +210,15 @@
 						<td colspan="2" class="l" style="width: 10%">QTY</td>
 						<td class="l" style="width: 15%">Unit Price</td>
 						<td class="l" style="width: 15%">Amount</td>
+					</tr>
+					
+					
+					
+					<tr class="highs" style="">
+						<td class="l">ใช้กับห้องเย็นขนาด <?php echo $r_width.' x '.$r_lenght.' x '.$r_high;?> เมตร (กว้าง ยาว สูง) อุณหภูมิ <?php echo $ord_temp;?>C<sup>o</sup> </td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -119,17 +231,14 @@
 				
 					
 					<tr class="highs" style="">
-						<td class="l">1. คอมเพรสเซอร์ <strong><u>Copeland 3HP </u></strong> รุ่น ZB 21 KQE</td>
-						<td colspan="2" class="l" align="center">1</td>
+						<td class="l">1. ชุด Compressor 
+							<?php echo $compressor_name; ?> ขนาด <?php echo $hp?>HP
+						</td>
+						
+						
+						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 						<td class="l" align="right">47,800.00</td>
 						<td class="l" align="right">47,800.00</td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">2. ชุดคอนเด็นซิ่ง Q-Coil คอยล์ร้อน 1 พัดลม เป่าข้าง</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -140,11 +249,15 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - Dimension 1,100 x 480 x 785 mm</td>
-						<td colspan="2" class="l"></td>
+						<td class="l">2. ชุดคอนเด็นซิ่ง <?php echo $condensing;?></td>
+						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
+					
+					
+					
+				
 					
 					<tr class="highs" style="">
 						<td class="l">3. อุปกรณ์ภายใน </td>
@@ -154,19 +267,78 @@
 					</tr>
     
    				    <tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - Receive Tank, Filter Drier, Sign Glasses, Solinoid Valve, Oil Seperator, Accumulator </td>
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - Receive Tank, Filter Drier, Sign Glasses, Solinoid Valve </td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;  - Oil Seperator, Accumulator</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<?php if($tidtung==1){ ?>
+						
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - ท่อทองแดงระยะไม่เกิน 10 เมตร และอุปกรณ์ติดตั้งอื่นๆ </td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					<?php } ?>
+					
+					<?php if($meecoil==1){ ?>
+						<tr class="highs" style="">
+							<td class="l">4. คอยล์เย็น ยี่ห้อ  <?php echo $cool_name; ?></td>
+							<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
+							<td class="l" align="center"></td>
+							<td class="l" align="right"></td>
+						</tr>
+					<?php } ?>
+					
+					<?php if($contbox==1){ ?>
+						<tr class="highs" style="">
+						<td class="l">5. ระบบไฟฟ้า และระบบควบคุมห้องเย็น <strong><u> 3 เฟส</u></strong> ประกอบพร้อมใช้งาน</td>
+						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - Carel easy, Phase protection, Overload, Magnetic, Brecker</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - ตู้คอนโทรลเบอร์ 2 กันน้ำกันฝุ่น, ไฟแสดงสถานะ และสวิตซ์ ON/OFF </td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<?php } ?>
 
 					<tr class="highs" style="">
-						<td class="l">4. ค่าจัดส่งสินค้า</td>
-						<td colspan="2" class="l"></td>
+						<td class="l">6. ค่าจัดส่งสินค้า</td>
+						<td colspan="2" class="l" align="center">1 งาน</td>
 						<td class="l" align="center"></td>
-						<td class="l" align="right">5,000.00</td>
+						<td class="l" align="right"><?php echo number_format($shipcost, 2, '.', ',');?></td>
 					</tr>
 					
+					
+					<?php if($tidtung==1){ ?>
+						<tr class="highs" style="">
+							<td class="l">7. ค่าติดตั้งและเดินทางจากนครปฐม</td>
+							<td colspan="2" class="l" align="center">1 งาน</td>
+							<td class="l" align="center"></td>
+							<td class="l" align="right"><?php echo number_format($install_price, 2, '.', ',');?></td>
+						</tr>
+					<?php } ?>
 					
 					<tr class="highs" style="">
 						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -174,31 +346,6 @@
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
-
-										
-										
-					
 					
 					
 					<tr>
@@ -225,7 +372,7 @@
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
-						<td class="rt l" align="right">56,496.00 </td>
+						<td class="rt l" align="right" id="totolprice">56,496.00 </td>
 					</tr>
 				
 				</tbody></table>
@@ -237,19 +384,36 @@
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tr>
-							<td colspan="2" align="left" style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน</td>
-						</tr>
-						<tr>
-							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   50%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
-							<td align="left" style="width: 35%"><span class="cal_ngo1"><?php echo number_format($ngod1, 2, '.', ',');?></span> บาท</td>
+							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; <?php if($tidtung == 1 ) { echo '(ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)';}?> </td>
 						</tr>
 						
-						<tr>
-							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระเมื่อจัดส่งอุปกรณ์ </td>
-							<td align="left"><span class="cal_ngo2"><?php echo number_format($ngod2, 2, '.', ',');?></span> บาท</td>
-						</tr>
+						<?php if($tidtung == 0 ) {?>
+							<tr>
+								<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   70%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
+								<td align="left" style="width: 35%"><span class="cal_ngo1"><?php echo number_format($ngod1, 2, '.', ',');?></span> บาท</td>
+							</tr>
+							
+							<tr>
+								<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระก่อนจัดส่งอุปกรณ์ </td>
+								<td align="left"><span class="cal_ngo2"><?php echo number_format($ngod2, 2, '.', ',');?></span> บาท</td>
+							</tr>
 						
-						
+						<?php } else { ?>
+							<tr>
+								<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   50%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
+								<td align="left" style="width: 35%"><span class="cal_ngo1"><?php echo number_format($ngod1, 2, '.', ',');?></span> บาท</td>
+							</tr>
+							
+							<tr>
+								<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระก่อนจัดส่งอุปกรณ์ </td>
+								<td align="left"><span class="cal_ngo2"><?php echo number_format($ngod2, 2, '.', ',');?></span> บาท</td>
+							</tr>
+							
+							<tr>
+								<td align="left"> <span style="text-decoration: underline;">งวดที่ 3</span>   20% ชำระเมื่อใช้งานได้เรียบร้อย</td>
+								<td align="left"><span class="cal_ngo3"><?php echo number_format($ngod3, 2, '.', ',');?></span> บาท</td>
+							</tr>
+						<?php } ?>
 						<tr>
 							<td align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
 							<td align="left"></td>
@@ -269,7 +433,7 @@
 							<td align="left">  ภายใน 20 วัน นับจากวันที่เสนอราคา</td>
 						</tr>
 						<tr>
-							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
+							<td align="left">  ส่งสินค้าและติดตั้งภายใน 10 วันหลังจากได้รับมัดจำงวดที่ 1</td>
 						</tr>
 					</table>
 				</div>
@@ -314,110 +478,57 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
-			</div><!--end cover_header-->
-			
-			
-			<?php include('../include/quotation_head.php'); ?>
-			
-			<div id="product_price" style="margin-top:200x; clear:both">
-				<img src="../content/images/cool/speed300.jpg" style="width:60%; margin-left:150px;">
-
-			</div><!--end product_price-->
-			
-			<div id="footer" style="clear: both; margin-top: 20px;">
-				
-			</div><!--end footer-->
-			
-			
-			
-			<div id="conclude" style="clear: both; line-height:18px;">
-				
-				
-				
-			</div><!--end conclude -->
-			<br><br><br>
-			<div id="note" style="clear: both; margin: 0 0 0 200px;">
-				
-				
-			</div><!--end note -->
-
-        </div>  <!--end subpage-->
-    </div> <!--end page 3-->
-	
-	
-  
-  <div class="page">
-        <div class="subpage">
-
-            <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
-				<div style="float: right;">หน้า 6</div>
+				<div style="float: right;">หน้า 2</div>
 			</div>
 			
 			<div style="width: 100%; clear:both; height: 40px;">
 				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายละเอียดแนบท้ายใบเสนอราคา</span></p>
 			</div>
 			
+			
+			
+			
 			<div class="container">
-				
+				<div class="row">
+					<div class="col3">
+						<div style="width: 300px; height:280px; background: orange;">
+								<img src="../content/images/quotation/<?php echo $com_img.$fancon;?>.jpg">
+						</div>
+					</div>
+					<div class="col4"><span class="topic">ชุดคอนเด็นซิ่งยูนิต ประกอบด้วย</span><br>
+						<p><span class="intopic">คอมเพรสเซอร์ :</span> 
+							<?php echo $compressor_name.  ' ขนาด '.$hp.'HP'; ?>
+						</p>
+						<p><span class="intopic">ชุดคอยล์ร้อน :</span> ระบายความร้อนด้วยอากาศ <?php echo $fancon; ?> พัดลม</p>
+						<p><span class="intopic">ไฮ-โล เพรสเชอร์ :</span> อุปกรณ์วัดระดับแรงดันน้ำยา</p>
+						<p><span class="intopic">รีซีฟเวอร์และวาล์วนิรภัย :</span></p>
+						<p><span class="intopic">เช็ควาล์วและเซอร์วิสวาล์ว :</span> </p>
+						<p><span class="intopic">ดรายเออร์ :</span> อุปกรณ์กรอกสิ่งสกปรกออกจากระบบทำความเย็น</p></div>
+				</div> <!--end row-->
 				
 				<div class="row">
 					<div class="col1">
-						<div style="width: 300px; height:280px; background: orange;">
-							<?php
-								if($foam==1){ 
-							?>
-								<img src="../content/images/quotation/pu.jpg">
-								<?php } else { ?>
-								<img src="../content/images/quotation/007.jpg">
-								<?php }  ?>
-						</div>
+						<span class="topic">ชุดคอยล์เย็น</span><br>
+						<p><span class="intopic">ยีห้อ (แบรนด์):</span> <?php echo $cool_name;?></p>
+						<p><span class="intopic">รุ่น :</span> <?php echo $cool_name;?> </p>
+						<p><span class="intopic">จำนวนพัดลม/ขนาดใบพัด :</span> 2 x 350 mm</p>
+						<p><span class="intopic">ระยะส่งลม :</span> 5 เมตร </p>
+						<p><span class="intopic">ระยะครีบ (ฟิย) :</span> 7 mm</p>
+						<p><span class="intopic">สวิตซ์ :</span> เปิด-ปิดการทำงานของเครื่องทำความเย็น</p>
 						
 					</div>
 					<div class="col2">
-						<span class="topic">ฉนวนโฟมผนังห้องเย็น</span><br>
-						<p><span class="intopic">ชนิดของฉนวน  : <?php echo $foams." ".$foaminch; ?> นิ้ว</p>
-						<p><span class="intopic">ความหนาของฉนวนโฟม  :</span> <?php echo $foaminch; ?> นิ้ว</p> 
-						<p><span class="intopic">ยี่ห้อ :</span> BHP</p>
-						<p><span class="intopic">คุณสมบัติ :</span> ensity 38-40 kg/m3 เหล็ก  0.45 เมตร</p>
-						<p><span class="intopic">วัสดุเหล็ก :</span> เหล็กคัลเลอร์บอร์นผิวเรียบ</p>
-						<p><span class="intopic">วัสดุกันรั่วกันความชื้น :</span>  "บูทิวมาสติก" สำหรับใช้ฉีดเชื่อมรอยต่อของฉนวน</p>
-						<p><span class="intopic">ติดตั้ง :</span>  รีเวทสำหรับยึดแผ่นฉนวนกับอลูมิเนียม</p>
-						<p><span class="intopic">ติดตั้ง :</span>  อลูมิเนียมหน้าตัดต่างๆ ชนิดชุบด้วยอโนไดส์ สำหรับเป็นตัวเข้าลิ้น และมอบปิดรอยต่อส่วนต่างๆ ของห้องเย็น</p>
-
-					</div>
-				</div> <!--end row-->
-				
-				
-				<div class="row">
-					<div class="col1">
-						<span class="topic">ประตูห้องเย็น</span><br>
-						<p><span class="intopic">ชนิดประตู :</span> ประตูบานสวิง </p>
-						<p><span class="intopic">ขนาด :</span> 1.0 x 2.0 เมตร (กว้างสูง)</p>
-						<p><span class="intopic"></span>- อุปกรณ์นิรภัยสำหรับติดที่บานประตูภายในห้องเย็นเพื่อกระทุ้งเปิดจากด้านใน แม้ด้านนอดถูกล็อค</p>
-						<p><span class="intopic"></span>- กรอบบานประตูใชแผ่น "คัลเลอร์บอร์น" ครอบรอบบาน, วงกบประตูแผ่น"คัลเลอร์บอร์น" ครอบรอบด้าน</p>
-					</div>
-					<div class="col2">
 						<div style="width: 300px; height:280px; background: orange;">
-							<img src="../content/images/quotation/008.jpg">
+							<img src="../content/images/quotation/<?php echo $cool_img;?>.jpg">
 						</div>
-					</div>	
+					</div>
 				</div> <!--end row-->
-				
-				
 				
 				
 				
@@ -429,8 +540,8 @@
 
         </div>  <!--end subpage-->
     </div>
-  
-  <div class="page">
+		
+	<div class="page">
         <div class="subpage">
 
             <div id="cover_header">
@@ -439,13 +550,13 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
-				<div style="float: right;"></div>
+				<div style="float: right;">หน้า 3</div>
 			</div>
 			
 			<div style="width: 100%; clear:both; height: 40px;">
@@ -453,22 +564,49 @@
 			</div>
 			
 			<div class="container">
+				
 				
 				<div class="row">
 					<div class="col3">
 						<div style="width: 300px; height:280px; background: orange;">
-							<img src="../content/images/quotation/009.jpg">
+							<img src="../content/images/quotation/003.jpg">
 						</div>
 						
 					</div>
 					<div class="col4">
-						<span class="topic">พื้นห้องเย็น</span><br>
-						<p><span class="intopic">ชนิด :</span> พื้นสำเร็จรูป ปูทับด้วยอลูมิเนียมกันลื่น</p>
-						<p><span class="intopic">วัสดุกันรั่ว : </span> ซิลิโคน และซีลแลนด์ สำหรับใช้ฉีดเชื่อมรอยต่อของแผ่นฉนวน</p>
 						
+						<span class="topic">อุปกรณ์ควบคุมระบบน้ำยาห้องเย็นชุดใหม่</span><br>
+						<p><span class="intopic">น้ำยาทำความเย็น :</span> ชนิด R404a</p>
+						<p><span class="intopic">ท่อทองแดง : </span> Type L สำหรับส่งน้ำยาในระบบ รวมถึงข้อต่อต่างๆ</p>
+						<p><span class="intopic">ฉนวนหุ้มท่อ :</span> AeroFlex ป้องกันการเกิดหยดน้ำ และการรั่วซึมของน้ำยา </p>
+						<p><span class="intopic">ตัวยึดท่อทองแดง :</span> ก้ามปูยึดท่อ</p>
+						<p><span class="intopic">การเชื่อมท่อทองแดง :</span> ป้องกันการรั่วของท่อน้ำยา ตรวจสอบการตรวจรั่วได้มาตราฐาน</p>
 					</div>
 				</div> <!--end row-->
-			</div><!--end container-->
+				
+				<div class="row">
+					<div class="col1">
+						<span class="topic">อุปกรณ์ไฟฟ้าใหม่ ประกอบด้วย</span><br>
+						<p><span class="intopic">เฟสโพรเทคชั่น :</span> WOP4 อุปกรณ์ป้องกันไฟฟ้าไม่ปกติ เช่น ไฟตก ไฟกระชาก ไฟขาดเฟส ไฟไม่บาลานซ์</p>
+						<p><span class="intopic">เทอร์โมมิเตอร์ ดิจิตอล :</span> ยี่ห้อ CAREL มาตราฐานระบดับโลก</p>
+						<p><span class="intopic">โอเวอร์โหลด :</span> อุปกรณ์ป้องกันกระแสไฟฟ้าเกินกำหนด</p>
+						<p><span class="intopic">แม็กเนติก :</span> อุปกรณ์ตัดต่อการทำงานของ คอมเพรสเซอร์ คอลย์ร้อน และ คอยล์เย็น</p>
+						<p><span class="intopic">ไฟแสดงสัญญาณ :</span> สถานะการทำงาน อุปกรณ์เครื่องต่างๆ ของห้องเย็น</p>
+						<p><span class="intopic">สวิตซ์ :</span> เปิด-ปิดการทำงานของเครื่องทำความเย็น</p>
+						<p><span class="intopic">ตู้ควบคุม :</span> ได้มาตารฐาน IP65 กันน้ำ กันฝุ่น</p>
+						
+					</div>
+					<div class="col2">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/0001.jpg">
+						</div>
+					</div>
+				</div> <!--end row-->
+				
+				
+				
+				
+				</div><!--end container-->
 			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
 			<br><br><br>
 			<div class="note" style="clear: both; margin: 0 0 0 200px;">
@@ -476,7 +614,65 @@
 
         </div>  <!--end subpage-->
     </div>
+	
+	<div class="page">
+        <div class="subpage">
+
+            <div id="cover_header">
+				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
+				
+				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
+				</div>
+			</div><!--end cover_header-->
+			
+			<div style="width: 100%; clear:both; height: 10px;">
+				<div style="float: right;">หน้า 4</div>
+			</div>
+			
+			<div style="width: 100%; clear:both; height: 40px;">
+				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายละเอียดแนบท้ายใบเสนอราคา</span></p>
+			</div>
+			
+			<div class="container">
+				
+				
+				
+				
+				<div class="row">
+					<div class="col3">
+						<span class="topic">ฮีทเตอร์สำหรับละลายน้ำแข็ง (Defrost)</span><br>
+						<p><span class="intopic">ฮีทเตอร์คอยเย็น :</span> ป้องกันน้ำแข็งเกาะบริเวณฟินที่คอยล์เย็น</p>
+						<p><span class="intopic">ฮีทเตอร์ขอบประตู :</span> ป้องกันหยดน้ำคอนเด็นที่อาจเกิดขึ้นบริเวณประตู</p>
+						<p><span class="intopic">วาล์วปรับแรงดัน :</span> ฮีตเตอร์วาล์วปรับแรงดันป้องกันน้ำแข็งเกาะ สำหรับปรับแรงดันในและนอกห้องเย็นให้เท่ากันป้องกันรอยรั่วบริเวณต่อของแผ่นฉนวน </p>
+						<p><span class="intopic">Dimmer :</span> สำหรับปรับความร้อนของฮีทเตอร์ขอบประตู</p>
+					</div>
+					<div class="col4">
+						<div style="width: 300px; height:280px; background: orange;">
+							<img src="../content/images/quotation/005.jpg">
+						</div>
+						
+					</div>
+				 </div> <!--end row-->
+				
+				
+				
+				
+				</div><!--end container-->
+			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
+			<br><br><br>
+			<div class="note" style="clear: both; margin: 0 0 0 200px;">
+			</div><!--end note -->
+
+        </div>  <!--end subpage-->
+    </div>
+	
+	
 </div>
 <input type="button" value="คำนวนราคางวด" id="btn-calngod">
+<div style="display:none;" id="installs"><?php echo $tidtung;?></div>
 </body>
 </html>

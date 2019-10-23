@@ -1,6 +1,7 @@
 <?php session_start();
 	  require_once('../include/connect.php');
 	  $today = date("Y-m-d");
+	  $datess = date("Y");
 	
 	//ยังไม่ได้จ่ายเครดิต
 	$sql = "SELECT s.sl_name, p.po_emp, p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_mudjum, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
@@ -33,7 +34,11 @@
 					GROUP BY po_shop ORDER BY prices DESC";
 	$result_creditall = mysql_query($sql_creditall);
 	$num_creditall = mysql_num_rows($result_creditall);
-	$rowsum = mysql_fetch_array(mysql_query("SELECT SUM(po_price) sumprices FROM tb_po WHERE po_credit = 1 AND po_credit_complete != 1"));
+	
+	$rowsum = mysql_fetch_array(mysql_query("SELECT SUM(p.po_price)-SUM(p.po_mudjum) jaycredit FROM tb_po p WHERE p.po_credit = 1 AND p.po_credit_complete != 1 AND p.po_date LIKE '$datess%'"));
+	
+	
+
 	
 	
 	
@@ -79,7 +84,7 @@
         <div id="page-wrapper">
              <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">เครดิต </h1>
+                    <h1 class="page-header">เครดิต ปี <?php echo $datess;?></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -88,7 +93,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-								เครดิต <?php echo number_format($rowsum['sumprices'], 2, '.', ','); ?>
+								เครดิต <?php echo number_format($rowsum['jaycredit'], 2, '.', ','); ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -112,7 +117,7 @@
 									  ?>
 										<tr class="gradeA"> 
 											<td><?php echo $row_creditall['po_shop']; ?></td>
-											<td><?php echo $row_creditall['sl_name']; ?></td>
+											<td><a href="print/credit_sup.php?shop=<?php echo $row_creditall['po_shop'];?>" target="_blank"><?php echo $row_creditall['sl_name']; ?></a></td>
 											<td><?php echo number_format($row_creditall['prices'], 2, '.', ','); ?></td>
 											<td><?php echo number_format($row_creditall['mudjums'], 2, '.', ','); ?></td>
 											<td><?php echo number_format($row_creditall['remain'], 2, '.', ','); ?></td>

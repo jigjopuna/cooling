@@ -1,5 +1,5 @@
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="../images/icons/favicon.png"/>
+	<link rel="icon shortcut" type="image/png" href="../images/icons/favicon.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->

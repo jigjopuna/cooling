@@ -5,7 +5,7 @@
 	
 	/*$sql = "select * from member_emp";
 	$sql .= " where name like '$keyword%'";*/
-	$sql = "SELECT t_id, t_name, t_stock, t_stock1 FROM tb_tools WHERE t_name LIKE '%$keyword%'";
+	$sql = "SELECT t_id, t_name, t_stock FROM tb_tools WHERE t_name LIKE '%$keyword%'";
 	
 	$result = mysql_query($sql);
 	$num = mysql_num_rows($result);
@@ -19,11 +19,16 @@
 
 	 while($row = mysql_fetch_array($result)){
 			$stock = $row['t_stock'];
-			$stock1 = $row['t_stock1'];
-			$allstock = $stock + $stock1;
+			/*$stock1 = $row['t_stock1'];
+			$allstock = $stock + $stock1;*/
 			
-			$data[] = array(
+		/*	$data[] = array(
 						"label" => $row['t_name'].' ('.$allstock.') ('.$stock.') ('.$stock1.')',
+						"value" => $row['t_id']
+							);*/
+							
+			$data[] = array(
+						"label" => $row['t_name'].'('.$stock.')',
 						"value" => $row['t_id']
 							);
 	  }

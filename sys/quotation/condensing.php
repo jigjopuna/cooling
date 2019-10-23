@@ -1,5 +1,15 @@
 <?php session_start();
 	  require_once('../include/connect.php');
+	  
+	  $sql_com = "SELECT * FROM tb_com_brand";
+	  $result_com = mysql_query($sql_com);
+	  $num_com = mysql_num_rows($result_com);
+	  
+	  
+	  $sql_cool = "SELECT * FROM  tb_cooling_brand";
+	  $result_cool = mysql_query($sql_cool);
+	  $num_cool = mysql_num_rows($result_cool);
+	  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +25,38 @@
 <script>
 	$(document).ready(function(){
 		$('#btn').click(validation);
+		$('#install').change(chkinstall);
+		$('#hascoilyen').change(chkcoilyen);
 		$("#search_custname").autocomplete({
 				source: "../../ajax/search_cust_q.php",
 				minLength: 1
 		});
 		
-		function validation(){
+		
+	});
+	
+	function chkinstall(){
+		//$('#install').prop("checked", true);
+		if($("#install").prop('checked') == true){
+			$('#hide').css("display","block"); 
+		}else{
+			$('#hide').css("display","none")
+		}
+		 
+	}
+	
+	function chkcoilyen(){
+		
+		if($("#hascoilyen").prop('checked') == true){
+			$('#coilhide').css("display","block"); 
+		}else{
+			$('#coilhide').css("display","none")
+		}
+		
+		 
+	}
+
+	function validation(){
 			var search_custname = $('#search_custname').val();
 			var hp = $('#hp').val();
 			
@@ -34,8 +70,6 @@
 				$('#form1').submit();				
 			}
 		}		
-	});
-
 </script>
 </head>
 
@@ -79,10 +113,27 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ยี่ห้อคอมเพรสเซอร์</label>
 											<select class="form-control" id="combrand" name="combrand">
-												<option value="1">Copeland</option>
-												<option value="2">Danfoss</option>
-												<option value="3">Bitzer</option>
+												<?php for($i=1; $i<=$num_com; $i++) { 
+													  $row_com = mysql_fetch_array($result_com);
+												?>
+												<option value="<?php echo $row_com['comp_id'];?>"><?php echo $row_com['com_brand'];?></option>
+												<?php } ?>
 											</select>
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">กว้าง </label>
+											<input type="text" class="form-control" id="r_width" name="r_width" value="2.40">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ยาว </label>
+											<input type="text" class="form-control" id="r_lenght" name="r_lenght" value="6.00">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">สูง </label>
+											<input type="text" class="form-control" id="r_high" name="r_high" value="2.40">
 										</div>
 										
 									</div>
@@ -90,44 +141,64 @@
 									
 									
 									<div class="col-lg-3">
-									
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">อุณหภูมิ </label>
+											<input type="text" class="form-control" id="ord_temp" name="ord_temp" value="-18">
+										</div>
+										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ยี่ห้อคอนเด็นซิ่ง</label>
 											<select class="form-control" id="condensing" name="condensing">
-												<option value="1">Q-Coil เป่าข้าง</option>
-												<option value="2">Proserv เป่าบน</option>
-												<option value="3">XMK เป่าข้าง</option>
+												<option value="Q-Coil เป่าข้าง">Q-Coil เป่าข้าง</option>
+												<option value="เป่าบน">Proserv เป่าบน</option>
+												<option value="XMK เป่าข้าง">XMK เป่าข้าง</option>
 											</select>
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">กี่ชุด (จำนวนเครื่อง)</label>
-											<input type="text" class="form-control" id="qtyhp" name="qtyhp" value="10000">
+											<input type="text" class="form-control" id="qtyhp" name="qtyhp" value="1">
 										</div>
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ค่าขนส่ง</label>
-											<input type="text" class="form-control" id="shipcost" name="shipcost" value="5000">
+											<label class="control-label" for="inputSuccess">มีคอยเย็นไหม</label>
+											<input type="checkbox" class="form-control" id="hascoilyen" name="hascoilyen">
 										</div>
+										
+										<div class="form-group has-success" id="coilhide" style="display:none;">
+											<label class="control-label" for="inputSuccess">ยี่ห้อคอยล์เย็น</label>
+											<select class="form-control" id="coilyen" name="coilyen">
+											<?php for($i=1; $i<=$num_cool; $i++) { 
+												$row_cool = mysql_fetch_array($result_cool);
+											?>
+												<option value="<?php echo $row_cool['cool_id'];?>"><?php echo $row_cool['cool_brand'];?></option>
+											<?php } ?>
+											</select>
+										</div>
+										
+										
 										
 									</div>
 									
 																		
 									<div class="col-lg-3">
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ยี่ห้อคอยล์เย็น</label>
-											<select class="form-control" id="coilyen" name="coilyen">
-												<option value="1">Q-Coil</option>
-												<option value="2">ALFA</option>
-												<option value="3">XMK</option>
-												<option value="4">KUBA</option>
-											</select>
-										</div>
+										
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">มีตู้คอนโทรลไหม</label>
 											<input type="checkbox" class="form-control" id="controlbox" name="controlbox">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">จ้างติดตั้งไหม</label>
+											<input type="checkbox" class="form-control" id="install" name="install">
+										</div>
+										
+										<div class="form-group has-success" id="hide" style="display:none;">
+											<label class="control-label" for="inputSuccess">ราคาติดตั้ง</label>
+											<input type="text" class="form-control" id="install_price" name="install_price" value="25000">
+										</div>
+										
 									</div>
 									
 									
@@ -141,6 +212,11 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">กำไร % </label>
 											<input type="text" class="form-control" id="percent" name="percent" value="40">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ค่าขนส่ง</label>
+											<input type="text" class="form-control" id="shipcost" name="shipcost" value="5000">
 										</div>
 										
 										<div class="form-group has-success">

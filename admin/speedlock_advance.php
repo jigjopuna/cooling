@@ -93,6 +93,9 @@
 	
 	$foam = trim($_POST['foam']);
 	$foaminch = trim($_POST['foaminch']);
+	$border_type = 1; // เหล็ก 2 ด้าน
+	
+	$density = 1.5;
 	
 	$doortype = trim($_POST['doortype']);
 	$d_width = trim($_POST['d_width']);
@@ -102,7 +105,6 @@
 	$discount = trim($_POST['discount']);
 	
 	
-	$comp_name = trim($_POST['comp_name']);
 	
 	//เลือกเครื่องราคา มีทั้งหมด 3 แบบ ถูก กลาง แพง
 	$sql_basic = mysql_fetch_array(mysql_query("SELECT * FROM tb_machine_set WHERE set_hp = '$hp' AND set_type = 1"));
@@ -131,6 +133,9 @@
 	$bedtaled = trim($_POST['bedtaled']);
 	$qtyhp = trim($_POST['qtyhp']);
 	
+	$comp_name = trim($_POST['comp_name']);
+	$coil_name = trim($_POST['coil_name']);
+	
 	
 	$labor = $labors;
 	$jipata = $bedtaled;
@@ -153,23 +158,44 @@
 		$cens = (20.32*2)/100; 
 	}
 	
-	if($foam==1){ $foams = 'PU'; } else { $foams = 'PS'; }
+	
+	
+	if($foam==1){ 
+		$foams = 'PU'; 
+		$border = $foam.$border_type;
+		$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools WHERE t_type = 5 AND t_subtype = '$border' AND t_size = '$foaminch';"));
+	else { 
+		$foams = 'PS';
+		$border = $foam.$border_type;
+		$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools WHERE t_type = 5 AND t_subtype = '$border' AND t_size = '$foaminch' AND t_attrib1 = '$density';"));
+	}
+	
 	if($doortype==1){ $doortypes = 'ประตูบานสวิง '; $pratoo = 26000; } else { $doortypes = 'ประตูบานเลื่อน'; $pratoo = 37000; }
 	
-	$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_productroom WHERE pr_cate= 1 AND pr_size = '$foaminch' AND pr_type = '$foams'"));
-	$wall_price = $sql_wall['pr_sell_price']; 
+	$wall_price = $sql_wall['t_cost']; 
 	
 	
 	$realcost = ($cute*$wall_price)+$pratoo+($basic_price*$qtyhp);
 	$kumrai = (($cute*$wall_price)+$pratoo+($basic_price*$qtyhp))*$profit;
+	$pasee = (($cute*$wall_price)+$pratoo+($basic_price*$qtyhp))*$profit*1.07;
 	
-	$befor_ship = $kumrai+$jipata+$labor;
+	/*echo 'ราคาต้นทุน realcost : '.$realcost.'<br>';
+	echo 'ราคาต้นทุน+กำไร : '.$kumrai.'<br>';*/
+	
+	$befor_ship = $pasee+$jipata+$labor;
 	$prettylast = $befor_ship+$ship_cost;
 	$total_price = $prettylast-$discount;
+	$incvat = $total_price;
 	
-	$ngod1 = $total_price*0.5;
-	$ngod2 = $total_price*0.3;
-	$ngod3 = $total_price*0.2;
+	/*echo 'กำไร+จิปาถะ+ค่าแรง  : '.$befor_ship.'<br>';
+	echo 'ราคารวมส่ง : '.$prettylast.'<br>';
+	echo 'ราคาลด : '.$total_price.'<br>';
+	echo 'ภาษีมูลค่าเพิ่ม : '.($total_price*0.07).'<br>';
+	echo 'ราคาสุทธิ : '.$incvat.'<br>';*/
+	
+	$ngod1 = $incvat*0.5;
+	$ngod2 = $incvat*0.3;
+	$ngod3 = $incvat*0.2;
 	/*$befor_ship = ($cute*$wall_price)+$pratoo+$basic_price+$jipata+$labor;
 	$prettylast = ($cute*$wall_price)+$pratoo+$basic_price+$jipata+$labor+$ship_cost;
 	$total_price = ($cute*$wall_price)+$pratoo+$basic_price+$jipata+$labor+$ship_cost-$discount;
@@ -178,16 +204,21 @@
 	
 	if($hp==3){
 		$copeland=21;
+		$fancon = 1;
 	}else if($hp==4){
 		$copeland=29;
+		$fancon = 1;
 	}else if($hp==5){
 		$copeland=38;
+		$fancon = 2;
 	}else if($hp==6){
-		$copeland=45;
+		$fancon = 2;
 	}else if($hp==7){
 		$copeland=48;
+		$fancon = 2;
 	}else if($hp==8){
 		$copeland=58;
+		$fancon = 2;
 	}
 	 
 	
@@ -235,7 +266,40 @@
 		$firefa = "3 Phase 380V";
 	}
 	
-	
+	$sql_com = "SELECT * FROM tb_com_brand"; $result_com = mysql_query($sql_com); $num_com = mysql_num_rows($result_com);
+	$sql_coil = "SELECT * FROM tb_cooling_brand"; $result_coil = mysql_query($sql_coil); $num_coil = mysql_num_rows($result_coil);
+		
+		for($i=0; $i<=$num_com-1; $i++){
+			$row_com = mysql_fetch_array($result_com);
+			$compr[] = array("id"=>$row_com[comp_id], "name"=>$row_com[com_brand], "type"=>$row_com[com_type], "country"=>$row_com[com_country], "img"=>$row_com[com_img]);
+			
+		}
+		/*print_r($compr);
+		echo '<br>'; 
+		echo $compr[0][id].$compr[0][name];
+		echo '<br>'; */
+		
+		for($i=0; $i<=$num_com-1; $i++){
+			if($comp_name == $compr[$i][id]){   
+				$compressor_name =  $compr[$i][name].' ขนาด '.$hp.'HP ประเภท '.$compr[$i][type].' แบรนด์ '.$compr[$i][country];
+				$com_img = $compr[$i][img];
+			}
+		}
+		
+		/*-----------------AIR COOLING -------------------------------------*/
+		
+		for($i=0; $i<=$num_coil-1; $i++){
+			$row_coil = mysql_fetch_array($result_coil);
+			$coilpr[] = array("id"=>$row_coil[cool_id], "name"=>$row_coil[cool_brand], "img"=>$row_coil[cool_img]);
+			
+		}
+		
+		for($i=0; $i<=$num_coil-1; $i++){
+			if($coil_name == $coilpr[$i][id]){
+				$coyen_name =  $coilpr[$i][name];
+				$coyen_img = $coilpr[$i][img];
+			}
+		}
 	
 	//echo 'cust_name : '.$row['qcust_name'].'<br>'; qcust_name	qcust_addr	qcust_prov
 	/*echo 'ord_temp : '.$ord_temp.'<br>';
@@ -291,7 +355,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -505,7 +569,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -534,7 +598,7 @@
 					
 					<tr align="center">
 						<td align="left">- ห้องเย็นแช่ <?php echo $prods; ?> สินค้าเข้าต่อวัน <?php echo $qtyperday; ?> kg </td>
-						<td class="l" align="left" colspan="4"> &nbsp;&nbsp;ขนาดวัดภายใน <?php echo number_format($r_width-$cens, 2, '.', ',');?> x <?php echo number_format($r_lenght-$cens, 2, '.', ',') ;?> x <?php echo number_format($r_high-$cens, 2, '.', ',');?></td>
+						<td class="l" align="left" colspan="4"> &nbsp;&nbsp;ขนาดวัดภายใน <span style="font-size:17px; font-weight:bold; color:red; text-decoration:underline;"><?php echo number_format($r_width-$cens, 2, '.', ',');?> x <?php echo number_format($r_lenght-$cens, 2, '.', ',') ;?> x <?php echo number_format($r_high-$cens, 2, '.', ',');?></span></td>
 					</tr>
 					
 					<tr align="center">
@@ -544,10 +608,8 @@
 					
 					<tr align="center">
 						<td align="left">- ลดอุณหภูมิจาก  <?php echo $tempbefore; ?>C<Sup>o</Sup> ถึง  <?php echo $ord_temp; ?>C<Sup>o</Sup> ปริมาณ <?php echo $qtyperday; ?>kg ใช้เวลา <?php echo $hours; ?> ชม.</td>
-						<td class="l"></td>
-						<td class=""></td>
-						<td></td>
-						<td class=""></td>
+						<td class="l" align="left" colspan="4"> &nbsp;&nbsp;ระยะเดินท่อน้ำยาไม่เกิน 10 เมตร</td>
+
 					</tr>
 					
 					<tr align="center" style="background: #DAD7D7; border: 1px black solid;">
@@ -559,19 +621,9 @@
 						
 					<tr class="highs" style="">
 						<td class="l">1. ชุด Condensing 
-							
-							<?php if($comp_name == 1) { ?>
-								<strong><u> Copeland <span style="color:red; font-size:18px;"> <?php echo $hp;?>HP </span></u></strong>  รุ่น ZB <?php echo $copeland; ?> KQE
-							<?php } else if($comp_name == 2 ) { ?>
-								
-								<strong><u>Bitzer <span style="color:red; font-size:18px;"> <?php echo $hp;?>HP </span></u></strong> 
-									
-							<?php } else { ?>
-								
-								<strong><u>Danfoss <span style="color:red; font-size:18px;"> <?php echo $hp;?>HP </span></u></strong> 
-								
-							<?php } ?>
-							
+							<strong><u>
+							<?php echo $compressor_name;?>
+							</u></strong>
 							  
 							
 						</td>
@@ -581,14 +633,14 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l"> 2.  ชุดคอล์ยเย็น <strong><u>Q-Coil</u></strong>  <?php //echo $coilyen;?></td>
+						<td class="l"> 2.  ชุดคอล์ยเย็น <strong><u><?php echo $coyen_name;?></u></strong>  </td>
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ผนังห้องเย็น โฟม <strong><u> <?php echo $foams." ".$foaminch; ?> นิ้ว</u></strong> ensity 38-40 kg/m3 เหล็ก BHP 0.45 เมตร </td>
+						<td class="l">3. ผนังห้องเย็น โฟม <span style="font-weight:bold; text-decoration:underline; font-size:18px; color:red;"> <?php echo $foams." ".$foaminch; ?> นิ้ว</span> <span style="font-size: 12px;">ensity 38-40 kg/m3 เหล็ก BHP 0.45 เมตร</span> </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
@@ -611,19 +663,11 @@
 					<?php } ?>
 					
 					<tr class="highs" style="">
-						<td class="l">4. ระบบไฟฟ้า ควบคุมห้องเย็น <strong><u><?php echo $firefa;?> </u></strong> </td>
+						<td class="l">4. ระบบไฟฟ้า ควบคุมห้องเย็น <strong><u><?php echo $firefa;?> </u></strong> <span style="font-size:14px;">พร้อมระบบความปลอดภัย</span></td>
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - พร้อมระบบความปลอดภัยทางไฟฟ้า</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
 					
 					
 					<tr class="highs" style="">
@@ -637,10 +681,18 @@
 						<td class="l">6. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="center"></td>
+						<td class="l" align="right"><s>48,000.00</s></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - แจ้งเตือนถ้าห้องเย็นมีปัญหาผ่านมือถือ ฟรีค่าบริการปีแรก 10,000 บาท</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
+					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - และแจ้งเตือนหากห้องเย็นมีปัญหาผ่านมือถือ (ต้องมี Internet WiFi บริเวณห้องเย็น)</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; -  (ต้องมี Internet WiFi บริเวณห้องเย็น)</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
@@ -686,7 +738,7 @@
 								</div>
 							</div>
 						</td>
-						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
+						<td colspan="3" class="rlt">รวมราคารายการทั้งหมด</td>
 						<td class="t l" align="right"><?php echo number_format($prettylast, 2, '.', ',');?></td>
 					</tr>
 					
@@ -699,7 +751,7 @@
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ  <?php if($intvat=='on') echo '(Inc VAT 7%)';?></td>
-						<td class="rt l" align="right" id="totolprice"><?php echo number_format($total_price, 2, '.', ',');?> </td>
+						<td class="rt l" align="right" id="totolprice"><?php echo number_format($incvat, 2, '.', ',');?> </td>
 					</tr>
 				
 				</table>
@@ -708,11 +760,11 @@
 			
 			
 			
-			<div id="amount" class="amounts" style="clear: both; margin-top: 10px;">
+			<div id="amount" class="amounts" style="clear: both; margin-top: 5px;">
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tr>
-							<td colspan="2" align="left" style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน</td>
+							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)</td>
 						</tr>
 						<tr>
 							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   50%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
@@ -720,7 +772,7 @@
 						</tr>
 						
 						<tr>
-							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระเมื่อจัดส่งอุปกรณ์ </td>
+							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระก่อนจัดส่งอุปกรณ์ </td>
 							<td align="left"><span class="cal_ngo2"><?php echo number_format($ngod2, 0, '.', ',');?></span> บาท</td>
 						</tr>
 						
@@ -761,7 +813,7 @@
 					<span>ลงชื่อ......................................</span> <br><br>
 					<span>วันที่ <?php echo $thatdate;?></span>
 				</div>
-				<div style="width: 35%; float:left; margin-top: 20px;">
+				<div style="width: 35%; float:left; margin-top: 0px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
 					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
@@ -794,7 +846,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -895,7 +947,7 @@
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ  <?php if($intvat=='on') echo '(Int VAT 7%)';?></td>
-						<td class="rt l" align="right" id="totolprice"><?php echo number_format($total_price, 2, '.', ',');?> </td>
+						<td class="rt l" align="right" id="totolprice"><?php echo number_format($incvat, 2, '.', ',');?> </td>
 					</tr>
 					
 				
@@ -910,7 +962,7 @@
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tbody><tr>
-							<td colspan="2" align="left" style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน</td>
+							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)</td>
 						</tr>
 						<tr>
 							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   50%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
@@ -997,7 +1049,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1040,7 +1092,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1057,26 +1109,12 @@
 				<div class="row">
 					<div class="col3">
 						<div style="width: 300px; height:280px; background: orange;">
-							<?php if($comp_name==1) { ?>
-								<img src="../content/images/quotation/002.jpg">
-							<? } else if($comp_name==2) { ?>
-								<img src="../content/images/quotation/bitzer.jpg">
-							<? } else { ?>
-								<img src="../content/images/quotation/002.jpg">
-							<? } ?>
+							<img src="../content/images/quotation/<?php echo $com_img.$fancon;?>.jpg">
 						</div>
 					</div>
-					<div class="col4"><span class="topic">ชุดคอนเด็นซิ่งยูนิต ประกอบด้วย</span><br>
-						<p><span class="intopic">คอมเพรสเซอร์ :</span> 
-							<?php if($comp_name == 1 ) { ?>
-								Copeland <?php echo $hp;?>HP รุ่น ZB <?php echo $copeland;?> KQE ประเภท Scroll แบรนด์อเมริกา <?php echo $firefa; ?>
-							<? }else if($comp_name == 2 ){ ?>
-								BITZER <?php echo $hp;?>HP ประเภท ลูกสูบ  แบรนด์เยอรมัน <?php echo $firefa; ?>
-							<? }else { ?>
-								DANFOSS <?php echo $hp;?>HP ประเภท Scroll แบรนด์อเมริกา <?php echo $firefa; ?>
-							<? } ?>
-						</p>
-						<p><span class="intopic">ชุดคอยล์ร้อน :</span> ระบายความร้อนด้วยอากาศ 2 พัดลม</p>
+					<div class="col4"><span class="topic">ชุดคอนเด็นซิ่งยูนิต ประกอบด้วย</span><br>    
+						<p><span class="intopic">คอมเพรสเซอร์ :</span> <?php echo $compressor_name; ?></p>
+						<p><span class="intopic">ชุดคอยล์ร้อน :</span> ระบายความร้อนด้วยอากาศ <?php echo $fancon; ?> พัดลม</p>
 						<p><span class="intopic">ไฮ-โล เพรสเชอร์ :</span> อุปกรณ์วัดระดับแรงดันน้ำยา</p>
 						<p><span class="intopic">รีซีฟเวอร์และวาล์วนิรภัย :</span></p>
 						<p><span class="intopic">เช็ควาล์วและเซอร์วิสวาล์ว :</span> </p>
@@ -1086,16 +1124,16 @@
 				<div class="row">
 					<div class="col1">
 						<span class="topic">คอยล์เย็นสำหรับเป่าลมเย็นในห้องเย็น</span><br>
-						<p><span class="intopic">รุ่น  :</span> Q</p>
-						<p><span class="intopic">ยี่ห้อ :</span> Q-Coil</p>
+						<p><span class="intopic">รุ่น  :</span> <?php echo $coyen_name; ?></p>
+						<p><span class="intopic">ยี่ห้อ :</span> <?php echo $coyen_name; ?></p>
 						<p><span class="intopic">จำนวนพัดลม/ขนาดใบพัด :</span> 2 x 350 มิลลิเมตร</p>
-						<p><span class="intopic">ระยะส่งลม (Air Throw) :</span> อุปกรณ์ตัดต่อการทำงานของ คอมเพรสเซอร์ คอลย์ร้อน และ คอยล์เย็น</p>
+						<p><span class="intopic">ระยะส่งลม (Air Throw) :</span> </p>
 						<p><span class="intopic">ระยะครีบ (ฟิน) :</span> 7 มิลลิเมตร</p>
 						
 					</div>
 					<div class="col2">
 						<div style="width: 300px; height:280px; background: orange;">
-							<img src="../content/images/quotation/004.jpg">
+							<img src="../content/images/quotation/<?php echo $coyen_img;?>.jpg">
 						</div>
 					</div>
 				</div> <!--end row-->
@@ -1121,7 +1159,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1144,7 +1182,7 @@
 						<p><span class="intopic">แม็กเนติก :</span> อุปกรณ์ตัดต่อการทำงานของ คอมเพรสเซอร์ คอลย์ร้อน และ คอยล์เย็น</p>
 						<p><span class="intopic">ไฟแสดงสัญญาณ :</span> สถานะการทำงาน อุปกรณ์เครื่องต่างๆ ของห้องเย็น</p>
 						<p><span class="intopic">สวิตซ์ :</span> เปิด-ปิดการทำงานของเครื่องทำความเย็น</p>
-						<p><span class="intopic">ตู้ควบคุม :</span> ได้มาตารฐาน IP67 กันน้ำ กันฝุ่น</p>
+						<p><span class="intopic">ตู้ควบคุม :</span> ได้มาตารฐาน IP65 กันน้ำ กันฝุ่น</p>
 						
 					</div>
 					<div class="col2">
@@ -1165,7 +1203,7 @@
 						
 						<span class="topic">อุปกรณ์ควบคุมระบบน้ำยาห้องเย็น</span><br>
 						<p><span class="intopic">น้ำยาทำความเย็น :</span> ชนิด R404a</p>
-						<p><span class="intopic">ท่อทองแดง : </span> Type L สำหรับส่งน้ำยาในระบบ รวมถึงข้อต่อต่างๆ</p>
+						<p><span class="intopic">ท่อทองแดง : </span> Type L สำหรับส่งน้ำยาในระบบ รวมถึงข้อต่อต่างๆ ระยะเดินท่อน้ำยาไม่เกิน 10 เมตร</p>
 						<p><span class="intopic">ฉนวนหุ้มท่อ :</span> AeroFlex ป้องกันการเกิดหยดน้ำ และการรั่วซึมของน้ำยา </p>
 						<p><span class="intopic">ตัวยึดท่อทองแดง :</span> ก้ามปูยึดท่อ</p>
 						<p><span class="intopic">การเชื่อมท่อทองแดง :</span> ป้องกันการรั่วของท่อน้ำยา ตรวจสอบการตรวจรั่วได้มาตราฐาน</p>
@@ -1194,7 +1232,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1272,7 +1310,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1290,18 +1328,29 @@
 				<div class="row">
 					<div class="col1">
 						<span class="topic">ประตูห้องเย็น</span><br>
-						<p><span class="intopic">ชนิดประตู :</span> ประตูบานสวิง </p>
-						<p><span class="intopic">ขนาด :</span> 1.0 x 2.0 เมตร (กว้างสูง)</p>
-						<p><span class="intopic"></span>- อุปกรณ์นิรภัยสำหรับติดที่บานประตูภายในห้องเย็นเพื่อกระทุ้งเปิดจากด้านใน แม้ด้านนอดถูกล็อค</p>
+						<p><span class="intopic">ชนิดประตู : </span><?php echo $doortypes;?></p>
+						<p><span class="intopic">ขนาด :</span> <?php echo $d_width.' x '.$d_high?> เมตร</p>
+						<?php if($doortype==1){ // swing ?>
+							<p><span class="intopic"></span>- อุปกรณ์นิรภัยสำหรับติดที่บานประตูภายในห้องเย็นเพื่อกระทุ้งเปิดจากด้านใน แม้ด้านนอดถูกล็อค</p>
+						<?php } ?>
+						
 						<p><span class="intopic"></span>- กรอบบานประตูใชแผ่น "คัลเลอร์บอร์น" ครอบรอบบาน, วงกบประตูแผ่น"คัลเลอร์บอร์น" ครอบรอบด้าน</p>
 					</div>
 					<div class="col2">
 						<div style="width: 300px; height:280px; background: orange;">
-							<img src="../content/images/quotation/008.jpg">
+							<div style="width: 300px; height:280px; background: orange;">
+							<?php if($doortype==1){ // swing ?>
+								<img src="../content/images/quotation/008.jpg">
+							<?php } else { // slide?>
+								<img src="../content/images/quotation/slide.jpg">
+							<?php }  ?>
+						</div>
 						</div>
 					</div>	
 				</div> <!--end row-->
 				
+				
+				<?php if($floor1==1) { ?>
 				<div class="row">
 					<div class="col3">
 						<div style="width: 300px; height:280px; background: orange;">
@@ -1316,6 +1365,74 @@
 						
 					</div>
 				</div> <!--end row-->
+				<?php } ?>
+				
+			</div><!--end container-->
+			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
+			<br><br><br>
+			<div class="note" style="clear: both; margin: 0 0 0 200px;">
+			</div><!--end note -->
+
+        </div>  <!--end subpage-->
+    </div>
+	
+	<div class="page">
+        <div class="subpage">
+
+            <div id="cover_header">
+				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
+				
+				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Web:  www.topcooling.net</span>
+				</div>
+			</div><!--end cover_header-->
+			
+			<div style="width: 100%; clear:both; height: 10px;">
+				<div style="float: right;"></div>
+			</div>
+			
+			<div style="width: 100%; clear:both; height: 40px;">
+				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายละเอียดแนบท้ายใบเสนอราคา</span></p>
+			</div>
+			
+			<div class="container">
+				
+				
+				<div class="row" style="padding-top:0px;">
+					<div class="tew" style="padding: 20px;">
+					<h2>ระบบห้องเย็นออนไลน์</h2>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					IDCAM Plus เป็นอุปกรณ์ (IoT) ที่ออกแบบให้ใช้งานกับห้องเย็นโดยเฉพาะ ช่วยให้ผู้ใช้งานสามารถ <span class="text-strong">ติดตาม</span> สถานะการทำงานของห้องเย็นได้ตลอดเวลาผ่านการเชื่อมต่ออินเตอร์เน็ตแบบ Real Time จะเก็บข้อมูลทุกๆ 1 นาที <br><br>
+					
+					<span class="text-large">ประโยชน์เด่นๆ</span> ของ IDCAM Plus ช่วย <span class="text-strong">ลดความเสี่ยง</span> ของที่เก็บหรือแช่แข็งไว้ในห้องเย็น เพราะเราจะไม่ให้ห้องเย็นลูกค้าเสีย โดยระบบนี้จะแจ้งเตือนทันทีหากอุณหภูมิให้ห้องเย็นไม่ได้อุณหภูมิตามที่เราต้องการหรือระบบห้องเย็นมีปัญหา เช่น กระแสไฟฟ้าสูง จนทำให้ระบบหยุดการทำงาน <br><br>
+
+					ถ้าระบบผิดปกติอย่างใดอย่างหนึ่งไม่ว่าจะเป็นอุณหภูมิหรือเรื่องเครื่องทำความเย็น ระบบจะ <span class="text-strong">แจ้ง Line</span> ให้ทราบทันที จะเป็น Line ส่วนตัวหรือ Line กลุ่มก็ได้ จะได้ช่วยกันดู
+					<br><br>
+
+					 โดยการทำงานของระบบนี้ จะเก็บข้อมูล ขึ้นระบบ <span class="text-strong">คลาวด์ (Cloud)</span> ทุกๆ 1 นาที หรือมากน้อยกว่านี้ก็ได้ตามต้องการ และเราสามารถวิเคราห์การทำงานของเครื่องได้จาก Big Data ที่เราเก็บข้อมูลไว้ และบริการการเรียกรายงาน Report ได้  มีรายละเอียดดังต่อไปนี้<br><br>
+
+					<strong><u>1. ทราบอุณหภูมิ</u></strong> ณ ปัจจุบันของห้องเย็น และดูย้อนหลังได้ <br><br>
+					<strong><u>2. ทราบสถานะการทำงาน</u></strong> ของเครื่องคอมเพรสเซอร์ ว่าทำงานหรือไม่ทำงาน ณ ขณะที่ดู<br><br>
+					<strong><u>3. ทราบสถานะการทำงาน</u></strong> ของคอยล์เย็น ซึ่งเป็นอุปกรณ์ที่อยู่ในห้องเย็นและทำงานร่วมกับชุดคอนเด็นซิ่ง (Compressor)<br><br>
+					<strong><u>4. ทราบว่า Overload</u></strong> คอมเพรสเซอร์ตัดหรือไม่ ก็คือรู้ว่ากระแสไฟฟ้าที่ให้คอมเพรสเซอร์นั้นมากกว่าปกติหรือไม่<br><br>
+					<strong><u>5. ทราบว่า Overload</u></strong> (กระแสไฟฟ้าเกิน)  ที่คอยล์เย็นหรือไม่<br><br>
+					<strong><u>6. ทราบว่า Overload</u></strong> (กระแสไฟฟ้าเกิน) ที่คอยล์ร้อนหรือไม่ หากมีกระแสไฟฟ้าเกิน ก็จะแจ้งเตือนไปผู้ใช้งานห้องเย็นทันในหลายช่องทาง คือ ทางแอปพลิเคชั่นไลน์  ในหน้า DashBoard Web Application และบันทึกจำนวนการตัดของ Overload ลงฐานข้อมูลเพื่อนำไปวิเคราะห์ต่อไป<br><br>
+					<strong><u>7. ทราบสถานะไฟฟ้า</u></strong> (Phase Protection) ว่าปกติหรือมีไฟฟ้าเกิน ไฟตก ไฟไม่บาลานซ์เฟส หรือไม่<br><br>
+
+					เราจะทราบได้ว่าแต่ละอุปกรณ์หรือสถานะ <span class="text-strong">ทำงานกี่นาที</span> และ ไม่ทำงานกี่นาที นั้นหมายถึงเรารู้พฤติกรรมการทำงานของเครื่องทำความเย็นทั้งระบบ ว่าระบบทำงานได้ปกติ และ ได้ประสิทธิภาพได้เหมือนกับตอนที่ติดตั้งใหม่ๆ หรือไม่ (ปกติประสิทธิภาพเครื่องจะลดลงตามระยะเวลาที่ใช้งาน เช่น กินกระแสไฟมากขึ้น หรือทำอุณหภูมิได้ช้าลงในเวลาที่เท่าเดิม)
+					<br><br>
+					
+					นอกจากเราจะรู้ <span class="text-strong">พฤติกรรม</span> การทำงานของเครื่องทำความเย็นแล้ว เรายังสามารถนำเวลาที่เครื่องทำงานมาคำนวณเป็นค่าไฟฟ้าในเบื้องต้นได้ ทำให้เราวางแผนหรือบริหารห้องเย็นได้ เช่น หากค่าไฟเยอะผิดปกติ เราจะหาสาเหตุที่ผิดปกติได้อย่างรวดเร็ว หรือการตั้งค่าบางอย่างที่ใช้ไฟฟ้าโดยไม่จำเป็นออกไป เช่น ฮีตเตอร์ละลายน้ำ จริงๆ ถ้าละลายหมดแล้วแต่ฮีทเตอร์ยังทำงานอยู่ ก็อาจลดเวลาการ Defrost จะช่วยประหยัดค่าไฟได้
+					<br><br>
+					
+					เพียงทำเท่านี้เราก็จะป้องกัน ลดความเสี่ยง สินค้าที่อาจจะเสียหายในห้องเย็นได้ ลดการซ่อมบำรุงเครื่องทำความเย็นได้อีกด้วย<br><br>
+					</div>
+				</div> <!--end row-->
+
+				
 			</div><!--end container-->
 			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
 			<br><br><br>

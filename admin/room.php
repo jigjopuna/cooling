@@ -17,7 +17,20 @@
 	<link rel="stylesheet" href="../css/quotation.css">
 	<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 	<style>
+		.text_strong { font-weight: bold; }
+		.text_emunder { text-decoration:underline; font-weight: bold; }
+		.container { clear:both; border: 1px solid black; min-height:850px;}
+		.row { width: 100%; clear:both; padding-bottom: 60px; overflow: hidden;}
+		.col1 { float:left; width:45%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
+		.col2 { float:left; width:51%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
+		.col3 { float:left; width:53%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
+		.col4 { float:left; width:43%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
+		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
+		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; }
 		
+		@media print { 
+			 #btn-calngod,  #btn-addroom { display: none !important; } 
+		}
 
 	</style>
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
