@@ -2,7 +2,7 @@
 	  require_once('../include/connect.php');
 	
 	//PO LIST
-	$sql = "SELECT p.po_emp, p.po_id, p.po_name, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
+	$sql = "SELECT p.po_emp, p.po_cate, p.po_id, p.po_name, p.po_orders, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
 			FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
 			ORDER BY po_id DESC LIMIT 0,1000";
 	$result= mysql_query($sql);
@@ -268,7 +268,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">จำนวน</label>
-											<input type="text" class="form-control" id="poqty" name="poqty">
+											<input type="text" class="form-control" id="poqty" name="poqty" value="1">
 										</div>
 										
 										<div class="form-group has-success">
@@ -440,8 +440,8 @@
 											
 											<td><?php echo $row['po_comment']; ?></td>
 											<td><?php echo $row['po_date']; ?></td>
-											<td><a href="../images/bill/<?php echo $row['po_bill_img'];?>" target="_blank">ดูบิล</a></td>											
-										    <td><?php echo $row['po_emp']; ?></td>
+											<td><a href="../images/bill/<?php echo $row['po_bill_img'];?>" target="_blank">ดูบิล</a> (<?php echo $row['po_cate']?>)</td>											
+										    <td><?php echo $row['po_emp'].' ('.$row['po_orders'].')'; ?></td>
 										</tr>
 									<?php } ?>
 

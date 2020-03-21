@@ -17,7 +17,7 @@
 <html lang="en">
 
 <head>
-<title>สต็อค</title>
+<title>รายการสั่งซื้อ</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
@@ -323,6 +323,45 @@
 									</div>
 									
 								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>		
+        </div>
+		
+		
+		
+		<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+							ดูรายงาน STOCK
+							
+						</div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="row">
+								<div class="col-lg-4">
+									<div class="form-group has-success">
+										<a href="../report/print/stock_install.php"><button id="" type="button" class="btn btn-lg btn-success btn-block">STOCK ติดตั้ง</button></a>
+									</div>
+								</div>
+																		
+								<div class="col-lg-4">
+									<div class="form-group has-success">
+										<a href="../report/print/stock_all.php"><button id="" type="button" class="btn btn-lg btn-success btn-block">STOCK ทั้งหมด</button></a>
+									</div>
+										
+										
+								</div>
+									
+									
+								<div class="col-lg-4">
+									
+								</div>
 							 </div> <!-- row -->
                            
                         </div>

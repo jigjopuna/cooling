@@ -171,6 +171,10 @@
 								<li>
                                     <a href="stock/seller.php">ร้านค้า</a>
                                 </li>
+                                
+                                <li>
+                                    <a href="part_sec/part_sec.php">รับซื้อมือสอง</a>
+                                </li>
 							
                             </ul>
                         </li>
@@ -206,6 +210,8 @@
                             </ul>
                         </li>
 						<?php } ?>
+						
+						
 
 						
 						
@@ -214,6 +220,11 @@
                             <a href="report/selectreport.php"><i class="fa fa-bar-chart-o fa-fw"></i>รายงาน <span class="fa arrow"></span></a>                       
                         </li>
 						<?php } ?>
+						
+						<li>
+                            <a href="part_sec/part_sec.php"><i class="fa fa-dashboard fa-fw"></i> โยกย้าย <span class="fa arrow"></span></a>
+                            
+                        </li>
 						
 						 <li>
                             <a href="pages/login/logout.php" target="_blank"><i class="fa fa-edit fa-fw"></i> ออกจากระบบ </a>

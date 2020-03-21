@@ -1,9 +1,10 @@
 <table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
-					<tr style="border: solid black 1px;">
+					<tr>
 						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็นสำเร็จรูป </td>
-					</tr>
+					</tr style="border: solid black 1px;">
 					
-						
+						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็น</td>
+					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
 						<td style="width: 60%" align="left">ห้องเย็นสำเร็จรูป แบบเคลื่อนย้ายได้ ปริมาณแผ่นฉนวน (<?php echo $cute; ?>) ตารางเมตร</td>

@@ -6084,7 +6084,9 @@ table.accessories td:first-child {font-weight:bold; }
 .h1-2-7em { font-size: 2.7em; text-decoration: underline; color: brown; margin:0;} 
 .topic-article {font-family:'Thaisans_neue_regular'; font-size:1.8em; color: brown; font-weight:bold; text-decoration: underline}
 .bolds { font-weight: bold; font-size: 22px;}
+.bold_brown { font-weight: bold; font-size: 22px; color: brown;}
 .boldun { font-weight: bold; font-size: 22px; text-decoration:underline;}
+.boldun_brown { font-weight: bold; font-size: 22px; text-decoration:underline; color: brown;}
 /*section .product { font-size: 20px; line-height: 2; }
 section .product .texts a { text-decoration:underline; }
 section .product .section-header, .product h2 { font-size:2em; color: brown; text-decoration:underline; line-height: 1.5em;}

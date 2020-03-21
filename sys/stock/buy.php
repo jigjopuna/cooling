@@ -1,12 +1,14 @@
 <?php session_start();
 	  require_once('../include/connect.php');
+	  $year = date("Y");
+	  $pee = $year.'%';
 	
 	$sql = "SELECT t.t_id, t.t_name, t_stock, t_cost_center, cs.cst_prod, cs.cst_five_meter, A.count nub,  cs.cst_five_meter*A.count AS yod
 			FROM tb_count_stock cs JOIN tb_tools t ON t.t_id = cs.cst_prod 
 				 JOIN (
 					SELECT COUNT(*) count
 					FROM tb_orders o 
-					WHERE o.o_status = 1 OR o.o_status = 4 
+					WHERE o.o_date LIKE '$pee' AND o.o_status != 5
 				 ) AS A";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);

@@ -1,7 +1,11 @@
 <?php session_start();
 	  require_once('../include/connect.php');
+
 	
-	$sql = "SELECT * FROM tb_cash_center ORDER BY cash_id DESC LIMIT 0,100";
+	$sql = "SELECT c.cash_id, c.cash_po, c.cash_now, c.cash1, c.cash_out, c.cash_in, c.cash_ord, c.cash_times
+		    FROM tb_cash_center c
+			ORDER BY c.cash_id DESC 
+			LIMIT 0,500";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
@@ -62,13 +66,10 @@
                                     <tr>
 										<th>ลำดับ</th>
                                         <th>ซื้อของ</th>                                     
-                                        <th>ออเดอร์</th>
-                                        <th>เงินเข้า</th>
+                                        <th>เลขเงินเข้า</th>
+                                        <th>เงินเข้า (บาท)</th>
                                         <th>เงินออก</th>
 										<th>เงินซื้อของเหลือ</th>
-										<th>เงินสำรอง</th>
-										<th>เงินจ่ายพนักงาน</th>
-										<th>เงินกำไร</th>
 										<th>เวลา</th>
 										
                                     </tr>
@@ -82,7 +83,7 @@
 									  ?>
 										<tr class="gradeA"> 
 											<td><?php echo $row['cash_id']; ?></td>
-											<td><?php echo number_format($row['cash_po'], 0, '.', ','); ?></td>
+											<td><?php echo $row['cash_po']; ?></td>
 											<td><?php echo $row['cash_ord']; ?></td>
 											
 											<?php if($row['cash_in'] != 0) { ?>
@@ -100,17 +101,12 @@
 											
 											<?php if(($row['cash_in'] != 0) && ($row['cash_out'] != 0) && ($row['cash_out'] != 0)) { ?>
 												<td><?php echo number_format($row['cash1'], 0, '.', ','); ?></td>
-												<td><?php echo number_format($row['cash_temp'], 0, '.', ','); ?></td>
-												<td><?php echo number_format($row['cash_emp'], 0, '.', ','); ?></td>
 											<?php }else{ ?>
 												<td><?php echo number_format($row['cash1'], 0, '.', ','); ?></td>
-												<td><?php echo number_format($row['cash_temp'], 0, '.', ','); ?></td>
-												<td><?php echo number_format($row['cash_emp'], 0, '.', ','); ?></td>
 											<?php }?>
 											
 											
 											
-											<td><?php echo number_format($row['cash2'], 0, '.', ','); ?></td>
 											<td><?php echo $row['cash_times']; ?></td>
 										</tr>
 									<?php } ?>

@@ -1,0 +1,1 @@
+  <div style="display:none" id="session_basket"><?php echo $_SESSION['session_basket']; ?></div>

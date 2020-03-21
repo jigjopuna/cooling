@@ -1,99 +1,134 @@
 <?php session_start();
-	  require_once('../../include/connect.php');
+	  require_once('../include/connect.php');
+	  
+	$o_id = $_GET['o_id'];
+
+	$sql = "SELECT * FROM tb_ord_status WHERE ost_type = 1 ORDER BY ost_status";
+	$result = mysql_query($sql);
+	$num = mysql_num_rows($result);
 	
-	//1. receive data
-	$ord_status = trim($_POST['ord_status']);	 
-	$order_id = trim($_POST['order_id']);
-	$e_ids = trim($_POST['e_ids']);
-	
-	//fine user line Token
-	$sql_cust = mysql_fetch_array(mysql_query("SELECT c.cust_token FROM tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id WHERE o.o_id = '$order_id'"));
-	//$cust_token = $sql_cust['cust_token'];
+	$row_ord = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders WHERE o_id = '$o_id'"));
+	$ord_status = $row_ord['o_status'];
+	//echo $ord_status; exit();
 	
 
 ?>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
+
+<?php require_once ('../include/header.php');?>
+<?php require_once('../include/metatagsys.php');?>
+	<?php 
+		$e_id = $_SESSION[ss_emp_id];
+		if($e_id==""){
+			exit("
+				<script>
+					alert('กรุณา Login ก่อนนะคะ');
+					window.location = '../pages/login/login.php';
+				</script>");
+		}
+	
+	?>
+<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
+<script src="../../js/jquery-ui-1-12-1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.btn-success').click(validation);
+		$('#date_pay').datepicker({dateFormat: 'yy-mm-dd'});
+		$("#search_custname").autocomplete({
+				source: "../../ajax/search_cust.php",
+				minLength: 1
+		});
+		
+		function validation(){
+			var search_custname = $('#search_custname').val();
+			var payinqty = $('#payinqty').val();
+			var paydate = $('#paydate').val();
+			if((search_custname=='') || (payinqty=='') || (paydate=='')){
+				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
+			}else{
+				$('#form1').submit();				
+			}
+		}		
+	});
+</script>
 </head>
+
 <body>
-<?php 
-	date_default_timezone_set("Asia/Bangkok");	
-	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');
-	define('LINE_TOKEN1', $sql_cust['cust_token']); 
-	function notify_message($message){
-		$queryData = array('message' => $message);
-		$queryData = http_build_query($queryData,'','&');
-		$headerOptions = array(
-			'http'=>array(
-				'method'=>'POST',
-				'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
-						  ."Authorization: Bearer ".LINE_TOKEN."\r\n"
-						  ."Content-Length: ".strlen($queryData)."\r\n",
-				'content' => $queryData
-			)
-		);
-		$context = stream_context_create($headerOptions);
-		$result = file_get_contents(LINE_API,FALSE,$context);
-		$res = json_decode($result);
-		return $res;
-	}
-	
-	function notify_message1($message){
-		$queryData = array('message' => $message);
-		$queryData = http_build_query($queryData,'','&');
-		$headerOptions = array(
-			'http'=>array(
-				'method'=>'POST',
-				'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
-						  ."Authorization: Bearer ".LINE_TOKEN1."\r\n"
-						  ."Content-Length: ".strlen($queryData)."\r\n",
-				'content' => $queryData
-			)
-		);
-		$context = stream_context_create($headerOptions);
-		$result = file_get_contents(LINE_API,FALSE,$context);
-		$res1 = json_decode($result);
-		return $res1;
-	}
-	
-	
-	
-	
-	$rowemp = mysql_fetch_array(mysql_query("SELECT e_name FROM tb_emp WHERE e_id = '$e_ids'"));
-	$emps = $rowemp['e_name'];
-	
-	/*echo "ord_status = ", $ord_status, "<br>";
-	echo "order_id = ", $order_id, "<br>";	
-	exit();*/
-	
-	$rowcname = mysql_fetch_array(mysql_query("SELECT c.cust_name FROM tb_orders o JOIN tb_customer c ON c.cust_id = o.o_cust WHERE o.o_id='$order_id'"));
-	$custname = $rowcname['cust_name'];
-	
-	$rowst = mysql_fetch_array(mysql_query("SELECT ost_status FROM tb_ord_status WHERE ost_id='$ord_status'"));
-	$statusname = $rowst['ost_status'];
-	
-	//2. update into database	
-	$sql = "UPDATE tb_orders SET o_status = '$ord_status' WHERE o_id = '$order_id'";
-	$result1 = mysql_query($sql);
-	
-	if($result1){
-		$msg = "ออเดอร์ของคุณ ".$custname.' เปลี่ยนเป็นสถานะ '.$statusname. ' ('.$emps. ')';
-		$res = notify_message($msg);
-		$res1 = notify_message1($msg);
-		exit("
-			<script>
-				alert('อัปเดทสถานะออเดอร์เรียบร้อยแล้วจร้า ^^ ');
-				window.location='../../order/order.php';
-			</script>
-		");
-	}
-?>
+
+    <div id="wrapper">
+
+        <?php require_once ('../include/navproduct.php');?>
+        <div id="page-wrapper">
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">อัปเดทสถานะงาน</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							แก้ไขสถานะงาน
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+
+							<div class="row">
+								<form action="../db/order/save_edit_ord.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">สถานะงาน </label>
+											<select class="form-control" id="ord_status" name="ord_status">
+												<option value="">เลือกสถานะงาน</option> 
+												<?php 
+													for($i=1; $i<=$num; $i++){
+														$row = mysql_fetch_array($result);												
+												?>						
+												<option value="<?php echo $row['ost_id']?>" <?php if($row['ost_id']==$ord_status) echo "selected" ?>><?php echo $row['ost_status']?></option>
+												
+													
+												<?php } ?>
+											</select>
+										</div>
+									
+										<div class="form-group has-success">
+											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">อัปเดทสถานะงาน</button>
+										</div>
+									</div>
+																
+																
+									<div class="col-lg-4"></div>
+									
+									
+									<div class="col-lg-4"></div>
+									<input type="hidden" name="order_id" value="<?php echo $o_id;?>" >
+									<input type="hidden" name="e_ids" value="<?php echo $e_id;?>" >
+								</form>
+							 </div> <!-- row -->
+							
+							
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>		
+        </div>
+
+            <!-- /.row -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   
+
 </body>
-</html>     
 
-
-
-
+</html>

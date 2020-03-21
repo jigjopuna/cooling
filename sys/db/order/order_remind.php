@@ -3,7 +3,7 @@
 	$today = date("Y-m-d");
 	$yearmonth = date("Y-m");
 	$day = date("D");
-	$sql = "SELECT COUNT(*) count FROM tb_orders WHERE o_date LIKE '$yearmonth%'";
+	$sql = "SELECT COUNT(*) count FROM tb_orders WHERE o_type LIKE '1%' AND o_date LIKE '$yearmonth%'";
 	$row= mysql_fetch_array(mysql_query($sql));
 	$countorder = $row['count'];
 	

@@ -24,6 +24,9 @@
 	$remain  = trim($_POST['remain']);
 	
 	
+	$due_date  = trim($_POST['po_due_date']);
+	
+	
 	
 	$poshop = trim($_POST['poshop']);
 	$pobuyer  = trim($_POST['pobuyer']);
@@ -34,13 +37,34 @@
 	$pocredit = trim($_POST['pocredit']);
 	
 	$search_custname = trim($_POST['search_custname']);
-	$today = date("Ymd");
+	$credit_pay = trim($_POST['credit_pay']);
+	$getfristdate = substr($credit_pay, 0, 1);
+	
+	$today = date("Y-m-d");
+	
+	
 	
 	
 	
 	if($posumrong=='on') { $sumrong = 1;} else { $sumrong = 0; }
 	if($pocredit=='on') { $po_credit = 1;} else {$po_credit = 0; }
-	if($pocreditcomp=='on') {$pocreditcomps = 1;} else {$pocreditcomps = 0;}
+	if($pocreditcomp=='on') {
+		$pocreditcomps = 1;
+		/* 
+			เช็คว่าติ๊กจ่ายเครดิตไหม ถ้าติ๊กจ่ายเครดิตให้ อัปเดทวันที ณ วันปัจจุบัน
+			ถ้า credit_pay ไม่เป็น 0000-00-00 ให้ใส่เป็นค่าปัจจุบัน
+			ถ้า credit_pay ขึ้นต้นด้วย 20xxx ให้ update เป็นค่าเดิม เพราะยังต้อง update อยู่แล้ว
+		*/
+		if($getfristdate > 1){
+			$wan_jay = $credit_pay;
+		}else{
+			$wan_jay = $today;
+		}
+	
+	} else {
+		$pocreditcomps = 0;
+	}
+	
 	
 	/*echo "posumrong = ", $posumrong, "<br>";
 	echo "pocredit = ", $pocredit, "<br>";
@@ -58,7 +82,7 @@
 		if($cash_temp < $remain){ exit("<script>alert('เงินสำรองไม่พอจ่ายเครดิต นะจ๊ะ');window.location='../../finance/outpay.php';</script>"); }
 	}
 	
-	if($sumrong = 1){ 
+	if($sumrong == 1){ 
 		$temp_cash1 = $cash1; //เงินซื้อของ
 		$temp_cash2 = $cash_temp - $remain; //เงินสำรอง
 	}else{
@@ -154,6 +178,8 @@
 			po_date     = '$podate', 
 			po_bill_img = '$filename', 
 			po_orders   = '$search_custname', 
+			po_credit_due_date	= '$due_date', 
+			po_credit_pay	= '$wan_jay', 
 			po_credit   = '$po_credit', 
 			po_credit_complete = '$pocreditcomps' 
 			WHERE po_id = '$po_id'
@@ -165,6 +191,7 @@
 			$temp_cash1 = $cash1 - $remain;
 			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_temp = '$temp_cash2'";		
 			$result6 = mysql_query($cal_cash);
+			
 			
 		}
 		exit("<script>alert('บันทึกข้อมูลเรียบร้อยแล้วจร้า ');window.location='../../finance/outpay.php';</script>");

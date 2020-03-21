@@ -32,7 +32,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">ปริมาณสินค้าเข้าห้องเย็น 1 ตัน /วัน ใช้เวลา 18-20 ชั่วโมงในการลดอุณหภูมิ</td>
+						<td class="l">ปริมาณสินค้าเข้าห้องเย็น 500 kg /วัน ใช้เวลา 18 ชั่วโมงในการลดอุณหภูมิ</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -156,7 +156,7 @@
 					
 					<tr>
 						
-						<td colspan="3" class="rl">ส่วนลด</td>
+						<td colspan="3" class="rl">&nbsp;</td>
 						<td class="rt l" align="right"><?php //echo number_format($vats, 2, '.', ','); ?></td>
 					</tr>
 					

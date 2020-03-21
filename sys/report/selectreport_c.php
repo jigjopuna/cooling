@@ -375,7 +375,16 @@
     </div>
     <!-- /#wrapper -->
 
-   <?php require_once ('../include/inc_js.php');?>
+   <?php //require_once ('../include/inc_js.php');?>
+
+    <!-- Bootstrap Core JavaScript -->
+
+    <!-- Metis Menu Plugin JavaScript -->
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
 
 </body>
 

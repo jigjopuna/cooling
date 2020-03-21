@@ -237,6 +237,16 @@
 	<section class="blog bgwhite p-t-94 p-b-65">
 		<div class="container">
 			<div class="row">
+			
+				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+					
+					<div class="block3">
+						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
+							<img src="images/product/machset/machine/370x266-all.jpg" alt="ชุดห้องเย็น">
+						</a>
+					</div>
+				</div>
+				
 				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
 					<!-- Block3 -->
 					<div class="block3">
@@ -257,14 +267,15 @@
 					</div>
 				</div>
 
-				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
-					<!-- Block3 -->
+				<!--<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+					
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
 							<img src="images/product/coilyen/eden/eden01.jpg" alt="คอยล์เย็น">
 						</a>
 					</div>
-				</div>
+				</div>--> 
+				
 			</div>
 		</div>
 	</section>
@@ -310,7 +321,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/machine/q-coil/270x360-qcoil.jpg" alt="CDU ห้องเย็น">
 						</a>
 					</div>
 				</div>
@@ -319,7 +330,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/machine/xmk/270x360-xmk.jpg" alt="คอนเด็นซิ่งห้องเย็น">
 						</a>
 
 						
@@ -330,7 +341,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/machine/tecumseh/270x360-tecumseh.jpg" alt="cdu tecumseh">
 						</a>
 					</div>
 				</div>
@@ -351,7 +362,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/machine/copeland/270x360-copeland.jpg" alt="คอมเพรสเซอร์ห้องเย็น">
 						</a>
 					</div>
 				</div>
@@ -386,14 +397,14 @@
 			<h3 class="m-text5 t-center">
 				คอยล์ยเย็น (Evaperator)  
 			</h3>
-		</div>
+		</div> 
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto" style=" width:50%; float:left;"> 
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/coilyen/eden/270x360.jpg" alt="คอยล์เย็นห้องเย็น"> 
 						</a>
 					</div>
 				</div>
@@ -402,7 +413,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/coilyen/eden/270x360-01.jpg" alt="คอยเย็นห้องเย็น">
 						</a>
 
 						
@@ -413,7 +424,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/coilyen/tecumseh/270x360-tecum.jpg" alt="air cooling คอยเย็น">
 						</a>
 					</div>
 				</div>
@@ -476,7 +487,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/room/pu4/270x360.jpg" alt="โฟมห้องเย็น PU">
 						</a>
 					</div>
 				</div>
@@ -485,7 +496,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/room/ps/270x360.jpg" alt="ผนังห้องเย็น PS">
 						</a>
 
 						
@@ -496,7 +507,7 @@
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-							<img src="images/270x360.jpg" alt="IMG-BLOG">
+							<img src="images/product/room/pu4/270x360-1.jpg" alt="โฟมฉนวนผนังห้องเย็น">
 						</a>
 					</div>
 				</div>

@@ -93,9 +93,6 @@
 	
 	$foam = trim($_POST['foam']);
 	$foaminch = trim($_POST['foaminch']);
-	$border_type = 1; // เหล็ก 2 ด้าน
-	
-	$density = 1.5;
 	
 	$doortype = trim($_POST['doortype']);
 	$d_width = trim($_POST['d_width']);
@@ -158,21 +155,11 @@
 		$cens = (20.32*2)/100; 
 	}
 	
-	
-	
-	if($foam==1){ 
-		$foams = 'PU'; 
-		$border = $foam.$border_type;
-		$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools WHERE t_type = 5 AND t_subtype = '$border' AND t_size = '$foaminch';"));
-	else { 
-		$foams = 'PS';
-		$border = $foam.$border_type;
-		$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools WHERE t_type = 5 AND t_subtype = '$border' AND t_size = '$foaminch' AND t_attrib1 = '$density';"));
-	}
-	
+	if($foam==1){ $foams = 'PU'; } else { $foams = 'PS'; }
 	if($doortype==1){ $doortypes = 'ประตูบานสวิง '; $pratoo = 26000; } else { $doortypes = 'ประตูบานเลื่อน'; $pratoo = 37000; }
 	
-	$wall_price = $sql_wall['t_cost']; 
+	$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_productroom WHERE pr_cate= 1 AND pr_size = '$foaminch' AND pr_type = '$foams'"));
+	$wall_price = $sql_wall['pr_sell_price']; 
 	
 	
 	$realcost = ($cute*$wall_price)+$pratoo+($basic_price*$qtyhp);
@@ -353,7 +340,7 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
@@ -567,7 +554,7 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
@@ -699,12 +686,18 @@
 					</tr>
 
 					<tr class="highs" style="">
-						<td class="l"> 7. ค่าติดตั้งและจัดส่งสินค้า</td>
+						<td class="l"> 7. ค่าติดตั้งห้องเย็น และเครื่องทำความเย็น</td>
 						<td colspan="2" class="l" align="center">1 งาน</td>
-						<td class="l" align="center"><?php if($ship_cost == 0) echo ''; ?></td>
-						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"><?php echo number_format($labor, 2, '.', ','); ?></td>
 					</tr>
 					
+					<tr class="highs" style="">
+						<td class="l"> 8. ค่าบริการขนส่ง วัสดุอุปกรณ์ห้อง และเครื่องทำความเย็น</td>
+						<td colspan="2" class="l" align="center">1 เทียว</td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
+					</tr>
 					
 					
 					<?php if($gift != '') { ?>
@@ -782,10 +775,9 @@
 						</tr>
 						
 						<tr>
-							<td align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
-							<td align="left"></td>
+							<td colspan="2" align="left">บัญชีธนาคารทหารไทย TMB (ออมทรัพย์)</td>
 							<tr>
-								<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 047-8-18623-1</span></td>
+								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 635-2-31556-5</span></td>
 							</tr>
 						</tr>
 					</table>
@@ -802,6 +794,18 @@
 						<tr>
 							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
 						</tr>
+						
+						<tr>
+							<td align="left" style="color:red; font-size:17px; font-weight:bold;">  ชำระเต็มจำนวนงวดแรก ฟรีค่าขนส่ง
+							</td>
+						</tr>
+
+						<tr>
+							<td align="left" style="color:red; font-size:17px; font-weight:bold;"> 
+								ชำระเพียง 213,000 บาท เท่านั้น
+							</td>
+						</tr>
+						
 					</table>
 				</div>
 			</div><!--end amount-->
@@ -844,7 +848,7 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
@@ -983,12 +987,13 @@
 							<td align="left">รายละเอียดเลขที่บัญชีสำหรับโอนเงิน </td>
 							<td align="left"></td>
 						</tr>
+						
 						<tr>
-							<td align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
-							<td align="left"></td>
-							</tr><tr>
-								<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 047-8-18623-1</span></td>
+							<td colspan="2" align="left">บัญชีธนาคารทหารไทย TMB (ออมทรัพย์)</td>
+							<tr>
+								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 635-2-31556-5</span></td>
 							</tr>
+						</tr>
 						
 					</tbody></table>
 					
@@ -1004,6 +1009,18 @@
 						<tr>
 							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
 						</tr>
+						
+						<tr>
+							<td align="left" style="color:red; font-size:17px; font-weight:bold;">  		ชำระเต็มจำนวนงวดแรก ฟรีค่าขนส่ง
+							</td>
+						</tr>
+
+						<tr>
+							<td align="left" style="color:red; font-size:17px; font-weight:bold;"> 
+								ชำระเพียง 213,000 บาท เท่านั้น
+							</td>
+						</tr>
+
 					</tbody></table>
 				</div>
 			</div><!--end amount-->
@@ -1013,7 +1030,7 @@
 				<div style="width: 65%; float:left; margin-top: 50px;">
 					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
 					<span>ลงชื่อ......................................</span> <br><br>
-					<span>วันที่ 13/01/2562</span>
+					<span>วันที่ <?php echo $thatdate;?></span>
 				</div>
 				<div style="width: 35%; float:left; margin-top: 50px;">
 					
@@ -1047,7 +1064,7 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
@@ -1090,7 +1107,7 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
@@ -1157,7 +1174,7 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
@@ -1230,7 +1247,7 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
@@ -1308,7 +1325,7 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
@@ -1383,7 +1400,7 @@
 				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>

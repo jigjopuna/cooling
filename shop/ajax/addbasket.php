@@ -6,8 +6,39 @@
 	$qty = $_POST['qty'];
 	$basket_id = $_SESSION['session_basket'];
 	
+	
+	
 	//เช็คก่อนว่ามีค่าว่างไหม ถ้ามีให้หยุดแค่นี้
-	if($prod_id == ''  || $prod_type == ''  || $qty == '' || $basket_id == '') { echo 0; mysql_close($conn); exit();}
+	if($prod_id == '') { 
+		echo 'prod_id'; 
+		mysql_close($conn); 
+		exit();
+	}
+	
+	if($prod_type == '') { 
+		echo 'prod_type'; 
+		mysql_close($conn); 
+		exit();
+	}
+	
+	if($qty == '') { 
+		echo 'qty'; 
+		mysql_close($conn); 
+		exit();
+	}
+	
+	
+	if($_SESSION['session_basket'] == ''){
+			//ยังไม่มีตะกร้า
+			$intsebas = "INSERT INTO tb_basket SET b_cust = '0', b_type='G', b_status = '0'";
+			$reintsebas = mysql_query($intsebas);
+			
+			if($reintsebas){ 
+				$a = mysql_insert_id($conn);
+				$_SESSION['session_basket'] = $a;
+				$basket_id = $a;
+			}
+		}
 	
 	/*
 	   ก่อนที่จะ Update ตะกร้าต้องเช็คก่อนว่าเคยมีสินค้ารหัสเดียวกันอยู่ในตะกร้าก่อนหน้านี้แล้วหรือไม่ 

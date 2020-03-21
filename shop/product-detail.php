@@ -5,19 +5,19 @@
 	  
 	  
 	  if($prod_type=='r'){
-		  $sql = "SELECT * FROM tb_productroom WHERE pr_id = '$prod_id'";
+		  $sql = "SELECT * FROM tb_tools WHERE t_id = '$prod_id'";
 		  $currmenu = 3;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
 		  $menuname = 'อุปกรณ์ห้องเย็น';
 		  $url = 'room.php';
 		  
 		  $row = mysql_fetch_array(mysql_query($sql));
-		  $prodname =  $row['pr_name'];
-		  $seo =  $row['pr_seo'];
-		  $descr1 =  $row['pr_descr1'];
-		  $descr2 =  $row['pr_descr2'];
-		  $descr3 =  $row['pr_descr3'];
-		  $pr_img =  $row['pr_img'];
-		  $video =  $row['pr_vdo'];
+		  $prodname =  $row['t_name'];
+		  $seo =  $row['t_seo'];
+		  $descr1 =  $row['t_descr1'];
+		  $descr2 =  $row['t_descr2'];
+		  $descr3 =  $row['t_descr3'];
+		  $pr_img =  $row['t_img'];
+		  $video =  $row['t_vdo'];
 		  
 	  }else if($prod_type=='m'){
 		  
@@ -45,7 +45,7 @@
 	<meta property="og:title" content="<?php echo $prodname?>"/>
 	<meta property="og:description" content="<?php echo $seo?>"/>
 	<!--<meta property="og:image" content="https://topcooline.net/shop/images/<?php //echo $pr_img?>"/>-->
-	<meta property="og:image" content="images/product/room/<?php echo $pr_img;?>/5.jpg"/>
+	<meta property="og:image" content="images/product/<?php echo $pr_img;?>/5.jpg"/>
 	
 	
 	<?php include('includes/inc_css.php'); ?>
@@ -146,21 +146,21 @@
 					<div class="wrap-slick3-dots"></div>
 
 					<div class="slick3">
-						<div class="item-slick3" data-thumb="images/product/room/<?php echo $pr_img;?>/11.jpg">
+						<div class="item-slick3" data-thumb="images/product/<?php echo $pr_img;?>/11.jpg">
 							<div class="wrap-pic-w">
-								<img src="images/product/room/<?php echo $pr_img;?>/1.jpg" alt="">
+								<img src="images/product/<?php echo $pr_img;?>/1.jpg" alt="<?php echo $prodname;?>">
 							</div>
 						</div>
 
-						<div class="item-slick3" data-thumb="images/product/room/<?php echo $pr_img;?>/22.jpg">
+						<div class="item-slick3" data-thumb="images/product/<?php echo $pr_img;?>/22.jpg">
 							<div class="wrap-pic-w">
-								<img src="images/product/room/<?php echo $pr_img;?>/2.jpg" alt="IMG-PRODUCT">
+								<img src="images/product/<?php echo $pr_img;?>/2.jpg" alt="<?php echo $prodname;?>">
 							</div>
 						</div>
 
-						<div class="item-slick3" data-thumb="images/product/room/<?php echo $pr_img;?>/33.jpg">
+						<div class="item-slick3" data-thumb="images/product/<?php echo $pr_img;?>/33.jpg">
 							<div class="wrap-pic-w">
-								<img src="images/product/room/<?php echo $pr_img;?>/3.jpg" alt="IMG-PRODUCT">
+								<img src="images/product/<?php echo $pr_img;?>/3.jpg" alt="<?php echo $prodname;?>">
 							</div>
 						</div>
 					</div>
@@ -173,7 +173,7 @@
 				</h4>
 
 				<span class="m-text17">
-					<span style="margin-right:50px;"><s><?php echo '฿'.number_format($row['pr_price'], 0, '.', ',');?></s></span>    <?php echo '฿'.number_format($row['pr_sell_price'], 0, '.', ',');?>
+					<span style="margin-right:50px;"><s><?php echo '฿'.number_format($row['t_price'], 0, '.', ',');?></s></span>    <?php echo '฿'.number_format($row['t_price_sell'], 0, '.', ',');?>
 				</span>
 
 				<p class="s-text8 p-t-10">
@@ -257,7 +257,7 @@
 
 					<div class="dropdown-content dis-none p-t-15 p-b-23">
 						<p class="s-text8">
-						<?php echo $row['pr_descr2'];?>
+						<?php echo $descr2;?>
 						</p>
 					</div>
 				</div>
@@ -271,7 +271,7 @@
 
 					<div class="dropdown-content dis-none p-t-15 p-b-23">
 						<p class="s-text8">
-						<?php echo $row['pr_descr3'];?>
+						<?php echo $descr3;?>
 						</p>
 					</div>
 				</div>
@@ -294,7 +294,7 @@
 	</div>
 	
 	<section class="bgwhite p-t-60">
-		<?php  include('images/product/room/'.$pr_img.'/'.$pr_img.'.php');?>
+		<?php  include('images/product/'.$pr_img.'/1.php');?>
 	</section>
 
 
@@ -316,7 +316,7 @@
 	<div id="dropDownSelect1"></div>
 	<div id="dropDownSelect2"></div>
 	<div id="cattype" style="display:none;"><?php echo $currmenu; ?></div>
-    
+    <?php include('includes/inc_debug.php');?>
 	<?php include('includes/inc_js.php');?>
 </body>
 </html>

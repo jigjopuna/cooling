@@ -32,7 +32,8 @@
 						<!-- item blog -->
 						<?php if($video != '') { ?>
 						<div class="item-blog p-b-80">
-							<iframe width="100%" height="400" src="<?php echo $video;?>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							
+							<iframe width="100%" height="400" src="https://www.youtube.com/embed/<?php echo $video;?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 							<div class="item-blog-txt p-t-33">
 								<h4 class="p-b-11">
 

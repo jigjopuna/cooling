@@ -125,6 +125,18 @@
 
 		$po_print = $select_month;
 		$times = 'เดือน'.$select_month;
+		
+		
+		$sql_eachshop = "SELECT s.sl_id, s.sl_name, a.raka
+						FROM tb_sellers s JOIN
+						   (SELECT po_shop, SUM(po_price) raka
+						   FROM tb_po
+						   WHERE po_date LIKE '$select_month' AND po_shop < 100
+						   GROUP BY po_shop) AS a 
+						ON s.sl_id = a.po_shop
+						ORDER BY a.raka DESC";
+		 $result_eachshop =  mysql_query($sql_eachshop);
+		 $num_eachshop = mysql_num_rows($result_eachshop);
 			  
 	}else if($rep_time==4){ //rep_year
 		$years = $rep_year.'%';
@@ -151,6 +163,17 @@
 		$result_group =  mysql_query($sql_group);
 		$num_group = mysql_num_rows($result_group);
 		$times = 'ปี '.$rep_year;
+		
+		$sql_eachshop = "SELECT s.sl_id, s.sl_name, a.raka
+						FROM tb_sellers s JOIN
+						   (SELECT po_shop, SUM(po_price) raka
+						   FROM tb_po
+						   WHERE po_date LIKE '$years' AND po_shop < 100
+						   GROUP BY po_shop) AS a 
+						ON s.sl_id = a.po_shop
+						ORDER BY a.raka DESC";
+		 $result_eachshop =  mysql_query($sql_eachshop);
+		 $num_eachshop = mysql_num_rows($result_eachshop);
 
 	}else { } 
 ?>
@@ -220,6 +243,46 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+								แยกตามร้านค้า
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                                <thead>
+                                    <tr>
+										<th>ลำดับ</th>
+                                        <th>ร้านค้า</th>                                     
+                                        <th>ยอดซื้อ</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+									<?php 
+										for($i=1; $i<=$num_eachshop; $i++){
+										  $row_eachshop = mysql_fetch_array($result_eachshop);
+									  ?>
+										<tr class="gradeA">
+											<td><?php echo $row_eachshop['sl_id']; ?></td>
+											<td><?php echo $row_eachshop['sl_name']; ?></td>
+											<td><?php echo number_format($row_eachshop['raka'], 2, '.', ','); ?></td>
+										</tr>
+									<?php } ?>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
 			
 			<div class="row">
                 <div class="col-lg-12">

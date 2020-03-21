@@ -7,6 +7,10 @@
 	$result= mysql_query($sql);
 	$row = mysql_fetch_array($result);
 	
+	$yodtem = $row['po_price'];
+	$yodmudjum = $row['po_mudjum'];
+	$remain = $yodtem-$yodmudjum;
+	
 	
 	$sql_buyer = "SELECT e_id, e_name FROM tb_emp WHERE e_type = 1";
 	$result_buyer = mysql_query($sql_buyer);
@@ -34,7 +38,7 @@
 	<script>
 		$(document).ready(function(){
 			$('.btn-success').click(validation);
-			$('#podate').datepicker({dateFormat: 'yy-mm-dd'});
+			$('#podate, #po_due_date').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#search_custname").autocomplete({
 				source: "../../ajax/search_ord.php",
 				minLength: 1
@@ -166,7 +170,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ราคา </label>
-											<input type="text" class="form-control" id="poprice" name="poprice" value="<?php echo $row['po_price']?>">
+											<input type="text" class="form-control" id="poprice" name="poprice" value="<?php echo $yodtem;?>">
 										</div>
 										
 										
@@ -202,7 +206,8 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">มัดจำ </label>
-											<input type="text" class="form-control" id="mudjum" name="mudjum" value="<?php echo $row['po_mudjum'];?>" >
+											<input type="text" class="form-control" id="mudjum" name="mudjum" value="<?php echo $yodmudjum;?>" disabled>
+											<input type="hidden" name="remain" id="remain" value="<?php echo $remain;?>">
 										</div>
 										
 										<div class="form-group has-success" style="display:none;">
@@ -244,17 +249,25 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">วันที่</label>
-											<input type="text" class="form-control" id="podate" name="podate" value="<?php echo $today;?>" value="<?php echo $row['po_date']?>">
+											<input type="text" class="form-control" id="podate" name="podate" value="<?php echo $row['po_date']?>">
 										</div>
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ลูกค้า</label>
 											<input type="text" class="form-control" id="search_custname" name="search_custname" value="<?php echo $row['po_orders']?>">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">วันครบดิวเครดิต / เช็ค</label>
+											<input type="text" class="form-control" id="po_due_date" name="po_due_date" value="<?php echo $row['po_credit_due_date']?>">
+										</div>
+										
+										
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกรายการสั่งซื้อ</button>
 										</div>
 									</div>
 									<input type="hidden" name="poid" value="<?php echo $po_id;?>">
+									<input type="hidden" name="credit_pay" value="<?php echo $row['po_credit_pay']; ?>">
 									
 								</form>
 							 </div> <!-- row -->

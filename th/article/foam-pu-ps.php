@@ -8,12 +8,12 @@
 <?php require_once ('../../include/googlebot.php');?>
 <meta name="copyright" content="topcooling"/>
 <meta name="keywords" content="ฉนวนห้องเย็น, โฟมห้องเย็น, โฟม PU PS">
-<meta name="description" content="ผนังห้องเย็นใช้โฟมฉนวนเป็น PU หรือ PS อันไหนดีกว่ากัน ราคาเท่าไรบ้าง ซื้อที่ไหนอะไรยังไง  Foam PU PS">
+<meta name="description" content="ผนังห้องเย็นใช้โฟมฉนวนเป็น PU หรือ PS อันไหนดีกว่ากัน ราคาเท่าไรบ้าง ซื้อที่ไหนอะไรยังไง  Foam PU PS เก็บความเย็นได้ดีมาก ประหยัดค่าเพราะเครื่องทำงานน้อย ผนังเหล็กคัลเลอร์แข็งแรงทนทานมาก">
 <meta property="og:title" content="โฟม PU กับ PS ต่างกันยังไง ผนังฉนวนห้องเย็น"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/foam/cover.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/foam-pu-ps.php"/>
-<meta property="og:description" content="ผนังห้องเย็นใช้โฟมฉนวนเป็น PU หรือ PS อันไหนดีกว่ากัน ราคาเท่าไรบ้าง ซื้อที่ไหนอะไรยังไง  Foam PU PS"/>
+<meta property="og:description" content="ผนังห้องเย็นใช้โฟมฉนวนเป็น PU หรือ PS อันไหนดีกว่ากัน ราคาเท่าไรบ้าง ซื้อที่ไหนอะไรยังไง  Foam PU PS เก็บความเย็นได้ดีมาก ประหยัดค่าเพราะเครื่องทำงานน้อย ผนังเหล็กคัลเลอร์แข็งแรงทนทานมาก"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>ห้องเย็นโฟม PU กับ PS ต่างกันยังไง</title>
@@ -218,47 +218,47 @@
 						<th style="width:25%" class="tb_strong tb_textcenter">ความหนา / บาท</th>
 						<th style="width:25%;" class="tb_strong tb_textcenter">PS (1.25Ib<Sup>2</Sup>)</th>
 						<th style="width:25%;" class="tb_strong tb_textcenter">PU</th>
-						<th style="width:25%;" class="tb_strong tb_textcenter">PU (สแตนเลส)</th>
+						<th style="width:25%;" class="tb_strong tb_textcenter">PU (สแตนเลส 1 ด้าน)</th>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">2 นิ้ว</td>
-						<td class="tb_textcenter">680</td>
-						<td class="tb_textcenter">1,100</td>
+						<td class="tb_textcenter">690</td>
+						<td class="tb_textcenter">1,150</td>
 						<td class="tb_textcenter">1,650</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">3 นิ้ว</td>
-						<td class="tb_textcenter">740</td>
-						<td class="tb_textcenter">1,200</td>
+						<td class="tb_textcenter">750</td>
+						<td class="tb_textcenter">1,350</td>
 						<td class="tb_textcenter">1,750</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">4 นิ้ว</td>
-						<td class="tb_textcenter">780</td>
-						<td class="tb_textcenter">1,300</td>
+						<td class="tb_textcenter">820</td>
+						<td class="tb_textcenter">1,500</td>
 						<td class="tb_textcenter">1,850</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">5 นิ้ว</td>
-						<td class="tb_textcenter">840</td>
+						<td class="tb_textcenter">900</td>
 						<td class="tb_textcenter">1,450</td>
 						<td class="tb_textcenter">2,000</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">6 นิ้ว</td>
-						<td class="tb_textcenter">870</td>
+						<td class="tb_textcenter">990</td>
 						<td class="tb_textcenter">1,550</td>
 						<td class="tb_textcenter">2,100</td>
 					  </tr>
 					  
 					   <tr>
 						<td class="tb_textcenter">8 นิ้ว</td>
-						<td class="tb_textcenter">1,000</td>
+						<td class="tb_textcenter">1,100</td>
 						<td class="tb_textcenter">-</td>
 						<td class="tb_textcenter">-</td>
 					  </tr>
@@ -324,6 +324,101 @@
 
 <?php include('../../sources/inc/inc_article-relate.php');?>
 <?php include('../../sources/inc/inc_footer.php');?>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "Product", 
+  "name": "TOPCOOLING", 
+  "priceRange":"630 บาท", 
+  "servesCuisine":"ฉนวนโฟมผนังห้องเย็น", 
+  "description": "ผนังห้องเย็นใช้โฟมฉนวนเป็น PU หรือ PS อันไหนดีกว่ากัน ราคาเท่าไรบ้าง ซื้อที่ไหนอะไรยังไง  Foam PU PS เก็บความเย็นได้ดีมาก ประหยัดค่าเพราะเครื่องทำงานน้อย ผนังเหล็กคัลเลอร์แข็งแรงทนทานมาก", 
+  "image": "https://topcooling.net/content/images/article/foam/cover.jpg",
+  "address":{ 
+      "@type":"PostalAddress",
+      "streetAddress":"ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง  28/1 ม.6 ต.ทัพหลวง อ.เมือง ",
+      "addressLocality":"ตรงข้ามร้านอาหารครัวหลังบ้าน",
+      "addressRegion":"นครปฐม",
+      "postalCode":"73000"
+   }, 
+   "geo":{ 
+      "@type":"GeoCoordinates",
+      "latitude": 13.878727, 
+      "longitude": 100.008955
+   },
+  "brand": {
+    "@type": "Thing",
+    "name": "TOPCOOLING"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint", 
+	"telephone": "+66 84-013-7350",
+    "contactType": "TCL ยินดีบริการลูกค้า"
+  },
+  
+  "offers": {
+    "@type": "Offer",
+    "availability": "http://schema.org/InStock",
+    "price": "630.00",
+    "priceCurrency": "THB"
+  },
+   "openingHoursSpecification":[ 
+      
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Monday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Tuesday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Wednesday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Thursday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Friday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Saturday"
+         ],
+         "opens":"11:00",
+         "closes":"23:59"
+      }
+   ],
+   "aggregateRating":{ 
+      "@type":"AggregateRating",
+      "ratingValue":4,
+      "reviewCount":120,
+      "ratingCount":156
+   }
+}
+</script>
 </body>
 </html>

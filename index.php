@@ -774,6 +774,145 @@
 
 
 <?php include('include/inc_1_footer.php');?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "Product", 
+  "name": "TOPCOOLING", 
+  "priceRange":"168000 - 400000 บาท", 
+  "servesCuisine":"ห้องเย็น", 
+  "description": "รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้ ห้องเย็นคุณภาพคับแก้ว มาชมห้องเย็นตัวอย่างจริงๆ ได้ที่โรงงานนะครับ อยู่นครปฐม", 
+  "image": "https://topcooling.net/content/images/cool/sec-300x300.jpg",
+  "address":{ 
+      "@type":"PostalAddress",
+      "streetAddress":"ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง  28/1 ม.6 ต.ทัพหลวง อ.เมือง ",
+      "addressLocality":"ตรงข้ามร้านอาหารครัวหลังบ้าน",
+      "addressRegion":"นครปฐม",
+      "postalCode":"73000"
+   }, 
+   "geo":{ 
+      "@type":"GeoCoordinates",
+      "latitude": 13.878727, 
+      "longitude": 100.008955
+   },
+  "brand": {
+    "@type": "Thing",
+    "name": "TOPCOOLING"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint", 
+	"telephone": "+66 84-013-7350",
+    "contactType": "TCL ยินดีบริการลูกค้า"
+  },
+  
+  "offers": {
+    "@type": "Offer",
+    "availability": "http://schema.org/InStock",
+    "price": "168000.00",
+    "priceCurrency": "THB"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": "เกด",
+      "datePublished": "2019-12-05",
+      "description": "เย็นเร็วดีทันใจ ของไม่เสีย",
+      "name": "รีวิวห้องเย็น 5 ดาว",
+      "reviewRating": {
+        "@type": "Rating",
+        "bestRating": "5",
+        "ratingValue": "1",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "Review",
+      "author": "Supachai",
+      "datePublished": "2019-12-25",
+      "description": "ดีมากเลย มือสองแต่เหมือนใหม่ทุกอย่าง แนะนำห้องเย็น Topcooling เลยครับ",
+      "name": "รีวิวห้องเย็น 5 ดาว",
+      "reviewRating": {
+        "@type": "Rating",
+        "bestRating": "5",
+        "ratingValue": "4",
+        "worstRating": "1"
+      }
+    }
+   ], 
+   "openingHoursSpecification":[ 
+      
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Monday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Tuesday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Wednesday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Thursday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Friday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Saturday"
+         ],
+         "opens":"11:00",
+         "closes":"23:59"
+      }
+   ],
+   "aggregateRating":{ 
+      "@type":"AggregateRating",
+      "ratingValue":5,
+      "reviewCount":120,
+      "ratingCount":156
+   }
+}
+</script>
 
+<script type="text/javascript">
+     //www.ptengine.com heatmap
+	window._pt_lt = new Date().getTime();
+	window._pt_sp_2 = [];
+	_pt_sp_2.push("setAccount,73a3cfa8");
+	var _protocol =(("https:" == document.location.protocol) ? " https://" : " http://");
+	(function() {
+		var atag = document.createElement("script");
+		atag.type = "text/javascript";
+		atag.async = true;
+		atag.src = _protocol + "js.ptengine.jp/73a3cfa8.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(atag, s);
+	})();
+</script>
 </body>
 </html>

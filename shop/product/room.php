@@ -2,7 +2,9 @@
 	  require_once('../includes/connect.php');
 	  $currmenu = 3;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
 	  
-	  $sql_catroom = "SELECT * FROM tb_categoryroom";
+	  $sql_catroom = "SELECT c.catr_id, c.catr_name, COUNT(t.t_cate) 
+					  FROM tb_tools t JOIN tb_categoryroom c ON t.t_cate = c.catr_id
+					  WHERE t.t_type = 2 GROUP BY t.t_cate";
 	  $result_catroom = mysql_query($sql_catroom);
 	  $num_catroom = mysql_num_rows($result_catroom);
 	  

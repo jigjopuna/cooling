@@ -13,7 +13,7 @@
 						 JOIN tb_ord_status ost ON ost.ost_id = o.o_status) 
 						 JOIN tb_emp e ON e.e_id = o.o_emp) JOIN tb_ord_type ot ON ot.ort_type = o.o_type
 					WHERE o.o_type LIKE '1%'
-					ORDER BY o.o_id DESC LIMIT 0, 200";
+					ORDER BY o.o_id DESC LIMIT 0, 300";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 		

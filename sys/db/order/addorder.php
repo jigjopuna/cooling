@@ -6,7 +6,28 @@
 </head>
 <body>
 <?php 
-
+	date_default_timezone_set("Asia/Bangkok");	
+	define('LINE_API',"https://notify-api.line.me/api/notify");	
+	define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  
+	define('LINE_TOKEN1', $cust_token); 
+	function notify_message($message){
+		$queryData = array('message' => $message);
+		$queryData = http_build_query($queryData,'','&');
+		$headerOptions = array(
+			'http'=>array(
+				'method'=>'POST',
+				'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
+						  ."Authorization: Bearer ".LINE_TOKEN."\r\n"
+						  ."Content-Length: ".strlen($queryData)."\r\n",
+				'content' => $queryData
+			)
+		);
+		$context = stream_context_create($headerOptions);
+		$result = file_get_contents(LINE_API,FALSE,$context);
+		$res = json_decode($result);
+		return $res;
+	}
+	
 	//หาเลข VAT ออเดอร์ก่อนหน้า แล้ว +1
 	$sql_maxTax = mysql_fetch_array(mysql_query("SELECT MAX(vat_ord) maxvat FROM tb_tax"));
 	$maxvat = $sql_maxTax['maxvat']+1;
@@ -16,7 +37,7 @@
 	$search_custname = trim($_POST['search_custname']);
 	$o_date = trim($_POST['date_pay']);  
 	$ord_size = trim($_POST['ord_size']);
-	$ord_width = trim($_POST['ord_width']);
+	$ord_width = trim($_POST['ord_width']); 
 	$ord_high = trim($_POST['ord_high']); 
 	
 	$ord_prov = trim($_POST['ord_prov']);
@@ -127,6 +148,15 @@
 			o_temp = '$ord_temp'";
 	$result1 = mysql_query($sql); 
 	
+	$rowcust = mysql_fetch_array(mysql_query("SELECT cust_name FROM tb_customer WHERE cust_id = '$search_custname'"));
+	$custnames = $rowcust['cust_name'];
+	
+	$ordtype = mysql_fetch_array(mysql_query("SELECT ort_name FROM tb_ord_type WHERE ort_type = '$o_type'"));
+	$ordname = $ordtype['ort_name'];
+	
+	$prov = mysql_fetch_array(mysql_query("SELECT pro_name FROM province WHERE id = '$ord_prov'"));
+	$custprov = $prov['pro_name'];
+	
 	if($result1) {
 		$a = mysql_insert_id($conn);
 		if($o_newold==1){
@@ -135,6 +165,8 @@
 		}
 		
 		if($result1){
+			$msg = "เพิ่มออเดอร์ห้องเย็น ขนาด ".$ord_size.' x '.$ord_width.' x '.$ord_high."\n\n".' ลูกค้า '.$custnames."\n\n".$ordname."\n\n".' จังหวัด '.$custprov;	
+			$res = notify_message($msg);			
 			exit("<script>alert('บันทึกออเดอร์ใหม่เรียบร้อยแล้วจร้า ^^ '); window.location='../../order/order.php';</script>");
 		}else{
 			 exit("<script>alert('บันทึกออเดอร์ไม่สำเร็จ ติดต่อผู้ดูแลระบบ1'); window.location='../../order/order.php';</script>");

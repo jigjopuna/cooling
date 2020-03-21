@@ -4,7 +4,7 @@
 	$yearmonth = date("Y-m");
 	$day = date("D");
 	
-	$credit = mysql_fetch_array(mysql_query("SELECT SUM(p.po_price)-SUM(p.po_mudjum) jaycredit FROM tb_po p WHERE p.po_credit = 1 AND p.po_credit_complete != 1 AND p.po_date LIKE '2019%'"));
+	$credit = mysql_fetch_array(mysql_query("SELECT SUM(p.po_price)-SUM(p.po_mudjum) jaycredit FROM tb_po p WHERE p.po_credit = 1 AND p.po_credit_complete != 1"));
 
 	$payin = mysql_fetch_array(mysql_query("SELECT SUM(s.sub) total FROM (
 			SELECT c.cust_name, oid, o_cust, payamount, o_price, sub 
@@ -26,7 +26,25 @@
 	
 	
 	
-	$msg = "\n".'ยอดเครดิตทั้งหมด : '.number_format($yodcredit, 2, '.', ',')."\n".'ยอดเงินเข้าทั้งหมด : '.number_format($yodin, 2, '.', ',')."\n".'ยอดเครดิตที่ต้องจ่าย '.number_format($yodjaycredit, 2, '.', ',')."\n\n".'ยอดเครดิต สิ้นเดือน : '."\n".'ยอดซื้อของทำงานให้ครบ : ';
+	$seven7 = mysql_fetch_array(mysql_query("SELECT SUM(duplicate.remains) tongjay7 FROM ( SELECT po_name, po_price, po_mudjum, po_price-po_mudjum remains FROM tb_po WHERE po_credit_due_date >= curdate() AND po_credit_due_date <= DATE_ADD(curdate(),INTERVAL 7 day) AND po_credit = 1 AND po_credit_complete = 0 ) AS duplicate"));
+	$jay7 = $seven7['tongjay7'];
+	
+	$seven14 = mysql_fetch_array(mysql_query("SELECT SUM(duplicate.remains) tongjay14 FROM ( SELECT po_name, po_price, po_mudjum, po_price-po_mudjum remains FROM tb_po WHERE po_credit_due_date >= curdate() AND po_credit_due_date <= DATE_ADD(curdate(),INTERVAL 14 day) AND po_credit = 1 AND po_credit_complete = 0 ) AS duplicate"));
+	$jay14 = $seven14['tongjay14'];
+	
+	$seven30 = mysql_fetch_array(mysql_query("SELECT SUM(duplicate.remains) tongjay30 FROM ( SELECT po_name, po_price, po_mudjum, po_price-po_mudjum remains FROM tb_po WHERE po_credit_due_date >= curdate() AND po_credit_due_date <= DATE_ADD(curdate(),INTERVAL 60 day) AND po_credit = 1 AND po_credit_complete = 0 ) AS duplicate"));
+	$jay30 = $seven30['tongjay30'];
+	
+	
+	
+	$msg = "\n".'ยอดเครดิตทั้งหมด : '.number_format($yodcredit, 2, '.', ',')."\n".
+	'ยอดเงินเข้าทั้งหมด : '.number_format($yodin, 2, '.', ',')."\n".
+	'ยอดเครดิตที่ต้องจ่าย '.number_format($yodjaycredit, 2, '.', ',')."\n\n".
+	'อีก 7 วัน จ่าย '.number_format($jay7, 2, '.', ',')."\n".
+	'อีก 14 วัน จ่าย '.number_format($jay14, 2, '.', ',')."\n".
+	'อีก 30 วัน จ่าย '.number_format($jay30, 2, '.', ',')."\n\n".
+	'https://topcooling.net/sys/report/print/credit_remind.php'.
+	"\n\n".'ยอดเครดิต สิ้นเดือน : '."\n".'ยอดซื้อของทำงานให้ครบ : ';
 	
 	
 ?>

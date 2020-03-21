@@ -99,7 +99,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">อุณหภูมิ </label>
-											<input type="text" class="form-control" id="ord_temp" name="ord_temp" value="-18">
+											<input type="text" class="form-control" id="ord_temp" name="ord_temp" value="-16">
 										</div>
 										
 										
@@ -118,11 +118,11 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ปริมาณสินค้าเข้าต่อวัน (kg)</label>
-											<input type="text" class="form-control" id="qtyperday" name="qtyperday" >
+											<input type="text" class="form-control" id="qtyperday" name="qtyperday" value="500">
 										</div>
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ปริมาณเต็มความจุ (ตัน)</label>
-											<input type="text" class="form-control" id="maxqty" name="maxqty" >
+											<input type="text" class="form-control" id="maxqty" name="maxqty" value="4">
 										</div>
 										
 										
@@ -149,7 +149,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">สูง </label>
-											<input type="text" class="form-control" id="r_high" name="r_high" value="2.40">
+											<input type="text" class="form-control" id="r_high" name="r_high" value="2.30">
 										</div>
 										
 										<div class="form-group has-success">
@@ -180,7 +180,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">อุณหภูมิ <strong><u>ก่อนเข้า</u></strong> ห้องเย็น (องศา)</label>
-											<input type="text" class="form-control" id="tempbefore" name="tempbefore" >
+											<input type="text" class="form-control" id="tempbefore" name="tempbefore" value="5">
 										</div>
 										
 										<div class="form-group has-success">
@@ -220,7 +220,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">เลือกขนาดแรงม้า HP</label>
-											<input type="text" class="form-control" id="hp" name="hp" placeholder="3">
+											<input type="text" class="form-control" id="hp" name="hp" value="3">
 										</div>
 										
 

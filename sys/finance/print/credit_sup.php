@@ -12,7 +12,7 @@
 <?php 
 		$shop = trim($_GET['shop']);
 		
-		$result = mysql_query("SELECT p.po_id, p.po_name, s.sl_name, p.po_price,  p.po_mudjum,p.po_price-p.po_mudjum remains,  p.po_bill_img, p.po_comment, p.po_date
+		$result = mysql_query("SELECT p.po_id, p.po_name, s.sl_name, p.po_price,  p.po_mudjum,p.po_price-p.po_mudjum remains,  p.po_bill_img, p.po_comment, p.po_date, p.po_credit_due_date
 								FROM tb_po p JOIN tb_sellers s ON s.sl_id = p.po_shop  
 								WHERE p.po_shop = '$shop' AND p.po_credit = 1 AND p.po_credit_complete = 0
 								ORDER BY p.po_id DESC");
@@ -58,11 +58,12 @@
 						</tr>
 						<tr style="height:50px; font-size: 17px; font-weight:bold;" align="center">
 							<td style="width:5%;">#####</td>
-							<td align="center" style="width:36%;">รายการ</td>
-							<td align="center" style="width:15%;">ยอดเต็ม</td>
-							<td align="center" style="width:15%;">มัดจำ</td>
-							<td align="center" style="width:15%;">คงเหลือ</td>
-							<th align="center" style="width:15%;">วันที่</th>
+							<td align="center" style="width:30%;">รายการ</td>
+							<td align="center" style="width:11%;">ยอดเต็ม</td>
+							<td align="center" style="width:11%;">มัดจำ</td>
+							<td align="center" style="width:11%;">คงเหลือ</td>
+							<th align="center" style="width:11%;">วันที่</th> 
+							<th align="center" style="width:13%;">วันครบดิว</th>
 						</tr>
 						<?php for($i=1; $i<=$num; $i++) {  
 							$row = mysql_fetch_array($result);
@@ -85,6 +86,7 @@
 									<td align="center"><?php echo number_format($row['po_mudjum'], 0, '.', ',');?></td>
 									<td align="center"><?php echo number_format($row['remains'], 0, '.', ',');?></td>
 									<td align="center"><?php echo $row['po_date'];?></td>
+									<td align="center" style="color:red; background-color:yellow; font-weight:bold;"><?php echo $row['po_credit_due_date'];?></td>
 								</tr>
 						<?php } ?>
 						<tr>

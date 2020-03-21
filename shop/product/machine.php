@@ -210,7 +210,7 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
-									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
+									<img src="../images/product/machine/condensing/compressor.jpg" alt="คอมเพรสเซอร์ห้องเย็น">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -240,7 +240,7 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
-									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
+									<img src="../images/product/machine/kuba/270x360.jpg" alt="คอยเย็นห้องเย็น">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -270,7 +270,7 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
-									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
+									<img src="../images/product/machine/coilron/00.jpg" alt="คอยล์ร้อนห้องเย็น">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -300,7 +300,7 @@
 							<!-- Block2 -->
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
-									<img src="../images/item-02.jpg" alt="IMG-PRODUCT">
+									<img src="../images/product/machine/heater/heater.jpg" alt="ฮีทเตอร์ ห้องเย็น">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -317,6 +317,37 @@
 								<div class="block2-txt p-t-20">
 									<a href="machine_detail.php?cate=3" class="block2-name dis-block s-text3 p-b-5">
 										ฮีทเตอร์ Heater
+									</a>
+
+									<span class="block2-price m-text6 p-r-5">
+										<!--$75.00-->
+									</span>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+							<!-- Block2 -->
+							<div class="block2">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative ">
+									<img src="../images/product/machine/fan/00.jpg" alt="พัดลมห้องเย็น">
+
+									<div class="block2-overlay trans-0-4">
+										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										</a>
+
+										<div class="block2-btn-addcart w-size1 trans-0-4">
+											
+										</div>
+									</div>
+								</div>
+
+								<div class="block2-txt p-t-20">
+									<a href="machine_detail.php?cate=3" class="block2-name dis-block s-text3 p-b-5">
+										พัดลม AXIAL FAN ห้องเย็น
 									</a>
 
 									<span class="block2-price m-text6 p-r-5">

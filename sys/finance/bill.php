@@ -55,7 +55,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							ใบเสร็จ
+							ใบเสร็จห้องเย็น
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -96,6 +96,45 @@
 									</div>
 									
 								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			
+        </div>
+		
+		<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							บิลอะไหล่  / service
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="row">
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<a href="../../admin/receive_paper_part.php"><button id="" type="button" class="btn btn-lg btn-success btn-block">บิลอะไหล่ใหม่ CPN</button>
+										</div>
+										
+										
+									</div>
+																		
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<a href="../../admin/receive_paper_parsec.php"><button id="" type="button" class="btn btn-lg btn-success btn-block">บิลอะไหล่มือสอง TCL</button>
+										</div>
+									</div>
+									
+									<div class="col-lg-4">
+										
+										
+									</div>
+									
 							 </div> <!-- row -->
                            
                         </div>
