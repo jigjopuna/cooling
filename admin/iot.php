@@ -87,13 +87,13 @@
 	<div class="page">
         <div class="subpage">
 
-            <div id="cover_header">
-				<img src="../content/images/plt.jpg" style=" widht:80px; height:80px; float:left;">
+           <div id="cover_header">
+				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>บริษัทพระลักษณ์ไทยจำกัด 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>PRARLUKTHAI CO.,LTD 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0735558006106 </span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -326,13 +326,13 @@
 	<div class="page">
         <div class="subpage">
 
-            <div id="cover_header">
-				<img src="../content/images/plt.jpg" style=" widht:80px; height:80px; float:left;">
+             <div id="cover_header">
+				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>บริษัทพระลักษณ์ไทยจำกัด 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>PRARLUKTHAI CO.,LTD 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0735558006106 </span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -361,10 +361,10 @@
 
 						
 						<tr>
-							<td align="left">บัญชีธนาคารกรุงเทพ</td>
+							<td align="left">บัญชีธนาคารไทยพานิชย์</td>
 							<td align="left"></td>
 							<tr>
-								<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> บจ. พระลักษณ์ไทย  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 275-4-64428-0</span></td>
+								<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก.ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 830-242349-9</span></td>
 							</tr>
 						</tr>
 					</table>
@@ -422,13 +422,13 @@
   <div class="page">
         <div class="subpage">
 
-            <div id="cover_header">
-				<img src="../content/images/plt.jpg" style=" widht:80px; height:80px; float:left;">
+             <div id="cover_header">
+				<img src="../content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>บริษัทพระลักษณ์ไทยจำกัด 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>PRARLUKTHAI CO.,LTD 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0735558006106 </span><br>
+				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
+				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
+				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->

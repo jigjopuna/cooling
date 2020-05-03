@@ -122,7 +122,7 @@
 		
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">ออเดอร์งาน Service</h1>
+                    <h1 class="page-header">ออเดอร์ลูกค้า</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -153,7 +153,7 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row_all['fix_id']; ?></td>  
-											<td><a href="../service/serv_detail.php?fixid=<?php echo $row_all['fix_id'].'&custname='.$row_all['cusr_name']?>"><?php echo $row_all['cusr_name']; ?></a></td>
+											<td><?php echo $row_all['cusr_name']; ?></td>
 											<td><?php echo $row_all['fix_broken']; ?></td>
 											<td><?php echo $row_all['pro_name']; ?></td>
 											<td><?php echo $row_all['fix_date']; ?></td>

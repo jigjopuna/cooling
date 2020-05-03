@@ -78,7 +78,7 @@
 <head>
 
 <?php require_once ('../include/header.php');?>
-<title>ออเดอร์ลูกค้า</title>
+<title>รายละเอียดออเดอร์ลูกค้า </title>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <style>
@@ -278,7 +278,7 @@
 										<?php if($role['ro_ed_ord_dt']==1) { ?>
 											<td colspan='7'><a href="ord_report.php?o_id=<?php echo $o_id;?>&custname=<?php echo $cust_name;?>" target="_blank">ปริ้น</a></td> 
 										<?php }else { ?>
-											<td colspan='6'>&nbsp;</td> 
+											<td colspan='7'><a href="ord_report.php?o_id=<?php echo $o_id;?>&custname=<?php echo $cust_name;?>" target="_blank">ปริ้น</a></td>
 										<?php } ?>
 										
 										<td colspan='2'>

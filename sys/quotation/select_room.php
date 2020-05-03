@@ -116,7 +116,11 @@
 									</div>
 									
 									<div class="col-lg-3">
-										<a href="../../admin/part.php"><div id="r_rai" class="r_box"><p>อะไหล่</p></div></a>
+										<a href="../../admin/part.php"><div id="r_rai" class="r_box"><p>อะไหล่เก่า TCL</p></div></a>
+									</div>
+									
+									<div class="col-lg-3">
+										<a href="../../admin/partnew.php"><div id="" class="r_box"><p>อะไหล่ใหม่ cpn</p></div></a>
 									</div>
 									
 									<div class="col-lg-3">

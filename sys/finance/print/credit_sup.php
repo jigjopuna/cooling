@@ -12,7 +12,7 @@
 <?php 
 		$shop = trim($_GET['shop']);
 		
-		$result = mysql_query("SELECT p.po_id, p.po_name, s.sl_name, p.po_price,  p.po_mudjum,p.po_price-p.po_mudjum remains,  p.po_bill_img, p.po_comment, p.po_date, p.po_credit_due_date
+		$result = mysql_query("SELECT p.po_id, p.po_name, s.sl_name, p.po_price,  p.po_mudjum,p.po_price-p.po_mudjum remains,  p.po_bill_img, p.po_comment, p.po_date, p.po_credit_due_date, DATEDIFF( NOW(), p.po_credit_due_date) as countday
 								FROM tb_po p JOIN tb_sellers s ON s.sl_id = p.po_shop  
 								WHERE p.po_shop = '$shop' AND p.po_credit = 1 AND p.po_credit_complete = 0
 								ORDER BY p.po_id DESC");
@@ -57,16 +57,18 @@
 							<td colspan="6" style="height:50px; font-size: 17px; font-weight:bold;" align="center">ที่เครที่ต้องชำระ <?php echo number_format($rowcount['remains'], 0, '.', ',');?> บาท </td>
 						</tr>
 						<tr style="height:50px; font-size: 17px; font-weight:bold;" align="center">
-							<td style="width:5%;">#####</td>
+							<td style="width:4%;">###</td>
 							<td align="center" style="width:30%;">รายการ</td>
-							<td align="center" style="width:11%;">ยอดเต็ม</td>
-							<td align="center" style="width:11%;">มัดจำ</td>
-							<td align="center" style="width:11%;">คงเหลือ</td>
-							<th align="center" style="width:11%;">วันที่</th> 
-							<th align="center" style="width:13%;">วันครบดิว</th>
+							<td align="center" style="width:10%;">ยอดเต็ม</td>
+							<td align="center" style="width:10%;">มัดจำ</td>
+							<td align="center" style="width:10%;">คงเหลือ</td>
+							<td align="center" style="width:8%;">ดิว</td>
+							<th align="center" style="width:10%;">วันที่</th> 
+							<th align="center" style="width:13%;">วันครบดิว</th> 
 						</tr>
 						<?php for($i=1; $i<=$num; $i++) {  
 							$row = mysql_fetch_array($result);
+							$dewdate = $row['countday'];
 						?>
 						
 							<?php 
@@ -85,6 +87,14 @@
 									<td align="center"><?php echo number_format($row['po_price'], 0, '.', ',');?></td>
 									<td align="center"><?php echo number_format($row['po_mudjum'], 0, '.', ',');?></td>
 									<td align="center"><?php echo number_format($row['remains'], 0, '.', ',');?></td>
+									
+									<?php if($dewdate > 90 ) { ?>
+										<td align="center" style="font-size:18px; color:red; font-size:18; font-weight:bold;"><?php echo $dewdate;?></td>
+									<?php } else { ?>
+										<td align="center"><?php echo $dewdate;?></td>
+									<?php } ?>
+											
+										
 									<td align="center"><?php echo $row['po_date'];?></td>
 									<td align="center" style="color:red; background-color:yellow; font-weight:bold;"><?php echo $row['po_credit_due_date'];?></td>
 								</tr>

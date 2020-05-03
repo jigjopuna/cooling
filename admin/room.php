@@ -157,7 +157,7 @@
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
+				<span>Web:  https://topcooling.net/</span>
 				</div>
 			</div><!--end cover_header-->
 			
@@ -306,7 +306,7 @@
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
+				<span>Web:  https://topcooling.net/</span>
 				</div>
 			</div><!--end cover_header-->
 			
@@ -392,12 +392,6 @@
 						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
 					</tr>
 				
-					<tr class="highs" style="">
-						<td class="l">3. พื้นอลูมิเนียมลายกันลื่น</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
 					
 					<tr>
 						<td rowspan="3">
@@ -422,7 +416,7 @@
 					
 					<tr>
 						
-						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ  <?php if($intvat=='on') echo '(Int VAT 7%)';?></td>
+						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ (Inc VAT 7%) <?php if($intvat=='on') echo '(Int VAT 7%)';?></td>
 						<td class="rt l" align="right" id="totolprice"><?php echo number_format($total_price, 2, '.', ',');?> </td>
 					</tr>
 				
@@ -444,7 +438,7 @@
 						</tr>
 						
 						<tr>
-							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระเมื่อจัดส่งอุปกรณ์ </td>
+							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระก่อนจัดส่งอุปกรณ์ </td>
 							<td align="left"><span class="cal_ngo2"><?php echo number_format($ngod2, 2, '.', ',');?></span> บาท</td>
 						</tr>
 						
@@ -518,7 +512,7 @@
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
+				<span>Web:  https://topcooling.net/</span>
 				</div>
 			</div><!--end cover_header-->
 			
@@ -562,7 +556,7 @@
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
+				<span>Web:  https://topcooling.net/</span>
 				</div>
 			</div><!--end cover_header-->
 			
@@ -606,18 +600,27 @@
 				
 				
 				<div class="row">
-					<div class="col1">
-						<span class="topic">ประตูห้องเย็น</span><br>
-						<p><span class="intopic">ชนิดประตู :</span> ประตูบานสวิง </p>
-						<p><span class="intopic">ขนาด :</span> 1.0 x 2.0 เมตร (กว้างสูง)</p>
-						<p><span class="intopic"></span>- อุปกรณ์นิรภัยสำหรับติดที่บานประตูภายในห้องเย็นเพื่อกระทุ้งเปิดจากด้านใน แม้ด้านนอดถูกล็อค</p>
-						<p><span class="intopic"></span>- กรอบบานประตูใชแผ่น "คัลเลอร์บอร์น" ครอบรอบบาน, วงกบประตูแผ่น"คัลเลอร์บอร์น" ครอบรอบด้าน</p>
-					</div>
-					<div class="col2">
-						<div style="width: 300px; height:280px; background: orange;">
-							<img src="../content/images/quotation/008.jpg">
+					
+						<div class="col1">
+							<span class="topic">ประตูห้องเย็น</span><br>
+							<p><span class="intopic">ชนิดประตู : </span><?php echo $doortypes; ?> </p>
+							<p><span class="intopic">ขนาด :</span> <?php echo $d_width.' x '.$d_high?> เมตร (กว้างสูง)</p>
+							<p><span class="intopic">ชนิดฉนวนประตู  :  </span> <?php echo $foams." ".$foaminch; ?> นิ้ว</p>
+							<?php if($doortype == 1) { ?>
+								<p><span class="intopic"></span>- อุปกรณ์นิรภัยสำหรับติดที่บานประตูภายในห้องเย็นเพื่อกระทุ้งเปิดจากด้านใน แม้ด้านนอดถูกล็อค</p>
+								<p><span class="intopic"></span>- กรอบบานประตูใชแผ่น "คัลเลอร์บอร์น" ครอบรอบบาน, วงกบประตูแผ่น"คัลเลอร์บอร์น" ครอบรอบด้าน</p>
+							<?php } ?>
 						</div>
-					</div>	
+						<div class="col2">
+							<div style="width: 300px; height:280px; background: orange;">
+								<?php if($doortype == 1) { ?>
+									<img src="../content/images/quotation/008.jpg">
+								<?php } else { ?>
+									<img src="../content/images/quotation/slide.jpg">
+								<?php } ?>
+							</div>
+						</div>	
+					
 				</div> <!--end row-->
 				
 				
@@ -643,7 +646,7 @@
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
 				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
+				<span>Web:  https://topcooling.net/</span>
 				</div>
 			</div><!--end cover_header-->
 			

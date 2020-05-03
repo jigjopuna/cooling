@@ -8,11 +8,12 @@
 			ORDER BY op.pay_date DESC LIMIT 0,50";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
-	
-	
-	
+		
+	$sql_bank = "SELECT * FROM tb_bank";
+	$result_bank = mysql_query($sql_bank);
+	$num_bank = mysql_num_rows($result_bank);
+
 	$today = date("Y-m-d");
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,6 +115,21 @@
 											<label class="control-label" for="inputSuccess">บิล/เอกสาร</label>
 											<input type="file" class="form-control require" id="payinbill" name="payinbill">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ธนาคาร</label>
+											<select class="form-control" id="ord_bank" name="ord_bank">
+												<option value="0">เลือกบัญชี</option> 
+												<?php for($i=1; $i<=$num_bank; $i++) { 
+													  $row_bank = mysql_fetch_array($result_bank);
+													  
+													  if($row['bk_type']==1){$types = 'ออมทรัพย์'; }else{ $types = 'กระแส'; }
+												?>
+												<option value="<?php echo $row_bank['bk_id'];?>"><?php echo $row_bank['bk_name']. ' ('.$types. ')';?></option> 
+												<?php } ?>
+											</select>
+										</div>
+										
 									</div>
 									
 									
@@ -200,11 +216,15 @@
                 </div>
                 
                  <div class="col-lg-3">
-                  
+                   <a href="period.php"><button type="button" class="btn btn-lg btn-primary btn-block">เช็คงวด</button></a>
                 </div>
                 
                  <div class="col-lg-3">
-                   <a href="period.php"><button type="button" class="btn btn-lg btn-primary btn-block">เช็คงวด</button></a>
+                   <a href="inpay_sarub.php"><button type="button" class="btn btn-lg btn-primary btn-block">สรุปรายรับ</button></a>
+                </div>
+				
+				 <div class="col-lg-3">
+                   <a href="yokyay.php"><button type="button" class="btn btn-lg btn-primary btn-block">โยกย้ายภายใน</button></a>
                 </div>
             </div>
 			<div class="row">

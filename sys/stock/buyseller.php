@@ -11,7 +11,7 @@
 	<style>
 		.text_strong { font-weight: bold; }
 		.text_emunder { text-decoration:underline; font-weight: bold; }
-		
+		.subpage { height: 500mm; }
 		
 		@media print {
 			#sorn { display:none;}
@@ -21,10 +21,6 @@
 		$(document).ready(function(){
 			$('#sorn').click(function(){
 				$('.hide').css('display','none');
-			});
-			
-			$('.printbutton').click(function(){
-				alert($(this).next().val());
 			});
 		});
 		
@@ -39,14 +35,14 @@
 	$year   = date("Y")+543;
 	$thatdate = $date."/".$nMonth."/".$year;
 	
-	$sql = "SELECT t.t_id, t.t_name, t.t_stock, t_cost_center, cs.cst_prod, cs.cst_five_meter, cs.cst_seller, A.count nub,  cs.cst_five_meter*A.count AS yod, sl.sl_name, sl.sl_id 
+	$sql = "SELECT t.t_id, t.t_name, t.t_stock, t.t_supplier, t_cost, cs.cst_prod, cs.cst_five_meter, A.count nub,  cs.cst_five_meter*A.count AS yod, sl.sl_name, sl.sl_id 
 			FROM tb_count_stock cs JOIN tb_tools t ON t.t_id = cs.cst_prod 
 							 JOIN (
 								SELECT COUNT(*) count
 								FROM tb_orders o 
-								WHERE o.o_status = 1 OR o.o_status = 4 
+								WHERE o.o_status = 1 OR o.o_status = 4 AND o.o_type LIKE '1%' AND o.o_prepare = 0
 							 ) AS A
-							 JOIN tb_sellers sl ON sl.sl_id = cs.cst_seller
+							 JOIN tb_sellers sl ON sl.sl_id = t.t_supplier
 			WHERE t.t_stock-(cs.cst_five_meter*A.count) < 1
 			ORDER BY sl.sl_id";
 	$result = mysql_query($sql);
@@ -63,15 +59,27 @@
     <div class="page">
         <div class="subpage">
 
-			<div id="cover_header">
-				<img src="../../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-					<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-					<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-					<span>Tel.034-209652, 082-3601523</span><br>
-					<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
+            <div id="cover_header">
+				<div style="margin-left:320px; font-size:28px;">
+				ใบสั่งซื้อ
 				</div>
+				
 			</div><!--end cover_header-->
+			
+			<?php /*include('../../include/quotation_head.php');
+t_id
+t_name
+t_stock
+t_cost
+cst_prod
+cst_five_meter
+cst_seller
+nub
+yod
+sl_id
+sl_name
+			*/
+			?>
 			
 			<div id="product_price">
 				<table style="width: 100%;">
@@ -97,7 +105,7 @@
 						 
 						$yodd = $row['yod'];
 						$stock = $row['t_stock'];
-						$cost = $row['t_cost_center'];
+						$cost = $row['t_cost'];
 						$qty = $row['cst_five_meter'];
 						$nub = $row['nub'];
 						$havetouse = $qty*$nub; //จำนวนที่ต้องใช้
@@ -116,12 +124,10 @@
 						<tr>
 							<td colspan='9' align="center">&nbsp;</td>
 						</tr>
-						<tr style="font-weight:bold; font-size:20px; background-color:#EEEEEE;" class="<?php echo $sl_id; ?>">
-							<td colspan='9' align="center"><?php echo $row['sl_name']; ?>
-							<!--<input class="printbutton" type="button" value="พิมพ์" id="<?php //echo $sl_id;?>"></td>-->
-							<input type="hidden" value="<?php echo $sl_id; ?>">
+						<tr style="font-weight:bold; font-size:20px; background-color:#EEEEEE;">
+							<td colspan='9' align="center"><?php echo $row['sl_name'];?></td>
 						</tr>
-						<tr class="<?php echo $sl_id; ?>" style="font-weight:bold; background-color:#EEEEEE;">
+						<tr style="font-weight:bold; background-color:#EEEEEE;">
 							<td>ลำดับ</td>
 							<td>รายการ</td>
 							<td class="hide">สต็อค</td>
@@ -134,7 +140,7 @@
 					</tr>
 					<?php } ?>
 					
-					<tr class="<?php echo $sl_id; ?>">
+					<tr style="font-size:11px; height:16px;">
 						<td><?php echo $row['t_id']; //ลำดับ?></td>
 						<td><?php echo $row['t_name']; //รายการ?></td>
 						<td class="hide"><?php echo number_format($stock, 0, '.', ','); //สต็อค ?></td> 
@@ -147,7 +153,6 @@
 					</tr>
 					
 					<?php } ?>
-					
 				</table>
 
 			</div><!--end product_price-->
@@ -192,8 +197,7 @@
         </div>  <!--end subpage-->
     </div> <!--end page-->
 
-<div style="display:none" id="num"><?php echo $num;?></div>
+    
 </div>
-
 </body>
 </html>

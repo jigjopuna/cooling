@@ -18,6 +18,10 @@
 		$result_ordtype = mysql_query($sql_ordtype);
 		$num_ordtype = mysql_num_rows($result_ordtype);
 		
+		$sql_ordtype = "SELECT * FROM tb_ord_type WHERE ort_type LIKE '4%' ORDER BY ort_name DESC";
+		$result_ordtype = mysql_query($sql_ordtype);
+		$num_ordtype = mysql_num_rows($result_ordtype);
+		
 	?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
@@ -47,6 +51,7 @@
 		}		
 	});
 </script>
+<title>ออเดอร์อะไหล่</title>
 </head>
 
 <body>
@@ -69,7 +74,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"> 
-							ตะกร้าเลขที่ : 
+							เพิ่มออเดอร์อะไหล่ : 
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -83,6 +88,18 @@
 											<input type="text" class="form-control search_tool" id="search_tool" name="search_tool">
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess"> ลูกค้า </label>
+											<input type="text" class="form-control search_tool" id="search_custname" name="search_custname">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">จังหวัดหน้างาน</label>
+											<select class="form-control" id="ord_prov" name="ord_prov">
+												<option value="1">เลือกจังหวัด</option> 
+											</select>
+										</div>
+										
 									</div>
 									
 									
@@ -91,18 +108,42 @@
 											<label class="control-label" for="inputSuccess">จำนวน(ชิ้น) </label>
 											<input type="text" class="form-control" id="ord_qty" name="ord_qty" value="1">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">รวมราคา</label>
+											<input type="text" class="form-control" id="ord_price" name="ord_price" value="1000">
+										</div>
+										
 									</div>
+									
 										
 										
 									<div class="col-lg-3">
+									
 										<div class="form-group has-success">
-											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">เพิ่มของเข้าตะกร้า</button>
+											<label class="control-label" for="inputSuccess">ประเภทอะไหล่</label>
+											<select class="form-control" id="ord_type" name="ord_type">
+												<option value="0">ประเภทอะไหล่</option> 
+												<?php for($i=1; $i<=$num_ordtype; $i++) { 
+													  $row_ordtype = mysql_fetch_array($result_ordtype);
+												?>
+												<option value="<?php echo $row_ordtype['ort_type'];?>"><?php echo $row_ordtype['ort_name'];?></option> 
+												<?php } ?>
+											</select>
 										</div>
 									</div>
 									
 									
 									<div class="col-lg-3">
-											
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ใบเสนอราคา</label>
+											<input type="file" class="form-control require" id="ord_quotation" name="ord_quotation">
+										</div>
+										
+										<div class="form-group has-success">
+											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">เพิ่มออเดอร์</button>
+										</div>
 									</div>
 									
 								</form>

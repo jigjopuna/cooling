@@ -2,10 +2,10 @@
 	  require_once('../include/connect.php');
 
 	
-	$sql = "SELECT c.cash_id, c.cash_po, c.cash_now, c.cash1, c.cash_out, c.cash_in, c.cash_ord, c.cash_times
+	$sql = "SELECT * 
 		    FROM tb_cash_center c
 			ORDER BY c.cash_id DESC 
-			LIMIT 0,500";
+			LIMIT 0,200";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
@@ -30,7 +30,6 @@
 				source: "../../ajax/search_ord.php",
 				minLength: 1
 			});
-				
 		});
 		
 	</script> 
@@ -69,8 +68,19 @@
                                         <th>เลขเงินเข้า</th>
                                         <th>เงินเข้า (บาท)</th>
                                         <th>เงินออก</th>
-										<th>เงินซื้อของเหลือ</th>
-										<th>เวลา</th>
+										<th>กสิกร ออม</th>
+										<th>กสิกร กระแส</th>
+										
+										<th>TMB ออม</th>
+										<th>TMB กระแส</th>
+										
+										<th>BBL ออม</th>
+										
+										<th>SCB ออม</th>
+										<th>SCB กระแส</th>
+									
+										<th>KRS ออม</th>
+										<th>KRS กระแส</th>
 										
                                     </tr>
                                 </thead>
@@ -87,27 +97,32 @@
 											<td><?php echo $row['cash_ord']; ?></td>
 											
 											<?php if($row['cash_in'] != 0) { ?>
-												<td style="background-color:pink"><?php echo number_format($row['cash_in'], 0, '.', ','); ?></td>
+												<td style="background-color:pink"><?php echo number_format($row['cash_in'], 1, '.', ','); ?></td>
 											<?php }else{ ?>
-												<td><?php echo number_format($row['cash_in'], 0, '.', ','); ?></td>
+												<td><?php echo number_format($row['cash_in'], 1, '.', ','); ?></td>
 											<?php }?>
 											
 											<?php if($row['cash_out'] != 0) { ?>
-												<td style="background-color:#e1fb45"><?php echo number_format($row['cash_out'], 0, '.', ','); ?></td>
+												<td style="background-color:#e1fb45"><?php echo number_format($row['cash_out'], 1, '.', ','); ?></td>
 											<?php }else{ ?>
-												<td><?php echo number_format($row['cash_out'], 0, '.', ','); ?></td>
+												<td><?php echo number_format($row['cash_out'], 1, '.', ','); ?></td>
 											<?php }?>
 											
 											
-											<?php if(($row['cash_in'] != 0) && ($row['cash_out'] != 0) && ($row['cash_out'] != 0)) { ?>
-												<td><?php echo number_format($row['cash1'], 0, '.', ','); ?></td>
-											<?php }else{ ?>
-												<td><?php echo number_format($row['cash1'], 0, '.', ','); ?></td>
-											<?php }?>
+											<td><?php echo number_format($row['cash_now'], 1, '.', ','); ?></td>
+											<td><?php echo number_format($row['cash_now1'], 1, '.', ','); ?></td>
 											
 											
+											<td><?php echo number_format($row['cash1'], 1, '.', ','); ?></td>
+											<td><?php echo number_format($row['cash2'], 1, '.', ','); ?></td>
 											
-											<td><?php echo $row['cash_times']; ?></td>
+											<td><?php echo number_format($row['cash_salary'], 1, '.', ','); ?></td>
+											
+											<td><?php echo number_format($row['cash_emp'], 1, '.', ','); ?></td>
+											<td><?php echo number_format($row['cash_emp1'], 1, '.', ','); ?></td>
+											
+											<td><?php echo number_format($row['cash_temp'], 1, '.', ','); ?></td>
+											<td><?php echo number_format($row['cash_temp1'], 1, '.', ','); ?></td>
 										</tr>
 									<?php } ?>
 

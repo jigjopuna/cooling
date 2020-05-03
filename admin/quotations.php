@@ -584,11 +584,12 @@
 							<td align="left"></td>
 						</tr>
 						<tr>
-							<td align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
+							<td align="left">บัญชีธนาคารทหารไทย  TBM(ออมทรัพย์)</td>
 							<td align="left"></td>
-							<tr>
-							<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 047-8-18623-1</span></td>
 						</tr>
+						<tr>
+							<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 635-2-31556-5</span></td>
+						
 						</tr>
 					</table>
 					
@@ -1093,9 +1094,9 @@
 							
 						</div>
 					</div>
-					<div class="col4"><span class="topic">คอมเพรสเซอร์ของใหม่ หัวใจหลักของห้องเย็น</span><br>
+					<div class="col4"><span class="topic">คอมเพรสเซอร์ ห้องเย็น</span><br>
 						<p><span class="intopic">คอมเพรสเซอร์ :</span> 
-								ยี่ห้อ Copeland รุ่น ZB KQE   แบรนด์อเมริกา 
+								ยี่ห้อ Copeland รุ่น ZX KQE   แบรนด์อเมริกา 
 					
 						</p>
 						<p><span class="intopic">คุณสมบัติ : </span> เสียงเงียบ และประหยัดไฟฟ้า</p>

@@ -3,7 +3,7 @@
 	$today = date("Y-m-d");
 	$yearmonth = date("Y-m");
 	$day = date("D");
-	$sql = "SELECT COUNT(*) count FROM tb_orders WHERE o_type LIKE '1%' AND o_date LIKE '$yearmonth%'";
+	$sql = "SELECT COUNT(*) count FROM tb_orders WHERE o_date LIKE '$yearmonth%'";
 	$row= mysql_fetch_array(mysql_query($sql));
 	$countorder = $row['count'];
 	
@@ -11,7 +11,7 @@
 		$msg = $countorder.' ห้อง ยินดีด้วยจร้าเดือนนี้ทะลุทะลวงเป้าได้ จะไปเที่ยวไหนกันดี';
 	}else{
 		$remain = 10-$countorder;
-		$msg = "\n".'เดือนนี้ยังขาดอีก '.$remain.' ห้องนะจ๊ะ '."\n".'ทำให้ครบ 10 ห้องแล้วไปเที่ยวกันจร้า';
+		$msg = "\n".'เดือนนี้ได้ '.$countorder.' ห้องแล้วน๊าา พวกเราสู้ๆ '."\n".'เอาให้ครบ 10 ห้อง';
 	}
 ?>
 <!doctype html>

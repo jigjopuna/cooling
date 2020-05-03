@@ -19,6 +19,7 @@
 				source: "../../ajax/search_cust_q.php",
 				minLength: 1
 		});
+		$('#room_install').change(install);
 		
 		function validation(){
 			var search_custname = $('#search_custname').val();
@@ -43,6 +44,14 @@
 				$('#form1').submit();				
 			}
 		}		
+		
+		function install(){
+			if($(this).prop('checked') == true){
+				 $('form').attr('action', '../../admin/room.php');
+			}else{
+				 $('form').attr('action', '../../admin/room_part.php');
+			}
+		}//end credit
 	});
 
 </script>
@@ -96,11 +105,8 @@
 										</div>
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ประตู</label>
-											<select class="form-control" id="doortype" name="doortype">
-												<option value="1">บานสวิง</option>
-												<option value="2">บานเลื่อน</option>
-											</select>
+											<label class="control-label" for="inputSuccess">อุณหภูมิ </label>
+											<input type="text" class="form-control" id="ord_temp" name="ord_temp" value="-18">
 										</div>
 										
 									</div>
@@ -145,16 +151,19 @@
 											<input type="checkbox" class="form-control" id="intvat" name="intvat">
 										</div>
 										
-										
 									</div>
 									
 																		
 									<div class="col-lg-3">
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">อุณหภูมิ </label>
-											<input type="text" class="form-control" id="ord_temp" name="ord_temp" value="-18">
-										</div>
 										
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ประตู</label>
+											<select class="form-control" id="doortype" name="doortype">
+												<option value="1">บานสวิง</option>
+												<option value="2">บานเลื่อน</option>
+											</select>
+										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ค่าขนส่ง </label>
@@ -172,7 +181,10 @@
 											<input type="text" class="form-control" id="percent" name="percent" value="40">
 										</div>
 										
-										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ติดตั้งด้วยไหม</label>
+											<input type="checkbox" class="form-control" id="room_install" name="room_install" checked>
+										</div>
 									</div>
 									
 									
@@ -195,8 +207,6 @@
 												<option value="2">ปูน</option>
 											</select>
 										</div>
-										
-										
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ส่วนลด</label>

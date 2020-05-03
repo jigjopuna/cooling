@@ -64,7 +64,9 @@
 					ทั้งโฟมขาว PS และโฟมเหลือง PU จะถูกหุ้มด้วย <span class="text-strong">เหล็ก</span> BHP หรือ <span class="text-strong">สแตนเลส</span> อีกที เรียกว่า Sandwich Panel โฟมอยู่ตรงกลางระหว่างเหล็กหรือสแตนเลส 2 ด้าน<br><br>
 					
 					ถ้าอยากจะมี <span class="text-strong">ห้องเย็น</span> เราจะเลือกโฟมฉนวนประเภทไหนดี แบบไหนที่เหมาะกับงานที่ลูกค้าต้องการใช้ <br><br>
-					ก่อนอื่นมาดูก่อนว่า PS กับ PU ต่างกันยังไง ตามตารางด้านล่างนี้ครับ
+					ก่อนอื่นมาดูก่อนว่า PS กับ PU ต่างกันยังไง ตามตารางด้านล่างนี้ครับ<br><br>
+					
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/eRV8YKO6hc4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					
 					
 					
@@ -274,8 +276,9 @@
 			<div class="col-md-12">
 				<div class="p_article">
 					
-					หากต้องการสั่งซื้อโฟมฉนวน ใช้เวลาผลิด 10-14 วัน ซื้อได้ที่ หจก.ท๊อปทูลลิ่ง จังหวัดนครปฐมครับ
-					
+					หากต้องการสั่งซื้อโฟมฉนวน ใช้เวลาผลิด 10-14 วัน ซื้อได้ที่ หจก.ท๊อปทูลลิ่ง จังหวัดนครปฐมครับ<br><br>
+				
+				
 					
 				</div>
 			</div>
@@ -414,9 +417,9 @@
    ],
    "aggregateRating":{ 
       "@type":"AggregateRating",
-      "ratingValue":4,
-      "reviewCount":120,
-      "ratingCount":156
+      "ratingValue":5,
+      "reviewCount":1228,
+      "ratingCount":168
    }
 }
 </script>

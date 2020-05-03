@@ -8,13 +8,24 @@
 <?php 
 	
 
-	$rowcash = mysql_fetch_array(mysql_query("SELECT cash_now, cash1, cash2, cash_emp, cash_temp FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	$rowcash = mysql_fetch_array(mysql_query("SELECT * FROM tb_cash_center ORDER BY cash_id DESC LIMIT 1"));
+	
 	$cash_now = $rowcash['cash_now'];
+	$cash_now1 = $rowcash['cash_now1']; 
+		
+	$cash_salary = $rowcash['cash_salary'];
+	$cash_bank = $rowcash['cash_bank'];
+		
 	$cash1 = $rowcash['cash1'];
 	$cash2 = $rowcash['cash2'];
+		
 	$cash_emp = $rowcash['cash_emp'];
+	$cash_emp1 = $rowcash['cash_emp1'];
+	
 	$cash_temp = $rowcash['cash_temp'];
-
+	$cash_temp1 = $rowcash['cash_temp1'];
+		
+	
 	$po_id = trim($_POST[poid]);
 	$poname = trim($_POST['poname']);
 	$poqty  = trim($_POST['poqty']);
@@ -23,10 +34,7 @@
 	$posumrong  = trim($_POST['posumrong']);
 	$remain  = trim($_POST['remain']);
 	
-	
 	$due_date  = trim($_POST['po_due_date']);
-	
-	
 	
 	$poshop = trim($_POST['poshop']);
 	$pobuyer  = trim($_POST['pobuyer']);
@@ -41,6 +49,8 @@
 	$getfristdate = substr($credit_pay, 0, 1);
 	
 	$today = date("Y-m-d");
+	
+	$ord_bank = trim($_POST['ord_bank']);
 	
 	
 	
@@ -76,11 +86,11 @@
 	
 	
 	//ถ้าเป็นเครดิต และ ยังไม่ได้ชำระเครดิต  
-	if($po_credit == 1 && $pocreditcomps == 1 && $sumrong == 0){
+	/*if($po_credit == 1 && $pocreditcomps == 1 && $sumrong == 0){
 		if($cash1 < $remain){ exit("<script>alert('เงินซื้อของไม่พอจ่ายเครดิต นะจ๊ะ');window.location='../../finance/outpay.php';</script>"); }
 	}else if ($po_credit == 1 && $pocreditcomps == 1 && $sumrong == 1){
 		if($cash_temp < $remain){ exit("<script>alert('เงินสำรองไม่พอจ่ายเครดิต นะจ๊ะ');window.location='../../finance/outpay.php';</script>"); }
-	}
+	}*/
 	
 	if($sumrong == 1){ 
 		$temp_cash1 = $cash1; //เงินซื้อของ
@@ -174,6 +184,7 @@
 			po_price    = '$poprice', 
 			po_buyer    = '$pobuyer', 
 			po_shop     = '$poshop', 
+			po_pay_bank = '$ord_bank', 
 			po_comment  = '$poment',  
 			po_date     = '$podate', 
 			po_bill_img = '$filename', 
@@ -188,8 +199,92 @@
 
 	if($result1){ 
 		if($po_credit == 1 && $pocreditcomps == 1){ // ต้องติ๊กชำระ เครดิตเท่านั้น ถึงจะมี Transaction ในตาราง tb_cash_center และตัดเงินที่เหลือหลังมัดจำ
-			$temp_cash1 = $cash1 - $remain;
-			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_times = now(), cash1 = '$temp_cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_temp = '$temp_cash2'";		
+			
+
+		 if($ord_bank == 1){ //กสิกร ออม 
+			$update_cash = $cash_now - $remain; 	
+			if(($cash_now < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ กสิกร ออมทรัพย์ '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$update_cash', cash_now1 = '$cash_now1', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_times = now(), cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp = '$cash_temp', cash_temp1 = '$cash_temp1'";
+		   
+
+		 }else if ($ord_bank == 2){ //กสิกร กระแส
+		    $update_cash = $cash_now1 - $remain; 	
+			if(($cash_now1 < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ กสิกร กระแส '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_now1 = '$update_cash', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_times = now(), cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp = '$cash_temp', cash_temp1 = '$cash_temp1'";
+		  
+		 }else if ($ord_bank == 4){ // tbm ออม
+			$update_cash = $cash1 - $remain; 	
+			if(($cash1 < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ TMB ออมทรัพย์ '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_times = now(), cash1 = '$update_cash', cash2 = '$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp = '$cash_temp', cash_temp1 = '$cash_temp1'";
+		 
+		 }else if ($ord_bank == 5){ //tmb กระแส
+		    $update_cash = $cash2 - $remain; 	
+			if(($cash2 < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ TMB กระแส '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_times = now(), cash1 = '$cash1', cash2 = '$update_cash', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp = '$cash_temp', cash_temp1 = '$cash_temp1'";
+			
+		 }else if ($ord_bank == 6){ //กรุงเทพ ออม
+			$update_cash = $cash_salary - $remain; 	
+			if(($cash_salary < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ BBL ออมทรัพย์ '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash_salary = '$update_cash', cash_bank = '$cash_bank', cash_times = now(), cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp = '$cash_temp', cash_temp1 = '$cash_temp1'";
+		    
+		 }else if ($ord_bank == 7){ //ไทยพานิชย์ ออม 
+			$update_cash = $cash_emp - $remain; 	
+			if(($cash_emp < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ SCB ออมทรัพย์ '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_times = now(), cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$update_cash', cash_emp1 = '$cash_emp1', cash_temp = '$cash_temp', cash_temp1 = '$cash_temp1'";
+		  
+		 }else if ($ord_bank == 8){ //ไทยพานิชย์ กระแส cash_emp1
+			$update_cash = $cash_emp1 - $remain; 	
+			if(($cash_emp1 < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ SCB กระแส '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_times = now(), cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_emp1 = '$update_cash', cash_temp = '$cash_temp', cash_temp1 = '$cash_temp1'";
+			
+		 }else if ($ord_bank == 9){ //กรุงศรี ออม cash_temp
+			$update_cash = $cash_temp - $remain; 	
+			if(($cash_temp < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ SCB กระแส '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_times = now(), cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp = '$update_cash', cash_temp1 = '$cash_temp1'";
+			
+		  
+		 }else if ($ord_bank == 10){ //กรุงศรี กระแส  cash_temp1
+			$update_cash = $cash_temp1 - $remain; 	
+			if(($cash_temp1 < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ กรุงเศรี ออมทรัพย์ '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_times = now(), cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp = '$cash_temp', cash_temp1 = '$update_cash'";
+		   
+		  
+		 }else if ($ord_bank == 11){ //กรุงเทพ กระแส
+			$update_cash = $cash_bank - $remain; 	
+			if(($cash_bank < $remain)) { 
+				exit("<script>alert('เงินซื้อของไม่พอ BBL กระแส '); window.location='../../finance/outpay.php';</script>"); 
+			}
+			
+			$cal_cash = "INSERT INTO tb_cash_center SET cash_po = '$po_id', cash_out = '$remain', cash_date = '$podate', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash_salary = '$cash_salary', cash_bank = '$update_cash', cash_times = now(), cash1 = '$cash1', cash2 = '$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp = '$cash_temp', cash_temp1 = '$cash_temp1'";
+		 
+		 }
 			$result6 = mysql_query($cal_cash);
 			
 			

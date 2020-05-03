@@ -20,6 +20,10 @@
 	$sql_tooltype = "SELECT * FROM tb_tools_type";
 	$result_tooltype = mysql_query($sql_tooltype);
 	$num_tooltype = mysql_num_rows($result_tooltype);
+	
+	$sql_bank = "SELECT * FROM tb_bank";
+	$result_bank = mysql_query($sql_bank);
+	$num_bank = mysql_num_rows($result_bank);
 
 	$today = date("Y-m-d");
 	
@@ -228,15 +232,30 @@
 											<input type="text" class="form-control" id="poment" name="poment" value="<?php echo $row['po_comment']?>">
 										</div>
 										
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ธนาคาร</label>
+											<select class="form-control" id="ord_bank" name="ord_bank">
+												<option value="1">กสิกรไทย ออมทรัพย์</option> 
+												<?php for($i=1; $i<=$num_bank; $i++) { 
+													  $row_bank = mysql_fetch_array($result_bank);
+													  
+													  if($row['bk_type']==1){$types = 'ออมทรัพย์'; }else{ $types = 'กระแส'; }
+												?>
+												<option value="<?php echo $row_bank['bk_id'];?>"><?php echo $row_bank['bk_name']. ' ('.$types. ')';?></option> 
+												<?php } ?>
+											</select>
+										</div>
+										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">จ่ายเครดิต</label>
 											<input type="checkbox" class="form-control" id="pocreditcomp" name="pocreditcomp" <?php if( $row['po_credit_complete']==1) echo "checked" ?>>
 										</div>
 										
-										<div class="form-group has-success">
+										<!--<div class="form-group has-success">
 												<label class="control-label" for="inputSuccess">ใช้เงินสำรองจ่าย</label>
 												<input type="checkbox" class="form-control" id="posumrong" name="posumrong">
-										</div>
+										</div>-->
 										
 									</div>
 									

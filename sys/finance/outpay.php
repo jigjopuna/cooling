@@ -12,6 +12,10 @@
 	$result_buyer = mysql_query($sql_buyer);
 	$num_buyer = mysql_num_rows($result_buyer);
 	
+	$sql_bank = "SELECT * FROM tb_bank";
+	$result_bank = mysql_query($sql_bank);
+	$num_bank = mysql_num_rows($result_bank);
+	
 	
 	
 	//ดูว่าเงินส่วนกลางของชายหรือพี่ไพรฑูรย์ถูกใช่ไป
@@ -70,6 +74,9 @@
 			//$('#poprice').blur(chkfieldcash);
 			$('#owner_money').hide();
 			$('#mudjum').parent().hide();
+			$('#poprodtype').change(posubcate);
+			
+			
 			
 			//$('#fromtransfer').change(cash_transfer);
 			//$('#totransfer option').prop("disabled", true);		
@@ -110,7 +117,7 @@
 			}
 		}//end credit
 		
-		function chk_cash(){
+		function  chk_cash(){
 			//if cash center
 			if($('#pobuyer').val()==10){ 
 				var url = "../../ajax/cash_center.php";
@@ -138,6 +145,30 @@
 				$('#owner_money').hide();
 			}
 			//disablemp();
+		}
+		function posubcate(){
+			if($(this).val()==8){
+				tools_office();
+			}else{
+				$('.adddiv').remove();
+			}
+				
+		}
+		
+		function tools_office(){
+				var url = "../../ajax/tools_office.php";
+				var param = "poprice="+$("#poprice").val();
+				   
+				$.ajax({
+					url      : url,
+					data     : param,
+					dataType : "html",
+					type     : "POST",
+					success: function(result){
+						$("#addpotools").html(result);	
+						
+					}
+				});//end ajax 
 		}
 		
 		function validation(){
@@ -255,7 +286,7 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ประเภทสินค้า </label>
 											<select class="form-control" id="poprodtype" name="poprodtype">
-												<option value="0">เลือกประเภทสินค้า</option> 
+												<option value="">ประเภทสินค้า</option> 
 												<?php 
 													for($i=1; $i<=$num_tooltype; $i++){
 														$row_tooltype = mysql_fetch_array($result_tooltype);
@@ -264,6 +295,10 @@
 													<option value="<?php echo $row_tooltype['to_typeid'];?>"><?php echo $row_tooltype['to_typename']?></option>
 												<?php } ?>
 											</select>
+										</div>
+										
+										<div id="addpotools">
+												
 										</div>
 										
 										<div class="form-group has-success">
@@ -331,6 +366,21 @@
 											<label class="control-label" for="inputSuccess">คอมเม้นท์</label>
 											<input type="text" class="form-control" id="poment" name="poment">
 										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ธนาคาร</label>
+											<select class="form-control" id="ord_bank" name="ord_bank">
+												<option value="1">กสิกรไทย ออมทรัพย์</option> 
+												<?php for($i=1; $i<=$num_bank; $i++) { 
+													  $row_bank = mysql_fetch_array($result_bank);
+													  
+													  if($row['bk_type']==1){$types = 'ออมทรัพย์'; }else{ $types = 'กระแส'; }
+												?>
+												<option value="<?php echo $row_bank['bk_id'];?>"><?php echo $row_bank['bk_name']. ' ('.$types. ')';?></option> 
+												<?php } ?>
+											</select>
+										</div>
+										
 										
 										<!--<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ใช้เงินสำรองจ่าย</label>

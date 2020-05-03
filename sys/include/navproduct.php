@@ -86,6 +86,10 @@
 								<li>
                                     <a href="../finance/credit.php">เครดิต</a>
                                 </li>
+								
+								<li>
+                                    <a href="../finance/bankacc.php">เลขบัญชี</a>
+                                </li>
 							
                             </ul>
                         </li>
@@ -138,7 +142,19 @@
                             <ul class="nav nav-second-level">
 								
                                 <li>
-                                    <a href="../order/order.php">รายการออเดอร์</a>
+                                    <a href="../order/order.php">ออเดอร์ห้องเย็น</a>
+                                </li>
+								
+								<li>
+                                    <a href="../order/opart_list.php">ออเดอร์อะไหล่</a>
+                                </li>
+								
+								<li>
+                                    <a href="../order/ord_deposit.php">รับฝากสินค้า</a>
+                                </li>
+								
+								<li>
+                                    <a href="../order/ord_source.php">ขายวัตถุดิบอาหาร</a>
                                 </li>
 								
 								<li>
@@ -215,7 +231,17 @@
 						
 						<?php if($ro_report!=0) { ?>
 						 <li>
-                            <a href="../report/selectreport.php"><i class="fa fa-bar-chart-o fa-fw"></i>รายงาน <span class="fa arrow"></span></a>                       
+                            <a href="../report/selectreport.php"><i class="fa fa-bar-chart-o fa-fw"></i>รายงาน <span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								
+                                <li>
+                                    <a href="../report/selectreport.php">รายงาน</a>
+                                </li>
+								
+								<li>
+                                    <a href="../report/banks.php">Chart</a>
+                                </li>
+                            </ul>
                         </li>
 						<?php } ?>
 						
