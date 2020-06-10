@@ -15,14 +15,14 @@
 			
 	<div id="contect_detail" style="margin-top:85px;">
 				<div class="cust" style="float:left; width:65%; line-height:18px;">
-					<span>ชื่อลูกค้า : ภาณุรุจ อัศนธรรม</span> <br>
+					<span>ชื่อลูกค้า :</span> <br>
 					<span>
 						ที่อยู่ :   
-						383 หน้าปากซอย พาณิชยการธนบุรี 21 ถนน จรัญสนิทวงศ์ 13 <br> แขวงวัดท่าพระ เขตบางกอกใหญ่ กรุงเทพมหานคร  
+						
 						
 					
 					</span><br>
-					<span>โทร :  089-713-5712 </span><br>
+					<span>โทร :    </span><br>
 					<span>หมายเลขประจำตัวผู้เสียภาษี :   </span><br>
 				
 				</div><!--end cust-->
@@ -54,14 +54,14 @@
 					
 					
 					<tr class="highs" style="">
-						<td class="l"> <span style="font-weight:bold; font-size:17px; text-decoration:underline;">ห้องเย็นใหม่ทั้งหมด (เครื่องและห้อง)</span></td>
+						<td class="l"> <span style="font-weight:bold; font-size:17px; text-decoration:underline;">1.  ห้องเย็นใหม่ทั้งหมด (เครื่องและห้อง)</span></td>
 						<td colspan="2" class="l" align="center"> </td>
 						<td class="l" align="right"> </td>
 						<td class="l" align="right"> </td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">1.  ห้องเย็นฟรีส -20C<sup>o</sup> <span style="color:red; font-weight:bold;">ขนาด 3.2 x 5.8 x 2.7 เมตร</span></td>
+						<td class="l">&nbsp;&nbsp;&nbsp;  ห้องเย็นฟรีส -20C<sup>o</sup> <span style="color:red; font-weight:bold;">ขนาด 3.2 x 5.8 x 2.7 เมตร</span></td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right">476,000.00 </td>
@@ -75,7 +75,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; ประตูบานเลื่อน ขนาด 1.2 x 2.0 เมตร (ประตูใหม่)</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; ประตูบานสวิง ขนาด 1.2 x 2.0 เมตร (ประตูใหม่)</td>
 						<td colspan="2" class="l" align="center"> </td>
 						<td class="l" align="right"> </td>
 						<td class="l" align="right"> </td>
@@ -85,7 +85,43 @@
 						<td colspan="2" class="l" align="center"> </td>
 						<td class="l" align="right"> </td>
 						<td class="l" align="right"> </td>
-					</tr><tr class="highs" style="">
+					</tr>
+					
+					
+					
+					
+					
+					
+					<tr class="highs" style="">
+						<td class="l"> <span style="font-weight:bold; font-size:17px; text-decoration:underline;">2. ห้องเย็นใหม่ เครื่องมือสอง</span></td>
+						<td colspan="2" class="l" align="center"> </td>
+						<td class="l" align="right"> </td>
+						<td class="l" align="right"> </td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; ห้องเย็นฟรีส -18C<sup>o</sup> <span style="color:red; font-weight:bold;">ขนาด 3.2 x 5.8 x 2.7 เมตร</span></td>
+						<td colspan="2" class="l" align="center">1 ชุด</td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right">386,000.00</td>
+					</tr>
+					
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; เครื่องทำความเย็น มือสอง COPELAND ขนาด 3 HP 1 ชุด</td>
+						<td colspan="2" class="l" align="center"> </td>
+						<td class="l" align="right"> </td>
+						<td class="l" align="right"> </td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; ประตูบานสวิง ขนาด 1.2 x 2.0 เมตร (ประตูใหม่)</td>
+						<td colspan="2" class="l" align="center"> </td>
+						<td class="l" align="right"> </td>
+						<td class="l" align="right"> </td>
+					</tr>
+					
+					<tr class="highs" style="">
 						<td class="l">&nbsp;</td>
 						<td colspan="2" class="l" align="center"> </td>
 						<td class="l" align="right"> </td>
@@ -93,21 +129,21 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l"> <span style="font-weight:bold; font-size:17px; text-decoration:underline;">ห้องเย็นมือสอง เครื่องมือสอง</span></td>
+						<td class="l"> <span style="font-weight:bold; font-size:17px; text-decoration:underline;">3. ห้องเย็นมือสอง เครื่องมือสอง</span></td>
 						<td colspan="2" class="l" align="center"> </td>
 						<td class="l" align="right"> </td>
 						<td class="l" align="right"> </td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">2. ห้องเย็นฟรีส -18C<sup>o</sup> <span style="color:red; font-weight:bold;">ขนาด 3.2 x 5.8 x 2.2 เมตร</span></td>
+						<td class="l">&nbsp;&nbsp;&nbsp; ห้องเย็นฟรีส -18C<sup>o</sup> <span style="color:red; font-weight:bold;">ขนาด 3.2 x 5.8 x 2.2 เมตร</span></td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right">312,000.00</td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; เครื่องทำความเย็น มือสอง COPELAND ขนาด 3 HP 2 ชุด</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; เครื่องทำความเย็น มือสอง COPELAND ขนาด 3 HP 1 ชุด</td>
 						<td colspan="2" class="l" align="center"> </td>
 						<td class="l" align="right"> </td>
 						<td class="l" align="right"> </td>
@@ -119,44 +155,6 @@
 						<td class="l" align="right"> </td>
 						<td class="l" align="right"> </td>
 					</tr>
-					
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;</td>
-						<td colspan="2" class="l" align="center"> </td>
-						<td class="l" align="right"> </td>
-						<td class="l" align="right"> </td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l"> <span style="font-weight:bold; font-size:17px; text-decoration:underline;">ห้องเย็นใหม่ เครื่องมือสอง</span></td>
-						<td colspan="2" class="l" align="center"> </td>
-						<td class="l" align="right"> </td>
-						<td class="l" align="right"> </td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">3. ห้องเย็นฟรีส -18C<sup>o</sup> <span style="color:red; font-weight:bold;">ขนาด 3.2 x 5.8 x 2.7 เมตร</span></td>
-						<td colspan="2" class="l" align="center">1 ชุด</td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right">386,000.00</td>
-					</tr>
-					
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; เครื่องทำความเย็น มือสอง COPELAND ขนาด 3 HP 2 ชุด</td>
-						<td colspan="2" class="l" align="center"> </td>
-						<td class="l" align="right"> </td>
-						<td class="l" align="right"> </td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; ประตูบานเลื่อน ขนาด 1.2 x 2.0 เมตร (ประตูใหม่)</td>
-						<td colspan="2" class="l" align="center"> </td>
-						<td class="l" align="right"> </td>
-						<td class="l" align="right"> </td>
-					</tr>
-					
 					<tr class="highs" style="">
 						<td class="l">&nbsp;</td>
 						<td colspan="2" class="l" align="center"> </td>

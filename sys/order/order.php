@@ -8,7 +8,7 @@
 <?php require_once('../include/metatagsys.php');?>
 	<?php 
 		$dates = date('Y-m-d');
-		$sql_all = "SELECT  ot.ort_name, o.o_id, o.o_note, o.o_date, c.cust_name, c.cust_corp, c.cust_tel, c.cust_lineid, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
+		$sql_all = "SELECT  ot.ort_name, o.o_id, o.o_note, o.o_prepare, o.o_date, c.cust_name, c.cust_corp, c.cust_tel, c.cust_lineid, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status, e.e_name 
 					FROM ((((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) JOIN province p ON o.o_cuprovin = p.id) 
 						 JOIN tb_ord_status ost ON ost.ost_id = o.o_status) 
 						 JOIN tb_emp e ON e.e_id = o.o_emp) JOIN tb_ord_type ot ON ot.ort_type = o.o_type
@@ -78,8 +78,18 @@
 										  $row_all = mysql_fetch_array($result_all);
 									  ?>
 										<tr class="gradeA">
-											<td><?php echo $row_all['o_id']; ?></td>  
-											<td><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></td>	
+											<td><a href="prepare.php?o_id=<?php echo $row_all['o_id'];?>"><?php echo $row_all['o_id']; ?></a></td>
+											
+											
+											<?php if($row_all['o_prepare']==1) { ?>
+												<td style="background-color: #79f699;  font-weight:bold;"><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></a></td>	
+											<?php } else  { ?>
+											    <td><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></a></td>	
+											<?php } ?>
+											
+											
+											
+											
 											   
 											
 											<?php if($row_all['o_status']==5) { ?>

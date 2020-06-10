@@ -3,6 +3,11 @@
 	  $sql_com = "SELECT * FROM tb_com_brand"; $result_com = mysql_query($sql_com); $num_com = mysql_num_rows($result_com);
 	  $sql_coil = "SELECT * FROM tb_cooling_brand"; $result_coil = mysql_query($sql_coil); $num_coil = mysql_num_rows($result_coil);
 	  
+	  
+	  $sql_sale = "SELECT e.e_id, e.e_name, e.e_tel FROM tb_emp e JOIN tb_role r  ON e.e_id = r.ro_emp_id WHERE r.ro_quotation != 0 AND e_publish = 1"; 
+	  $result_sale = mysql_query($sql_sale); 
+	  $num_sale = mysql_num_rows($result_sale);
+	 
 	  $sql_condensing = "SELECT t_id, t_name, t_model, t_cost, t_hp, t_cw5, t_cw20, t_attrib1, t_attrib2, t_attrib3 FROM tb_tools WHERE t_type = 11 AND t_subtype = 1";
 	  $result_condensing = mysql_query($sql_condensing);
 	  $num_condensing = mysql_num_rows($result_condensing);
@@ -25,6 +30,23 @@
 				source: "../../ajax/search_cust_q.php",
 				minLength: 1
 		});
+		
+		$('input:radio[name=roomstype]').change(function () {
+            if ($("input[name='roomstype']:checked").val() == 1) {
+                $('#form1').attr("action", "../../admin/speedlock_newiso.php");
+
+            }
+
+            if ($("input[name='roomstype']:checked").val() == 2) {
+                $('#form1').attr("action", "../../admin/speedlock_embed.php");
+            }
+
+			if ($("input[name='roomstype']:checked").val() == 3) {
+                $('#form1').attr("action", "../../admin/speedlock_advance.php");
+            }
+
+        });
+		
 		
 		function validation(){
 			var search_custname = $('#search_custname').val();
@@ -196,10 +218,11 @@
 											</select>
 										</div>
 										
-										<!--<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">รุ่นคอมเพรสเซอร์</label>
-											<input type="text" class="form-control" id="comp_model" name="comp_model" placeholder="4PE-12">
-										</div>-->
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">หัวบิลบริษัท</label><br>
+											<input type="radio" value="1" name="corp" checked> CPN
+											<input type="radio" value="2" name="corp" style="margin-left:50px;">  TCL
+										</div>
 
 									</div>
 									
@@ -245,6 +268,20 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ระยะเวลาลดอุณหภูมิ (ชม.)</label>
 											<input type="text" class="form-control" id="hours" name="hours" value="18">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">พนักงานขาย</label>
+											<select class="form-control" id="sale_id" name="sale_id">
+												<?php for($i=1; $i<=$num_sale; $i++) { 
+													$row_sale = mysql_fetch_array($result_sale);
+												?>
+													<option value="<?php echo $row_sale['e_id']?>" <?php if($e_id==$row_sale['e_id']){ ?> selected <?php } ?> >
+														<?php echo $row_sale['e_name']?>
+													</option>
+											
+												<?php } ?>
+											</select>
 										</div>
 										
 									</div>
@@ -299,6 +336,15 @@
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">ขอใบเสนอราคา</button>
 										</div>
 										
+										<div class="form-group has-success">
+											<input type="radio" value="1" name="roomstype"> แผ่นใหม่ เครื่องมือสอง
+											<input type="radio" value="2" name="roomstype"> มือสองหมด
+										</div>
+										
+										<div class="form-group has-success">
+											<input type="radio" value="3" name="roomstype" checked="checked"> ใหม่หมด
+											
+										</div>
 										
 									</div>
 									
@@ -328,6 +374,7 @@
                                 <thead>
                                     <tr>
 										<th style='width: 5%;'>ลำดับ</th>
+                                        <th style='width: 15%;'>Brand</th>
 										 <th style='width: 10%;'>Model</th>
 										<th style='width: 10%;'>Cost</th>
                                         <th style='width: 10%;'>HP</th>
@@ -343,15 +390,16 @@
 										$row_condensing = mysql_fetch_array($result_condensing);
 									?>
                                      <tr>
-										<td style='widtd: 5%;'><?php echo $row_condensing['t_id'];?></td>
-										<td style='widtd: 10%;'><?php echo $row_condensing['t_name'].' '.$row_condensing['t_model'];?></td>
+										<td style='widtd: 5%;'><?php echo $row_condensing['t_id']?></td>
+                                        <td style='widtd: 15%;'><?php echo $row_condensing['t_name']?></td>
+										<td style='widtd: 10%;'><?php echo $row_condensing['t_model']?></td>
 										<td style='widtd: 10%;'><?php echo number_format($row_condensing['t_cost'], 0, '.', ','); ?></td>
-                                        <td style='widtd: 10%;'><?php echo $row_condensing['t_hp'].'HP';?></td>
-										<td style='widtd: 5%;'><?php echo $row_condensing['t_cw5'];?></td>
-										<td style='widtd: 5%;'><?php echo $row_condensing['t_cw20'];?></td>
-										<td style='widtd: 15%;'><?php echo $row_condensing['t_attrib3']. ' ' .$row_condensing['t_attrib1'];?></td>
-										<td style='widtd: 10%;'><?php echo $row_condensing['t_attrib2'];?></td>
-										<td style='widtd: 10%;'><?php ?></td>
+                                        <td style='widtd: 10%;'><?php echo $row_condensing['t_hp'].'HP'?></td>
+										<td style='widtd: 5%;'><?php echo $row_condensing['t_cw5']?></td>
+										<td style='widtd: 5%;'><?php echo $row_condensing['t_cw20']?></td>
+										<td style='widtd: 15%;'><?php echo $row_condensing['t_attrib1']?></td>
+										<td style='widtd: 10%;'><?php echo $row_condensing['t_attrib2']?></td>
+										<td style='widtd: 10%;'><?php echo $row_condensing['t_attrib3']?></td>
                                     </tr>
 									<?php } ?>
 									

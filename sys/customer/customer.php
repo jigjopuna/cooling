@@ -8,7 +8,10 @@
 	<?php require_once('../include/header.php');?>
 	<?php require_once('../include/metatagsys.php');?>
 	<?php require_once('../include/inc_role.php');
-		$sql_all = "SELECT * FROM tb_customer c JOIN province p ON c.cust_province = p.id";
+		$sql_all = "SELECT c.cust_id, c.cust_name, c.cust_product, c.cust_tel, p.pro_name, c.cust_date 
+					FROM (tb_customer c JOIN province p ON c.cust_province = p.id)
+						  JOIN tb_orders o ON o.o_cust = c.cust_id 
+					WHERE o.o_type LIKE '1%'";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 	
@@ -40,7 +43,7 @@
 										<th>ลำดับ </th>
                                         <th>ชื่อลูกค้า</th>
 										<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
-											<th>บริษัท</th>
+											<th>สินค้า</th>
 											<th>เบอร์ติดต่อ</th>
 											<th>จังหวัด</th>
 											<th>วันที่ลงระบบ</th>
@@ -64,7 +67,7 @@
 											<?php } ?>
 											
 											<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
-												<td><?php echo $row_all['cust_corp']; ?></td>
+												<td><?php echo $row_all['cust_product']; ?></td>
 												<td><?php echo $row_all['cust_tel']; ?></td>
 												<td><?php echo $row_all['pro_name'] ;?></td>
 												<td><?php echo $row_all['cust_date'] ;?></td>

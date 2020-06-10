@@ -36,8 +36,9 @@
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
+<script src="../js/quotation.js"></script>
 <script>
-	$(document).ready(function(){
+	/*$(document).ready(function(){
 		$("#btn-calngod").click(calucalatengod); 
 		$("#btn-addroom").click(function(){ $('#addpage').css("display","block"); $('.amounts').css("display","none"); });
 	});
@@ -53,7 +54,7 @@
 		$('.cal_ngo2').text(seconds);
 		$('.cal_ngo3').text(thirds);
 	}
-	
+	*/
 
 </script>
 
@@ -342,7 +343,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 099-129-0789 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -552,7 +553,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 099-129-0789 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -833,7 +834,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 099-129-0789 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1037,7 +1038,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 099-129-0789 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1080,7 +1081,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 099-129-0789 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1106,7 +1107,7 @@
 						<p><span class="intopic">ไฮ-โล เพรสเชอร์ :</span> อุปกรณ์วัดระดับแรงดันน้ำยา</p>
 						<p><span class="intopic">รีซีฟเวอร์และวาล์วนิรภัย :</span></p>
 						<p><span class="intopic">เช็ควาล์วและเซอร์วิสวาล์ว :</span> </p>
-						<p><span class="intopic">ดรายเออร์ :</span> อุปกรณ์กรอกสิ่งสกปรกออกจากระบบทำความเย็น ตัวใหม่</p></div>
+						<p><span class="intopic">ดรายเออร์ :</span> อุปกรณ์กรองสิ่งสกปรกออกจากระบบทำความเย็น ตัวใหม่</p></div>
 				</div> <!--end row-->
 				
 				<div class="row">
@@ -1147,7 +1148,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 099-129-0789 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1220,7 +1221,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 099-129-0789 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1296,7 +1297,7 @@
 				
 				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
+				<span>Tel. 082-360-1523, 099-129-0789 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
 				<span>Web:  www.topcooling.net</span>
 				</div>
 			</div><!--end cover_header-->
@@ -1361,19 +1362,12 @@
 
         </div>  <!--end subpage-->
     </div>
+	
+	<?php require_once('../include/inc_brief.php');?>
+	
 </div>
-<input type="button" value="คำนวนราคางวด" id="btn-calngod"> 
-<input type="button" value="สรุปห้อง" id="btn-addroom">
-<span style="float:right;"><?php echo $total_result_t;?></span>
 
-<div id="cute" style="display: none;"><?php echo $cute;?></div>
-<div id="wall_price" style="display: none;"><?php echo $wall_price; ?></div>
-<div id="basic_price" style="display: none;"><?php echo $basic_price;?></div>
-<div id="jipata" style="display: none;"><?php echo $jipata;?></div>
-<div id="kumrai-sumprofit-nojipata-nolabor" style="display: none;"><?php echo $kumrai;?></div>
-<div id="realcost-no-profit-nojipata-nolabor" style="display: none;"><?php echo $realcost;?></div>
-<div id="befor_ship-sumlabor-sumjipatac-sumprofit-sumship" style="display: none;"><?php echo $prettylast?></div>
-<div id="total_price" style="display: none;"><?php echo $total_price?></div>
+	<?php require_once('../include/inc_compare.php');?>
 
 </body>
 </html>

@@ -36,26 +36,7 @@
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-<script>
-	$(document).ready(function(){
-		$("#btn-calngod").click(calucalatengod); 
-		$("#btn-addroom").click(function(){ $('#addpage').css("display","block"); $('.amounts').css("display","none"); });
-	});
-	function calucalatengod(){
-		
-		var allprice = $('#totolprice').text().replace(/,/g, '');
-		var firsts = (allprice*0.5).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-		var seconds = (allprice*0.3).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-		var thirds = (allprice*0.2).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-		
-		
-		$('.cal_ngo1').text(firsts);
-		$('.cal_ngo2').text(seconds);
-		$('.cal_ngo3').text(thirds);
-	}
-	
-
-</script>
+<script src="../js/quotation.js"></script>
 
 <?php 
 	/*require_once('../include/googletag.php');*/
@@ -337,14 +318,7 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include('../include/tcl_addr.php'); ?>
 			</div><!--end cover_header-->
 			
 			<?php include('../include/quotation_head.php'); ?>
@@ -547,14 +521,7 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include('../include/tcl_addr.php'); ?>
 			</div><!--end cover_header-->
 			
 			
@@ -837,14 +804,7 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include('../include/tcl_addr.php'); ?>
 			</div><!--end cover_header-->
 			
 			<?php include('../include/quotation_head.php'); ?>
@@ -1300,14 +1260,7 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include('../include/tcl_addr.php'); ?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
@@ -1370,19 +1323,12 @@
 
         </div>  <!--end subpage-->
     </div>
+	
+	<?php require_once('../include/inc_brief.php');?>
+	
 </div>
-<input type="button" value="คำนวนราคางวด" id="btn-calngod"> 
-<input type="button" value="สรุปห้อง" id="btn-addroom">
-<span style="float:right;"><?php echo $total_result_t;?></span>
 
-<div id="cute" style="display: none;"><?php echo $cute;?></div>
-<div id="wall_price" style="display: none;"><?php echo $wall_price; ?></div>
-<div id="basic_price" style="display: none;"><?php echo $basic_price;?></div>
-<div id="jipata" style="display: none;"><?php echo $jipata;?></div>
-<div id="kumrai-sumprofit-nojipata-nolabor" style="display: none;"><?php echo $kumrai;?></div>
-<div id="realcost-no-profit-nojipata-nolabor" style="display: none;"><?php echo $realcost;?></div>
-<div id="befor_ship-sumlabor-sumjipatac-sumprofit-sumship" style="display: none;"><?php echo $prettylast?></div>
-<div id="total_price" style="display: none;"><?php echo $total_price?></div>
+	<?php require_once('../include/inc_compare.php');?>
 
 </body>
 </html>

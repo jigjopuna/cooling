@@ -137,6 +137,7 @@
 			
 			<div class="col-md-12">
 				<div class="p_article">
+					<img src="../../content/images/article/foam/600x400-01.jpg" alt="โฟม PU ห้องเย็น"><br><br>
 					เมื่อทราบความ <span class="text-strong">แตกต่าง</span> ระหว่าง PS กับ PU กันแล้ว มาดูอีกว่าแล้วมีปัจจัยอะไรอีกบ้างในการเลือกโฟม<br><br>
 					<span class="boldun">1. อุณหภูมิ</span> มีผลต่อความหนาของแผ่นโฟม<br>
 					<span class="boldun">2. ราคา</span> ไหนที่เหมาะสม<br>

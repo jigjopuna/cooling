@@ -101,32 +101,22 @@
                             <ul class="nav nav-second-level">
 								
                                 <li>
-                                    <a href="../customer/customer.php">รายชื่อลูกค้า (ซื้อแล้ว)</a>
+                                    <a href="../customer/select_cust.php">รายชื่อลูกค้า (ซื้อแล้ว)</a>
                                 </li>
 								
-								<li>
-                                    <a href="../customer/cust_service.php">ลูกค้างานเซอร์วิส</a>
-                                </li>
 								
 								<li>
                                     <a href="../customer/cust_waitpay.php">ลูกค้ายังไม่ปิดการขาย</a>
                                 </li>
 								
-								<li>
-                                    <a href="../customer/cust_part.php">ลูกค้าอะไหล่ และ IoT</a>
-                                </li>
 								
 								
 								
 								<li>
-                                    <!--<a href="../customer/cust_add.php">เพิ่มลูกค้า</a>-->
 									<a href="../customer/cust_qoutation.php">เพิ่มลูกค้า</a>
 									
                                 </li>
 								
-								<li>
-                                    <a href="../customer/cust_iot.php">IoT ลูกค้า</a>
-                                </li>
 								
 								<li>
                                     <a href="../customer/cust_sell.php">ผู้ติดต่อลูกค้า</a>
