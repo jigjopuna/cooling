@@ -6,7 +6,7 @@
 	  $result_catroom = mysql_query($sql_catroom);
 	  $num_catroom = mysql_num_rows($result_catroom);
 	  
-	  $sql_eurotech = "SELECT * FROM tb_tools WHERE t_type = 11 AND t_cate = 32 AND t_subcate = 1 ORDER BY t_attrib1";
+	  $sql_eurotech = "SELECT * FROM tb_tools WHERE t_type = 1 AND t_cate = 32 AND t_subcate = 1 ORDER BY t_attrib1";
 	  $result_eurotech = mysql_query($sql_eurotech);
 	  $num_eurotech = mysql_num_rows($result_eurotech);
 ?>

@@ -2,12 +2,15 @@
 	  require_once('../include/connect.php');
 
 	//stock
-	$sql = "SELECT *
+	/*$sql = "SELECT *
+			FROM tb_tools t JOIN tb_tools_type tot ON t.t_type = tot.to_typeid";*/
+			
+	$sql = "SELECT t_id, t_name, t_cost, t_stock, t_supplier,  t_bill, t_image
 			FROM tb_tools t JOIN tb_tools_type tot ON t.t_type = tot.to_typeid";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
-	$sql_push = "SELECT t.t_name, t.t_id, ps.pu_id, ps.pu_wh, ps.pu_qty, ps.pu_date FROM tb_pushstock ps JOIN tb_tools t ON t.t_id = ps.pu_tid";
+	$sql_push = "SELECT t.t_name, t.t_id, ps.pu_id, ps.pu_wh, ps.pu_qty, ps.pu_date FROM tb_pushstock ps JOIN tb_tools t ON t.t_id = ps.pu_tid ORDER BY ps.pu_tid DESC LIMIT 50";
 	$result_push= mysql_query($sql_push);
 	$num_push = mysql_num_rows($result_push);
 	
@@ -17,7 +20,7 @@
 <html lang="en">
 
 <head>
-<title>รายการสั่งซื้อ</title>
+<title>สต็อกอะไหล่</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
@@ -178,11 +181,10 @@
                                     <tr>
                                         <th>ลำดับ</th>                                     
                                         <th>อะไหล่</th>
+										<th>ร้านค้า (ซัพ)</th>
                                         <th>สต็อก</th>
-										<!--<th>กระทุ่มแบน</th>-->
 										<th>ต้นทุน (บาท)<!-- นครปฐม--></th>
-										<!--<th>ต้นทุน (บาท) กระทุ่มแบน</th>-->
-										<th>ราคากลาง</th>
+										<th>บิล</th>
 										<th>รูป</th>
 										
                                     </tr>
@@ -200,11 +202,16 @@
 										<tr class="gradeA">
 											<td><?php echo $row['t_id']; ?></td>
 											<td><a href="stocklog.php?t_id=<?php echo $row['t_id']?>"><?php echo $row['t_name'].' ('.$allstock.')'; ?></td>
+											<td><?php echo $row['t_supplier']; ?></td>
 											<td><?php echo $stock; ?></td>
 											
-											<td><?php echo $row['t_cost']; ?></td>
+											<td><?php echo  number_format($row['t_cost'], 0, '.', ','); ?></td>
 											
-											<td><?php echo $row['t_cost_center']; ?></td>
+											<?php if($row['t_bill']!="") { ?>
+												<td><a href="../images/tools_bill/<?php echo $row['t_bill']; ?>" target="_blank">ดูบิล</a></td>
+												<?php } else { ?>
+												<td>ไม่มีบิล</td>
+												<?php }  ?>
 											<td><a href="<?php echo $row['t_image']; ?>" target="_blank">ดูรูป</a></td>
 										</tr>
 									<?php } ?>

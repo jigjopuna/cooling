@@ -35,7 +35,13 @@
 	$result_creditall = mysql_query($sql_creditall);
 	$num_creditall = mysql_num_rows($result_creditall);
 	
-	$rowsum = mysql_fetch_array(mysql_query("SELECT SUM(p.po_price)-SUM(p.po_mudjum) jaycredit FROM tb_po p WHERE p.po_credit = 1 AND p.po_credit_complete != 1 AND p.po_date LIKE '$datess%'"));
+	$rowsum = mysql_fetch_array(mysql_query("SELECT SUM(a.remain) tongjay
+												FROM (
+													 SELECT  SUM(p.po_price)-SUM(p.po_mudjum) remain
+																	FROM tb_po p JOIN tb_sellers s ON p.po_shop = s.sl_id 
+																	WHERE p.po_credit = 1 AND p.po_credit_complete != 1 
+																	GROUP BY po_shop
+												) as a"));
 	
 	
 
@@ -93,7 +99,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-								เครดิต <?php echo number_format($rowsum['jaycredit'], 2, '.', ','); ?>
+								เครดิต <?php echo number_format($rowsum['tongjay'], 2, '.', ','); ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

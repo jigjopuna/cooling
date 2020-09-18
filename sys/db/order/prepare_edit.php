@@ -18,7 +18,6 @@
 	
 	//exit();
 
-
 ?>
 <!doctype html>
 <html>
@@ -62,9 +61,19 @@
 	
 
 	
-	//2. update into database	
-	$sql = "UPDATE tb_orders SET o_prepare = '$o_prepare' WHERE o_id = '$ord_id'";
-	$result1 = mysql_query($sql);
+	//2. update into database
+	if($ord_id != ''){
+		$sql = "UPDATE tb_orders SET o_prepare = '$o_prepare' WHERE o_id = '$ord_id'";
+		$result1 = mysql_query($sql);
+	}else{
+		exit("
+			<script>
+				alert('ไม่มีหมายเลขออเดอร์ ');
+				window.location='../../order/order.php';
+			</script>
+		");
+	}
+	
 	
 	if($result1){
 		if($o_prepare == 1){

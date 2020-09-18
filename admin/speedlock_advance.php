@@ -257,7 +257,8 @@
 		
 		for($i=0; $i<=$num_com-1; $i++){
 			if($comp_name == $compr[$i][id]){   
-				$compressor_name =  $compr[$i][name].' ขนาด '.$hp.'HP ประเภท '.$compr[$i][type].' แบรนด์ '.$compr[$i][country];
+				$compressor_name =  $compr[$i][name].' ขนาด '.$hp.' HP แบรนด์ '.$compr[$i][country];
+				$compfull_name =  $compr[$i][name].' ขนาด '.$hp.'HP ประเภท '.$compr[$i][type].' แบรนด์ '.$compr[$i][country];
 				$com_img = $compr[$i][img];
 			}
 		}
@@ -634,20 +635,13 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - 2CB/<?php echo $foams;?> ผิวเรียบ พร้อมอุปกรณ์ติดตั้ง</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - 2CB/<?php echo $foams;?> ผิวเรียบ พร้อมอุปกรณ์ติดตั้ง  <?php if($floor1==1) echo ' | พื้นอลูมิเนียมลายกันลื่น'; ?>   </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
-					<?php if($floor1==1){ ?>
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - พื้นอลูมิเนียมลายกันลื่น</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					<?php } ?>
+					
 					
 					<tr class="highs" style="">
 						<td class="l">4. ระบบไฟฟ้า ควบคุมห้องเย็น <strong><u><?php echo $firefa;?> </u></strong> <span style="font-size:14px;">พร้อมระบบความปลอดภัย</span></td>
@@ -1162,7 +1156,7 @@
 						</div>
 					</div>
 					<div class="col4"><span class="topic">ชุดคอนเด็นซิ่งยูนิต ประกอบด้วย</span><br>    
-						<p><span class="intopic">คอมเพรสเซอร์ :</span> <?php echo $compressor_name; ?></p>
+						<p><span class="intopic">คอมเพรสเซอร์ :</span> <?php echo $compfull_name; ?></p>
 						<p><span class="intopic">ชุดคอยล์ร้อน :</span> ระบายความร้อนด้วยอากาศ <?php echo $fancon; ?> พัดลม</p>
 						<p><span class="intopic">ไฮ-โล เพรสเชอร์ :</span> อุปกรณ์วัดระดับแรงดันน้ำยา</p>
 						<p><span class="intopic">รีซีฟเวอร์และวาล์วนิรภัย :</span></p>

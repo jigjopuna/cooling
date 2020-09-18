@@ -1,4 +1,4 @@
-				<img src="../content/images/logo-small.jpg" style="float:left;">
+				<img src="https://topcooling.net/content/images/logo-small.jpg" style="float:left;">
 				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
 				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>

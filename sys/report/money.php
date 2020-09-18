@@ -57,8 +57,8 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','p2BasIGUuINUyaOj4HnR3PDEzHiQ1EkLzTXWkeFY2sC');  
-	//define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt'); 
+	//define('LINE_TOKEN','p2BasIGUuINUyaOj4HnR3PDEzHiQ1EkLzTXWkeFY2sC');  
+	define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt'); 
 	function notify_message($message){
 
 		$queryData = array('message' => $message);
