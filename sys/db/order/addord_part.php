@@ -42,6 +42,10 @@
 	
 	$o_type = trim($_POST['ord_type']); 
 	
+	if($ord_price=='' || $ord_price < 1){
+		 exit("<script>alert('missing order price'); window.location='../../order/order.php';</script>");
+	}
+	
 	if($ord_vat=='on') $o_vat = 1;
 	
 	/*echo "search_custname = ", $search_custname, "<br>";

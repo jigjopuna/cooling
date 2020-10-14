@@ -11,7 +11,7 @@
 	
 	//list all product this order
 	
-	$sql_prd = "SELECT orpd.orpd_id, t.t_name, orpd.orpd_qty, orpd.orpd_date, orpd.orpd_e_aprv, orpd.ot_emp, e_name, t.t_cost, t.t_cost1, t.t_cost_center 
+	$sql_prd = "SELECT orpd.orpd_id, t.t_name, orpd.orpd_qty, orpd.orpd_date, orpd.orpd_e_aprv, orpd.ot_emp, e_name, t.t_cost, t.t_cost_center 
 	FROM ((tb_ord_prod orpd JOIN tb_orders o ON o.o_id = orpd.o_id) JOIN tb_tools t ON t.t_id = orpd.ot_id) JOIN tb_emp e ON e.e_id = orpd.ot_emp
 	WHERE orpd.o_id = '$o_id'";
 	$result_prd = mysql_query($sql_prd);
@@ -78,15 +78,16 @@
 <head>
 
 <?php require_once ('../include/header.php');?>
-<title>ออเดอร์ลูกค้า</title>
+<title>รายละเอียดออเดอร์ลูกค้า </title>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <style>
 	.o_image { width: 65%; margin-top:20px;}
 	@media screen and (max-width: 1024px){.o_image { width: 100%; }}
+	@media print{ .page{ background-color:red;}}
 </style>
 <?php require_once('../include/metatagsys.php');?>
-<?php require_once('../include/inc_role.php'); ?>
+<?php require_once('../include/inc_role.php');?>
 <script>
 	$(document).ready(function(){ 
 		var quots = $('#quot').html();
@@ -223,6 +224,9 @@
 										<th>ทุนต่อชิ้น</th>
 										<th>ทุนรวม</th>
 										<th>วันที่</th>
+										<?php if($role['ro_ed_ord_dt']==1) { ?>
+											<th>.</th>
+										<? } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -243,7 +247,11 @@
 											<td><?php echo $row_prd['orpd_e_aprv']; ?></td>
 											<td><?php echo number_format($cost_center, 0, '.', ','); ?></td>  
 											<td><?php echo number_format($cost_center*$qty_cost, 0, '.', ','); ?></td> 
-											<td><?php echo $row_prd['orpd_date']; ?></td>												
+											<td><?php echo $row_prd['orpd_date']; ?></td>
+											
+											<?php if($role['ro_ed_ord_dt']==1) { ?>
+												<td><a href="ord_deta_ed.php?t_id=<?php echo $row_prd['orpd_id'];?>&o_id=<?php echo $o_id;?>">แก้ไข</a></td>	
+											<? } ?>
 										</tr>
 									<?php } ?>
 									
@@ -259,12 +267,19 @@
 											<td>&nbsp;</td>
 											<td>&nbsp;</td>
 											<td><?php echo number_format($row_po['po_price'], 0, '.', ','); ?></td>
-											<td><?php echo $row_po['po_date']; ?></td>												
+											<td><?php echo $row_po['po_date']; ?></td>
+											<?php if($role['ro_ed_ord_dt']==1) { ?>
+												<td><a href="ord_deta_edpo.php?po_id=<?php echo $row_po['po_id'];?>">แก้ไข</a></td>
+											<?php } ?>
 										</tr>
 									<?php } ?>
 									
 									<tr>
-										<td colspan='6'>&nbsp;</td> 
+										<?php if($role['ro_ed_ord_dt']==1) { ?>
+											<td colspan='7'><a href="ord_report.php?o_id=<?php echo $o_id;?>&custname=<?php echo $cust_name;?>" target="_blank">ปริ้น</a></td> 
+										<?php }else { ?>
+											<td colspan='7'><a href="ord_report.php?o_id=<?php echo $o_id;?>&custname=<?php echo $cust_name;?>" target="_blank">ปริ้น</a></td>
+										<?php } ?>
 										
 										<td colspan='2'>
 											<?php 

@@ -3,23 +3,16 @@
 	$today = date("Y-m-d");
 	$yearmonth = date("Y-m");
 	$day = date("D");
-	$sql = "SELECT COUNT(*) count FROM tb_orders WHERE o_date LIKE '$yearmonth%'";
-	$row= mysql_fetch_array(mysql_query($sql));
+	$sql = "SELECT COUNT(*) count FROM tb_orders WHERE o_type LIKE '1%' AND o_date LIKE '$yearmonth%'";
+	$row = mysql_fetch_array(mysql_query($sql));
+	
 	$countorder = $row['count'];
 	
-	/*
-	SELECT c.cust_name, p.pro_name, ot.ort_name, o.o_price
-	FROM ((tb_orders o JOIN tb_customer c ON c.cust_id = o.o_cust) 
-		  JOIN province p ON p.id = o.o_cuprovin) 
-		  JOIN tb_ord_type ot ON ot.ort_type = o.o_type 
-	WHERE o_date like '%2019-08%'
-	*/
-	
 	if($countorder > 10){
-		$msg = 'ยินดีด้วยจร้าเดือนนี้ทะลุทะลวงเป้าได้ จะไปเที่ยวไหนกันดี';
+		$msg = $countorder.' ห้อง ยินดีด้วยจร้าเดือนนี้ทะลุทะลวงเป้า จะไปเที่ยวไหนกันดี';
 	}else{
 		$remain = 10-$countorder;
-		$msg = "\n".'เดือนนี้ได้  '.$countorder.' ห้องแล้วนะ '."\n".'เก่งจุงเบย';
+		$msg = "\n".'เดือนนี้ได้ '.$countorder.' ห้องแล้วน๊าา พวกเราสู้ๆ '."\n".'เอาให้ครบ 10 ห้อง';
 	}
 ?>
 <!doctype html>
@@ -31,8 +24,8 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  
-	//define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt'); 
+	define('LINE_TOKEN','p2BasIGUuINUyaOj4HnR3PDEzHiQ1EkLzTXWkeFY2sC');  
+	//define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');  กลุ่ม เอกสาร rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G  
 	function notify_message($message){
 
 		$queryData = array('message' => $message);

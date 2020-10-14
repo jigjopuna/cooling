@@ -113,11 +113,29 @@
 	$target_file = $target_dir . basename($filename);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+	
+	
+	
+	$target_pdf = "../../images/billpo/";
+	$filenamepdf = time().'.pdf';//.$_FILES["ord_quotation"]["name"]potransfer;
+	$target_pdffile = $target_pdf . basename($filenamepdf);
+	$uploadOkpdf = 1;
+	$imageFileTypepdf = pathinfo($target_pdffile,PATHINFO_EXTENSION);
+	
+	
     
 	echo "target_dir = ", $target_dir, "<br>";
 	echo "filename = ", $filename, "<br>";
 	echo "target_file = ", $target_file, "<br>";
 	echo "imageFileType = ", $imageFileType, "<br>";
+	
+	echo "<br><br>";
+	
+	
+	echo "target_pdf = ", $target_pdf, "<br>";
+	echo "filenamepdf = ", $filenamepdf, "<br>";
+	echo "target_pdffile = ", $target_pdffile, "<br>";
+	echo "imageFileTypepdf = ", $imageFileTypepdf, "<br>";
 	//exit();
 	
 	if(file_exists($_FILES['pobill']['tmp_name']) || is_uploaded_file($_FILES['myfile']['tmp_name'])) {
@@ -164,6 +182,51 @@
 		}
 	}//end check is has file
 	
+	
+	//PDF
+	
+	if(file_exists($_FILES['popdf']['tmp_name']) || is_uploaded_file($_FILES['myfile']['tmp_name'])) {
+		// Check if image file is a actual image or fake image
+		if(isset($_POST["submit"])) {
+			$check = getimagesize($_FILES["popdf"]["tmp_name"]);
+				
+			if($check !== false) {
+				echo "File is an image - " . $check["mime"] . ".";
+				$uploadOkpdf = 1;
+			} else {
+				echo "File is not an image.";
+				$uploadOkpdf = 0;
+			}
+		}
+		
+		// Check if file already exists
+		if (file_exists($target_pdffile)) { 
+			echo "Sorry, file already exists."; exit();
+			$uploadOkpdf = 0;
+		}
+		// Check file size
+		if ($_FILES["popdf"]["size"] > 5000000) { 
+			echo "Sorry, your file is too large."; exit();
+			$uploadOkpdf = 0;
+		}
+		// Allow certain file formats
+		if($imageFileTypepdf != "pdf" && $imageFileTypepdf != "xlsx" && $imageFileTypepdf != "docx") {
+			echo "Sorry, only pdf, xlsx,  & docx files are allowed.";
+			$uploadOkpdf = 0;
+		}
+		// Check if $uploadOkpdf is set to 0 by an error
+		if ($uploadOkpdf == 0) { 
+			echo "Sorry, your file was not uploaded."; exit();
+		// if everything is ok, try to upload file
+		} else {
+			if (move_uploaded_file($_FILES["popdf"]["tmp_name"], $target_pdffile)) {
+				echo "The file ". basename( $_FILES["popdf"]["name"]). " has been uploaded."; 
+			} else {
+				echo "Sorry, there was an error uploading your file."; exit();
+			}
+		}
+	}//end check is has file
+	
 
 	$sql = "INSERT INTO tb_po SET 
 			po_name     = '$poname', 
@@ -173,10 +236,10 @@
 			po_buyer    = '$pobuyer', 
 			po_subyer    = '$owner_money',			
 			po_shop     = '$poshop', 
-			po_pay_bank = '$ord_bank', 
 			po_comment  = '$poment', 
 			po_mudjum   = '$mudjum_1', 
 			po_bill_img = '$filename', 
+			po_bill_pdf = '$filenamepdf', 
 			po_date     = '$podate', 
 			po_orders   = '$search_custname', 
 			po_cate		= '$poprodtype', 	

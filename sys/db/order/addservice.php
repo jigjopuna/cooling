@@ -19,7 +19,11 @@
 	
 
 	//2. insert into database	
-	$sql = "INSERT INTO tb_orders SET o_cust = '', o_note
+	$sql = "INSERT INTO tb_service SET 
+			fix_cust =  '$search_custname', 
+			fix_province =  '$serv_prov', 
+			fix_broken = '$broken', 
+			fix_date = now()
 			";
 	$result1 = mysql_query($sql);
 	

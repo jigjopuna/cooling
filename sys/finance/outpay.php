@@ -2,7 +2,7 @@
 	  require_once('../include/connect.php');
 	
 	//PO LIST
-	$sql = "SELECT p.po_emp, p.po_cate, p.po_id, p.po_name, p.po_orders, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
+	$sql = "SELECT p.po_emp, p.po_cate, p.po_id, p.po_name, p.po_orders, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_pdf , p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
 			FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
 			ORDER BY po_id DESC LIMIT 0,1000";
 	$result= mysql_query($sql);
@@ -396,8 +396,13 @@
 									
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">บิล/เอกสาร</label>
+											<label class="control-label" for="inputSuccess"> รูปโอนเงิน  (ไฟล์รูป)  </label>
 											<input type="file" class="form-control require" id="pobill" name="pobill">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">บิลร้านค้า PDF (ไฟล์ PDF)</label>
+											<input type="file" class="form-control require" id="popdf" name="popdf">
 										</div>
 										
 										<div class="form-group has-success">
@@ -490,7 +495,7 @@
 											
 											<td><?php echo $row['po_comment']; ?></td>
 											<td><?php echo $row['po_date']; ?></td>
-											<td><a href="../images/bill/<?php echo $row['po_bill_img'];?>" target="_blank">ดูบิล</a> (<?php echo $row['po_cate']?>)</td>											
+											<td><a href="../images/bill/<?php echo $row['po_bill_img'];?>" target="_blank">รูปโอน</a> | <a href="../images/billpo/<?php echo $row['po_bill_pdf'];?>" target="_blank">บิล PDF</a>(<?php echo $row['po_cate']?>)</td>											
 										    <td><?php echo $row['po_emp'].' ('.$row['po_orders'].')'; ?></td>
 										</tr>
 									<?php } ?>

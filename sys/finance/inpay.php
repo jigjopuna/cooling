@@ -125,7 +125,7 @@
 													  
 													  if($row['bk_type']==1){$types = 'ออมทรัพย์'; }else{ $types = 'กระแส'; }
 												?>
-												<option value="<?php echo $row_bank['bk_id'];?>"><?php echo $row_bank['bk_name']. ' ('.$types. ')';?></option> 
+												<option value="<?php echo $row_bank['bk_id'];?>"><?php echo $row_bank['bk_name'];?></option> 
 												<?php } ?>
 											</select>
 										</div>

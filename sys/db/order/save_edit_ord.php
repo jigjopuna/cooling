@@ -10,8 +10,8 @@
 	$sql_cust = mysql_fetch_array(mysql_query("SELECT cust_token FROM tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id WHERE o.o_id = '$order_id'"));
 	$cust_token = $sql_cust['cust_token'];
 	
-	/*echo 'order_id: '.$order_id.'<br>';
-	echo 'cust_token: '.$cust_token.'<br>';*/
+	echo 'order_id: '.$order_id.'<br>';
+	echo 'cust_token: '.$cust_token.'<br>';
 	
 
 
@@ -25,7 +25,7 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');  
+	define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  
 	define('LINE_TOKEN1', $cust_token); 
 	function notify_message($message){
 		$queryData = array('message' => $message);

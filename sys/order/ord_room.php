@@ -39,9 +39,14 @@
 			var cusprod = $('#cusprod').val();
 			var ord_price = $('#ord_price').val();
 			var ord_type = $('#ord_type').val();
+			var ord_prov = $('#ord_prov').val();
+			
 			
 			if((search_custname=='') || (payinqty=='') || (paydate=='') || (date_delivery='')){
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
+				return false;
+			}else if(ord_prov < 1){
+				alert("เลือกจังหวัดหน้างานด้วยนะคะ"); 
 				return false;
 			}else if(cusprod==0){
 				alert("ใส่ประเภทสินค้าด้วยนะค่ะ"); 

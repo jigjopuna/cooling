@@ -267,7 +267,48 @@
 									  ?>
 										<tr class="gradeA"> 
 											<td><?php echo $row_inc['pay_id']; ?></td>
-											<td><?php echo $row_inc['cust_name']; ?></td>
+											<td><?php echo $row_inc['cust_nameif(file_exists($_FILES['ord_quotation']['tmp_name']) || is_uploaded_file($_FILES['myfile']['tmp_name'])) {
+		// Check if image file is a actual image or fake image
+		if(isset($_POST["submit"])) {
+			$check = getimagesize($_FILES["ord_quotation"]["tmp_name"]);
+				
+			if($check !== false) {
+				echo "File is an image - " . $check["mime"] . ".";
+				$uploadOk = 1;
+			} else {
+				echo "File is not an image.";
+				$uploadOk = 0;
+			}
+		}
+		
+		// Check if file already exists
+		if (file_exists($target_file)) { 
+			echo "Sorry, file already exists."; exit();
+			$uploadOk = 0;
+		}
+		// Check file size
+		if ($_FILES["ord_quotation"]["size"] > 5000000) { 
+			echo "Sorry, your file is too large."; exit();
+			$uploadOk = 0;
+		}
+		// Allow certain file formats
+		if($imageFileType != "pdf" && $imageFileType != "xlsx" && $imageFileType != "docx") {
+			echo "Sorry, only pdf, xlsx,  & docx files are allowed.";
+			$uploadOk = 0;
+		}
+		// Check if $uploadOk is set to 0 by an error
+		if ($uploadOk == 0) { 
+			echo "Sorry, your file was not uploaded."; exit();
+		// if everything is ok, try to upload file
+		} else {
+			if (move_uploaded_file($_FILES["ord_quotation"]["tmp_name"], $target_file)) {
+				//move_uploaded_file($_FILES["file"]["tmp_name"], "../img/imageDirectory/" . $newfilename);
+				echo "The file ". basename( $_FILES["ord_quotation"]["name"]). " has been uploaded."; 
+			} else {
+				echo "Sorry, there was an error uploading your file."; exit();
+			}
+		}
+	}//end check is has file']; ?></td>
 											<td><?php echo $row_inc['ort_name']; ?></td>
 											<td><?php echo number_format($row_inc['o_price'], 2, '.', ','); ?></td>
 											<td><?php echo number_format($row_inc['pay_amount'], 2, '.', ','); ?></td>

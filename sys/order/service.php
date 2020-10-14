@@ -24,16 +24,24 @@
 <script>
 	$(document).ready(function(){
 		$('.btn-success').click(validation);
+		//$('#date_pay, #date_delivery').datepicker({dateFormat: 'yy-mm-dd'});
+		$("#serv_prov").load("../../ajax/province_server.php");
 		$("#search_custname").autocomplete({
-				source: "../../ajax/search_cust.php",
+				source: "../../ajax/search_custservice.php",
 				minLength: 1
 		});
 		
 		function validation(){
 			var search_custname = $('#search_custname').val();
+			var serv_prov = $('#serv_prov').val();
+			
+			
 			
 			if(search_custname==''){
 				alert("ใส่ชื่อลูกค้าด้วยนะค่ะ"); 
+				return false;
+			}else if(serv_prov <= 1){
+				alert("เลือกจังหวัดด้วยนะค่ะ"); 
 				return false;
 			}else{
 				$('#form1').submit();				
@@ -77,7 +85,14 @@
 									</div>
 									
 									
-									
+									<div class="col-lg-3">
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">จังหวัดหน้างาน</label>
+											<select class="form-control" id="serv_prov" name="serv_prov">
+												<option value="1">เลือกจังหวัด</option> 
+											</select>
+										</div>
+									</div>
 																		
 									<div class="col-lg-3">
 										<div class="form-group has-success">
@@ -92,10 +107,6 @@
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกออเดอร์ใหม่</button>
 										</div>																
-									</div>
-									
-									<div class="col-lg-3">
-										
 									</div>
 									
 								</form>

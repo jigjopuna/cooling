@@ -22,7 +22,7 @@
 	$row_count_prod = mysql_fetch_array(mysql_query(("SELECT COUNT(o_id) countprod FROM tb_ord_prod WHERE o_id = '$o_id'")));
 	$sumprod = $row_sumcost['sumcost'];
 	//order pay
-	$sql_pay = "SELECT * FROM tb_ord_pay opy JOIN tb_orders ord on opy.o_id = ord.o_id WHERE opy.o_id = '$o_id' ORDER BY opy.pay_date";
+	$sql_pay = "SELECT opy.o_id, opy.pay_amount, opy.pay_bill, opy.pay_date FROM tb_ord_pay opy JOIN tb_orders ord on opy.o_id = ord.o_id WHERE opy.o_id = '$o_id' ORDER BY opy.pay_date";
 	$result_pay = mysql_query($sql_pay);
 	$num_pay= mysql_num_rows($result_pay);
 	
@@ -78,7 +78,7 @@
 <head>
 
 <?php require_once ('../include/header.php');?>
-<title>รายละเอียดออเดอร์ลูกค้า </title>
+<title>ออเดอร์ห้องเย็นรายละเอียด</title>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <style>
@@ -418,10 +418,10 @@
 							  </table>                           
                         </div>
                     <!-- /.panel -->
-                </div>
+					</div>
                 <!-- /.col-lg-12 -->
-            </div>
-        </div>
+				</div>
+			</div>
 		
 		<div class="row">
                 <div class="col-lg-12">

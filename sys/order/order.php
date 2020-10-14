@@ -78,7 +78,7 @@
 										  $row_all = mysql_fetch_array($result_all);
 									  ?>
 										<tr class="gradeA">
-											<td><a href="prepare.php?o_id=<?php echo $row_all['o_id'];?>"><?php echo $row_all['o_id']; ?></a></td>
+											<td><?php echo $row_all['o_id']; ?></td>
 											
 											
 											<?php if($row_all['o_prepare']==1) { ?>
@@ -106,7 +106,7 @@
 												<td><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
 											<?php }  ?>
 											
-											<td><?php echo $row_all['pro_name']; ?></td>
+											<td><a href="prepare.php?o_id=<?php echo $row_all['o_id'];?>"><?php echo $row_all['pro_name']; ?></a></td>
 											
 											<?php if($row_all['o_newold'] == 1) { ?>
 												<td><?php echo $row_all['o_width'].' x '.$row_all['o_size'].' x '.$row_all['o_high']; ?></td>

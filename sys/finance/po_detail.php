@@ -124,9 +124,9 @@
 			var poname = $('#poname').val();
 			var poqty = $('#poqty').val();
 			var poprice = $('#poprice').val();
-			var pobuyer = $('select[name=pobuyer]').val();
+			//var pobuyer = $('select[name=pobuyer]').val();
 			var podate = $('#podate').val(); 
-			if((poname=='') || (poqty=='') || (poprice=='') || (pobuyer=='') || (pobuyer<0) || (podate=='')){
+			if((poname=='') || (poqty=='') || (poprice=='')  || (podate=='')){
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
 			}else{
 				$('#form1').submit();				
@@ -262,8 +262,13 @@
 									
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">บิล/เอกสาร</label>
-											<input type="file" class="form-control require" id="pobill" name="pobill">
+											<label class="control-label" for="inputSuccess"> รูปโอนเงิน  (ไฟล์รูป) </label>
+											<input type="file" class="form-control require" id="pobill" name="pobill" value="<?php echo $row['po_bill_img']?>">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">บิลร้านค้า PDF (ไฟล์ PDF) </label>
+											<input type="file" class="form-control require" id="popdf" name="popdf" value="<?php echo $row['po_bill_pdf']?>">
 										</div>
 										
 										<div class="form-group has-success">
