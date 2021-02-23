@@ -113,6 +113,7 @@
 	
 	$comp_name = trim($_POST['comp_name']);
 	$coil_name = trim($_POST['coil_name']);
+	$installs = trim($_POST['instype']);
 	
 	
 	$labor = $labors;
@@ -126,6 +127,10 @@
 	$sale_lname = $sales['e_lname'];
 	$sale_tel = $sales['e_tel'];
 	$sale_email = $sales['e_email'];
+	
+
+	if($installs==1){ $instype = "สำเร็จรูป แบบเคลื่อยนย้ายได้"; } else { $instype = "ประกอบเร็ว ติดตั้งหน้างาน"; }
+	
 	
 	
 	
@@ -188,7 +193,8 @@
 		$copeland=38;
 		$fancon = 2;
 	}else if($hp==6){
-		$fancon = 2;
+		if($comp_name == 4 ){ $fancon = 1; } else { $fancon = 2; } 
+		
 	}else if($hp==7){
 		$copeland=48;
 		$fancon = 2;
@@ -259,6 +265,7 @@
 			if($comp_name == $compr[$i][id]){   
 				$compressor_name =  $compr[$i][name].' ขนาด '.$hp.' HP แบรนด์ '.$compr[$i][country];
 				$compfull_name =  $compr[$i][name].' ขนาด '.$hp.'HP ประเภท '.$compr[$i][type].' แบรนด์ '.$compr[$i][country];
+				$nick_name =  $compr[$i][name].' ขนาด '.$hp.'HP  '.' แบรนด์ '.$compr[$i][country];
 				$com_img = $compr[$i][img];
 			}
 		}
@@ -572,7 +579,7 @@
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">ห้องเย็นประกอบเร็ว ติดตั้งหน้างาน ปริมาณแผ่นฉนวน (<?php echo $cute; ?>) ตารางเมตร</td>
+						<td style="width: 60%" align="left">ห้องเย็น <?php echo $instype; ?> ปริมาณแผ่นฉนวน (<?php echo $cute; ?>) ตารางเมตร</td>
 						<td style="width: 40%" class="b l" align="center" colspan="4"><strong>ขนาดห้องเย็น (กว้าง x ยาว x สูง) เมตร</strong></td>
 						<!--<td colspan="2" style="width: 13%;" class="rlb">กว้าง  (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว   (เมตร)</td>
@@ -610,14 +617,14 @@
 					<tr class="highs" style="">
 						<td class="l">1. ชุด Condensing 
 							<strong><u>
-							<?php echo $compressor_name;?>
+							<?php echo $nick_name;?>
 							</u></strong>
 							  
 							
 						</td>
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 						<td class="l" align="right"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
-						<td class="l" align="right"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
+						<td class="l" align="right" id="pricefullpay"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -628,7 +635,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ผนังห้องเย็น โฟม <span style="font-weight:bold; text-decoration:underline; font-size:18px; color:red;"> <?php echo $foams." ".$foaminch; ?> นิ้ว</span> <span style="font-size: 12px;">ensity 38-40 kg/m3 เหล็ก BHP 0.45 เมตร</span> </td>
+						<td class="l">3. ผนังห้องเย็น โฟม <span style="font-weight:bold; text-decoration:underline; font-size:18px; color:red;"> <?php echo $foams." ".$foaminch; ?> นิ้ว</span> <span style="font-size: 12px;">density 38-40 kg/m3 เหล็ก BHP 0.45 เมตร</span> </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
@@ -773,9 +780,9 @@
 							
 					?>
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารทหารไทย TMB (ออมทรัพย์)</td>
+							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
 							<tr>
-								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 635-2-31556-5</span></td>
+								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 047-8-18623-1</span></td>
 							</tr>
 						</tr>
 					<?php } else { ?>
@@ -803,14 +810,14 @@
 							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
 						</tr>
 						
-						<tr>
-							<td align="left" style="color:red; font-size:17px; font-weight:bold;">  ชำระเต็มจำนวนงวดแรก ฟรีค่าขนส่ง
+						<tr class="fullpay" style="display:none;">
+							<td align="left"  style="color:red; font-size:17px; font-weight:bold;">  ชำระเต็มจำนวนงวดแรก ฟรีค่าขนส่งและติดตั้ง
 							</td>
 						</tr>
 
-						<tr>
+						<tr class="fullpay" style="display:none;">
 							<td align="left" style="color:red; font-size:17px; font-weight:bold;"> 
-								ชำระเพียง 213,000 บาท เท่านั้น
+								ชำระเพียง <span id="fullpricepay"></span> บาท เท่านั้น
 							</td>
 						</tr>
 						
@@ -1103,7 +1110,11 @@
 			?>
 			
 			<div id="product_price" style="margin-top:200x; clear:both">
-				<img src="../content/images/cool/speed300.jpg" style="width:60%; margin-left:150px;">
+				<?php if($installs==1) { ?>
+					<img src="../content/images/cool/standard.jpg" style="width:60%; margin-left:150px;">
+				<?php } else { ?>
+					<img src="../content/images/cool/speed300.jpg" style="width:60%; margin-left:150px;">
+				<?php }  ?>
 
 			</div><!--end product_price-->
 			
@@ -1141,7 +1152,7 @@
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
-				<div style="float: right;">หน้า 4</div>
+				<div style="float: right;"><!--หน้า 4--></div>
 			</div>
 			
 			<div style="width: 100%; clear:both; height: 40px;">
@@ -1206,7 +1217,7 @@
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
-				<div style="float: right;">หน้า 5</div>
+				<div style="float: right;"><!--หน้า 5--></div>
 			</div>
 			
 			<div style="width: 100%; clear:both; height: 40px;">
@@ -1277,7 +1288,7 @@
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
-				<div style="float: right;">หน้า 6</div>
+				<div style="float: right;"><!--หน้า 6--> </div>
 			</div>
 			
 			<div style="width: 100%; clear:both; height: 40px;">
@@ -1353,7 +1364,7 @@
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
-				<div style="float: right;">หน้า 7</div>
+				<div style="float: right;"> <!--หน้า 7--></div>
 			</div>
 			
 			<div style="width: 100%; clear:both; height: 40px;">

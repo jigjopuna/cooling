@@ -173,7 +173,7 @@
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
 									<a href="../product-detail.php?prod_type=<?php echo $producttype;?>&p_id=<? echo $row['t_id'];?>">
-										<img src="../images/product/room/<?php echo $row['t_img'];?>/00.jpg" alt="<?php echo $prod_name1;?>">
+										<img src="../images/product/<?php echo $row['t_img'];?>/00.jpg" alt="<?php echo $prod_name1;?>">
 									</a>
 									
 								</div>

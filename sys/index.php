@@ -7,14 +7,7 @@
 	$sql = "SELECT * FROM tb_category ORDER BY cat_name";
 	$result = mysql_query($sql);
 	$num = mysql_num_rows($result);
-	
-	
-	
-	//Product Summary
-	$sql_all = "SELECT c.cat_id, c.cat_name, count(*) cnteachcate FROM tb_product p JOIN tb_category c ON p.p_cate = c.cat_id GROUP BY p_cate ORDER BY cnteachcate DESC";
-	$result_all = mysql_query($sql_all);
-	$num_all = mysql_num_rows($result_all);	
-	
+
 	include('include/sql_report1.php');
  
 ?>
@@ -232,7 +225,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							ข้อมูลอุปกรณ์ทั้งหมด
+							ข้อมูล
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -240,23 +233,45 @@
 								<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-										<th>#</th>
-										<th>ประเภทอุปกรณ์</th>
-                                        <th>จำนวน</th>	
+										
+										<th>รายการ</th>	
                                     
                                     </tr>
                                 </thead>
                                 <tbody>			
-									<?php 
-										for($i=1; $i<=$num_all; $i++){
-											$row_all = mysql_fetch_array($result_all);
-									?>
-										<tr class="odd gradeX">
-											<td><?php echo $i;?></td>
-											<td><a href="product/<?php echo $row_all['cat_id'];?>.php?cate_id=<?php echo $row_all['cat_id'];?>"><?php echo $row_all['cat_name'];?></a></td>
-											<td><?php echo $row_all['cnteachcate'];?></td>
-										</tr>
-										<?php } ?>
+									
+									<tr class="odd gradeX">
+										<td><a href="db/finance/payin_chk.php" target="_blank">ปิดงานแล้ว แต่ยังไม่ลงสลิปเงินเข้า</a></td>
+									</tr>
+									
+									<tr class="odd gradeX">
+										<td><a href="db/order/order_berkitem.php" target="_blank">ปิดงานแล้ว แต่ยังไม่ลงเบิกของ</a></td>
+									</tr>
+									
+									<tr class="odd gradeX">
+										<td><a href="report/money.php" target="_blank">เครดิตที่ต้องจ่ายใน 30 วันนี้ Notify</a></td>
+									</tr>
+									
+									<tr class="odd gradeX">
+										<td><a href="report/print/credit_remind.php" target="_blank">เครดิตที่ต้องจ่ายใน 30 วันน WEB</a></td>
+									</tr>
+									
+									<tr class="odd gradeX">
+										<td><a href="report/print/credit_remi_over_due.php" target="_blank">เครดิตที่เลยกำหนดแล้ว</a></td>
+									</tr>
+									
+									<tr class="odd gradeX">
+										<td><a href="report/print/conclution.php" target="_blank">สรุปการเงิน</a></td>
+									</tr>
+									
+									<tr class="odd gradeX">
+										<td><a href="report/print/shop_sell.php" target="_blank">สรุปยอดซื้อประจำปี</a></td>
+									</tr>
+									
+									<tr class="odd gradeX">
+										<td><a href="report/food/food.php" target="_blank">อาหาร</a></td>
+									</tr>
+										
                                 </tbody>
 								</table>
 						 

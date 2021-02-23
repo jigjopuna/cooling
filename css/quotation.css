@@ -50,7 +50,7 @@ body {
 		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
 		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; } 
 	
-	.header_report {  margin: auto; width: 30%; /*border: 3px solid #73AD21;*/ padding-left: 20px; font-size: 26px; font-size:bold; font-family: 'Kanit', sans-serif;  }
+	.header_report {  margin: auto; width: 40%; /*border: 3px solid #73AD21;*/ padding-left: 20px; font-size: 26px; font-size:bold; font-family: 'Kanit', sans-serif;  }
 	.header_date { font-size: 20px; }
 	#report_detail table tr{ font-size: 12px; height: 8px; }
     
@@ -71,7 +71,7 @@ body {
             page-break-after: always;
 			
         }
-		#btn-calngod, #btn-compare, #btn-addroom { display: none !important; }
+		#btn-calngod, #btn-compare, #btn-addroom, #btn-free { display: none !important; }
 	}
 
 

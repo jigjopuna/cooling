@@ -1,9 +1,13 @@
 <?php session_start();
 	  require_once('../include/connect.php');
 	  
-	  $sql = "SELECT * FROM tb_machine_set WHERE set_type = 3";
+	  $sql = "SELECT * FROM tb_machine_set WHERE set_type = 3 ORDER BY set_id DESC";
 	  $result = mysql_query($sql );
 	  $num = mysql_num_rows($result);
+	  
+	  $sql_sale = "SELECT e.e_id, e.e_name, e.e_tel FROM tb_emp e JOIN tb_role r  ON e.e_id = r.ro_emp_id WHERE r.ro_quotation != 0 AND e_publish = 1"; 
+	  $result_sale = mysql_query($sql_sale); 
+	  $num_sale = mysql_num_rows($result_sale);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,32 +84,32 @@
 									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ลูกค้า </label>
-											<input type="text" class="form-control" id="search_custname" name="search_custname">
+											<input type="text" class="form-control" id="search_custname" name="search_custname" value="6">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">กว้าง</label>
-											<input type="text" class="form-control" id="r_width" name="r_width" value="2.4">
+											<input type="text" class="form-control" id="r_width" name="r_width" value="4.00">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ยาว</label>
-											<input type="text" class="form-control" id="r_lenght" name="r_lenght" value="4.0">
+											<input type="text" class="form-control" id="r_lenght" name="r_lenght" value="6.00">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">สูง</label>
-											<input type="text" class="form-control" id="r_high" name="r_high" value="2.4">
+											<input type="text" class="form-control" id="r_high" name="r_high" value="4.00">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">สินค้า (เช่น หมู ปลา ทุเรียน)</label> 
-											<input type="text" class="form-control" id="prods" name="prods"> 
+											<input type="text" class="form-control" id="prods" name="prods" value="อาหาร"> 
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ปริมาณสินค้าเข้าต่อรอบ (kg)</label>
-											<input type="text" class="form-control" id="qtyperday" name="qtyperday" value="500">
+											<input type="text" class="form-control" id="qtyperday" name="qtyperday" value="1000">
 										</div>
 									</div>
 									
@@ -116,7 +120,7 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">โฟม</label>
 											<select class="form-control" id="foam" name="foam">
-												<option value="1">PU</option>
+												<option value="1" selected>PU</option>
 												<option value="2">PS</option>
 											</select>
 										</div>
@@ -125,9 +129,10 @@
 											<label class="control-label" for="inputSuccess">โฟมกี่นิ้ว</label>
 											<select class="form-control" id="foaminch" name="foaminch">
 												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option>
+												<option value="6" selected >6</option>
 												<option value="8">8</option>
+												<option value="10">10</option>
+												<option value="12">12</option>
 											</select>
 										</div>
 										
@@ -154,6 +159,12 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">อุณหภูมิ <strong><u>ก่อนเข้า</u></strong> ห้องเย็น (องศา)</label>
 											<input type="text" class="form-control" id="tempbefore" name="tempbefore" value="20">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">หัวบิลบริษัท</label><br>
+											<input type="radio" value="1" name="corp" checked> CPN
+											<input type="radio" value="2" name="corp" style="margin-left:50px;" >  TCL
 										</div>
 										
 									</div>
@@ -191,17 +202,33 @@
 											<input type="text" class="form-control" id="percent" name="percent" value="40">
 										</div>
 										
+										
+										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">โชว์  VAT (จริงๆ รวมไปแล้ว)</label>
-											<input type="checkbox" class="form-control" id="intvat" name="intvat">
+											<label class="control-label" for="inputSuccess">พนักงานขาย</label>
+											<select class="form-control" id="sale_id" name="sale_id">
+												<?php for($i=1; $i<=$num_sale; $i++) { 
+													$row_sale = mysql_fetch_array($result_sale);
+												?>
+													<option value="<?php echo $row_sale['e_id']?>" <?php if($e_id==$row_sale['e_id']){ ?> selected <?php } ?> >
+														<?php echo $row_sale['e_name']?>
+													</option>
+											
+												<?php } ?>
+											</select>
 										</div>
 									</div>
+									
+									<!--<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">โชว์  VAT (จริงๆ รวมไปแล้ว)</label>
+											<input type="checkbox" class="form-control" id="intvat" name="intvat">
+									</div>-->
 									
 									
 									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ประตูกว้าง เมตร</label>
-											<input type="text" class="form-control" id="d_width" name="d_width" value="1.0">
+											<input type="text" class="form-control" id="d_width" name="d_width" value="1.5">
 										</div>
 										
 										<div class="form-group has-success">
@@ -213,7 +240,7 @@
 											<label class="control-label" for="inputSuccess">พื้น</label>
 											<select class="form-control" id="floor1" name="floor1">
 												<option value="1">อลูมิเนียมลายกันลื่น</option>
-												<option value="2">ปูน</option>
+												<option value="2" selected>ปูน</option>
 											</select>
 										</div>
 										

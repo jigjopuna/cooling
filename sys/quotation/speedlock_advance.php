@@ -110,39 +110,45 @@
 									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ลูกค้า </label>
-											<input type="text" class="form-control" id="search_custname" name="search_custname">
+											<input type="text" class="form-control" id="search_custname" name="search_custname" value="6">
 										</div>
 										
 									
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">กว้าง</label>
-											<input type="text" class="form-control" id="r_width" name="r_width" value="2.4">
+											<input type="text" class="form-control" id="r_width" name="r_width" value="2.40">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ยาว</label>
-											<input type="text" class="form-control" id="r_lenght" name="r_lenght" value="3.0">
+											<input type="text" class="form-control" id="r_lenght" name="r_lenght" value="3.00">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">สูง</label>
-											<input type="text" class="form-control" id="r_high" name="r_high" value="2.4">
+											<input type="text" class="form-control" id="r_high" name="r_high" value="2.40">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">สินค้า (เช่น หมู ปลา ทุเรียน)</label> 
-											<input type="text" class="form-control" id="prods" name="prods" value="" placeholder="หมู"> 
+											<input type="text" class="form-control" id="prods" name="prods" value="อาหาร" placeholder="หมู"> 
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ปริมาณสินค้าเข้าต่อวัน (kg)</label>
-											<input type="text" class="form-control" id="qtyperday" name="qtyperday" >
+											<input type="text" class="form-control" id="qtyperday" name="qtyperday" value="500">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">อุณหภูมิ <strong><u>ก่อนเข้า</u></strong> ห้องเย็น (องศา)</label>
-											<input type="text" class="form-control" id="tempbefore" name="tempbefore" >
+											<input type="text" class="form-control" id="tempbefore" name="tempbefore" value="5">
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ประเภทห้อง</label><br>
+											<input type="radio" value="1" name="instype" > สำเร็จรูป
+											<input type="radio" value="2" name="instype" style="margin-left:50px;" checked>  ติดตั้งหน้างาน
 										</div>
 										
 									</div>
@@ -154,15 +160,15 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">โฟม</label>
 											<select class="form-control" id="foam" name="foam">
-												<option value="1">PU</option>
-												<option value="2">PS</option>
+												<option value="1" >PU</option>
+												<option value="2" selected >PS</option>
 											</select>
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">โฟมกี่นิ้ว</label>
 											<select class="form-control" id="foaminch" name="foaminch">
-												<option value="4">4</option>
+												<option value="4" selected>4</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
 												<option value="5">5</option>
@@ -184,7 +190,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">เลือกขนาดแรงม้า HP</label>
-											<input type="text" class="form-control" id="hp" name="hp" placeholder="3">
+											<input type="text" class="form-control" id="hp" name="hp" value="3" placeholder="3">
 										</div>
 										
 										<div class="form-group has-success">
@@ -220,8 +226,8 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">หัวบิลบริษัท</label><br>
-											<input type="radio" value="1" name="corp" checked> CPN
-											<input type="radio" value="2" name="corp" style="margin-left:50px;">  TCL
+											<input type="radio" value="1" name="corp" checked > CPN
+											<input type="radio" value="2" name="corp" style="margin-left:50px;" >  TCL
 										</div>
 
 									</div>

@@ -102,6 +102,15 @@
 	$install = trim($_POST['install']);
 	$install_price = trim($_POST['install_price']);
 	
+	$corp = trim($_POST['corp']);
+	$sale_id = trim($_POST['sale_id']);
+	
+	$sales = mysql_fetch_array(mysql_query("SELECT e.e_id, e.e_name, e.e_lname, e.e_tel, e.e_email FROM tb_emp e WHERE e_id = '$sale_id'"));
+	$sale_name = $sales['e_name'];
+	$sale_lname = $sales['e_lname'];
+	$sale_tel = $sales['e_tel'];
+	$sale_email = $sales['e_email'];
+	
 	//SELECT t_name, t_cost, t_model, t_hp, t_subcate FROM tb_tools WHERE t_type = 11 AND t_subtype = 1 AND t_cate = 4 AND t_subcate = 0  
 
 	
@@ -179,18 +188,21 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php 
+					if($corp == 2)
+						include ('../include/tcl_addr.php');
+					else 
+						include ('../include/cpn_addr.php');	
+				?>
 			</div><!--end cover_header-->
 			
-			
-			<?php include('../include/quotation_head.php'); ?>
+			<?php
+					if($corp == 2)
+						include ('../include/quotation_head.php');
+					else 
+						include ('../include/quotation_head_cpn.php');
+			?>
 			
 			<div style="width:100%; float:none; overflow:hidden;"></div>
 			<div id="product_price" style="margin-top:10px; clear:both; ">
@@ -414,13 +426,28 @@
 								<td align="left"><span class="cal_ngo3"><?php echo number_format($ngod3, 2, '.', ',');?></span> บาท</td>
 							</tr>
 						<?php } ?>
+						
+						
+						<?php
+						if($corp == 2) { 
+							
+					?>
 						<tr>
-							<td align="left">บัญชีธนาคารไทยพานิชย์ (ออมทรัพย์)</td>
-							<td align="left"></td>
+							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
 							<tr>
-								<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 830-242349-9</span></td>
+								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 047-8-18623-1</span></td>
 							</tr>
 						</tr>
+					<?php } else { ?>
+						
+						<tr>
+							<td colspan="2" align="left">บัญชีธนาคารกรุงเทพ(สะสมทรัพย์)</td>
+							<tr>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 520-0-45057-4</span></td>
+							</tr>
+						</tr>
+						
+					<?php }  ?>
 					</table>
 					
 				</div><br>
@@ -473,14 +500,12 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php 
+					if($corp == 2)
+						include ('../include/tcl_addr.php');
+					else 
+						include ('../include/cpn_addr.php');
+				?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
@@ -545,14 +570,12 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php 
+					if($corp == 2)
+						include ('../include/tcl_addr.php');
+					else 
+						include ('../include/cpn_addr.php');
+				?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
@@ -619,14 +642,12 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php 
+					if($corp == 2)
+						include ('../include/tcl_addr.php');
+					else 
+						include ('../include/cpn_addr.php');
+				?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">

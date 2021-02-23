@@ -61,7 +61,7 @@
                         <div class="panel-body">
 							<div class="row">
 								<form action="../../admin/receive_paper.php" method="post" name="form1" id="form1" enctype="multipart/form-data">
-									<div class="col-lg-4">
+									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ลูกค้า </label>
 											<input type="text" class="form-control" id="search_custname" name="search_custname">
@@ -70,7 +70,7 @@
 										
 									</div>
 																		
-									<div class="col-lg-4">
+									<div class="col-lg-3">
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">วันที่</label>
@@ -79,15 +79,22 @@
 										
 									</div>
 									
-									<div class="col-lg-4">
-										<!--<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">หัวบิล </label>
-											<select class="form-control" id="corp_addr" name="corp_addr">
-												<option value="0">เลือกหัวบริษัท</option>
-												<option value="1">Top Cooling</option>
-												<option value="2">PT WALL</option>
-											</select>
-										</div>-->
+									<div class="col-lg-3">
+										<label class="control-label" for="inputSuccess">หัวบิล</label>
+										<div class="form-group has-success">
+											<input type="radio" value="1" name="copetype" checked> CPN
+											<input style="margin-left: 10px;" type="radio" value="2" name="copetype"> TCL
+											<input style="margin-left: 10px;" type="radio" value="3" name="copetype"> TCL888
+										</div>
+										
+										<label class="control-label" for="inputSuccess"></label>
+										<div class="form-group has-success">
+											<input style="" type="radio" value="4" name="copetype"> พระลักษณ์ไทย
+										</div>
+										
+									</div>
+									
+									<div class="col-lg-3">
 										<input type="hidden" name="corp_addr" value="1">
 										<div class="form-group has-success">
 											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">พิมพ์</button>

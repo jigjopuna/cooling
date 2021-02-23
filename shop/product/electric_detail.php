@@ -16,6 +16,24 @@
 		  $sql_more = "SELECT * FROM tb_product WHERE p_cate = '$cate' AND p_publish = 1 AND p_name != '' ORDER BY RAND() LIMIT 0 , 20";
 	  }
 	  
+	  //ถ้าลูกค้ากด ALL ให้ query ทั้งตาราง
+	  if($cate == 0){
+		$sql = "SELECT * FROM tb_product WHERE p_publish = 1";	  
+	  }else{
+		  
+		  //ดูว่ามี subcate ไหม subcate หมายถึง cate คือประตู subcate ส่วนย่อยของประตู
+		  if($cate != '' && $subcate != ''){
+			  //$sql = "SELECT * FROM tb_productroom WHERE pr_cate = '$cate' AND pr_subcate = '$subcate' AND pr_publish = 1";
+				$sql = "SELECT * FROM tb_tools WHERE t_type = 2 AND t_cate = '$cate' AND t_subcate = '$subcate'";
+			  
+		  }else{ //ถ้าไม่มี subcate ก็ให้เลือก cate อย่างเดียว เพราะเด่ว subcate เป็น 0 หรือ ค่าว่างเด่วจะมีปัญหา
+			  //$sql = "SELECT * FROM tb_productroom WHERE pr_cate = '$cate' AND pr_publish = 1";	 
+				$sql = "SELECT * FROM tb_tools WHERE t_type = 2 AND t_cate = '$cate'";
+		  }
+	  }
+	  // query สินค้าอื่นๆ ที่เกียวกับห้องที่เกี่ยวข้องที่ไม่ใช่ cate ที่เลือก  
+	  $sql_more = "SELECT * FROM tb_tools WHERE t_type = 2 AND t_cate != '$cate' ORDER BY RAND() LIMIT 0 , 20";
+	  
 	  
 	 
 	  $result = mysql_query($sql);

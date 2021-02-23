@@ -109,6 +109,12 @@
 											<input type="text" class="form-control" id="ord_temp" name="ord_temp" value="-18">
 										</div>
 										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">หัวบิลบริษัท</label><br>
+											<input type="radio" value="1" name="corp" checked > CPN
+											<input type="radio" value="2" name="corp" style="margin-left:50px;" >  TCL
+										</div>
+										
 									</div>
 									
 									

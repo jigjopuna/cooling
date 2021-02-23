@@ -27,6 +27,9 @@
 	if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ');window.location = '../../sys/pages/login/login.php';</script>");}
 	
 	$ord_id = trim($_POST['search_custname']);
+	$ord_id = trim($_POST['search_custname']);
+	
+	$corp = trim($_POST['copetype']);
 	
 	$sql_chkvat = "SELECT vat_ord FROM tb_tax WHERE vat_ord_type = 1 AND vat_ord_no = '$ord_id'";
 	$result_chkvat = mysql_query($sql_chkvat);
@@ -125,11 +128,15 @@
         <div class="subpage">
 			<div id="corp_addr_ini">
 				<?php 
-					if($corp_addr == 1){
-						require_once('../include/tcl_addr.php');
-					}else{
-						require_once('../include/ptwall_addr.php');
-					}					
+					if($corp == 1){
+						include ('../include/cpn_addr.php'); 
+					}else if ($corp == 2) {
+						include ('../include/tcl_addr.php');
+					}else if ($corp == 3){
+						include ('../include/tcl_888addr.php');
+					}else {
+						include ('../include/plt_addr.php');
+					}
 				?>
 			</div><!--end cover_header-->
 				
@@ -174,11 +181,38 @@
 				<div id="pricetext" style="float:left; width:65%; /*background-color:brown;*/">
 			
 					<p><?=ThaiBahtConversion($price-$discount); ?></p><br>
+					
+					<?php if($corp == 1){  ?>
+					
+					
 					<p style="line-height:150%;">
 						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
 						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
-						* ทหารไทย TMB ท็อปคูลลิ่ง  เลขที่บัญชี 635-2-31556-5  (ออมทรัพย์)  <br>
+						* ธ.กรุงเทพ  บจก.ซีพีเอ็น888 เลขที่บัญชี 520-0-45057-4 (สะสมทรัพย์)  
 					</p>
+					
+					<?php } else if ($corp == 2) { ?>
+					
+					<p style="line-height:150%;">
+						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
+						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
+						* ธ.กสิกรไทย ท็อปคูลลิ่ง  เลขที่บัญชี 047-8-18623-1  (ออมทรัพย์)  
+					</p>
+					
+					<?php } else if ($corp == 3) { ?>
+						<p style="line-height:150%;">
+						
+					</p>
+					<? } else { ?>
+						<p style="line-height:150%;">
+						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
+						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
+						* ธ.กสิกรไทย บจก.พระลักษณ์ไทย เลขที่บัญชี 085-3-28289-8 (ออมทรัพย์)  
+					</p>
+					<? }  ?>
+					
+					
+				
 				
 				</div>
 				
@@ -199,8 +233,8 @@
 							<td> </td>
 						</tr>
 						<tr>
-							<td>ภาษีมูลค่าเพิ่ม </td>
-							<td align="right"><?php if($vattype==1)  echo number_format($vatprice*0.07, 2, '.', ','); else echo 0;?></td>
+							<td><?php if($vattype==1)  echo 'ภาษีมูลค่าเพิ่ม'; ?>  </td>
+							<td align="right"><?php if($vattype==1)  echo number_format($vatprice*0.07, 2, '.', ','); else echo '';?></td>
 						</tr>
 						<tr>
 							<td>รวมทั้งสิ้น </td>
@@ -219,8 +253,8 @@
 				
 				<div id="custname">
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'นายชูเกียรติ  เทียนอำไพ'; }else{ echo 'ไพฑูรย์ เกตุแก้ว';}	?>&nbsp;&nbsp;)</div>		
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;นายภูริชญ์ โชคอุตสาหะ &nbsp;&nbsp;)</div>
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'นายภูริชญ์ โชคอุตสาหะ'; }else{ echo 'นายภูริชญ์ โชคอุตสาหะ';}	?>&nbsp;&nbsp;)</div>		
 				</div>
 			</div>
 			
@@ -276,11 +310,34 @@
 				<div id="pricetext" style="float:left; width:65%; /*background-color:brown;*/">
 			
 					<p><?=ThaiBahtConversion($ngod2); ?></p><br>
+					<?php if($corp == 1){  ?>
+					
+					
 					<p style="line-height:150%;">
 						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
 						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
-						* ทหารไทย TMB ท็อปคูลลิ่ง  เลขที่บัญชี 635-2-31556-5  (ออมทรัพย์)  
+						* ธ.กรุงเทพ  บจก.ซีพีเอ็น888 เลขที่บัญชี 520-0-45057-4 (สะสมทรัพย์)  
 					</p>
+					
+					<?php } else if ($corp == 2) { ?>
+					
+					<p style="line-height:150%;">
+						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
+						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
+						* ธ.กสิกรไทย ท็อปคูลลิ่ง  เลขที่บัญชี 047-8-18623-1  (ออมทรัพย์)  
+					</p>
+					
+					<?php } else if ($corp == 3) { ?>
+						<p style="line-height:150%;">
+						
+					</p>
+					<? } else { ?>
+						<p style="line-height:150%;">
+						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
+						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
+						* ธ.กสิกรไทย บจก.พระลักษณ์ไทย เลขที่บัญชี 085-3-28289-8 (ออมทรัพย์)  
+					</p>
+					<? }  ?>
 				
 				</div>
 				
@@ -301,8 +358,8 @@
 							<td> </td>
 						</tr>
 						<tr>
-							<td>ภาษีมูลค่าเพิ่ม </td>
-							<td align="right"><?php if($vattype==1)  echo number_format($vatprice*0.07, 2, '.', ','); else echo 0;?></td>
+							<td><?php if($vattype==1)  echo 'ภาษีมูลค่าเพิ่ม'; ?>  </td>
+							<td align="right"><?php if($vattype==1)  echo number_format($vatprice*0.07, 2, '.', ','); else echo '';?></td>
 						</tr>
 						<tr>
 							<td>รวมทั้งสิ้น </td>
@@ -321,11 +378,8 @@
 				
 				<div id="custname">
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'นายชูเกียรติ  เทียนอำไพ'; }else{ echo 'ไพฑูรย์ เกตุแก้ว';}	?>&nbsp;&nbsp;)</div>
-					
-					
-					
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;นายภูริชญ์ โชคอุตสาหะ &nbsp;&nbsp;)</div>
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'นายภูริชญ์ โชคอุตสาหะ'; }else{ echo 'นายภูริชญ์ โชคอุตสาหะ';}	?>&nbsp;&nbsp;)</div>		
 				</div>
 			</div>
 			
@@ -378,12 +432,25 @@
 				<div id="pricetext" style="float:left; width:65%; /*background-color:brown;*/">
 			
 					<p><?=ThaiBahtConversion($ngod3); ?></p><br>
+					<?php 
+						if($corp == 2){
+						
+					?>
 					<p style="line-height:150%;">
 						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
 						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
-						* ทหารไทย TMB ท็อปคูลลิ่ง  เลขที่บัญชี 635-2-31556-5  (ออมทรัพย์)  
-						<br>
+						* ธ.กสิกรไทย ท็อปคูลลิ่ง  เลขที่บัญชี 047-8-18623-1  (ออมทรัพย์)  
 					</p>
+					
+					<?php } else { ?>
+					
+					<p style="line-height:150%;">
+						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
+						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
+						* ธ.กรุงเทพ  บจก.ซีพีเอ็น888 เลขที่บัญชี 520-0-45057-4 (สะสมทรัพย์)  
+					</p>
+					
+					<?php } ?>
 				
 				</div>
 				
@@ -404,8 +471,8 @@
 							<td> </td>
 						</tr>
 						<tr>
-							<td>ภาษีมูลค่าเพิ่ม </td>
-							<td align="right"><?php if($vattype==1)  echo number_format($vatprice*0.07, 2, '.', ','); else echo 0;?></td>
+							<td><?php if($vattype==1)  echo 'ภาษีมูลค่าเพิ่ม'; ?>  </td>
+							<td align="right"><?php if($vattype==1)  echo number_format($vatprice*0.07, 2, '.', ','); else echo '';?></td>
 						</tr>
 						<tr>
 							<td>รวมทั้งสิ้น </td>
@@ -424,8 +491,8 @@
 				
 				<div id="custname">
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'นายชูเกียรติ  เทียนอำไพ'; }else{ echo 'ไพฑูรย์ เกตุแก้ว';}	?>&nbsp;&nbsp;)</div>
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;นายภูริชญ์ โชคอุตสาหะ &nbsp;&nbsp;)</div>
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'นายภูริชญ์ โชคอุตสาหะ'; }else{ echo 'นายภูริชญ์ โชคอุตสาหะ';}	?>&nbsp;&nbsp;)</div>		
 				</div>
 			</div>
 			
