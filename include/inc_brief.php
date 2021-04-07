@@ -68,7 +68,7 @@
 					
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; ช่องประตูบาน <?php echo $doortypes; ?> ขนาด <?php echo $d_width.' x '.$d_high?> เมตร กว้าง สูง <strong><u></u></strong> </td>
+						<td class="l">&nbsp;&nbsp;&nbsp; ช่องประตูบาน <?php echo $doortypes; ?> ขนาด <?php echo $d_width.' x '.$d_high?> เมตร กว้าง สูง <strong><u>บานใหม่</u></strong> </td>
 						<td colspan="2" class="l" align="center"> </td>
 						<td class="l" align="right"> </td>
 						<td class="l" align="right"> </td>
@@ -115,11 +115,12 @@
 					
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; ช่องประตูบานสวิงขนาด 0.75 x 1.80  เมตร กว้าง สูง <strong><u>มือสอง</u></strong> </td>
+						<td class="l">&nbsp;&nbsp;&nbsp; ช่องประตูบาน <?php echo $doortypes; ?> ขนาด <?php echo $d_width.' x '.$d_high?> เมตร กว้าง สูง <strong><u>บานใหม่</u></strong> </td>
 						<td colspan="2" class="l" align="center"> </td>
 						<td class="l" align="right"> </td>
 						<td class="l" align="right"> </td>
 					</tr>
+					
 					
 					<tr class="highs" style=""> 
 						<td class="l">&nbsp;&nbsp;&nbsp; ผนังโฟมฉนวนชนิด <span style="color:red; font-weight:bold; text-decoration: underline;"><?php echo $foams." ".$foaminch; ?> นิ้ว </span> รองรับอุณหภูมิ  <?php echo $ord_temp;?>C<sup>o</sup> <strong><u>ชุดใหม่</u></strong> </td>

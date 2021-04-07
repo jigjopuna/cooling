@@ -690,6 +690,378 @@
     </div>
 	
 	
+	<div class="page">
+        <div class="subpage">
+
+            <div id="cover_header">
+				<?php 
+					if($corp == 2)
+						include ('../include/tcl_addr.php');
+					else 
+						include ('../include/cpn_addr.php');
+				?>
+			</div><!--end cover_header-->
+			
+			<div style="width: 100%; clear:both; height: 10px;">
+				<div style="float: right;"></div>
+			</div>
+			
+			<div style="width: 100%; clear:both; height: 40px;">
+				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายการอุปกรณ์ติดตั้งเพิ่มเติม</span></p>
+			</div>
+			
+			
+			<div id="product_price" style="margin-top:10px; clear:both; ">
+				<table style="width:100%; border: 1px solid black; font-size:14px;">
+						<tbody><tr>
+							<td colspan="3" align="center" class="suptopic">รายการ อุปกรณ์ติดตั้งเครื่อง</td>
+						</tr>
+						
+						
+						
+						<tr class="column-text">
+							<td># </td>
+							<td align="center">รายการ</td>
+							<td>จำนวน (หน่วย ชิ้น)</td>
+						</tr>
+						<tr>
+							<td colspan="3" align="center"><hr></td>
+						
+						</tr> 
+						
+						<tr>
+							<td colspan="3" align="left" style="font-weight:bold; font-family: Kanit, sans-serif">อุปกรณ์ติดตั้งเครื่อง</td>
+
+						</tr>
+
+
+						<tr>
+								<td style="font-size:12px;">1 </td>
+								<td>ข้อต่อทองแดง 3 ทาง 4 หุน 1/2</td>
+								<td>3 ตัว</td>
+							</tr>
+							
+							
+							
+							<tr>
+								<td style="font-size:12px;">2 </td>
+								<td>ข้องอทองแดง 90 องศา 6 หุน 3/4</td>
+								<td>10 ตัว</td>
+							</tr>
+							
+							
+							<tr>
+								<td style="font-size:12px;">3 </td>
+								<td>ข้องอทองแดง 90องศา 4 หุน 1/2 ยาว</td>
+								<td>10 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">4 </td>
+								<td>ดรายเออร์ (Drier) 4 หุน 1/2 </td>
+								<td>1 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">5 </td>
+								<td>ท่อทองแดง 1/2</td>
+								<td>5 เส้น</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">6 </td>
+								<td>ท่อทองแดง 3/4L</td>
+								<td>3 เส้น</td>
+							</tr>
+													
+					
+							
+							<tr>
+								<td style="font-size:12px;">7 </td>
+								<td>น้ำยา R404</td>
+								<td>1 ถัง</td>
+							</tr>
+							
+							
+							
+							
+							
+							<tr>
+								<td style="font-size:12px;">8 </td>
+								<td>เช็ควาล์ว 4 หุน 1/2 </td>
+								<td>2 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">9</td>
+								<td>แค้มป์ยึดท่อทองแดง3/8</td>
+								<td>15 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">10 </td>
+								<td>แฟร์ 2 หุน 1/4</td>
+								<td>4 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">11 </td>
+								<td>แฟร์ 4 หุน 1/2</td>
+								<td>2 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">12 </td>
+								<td>แหวนสะปริง</td>
+								<td>12 ตัว</td>
+							</tr>
+													
+							<tr>
+								<td style="font-size:12px;">13 </td>
+								<td>แหวนอีแปะ</td>
+								<td>12 ตัว</td>
+							</tr>
+							
+
+							<tr>
+								<td style="font-size:12px;">14 </td>
+								<td>ก้ามปู 16 mm</td>
+								<td>15 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">15 </td>
+								<td>ก้ามปู 32 mm</td>
+								<td>15 ตัว</td>
+							</tr>
+							
+							
+							<tr>
+								<td style="font-size:12px;">16 </td>
+								<td>ก้ามปู PVC 3/4</td>
+								<td>6 ตัว</td>
+							</tr>
+							
+													
+							
+							<tr>
+								<td style="font-size:12px;">17 </td>
+								<td>ท่อ PVC 6 หุน 3/4</td>
+								<td>4 เส้น</td>
+							</tr>
+													<tr>
+								<td style="font-size:12px;">18 </td>
+								<td>ท่ออ่อน 16mm</td>
+								<td>5 เส้น</td>
+							</tr>
+													<tr>
+								<td style="font-size:12px;">19</td>
+								<td>ท่ออ่อน 32mm</td>
+								<td>5 เส้น</td>
+							</tr>
+					
+													<tr>
+								<td style="font-size:12px;">20 </td>
+								<td>แป้นสตัส 6 นิ้ว แขวนคอยล์เย็น</td>
+								<td>8 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td colspan="3" align="center"> &nbsp;</td>
+							</tr> 
+						
+							
+						
+
+						
+					</tbody></table>
+			</div>
+			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
+			<br><br><br>
+			<div class="note" style="clear: both; margin: 0 0 0 200px;">
+			</div><!--end note -->
+
+        </div>  <!--end subpage-->
+    </div>
+	
+	
+	<div class="page">
+        <div class="subpage">
+
+            <div id="cover_header">
+				<?php 
+					if($corp == 2)
+						include ('../include/tcl_addr.php');
+					else 
+						include ('../include/cpn_addr.php');
+				?>
+			</div><!--end cover_header-->
+			
+			<div style="width: 100%; clear:both; height: 10px;">
+				<div style="float: right;"></div>
+			</div>
+			
+			<div style="width: 100%; clear:both; height: 40px;">
+				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายการอุปกรณ์ติดตั้งเพิ่มเติม</span></p>
+			</div>
+			
+			
+			<div id="product_price" style="margin-top:10px; clear:both; ">
+				<table style="width:100%; border: 1px solid black; font-size:14px;">
+						<tbody><tr>
+							<td colspan="3" align="center" class="suptopic">รายการ อุปกรณ์ติดตั้งเครื่อง</td>
+						</tr>
+						
+						
+						
+						<tr class="column-text">
+							<td># </td>
+							<td align="center">รายการ</td>
+							<td>จำนวน (หน่วย ชิ้น)</td>
+						</tr>
+						<tr>
+							<td colspan="3" align="center"><hr></td>
+						
+						</tr> 
+						
+						<tr>
+								<td colspan="3" align="left" style="font-weight:bold; font-family: Kanit, sans-serif">ระบบละลายน้ำแข็ง ดีฟรอส</td>
+							</tr>
+							<tr>
+								<td style="font-size:12px;">1 </td>
+								<td>Solienoid โซลินอยล์ Sanhua 1/2 SxS MDF-A36H   </td>
+								<td>2 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">2 </td>
+								<td>บอลวาล์ว 4 หุน 1/2 7022</td>
+								<td>2 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td colspan="3" align="center"> &nbsp;</td>
+							</tr> 
+
+						
+							<tr>
+								<td colspan="3" align="left" style="font-weight:bold; font-family: Kanit, sans-serif">อุปกรณ์ติดตั้งระบบไฟฟ้า</td>
+							</tr>	
+							
+							
+						
+													
+							
+							<tr>
+								<td style="font-size:12px;">1 </td>
+								<td>สายTHW 1x2.5 สีขาว, สีดำ, สีแดง อย่างละ 1 ม้วน</td>
+								<td>3 ม้วน</td>
+							</tr>
+							
+							
+													<tr>
+								<td style="font-size:12px;">2 </td>
+								<td>สายVSF 1x1 สีขาว, สีดำ, สีแดง อย่างละ 1 ม้วน </td>
+								<td>1 ม้วน</td>
+							</tr>
+	
+							<tr>
+								<td style="font-size:12px;">3 </td>
+								<td>สายชิว 3x1 </td>
+								<td>5 เมตร</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">4 </td>
+								<td>ข้อต่อสีขาว 16 mm</td>
+								<td>15 ตัว</td>
+							</tr>
+													<tr>
+								<td style="font-size:12px;">5 </td>
+								<td>ข้อต่อสีขาว 32 mm</td>
+								<td>15 ตัว</td>
+							</tr>
+													<tr>
+								<td style="font-size:12px;">6</td>
+								<td>คอนเน็คเตอร์ 16mm</td>
+								<td>15 ตัว</td>
+							</tr>
+													<tr>
+								<td style="font-size:12px;">7 </td>
+								<td>คอนเน็คเตอร์ 32 mm</td>
+								<td>15 ตัว</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">8 </td>
+								<td>ท่อขาว 16mm</td>
+								<td>2 เส้น</td>
+							</tr>
+						
+							<tr>
+								<td style="font-size:12px;">9 </td>
+								<td>ท่อขาว 32mm</td>
+								<td>4 เส้น</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">10 </td>
+								<td>บ็อกกันน้ำ 4x4 </td>
+								<td>1 กล่อง</td>
+							</tr>
+							
+							
+							<tr>
+								<td style="font-size:12px;">11 </td>
+								<td>บ็อกกันน้ำกันฝุ่น 1 ช่อง</td>
+								<td>1 กล่อง</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">12 </td>
+								<td>รางสายไฟแบบปิดสีขาว 40</td>
+								<td>2 เส้น</td>
+							</tr>
+													<tr>
+								<td style="font-size:12px;">13 </td>
+								<td>รางสายไฟแบบปิดสีขาว 40</td>
+								<td>1 เส้น</td>
+							</tr>
+							
+							<tr>
+								<td style="font-size:12px;">14 </td>
+								<td>รางสายไฟแบบโปร่ง (สีเทา)</td>
+								<td>1 เส้น</td>
+							</tr>
+							
+							<tr>
+								<td align="right" class="summary"> &nbsp; </td>
+								<td colspan="2" align="right" class="summary">  </td>
+								<td>&nbsp; </td>
+							</tr>
+							
+							<tr>
+								<td>&nbsp; </td>
+								<td align="center" style="border: 1px solid black; font-size:18px; font-weight:bold;" > ราคาอุปกรณ์ติดตั้งเพิ่มเติม </td>
+								<td align="left"  style="padding-left:30px; border: 1px solid black; font-size:18px; font-weight:bold;"> 81,814.50 บาท</td>
+								
+							</tr>
+						
+						
+						
+
+						
+					</tbody></table>
+			</div>
+			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
+			<br><br><br>
+			<div class="note" style="clear: both; margin: 0 0 0 200px;">
+			</div><!--end note -->
+
+        </div>  <!--end subpage-->
+    </div>
+	
+	
 </div>
 <input type="button" value="คำนวนราคางวด" id="btn-calngod">
 <div style="display:none;" id="installs"><?php echo $tidtung;?></div>

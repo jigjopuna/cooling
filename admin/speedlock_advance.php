@@ -575,11 +575,11 @@
 			<div id="product_price" style="margin-top:105px; clear:both">
 				<table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
 					<tr>
-						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็น</td>
+						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็น พร้อมติดตั้ง</td>
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">ห้องเย็น <?php echo $instype; ?> ปริมาณแผ่นฉนวน (<?php echo $cute; ?>) ตารางเมตร</td>
+						<td style="width: 60%" align="left"><!--ห้องเย็น  ปริมาณแผ่นฉนวน (<?php //echo $cute; ?>) ตารางเมตร--> ราคาห้องเย็น พร้อมติดตั้ง  (<?php  echo $instype; ?>)</td>
 						<td style="width: 40%" class="b l" align="center" colspan="4"><strong>ขนาดห้องเย็น (กว้าง x ยาว x สูง) เมตร</strong></td>
 						<!--<td colspan="2" style="width: 13%;" class="rlb">กว้าง  (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว   (เมตร)</td>
@@ -672,12 +672,12 @@
 						<td class="l" align="right"><s>48,000.00</s></td>
 					</tr>
 					
-					<tr class="highs" style="">
+					<!--<tr class="highs" style="">
 						<td class="l">&nbsp;&nbsp;&nbsp; - แจ้งเตือนถ้าห้องเย็นมีปัญหาผ่านมือถือ ฟรีค่าบริการปีแรก 10,000 บาท</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
-					</tr>
+					</tr>-->
 					
 					<tr class="highs" style="">
 						<td class="l">&nbsp;&nbsp;&nbsp; -  (ต้องมี Internet WiFi บริเวณห้องเย็น)</td>
@@ -686,15 +686,15 @@
 						<td class="l" align="right"></td>
 					</tr>
 
-					<tr class="highs" style="">
+					<!--<tr class="highs" style="">
 						<td class="l"> 7. ค่าติดตั้งห้องเย็น และเครื่องทำความเย็น</td>
 						<td colspan="2" class="l" align="center">1 งาน</td>
 						<td class="l" align="center"></td>
-						<td class="l" align="right"><?php echo number_format($labor, 2, '.', ','); ?></td>
-					</tr>
+						<td class="l" align="right"><?php //echo number_format($labor, 2, '.', ','); ?></td>
+					</tr>-->
 					
 					<tr class="highs" style="">
-						<td class="l"> 8. ค่าบริการขนส่ง วัสดุอุปกรณ์ห้อง และเครื่องทำความเย็น</td>
+						<td class="l"> 7. ค่าบริการขนส่ง วัสดุอุปกรณ์ห้อง และเครื่องทำความเย็น</td>
 						<td colspan="2" class="l" align="center">1 เทียว</td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
@@ -738,7 +738,7 @@
 					
 					<tr>
 						
-						<td colspan="3" class="rl">ส่วนลด</td>
+						<td colspan="3" class="rl">ส่วนลด มูลค่าสินค้า</td>
 						<td class="rt l" align="right"><?php echo number_format($discount, 2, '.', ','); ?></td>
 					</tr>
 					
@@ -758,7 +758,7 @@
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tr>
-							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)</td>
+							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; <!-- (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)--></td>
 						</tr>
 						<tr>
 							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   50%  ชำระเมื่อได้รับใบสั่งซื้อ </td>

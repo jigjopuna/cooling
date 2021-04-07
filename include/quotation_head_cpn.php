@@ -27,7 +27,7 @@
 				</div><!--end cust-->
 				
 				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation </strong></span><br>
+					<span class="intopic" style="font-size:18px;"><strong>Quotation ใบเสนอราคา</strong></span><br>
 					<span>วันที่ <?php echo $thatdate;?></span><br>
 					<span>ผู้ขาย :  <?php echo $sale_name.' '.$sale_lname; ?> </span><br>
 					<span>โทร :  <?php echo $sale_tel;?> </span><br>

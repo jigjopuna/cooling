@@ -8,12 +8,10 @@
 <?php require_once('../include/metatagsys.php');?>
 	<?php 
 		$dates = date('Y-m-d');
-		$sql_all = "SELECT c.cust_name, c.cust_lineid, c.cust_tel, t.t_id, o.o_id, o.o_date, t.t_name, o.o_price, op.pay_amount, b.bk_name, op.pay_date
-					FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id)
-						  JOIN tb_ord_pay op ON op.o_id = o.o_id)
-						  JOIN tb_bank b ON b.bk_id = op.pay_bank)
-						  JOIN tb_tools t ON t.t_id = o.o_part_id
-					WHERE o.o_type LIKE '5%' ORDER BY o.o_id DESC LIMIT 0, 300";
+		$sql_all = "SELECT o.o_id, c.cust_name, c.cust_lineid, c.cust_tel, o.o_price, o.o_qty, o.o_date
+					FROM tb_orders o JOIN tb_customer c ON c.cust_id = o.o_cust 
+					WHERE o.o_type LIKE '5%' 
+					ORDER BY o.o_id DESC LIMIT 0, 300";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 		
@@ -27,7 +25,7 @@
 		
 	});
 </script>
-<title>ออเดอร์รับฝาก</title>
+<title>รับฝาก-ออเดอร์</title>
 </head>
 
 <body>
@@ -60,7 +58,7 @@
                                     <tr>
 										<th style='width: 5%;'>ลำดับ</th>
                                         <th style='width: 15%;'>ลูกค้า</th>
-										<th style='width: 15%;'>รายการ</th>
+										<th style='width: 15%;'>จำนวน (kg)</th>
 										<th style='width: 10%;'>ราคา</th>
 										<th style='width: 10%;'>Line ลูกค้า</th>
 										<th style='width: 15%;'>เบอร์ติดต่อ</th>
@@ -76,9 +74,8 @@
 										<tr class="gradeA">
 											<td><?php echo $row_all['o_id']; ?></td>
 											<td><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></td>	
-											<td><?php echo $row_all['t_name']; ?> (<?php echo $row_all['t_id']; ?>)</td>
+											<td><?php echo number_format($row_all['o_qty'], 0, '.', ',') ?></td>
 											<td><?php echo number_format($row_all['o_price'], 0, '.', ',') ?></td>
-						
 											<td><?php echo $row_all['cust_lineid']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td> 
 											<td><?php echo $row_all['o_date']; ?></td>

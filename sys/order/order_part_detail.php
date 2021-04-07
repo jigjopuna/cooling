@@ -4,14 +4,20 @@
 	  $o_id = trim($_GET['o_id']);
 	  $cust_name = $_GET['cust_name'];
 	  
-	  $sql_opart = "SELECT t.t_id, o.o_date,  t.t_name, b.b_id, ib.bas_price, ib.bas_qty, ib.bas_price*ib.bas_qty amount ,o.o_price 
+	  /*$sql_opart = "SELECT t.t_id, o.o_date,  t.t_name, b.b_id, ib.bas_price, ib.bas_qty, ib.bas_price*ib.bas_qty amount ,o.o_price 
 				FROM ((tb_inbasket ib JOIN tb_basket b ON b.b_id = ib.bas_id)
 						   JOIN tb_tools t ON t.t_id = ib.bas_prod)
 						   JOIN tb_orders o ON o.o_id = b.b_oid
 				WHERE o.o_type LIKE '4%' AND b.b_type = 'A' AND o.o_id = '$o_id'
 				ORDER BY b.b_id DESC";
-	$result_opart = mysql_query($sql_opart);
-	$num_opart = mysql_num_rows($result_opart);
+	  $result_opart = mysql_query($sql_opart);
+	  $num_opart = mysql_num_rows($result_opart);*/
+	  
+	  $sql_opart = "SELECT t.t_id, t.t_name, t.t_cost,  o.o_price, o.o_quotation, o.o_date, o.o_qty, p.pro_name
+					FROM (tb_orders o JOIN tb_tools t ON o.o_part_id = t.t_id) JOIN province p ON p.id = o.o_cuprovin
+					WHERE o.o_id = '$o_id'";
+	  $result_opart = mysql_query($sql_opart);
+	  $row_opart = mysql_fetch_array($result_opart);
 	
 	//การชำระเงิน
 	$sql_pay = "SELECT opy.o_id, opy.pay_amount, opy.pay_bill, opy.pay_date FROM tb_ord_pay opy JOIN tb_orders ord on opy.o_id = ord.o_id WHERE opy.o_id = '$o_id' ORDER BY opy.pay_date";
@@ -35,9 +41,7 @@
 <head>
 
 <?php require_once ('../include/header.php');?>
-<title>อะไหล่ออเดอร์ </title>
-<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
-<script src="../../js/jquery-ui-1-12-1.min.js"></script>
+<title>อะไหล่ออเดอร์  <?php echo $row_opart['t_name']; ?></title>
 <style>
 	.o_image { width: 65%; margin-top:20px;}
 	@media screen and (max-width: 1024px){.o_image { width: 100%; }}
@@ -71,10 +75,12 @@
 		});
 		
 		$('#quotationfile').click(function(){
-			window.location = '../quotation/files/'+quots;
+			//window.location = '../quotation/files/'+quots;
+			window.open('../quotation/files/'+quots, '_blank');
 		});
 		$('#process').click(function(){
-			window.location = '../../admin/job.php'+'?e_id='+ord_id;
+			//window.location = '../../admin/job.php'+'?e_id='+ord_id;
+			window.open('../../admin/job.php'+'?e_id='+ord_id, '_blank');
 		});
 		
 	
@@ -103,41 +109,57 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
+							
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:left;">ใบเสนอราคา</button>
+							<button id="process" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:right;">ใบดำเนินการ</button>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
 							รายการสินค้า
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                            <table width="100%" class="table table-striped table-bordered table-hover ">
                                 <thead>
                                     <tr>
                                         <th style='width: 5%;'>รหัสสินค้า</th>
                                         <th>ชื่อสินค้า</th>
-                                        <th>ตะกร้า</th>
-										<th>ราคา</th>
+										<th>ทุน/ชิ้น</th>
 										<th>จำนวน</th>
-										<th>รวมราคา</th>
-										<th>รวมทั้งหมด</th>
+										<th>รวมต้นทุน</th>
+										<th>ขาย</th>
+										<th>จังหวัด</th>
 										<th>เวลาสั่งซื้อ</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-										for($i=1; $i<=$num_opart; $i++){
-										  $row_opart = mysql_fetch_array($result_opart);
-									  ?>
-									
+                                 
 										<tr class="gradeA">
 											<td><?php echo $row_opart['t_id']; ?></td>
 											<td><?php echo $row_opart['t_name']; ?></td>
-											<td><?php echo $row_opart['b_id']; ?></td>
-											<td><?php echo number_format($row_opart['bas_price'], 2, '.', ','); ?></td>
-											<td><?php echo $row_opart['bas_qty']; ?></td>
-											<td><?php echo number_format($row_opart['amount'], 2, '.', ','); ?></td>
+											<td><?php echo number_format($row_opart['t_cost'], 2, '.', ','); ?></td>
+											<td><?php echo number_format($row_opart['o_qty'], 2, '.', ','); ?></td>
+											<td><?php echo number_format($row_opart['o_qty']*$row_opart['t_cost'], 2, '.', ','); ?></td>
+											
 											<td><?php echo number_format($row_opart['o_price'], 2, '.', ','); ?></td>
+											
+											<th><?php echo $row_opart['pro_name']; ?></th>
 											<td><?php echo $row_opart['o_date']; ?></td>
 		
 										</tr>
-										<?php } ?>
 
                                     
                                 </tbody>
@@ -160,7 +182,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                            <table width="100%" class="table table-striped table-bordered table-hover ">
                                 <thead>
                                     <tr>
                                         <th style='width: 5%;'>งวด</th>
@@ -205,7 +227,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-							  <table width="100%" class="table table-striped table-bordered table-hover data_table">
+							  <table width="100%" class="table table-striped table-bordered table-hover ">
 								<form action="../db/order/orderattach.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
 								   <tbody>
 										<tr>
@@ -266,15 +288,14 @@
             </div>
         </div>
 			
-			<div id="quot" style="display:none;"><?php echo $quot['o_quotation'];?></div>
-			<bu
-          </div>   
+			<div id="quot" style="display:none;"><?php echo $row_opart['o_quotation'];?></div>
+			
+       </div>   
 
     </div>
     <!-- /#wrapper -->
 
    
-
 </body>
 
 </html>

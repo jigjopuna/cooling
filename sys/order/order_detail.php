@@ -79,8 +79,6 @@
 
 <?php require_once ('../include/header.php');?>
 <title>ออเดอร์ห้องเย็นรายละเอียด</title>
-<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
-<script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <style>
 	.o_image { width: 65%; margin-top:20px;}
 	@media screen and (max-width: 1024px){.o_image { width: 100%; }}
@@ -114,10 +112,12 @@
 		});
 		
 		$('#quotationfile').click(function(){
-			window.location = '../quotation/files/'+quots;
+			//window.location = '../quotation/files/'+quots;
+			window.open('../quotation/files/'+quots, '_blank');
 		});
 		$('#process').click(function(){
-			window.location = '../../admin/job.php'+'?e_id='+ord_id;
+			//window.location = '../../admin/job.php'+'?e_id='+ord_id;
+			window.open('../../admin/job.php'+'?e_id='+ord_id, '_blank');
 		});
 		
 	
@@ -141,12 +141,160 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+							
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:left;">ใบเสนอราคา</button>
+							<button id="process" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:right;">ใบดำเนินการ</button>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			
+			 <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+							การชำระเงิน
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style='width: 5%;'>งวด</th>
+                                        <th>จำนวน</th>
+                                        <th>เวลา</th>
+										<th>บิล</th>
+										<th>Comment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+									<?php 
+										for($i=1; $i<=$num_pay; $i++){
+										  $row_pay = mysql_fetch_array($result_pay);
+									  ?>
+										<tr class="gradeA">
+											<td><?php echo $i; ?></td>
+											<td><?php echo number_format($row_pay['pay_amount'], 2, '.', ','); ?></td>
+											<td><?php echo $row_pay['pay_date']; ?></td> 
+											<th><a href="../images/receive/<?php echo $row_pay['pay_bill']; ?>">ดูบิล</a></th> 
+											<td>.</td> 
+										</tr>
+									<?php } ?>
+
+                                    
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+							กำไร : <?php echo number_format($sumalltranfer-($pocost+$sumprod), 2, '.', ',');?> บาท
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+							คอมเม้นท์ Comment
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover">
+                              <form action="../db/order/order_note.php" id="form1" name="form" method="post">
+                                <tbody>
+                                   <tr>
+										<td> 
+											<div class="form-group">
+											  <input type="text" class="form-control" id="o_note" name="o_note" value="<?php echo $comments;?>">
+											  <input type="hidden" name="orders_id" value="<?php echo $o_id;?>">
+											</div> 
+										</td>
+										<td> <button type="button" id="notes" class="btn btn-lg btn-primary btn-block" style="float:left;">บันทึก</button>  </td>
+								   </tr>
+                                   
+                                </tbody>
+							   </form>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+						 ใส่รูป
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							  <table width="100%" class="">
+								<form action="../db/order/orderattach.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
+								   <tbody>
+										<tr>
+										<td> 
+											<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">แนบรูป</label>
+											<input type="file" class="form-control require" id="imgattach" name="imgattach">
+											</div>
+										</td>
+										<td> <button type="button" id="picattach" class="btn btn-lg btn-primary btn-block" style="float:left;">บันทึกรูป</button>  </td>
+								      </tr>
+                                   
+                                   </tbody>
+								   <input type="hidden" name="o_ids" id="o_ids" value="<?php echo $o_id?>"> 
+								</form>
+							  </table>                           
+                        </div>
+                    <!-- /.panel -->
+					</div>
+                <!-- /.col-lg-12 -->
+				</div>
+			</div>
+		
+		
+		
+			
+			
             <!-- /.row -->
 			<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							<strong>รายละเอียดสินค้า</strong>   <?php echo number_format($row_count_prod['countprod']+$pocount, 0, '.', ',').' รายการ'; ?><br>
+							<strong>รายละเอียดสินค้า</strong>   <?php echo number_format($row_count_prod['countprod']+$pocount, 0, '.', ',').' รายการ'; ?> <a href="ord_report.php?o_id=<?php echo $o_id;?>&custname=<?php echo $cust_name;?>" target="_blank">ปริ้น</a><br>
 							<strong>กำหนดส่ง : &nbsp;&nbsp;&nbsp;</strong> <?php echo $quot['o_delivery_date'];?> <br>
 							<strong>ราคาขาย : &nbsp;&nbsp;&nbsp;</strong> <?php echo number_format($quot['o_price'], 0, '.', ',');?> บาท<br>
 							<strong>ประตู : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> <?php 
@@ -213,7 +361,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
+                            <table width="100%" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
 										<th style='width: 2%;'>ลำดับ</th>
@@ -230,6 +378,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+									
                                     
 									<?php 
 										for($i=1; $i<=$num_prd; $i++){
@@ -300,129 +449,7 @@
             </div>
             <!-- /.row -->
 			
-			 <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-							การชำระเงิน
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
-                                <thead>
-                                    <tr>
-                                        <th style='width: 5%;'>งวด</th>
-                                        <th>จำนวน</th>
-                                        <th>เวลา</th>
-										<th>บิล</th>
-										<th>Comment</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-									<?php 
-										for($i=1; $i<=$num_pay; $i++){
-										  $row_pay = mysql_fetch_array($result_pay);
-									  ?>
-										<tr class="gradeA">
-											<td><?php echo $i; ?></td>
-											<td><?php echo number_format($row_pay['pay_amount'], 2, '.', ','); ?></td>
-											<td><?php echo $row_pay['pay_date']; ?></td> 
-											<th><a href="../images/receive/<?php echo $row_pay['pay_bill']; ?>">ดูบิล</a></th> 
-											<td>.</td> 
-										</tr>
-									<?php } ?>
-
-                                    
-                                </tbody>
-                            </table>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
 			
-			
-			
-			<div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-							กำไร : <?php echo number_format($sumalltranfer-($pocost+$sumprod), 2, '.', ',');?> บาท
-                        </div>
-                    </div>
-                </div>
-            </div>
-			
-			<div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-							คอมเม้นท์ Comment
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover data_table">
-                              <form action="../db/order/order_note.php" id="form1" name="form" method="post">
-                                <tbody>
-                                   <tr>
-										<td> 
-											<div class="form-group">
-											  <input type="text" class="form-control" id="o_note" name="o_note" value="<?php echo $comments;?>">
-											  <input type="hidden" name="orders_id" value="<?php echo $o_id;?>">
-											</div> 
-										</td>
-										<td> <button type="button" id="notes" class="btn btn-lg btn-primary btn-block" style="float:left;">บันทึก</button>  </td>
-								   </tr>
-                                   
-                                </tbody>
-							   </form>
-                            </table>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-			
-			<div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"> 
-						 ใส่รูป
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-							  <table width="100%" class="table table-striped table-bordered table-hover data_table">
-								<form action="../db/order/orderattach.php" method="post" name="form2" id="form2" enctype="multipart/form-data">
-								   <tbody>
-										<tr>
-										<td> 
-											<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">แนบรูป</label>
-											<input type="file" class="form-control require" id="imgattach" name="imgattach">
-											</div>
-										</td>
-										<td> <button type="button" id="picattach" class="btn btn-lg btn-primary btn-block" style="float:left;">บันทึกรูป</button>  </td>
-								      </tr>
-                                   
-                                   </tbody>
-								   <input type="hidden" name="o_ids" id="o_ids" value="<?php echo $o_id?>"> 
-								</form>
-							  </table>                           
-                        </div>
-                    <!-- /.panel -->
-					</div>
-                <!-- /.col-lg-12 -->
-				</div>
-			</div>
-		
 		<div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -461,8 +488,7 @@
         </div>
 			
 			<div id="quot" style="display:none;"><?php echo $quot['o_quotation'];?></div>
-			<button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:left;">ใบเสนอราคา</button>
-			<button id="process" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:right;">ใบดำเนินการ</button>
+			
 			
 
         </div>

@@ -27,10 +27,10 @@
 				</div><!--end cust-->
 				
 				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation  T.C.L. </strong></span><br>
+					<span class="intopic" style="font-size:18px;"><strong>Quotation ใบเสนอราคา</strong></span><br>
 					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
-					<span>โทร : 082-360-1523</span><br>
-					<span>Email: topcooling.ltd@gmail.com</span>
+					<span>ผู้ขาย :  <?php echo $sale_name.' '.$sale_lname; ?> </span><br>
+					<span>โทร :  <?php echo $sale_tel;?> </span><br>
+					<span>Email: <?php echo $sale_email;?> </span>
 				</div><!--end oweneraddress-->
 			</div><!--end contect_detail-->
