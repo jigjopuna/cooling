@@ -17,10 +17,10 @@
   $custname = trim($_GET['custname']);
   $o_id = trim($_GET['o_id']);
   
-    $sql_prd = "SELECT orpd.orpd_id, t.t_id, t.t_name, t.t_type, orpd.orpd_qty, orpd.orpd_cost, orpd.orpd_date, t.t_cost, tt.to_typename
+    $sql_prd = "SELECT orpd.orpd_id, t.t_id, t.t_name, t.t_type, t.t_subtype, orpd.orpd_qty, orpd.orpd_cost, orpd.orpd_date, t.t_cost, tt.to_typename
 	FROM (((tb_ord_prod orpd JOIN tb_orders o ON o.o_id = orpd.o_id) JOIN tb_tools t ON t.t_id = orpd.ot_id) JOIN tb_emp e ON e.e_id = orpd.ot_emp)
 		  JOIN tb_tools_type tt ON tt.to_typeid = t.t_type
-	WHERE orpd.o_id = '$o_id' ORDER BY t.t_type, t.t_name";
+	WHERE orpd.o_id = '$o_id' ORDER BY t.t_type, t.t_subtype, t.t_name";
 	$result_prd = mysql_query($sql_prd);
 	$num_prd = mysql_num_rows($result_prd);
 	
@@ -109,7 +109,9 @@
 						<?php for($i=1; $i<=$num_prd; $i++) {  
 							$row_prd = mysql_fetch_array($result_prd);	
 							
+							//$tucontrol = 0;
 							if($rowtype != $row_prd['t_type']){ echo '<tr><td colspan="6" align="center"><hr></td></tr> <tr><td colspan="6" align="left" style="font-weight:bold; font-family: Kanit, sans-serif">'.$row_prd["to_typename"].'</td></tr>'; $rowtype = $row_prd['t_type'];}
+							if( ($row_prd['t_type'] == 3) AND  ($row_prd['t_subtype'] == 2) AND ($tucontrol == 0)){ echo ' <tr><td colspan="6" align="left" style="font-weight:bold; font-family: Kanit, sans-serif">ตู้คอนโทรล</td></tr>'; $tucontrol = 1; }
 							if($i==34 || $i==80 || $i==123){ echo '<td colspan="6" style="height:120px;">&nbsp;</td>';}
 						?>
 							<tr>

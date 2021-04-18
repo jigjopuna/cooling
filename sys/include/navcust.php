@@ -179,6 +179,14 @@
                                 <li>
                                     <a href="part_sec/part_sec.php">รับซื้อมือสอง</a>
                                 </li>
+								
+								 <li>
+                                    <a href="contractor/contracter.php">ผู้รับเหมา</a>
+                                </li>
+								
+								<li>
+                                    <a href="stock/foam_cost.php">ต้นทุนโฟม / เครื่อง</a>
+                                </li>
 							
                             </ul>
                         </li>

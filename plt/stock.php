@@ -1,22 +1,24 @@
 <?php session_start();
-	  require_once('../include/connect.php');
+	  require_once('../sys/include/connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php require_once ('../include/header.php');?>
-<?php require_once('../include/metatagsys.php');?>
+<?php require_once ('../sys/include/header_root.php');?>
+<?php require_once('../sys/include/metatagsys.php');?>
 	<?php 
 		$dates = date('Y-m-d');
-		$sql_all = "SELECT d.d_id, d.d_prod, d.d_qty, d.d_logger, d.d_price, d.d_date, c.cuplt_tel, c.cuplt_name, c.cuplt_id
-					FROM tb_deposit d JOIN tb_cust_depo c ON c.cuplt_id = d.d_cust  
+		$sql_all = "SELECT d.d_id, d.d_prod, d.d_qty, d.d_logger, d.d_price, d.d_date, c.cust_tel, c.cust_name, c.cust_id
+					FROM tb_deposit d JOIN tb_customer c ON c.cust_id = d.d_cust  
 					ORDER BY d.d_id DESC LIMIT 0,1000";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 		
+		
+		
 	?>
-<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
-<script src="../../js/jquery-ui-1-12-1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/redmond/jquery-ui-1.8.12.custom.css">
+<script src="../js/jquery-ui-1-12-1.min.js"></script>
 <script>
 	$(document).ready(function(){
 		
@@ -29,9 +31,7 @@
 
     <div id="wrapper">
 		<?php 
-			require_once('../include/inc_role.php'); 
-			require_once ('../include/navplt.php');
-			if($ro_order!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการดูออเดอร์นะคะ'); window.location = '../index.php';</script>");}
+			require_once ('navext.php');
 		?>
         <div id="page-wrapper">
 		
@@ -71,12 +71,12 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row_all['d_id']; ?></td>
-											<td><a href="ord_detail_depo.php?depo_id=<?php echo $row_all['d_id'];?>&cust_id=<?php echo $row_all['cuplt_id'];?>"><?php echo $row_all['cuplt_name']; ?></td>	
+											<td><a href="ord_detail_depo.php?depo_id=<?php echo $row_all['d_id'];?>&cust_id=<?php echo $row_all['cust_id'];?>"><?php echo $row_all['cust_name']; ?></td>	
 											<td><?php echo $row_all['d_prod']; ?></td>
 											<td><?php echo number_format($row_all['d_qty'], 0, '.', ',') ?></td>
 											<td><?php echo number_format($row_all['d_price'], 0, '.', ',') ?></td>
 											<td><?php echo $row_all['d_logger']; ?></td>
-											<td><?php echo $row_all['cuplt_tel']; ?></td> 
+											<td><?php echo $row_all['cust_tel']; ?></td> 
 											<td><?php echo $row_all['d_date']; ?></td>
 											          
 										</tr>
