@@ -20,13 +20,13 @@
 <body>
 <?php 
 echo $num.'<br>';
-    for($i=2; $i<=27; $i++){
+    for($i=1; $i<=33; $i++){
         $row = mysql_fetch_array($result);
-		$names = 'คืนเงินงวดที่ '.$i;
+		$names = 'ฮอนด้า ฟรีส งวดที่  '.$i;
         
         $ints = "INSERT INTO tb_po SET 
-					po_name = '$names', po_cate = 2,  po_qty = 1, po_price = 10000, po_buyer =10, 
-					po_emp = 3, po_shop = 61, po_credit = 1, po_date = now()
+					po_name = '$names', po_cate = 2,  po_qty = 1, po_price = 9550, po_buyer =10, 
+					po_emp = 3, po_shop = 77, po_credit = 1, po_date = now()
 
 				";
         $squery = mysql_query($ints);

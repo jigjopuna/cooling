@@ -1,7 +1,7 @@
 <?php session_start(); 
       require_once('../../include/connect.php'); 
 	  
-	  
+	  $dates = date("Y-m-d");
 	  $sql_ord = "SELECT c.cust_name, b.counts, b.ocust, b.oprice
 				  FROM tb_customer c JOIN (
 										SELECT o_id oids, COUNT(o_id) counts, ocust, o_price oprice
@@ -18,7 +18,19 @@
 	  $result_ord = mysql_query($sql_ord);
 	  $num_ord = mysql_num_rows($result_ord);
 	  
-	  $dates = date("Y-m-d");
+	  
+	  
+	  $sql_rich = "SELECT o.o_id, op.pay_amount FROM tb_ord_pay op JOIN tb_orders o ON o.o_id = op.o_id WHERE o.o_type LIKE '1%' AND o.o_status != 5";
+	  $result_rich = mysql_query($sql_rich);
+	  $num_rich = mysql_num_rows($result_rich);
+	  
+	  
+	  for($i=1; $i<=$num_rich; $i++){
+		$row_rich = mysql_fetch_array($result_rich);
+		$arrrich[$i] = $row_rich['o_id'].' : '.number_format($row_rich['poprice2'], 0, '.', ',').' บาท ';					
+		$remain1 = $arrrich[1].$arrrich[2].$arrrich[3].$arrrich[4];
+
+	  }
  
 ?>
 

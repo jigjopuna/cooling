@@ -13,7 +13,7 @@
 	  //$select_month = '2019%';
 	  $sql = "SELECT MONTHNAME(o_date) month, COUNT(o_id) ordqty, SUM(o_price) price
 			  FROM tb_orders
-			  WHERE o_date LIKE '$year%'
+			  WHERE o_date LIKE '$year%' AND o_type LIKE '1%'
 			  GROUP BY YEAR(o_date), MONTH(o_date)";
 	  $result = mysql_query($sql);
 	  $num = mysql_num_rows($result);
@@ -24,13 +24,13 @@
 						FROM (
 							SELECT MONTHNAME(o_date) month, COUNT(o_id) ordqty, SUM(o_price) price
 							FROM tb_orders
-							WHERE o_date LIKE '$year%'
+							WHERE o_date LIKE '$year%' AND o_type LIKE '1%'
 							GROUP BY YEAR(o_date), MONTH(o_date)
 							) AS A"));
 	 $yearamount = $sumyear['sumyear'];
 	 
 	 
-	 $row_kai = mysql_fetch_array(mysql_query("SELECT SUM(o_price) kai FROM tb_orders WHERE o_date LIKE '$select_month'"));
+	 $row_kai = mysql_fetch_array(mysql_query("SELECT SUM(o_price) kai FROM tb_orders WHERE o_date LIKE '$select_month' AND o_type LIKE '1%'"));
 	 $row_own = mysql_fetch_array(mysql_query("SELECT SUM(pay_amount) own FROM tb_ord_pay WHERE pay_date LIKE '$select_month'"));
 	 $row_buy = mysql_fetch_array(mysql_query("SELECT SUM(po_price) buys FROM tb_po WHERE po_date LIKE '$select_month' AND po_cate != 8 AND po_cate != 9 AND po_cate != 10"));
 	 $row_use = mysql_fetch_array(mysql_query("SELECT SUM(A.tontun) costs FROM (SELECT op.orpd_qty*t.t_cost tontun FROM tb_ord_prod op JOIN tb_tools t ON t.t_id = op.ot_id WHERE op.orpd_date LIKE '$select_month') AS A"));
@@ -68,8 +68,6 @@
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <?php require_once('../include/inc_role.php'); ?>
-
-<link href="../vendor/morrisjs/morris.css" rel="stylesheet">
 	
 	<script>
 		$(document).ready(function(){
@@ -252,55 +250,12 @@
             </div>	
         </div>
 
-
 		<!-- /.row -->
-		
-		<div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"> 
-							เลือกรายงาน
-                        </div>
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>	
-        </div>
-		
 		
 	
 		<div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">รายงานประจำเดือน</h1>
+                    <h1 class="page-header">รายงานประจำเดือน(ห้องเย็น ไม่รวมอะไหล่และเซอร์วิส)</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -375,7 +330,7 @@
     </div>
     <!-- /#wrapper -->
 
-   <?php require_once ('../include/inc_js.php');?>
+   
 
 </body>
 

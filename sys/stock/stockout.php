@@ -156,12 +156,12 @@
 									<div class="col-lg-4">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">งานของลูกค้า</label>
-											<input type="text" class="form-control" id="search_ord" name="search_ord">
+											<input type="text" class="form-control" id="search_ord" name="search_ord" value="407">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">คนเบิก</label>
-											<input type="text" class="form-control" id="search_emp" name="search_emp">
+											<input type="text" class="form-control" id="search_emp" name="search_emp" value='9'>
 										</div>										
 									</div>
 									

@@ -41,7 +41,6 @@
                                         <th>ชื่อลูกค้า</th>
 										<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
 										<th>เบอร์ติดต่อ</th>
-										<th>Line/FB</th>
 										<th>จังหวัด</th>
 										<th>วันที่ลงระบบ</th>
 										<th>มัดจำ</th>
@@ -69,7 +68,6 @@
 											
 											<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
 												<td><?php echo $row_all['qcust_tel']; ?></td>
-												<td><?php echo $row_all['qcust_line']; ?></td>
 												<td><?php echo $row_all['pro_name'] ;?></td>
 												<td><?php echo $row_all['qcust_day'] ;?></td>
 												<td>

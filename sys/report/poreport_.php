@@ -116,7 +116,7 @@
 		$num_detail = mysql_num_rows($result_detail);	
 		
 		
-		$sql_group = "SELECT t.to_typename, t.to_typeid, SUM(p.po_price) price
+		$sql_group = "SELECT t.to_typename, SUM(p.po_price) price
 						FROM tb_po p JOIN tb_tools_type t ON t.to_typeid = p.po_cate 
 						WHERE p.po_date LIKE '$select_month' 
 						GROUP BY p.po_cate ORDER BY price DESC";
@@ -124,7 +124,7 @@
 		$num_group = mysql_num_rows($result_group);
 
 		$po_print = $select_month;
-		$times = 'เดือน '.$select_month;
+		$times = 'เดือน'.$select_month;
 		
 		
 		$sql_eachshop = "SELECT s.sl_id, s.sl_name, a.raka
@@ -189,14 +189,13 @@
 		$num_detail = mysql_num_rows($result_detail);	
 		
 		
-		$sql_group = "SELECT t.to_typeid, t.to_typename, SUM(p.po_price) price
+		$sql_group = "SELECT t.to_typename, SUM(p.po_price) price
 						FROM tb_po p JOIN tb_tools_type t ON t.to_typeid = p.po_cate 
 						WHERE p.po_date LIKE '$years' 
 						GROUP BY p.po_cate ORDER BY price DESC";
 		$result_group =  mysql_query($sql_group);
 		$num_group = mysql_num_rows($result_group);
 		$times = 'ปี '.$rep_year;
-		$po_print = $years;
 		
 		$sql_eachshop = "SELECT s.sl_id, s.sl_name, a.raka
 						FROM tb_sellers s JOIN
@@ -268,7 +267,7 @@
 									  ?>
 										<tr class="gradeA"> 
 											<td><?php echo $i; ?></td>
-											<td><a href="print/po_each_shop.php?typeid=<?php echo $row_group['to_typeid'];?>&date=<?php echo $po_print;?>"><?php echo $row_group['to_typename'];?></a></td>
+											<td><?php echo $row_group['to_typename']; ?></td>
 											<td><?php echo number_format($row_group['price'], 2, '.', ','); ?></td>
 										</tr>
 									<?php } ?>

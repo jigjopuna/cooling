@@ -109,7 +109,7 @@
 						<?php for($i=1; $i<=$num_prd; $i++) {  
 							$row_prd = mysql_fetch_array($result_prd);	
 							
-							//$tucontrol = 0;
+							
 							if($rowtype != $row_prd['t_type']){ echo '<tr><td colspan="6" align="center"><hr></td></tr> <tr><td colspan="6" align="left" style="font-weight:bold; font-family: Kanit, sans-serif">'.$row_prd["to_typename"].'</td></tr>'; $rowtype = $row_prd['t_type'];}
 							if( ($row_prd['t_type'] == 3) AND  ($row_prd['t_subtype'] == 2) AND ($tucontrol == 0)){ echo ' <tr><td colspan="6" align="left" style="font-weight:bold; font-family: Kanit, sans-serif">ตู้คอนโทรล</td></tr>'; $tucontrol = 1; }
 							if($i==34 || $i==80 || $i==123){ echo '<td colspan="6" style="height:120px;">&nbsp;</td>';}

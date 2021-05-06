@@ -32,7 +32,7 @@
 	$seven14 = mysql_fetch_array(mysql_query("SELECT SUM(duplicate.remains) tongjay14 FROM ( SELECT po_name, po_price, po_mudjum, po_price-po_mudjum remains FROM tb_po WHERE po_credit_due_date >= curdate() AND po_credit_due_date <= DATE_ADD(curdate(),INTERVAL 14 day) AND po_credit = 1 AND po_credit_complete = 0 ) AS duplicate"));
 	$jay14 = $seven14['tongjay14'];
 	
-	$seven30 = mysql_fetch_array(mysql_query("SELECT SUM(duplicate.remains) tongjay30 FROM ( SELECT po_name, po_price, po_mudjum, po_price-po_mudjum remains FROM tb_po WHERE po_credit_due_date >= curdate() AND po_credit_due_date <= DATE_ADD(curdate(),INTERVAL 30 day) AND po_credit = 1 AND po_credit_complete = 0 ) AS duplicate"));
+	$seven30 = mysql_fetch_array(mysql_query("SELECT SUM(duplicate.remains) tongjay30 FROM ( SELECT po_name, po_price, po_mudjum, po_price-po_mudjum remains FROM tb_po WHERE po_credit_due_date >= curdate() AND po_credit_due_date <= DATE_ADD(curdate(),INTERVAL 60 day) AND po_credit = 1 AND po_credit_complete = 0 ) AS duplicate"));
 	$jay30 = $seven30['tongjay30'];
 	
 	

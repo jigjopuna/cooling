@@ -8,17 +8,12 @@
 	<?php require_once('../include/header.php');?>
 	<?php require_once('../include/metatagsys.php');?>
 	<?php require_once('../include/inc_role.php');
-		//$sql_all = "SELECT * FROM tb_cust_part c JOIN province p ON c.cusp_prov = p.id";
-		$sql_all = "SELECT * 
-					FROM (tb_orders o JOIN tb_customer c ON c.cust_id = o.o_cust)
-						  JOIN province p ON p.id = o.o_cuprovin
-					WHERE o.o_type LIKE '4%'					
-					";
+		$sql_all = "SELECT * FROM tb_cust_part c JOIN province p ON c.cusp_prov = p.id";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 	
 	?>
-<title>ลูกค้าซื้ออะไหล่</title>
+<title>ลูกค้างานเซอร์วิส</title>
 </head>
 <body>
 
@@ -43,7 +38,7 @@
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
-										<th>รหัสลูกค้า </th>
+										<th>ลำดับ </th>
                                         <th>ชื่อลูกค้า</th>
 										<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
 											
@@ -61,20 +56,19 @@
 										  $row_all = mysql_fetch_array($result_all);
 									  ?>
 										<tr class="gradeA">
-											<td><?php echo $row_all['cust_id']; ?></td>
+											<td><?php echo $row_all['cusp_id']; ?></td>
 											
 											<?php if($ro_cust == 1) { ?>
-												<td><a href="cust_edit.php?cust_id=<?php echo $row_all['cust_id'] ?>"><?php echo $row_all['cust_name']; ?></a>
-												</td>
+												<td><a href="cust_editss.php?cust_id=<?php echo $row_all['cusp_id'] ?>"><?php echo $row_all['cusp_name']; ?></a></td>
 											<?php } else { ?>
 												<td><?php echo $row_all['cusp_name']; ?></td>
 											<?php } ?>
 											
 											<?php if($ro_cust != 3) { //สิทธิ์การดูข้อมูลลูกค้า?>
 												
-												<td><?php echo $row_all['cust_tel']; ?></td>
+												<td><?php echo $row_all['cusp_tel']; ?></td>
 												<td><?php echo $row_all['pro_name'] ;?></td>
-												<td><?php echo $row_all['o_date'] ;?></td>
+												<td><?php echo $row_all['cusp_day'] ;?></td>
 											<?php } ?>
 										</tr>
 									<?php } ?>

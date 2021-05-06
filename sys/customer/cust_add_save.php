@@ -14,19 +14,6 @@
 	$line_id = trim($_POST['line_id']);
 	$cust_map = trim($_POST['cust_map']);
 	$cust_tax = trim($_POST['taxid']);
-	
-	$temp_max = trim($_POST['temp_max']);
-	$temp_min = trim($_POST['temp_min']);
-	$temp_period = trim($_POST['temp_period']);
-	
-	$sendline = trim($_POST['sendline']);
-	
-	if($sendline=='on'){ 
-		$lineapp = 1;
-	}else{
-		$lineapp = 0;	
-	}
-
 
 ?>
 <!DOCTYPE html>
@@ -74,12 +61,9 @@
 				cust_lineid = '$line_id', 
 				cust_tax = '$cust_tax', 
 				cust_other = '$other', 
-				cust_notify = '$lineapp', 
-				cust_mintemp = '$temp_min', 
-				cust_maxtemp = '$temp_max', 
-				cust_periodtemp = '$temp_period', 
-				cust_location = '$cust_map'";
-	$result = mysql_query($sql);	
+				cust_location = '$cust_map'
+			";
+	$result = mysql_query($sql);
 	
 	if($result){
 		exit("<script> alert('บันทึกข้อมูลลูกค้า สำเร็จ'); window.location='customer.php';</script>");
