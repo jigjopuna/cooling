@@ -64,9 +64,8 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','p2BasIGUuINUyaOj4HnR3PDEzHiQ1EkLzTXWkeFY2sC');  
-	//define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt'); //ส่วนตัวปู
-	define('LINE_TOKEN1','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  //กลุ่ม เอกสาร 
+	define('LINE_TOKEN','DVkXOmyzLiMaXMhF8Ppoim48pl1A7foQgMTCsz1olfr'); 
+	
 	function notify_message($message){
 
 		$queryData = array('message' => $message);

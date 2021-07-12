@@ -4,7 +4,7 @@
 			FROM tb_customer c JOIN 
 				( SELECT orpd.o_id orderid, COUNT(orpd.o_id) nub_item, o.o_cust
 				FROM tb_ord_prod orpd JOIN tb_orders o ON o.o_id = orpd.o_id
-				WHERE o.o_status = 5 AND o.o_id > 307 AND o.o_type LIKE '1%'
+				WHERE o.o_status = 5 AND o.o_id > 363 AND o.o_type LIKE '1%'
 				GROUP BY orpd.o_id 
 				ORDER BY orpd.o_id DESC) AS a
 			ON c.cust_id = a.o_cust
@@ -23,7 +23,7 @@
 	
 	$sql2 = "SELECT c.cust_name, o.o_id, o.o_cust, o.o_type
 			FROM (tb_orders o LEFT JOIN tb_ord_prod orpd ON o.o_id = orpd.o_id) JOIN tb_customer c ON o.o_cust = c.cust_id
-			WHERE o.o_status = 5 AND o.o_id > 307 AND o.o_type LIKE '1%' AND orpd.o_id IS NULL
+			WHERE o.o_status = 5 AND o.o_id > 363 AND o.o_type LIKE '1%' AND orpd.o_id IS NULL
 
 			";
 	/* https://topcooling.net/doc/SQLJoin.jpg 
@@ -47,8 +47,8 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  
-	//define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt'); 
+	define('LINE_TOKEN','DVkXOmyzLiMaXMhF8Ppoim48pl1A7foQgMTCsz1olfr');  
+	
 	
 	
 	$msg = '';

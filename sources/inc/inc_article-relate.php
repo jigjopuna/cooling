@@ -141,6 +141,14 @@
 <div class="section-testimonial"> 
 	<div class="container">
 		<div class="row">
+		
+			<div class="col-xs-12">
+				<span style="font-size:36px;" class="topic-article"> มาตราฐานห้องเย็น TCL</span><br><br><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/mgwgA-hF-ns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<br><br>
+			</div>
+			
+			
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> คลิปส่งห้องเย็น</span><br><br><br>
 				<iframe width="100%" height="400" src="https://www.youtube.com/embed/AO5Vj17YWig" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

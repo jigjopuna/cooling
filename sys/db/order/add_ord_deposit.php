@@ -129,7 +129,7 @@
 			" ;
 	$result1 = mysql_query($sql); 
 	
-	$rowcust = mysql_fetch_array(mysql_query("SELECT cust_name FROM tb_customer WHERE cust_id = '$search_custname'"));
+	$rowcust = mysql_fetch_array(mysql_query("SELECT cuplt_name FROM tb_cust_depo WHERE cuplt_id = '$search_custname'"));
 	$custnames = $rowcust['cust_name'];
 
 	

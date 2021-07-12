@@ -9,9 +9,19 @@
 		require_once('../include/metatagsys.php');
 		require_once('../include/inc_role.php');
 		
-		$sql_all = "SELECT * FROM  tb_quo_cust q JOIN province p ON p.id = q.qcust_prov";
-		$result_all = mysql_query($sql_all);
-		$num_all = mysql_num_rows($result_all);
+		if($role_company==3) {
+			$sql_all = "SELECT * FROM  tb_quo_cust q JOIN province p ON p.id = q.qcust_prov";
+			$result_all = mysql_query($sql_all);
+			$num_all = mysql_num_rows($result_all);
+		}else{
+			$sql_all = "SELECT * 
+						FROM  tb_quo_cust q JOIN province p ON p.id = q.qcust_prov 
+						WHERE qcust_id < 882 
+						ORDER BY qcust_id DESC LIMIT 0,50";
+			$result_all = mysql_query($sql_all);
+			$num_all = mysql_num_rows($result_all);
+
+		}
 	?>
 </head>
 <body>

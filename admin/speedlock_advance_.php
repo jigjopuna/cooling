@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
 	require_once('../include/connect.php');
 	$nDay   = date("w");
 	$nMonth = date("n");
@@ -82,8 +82,6 @@
 	$hp = trim($_POST['hp']);
 	$discount = trim($_POST['discount']);
 	
-	$corp = trim($_POST['corp']);
-	
 	
 	
 	//เลือกเครื่องราคา มีทั้งหมด 3 แบบ ถูก กลาง แพง
@@ -115,13 +113,13 @@
 	
 	$comp_name = trim($_POST['comp_name']);
 	$coil_name = trim($_POST['coil_name']);
-	
 	$installs = trim($_POST['instype']);
 	
 	
 	$labor = $labors;
 	$jipata = $bedtaled;
 	
+    $corp = trim($_POST['corp']);
 	$sale_id = trim($_POST['sale_id']);
 	
 	$sales = mysql_fetch_array(mysql_query("SELECT e.e_id, e.e_name, e.e_lname, e.e_tel, e.e_email FROM tb_emp e WHERE e_id = '$sale_id'"));
@@ -132,6 +130,9 @@
 	
 
 	if($installs==1){ $instype = "สำเร็จรูป แบบเคลื่อยนย้ายได้"; } else { $instype = "ประกอบเร็ว ติดตั้งหน้างาน"; }
+	
+	
+	
 	
 	$cute = ($r_width*$r_high*2) + ($r_lenght*$r_high*2) + ($r_width*$r_lenght*2);
 	if($foaminch==2){ 
@@ -192,7 +193,8 @@
 		$copeland=38;
 		$fancon = 2;
 	}else if($hp==6){
-		$fancon = 2;
+		if($comp_name == 4 ){ $fancon = 1; } else { $fancon = 2; } 
+		
 	}else if($hp==7){
 		$copeland=48;
 		$fancon = 2;
@@ -321,12 +323,16 @@
 				qou_date = now()";
 	$result_log = mysql_query($sql_log);	
 	
+	
+	
+	
+	
 ?>
 
 </head>
 
 <body>
-
+<?php require_once ('../sys/include/inc_role.php'); ?>
 <div class="book">
     <div class="page">
         <div class="subpage">
@@ -427,7 +433,11 @@
 						<td style="width: 1%" class="r">&nbsp;</td>
 					</tr>
 					
-			
+					<tr border='1' align="center">
+						<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-  ฮีตเตอร์สำหรับป้องกันน้ำแข็งเกาะชนิดใช้กับระบบไฟ 220 V (ไม่ต้องใช้หม้อแปลง) สำหรับติดตั้งรอบบานประตู</td>
+						<td style="width: 1%" class="r">&nbsp;</td>
+					</tr>
+					
 					<tr border='1' align="center">
 						<td align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-  อุปกรณ์นิรภัยสำหรับติดที่บานประตูภายในห้องเย็นเพื่อกระทุ้งเปิดจากด้านใน แม้ด้านนอกถูกล็อค</td>
 						<td style="width: 1%" class="r">&nbsp;</td>
@@ -470,11 +480,11 @@
 							<td align="left" style="text-decoration: underline; font-weight: bold; font-size: 18px;">เงื่อนไขการรับประกัน</td>
 						</tr>
 						<tr>
-							<td align="left">  - ทางบริษัทยินดีรับประกันแผ่นฉนวนห้องเย็นเป็นเวลา  6 เดือน </td>
+							<td align="left">  - ทางบริษัทยินดีรับประกันแผ่นฉนวนห้องเย็นเป็นเวลา  1 ปี </td>
 						</tr>
 						
 						<tr>
-							<td align="left">   - ทางบริษัทยินดีรับประกันเครื่องทำความเย็นเป็นเวลา  6 เดือน</td>
+							<td align="left">   - ทางบริษัทยินดีรับประกันเครื่องทำความเย็นเป็นเวลา  1 ปี</td>
 						</tr>
 						
 						<tr>
@@ -546,7 +556,6 @@
         <div class="subpage">
 
             <div id="cover_header">
-				
 				<?php 
 					if($corp == 2)
 						include ('../include/tcl_addr.php');
@@ -554,6 +563,7 @@
 						include ('../include/cpn_addr.php');	
 				?>
 			</div><!--end cover_header-->
+			
 			
 			<?php
 					if($corp == 2)
@@ -565,11 +575,11 @@
 			<div id="product_price" style="margin-top:105px; clear:both">
 				<table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
 					<tr>
-						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็น มือสองประกอบใหม่</td>
+						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">รายละเอียดห้องเย็น พร้อมติดตั้ง</td>
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">ห้องเย็น <?php echo $instype; ?> ปริมาณแผ่นฉนวน (<?php echo $cute; ?>) ตารางเมตร</td>
+						<td style="width: 60%" align="left"><!--ห้องเย็น  ปริมาณแผ่นฉนวน (<?php //echo $cute; ?>) ตารางเมตร--> ราคาห้องเย็น พร้อมติดตั้ง  (<?php  echo $instype; ?>)</td>
 						<td style="width: 40%" class="b l" align="center" colspan="4"><strong>ขนาดห้องเย็น (กว้าง x ยาว x สูง) เมตร</strong></td>
 						<!--<td colspan="2" style="width: 13%;" class="rlb">กว้าง  (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว   (เมตร)</td>
@@ -588,7 +598,7 @@
 					
 					<tr align="center">
 						<td align="left">- อุณหภูมิก่อนเข้า <?php echo $tempbefore; ?>C<Sup>o</Sup> อุณหภูมิห้องที่ต้องการ <?php echo $ord_temp; ?>C<Sup>o</Sup></td>
-						<td class="l" align="left" colspan="4"> &nbsp;&nbsp;ฉนวน <strong><u> <?php echo $foams." ".$foaminch; ?>/ PS 8 นิ้ว</u></strong></td>
+						<td class="l" align="left" colspan="4"> &nbsp;&nbsp;ฉนวน <strong><u> <?php echo $foams." ".$foaminch; ?> นิ้ว</u></strong></td>
 					</tr>
 					
 					<tr align="center">
@@ -607,7 +617,7 @@
 					<tr class="highs" style="">
 						<td class="l">1. ชุด Condensing 
 							<strong><u>
-							<?php echo $nick_name;?> 
+							<?php echo $nick_name;?>
 							</u></strong>
 							  
 							
@@ -618,87 +628,91 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - คอมเพรสเซอร์ ตรวจสอบคุณภาพ มาตราฐาน พร้อมใช้งาน</td>
-						<td colspan="2" class="l" align="center"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - คอล์ยร้อน 1 พัดลม <strong><u>มือสอง</u></strong></td>
-						<td colspan="2" class="l" align="center"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l"> 2.  ชุดคอล์ยเย็น ยี่ห้อ KUBA <strong><u><?php echo $coyen_name;?></u></strong> มือสอง เช็คสภาพเรียบร้อย  </td>
+						<td class="l"> 2.  ชุดคอล์ยเย็น <strong><u><?php echo $coyen_name;?></u></strong>  </td>
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ผนังห้องเย็น โฟม <span style="font-weight:bold; text-decoration:underline; font-size:16px; color:red;"> <?php echo $foams." ".$foaminch; ?>/PS 8 นิ้ว</span> <span style="font-size: 12px;"> เหล็ก BHP 0.45 เมตร</span> <strong><u>มือสอง</u></strong> </td>
+						<td class="l">3. ผนังห้องเย็น โฟม <span style="font-weight:bold; text-decoration:underline; font-size:18px; color:red;"> <?php echo $foams." ".$foaminch; ?> นิ้ว</span> <span style="font-size: 12px;">density 38-40 kg/m3 เหล็ก BHP 0.45 เมตร</span> </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - 2CB/<?php echo $foams;?>/PS พร้อมอุปกรณ์ติดตั้ง</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - 2CB/<?php echo $foams;?> ผิวเรียบ พร้อมอุปกรณ์ติดตั้ง  <?php if($floor1==1) echo ' | พื้นอลูมิเนียมลายกันลื่น'; ?>   </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
-					<?php if($floor1==1){ ?>
-					<!--<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - พื้นอลูมิเนียมลายกันลื่น <strong><u>แผ่นใหม่</u></strong></td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>-->
-					<?php } ?>
+					
 					
 					<tr class="highs" style="">
-						<td class="l">4. ระบบไฟฟ้า ควบคุมห้องเย็น <strong><u><?php echo $firefa;?> </u></strong> <span style="font-size:14px;"></span>  </td>
+						<td class="l">4. ระบบไฟฟ้า ควบคุมห้องเย็น <strong><u><?php echo $firefa;?> </u></strong> <span style="font-size:14px;">พร้อมระบบความปลอดภัย</span></td>
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - พร้อมระบบความปลอดภัย <strong><u></u></strong></td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - ระบบควบคุมแบบ Digital ยี่ห้อ CAREL</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					
 					<tr class="highs" style="">
-						<td class="l">5. <?php echo $doortypes; ?> ขนาด <strong><u>0.75 x 1.80 เมตร</u></strong>  กว้าง สูง <strong><u>มือสอง</u></strong></td>
+						<td class="l">5. <?php echo $doortypes; ?> ขนาด <strong><u><?php echo $d_width.' x '.$d_high?> เมตร</u></strong>  กว้าง สูง</td>
 						<td colspan="2" class="l" align="center">1 บาน</td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - ประตูใช้วัสดุ PU ความหนา 4 นิ้ว </td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
 					
+					<!--<tr class="highs" style="">
+						<td class="l">6. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
+						<td colspan="2" class="l" align="center">1 ชุด</td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"><s>48,000.00</s></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - แจ้งเตือนถ้าห้องเย็นมีปัญหาผ่านมือถือ ฟรีค่าบริการปีแรก 10,000 บาท</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; -  (ต้องมี Internet WiFi บริเวณห้องเย็น)</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
 
 					<tr class="highs" style="">
-						<td class="l"> 6. ค่าขนส่งห้องเย็น</td>
-						<td colspan="2" class="l" align="center">1 เที่ยว</td>
-						<td class="l" align="center"><?php if($ship_cost == 0) echo ''; ?></td>
-						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l"> 7. ค่าติดตั้งห้องเย็น</td>
+						<td class="l"> 7. ค่าติดตั้งห้องเย็น และเครื่องทำความเย็น</td>
 						<td colspan="2" class="l" align="center">1 งาน</td>
 						<td class="l" align="center"></td>
-						<td class="l" align="right"><s>5,000.00</s></td>
-					</tr>
+						<td class="l" align="right"><?php //echo number_format($labor, 2, '.', ','); ?></td>
+					</tr>-->
 					
+					<tr class="highs" style="">
+						<td class="l"> 6. ค่าบริการขนส่ง วัสดุอุปกรณ์ห้อง และเครื่องทำความเย็น</td>
+						<td colspan="2" class="l" align="center">1 เทียว</td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
+					</tr>
 					
 					
 					<?php if($gift != '') { ?>
@@ -738,13 +752,13 @@
 					
 					<tr>
 						
-						<td colspan="3" class="rl"></td>
-						<td class="rt l" align="right"></td>
+						<td colspan="3" class="rl">ส่วนลด มูลค่าสินค้า</td>
+						<td class="rt l" align="right"><?php echo number_format($discount, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						
-						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ  </td>
+						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ  <?php if($intvat=='on') echo '(Inc VAT 7%)';?></td>
 						<td class="rt l" align="right" id="totolprice"><?php echo number_format($incvat, 2, '.', ',');?> </td>
 					</tr>
 				
@@ -758,7 +772,7 @@
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tr>
-							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; (มือสองหากต้องการ VAT รบกวนแจ้งฝ่ายขาย)</td>
+							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; <!-- (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)--></td>
 						</tr>
 						<tr>
 							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   70%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
@@ -775,8 +789,7 @@
 							<td align="left"><span class="cal_ngo3"><?php //echo number_format($ngod3, 0, '.', ',');?></span> บาท</td>
 						</tr>-->
 						
-						
-						<?php
+					<?php
 						if($corp == 2) { 
 							
 					?>
@@ -789,16 +802,13 @@
 					<?php } else { ?>
 						
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกรุงเทพ (สะสมทรัพย์)</td>
+							<td colspan="2" align="left">บัญชีธนาคารกรุงเทพ(สะสมทรัพย์)</td>
 							<tr>
-								<td colspan="2" align="left"> <!-- บจ.ซีพีเอ็น888--> เดชาธร ผลินธร  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> <!--520-0-45057-4--> 025-704019-6 </span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 520-0-45057-4</span></td>
 							</tr>
 						</tr>
 						
 					<?php }  ?>
-				
-				
-						
 					</table>
 					
 				</div><br>
@@ -812,7 +822,6 @@
 						</tr>
 						<tr>
 							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
-							
 						</tr>
 						
 						<tr class="fullpay" style="display:none;">
@@ -825,6 +834,7 @@
 								ชำระเพียง <span id="fullpricepay"></span> บาท เท่านั้น
 							</td>
 						</tr>
+						
 					</table>
 				</div>
 			</div><!--end amount-->
@@ -864,7 +874,6 @@
         <div class="subpage">
 
             <div id="cover_header">
-				
 				<?php 
 					if($corp == 2)
 						include ('../include/tcl_addr.php');
@@ -1011,12 +1020,26 @@
 							<td align="left"></td>
 						</tr>
 						
+						<?php
+						if($corp == 2) { 
+							
+					?>
 						<tr>
 							<td colspan="2" align="left">บัญชีธนาคารทหารไทย TMB (ออมทรัพย์)</td>
 							<tr>
 								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 635-2-31556-5</span></td>
 							</tr>
 						</tr>
+					<?php } else { ?>
+						
+						<tr>
+							<td colspan="2" align="left">บัญชีธนาคารกรุงเทพ(สะสมทรัพย์)</td>
+							<tr>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 520-0-45057-4</span></td>
+							</tr>
+						</tr>
+						
+					<?php }  ?>
 						
 					</tbody></table>
 					
@@ -1032,6 +1055,18 @@
 						<tr>
 							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
 						</tr>
+						
+						<tr>
+							<td align="left" style="color:red; font-size:17px; font-weight:bold;">  		ชำระเต็มจำนวนงวดแรก ฟรีค่าขนส่ง
+							</td>
+						</tr>
+
+						<tr>
+							<td align="left" style="color:red; font-size:17px; font-weight:bold;"> 
+								ชำระเพียง 213,000 บาท เท่านั้น
+							</td>
+						</tr>
+
 					</tbody></table>
 				</div>
 			</div><!--end amount-->
@@ -1041,7 +1076,7 @@
 				<div style="width: 65%; float:left; margin-top: 50px;">
 					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
 					<span>ลงชื่อ......................................</span> <br><br>
-					<span>วันที่ 13/01/2562</span>
+					<span>วันที่ <?php echo $thatdate;?></span>
 				</div>
 				<div style="width: 35%; float:left; margin-top: 50px;">
 					
@@ -1072,7 +1107,6 @@
         <div class="subpage">
 
             <div id="cover_header">
-				
 				<?php 
 					if($corp == 2)
 						include ('../include/tcl_addr.php');
@@ -1081,13 +1115,13 @@
 				?>
 			</div><!--end cover_header-->
 			
+			
 			<?php
 					if($corp == 2)
 						include ('../include/quotation_head.php');
 					else 
 						include ('../include/quotation_head_cpn.php');
 			?>
-			
 			
 			<div id="product_price" style="margin-top:200x; clear:both">
 				<?php if($installs==1) { ?>
@@ -1122,12 +1156,12 @@
 	<div class="page">
         <div class="subpage">
 
-           <div id="cover_header">
+            <div id="cover_header">
 				<?php 
 					if($corp == 2)
 						include ('../include/tcl_addr.php');
 					else 
-						include ('../include/cpn_addr.php');	
+						include ('../include/cpn_addr.php');
 				?>
 			</div><!--end cover_header-->
 			
@@ -1143,31 +1177,31 @@
 				<div class="row">
 					<div class="col3">
 						<div style="width: 300px; height:280px; background: orange;">
-							<img src="../content/images/quotation/emerson-sec.jpg">
+							<img src="../content/images/quotation/<?php echo $com_img.$fancon;?>.jpg">
 						</div>
 					</div>
 					<div class="col4"><span class="topic">ชุดคอนเด็นซิ่งยูนิต ประกอบด้วย</span><br>    
-						<p><span class="intopic">คอมเพรสเซอร์ :</span> <?php echo $compressor_name; ?> <strong><u>มือสอง</u></strong></p>
-						<p><span class="intopic">ชุดคอยล์ร้อน :</span> ระบายความร้อนด้วยอากาศ 1 พัดลม <strong><u>มือสอง</u></strong></p>
+						<p><span class="intopic">คอมเพรสเซอร์ :</span> <?php echo $compfull_name; ?></p>
+						<p><span class="intopic">ชุดคอยล์ร้อน :</span> ระบายความร้อนด้วยอากาศ <?php echo $fancon; ?> พัดลม</p>
 						<p><span class="intopic">ไฮ-โล เพรสเชอร์ :</span> อุปกรณ์วัดระดับแรงดันน้ำยา</p>
 						<p><span class="intopic">รีซีฟเวอร์และวาล์วนิรภัย :</span></p>
 						<p><span class="intopic">เช็ควาล์วและเซอร์วิสวาล์ว :</span> </p>
-						<p><span class="intopic">ดรายเออร์ :</span> อุปกรณ์กรอกสิ่งสกปรกออกจากระบบทำความเย็น ตัวใหม่</p></div>
+						<p><span class="intopic">ดรายเออร์ :</span> อุปกรณ์กรองสิ่งสกปรกออกจากระบบทำความเย็น</p></div>
 				</div> <!--end row-->
 				
 				<div class="row">
 					<div class="col1">
-						<span class="topic">คอยล์เย็นสำหรับเป่าลมเย็นในห้องเย็น มือสอง</span><br>
+						<span class="topic">คอยล์เย็นสำหรับเป่าลมเย็นในห้องเย็น</span><br>
 						<p><span class="intopic">รุ่น  :</span> <?php echo $coyen_name; ?></p>
 						<p><span class="intopic">ยี่ห้อ :</span> <?php echo $coyen_name; ?></p>
 						<p><span class="intopic">จำนวนพัดลม/ขนาดใบพัด :</span> 2 x 350 มิลลิเมตร</p>
 						<p><span class="intopic">ระยะส่งลม (Air Throw) :</span> </p>
-						<p><span class="intopic">ระยะครีบ (ฟิน) :</span> 5 มิลลิเมตร</p>
+						<p><span class="intopic">ระยะครีบ (ฟิน) :</span> 7 มิลลิเมตร</p>
 						
 					</div>
 					<div class="col2">
 						<div style="width: 300px; height:280px; background: orange;">
-							<img src="../content/images/quotation/kuba-gea.jpg">
+							<img src="../content/images/quotation/<?php echo $coyen_img;?>.jpg">
 						</div>
 					</div>
 				</div> <!--end row-->
@@ -1192,7 +1226,7 @@
 					if($corp == 2)
 						include ('../include/tcl_addr.php');
 					else 
-						include ('../include/cpn_addr.php');	
+						include ('../include/cpn_addr.php');
 				?>
 			</div><!--end cover_header-->
 			
@@ -1233,8 +1267,8 @@
 					</div>
 					<div class="col4">
 						
-						<span class="topic">อุปกรณ์ควบคุมระบบน้ำยาห้องเย็น ชุดใหม่</span><br>
-						<p><span class="intopic">น้ำยาทำความเย็น :</span> ชนิด R22</p>
+						<span class="topic">อุปกรณ์ควบคุมระบบน้ำยาห้องเย็น</span><br>
+						<p><span class="intopic">น้ำยาทำความเย็น :</span> ชนิด R404a</p>
 						<p><span class="intopic">ท่อทองแดง : </span> Type L สำหรับส่งน้ำยาในระบบ รวมถึงข้อต่อต่างๆ ระยะเดินท่อน้ำยาไม่เกิน 10 เมตร</p>
 						<p><span class="intopic">ฉนวนหุ้มท่อ :</span> AeroFlex ป้องกันการเกิดหยดน้ำ และการรั่วซึมของน้ำยา </p>
 						<p><span class="intopic">ตัวยึดท่อทองแดง :</span> ก้ามปูยึดท่อ</p>
@@ -1263,12 +1297,12 @@
 					if($corp == 2)
 						include ('../include/tcl_addr.php');
 					else 
-						include ('../include/cpn_addr.php');	
+						include ('../include/cpn_addr.php');
 				?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
-				<div style="float: right;"><!--หน้า 6--></div>
+				<div style="float: right;"><!--หน้า 6--> </div>
 			</div>
 			
 			<div style="width: 100%; clear:both; height: 40px;">
@@ -1278,9 +1312,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="col3">
-						<span class="topic">ฮีทเตอร์สำหรับละลายน้ำแข็ง (Defrost) ชุดใหม่</span><br>
+						<span class="topic">ฮีทเตอร์สำหรับละลายน้ำแข็ง (Defrost)</span><br>
 						<p><span class="intopic">ฮีทเตอร์คอยเย็น :</span> ป้องกันน้ำแข็งเกาะบริเวณฟินที่คอยล์เย็น</p>
+						<p><span class="intopic">ฮีทเตอร์ขอบประตู :</span> ป้องกันหยดน้ำคอนเด็นที่อาจเกิดขึ้นบริเวณประตู</p>
 						<p><span class="intopic">วาล์วปรับแรงดัน :</span> ฮีตเตอร์วาล์วปรับแรงดันป้องกันน้ำแข็งเกาะ สำหรับปรับแรงดันในและนอกห้องเย็นให้เท่ากันป้องกันรอยรั่วบริเวณต่อของแผ่นฉนวน </p>
+						<p><span class="intopic">Dimmer :</span> สำหรับปรับความร้อนของฮีทเตอร์ขอบประตู</p>
 					</div>
 					<div class="col4">
 						<div style="width: 300px; height:280px; background: orange;">
@@ -1304,7 +1340,7 @@
 						
 					</div>
 					<div class="col2">
-						<span class="topic">ฉนวนโฟมผนังห้องเย็น มือสอง</span><br>
+						<span class="topic">ฉนวนโฟมผนังห้องเย็น</span><br>
 						<p><span class="intopic">ชนิดของฉนวน  : <?php echo $foams." ".$foaminch; ?> นิ้ว</p>
 						<p><span class="intopic">ความหนาของฉนวนโฟม  :</span> <?php echo $foaminch; ?> นิ้ว</p> 
 						<p><span class="intopic">ยี่ห้อ :</span> BHP</p>
@@ -1312,7 +1348,7 @@
 						<p><span class="intopic">วัสดุเหล็ก :</span> เหล็กคัลเลอร์บอร์นผิวเรียบ</p>
 						<p><span class="intopic">วัสดุกันรั่วกันความชื้น :</span>  "บูทิวมาสติก" สำหรับใช้ฉีดเชื่อมรอยต่อของฉนวน</p>
 						<p><span class="intopic">ติดตั้ง :</span>  รีเวทสำหรับยึดแผ่นฉนวนกับอลูมิเนียม</p>
-						<p><span class="intopic">ติดตั้ง :</span>  อลูมิเนียมหน้าตัดต่างๆ ชนิดชุบด้วยอโนไดส์ สำหรับเป็นตัวเข้าลิ้น และมอบปิดรอยต่อส่วนต่างๆ ของห้องเย็น ชุดใหม่</p>
+						<p><span class="intopic">ติดตั้ง :</span>  อลูมิเนียมหน้าตัดต่างๆ ชนิดชุบด้วยอโนไดส์ สำหรับเป็นตัวเข้าลิ้น และมอบปิดรอยต่อส่วนต่างๆ ของห้องเย็น</p>
 
 					</div>
 				</div> <!--end row-->
@@ -1337,12 +1373,12 @@
 					if($corp == 2)
 						include ('../include/tcl_addr.php');
 					else 
-						include ('../include/cpn_addr.php');	
+						include ('../include/cpn_addr.php');
 				?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">
-				<div style="float: right;"><!--หน้า 7--></div>
+				<div style="float: right;"> <!--หน้า 7--></div>
 			</div>
 			
 			<div style="width: 100%; clear:both; height: 40px;">
@@ -1353,9 +1389,9 @@
 				
 				<div class="row">
 					<div class="col1">
-						<span class="topic">ประตูห้องเย็น มือสอง</span><br>
+						<span class="topic">ประตูห้องเย็น</span><br>
 						<p><span class="intopic">ชนิดประตู : </span><?php echo $doortypes;?></p>
-						<p><span class="intopic">ขนาด :</span> 0.75 x 1.80 เมตร</p>
+						<p><span class="intopic">ขนาด :</span> <?php echo $d_width.' x '.$d_high?> เมตร</p>
 						<?php if($doortype==1){ // swing ?>
 							<p><span class="intopic"></span>- อุปกรณ์นิรภัยสำหรับติดที่บานประตูภายในห้องเย็นเพื่อกระทุ้งเปิดจากด้านใน แม้ด้านนอดถูกล็อค</p>
 						<?php } ?>
@@ -1377,7 +1413,7 @@
 				
 				
 				<?php if($floor1==1) { ?>
-				<!--<div class="row">
+				<div class="row">
 					<div class="col3">
 						<div style="width: 300px; height:280px; background: orange;">
 							<img src="../content/images/quotation/009.jpg">
@@ -1385,13 +1421,12 @@
 						
 					</div>
 					<div class="col4">
-						<span class="topic">พื้นห้องเย็น อลูมิเนียมแผ่นใหม่</span><br>
+						<span class="topic">พื้นห้องเย็น</span><br>
 						<p><span class="intopic">ชนิด :</span> พื้นสำเร็จรูป ปูทับด้วยอลูมิเนียมกันลื่น</p>
 						<p><span class="intopic">วัสดุกันรั่ว : </span> ซิลิโคน และซีลแลนด์ สำหรับใช้ฉีดเชื่อมรอยต่อของแผ่นฉนวน</p>
 						
 					</div>
-				</div> -->
-				<!--end row-->
+				</div> <!--end row-->
 				<?php } ?>
 				
 			</div><!--end container-->
@@ -1403,10 +1438,12 @@
         </div>  <!--end subpage-->
     </div>
 	
+	
+	<?php //require_once('../include/inc_iot.php');?>
 	<?php require_once('../include/inc_brief.php');?>
 	
 </div>
-
+    
 	<?php require_once('../include/inc_compare.php');?>
 
 </body>

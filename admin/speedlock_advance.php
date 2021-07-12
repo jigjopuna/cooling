@@ -528,7 +528,7 @@
 				<div style="width: 35%; float:left; margin-top: 20px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>
@@ -657,6 +657,13 @@
 						<td class="l" align="right"></td>
 					</tr>
 					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - ระบบควบคุมแบบ Digital ยี่ห้อ CAREL</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
 					
 					<tr class="highs" style="">
 						<td class="l">5. <?php echo $doortypes; ?> ขนาด <strong><u><?php echo $d_width.' x '.$d_high?> เมตร</u></strong>  กว้าง สูง</td>
@@ -666,18 +673,25 @@
 					</tr>
 					
 					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - ประตูใช้วัสดุ PU ความหนา 4 นิ้ว </td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<!--<tr class="highs" style="">
 						<td class="l">6. ระบบ IoT สำหรับตรวจสอบอุณหภูมิห้องเย็น แบบออนไลน์  24 ชั่งโมง</td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"><s>48,000.00</s></td>
 					</tr>
 					
-					<!--<tr class="highs" style="">
+					<tr class="highs" style="">
 						<td class="l">&nbsp;&nbsp;&nbsp; - แจ้งเตือนถ้าห้องเย็นมีปัญหาผ่านมือถือ ฟรีค่าบริการปีแรก 10,000 บาท</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
-					</tr>-->
+					</tr>
 					
 					<tr class="highs" style="">
 						<td class="l">&nbsp;&nbsp;&nbsp; -  (ต้องมี Internet WiFi บริเวณห้องเย็น)</td>
@@ -686,7 +700,7 @@
 						<td class="l" align="right"></td>
 					</tr>
 
-					<!--<tr class="highs" style="">
+					<tr class="highs" style="">
 						<td class="l"> 7. ค่าติดตั้งห้องเย็น และเครื่องทำความเย็น</td>
 						<td colspan="2" class="l" align="center">1 งาน</td>
 						<td class="l" align="center"></td>
@@ -694,7 +708,7 @@
 					</tr>-->
 					
 					<tr class="highs" style="">
-						<td class="l"> 7. ค่าบริการขนส่ง วัสดุอุปกรณ์ห้อง และเครื่องทำความเย็น</td>
+						<td class="l"> 6. ค่าบริการขนส่ง วัสดุอุปกรณ์ห้อง และเครื่องทำความเย็น</td>
 						<td colspan="2" class="l" align="center">1 เทียว</td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
@@ -761,19 +775,19 @@
 							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; <!-- (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)--></td>
 						</tr>
 						<tr>
-							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   50%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
+							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   70%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
 							<td align="left" style="width: 35%"><span class="cal_ngo1"><?php echo number_format($ngod1, 0, '.', ',');?></span> บาท</td>
 						</tr>
 						
 						<tr>
-							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระก่อนจัดส่งอุปกรณ์ </td>
+							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระเมื่อใช้งานได้เรียบร้อย <!--ชำระก่อนจัดส่งอุปกรณ์--> </td>
 							<td align="left"><span class="cal_ngo2"><?php echo number_format($ngod2, 0, '.', ',');?></span> บาท</td>
 						</tr>
 						
-						<tr>
+						<!--<tr>
 							<td align="left"> <span style="text-decoration: underline;">งวดที่ 3</span>   20% ชำระเมื่อใช้งานได้เรียบร้อย </td>
-							<td align="left"><span class="cal_ngo3"><?php echo number_format($ngod3, 0, '.', ',');?></span> บาท</td>
-						</tr>
+							<td align="left"><span class="cal_ngo3"><?php //echo number_format($ngod3, 0, '.', ',');?></span> บาท</td>
+						</tr>-->
 						
 					<?php
 						if($corp == 2) { 
@@ -788,9 +802,9 @@
 					<?php } else { ?>
 						
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกรุงเทพ(สะสมทรัพย์)</td>
+							<td colspan="2" align="left">บัญชีธนาคาร กสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 520-0-45057-4</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
 							</tr>
 						</tr>
 						
@@ -835,7 +849,7 @@
 				<div style="width: 35%; float:left; margin-top: 0px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>
@@ -1067,7 +1081,7 @@
 				<div style="width: 35%; float:left; margin-top: 50px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>
@@ -1424,70 +1438,9 @@
         </div>  <!--end subpage-->
     </div>
 	
-	<div class="page">
-        <div class="subpage">
-
-            <div id="cover_header">
-				<?php 
-					if($corp == 2)
-						include ('../include/tcl_addr.php');
-					else 
-						include ('../include/cpn_addr.php');	
-				?>
-			</div><!--end cover_header-->
-			
-			<div style="width: 100%; clear:both; height: 10px;">
-				<div style="float: right;"></div>
-			</div>
-			
-			<div style="width: 100%; clear:both; height: 40px;">
-				<p style="text-align:center;"><span class="intopic" style="font-size:20px; text-decoration:underline;">รายละเอียดแนบท้ายใบเสนอราคา</span></p>
-			</div>
-			
-			<div class="container">
-				
-				
-				<div class="row" style="padding-top:0px;">
-					<div class="tew" style="padding: 20px;">
-					<h2>ระบบห้องเย็นออนไลน์</h2>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					IDCAM Plus เป็นอุปกรณ์ (IoT) ที่ออกแบบให้ใช้งานกับห้องเย็นโดยเฉพาะ ช่วยให้ผู้ใช้งานสามารถ <span class="text-strong">ติดตาม</span> สถานะการทำงานของห้องเย็นได้ตลอดเวลาผ่านการเชื่อมต่ออินเตอร์เน็ตแบบ Real Time จะเก็บข้อมูลทุกๆ 1 นาที <br><br>
-					
-					<span class="text-large">ประโยชน์เด่นๆ</span> ของ IDCAM Plus ช่วย <span class="text-strong">ลดความเสี่ยง</span> ของที่เก็บหรือแช่แข็งไว้ในห้องเย็น เพราะเราจะไม่ให้ห้องเย็นลูกค้าเสีย โดยระบบนี้จะแจ้งเตือนทันทีหากอุณหภูมิให้ห้องเย็นไม่ได้อุณหภูมิตามที่เราต้องการหรือระบบห้องเย็นมีปัญหา เช่น กระแสไฟฟ้าสูง จนทำให้ระบบหยุดการทำงาน <br><br>
-
-					ถ้าระบบผิดปกติอย่างใดอย่างหนึ่งไม่ว่าจะเป็นอุณหภูมิหรือเรื่องเครื่องทำความเย็น ระบบจะ <span class="text-strong">แจ้ง Line</span> ให้ทราบทันที จะเป็น Line ส่วนตัวหรือ Line กลุ่มก็ได้ จะได้ช่วยกันดู
-					<br><br>
-
-					 โดยการทำงานของระบบนี้ จะเก็บข้อมูล ขึ้นระบบ <span class="text-strong">คลาวด์ (Cloud)</span> ทุกๆ 1 นาที หรือมากน้อยกว่านี้ก็ได้ตามต้องการ และเราสามารถวิเคราห์การทำงานของเครื่องได้จาก Big Data ที่เราเก็บข้อมูลไว้ และบริการการเรียกรายงาน Report ได้  มีรายละเอียดดังต่อไปนี้<br><br>
-
-					<strong><u>1. ทราบอุณหภูมิ</u></strong> ณ ปัจจุบันของห้องเย็น และดูย้อนหลังได้ <br><br>
-					<strong><u>2. ทราบสถานะการทำงาน</u></strong> ของเครื่องคอมเพรสเซอร์ ว่าทำงานหรือไม่ทำงาน ณ ขณะที่ดู<br><br>
-					<strong><u>3. ทราบสถานะการทำงาน</u></strong> ของคอยล์เย็น ซึ่งเป็นอุปกรณ์ที่อยู่ในห้องเย็นและทำงานร่วมกับชุดคอนเด็นซิ่ง (Compressor)<br><br>
-					<strong><u>4. ทราบว่า Overload</u></strong> คอมเพรสเซอร์ตัดหรือไม่ ก็คือรู้ว่ากระแสไฟฟ้าที่ให้คอมเพรสเซอร์นั้นมากกว่าปกติหรือไม่<br><br>
-					<strong><u>5. ทราบว่า Overload</u></strong> (กระแสไฟฟ้าเกิน)  ที่คอยล์เย็นหรือไม่<br><br>
-					<strong><u>6. ทราบว่า Overload</u></strong> (กระแสไฟฟ้าเกิน) ที่คอยล์ร้อนหรือไม่ หากมีกระแสไฟฟ้าเกิน ก็จะแจ้งเตือนไปผู้ใช้งานห้องเย็นทันในหลายช่องทาง คือ ทางแอปพลิเคชั่นไลน์  ในหน้า DashBoard Web Application และบันทึกจำนวนการตัดของ Overload ลงฐานข้อมูลเพื่อนำไปวิเคราะห์ต่อไป<br><br>
-					<strong><u>7. ทราบสถานะไฟฟ้า</u></strong> (Phase Protection) ว่าปกติหรือมีไฟฟ้าเกิน ไฟตก ไฟไม่บาลานซ์เฟส หรือไม่<br><br>
-
-					เราจะทราบได้ว่าแต่ละอุปกรณ์หรือสถานะ <span class="text-strong">ทำงานกี่นาที</span> และ ไม่ทำงานกี่นาที นั้นหมายถึงเรารู้พฤติกรรมการทำงานของเครื่องทำความเย็นทั้งระบบ ว่าระบบทำงานได้ปกติ และ ได้ประสิทธิภาพได้เหมือนกับตอนที่ติดตั้งใหม่ๆ หรือไม่ (ปกติประสิทธิภาพเครื่องจะลดลงตามระยะเวลาที่ใช้งาน เช่น กินกระแสไฟมากขึ้น หรือทำอุณหภูมิได้ช้าลงในเวลาที่เท่าเดิม)
-					<br><br>
-					
-					นอกจากเราจะรู้ <span class="text-strong">พฤติกรรม</span> การทำงานของเครื่องทำความเย็นแล้ว เรายังสามารถนำเวลาที่เครื่องทำงานมาคำนวณเป็นค่าไฟฟ้าในเบื้องต้นได้ ทำให้เราวางแผนหรือบริหารห้องเย็นได้ เช่น หากค่าไฟเยอะผิดปกติ เราจะหาสาเหตุที่ผิดปกติได้อย่างรวดเร็ว หรือการตั้งค่าบางอย่างที่ใช้ไฟฟ้าโดยไม่จำเป็นออกไป เช่น ฮีตเตอร์ละลายน้ำ จริงๆ ถ้าละลายหมดแล้วแต่ฮีทเตอร์ยังทำงานอยู่ ก็อาจลดเวลาการ Defrost จะช่วยประหยัดค่าไฟได้
-					<br><br>
-					
-					เพียงทำเท่านี้เราก็จะป้องกัน ลดความเสี่ยง สินค้าที่อาจจะเสียหายในห้องเย็นได้ ลดการซ่อมบำรุงเครื่องทำความเย็นได้อีกด้วย<br><br>
-					</div>
-				</div> <!--end row-->
-
-				
-			</div><!--end container-->
-			<div class="conclude" style="clear: both; line-height:18px;"></div><!--end conclude -->
-			<br><br><br>
-			<div class="note" style="clear: both; margin: 0 0 0 200px;">
-			</div><!--end note -->
-
-        </div>  <!--end subpage-->
-    </div>
 	
+	<?php //require_once('../include/inc_iot.php');?>
+	<?php //require_once('../include/inc_iot.php');?>
 	<?php require_once('../include/inc_brief.php');?>
 	
 </div>

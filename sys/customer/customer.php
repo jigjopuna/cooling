@@ -8,12 +8,22 @@
 	<?php require_once('../include/header.php');?>
 	<?php require_once('../include/metatagsys.php');?>
 	<?php require_once('../include/inc_role.php');
+	
+	if($role_company==3) {
 		$sql_all = "SELECT c.cust_id, c.cust_name, c.cust_product, c.cust_tel, p.pro_name, c.cust_date 
 					FROM (tb_customer c JOIN province p ON c.cust_province = p.id)
 						  JOIN tb_orders o ON o.o_cust = c.cust_id 
 					WHERE o.o_type LIKE '1%'";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
+	}else{
+		$sql_all = "SELECT c.cust_id, c.cust_name, c.cust_product, c.cust_tel, p.pro_name, c.cust_date 
+					FROM (tb_customer c JOIN province p ON c.cust_province = p.id)
+						  JOIN tb_orders o ON o.o_cust = c.cust_id 
+					WHERE o.o_type LIKE '1%' AND c.cust_id < 404 ORDER BY c.cust_id DESC LIMIT 0,50";
+		$result_all = mysql_query($sql_all);
+		$num_all = mysql_num_rows($result_all);
+	}
 	
 	?>
 </head>

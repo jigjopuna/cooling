@@ -38,7 +38,7 @@
 								โทร
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;"> <!--098-970-2339--> 082-360-1523 หรือ <!--084-013-7350 098-336-9627--> 084-013-7350</a>
+								<a href="" style="color: white;"> <!--098-970-2339--> 084-013-7350 หรือ 099-129-0789</a>
 							</div>
 						</div>
 					</li>
@@ -103,7 +103,7 @@
 		<div class="row">
 			<div class="col-md-6">
 			<div class="copyright-text">
-			Copyright 2018 Topcooling.Co, Ltd.
+			Copyright 2021 Topcooling.Co, Ltd.
 			</div>
 			</div>
 			<div class="col-md-4">

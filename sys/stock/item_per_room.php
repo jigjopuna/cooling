@@ -15,13 +15,19 @@
   $yesterday = date('Y-m-d',strtotime("-1 days"));
   $dates = date('Y-m-d');
   
-  $sql = "SELECT s.sl_name, t.t_supplier, t.t_name, t.t_id, cs.cst_id, t.t_cost, cs.cst_five_meter, cs.cst_room_type
+  $sql = "SELECT s.sl_name, t.t_supplier, t.t_name, t.t_id, cs.cst_id, t.t_cost, cs.cst_five_meter, cs.cst_room_type, t.t_cost*cs.cst_five_meter AS amount 
 		  FROM (tb_count_stock cs JOIN tb_tools t ON t.t_id = cs.cst_prod)
 		        JOIN tb_sellers s ON s.sl_id = t.t_supplier
-		  ORDER BY t.t_supplier, t.t_id
+		  ORDER BY t.t_supplier, t.t_name
 		 ";
   $result = mysql_query($sql);
   $num = mysql_num_rows($result);
+  
+  
+  $sumsql = mysql_fetch_array(mysql_query("SELECT SUM(t.t_cost*cs.cst_five_meter) AS sumcost FROM tb_count_stock cs JOIN tb_tools t ON t.t_id = cs.cst_prod"));
+ 
+  $rowsum = $sumsql['sumcost'];
+  
   
   $rowtype = 0;
 ?>
@@ -46,30 +52,30 @@
 				
 					<table style="width:100%; border: 1px solid black; font-size:10px;">
 						<tr>
-							<td colspan="5" align="center">ทั้งหมด รายการ</td>
+							<td colspan="7" align="center">ทั้งหมด รายการ</td>
 						</tr>
 						<tr>
 							<td>###</td>
 							<td>ร้านค้า</td>
 							<td>รายการ</td>
-							<td>รหัสสินค้า</td>
 							<td>ต้นทุน</td>
 							<td>ใช้ต่อห้อง</td>
+							<td>รวมราคา</td>
 							<td>ประเภทที่ใช้</td>
 						</tr>
 						<?php for($i=1; $i<=$num; $i++) {  
 							$row = mysql_fetch_array($result);	
 							
 							if($rowtype != $row['t_supplier']){ echo '<tr><td colspan="6" align="center">space</td></tr>'; $rowtype = $row['t_supplier'];}
-							if($i==55 || $i==125){ echo '<td colspan="6" style="height:60px;">&nbsp;</td>';}
+							if($i==57 || $i==117){ echo '<td colspan="6" style="height:70px;">&nbsp;</td>';}
 						?>
 							<tr>
-								<td><?php echo $i;?></td>
+								<td><?php echo $i.' ('.$row['t_id'].')'; ?></td>
 								<td><?php echo $row['sl_name'];?></td>
 								<td><?php echo $row['t_name'];?></td>
-								<td><?php echo $row['t_id'];?></td>
 								<td><?php echo number_format($row['t_cost'], 0, '.', ',');?></td>
 								<td><?php echo $row['cst_five_meter'];?></td>
+								<td><?php echo number_format($row['amount'], 0, '.', ',');?></td>
 								<td><?php echo $row['cst_room_type'];?></td>
 							</tr>
 						<?php } ?>
@@ -78,7 +84,7 @@
 							<td>&nbsp; </td>
 							<td>&nbsp; </td>
 							<td>รวม </td>
-							<td></td>
+							<td> <?php echo number_format($rowsum, 0, '.', ',');?></td>
 							<td>บาท </td>
 						</tr>
 						

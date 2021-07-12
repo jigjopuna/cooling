@@ -5,7 +5,7 @@
 	/*$sql = "SELECT *
 			FROM tb_tools t JOIN tb_tools_type tot ON t.t_type = tot.to_typeid";*/
 			
-	$sql = "SELECT t_id, t_name, t_cost, t_stock, t_supplier,  t_bill, t_image
+	$sql = "SELECT t_id, t_name, t_model, t_cost, t_stock, t_supplier,  t_bill, t_image
 			FROM tb_tools t JOIN tb_tools_type tot ON t.t_type = tot.to_typeid";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
@@ -201,7 +201,7 @@
 									  ?>
 										<tr class="gradeA">
 											<td><?php echo $row['t_id']; ?></td>
-											<td><a href="stocklog.php?t_id=<?php echo $row['t_id']?>"><?php echo $row['t_name'].' ('.$allstock.')'; ?></td>
+											<td><a href="stocklog.php?t_id=<?php echo $row['t_id']?>"><?php echo $row['t_name'].' '.$row['t_model'].' ('.$allstock.')'; ?></td>
 											<td><?php echo $row['t_supplier']; ?></td>
 											<td><?php echo $stock; ?></td>
 											

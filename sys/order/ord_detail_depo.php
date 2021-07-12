@@ -9,8 +9,8 @@
 	
 	$row_dep =  mysql_fetch_array(mysql_query("SELECT * FROM tb_deposit WHERE d_id = '$dep_id'"));
 				 
-	$row_cust = mysql_fetch_array(mysql_query("SELECT * FROM tb_customer WHERE cust_id = '$cust_id'"));
-	$custname = $row_cust['cust_name'];
+	$row_cust = mysql_fetch_array(mysql_query("SELECT * FROM tb_cust_depo WHERE cuplt_id = '$cust_id'"));
+	$custname = $row_cust['cuplt_name'];
 	
 	/* ฝากของแต่ยังไม่ได้เบิกออก query มาเฉพาะที่อยู่ในตาราง tb_deposit แต่ไม่เอาในตาราง tb_withdraw*/
 	$sql_dep = "SELECT * 
