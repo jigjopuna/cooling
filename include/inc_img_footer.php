@@ -1,10 +1,3 @@
-<!-- images photo includesss-->
-<div class="row" id="" style="margin-top: 20px;">
-			<div class="col-md-12"><br><br>
-				<div class="heading" style="text-align: center;">ห้องเย็นสวยๆ  </div><br><br>
-				
-			</div>
-		</div>
 <div class="row" id="">
 			<div class="col-md-4">
 				<img src="sources/assets/images/ads/11.jpg" alt="" style="width: 99%;"><br><br>

@@ -1,7 +1,7 @@
 <div id="map" style="width:100%; height: 400px;"></div>
     <script>
       function initMap() {
-        var uluru = {lat: 13.878940, lng: 100.008990};
+        var uluru = {lat: 13.856101, lng: 100.0444265};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 10,
           center: uluru
@@ -49,7 +49,7 @@
 								email 
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;"> &nbsp;&nbsp;&nbsp;topcooling.ltd@gmail.com</a>
+								<a href="" style="color: white;"> &nbsp;&nbsp;&nbsp;cpn888ltd@hotmail.com</a>
 							</div>
 						</div>
 					</li>
@@ -61,8 +61,8 @@
 								<i class="fa fa-map-marker"></i>
 							</div>
 							<div class="col-md-11 col-xs-10">
-								บริษัทท็อปคูลลิงค์จำกัด</br>
-								28/1 ม.6 ต.ทัพหลวง</br>
+								บริษัท ซีพีเอ็น 888 จำกัด</br>
+								107/52 ม.2 ต.นครปฐม</br>
 								อ.เมือง จ.นครปฐม 73000
 							</div>
 						</div>

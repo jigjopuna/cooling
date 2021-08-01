@@ -1,24 +1,24 @@
 <?php session_start(); 
 	  require_once('includes/connect.php');
-	  $currmenu = 1;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
+	  $currmenu = 7;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Topcooling Shop</title>
+	<title>ติดต่อห้องเย็น</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include('includes/inc_robot.php'); ?>
 	<meta name="copyright" content="Topcooling Shop"/>
 	<meta name="keywords" content="อะไหล่ห้องเย็น, อุปกรณ์ห้องเย็น" />
-    <meta name="description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง">
+    <meta name="description" content="ติดต่อร้านขายอุปกณ์อะไหล่ห้องเย็น ท็อปคูลลิ่ง ราคาถูก คุณภาพดี บริการครบวงจร ขายปลีก ขายส่ง ติดต่อเราได้">
     <meta name="author" content="topcooling, tcl">
 	
 	<meta property="og:url" content="" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="ขายอุปกรณ์ห้องเย็น ทุกอย่างที่เกี่ยวกับห้องเย็น" />
-	<meta property="og:description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง" />
+	<meta property="og:title" content="ติดต่อห้องเย็น ท็อปคูล Topcooling TCL" />
+	<meta property="og:description" content="ติดต่อร้านขายอุปกณ์อะไหล่ห้องเย็น ท็อปคูลลิ่ง ราคาถูก คุณภาพดี บริการครบวงจร ขายปลีก ขายส่ง ติดต่อเราได้" />
 	<meta property="og:image" content="" />
 	
 	<?php require_once('includes/google-verify.php');?>
@@ -102,7 +102,7 @@
 			<div class="row">
 				<div class="col-md-6 p-b-30">
 					<div class="p-r-20 p-r-0-lg">
-						<div class="contact-map size21" id="google_map" data-map-x="40.614439" data-map-y="-73.926781" data-pin="images/icons/icon-position-map.png" data-scrollwhell="0" data-draggable="1"></div>
+						<div class="contact-map size21" id="google_map" data-map-x="13.856101" data-map-y="100.0444265" data-pin="images/icons/icon-position-map.png" data-scrollwhell="0" data-draggable="1"></div>
 					</div>
 				</div>
 
@@ -111,7 +111,14 @@
 						<h4 class="m-text26 p-b-36 p-t-15">
 							ติดต่อเราได้นะค่ะ
 						</h4>
-
+						
+						<div>
+							107/52 ม.2 ต.นครปฐม อ.เมือง จ.นครปฐม 73000 <br />
+							LINE: @cpn888 <br />
+							โทร : 084-013-7350<br />
+							<br />
+						</div>
+						
 						<div class="bo4 of-hidden size15 m-b-20">
 							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Full Name">
 						</div>
@@ -154,6 +161,7 @@
 	<!-- Container Selection -->
 	<div id="dropDownSelect1"></div>
 	<div id="dropDownSelect2"></div>
+	<div id="cattype" style="display:none;"><?php echo $currmenu; ?></div>
 
 
 

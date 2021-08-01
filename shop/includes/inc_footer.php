@@ -159,7 +159,7 @@
 			</a>
 
 			<div class="t-center s-text8 p-t-20">
-				Copyright © 2018 All rights reserved.  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Topcooling</a>
+				Copyright © 2021 All rights reserved.  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">CPN888 CO.,LTD</a>
 			</div>
 		</div>
 	</footer>

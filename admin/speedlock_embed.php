@@ -518,7 +518,7 @@
 				<div style="width: 35%; float:left; margin-top: 20px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นาย ภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>
@@ -839,7 +839,7 @@
 				<div style="width: 35%; float:left; margin-top: 0px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นาย ภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>

@@ -1,6 +1,6 @@
 					<p class="s-text7 w-size27">
-						28/1 หมู่ 6 ตำบลทัพหลวง อำเภอเมือง จังหวัดนครปฐม 73000<br>
-						Line : <a href="https://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank">@tclshop</a><br>
-						โทร : 082-360-1523 หรือ 084-013-7350<br>
-						email : topcooling.ltd@gmail.com
+						107/52 หมู่ 2 ต.นครปฐม อ.เมือง จ.นครปฐม 73000<br>
+						Line : <a href="https://qr-official.line.me/sid/M/vsl8721x.png" target="_blank">@cpn888</a><br>
+						โทร : 099-129-0789 หรือ 084-013-7350<br>
+						email : cpn888ltd@hotmail.com
 					</p>

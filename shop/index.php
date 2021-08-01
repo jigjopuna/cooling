@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Topcooling Shop</title>
+	<title>ร้านขายอะไหล่ห้องเย็น</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include('includes/inc_robot.php'); ?>
-	<meta name="copyright" content="Topcooling Shop"/>
+	<meta name="copyright" content="อะไหล่ห้องเย็น"/>
 	<meta name="keywords" content="อะไหล่ห้องเย็น, อุปกรณ์ห้องเย็น" />
     <meta name="description" content="ห้องเย็น จำหน่ายชุด Condensing คอมเพรสเซอร์ คอล์ยเย็น อุปกรณ์เครื่องทำความเย็น รวมถึงห้องเย็น พนังห้อง โฟม PU PS PIR อุปกรณ์ประกอบห้อง">
     <meta name="author" content="topcooling, tcl">
@@ -35,7 +35,7 @@
 			<div class="wrap_header">
 				<!-- Logo -->
 				<a href="index.html" class="logo">
-					<img src="images/icons/logo.jpg" alt="ห้องเย็น TCL">
+					<img src="images/icons/logo.jpg" alt="ขายอะไหล่ห้องเย็น">
 				</a>
 
 				<!-- Menu -->
