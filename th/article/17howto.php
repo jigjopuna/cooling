@@ -82,7 +82,8 @@
 					15. ต้องจ่ายเงินยังไง<br>
 					16. วิธีเลือกห้องเย็นให้เหมาะกับเรา<br>
 					17. มีงบน้อยอยากได้ห้องเย็นราคาถูกทำยังไง<br><br>
-					<img src="../../content/images/controlpanel_small.jpg" alt="ห้องเย็น ราคา"><br><br>
+					
+					
 					<span class="topic-article">1 . อยากได้ห้องเย็นมีขนาดและราคาเท่าไหร่บ้าง</span><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-strong">ห้องเย็น</span> ขนาดกว้าง 2.4 เมตร ยาว 3 เมตร สูง 2.4 เมตร จะเก็บสินค้าได้ประมาณ 2-3 ตัน ขึ้นอยู่กับเป็น <span class="text-strong">สินค้า</span> อะไร เนื้อสัตว์ หรือ ผักผลไม้ ถ้าเป็นประเภทผักผลไม้ น้ำหนักก็น้อยลงไป ส่วนนี้เป็นห้องเย็นสำเร็จรูปนะครับ
 				จริงๆ แล้ว ก่อนเลือกห้องเย็นว่าจะเอาขนาดเท่าไร จะมี <span class="text-strong">ปัจจัย</span> ในการเลือก เช่น ประเภทสินค้า, ปริมาณสินค้า(กิโลกรัม/ตัน) <a href="https://coolingstory.blogspot.com/2018/05/blog-post.html" target="_blank">วิธีการเลือกห้องเย็น คลิก</a> <br><br>
@@ -149,9 +150,10 @@
 					ต้องให้มั่นใจว่า</span> ที่บ้านไฟไม่ตกและบ้านไม่อยู่ปลายสายของสายส่งไฟฟ้า  เพราะถ้าไฟไม่พอหรือไฟตกจะมีผลกระทบกับเครื่องทำความเย็นห้องเย็นและใช้ไฟฟ้าภายในบ้าน อาจจะมีอายุการใช้งานสั้นลง<br><br>
 					
 					ไฟ 3 เฟสสามารถขอติดตั้งใช้งานได้ที่ <span class="text-strong">การไฟฟ้า</span> ใกล้บ้านท่าน <a href="3phase.php">ดูข้อมูลเพิ่มเติมได้ที่นี่ ทำไมต้องใช้ไฟฟ้า 3 phase คลิก</a> <br><br>
-					ดูคลิปข้อมูลไฟฟ้าห้องเย็น ด้านล่างนี้ได้ครับ<br><br>
+					<!--ดูคลิปข้อมูลไฟฟ้าห้องเย็น ด้านล่างนี้ได้ครับ<br><br>
 					
 					<iframe width="100%" height="400" src="https://www.youtube.com/embed/P2scN3vSw70" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br><br>
+					-->
 					
 					<span class="topic-article" id="topic6">5. ค่าไฟแพงไหม</span><br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -204,12 +206,12 @@
 					
 					<span class="topic-article"> 11. เข้าไปดูของห้องจริงได้ไหม</span><br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					ลูกค้าสามารถเข้าชมและลองใช้งานห้องเย็นก่อนได้ครับ โดยเดินทางที่ Topcooling ที่จังหวัดนครปฐม ตามแผนที่นี้ได้เลย<br><br>
+					ลูกค้าสามารถเข้าชมและลองใช้งานห้องเย็นก่อนได้ครับ โดยเดินทางที่ CPN888 ที่จังหวัดนครปฐม ตามแผนที่นี้ได้เลย<br><br>
 					
 					<div id="map" style="width:100%; height: 400px;"></div>
 					<script>
 					  function initMap() {
-						var uluru = {lat: 13.878940, lng: 100.008990};
+						var uluru = {lat: 13.856101, lng: 100.0444265};
 						var map = new google.maps.Map(document.getElementById('map'), {
 						  zoom: 10,
 						  center: uluru
@@ -249,7 +251,7 @@
 					<span class="topic-article"> 15.  ต้องจ่ายเงินยังไง</span><br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					หากยืนยันสั่งซื้อห้องเย็น <span class="text-strong">มัดจำ 50%</span> ชำระครั้งที่สอง <span class="text-strong">30%</span> เมื่อห้องเย็นส่งถึงหน้างาน และครั้งสุดท้าย <span class="text-strong">20%</span> หลังจากใช้งานแล้ว 7 วัน   โดยสามารถโอนเข้าบัญชีธนาคารได้ หรือมามัดจำที่ 
-					Topcooling ได้ อยู่นครปฐม ครับ
+					CPN888 ได้ อยู่นครปฐม ครับ
 					<br><br>
 					
 					<img src="../../content/images/article/17howto/shipping.jpg" alt="ขนส่งห้องเย็น"><br><br>
@@ -270,9 +272,9 @@
 
 					<br><br>
 			
-					<span class="topic-article"> มาดูคลิป ตัวอย่างการเก็บแช่หมูกัน </span><br>
+					<!--<span class="topic-article"> มาดูคลิป ตัวอย่างการเก็บแช่หมูกัน </span><br>
 					<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-					<br><br>
+					<br><br>-->
 					
 					<?php include('../../sources/inc/inc_contact_art.php');?>
 				</div>
@@ -295,7 +297,7 @@
 {
   "@context": "https://schema.org/", 
   "@type": "Product", 
-  "name": "TOPCOOLING", 
+  "name": "CPN888", 
   "priceRange":"168000 - 400000 บาท", 
   "servesCuisine":"ห้องเย็น", 
   "description": "ห้องเย็นคุณภาพคับแก้ว มาชมห้องเย็นตัวอย่างจริงๆ ได้ที่โรงงานนะครับ อยู่นครปฐม", 
@@ -314,7 +316,7 @@
    },
   "brand": {
     "@type": "Thing",
-    "name": "TOPCOOLING"
+    "name": "CPN888"
   },
   "contactPoint": {
     "@type": "ContactPoint", 

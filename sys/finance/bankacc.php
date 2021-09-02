@@ -1,7 +1,7 @@
 <?php session_start();
 	  require_once('../include/connect.php');
 	
-	$sql = "SELECT * FROM tb_bank ORDER BY bk_code";
+	$sql = "SELECT * FROM tb_bank WHERE bk_cop != 'TCL' ORDER BY bk_code";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	
@@ -10,7 +10,7 @@
 <html lang="en">
 
 <head>
-<title>สรุปเงินเข้า</title>
+<title>บัญชีธนาคาร</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">

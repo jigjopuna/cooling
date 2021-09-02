@@ -1,7 +1,7 @@
 <div id="map" style="width:100%; height: 400px;"></div>
     <script>
       function initMap() {
-        var uluru = {lat: 13.878940, lng: 100.008990};
+        var uluru = {lat: 13.856101, lng: 100.0444265};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 10,
           center: uluru

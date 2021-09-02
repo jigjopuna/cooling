@@ -2,14 +2,14 @@
 	  require_once('../include/connect.php');
 	
 	//โอนเข้ามา
-	$sql = "SELECT op.pay_id, c.cust_name, op.pay_amount, op.pay_date, o.o_id, e.e_name, op.pay_bill
-			FROM ((tb_orders o JOIN tb_ord_pay op ON o.o_id = op.o_id) 
-				 JOIN tb_customer c ON c.cust_id = o.o_cust) JOIN tb_emp e ON e.e_id = op.o_emp_receive
+	$sql = "SELECT op.pay_id, c.cust_name, op.pay_amount, op.pay_date, o.o_id, op.pay_bill
+			FROM (tb_orders o JOIN tb_ord_pay op ON o.o_id = op.o_id) 
+				 JOIN tb_customer c ON c.cust_id = o.o_cust
 			ORDER BY op.pay_date DESC LIMIT 0,50";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 		
-	$sql_bank = "SELECT * FROM tb_bank";
+	$sql_bank = "SELECT * FROM tb_bank WHERE bk_cop = 'CPN'";
 	$result_bank = mysql_query($sql_bank);
 	$num_bank = mysql_num_rows($result_bank);
 
@@ -22,8 +22,6 @@
 <title>รับเงิน</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
-<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
-<script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <?php require_once('../include/inc_role.php'); ?>
 
 <script>
@@ -176,7 +174,6 @@
                                         <th>ลูกค้า</th>                                     
                                         <th>จำนวนเงิน</th>
                                         <th>วันที่</th>
-										<th>ผู้รับเงิน</th>
 										<th>ดูบิล</th>
                                     </tr>
                                 </thead>
@@ -191,7 +188,6 @@
 											<td><a href="../order/order_detail.php?o_id=<?php echo $row['o_id'] ?>"><?php echo $row['cust_name']; ?></td>
 											<td><?php echo number_format($row['pay_amount'], 0, '.', ','); ?></td>
 											<td><?php echo $row['pay_date']; ?></td>
-											<td><?php echo $row['e_name']; ?></td>
 											<td><a href="../images/receive/<?php echo $row['pay_bill'];?>" target="_blank">ดูบิล</a></td>											
 										</tr>
 									<?php } ?>

@@ -88,18 +88,11 @@
         <div class="subpage">
 
            <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include ('../include/cpn_addr.php'); ?>
 			</div><!--end cover_header-->
 			
-			
-			<?php include('../include/quotation_part.php'); ?>
+			<?php include ('../include/quotation_head_cpn.php'); ?>
 			
 			<div id="product_price" style="margin-top:105px; clear:both">
 				<table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
@@ -125,8 +118,8 @@
 					<tr class="highs" style="">
 						<td class="l">1. IDCAM IoT technology Model IDCAM-Plus.</td>
 						<td colspan="2" class="l" align="center">1 SET</td>
-						<td class="l" align="right">48,000.00</td>
-						<td class="l" align="right">48,000.00</td>
+						<td class="l" align="right">28,000.00</td>
+						<td class="l" align="right">28,000.00</td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -227,7 +220,7 @@
 						<td class="l">&nbsp;&nbsp;&nbsp; <span style="text-decoration: underline; font-size:18px; font-weight:bold;">SERVICE</span> (ฟรี 1 ปี แรก) </td>
 						<td colspan="2" class="l" align="center">1 Year</td>
 						<td class="l" align="right"></td>
-						<td class="l" align="right"><s>25,000.00</s></td>
+						<td class="l" align="right"><s>5,000.00</s></td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -262,13 +255,13 @@
 						<td class="l">&nbsp;&nbsp;&nbsp; <span style="text-decoration: underline; font-size:18px; font-weight:bold;">INSTALLATION</span> </td>
 						<td colspan="2" class="l" align="center"> 1 SET</td>
 						<td class="l" align="right"></td>
-						<td class="l" align="right">3,000.00</td>
+						<td class="l" align="right">10,000.00</td>
 					</tr>
 					
 					
 
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - รับประกับอุปกรณ์ IDCAM 2 ปี</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - รับประกับอุปกรณ์ IDCAM 1 ปี</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -324,21 +317,12 @@
     </div> <!--end page-->
 	
 	<div class="page">
-        <div class="subpage">
-
-             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
+        <div id="cover_header">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include ('../include/cpn_addr.php'); ?>
 			</div><!--end cover_header-->
 			
-			
-			<?php include('../include/quotation_part.php'); ?>
+			<?php include ('../include/quotation_head_cpn.php'); ?>
 			
 			<div id="product_price" style="margin-top:400x; clear:both">
 				<img src="../shop/images/iot/plus/plus.jpg" style="width:60%; margin-top:50px; margin-left:150px;">
@@ -359,12 +343,12 @@
 							<td colspan="2" align="left" style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน</td>
 						</tr>
 
+
 						
 						<tr>
-							<td align="left">บัญชีธนาคารไทยพานิชย์</td>
-							<td align="left"></td>
+							<td colspan="2" align="left">บัญชีธนาคาร กสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left"> <!--ชูเกียรติ เทียนอำไพ--> หจก.ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!--855-2-05499-8--> 830-242349-9</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
 							</tr>
 						</tr>
 					</table>
@@ -379,7 +363,7 @@
 							<td align="left">  ภายใน 20 วัน นับจากวันที่เสนอราคา</td>
 						</tr>
 						<tr>
-							<td align="left">  ส่งสินค้าและติดตั้งภายใน 20 วันหลังจากชำระเงิน</td>
+							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากชำระเงิน</td>
 						</tr>
 					</table>
 				</div>
@@ -395,7 +379,7 @@
 				<div style="width: 35%; float:left; margin-top: 20px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>
@@ -423,14 +407,8 @@
         <div class="subpage">
 
              <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 064-458-5689 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include ('../include/cpn_addr.php');
+				?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">

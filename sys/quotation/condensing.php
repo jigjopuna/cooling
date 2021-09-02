@@ -102,12 +102,12 @@
 									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ลูกค้า </label>
-											<input type="text" class="form-control" id="search_custname" name="search_custname">
+											<input type="text" class="form-control" id="search_custname" name="search_custname" value="6">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ขนาดแรงม้า</label>
-											<input type="text" class="form-control" id="hp" name="hp" >
+											<input type="text" class="form-control" id="hp" name="hp" value="4">
 										</div>
 										
 										<div class="form-group has-success">
@@ -147,11 +147,14 @@
 										</div>
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">ยี่ห้อคอนเด็นซิ่ง</label>
+											<label class="control-label" for="inputSuccess">ยี่ห้อคอนเด็นเซอร์</label>
 											<select class="form-control" id="condensing" name="condensing">
-												<option value="Q-Coil เป่าข้าง">Q-Coil เป่าข้าง</option>
-												<option value="เป่าบน">Proserv เป่าบน</option>
-												<option value="XMK เป่าข้าง">XMK เป่าข้าง</option>
+												<option value="Q-Coil">Q-Coil</option>
+												<option value="Tecumseh">Tecumseh </option>
+												<option value="XMK">XMK </option>
+												<option value="Cool Scape" selected>Cool Scape</option>
+												<option value="Bes Cool">Bes Cool</option>
+												<option value="Guntner">Guntner</option>
 											</select>
 										</div>
 										
@@ -202,7 +205,7 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">หัวบิลบริษัท</label><br>
 											<input type="radio" value="1" name="corp" checked > CPN
-											<input type="radio" value="2" name="corp" style="margin-left:50px;" >  TCL
+											<input type="radio" value="2" name="corp" style="margin-left:50px;" > CHK
 										</div>
 										
 									</div>

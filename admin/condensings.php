@@ -345,7 +345,7 @@
 					
 					<?php if($tidtung==1){ ?>
 						<tr class="highs" style="">
-							<td class="l">7. ค่าติดตั้งและเดินทางจากนครปฐม</td>
+							<td class="l">7. ค่าติดตั้งและเดินทาง</td>
 							<td colspan="2" class="l" align="center">1 งาน</td>
 							<td class="l" align="center"></td>
 							<td class="l" align="right"><?php echo number_format($install_price, 2, '.', ',');?></td>
@@ -441,9 +441,9 @@
 					<?php } else { ?>
 						
 						<tr>
-							<td colspan="2" align="left"><!--บัญชีธนาคารกสิกรไทย--> บัญชีธนาคาร กรุงเทพ </td>
+							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย <!--บัญชีธนาคาร กรุงเทพ --></td>
 							<tr>
-								<td colspan="2" align="left">  <!--บจ.ซีพีเอ็น888  เลขที่บัญชี--> ชื่อบัญชี เดชาธร ผลินธร <span style="text-decoration: underline; font-weight: bold;"> <!--075-8-81892-6--> 025-704019-6</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี <!--ชื่อบัญชี เดชาธร ผลินธร--> <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6 <!--025-704019-6--></span></td>
 							</tr>
 						</tr>
 						
@@ -460,7 +460,7 @@
 							<td align="left">  ภายใน 20 วัน นับจากวันที่เสนอราคา</td>
 						</tr>
 						<tr>
-							<td align="left">  ส่งสินค้า <?php if($tidtung == 1 ) { ?> และติดตั้ง<?php } ?> ภายใน 10 วันหลังจากได้รับมัดจำงวดที่ 1</td>
+							<td align="left">  ส่งสินค้า <?php if($tidtung == 1 ) { ?> และติดตั้ง<?php } ?> ภายใน 20 วันหลังจากได้รับมัดจำงวดที่ 1</td>
 						</tr>
 					</table>
 				</div>
@@ -924,7 +924,7 @@
 						
 						</tr> 
 						
-						<tr>
+						<!--<tr>
 								<td colspan="3" align="left" style="font-weight:bold; font-family: Kanit, sans-serif">ระบบละลายน้ำแข็ง ดีฟรอส</td>
 							</tr>
 							<tr>
@@ -941,7 +941,7 @@
 							
 							<tr>
 								<td colspan="3" align="center"> &nbsp;</td>
-							</tr> 
+							</tr>--> 
 
 						
 							<tr>
@@ -1040,12 +1040,7 @@
 								<td>&nbsp; </td>
 							</tr>
 							
-							<tr>
-								<td>&nbsp; </td>
-								<td align="center" style="border: 1px solid black; font-size:18px; font-weight:bold;" > ราคาอุปกรณ์ติดตั้งเพิ่มเติม </td>
-								<td align="left"  style="padding-left:30px; border: 1px solid black; font-size:18px; font-weight:bold;"> 81,814.50 บาท</td>
-								
-							</tr>
+							
 						
 						
 						

@@ -31,7 +31,7 @@
 	$cost_chakf = 1035;
 	$cost_minuimbua = 230;
 	
-	$cost_printcode = 2150;
+	$cost_printcode = 400;
 	$cost_plastic = 4500;
 	$cost_seland = 70;
 	$cost_silicon = 88;
@@ -46,7 +46,7 @@
 	}else if ($temparature==2){
 		$temps = 18;
 	}else if ($temparature==3){
-		$temps = 15;
+		$temps = 10;
 	}else if ($temparature==4){
 		$temps = -5;
 	}else if ($temparature==5){
@@ -64,48 +64,45 @@
 
 	
 	
-	/*$area_room = ((($r_width*$r_height)*2)+ (($r_length*$r_height)*2) + (($r_length*$r_width)))*1.1;  ไม่นับพื้น*/
-	$area_room = ((($r_width*$r_height)*2)+ (($r_length*$r_height)*2) + (($r_length*$r_width)));
-	$floor = $r_length*$r_width;
-
 	
 	$cute = $r_width*$r_length*$r_height;
 	
-	$row_inch = mysql_fetch_array(mysql_query("SELECT pr_size, pr_sell_price FROM tb_productroom WHERE pr_cate = 1 AND pr_temp = '$temps'"));
+	$row_inch = mysql_fetch_array(mysql_query("SELECT pr_size, pr_sell_price, pr_type FROM tb_productroom WHERE pr_cate = 1 AND pr_temp = '$temps'"));
 	
 	$isoprice = $row_inch['pr_sell_price'];
+	$pr_size = $row_inch['pr_size'];
+	$pr_type = $row_inch['pr_type'];
+	
 
 	
 	
 	
 	
-	//ISOWALL
-	$isoside = ceil((($r_length+$r_width)*2)/1.2);
+	//ISOWALL หาจำนวนแผ่นว่าใช้กี่แผ่น
+	$isoside = ceil((($r_length+$r_width)*2)/1.2)+1;
 	$isoceil = ceil($r_length/1.2);
 	$isosidecost = $r_height*1.2*$isoside*$isoprice;
 	$isoceilcost = $r_width*1.2*$isoceil*$isoprice;
 	
+	
+	/*ตารางเมตรของห้อง
+	/*เราต้องคิดจาก ตารางเมตร ของแผ่น ไม่ได้คิดตามตารางเมตรของห้อง*/
+	/*$area_room = ((($r_width*$r_height)*2)+ (($r_length*$r_height)*2) + (($r_length*$r_width)))*1.1;  ไม่นับพื้น
+	$area_room = ((($r_width*$r_height)*2)+ (($r_length*$r_height)*2) + (($r_length*$r_width)));
+	$area_room_all = ((($r_width*$r_height)*2)+ (($r_length*$r_height)*2) + (($r_length*$r_width))*2);
+	$celingsqm = $r_length*$r_width;
+	$floor = $r_length*$r_width;*/
+	
+	
+	//พื้นที่ผนัง = จำนวนแผ่น * 1.2 * ความสูงห้อง
+	$area_room = $isoside*$stdardwall*$r_height;
+	
+	//พื้นที่เพดาน = จำนวนแผ่น * 1.2 * ความกว้าง ห้อง
+	$celingsqm = $isoceil*$stdardwall*$r_width;
+	$floor = $isoceil*$stdardwall*$r_width;
 
-	
-	//Fome Floor
-	$inchs = $row_inch['pr_size'];
-	$inch2 = $inchs/2;
-	if($inch2 < 2 ){ //ถ้าคำนวนโฟมได้น้อยกว่า 2 นิ้ว ให้ใช้ 2 นิ้ว
-		$inch2 = 2;
-	}
-	$fqty = $r_width*$r_length*2;
-	$qtypaper = ceil($fqty/3.66);
-	
+	$area_room_all = $area_room + $celingsqm + $floor;
 
-	
-	
-	$row_flr_cost = mysql_fetch_array(mysql_query("SELECT pr_sell_price FROM tb_productroom WHERE pr_cate = 2 AND pr_size = '$inch2'"));
-	$flr_cost = $row_flr_cost['pr_sell_price'];
-	
-	$fome_flr_cost = $qtypaper*3.6*$flr_cost;
-	
-	
-	
 
 	$chakbold = ceil(($r_height*4)/6);    
 	$chaklthing = ceil((($r_width*2) + ($r_length*2))/6);
@@ -137,9 +134,12 @@
 
 	
 	//exit();
+	//ราคาแผ่นผนัง = จำนวนแผ่น * ราคาแผ่น * 1.2 * ความสูงของห้อง
 	$price_isoside = $isoside*$isoprice*$stdardwall*$r_height;
+	
+	//ราคาแผ่นเพดาน = จำนวนแผ่น * ราคาแผ่น * 1.2 * ความกว้างของห้อง
 	$price_isoceil = $isoceil*$isoprice*$stdardwall*$r_width;
-	$price_flrfome = 3.6*$qtypaper*$flr_cost; 
+	$price_flrfome = $isoceil*$isoprice*$stdardwall*$r_width; 
 	
 	$all_price_flrfome =  $price_isoside + $price_isoceil +  $price_flrfome;
 
@@ -231,48 +231,27 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="../content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
 				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
-				</div>
+				<?php include ('../include/cpn_addr.php'); ?>
 			</div><!--end cover_header-->
 			
-			
-			<div id="contect_detail" style="margin-top:85px;">
-				<div class="cust" style="float:left; width:65%; line-height:18px; color:red; font-size:36px;">
-					ต้นทุนโฟม ห้องเย็น
-				
-				</div><!--end cust-->
-				
-				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation  T.C.L. </strong></span><br>
-					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
-					<span>โทร : 082-360-1523</span><br>
-					<span>Email: Topcooling.ltd@gmail.com</span>
-				</div><!--end oweneraddress-->
-				
-				
-			</div><!--end contect_detail-->
+			<?php include ('../include/quotation_head_cpn.php'); ?>
 			
 			<div id="product_price" style="margin-top:105px; clear:both">
 				<table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
 					<tr>
-						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;"> รายการซื้อของ</td>
+						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;"> วัสดุอุปกรณ์ติดตั้งห้องเย็น</td>
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ  พื้นที่ทั้งหมด <?php echo $area_room+$floor; ?> ตร.ม.</td>
+						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ  พื้นที่ทั้งหมด <?php echo $area_room_all; ?> ตร.ม.</td>
 						<td colspan="2" style="width: 13%;" class="rlb">กว้าง (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว (เมตร)</td>
 						<td style="width: 13%" class="b">สูง (เมตร)</td>
 					</tr>
+					
 					<tr align="center">
-						<td align="left"> ผนังเพดาน <?php echo $area_room; ?> ตร.ม.   พื้น <?php echo $floor; ?> ตร.ม. </td>
+						<td align="left"> ผนังเพดาน <?php echo $celingsqm + $area_room; ?> ตร.ม.   พื้น <?php echo $floor; ?> ตร.ม. </td>
 						<td class="l"><?php echo $r_width?></td>
 						<td class="r"></td>
 						<td><?php echo $r_length?></td>
@@ -286,31 +265,31 @@
 						<td class="l">ราคารวม</td>
 					</tr>
 					
-					<tr class="highs" style="">
-						<td class="l">ISOWALL </td>
+					<tr class="highs" style="font-weight:bold; font-size:1.2em;">
+						<td class="l">ISOWALL ชนิด <?php echo $pr_type; ?> หนา <?php echo $pr_size;?> นิ้ว</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr>
-						<td>1. ผนังข้าง กว้าง 1.2 เมตร  ยาว <?php echo $r_height;?></td>
+						<td>1. ผนังข้าง กว้าง 1.2 เมตร  ยาว <?php echo $r_height;?> เมตร (<?php echo $area_room; ?>) ตร.ม.</td>
 						<td colspan="2" class="l" align="center"><?php echo $isoside;?> แผ่น</td>
 						<td class="l" align="right"><?php echo $isoprice;?></td>
 						<td class="l" align="right"><?php echo number_format($price_isoside, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>2. เพดานบน กว้าง 1.2 เมตร  ยาว <?php echo $r_width;?></td>
+						<td>2. เพดานบน กว้าง 1.2 เมตร  ยาว <?php echo $r_width;?> เมตร (<?php echo $celingsqm; ?>) ตร.ม. </td>
 						<td colspan="2" class="l" align="center"><?php echo $isoceil;?> แผ่น</td>
 						<td class="l" align="right"><?php echo $isoprice;?></td>
 						<td class="l" align="right"><?php echo number_format($price_isoceil, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>3. โฟมพื้น ขนาด  <?php echo $inch2;?> นิ้ว  ปริมาณ <?php echo $fqty;?></td>
-						<td colspan="2" class="l" align="center"><?php echo $qtypaper;?> แผ่น</td>
-						<td class="l" align="right"><?php echo $flr_cost;?></td>
+						<td>3. โฟมพื้น กว้าง 1.2 เมตร    ยาว <?php echo $r_width;?> เมตร (<?php echo $floor; ?>) ตร.ม. </td>
+						<td colspan="2" class="l" align="center"><?php echo $isoceil;?> แผ่น</td>
+						<td class="l" align="right"><?php echo $isoprice;?></td>
 						<td class="l" align="right"><?php echo number_format($price_flrfome, 2, '.', ','); ?></td>
 					</tr>
 					

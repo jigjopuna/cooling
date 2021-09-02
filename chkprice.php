@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | Topcooling</title>
+<title>ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | ซีพีเอ็น 888</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 <meta name="keywords" content="เช็คราคาห้องเย็น" />
 <meta name="description" content="รู้ราคาห้องเย็นภายใน 1 นาที เคยไหม ไม่รู้ว่าจะหาข้อมูลห้องเย็นได้จากไหน ลองดูข้อมูลห้องเย็นได้ที่นี่" />
-<title>เช็คราคาห้องเย็น Top Cooling</title>
+<title>เช็คราคาห้องเย็น ซีพีเอ็น 888</title>
 <meta property="og:url" content="https://topcooling.net/chkprice.php" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="เช็คราคาห้องเย็น Top Cooling" />
@@ -362,10 +362,10 @@
 	5. <span class="topic-article">ปริมาณ </span>  หมายถึง 1 วันจะเอาสินค้าเข้าห้องเย็นกี่กิโล ช่องนี้ใส่คราวๆ ก็ได้ครับ<br><br>
 	6. กดปุ่ม "คำนวณราคา" จากนั้นใบเสนอราคาจะแสดงขึ้นมา<br><br>
 	
-	<strong>หมายเหตุ</strong> : ราคานี้เป็นราคาห้องเย็น <span class="text-strong">แบบฝั่ง</span> (ติดตั้งหน้างาน) แบบราคาเบื้องต้น มี <span class="text-strong">ราคาพิเศษ</span> ให้ ติดต่อผม 082-360-1523 ครับ<br><br>
+	<strong>หมายเหตุ</strong> : ราคานี้เป็นราคาห้องเย็น <span class="text-strong">แบบฝั่ง</span> (ติดตั้งหน้างาน) แบบราคาเบื้องต้น มี <span class="text-strong">ราคาพิเศษ</span> ให้ ติดต่อผม 099-129-0789 ครับ<br><br>
 	ระบบห้องนี้สร้างขึ้นมาเพื่ออำนวยความสะดวกให้กับทุกคนที่ต้องการทราบราคาห้องเย็น แต่ไม่รู้ว่าจะไปหาข้อมูลได้ที่ไหน<br><br>
 	
-	หามีข้อสงสัยติดต่อ 082-360-1523<br>
+	หามีข้อสงสัยติดต่อ 099-129-0789 หรือ 084-013-7350<br>
 	Line ID : @topcooling (พิมพ์ @ ข้างหน้าด้วย)<br><br>
 	
 	หากต้องการ <span class="text-strong">ห้องเย็นสำเร็จรูป</span> แบบเคลื่อนย้ายได้ให้เลื่อนมาด้านล่างดูราคาได้ครับ
@@ -471,7 +471,7 @@
 					มีระบบเช็คอุณหภูมิผ่านมือถือ<br>
 					</div>
 					<a href="th/article/sumred.php" style="text-decoration:underline !important;">ข้อมูลเพิ่มเติม</a>
-					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 250,000 </span>
+					<br><br><span class="heading" style="color:red;">ราคาเริ่ม 280,000 </span>
 				<!--</p>-->
 			</div>
 			<div class="col-sm-6 -step-item">
@@ -707,7 +707,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<!--<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
 				<br><br>
 			</div>
 		</div>	

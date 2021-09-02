@@ -5,15 +5,31 @@
 	$date   = date("j");
 	$year   = date("Y")+543;
 	$thatdate = $date."/".$nMonth."/".$year;
+	$tool_id = trim($_GET['t_id']);
+	
+	$row = mysql_fetch_array(mysql_query("SELECT t_name, t_model, t_price_sell, t_volt, t_amp FROM tb_tools WHERE t_id = '$tool_id'"));
+	$tname = $row['t_name'];
+	$tmodel = $row['t_model'];
+	$tprice = $row['t_price_sell'];
+	
+	$shipping = 200;
+	$discount_rate = 0.1;
+	
+	//ราคาลด 10% ก่อนรวม VAT
+	$tempo = $tprice-($tprice*$discount_rate);
+	$vat = $tempo*0.07;
+	$tatal = $tprice+$vat+$shipping;
+	
+	
 ?>
 <!doctype html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="keywords" content="เช็คราคาห้องเย็น" />
-	<meta name="description" content="ใบเสนอราคาห้องเย็น Quotation" />
+	<meta name="description" content="ใบเสนอราคาพัดลม" />
 	<link rel="shortcut icon" href="content/images/favicon.png">
-	<title><?php echo date("Y").'-'.$nMonth.'-'.$date; ?></title>
+	<title>อะไหล่ <?php echo $tname. " " .date("Y").'-'.$nMonth.'-'.$date; ?></title>
 	<link rel="stylesheet" href="../css/quotation.css">
 	<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 	<style>
@@ -62,62 +78,11 @@
 	
 
 </script>
-<?php 
-	$tool = trim($_POST['search_tool']);
-	$qty = trim($_POST['qty']);
-	
-	$sale_id = trim($_POST['sale_id']);
-	$date = trim($_POST['date']); 
-	$corp = trim($_POST['bank_acc']);
-	$shipcost = trim($_POST['shipcost']);
-	
-	$cust_id = trim($_POST['search_custname']);
 
-	
-	$chkdetail = mysql_fetch_array(mysql_query("SELECT qcust_prov FROM tb_quo_cust WHERE qcust_id = '$cust_id'"));
-	$rowchkdetail = $chkdetail['qcust_prov'];
-	
-	//ถ้าลูกค้าให้ข้อมูลมาแค่ชื่อกับเบอร์โทร ไม่ต้อง Join กับตารางจังหวัด เพราะข้อมูลจะไม่ขึ้น
-	if($rowchkdetail < 90){
-		$row = mysql_fetch_array(mysql_query("SELECT qcust_name, qcust_tel FROM tb_quo_cust WHERE qcust_id = '$cust_id'"));
-	}else{
-		$row = mysql_fetch_array(mysql_query("SELECT * FROM ((tb_quo_cust q JOIN tumbon t ON t.id = q.qcust_tumbon) JOIN amphur a ON q.qcuat_amphur = a.id) JOIN province p ON q.qcust_prov = p.id WHERE qcust_id = '$cust_id'"));
-		
-	}
-	$cust_name = $row['qcust_name'];
-	$cust_province = $row['qcust_prov'];
-	
-	
-	
-	/*echo 'custname : '.$custname.'<br>';
-	echo 'tool : '.$tool.'<br>';
-	echo 'qty : '.$qty.'<br>';
-	echo 'sale_id : '.$sale_id.'<br>';
-	
-	echo 'date : '.$date.'<br>';
-	echo 'corp : '.$bank_acc.'<br>';*/
-	
-	$row_tool = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools WHERE t_id = '$tool'"));
-	
-	$sales = mysql_fetch_array(mysql_query("SELECT e.e_id, e.e_name, e.e_lname, e.e_tel, e.e_email FROM tb_emp e WHERE e_id = '$sale_id'"));
-	$sale_name = $sales['e_name'];
-	$sale_lname = $sales['e_lname'];
-	$sale_tel = $sales['e_tel'];
-	$sale_email = $sales['e_email'];
-	
-	
-	$cost = $row_tool['t_price_sell'];
-	$prices = $cost*$qty;
-	$sumprice = $prices+$shipcost;
-	$vat = $sumprice*0.07;
-	$amount = $sumprice+$vat;
-	
-	
-	
-	
+<?php 
+	require_once('../include/googletag.php');
 	
 ?>
-
 </head>
 <body>
 <div class="book">
@@ -125,11 +90,11 @@
         <div class="subpage">
 
             <div id="cover_header">
-				<?php include ('../include/cpn_addr.php'); ?>
+				<?php require_once('../include/cpn_addr.php');	?>
 			</div><!--end cover_header-->
 			
 			
-			<?php include ('../include/quotation_head_cpn.php');?>
+			<?php include('../include/quotation_head_cpn.php'); ?>
 			
 			<div style="width:100%; float:none; overflow:hidden;"></div>
 			<div id="product_price" style="margin-top:10px; clear:both; ">
@@ -165,19 +130,48 @@
 				
 					
 					<tr class="highs" style="">
-						<td class="l">1. <?php echo $row_tool['t_name'].' '.$row_tool['t_model'] ?></td>
-						<td colspan="2" class="l" align="center"> <?php echo $qty;?> </td>  
-						<td class="l" align="right"><?php echo number_format($cost, 2, '.', ',');?></td>
-						<td class="l" align="right"><?php echo number_format($prices, 2, '.', ',');?></td>
+						<td class="l">1. พัดลม Axail Fan Eurotech </td>
+						<td colspan="2" class="l" align="center">1 ชุด</td>
+						<td class="l" align="right">4,200.00</td>
+						<td class="l" align="right">4,200.00</td>
+					</tr>
+
+<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - รุ่น 4E350-S ไฟฟ้า 3 เฟส 380V</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+
+<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - ทิศทางลม แบบดูด Sunction</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr class="highs" style="">
 						<td class="l">2. ค่าบริการขนส่ง</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
-						<td class="l" align="right">220.00</td>
+						<td class="l" align="right">200.00</td>
 					</tr>
 					
+    
+    <tr class="highs" style="">
+						<td class="l">&nbsp;</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+
+
+<tr class="highs" style="">
+						<td class="l"><img src="https://topcooling.net/shop/images/product/machine/fan/fancoil_eurotech01.jpg" style="width:200px;"></td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
 					<tr class="highs" style="">
 						<td class="l"> </td>
 						<td colspan="2" class="l"></td>
@@ -197,23 +191,23 @@
 							</div>
 						</td>
 						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
-						<td class="t l" align="right"><?php number_format($sumprice, 2, '.', ',');  ?></td>
+						<td class="t l" align="right">4,400.00</td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">ภาษีมูลค่าเพิ่ม 7%</td>
-						<td class="rt l" align="right"><?php number_format($vat, 2, '.', ',');  ?> </td>
+						<td class="rt l" align="right">308.00</td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
-						<td class="rt l" align="right" id="totolprice">56,496.00 </td>
+						<td class="rt l" align="right" id="totolprice">4,708.00</td>
 					</tr>
 				
 				</tbody></table>
-			</div><!--end product_price-->
+			</div>
 			
 			
 			
@@ -224,31 +218,13 @@
 							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span></td>
 						</tr>
 						
-					
-						
-					<?php
-						if($corp == 1) { 
-							
-					?>
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคาร กสิกรไทย </td>
+							<td align="left"><!--บัญชีธนาคารกสิกรไทย(ออมทรัพย์)--> บัญชีธนาคารกรุงเทพ </td>
+							<td align="left"></td>
 							<tr>
-								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
+								<td colspan="2" align="left"> <!--บจ.ซีพีเอ็น888--> นายเดชาธร ผลินธร  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!-- 075-8-81892-6 --> 025-704019-6 </span></td>
 							</tr>
 						</tr>
-						
-						
-					<?php } else { ?>
-						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกรุงเทพ</td>
-							<tr>
-								<td colspan="2" align="left"> นายเดชาธร ผลินธร <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
-							</tr>
-						</tr>
-						
-						
-					<?php }  ?>
-					
 					</table>
 					
 				</div><br>
@@ -261,7 +237,7 @@
 							<td align="left">  ภายใน 20 วัน นับจากวันที่เสนอราคา</td>
 						</tr>
 						<tr>
-							<td align="left">  ส่งสินค้า ภายใน 7-10 วันหลังจากชำระเงิน</td>
+							<td align="left">  ส่งสินค้า ภายใน 2-3 วันหลังจากชำระเงิน</td>
 						</tr>
 					</table>
 				</div>

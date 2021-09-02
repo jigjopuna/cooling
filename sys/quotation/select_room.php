@@ -120,7 +120,7 @@
 									</div>
 									
 									<div class="col-lg-3">
-										<a href="../../admin/partnew.php"><div id="" class="r_box"><p>อะไหล่ใหม่ cpn</p></div></a>
+										<a href="parts.php"><div id="" class="r_box"><p>อะไหล่ใหม่ cpn</p></div></a>
 									</div>
 									
 									<div class="col-lg-3">
@@ -128,11 +128,11 @@
 									</div>
 									
 									<div class="col-lg-2">
-										
+										<a href="q.php"><div id="r_rai" class="r_box"><p>ห้องฝั่งแบบเดิม</p></div></a>
 									</div>
 									
 									<div class="col-lg-3">
-										<a href="q.php"><div id="r_rai" class="r_box"><p>ห้องฝั่งแบบเดิม</p></div></a>
+										<a href="../../admin/rent.php"><div id="" class="r_box"><p>ห้องเช่า</p></div></a>
 									</div>
 								</form>
 							 </div> <!-- row -->

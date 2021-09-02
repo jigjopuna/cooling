@@ -212,7 +212,7 @@
 												<?php } else { ?>
 												<td>ไม่มีบิล</td>
 												<?php }  ?>
-											<td><a href="<?php echo $row['t_image']; ?>" target="_blank">ดูรูป</a></td>
+											<td><a href="../images/tool/<?php echo $row['t_image']; ?>" target="_blank">ดูรูป</a></td>
 										</tr>
 									<?php } ?>
 

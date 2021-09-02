@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-md-4 col-xs-6 navbar-left">
 			<div class="brand-img">
-				<img src="https://topcooling.net/content/images/logo-small.jpg">
+				<img src="https://topcooling.net/content/images/logo/logo-cpns-png.png">
 			</div>
 			</div>
 			<div class="col-md-8 col-xs-6 navbar-right">

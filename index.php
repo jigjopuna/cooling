@@ -311,7 +311,7 @@
 			
 			<div class="col-md-12">
 				<div class="heading">
-				เกี่ยวกับ Topcooling
+				เกี่ยวกับ ซีพีเอ็น 888
 				</div>
 				<div style="font-size:19px;">
 				 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เราเป็นผู้เชี่ยวชาญในด้านการผลิต ออกแบบ และติดตั้งห้องเย็นสำเร็จรูป ห้องเย็นฝั่งประกอบเร็ว ในอุตสาหกรรมความเย็น นอกจากนี้เรายังพัฒนาห้องเย็น  เพื่อให้ SME หรือ บุคคลทั่วไปสามารถเข้าถึง ใช้งานห้องเย็นได้ง่ายและสะดวก ในราคาที่เหมาะสม<br><br><br>
@@ -323,7 +323,7 @@
 	</div>
 </div>
 
-
+<!--
 <div class="section-testimonial">
 	<div class="heading">
 	ก่อตั้ง หจก. มาแล้วกว่า 30 ปี
@@ -343,7 +343,7 @@
 	</div>	
 </div>
 
-<!--<div class="section-testimonial">
+<div class="section-testimonial">
 	<div class="heading">
 	หยุดทำการ 3 วัน นะครับ 
 	</div>
@@ -406,18 +406,6 @@
 
 
 
-<div class="section-testimonial"> 
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<span style="font-size:36px;" class="topic-article"> มาตราฐานห้องเย็น TCL </span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/mgwgA-hF-ns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				
-				<br><br>
-			</div>
-		</div>	
-	</div>	
-</div>
 
 <div class="section-testimonial"> 
 	<div class="container">
@@ -759,13 +747,13 @@
 			</div>
 		</div><br><br><br>
 		
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
 				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				<br><br>
 			</div>
-		</div>
+		</div>-->
 		
 	</div>	
 	
@@ -892,7 +880,7 @@
    ],
    "aggregateRating":{ 
       "@type":"AggregateRating",
-      "ratingValue":5,
+      "ratingValue":4,
       "reviewCount":120,
       "ratingCount":156
    }
