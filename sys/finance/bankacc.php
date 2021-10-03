@@ -1,7 +1,7 @@
 <?php session_start();
 	  require_once('../include/connect.php');
 	
-	$sql = "SELECT * FROM tb_bank WHERE bk_cop != 'TCL' ORDER BY bk_code";
+	$sql = "SELECT * FROM tb_bank WHERE bk_cop != 'TCL' AND bk_cop != 'PLT' ORDER BY bk_code";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 	

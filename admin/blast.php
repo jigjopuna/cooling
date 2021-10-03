@@ -131,10 +131,12 @@
 	
 	
 	$cute = ($r_width*$r_high*2) + ($r_lenght*$r_high*2) + ($r_width*$r_lenght*2);
-	if($foaminch==10){ 
-		$cens = (25.2*2)/100; 
-	} else if($foaminch==12) {
-		$cens = (30.24*2)/100; 
+	if($foaminch==2){ 
+		$cens = (5.08*2)/100; 
+	} else if($foaminch==3) {
+		$cens = (7.62*2)/100; 
+	} else if($foaminch==4){
+		$cens = (10.16*2)/100; 
 	}else if($foaminch==5){
 		$cens = (12.70*2)/100; 
 	}else if($foaminch==6){
@@ -472,7 +474,7 @@
 				<div style="width: 35%; float:left; margin-top: 20px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>
@@ -537,7 +539,7 @@
 					
 					<tr align="center">
 						<td align="left">- อุณหภูมิก่อนเข้า <?php echo $tempbefore; ?>C<Sup>o</Sup> อุณหภูมิห้องที่ต้องการ <?php echo $ord_temp; ?>C<Sup>o</Sup></td>
-						<td class="l" align="left" colspan="4"> &nbsp;&nbsp;ขนาดวัดภายใน <span style="font-size:17px; font-weight:bold; color:red; text-decoration:underline;"><?php echo number_format($r_width-$cens, 2, '.', ',');?> x <?php echo number_format($r_lenght-$cens, 2, '.', ',') ;?> x <?php echo number_format($r_high-$cens, 2, '.', ',');?></span></td>
+						<td class="l" align="left" colspan="4"> &nbsp;&nbsp;ขนาดวัดภายใน <?php echo number_format($r_width-$cens, 2, '.', ',');?> x <?php echo number_format($r_lenght-$cens, 2, '.', ',') ;?> x <?php echo number_format($r_high-$cens, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr align="center">
@@ -582,7 +584,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">3. ผนังห้องเย็น โฟม <strong><u> <?php echo $foams." ".$foaminch; ?> นิ้ว</u></strong> ensity 38-40 kg/m3 เหล็ก BHP 0.45 เมตร </td>
+						<td class="l">3. ผนังห้องเย็น โฟม <strong><u> <?php echo $foams." ".$foaminch; ?> นิ้ว</u></strong> density 38-40 kg/m3 เหล็ก BHP 0.45 เมตร </td>
 						<td colspan="2" class="l" align="center">1 ห้อง</td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php //echo number_format($coilyenprice, 2, '.', ','); ?></td>
@@ -830,17 +832,17 @@
 							
 					?>
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
+							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย</td>
 							<tr>
-								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 047-8-18623-1</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
 							</tr>
 						</tr>
 					<?php } else { ?>
 						
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกรุงเทพ(สะสมทรัพย์)</td>
+							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย</td>
 							<tr>
-								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 520-0-45057-4</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
 							</tr>
 						</tr>
 						
@@ -857,7 +859,7 @@
 							<td align="left">  ภายใน 20 วัน นับจากวันที่เสนอราคา</td>
 						</tr>
 						<tr>
-							<td align="left">  ส่งสินค้าและติดตั้งภายใน 20 วันหลังจากได้รับมัดจำงวดที่ 1</td>
+							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
 						</tr>
 					</table>
 				</div>
@@ -873,7 +875,7 @@
 				<div style="width: 35%; float:left; margin-top: 20px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>

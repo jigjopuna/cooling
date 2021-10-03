@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php require_once ('../../include/google_verify.php');?>
 <?php require_once ('../../include/googlebot.php');?>
-<meta name="copyright" content="topcooling"/>
+<meta name="copyright" content="CPN888"/>
 <meta name="keywords" content="ห้องเย็นมือสอง, ห้องเย็นราคา, ห้องเย็นสำเร็จรูป">
 <meta name="description" content="ห้องเย็นสำเร็จรูป เคลื่อนที่เคลื่อนย้ายได้ ห้องเย็นยุค 4.0 รู้ก่อนว่าห้องเย็นจะเสียตอนไหน ตรวจสอบอุณหภูมิได้ 24 ชม. ผ่านมือถือ ดูกราฟสถิติย้อนหลังได้ ราคาเหมาะสม">
 <meta property="og:title" content="ห้องเย็นสำเร็จรูป สมาร์ทห้องเย็น 4.0"/>

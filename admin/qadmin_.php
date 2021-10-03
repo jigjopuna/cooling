@@ -1,3 +1,8 @@
+<?php session_start(); 
+	  require_once('../include/connect.php');
+	  require_once('../sys/include/inc_role.php'); 
+	  
+?>
 <!doctype html>
 <html>
 <head>
@@ -14,6 +19,7 @@
 </head>
 <body>
 <?php 
+
    require_once('../include/connect.php');
    require_once('../include/thaibaht.php');
 
@@ -32,7 +38,7 @@
 	$percentprice = 1;
 	
 	
-	$stdardwall = 1.2;
+		$stdardwall = 1.2;
 	$aluminium_lenght = 6;
 	
 	$cost_chakbold = 330;
@@ -93,23 +99,29 @@
 	
 	if($timeperiod==6){
 		$condensingtime = 5;
+	}
+	else if ($timeperiod==8){
+		$condensingtime = 8;
+		
 	}else if ($timeperiod==12){
 		$condensingtime = 10;
-	}
-	else if ($timeperiod==15){
+		
+	}else if ($timeperiod==15){
 		$condensingtime = 13.5;
-	}
-	else if ($timeperiod==18){
+		
+	}else if ($timeperiod==18){
 		$condensingtime = 15;
-	}
-	else if ($timeperiod==21){
+		
+	}else if ($timeperiod==21){
 		$condensingtime = 17.5;
-	}
-	else if ($timeperiod==24){
+		
+	}else if ($timeperiod==24){
 		$condensingtime = 20;
 	}
 	
-	echo "temparature = ".$temparature."<br>";
+	
+	
+	
 	//Temparature 0
 	if($temparature <= 4){
 		$pps = 100;
@@ -129,16 +141,12 @@
 	$var_florom = $max_length*$max_width*1.1;
 	$var12 = 0.033/($pps/1000);
 	
-	echo "var11 = ".$var11."<br>";
-	echo "var12 = ".$var12."<br>";
-	echo "var13 = ".$var13."<br>";
-	
-	echo "var_room : ".$var_room."<br>";
-	echo "var_florom : ".$var_florom."<br><br>";
+	/*echo "var_room : ".$var_room."<br>";
+	echo "var_florom : ".$var_florom."<br><br>";*/
 	
 	//1. ค่ารวม ภาระที่ผ่านฉนวนห้องเย็น
 	$rusult = ($var11*$var12*$var13*24)/($condensingtime*1000);
-	echo "rusult = ".$rusult."<br><br>";
+
 	
 	//2.ภาระอากาศจากภายนอก
 	 $var21 = (pow($result_cool,0.4491))*1.2969; 
@@ -151,13 +159,6 @@
 	 $result31 = ($qty * 0) / ($timeperiod*3600);  
 	 $result3 = $result30+$result31;
 	 
-	 echo "var21 = ".$var21."<br>";
-	 echo "var22 = ".$var22."<br>";
-	 echo "result2 = ".$result2."<br><br>";
-	 echo "test = ".$test."<br>";
-	 echo "result30 = ".$result30."<br>";
-	 echo "result31 = ".$result31."<br>";
-	 echo "result3 = ".$result3."<br>";
 	 
 	 //4.ภาระอื่นๆ 
 	 
@@ -169,7 +170,7 @@
 	 
 	 $total_result = $all_result + $safety;
 	 
-	echo "all_result = ".$all_result."<br>";
+	/* echo "all_result = ".$all_result."<br>";
     echo "safety = ".$safety."<br>";		 
 	
 	
@@ -187,7 +188,7 @@
 	
 
 	
-    echo "=======================================================================";  echo "<br><br>";
+    echo "=======================================================================";  echo "<br><br>";*/
 	
 	
 	
@@ -215,10 +216,10 @@
 	 $result_t31 = ($qty * 2.11 * ( -1.7 - $temp_num)) / ($timeperiod*3600);
 	 $result_t32 = ($qty * 239) / ($timeperiod*3600);
 	 $result_t3 = $result_t30 + $result_t31 + $result_t32;
-	 
+	/* 
 	 echo 'result_t30 = '; echo $result_t30; echo "<br>";
 	 echo 'result_t31 = '; echo $result_t31; echo "<br>";
-	 echo 'result_t32 = '; echo $result_t32; echo "<br>";
+	 echo 'result_t32 = '; echo $result_t32; echo "<br>";*/
 	 
 	 $all_result_t = $rusult_t1 + $resul_t2 + $result_t3 + $result4;
 	//echo 'no saftry = '; echo $all_result_t; echo "<br>";
@@ -227,16 +228,16 @@
 	 $total_result_t = $all_result_t + $safety_t;
 	 
 	 
-	 echo "all_result_t  "; echo $all_result_t; echo " KW "; echo "<br>";
+	 /*echo "all_result_t  "; echo $all_result_t; echo " KW "; echo "<br>";
 	 echo "safety_t  "; echo $safety_t; echo " KW "; echo "<br><br>";
-	 echo "ตารางที่ 2  = "; echo $total_result_t; echo " KW "; echo "<br><br>";
+	 echo "ตารางที่ 2  = "; echo $total_result_t; echo " KW "; echo "<br><br>";*/
 	 
 	 
 	
-	echo "1. ภาระที่ผ่านฉนวนห้องเย็น  "; echo $rusult_t1; echo " KW "; echo "<br>";
+	/*echo "1. ภาระที่ผ่านฉนวนห้องเย็น  "; echo $rusult_t1; echo " KW "; echo "<br>";
 	echo "2. ภาระอากาศจากภายนอก  "; echo $resul_t2; echo " KW "; echo "<br>";
 	echo "3. ภาระจากสินค้า เหนือจุดเยือแข็ง "; echo $result_t3; echo " KW "; echo "<br>";
-	echo "4. ภาระอื่นๆ   "; echo $result4; echo " KW "; echo "<br><br>";
+	echo "4. ภาระอื่นๆ   "; echo $result4; echo " KW "; echo "<br><br>";*/
 	
 	$nDay   = date("w");
 	$nMonth = date("n");
@@ -684,7 +685,7 @@
 		});
 		
 		$("#search_custname").autocomplete({
-				source: "../ajax/search_cust.php",
+				source: "../ajax/search_cust_q.php",
 				minLength: 1
 		});
 		
@@ -705,11 +706,16 @@
 			
 			<div id="contect_detail" style="margin-top:85px;">
 				<div class="cust" style="float:left; width:65%; line-height:18px;">
-					<?php //require_once('../include/custaddress.php'); ?>
-					<span>ค้นหาลูกค้า : <input type="text" name="search_custname" id="search_custname"></span> <br>
-					<span><a href="../sys/customer/cust_add.php" target="_blank">เพิ่มชื่อลูกค้า</a> </span><br>
-					<span><a href="../sys/customer/customer.php" target="_blank">ดูข้อมูลลูกค้า</a> </span><br>
-					
+					<?php //require_once('../include/custaddress.php'); ?> 
+					<?php if($role['ro_cust'] == 1) { ?>
+						<span>ค้นหาลูกค้า : <input type="text" name="search_custname" id="search_custname"></span> <br>
+						<span><a href="../sys/customer/cust_qoutation.php" target="_blank">เพิ่มชื่อลูกค้า</a> </span><br>
+						<span><a href="../sys/customer/cust_waitpay.php" target="_blank">ดูข้อมูลลูกค้า</a> </span><br>
+					<?php }else{ ?>
+						<span>ลูกค้า</span> <br>
+						<span>&nbsp;</span><br>
+						<span>&nbsp;</span><br>
+					<?php } ?>
 					
 					<!--<span>ค้นหาจากเบอร์โทร :  <input type="text" name="search_custphone" id="search_custphone">	</span><br>-->
 				
@@ -1258,8 +1264,13 @@
 			
 			<div id="contect_detail" style="margin-top:85px;">
 				<div class="cust" style="float:left; width:65%; line-height:18px;">
+				<?php if($role['ro_cust'] == 1) { ?>
 					<?php require_once('../include/custaddress1.php'); ?>
-				
+				<? } else { ?>
+					<span>ลูกค้า</span> <br>
+						<span>&nbsp;</span><br>
+						<span>&nbsp;</span><br>
+				<? }  ?>
 				</div><!--end cust-->
 				
 				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
@@ -1465,8 +1476,13 @@
 			
 			<div id="contect_detail" style="margin-top:85px;">
 				<div class="cust" style="float:left; width:65%; line-height:18px;">
+				<?php if($role['ro_cust'] == 1) { ?>
 					<?php require_once('../include/custaddress2.php'); ?>
-				
+				<? } else { ?>
+					<span>ลูกค้า</span> <br>
+						<span>&nbsp;</span><br>
+						<span>&nbsp;</span><br>
+				<? }  ?>
 				</div><!--end cust-->
 				
 				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">

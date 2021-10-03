@@ -83,14 +83,14 @@
 										<label class="control-label" for="inputSuccess">หัวบิล</label>
 										<div class="form-group has-success">
 											<input type="radio" value="1" name="copetype" checked> CPN
-											<input style="margin-left: 10px;" type="radio" value="2" name="copetype"> TCL
-											<input style="margin-left: 10px;" type="radio" value="3" name="copetype"> TCL888
+											<input style="margin-left: 10px;" type="radio" value="2" name="copetype"> CHK
+											<!--<input style="margin-left: 10px;" type="radio" value="3" name="copetype"> TCL888-->
 										</div>
 										
-										<label class="control-label" for="inputSuccess"></label>
+										<!--<label class="control-label" for="inputSuccess"></label>
 										<div class="form-group has-success">
 											<input style="" type="radio" value="4" name="copetype"> พระลักษณ์ไทย
-										</div>
+										</div>-->
 										
 									</div>
 									

@@ -5,12 +5,12 @@
 <title>ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | ซีพีเอ็น 888</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 <meta name="keywords" content="เช็คราคาห้องเย็น" />
-<meta name="description" content="รู้ราคาห้องเย็นภายใน 1 นาที เคยไหม ไม่รู้ว่าจะหาข้อมูลห้องเย็นได้จากไหน ลองดูข้อมูลห้องเย็นได้ที่นี่" />
-<title>เช็คราคาห้องเย็น ซีพีเอ็น 888</title>
+<meta name="description" content="รู้ราคาห้องเย็นภายใน 1 นาที เคยไหม ไม่รู้ว่าจะหาข้อมูลห้องเย็นได้จากไหน ลองดูข้อมูลห้องเย็นได้ที่นี่ ห้องเย็นท็อปคูลลิ่ง TCL TOPCOOLING" />
+<title>เช็คราคา ห้องเย็นท็อปคูลลิ่ง TCL TOPCOOLING</title>
 <meta property="og:url" content="https://topcooling.net/chkprice.php" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="เช็คราคาห้องเย็น Top Cooling" />
-<meta property="og:description" content="รู้ราคาห้องเย็นภายใน 1 นาที เคยไหม ไม่รู้ว่าจะหาข้อมูลห้องเย็นได้จากไหน ลองดูข้อมูลห้องเย็นได้ที่นี่ " />
+<meta property="og:description" content="รู้ราคาห้องเย็นภายใน 1 นาที เคยไหม ไม่รู้ว่าจะหาข้อมูลห้องเย็นได้จากไหน ลองดูข้อมูลห้องเย็นได้ที่นี่ ห้องเย็นท็อปคูลลิ่ง TCL TOPCOOLING " />
 <meta property="og:image" content="content/images/secondhand.jpg" />
 <?php require_once ('include/google_verify.php');?>
 
@@ -363,7 +363,7 @@
 	6. กดปุ่ม "คำนวณราคา" จากนั้นใบเสนอราคาจะแสดงขึ้นมา<br><br>
 	
 	<strong>หมายเหตุ</strong> : ราคานี้เป็นราคาห้องเย็น <span class="text-strong">แบบฝั่ง</span> (ติดตั้งหน้างาน) แบบราคาเบื้องต้น มี <span class="text-strong">ราคาพิเศษ</span> ให้ ติดต่อผม 099-129-0789 ครับ<br><br>
-	ระบบห้องนี้สร้างขึ้นมาเพื่ออำนวยความสะดวกให้กับทุกคนที่ต้องการทราบราคาห้องเย็น แต่ไม่รู้ว่าจะไปหาข้อมูลได้ที่ไหน<br><br>
+	ระบบห้องนี้สร้างขึ้นมาเพื่ออำนวยความสะดวกให้กับทุกคนที่ต้องการทราบราคาห้องเย็น แต่ไม่รู้ว่าจะไปหาข้อมูลได้ที่ไหน ติดต่อห้องเย็น ท็อปคูลลิ่ง ได้ทันที<br><br>
 	
 	หามีข้อสงสัยติดต่อ 099-129-0789 หรือ 084-013-7350<br>
 	Line ID : @topcooling (พิมพ์ @ ข้างหน้าด้วย)<br><br>

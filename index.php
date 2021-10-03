@@ -10,17 +10,48 @@
 <meta name="robots" content="index, follow">
 <meta name="copyright" content="Topcooling 2017"/>
 <meta name="keywords" content="ห้องเย็น, ห้องเย็นราคา, ห้องเย็นมือสอง, เครื่องทำความเย็นอาหาร, ห้องเย็นไม่เย็น">
-<meta name="description" content="รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้">
-<?php require_once ('include/google_verify.php');?>
+<meta name="description" content="ห้องเย็นท็อปคูลลิ่ง TCL TOPCOOLING รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้">
+<?php //require_once ('include/google_verify.php');?>
 <meta property="og:title" content="ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | Topcooling"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content=""/>
 <meta property="og:url" content="https://www.topcooling.net"/>
-<meta property="og:description" content="รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้"/>
+<meta property="og:description" content="ห้องเย็นท็อปคูลลิ่ง TCL TOPCOOLING รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้"/>
 <link rel="shortcut icon" href="content/images/favicon.png">
 <link rel="stylesheet" href="sources/css/main.css">
 <link rel="canonical" href="https://topcooling.net" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67504861-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1173767059353705');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1173767059353705&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
  
 <script type="text/javascript" src="sys/js/jquery-1.11.1.min.js"></script>
 <script>
@@ -412,7 +443,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> คลิปประกอบห้องเย็น</span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/D9E0P3XkbqA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/szg_9rzqXT8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<br><br>
 			</div>
 		</div>	

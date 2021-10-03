@@ -126,7 +126,7 @@
 			<div id="corp_addr_ini">
 				<?php 
 					
-						require_once('../include/tcl_addr.php');				
+						require_once('../include/chk_addr.php');				
 				?>
 			</div><!--end cover_header-->
 				
@@ -174,7 +174,8 @@
 					<p style="line-height:150%;">
 						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
 						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
-						* ไทยพานิชย์ หจก.ท็อปคูลลิ่ง  เลขที่บัญชี 830-242349-9  (ออมทรัพย์)  <br>
+						* ธ.กสิกรไทย ชื่อ ภูริชญ์ โชคอุตสาหะ  เลขที่บัญชี 617-212903-8  (ออมทรัพย์)  <br>
+						<!--* ธ.กสิกรไทย บจก. โชคอุตสาหะ พารวย  เลขที่บัญชี 091-8-53927-1  (ออมทรัพย์)-->
 					</p>
 				
 				</div>
@@ -217,7 +218,7 @@
 				<div id="custname">
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;นายชูเกียรติ เทียนอำไพ&nbsp;&nbsp;)</div>		
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;นายภูริชญ์ โชคอุตสาหะ&nbsp;&nbsp;)</div>		
 				</div>
 			</div>
 			

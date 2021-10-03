@@ -902,7 +902,7 @@
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายภูริชญ์ โชคุอตสาหะ)</span> <br><br>
+					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>
@@ -1274,11 +1274,11 @@
 				</div><!--end cust-->
 				
 				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation </strong></span><br>
+					<span><strong>Quotation  T.C.L. </strong></span><br>
 					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ : ภูริชญ์ โชคุอตสาหะ </span><br>
-					<span>โทร : 099-129-0789/span><br>
-					<span>Email: cpn888ltd@hotmail</span>
+					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
+					<span>โทร : 082-360-1523</span><br>
+					<span>Email: Topcooling.ltd@gmail.com</span>
 				</div><!--end oweneraddress-->
 				
 				
@@ -1437,7 +1437,7 @@
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายภูริชญ์ โชคุอตสาหะ)</span> <br><br>
+					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 				</div>
 			</div><!--end footer-->
@@ -1486,11 +1486,11 @@
 				</div><!--end cust-->
 				
 				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation   </strong></span><br>
+					<span><strong>Quotation  T.C.L. </strong></span><br>
 					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ :  ภูริชญ์ โชคอุตสาหะ</span><br>
-					<span>โทร : 099-129-0789</span><br>
-					<span>Email: cpn888ltd@hotmail</span>
+					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
+					<span>โทร : 082-360-1523</span><br>
+					<span>Email: Topcooling.ltd@gmail.com</span>
 				</div><!--end oweneraddress-->
 				
 				
@@ -1602,11 +1602,11 @@
 						$ep_split =  ($tatal_price+$tatal_price2)+(($tatal_price+$tatal_price2)*0.07);
 					?>
 					<tr class="highs" style="">   
-						<td class="l" colspan="5">งวดที่ 1   50%  ชำระเมื่อได้รับใบสั่งซื้อ  <?php echo '(', number_format($ep_split*0.5, 2, '.', ','), ')';?> </td>
+						<td class="l" colspan="5">งวดที่ 1   40%  ชำระเมื่อได้รับใบสั่งซื้อ  <?php echo '(', number_format($ep_split*0.4, 2, '.', ','), ')';?> </td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l" colspan="5">งวดที่ 2   30% ชำระเมื่อส่งอุปกรณ์ <?php echo '(', number_format($ep_split*0.3, 2, '.', ','), ')';?></td>
+						<td class="l" colspan="5">งวดที่ 2   40% ชำระเมื่อส่งอุปกรณ์ <?php echo '(', number_format($ep_split*0.4, 2, '.', ','), ')';?></td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -1630,7 +1630,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l" colspan="5">บัญชีธนาคารกรุงเทพ ชื่อเดชาธร ผลินธร     เลขที่บัญชี 025-704019-6 <!--บัญชีธนาคารกสิกรไทย ชื่อ บจ. ซีพีเอ็น888    เลขที่บัญชี 075-8-81892-6--> </td>
+						<td class="l" colspan="5">บัญชีธนาคารกสิกรไทย ชูเกียรติ เทียนอำไพ   ออมทรัพย์  เลขที่บัญชี 855-2-05499-8 </td>
 					</tr>
 					
 				
@@ -1647,7 +1647,7 @@
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
+					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 				</div>
 			</div><!--end footer-->
@@ -1685,11 +1685,11 @@
 				
 				<tr>
 					<td rowspan="2"> หัวบิลบริษัท </td>
-					<td><input type="radio" name="corp_addr" value="1" checked> CPN888 </td>
+					<td><input type="radio" name="corp_addr" value="1" checked> TOPCOOLING </td>
 				</tr>
 				
 				<tr>
-					<td style="padding:0;"><input type="radio" name="corp_addr" value="2"> โชคอุตสาหะ </td>
+					<td style="padding:0;"><input type="radio" name="corp_addr" value="2"> TP WALL </td>
 				</tr>
 				<!--<tr>
 					<td style="width:200px;">กำไร <input type="text" value="" name="percentprofit" > % </td>

@@ -4,7 +4,7 @@
             <div id="cover_header">
 				<?php 
 					if($corp == 2)
-						include ('../include/tcl_addr.php');
+						include ('../include/chk_addr.php');
 					else 
 						include ('../include/cpn_addr.php');	
 				?>

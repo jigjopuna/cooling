@@ -135,50 +135,34 @@
 		$a = mysql_insert_id($conn);
 		
 		
-		if($ord_bank == 1){ //กสิกร ออม 
+		if($ord_bank == 11){ //กสิกร ออม  CPN
   
 		  $update_cash = $cash_now + $payamount;
 		  
-		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$update_cash', cash_now1 = 'cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
+		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$update_cash', cash_now1 = '$cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
 
-		 }else if ($ord_bank == 2){ //กสิกร กระแส
+		 }else if ($ord_bank == 12){ //กสิกร กระแส CPN
 		  
 		  $update_cash = $cash_now1 + $payamount;
 		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = '$update_cash', cash1 = '$cash1', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
 		  
-		 }else if ($ord_bank == 4){ // tbm ออม
-		  
-		  $update_cash = $cash1 + $payamount;
-		  
-		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = 'cash_now1', cash1 = '$update_cash', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
-		  
-		  
-		 }else if ($ord_bank == 5){ //tmb กระแส
-		  
-		  $update_cash = $cash2 + $payamount;
-		  
-		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = 'cash_now1', cash1 = '$cash1', cash2='$update_cash', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
-		  
-		  
-		 }else if ($ord_bank == 6){ //กรุงเทพ ออม
+		 }else if ($ord_bank == 6){ //กรุงเทพ CPN ออม
 		 
-		  $update_cash = $salary + $payamount;
-		  
-		  
-		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$update_cash', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = 'cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
-		  
-		  
+		  $update_cash = $cash_salary + $payamount;
+
+		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$update_cash', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
+
 		 }else if ($ord_bank == 7){ //ไทยพานิชย์ ออม
 		 
 		  $update_cash = $cash_emp + $payamount;
 		 
-		 $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = 'cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$update_cash', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
+		 $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$update_cash', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
 		  
 		 }else if ($ord_bank == 8){ //ไทยพานิชย์ กระแส
 		 
 		  $update_cash = $cash_emp1 + $payamount;
 		  
-		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = 'cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$update_cash', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
+		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$update_cash', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
 		  
 		 }else if ($ord_bank == 9){ //กรุงศรี ออม
 		  
@@ -191,10 +175,22 @@
 		 
 		  $update_cash = $cash_temp1 + $payamount;
 		  
-		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = 'cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$update_cash', cash_times=now()";
+		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash1 = '$cash1', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$update_cash', cash_times=now()";
 		  
-		 }else if ($ord_bank == 11){ //กรุงเทพ กระแส
-		  //$update_cash = $cash_temp + $payamount;
+		 }else if ($ord_bank == 18){ // กสิกร เดชาธร 
+		  
+		  $update_cash = $cash1 + $payamount;
+		  
+		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash1 = '$update_cash', cash2='$cash2', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
+		  
+		  
+		 }else if ($ord_bank == 17){ //กรุงเทพ เดชาธร
+		  
+		  $update_cash = $cash2 + $payamount;
+		  
+		  $work_list = "INSERT INTO tb_cash_center SET cash_ord = '$a', cash_in = '$payamount', cash_date = '$paydate', cash_salary = '$cash_salary', cash_bank = '$cash_bank', cash_now = '$cash_now', cash_now1 = '$cash_now1', cash1 = '$cash1', cash2='$update_cash', cash_emp = '$cash_emp', cash_emp1 = '$cash_emp1', cash_temp='$cash_temp', cash_temp1 ='$cash_temp1', cash_times=now()";
+		  
+		  
 		 }
 		
 		$result6 = mysql_query($work_list);
@@ -202,7 +198,7 @@
 		if($result6){
 			exit("<script>alert('บันทึกเงินเข้าเรียบร้อยแล้วจร้า ^^ ');window.location='../../finance/inpay.php';</script>");
 		}else{
-			exit("<script>alert('บันทึกเงินไม่เข้า TT ');window.location='../../finance/inpay.php';</script>");
+			exit("<script>alert('บันทึกเงินเข้าแล้ว แต่ยังไม่ได้ update ใน tb_cash_center ');window.location='../../finance/inpay.php';</script>");
 		}
 	}//end cash
 		

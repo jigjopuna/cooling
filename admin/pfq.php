@@ -317,7 +317,7 @@
 	<?php require_once('../sys/include/metatagsys.php');?>
 	<link type="text/css" rel="stylesheet" href="../css/bill.css">
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
-	<title>ใบเสนอราคาห้องเย็น Topcooling</title>
+	<title>ใบเสนอราคาห้องเย็น CPN888</title>
 </head>
 <body>
 <?php require_once('../include/googletag.php');?> 
@@ -358,9 +358,9 @@
               <div id="corp_addr_ini">
 				<?php 
 					if($corp_addr == 1){
-						require_once('../include/tcl_addr.php');
+						require_once('../include/cpn_addr.php');
 					}else{
-						require_once('../include/ptwall_addr.php');
+						require_once('../include/cpn_addr.php');
 					}					
 				?>
 			</div><!--end cover_header-->
@@ -564,7 +564,7 @@
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span><?php if($corp_addr == 1){ echo '(นายชูเกียรติ  เทียนอำไพ)'; }else{ echo '&nbsp;&nbsp;&nbsp;&nbsp;(ไพฑูรย์ เกตุแก้ว)';}	?></span> <br><br>
+					<span><?php if($corp_addr == 1){ echo '(นายภูริชญ์ โชคอุตสาหะ)'; }else{ echo '&nbsp;&nbsp;&nbsp;&nbsp;(นายภูริชญ์ โชคอุตสาหะ)';}	?></span> <br><br>
 					
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
@@ -776,7 +776,7 @@
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span><?php if($corp_addr == 1){ echo '(นายชูเกียรติ  เทียนอำไพ)'; }else{ echo '&nbsp;&nbsp;&nbsp;&nbsp;(ไพฑูรย์ เกตุแก้ว)';}	?></span> <br><br>
+					<span><?php if($corp_addr == 1){ echo '(นายภูริชญ์ โชคอุตสาหะ)'; }else{ echo '&nbsp;&nbsp;&nbsp;&nbsp;(นายภูริชญ์ โชคอุตสาหะ)';}	?></span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 				</div>
 			</div><!--end footer-->
@@ -974,7 +974,7 @@
 					
 					<tr class="highs" style="">
 						<td class="l" colspan="5">
-						<span><?php if($corp_addr == 1){ echo 'บัญชีธนาคารกสิกรไทย  หจก. ท็อปคูลลิ่ง  เลขที่บัญชี   กระแสรายวัน  เลขที่บัญชี 047-8-18623-1 '; }	?></span> <br><br>
+						<span><?php //if($corp_addr == 1){ echo 'บัญชีธนาคารกสิกรไทย  หจก. ท็อปคูลลิ่ง  เลขที่บัญชี   กระแสรายวัน  เลขที่บัญชี 047-8-18623-1 '; }	?> บัญชีธนาคารกสิกรไทย  บจก. ซีพีเอ็น888    เลขที่บัญชี 075-8-81892-6  (ออมทรัพย์)<!--บัญชีธนาคารกสิกรไทย  เดชาธร ผลินธร เลขที่บัญชี   855-2-01920-3  --></span> <br><br>
 						</td>
 					</tr>
 					
@@ -992,7 +992,7 @@
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span><?php if($corp_addr == 1){ echo '(นายชูเกียรติ  เทียนอำไพ)'; }else{ echo '&nbsp;&nbsp;&nbsp;&nbsp;(ไพฑูรย์ เกตุแก้ว)';}	?></span> <br><br>
+					<span><?php if($corp_addr == 1){ echo '(นายภูริชญ์ โชคอุตสาหะ)'; }else{ echo '&nbsp;&nbsp;&nbsp;&nbsp;(นายภูริชญ์ โชคอุตสาหะ)';}	?></span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 				</div>
 			</div><!--end footer-->

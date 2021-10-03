@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php require_once ('../../include/google_verify.php');?>
 <?php require_once ('../../include/googlebot.php');?>
-<meta name="copyright" content="topcooling"/>
+<meta name="copyright" content="CPN888 ห้องเย็น"/>
 <meta name="keywords" content="ห้องเย็นมือสอง, ห้องเย็นราคา, ห้องเย็นสำเร็จรูป">
 <meta name="description" content="ห้องเย็นมือสอง แต่ไม่เหมือนมือสอง ประกอบใหม่สภาพกริ๊บมาก เราเปลี่ยนคอมเพรสเซอร์ตัวใหม่ให้ พร้อมชุดคอนโทรลเดินไฟใหม่ ให้ทั้งหมด รับประกัน 6 เดือนเต็ม ฟรีเซอร์วิส">
 <meta property="og:title" content="ห้องเย็นมือสองประกอบใหม่ ที่เป็นมากกว่าห้องเย็นมือสอง"/>
@@ -80,7 +80,7 @@
 			<div class="col-md-6">
 				<div class="p_article">
 					<h2>รายละเอียดเครื่องทำความเย็น</h2>
-					- Compressor Copeland  3-4 HP ของใหม่<br>
+					- Compressor Copeland  3-4 HP<br>
 					- ชุด Condensing Emerson มือสอง<br>
 					- คอล์ยเย็น KUBA มือสอง<br>
 					<br>
@@ -267,7 +267,7 @@
 				<div class="p_article">
 					<br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<span class="boldun">ห้องเย็น</span>  มือสองประกอบใหม่ เราเปลี่ยนคอมเพรสเซอร์ให้ใหม่ ระบบไฟฟ้าชุดใหม่ทั้งหมด โครงสร้างเหล็กใหม่แข็งแรง ห้องเย็นมือสองแต่ไม่เหมือนมือสอง<br>
+					<span class="boldun">ห้องเย็น</span>  มือสองประกอบใหม่ เราตรวจสอบเช็คคุณภาพของคอมเพรสเซอร์อย่างละเอียด ถ่ายน้ำมัน และเช็คกระแสคอมเพรสเซอร์ นอกจากนี้ ระบบไฟฟ้ายังเป็นชุดใหม่ทั้งหมด โครงสร้างเหล็กใหม่แข็งแรง ห้องเย็นมือสองแต่ไม่เหมือนมือสอง<br>
 					ชุด Condensing Emerson Copeland 5HP
 
 
@@ -303,10 +303,10 @@
 		</div>
 		
 		
-		<div class="col-md-12">	
+		<!--<div class="col-md-12">	
 			<img src="../../sources/assets/images/second/info1.jpg" alt="ห้องเย็น,มือสอง" style="max-width:1500px;"><br><br>
 			<img src="../../sources/assets/images/second/info2.jpg" alt="ห้องเย็นมือสอง" style="max-width:1500px;"><br><br>
-		</div>
+		</div>-->
 		
 		
 		<div class="col-md-12">	
@@ -623,9 +623,9 @@
    ],
    "aggregateRating":{ 
       "@type":"AggregateRating",
-      "ratingValue":4,
-      "reviewCount":120,
-      "ratingCount":156
+      "ratingValue":5,
+      "reviewCount":820,
+      "ratingCount":660
    }
 }
 </script>

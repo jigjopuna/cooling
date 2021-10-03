@@ -17,19 +17,16 @@
 <title>รายการสั่งซื้อ</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
-<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
-<script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <?php require_once('../include/inc_role.php'); ?>
 	
 	<script>
 		$(document).ready(function(){
-			$('#btn').click(validation);
-			$('#btn_tr').click(validation_tr);
 			$('#podate, #tr_date').datepicker({dateFormat: 'yy-mm-dd'});
 			$("#search_custname").autocomplete({
 				source: "../../ajax/search_ord.php",
 				minLength: 1
 			});
+				
 		});
 		
 	</script> 
@@ -71,8 +68,8 @@
 										<th>กสิกร ออม</th>
 										<th>กสิกร กระแส</th>
 										
-										<th>TMB ออม</th>
-										<th>TMB กระแส</th>
+										<th>กสิกร เดชาธร</th>
+										<th>กรุงเทพ เดชาธ</th>
 										
 										<th>BBL ออม</th>
 										
@@ -121,8 +118,8 @@
 											<td><?php echo number_format($row['cash_emp'], 1, '.', ','); ?></td>
 											<td><?php echo number_format($row['cash_emp1'], 1, '.', ','); ?></td>
 											
-											<td><?php echo number_format($row['cash_temp'], 1, '.', ','); ?></td>
-											<td><?php echo number_format($row['cash_temp1'], 1, '.', ','); ?></td>
+											<td><?php echo number_format($row['cash_kcpns'], 1, '.', ','); ?></td>
+											<td><?php echo number_format($row['cash_kcpnc'], 1, '.', ','); ?></td>
 										</tr>
 									<?php } ?>
 

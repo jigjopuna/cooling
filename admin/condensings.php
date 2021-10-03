@@ -12,27 +12,11 @@
 	<meta charset="utf-8">
 	<meta name="keywords" content="เช็คราคาห้องเย็น" />
 	<meta name="description" content="ใบเสนอราคาห้องเย็น Quotation" />
-	<link rel="shortcut icon" href="content/images/favicon.png">
+	<link rel="shortcut icon" href="../content/images/favicon.png">
 	<title><?php echo date("Y").'-'.$nMonth.'-'.$date; ?></title>
+	<?php include('../include/metanoindex.php')?>
+	<?php include('../include/inc_font.php')?>
 	<link rel="stylesheet" href="../css/quotation.css">
-	<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
-	<style>
-		.text_strong { font-weight: bold; }
-		.text_emunder { text-decoration:underline; font-weight: bold; }
-		.container { clear:both; border: 1px solid black; min-height:850px;}
-		.row { width: 100%; clear:both; padding-bottom: 60px; overflow: hidden;}
-		.col1 { float:left; width:45%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
-		.col2 { float:left; width:51%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
-		.col3 { float:left; width:53%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
-		.col4 { float:left; width:43%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
-		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
-		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; }
-		
-		@media print { 
-			 #btn-calngod,  #btn-addroom { display: none !important; } 
-		}
-
-	</style>
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
@@ -64,7 +48,7 @@
 </script>
 
 <?php 
-	require_once('../include/googletag.php');
+	
 	$cust_id = trim($_POST['search_custname']);
 
 	$chkdetail = mysql_fetch_array(mysql_query("SELECT qcust_prov FROM tb_quo_cust WHERE qcust_id = '$cust_id'"));
