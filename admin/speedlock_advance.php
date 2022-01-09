@@ -755,7 +755,7 @@
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tr>
-							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; <!-- (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)--></td>
+							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp;  (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)</td>
 						</tr>
 						<tr>
 							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   70%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
@@ -1422,7 +1422,7 @@
     </div>
 
 	
-	<?php //include('../include/inc_iot.php');?>
+	<?php include('../include/inc_iot.php');?>
 	<?php require_once('../include/inc_brief.php');?>
 
 </div>

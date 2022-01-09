@@ -752,13 +752,7 @@ body {
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include('include/cpn_addr.php');?>
 			</div><!--end cover_header-->
 			
 			
@@ -771,13 +765,7 @@ body {
 				
 				</div><!--end cust-->
 				
-				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation  T.C.L. </strong></span><br>
-					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
-					<span>โทร : 082-360-1523</span><br>
-					<span>Email: Topcooling.ltd@gmail.com</span>
-				</div><!--end oweneraddress-->
+				<?php include('include/tcl_contact.php'); ?>
 				
 				
 			</div><!--end contect_detail-->
@@ -938,7 +926,7 @@ body {
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>
@@ -1191,14 +1179,7 @@ body {
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include('include/cpn_addr.php');?>
 			</div><!--end cover_header-->
 			
 			
@@ -1211,13 +1192,7 @@ body {
 				
 				</div><!--end cust-->
 				
-				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation  T.C.L. </strong></span><br>
-					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
-					<span>โทร : 082-360-1523</span><br>
-					<span>Email: Topcooling.ltd@gmail.com</span>
-				</div><!--end oweneraddress-->
+				<?php include('include/tcl_contact.php'); ?>
 				
 				
 			</div><!--end contect_detail-->
@@ -1364,7 +1339,7 @@ body {
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 				</div>
 			</div><!--end footer-->
@@ -1390,14 +1365,7 @@ body {
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่ 6 ต.ทัพหลวง อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING Co.,Ltd,PART 28/1 M.6 TRAPRUANG MOUNG NAKORN PATHOM 73000</span><br>
-				<span>Tel. 082-360-1523, 084-013-7350 &nbsp;&nbsp;&nbsp; เลขประจำตัวผู้เสียภาษี : 0733537000077 </span><br>
-				<span>Web:  www.topcooling.net</span>
-				</div>
+				<?php include('include/cpn_addr.php');?>
 			</div><!--end cover_header-->
 			
 			
@@ -1410,13 +1378,7 @@ body {
 				
 				</div><!--end cust-->
 				
-				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation  T.C.L. </strong></span><br>
-					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
-					<span>โทร : 082-360-1523</span><br>
-					<span>Email: Topcooling.ltd@gmail.com</span>
-				</div><!--end oweneraddress-->
+				<?php include('include/tcl_contact.php'); ?>
 				
 				
 			</div><!--end contect_detail-->
@@ -1540,7 +1502,7 @@ body {
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l" colspan="5">บัญชีธนาคารกสิกรไทย ชูเกียรติ เทียนอำไพ   ออมทรัพย์  เลขที่บัญชี 855-2-05499-8 </td>
+						<td class="l" colspan="5">บัญชีธนาคารกสิกรไทย บจ.ซีพีเอ็น 888   ออมทรัพย์  เลขที่บัญชี 075-8-81892-6 </td>
 					</tr>
 					
 				
@@ -1557,7 +1519,7 @@ body {
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 				</div>
 			</div><!--end footer-->

@@ -365,7 +365,7 @@
 					
 					
 					<tr class="highs" style="">
-						<td class="l">1. ผนังห้องเย็น โฟม <strong><u> <?php echo $foams." ".$foaminch; ?> นิ้ว</u></strong> ensity 38-40 kg/m3 เหล็ก BHP 0.45 เมตร </td>
+						<td class="l">1. ผนังห้องเย็น โฟม <strong><u> <?php echo $foams." ".$foaminch; ?> นิ้ว</u></strong> density 38-40 kg/m3 เหล็ก BHP 0.45 เมตร </td>
 						<td colspan="2" class="l" align="center">1 ห้อง</td>
 						<td class="l" align="right"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
 						<td class="l" align="right"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
@@ -380,7 +380,14 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - ซิลิโคน, ซีลแลนด์, อลูมิเนียมฉากโค้ง, ริเวท และอุปกรณ์อื่นๆ </td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - ซิลิโคนซีลแผ่นห้องเย็น, ซีลแลนด์, ริเวท และอุปกรณ์อื่นๆ </td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - อลูมิเนียมฉากโค้ง, อลูมิเนียมฉากหนา, ฉากบาง และ วาล์วปรับแรงดัน  </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -470,17 +477,17 @@
 							
 					?>
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
+							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 047-8-18623-1</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี <!--ชื่อบัญชี เดชาธร ผลินธร--> <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6 <!--855-2-01920-3--></span></td>
 							</tr>
 						</tr>
 					<?php } else { ?>
 						
 						<tr>
-							<td colspan="2" align="left"><!--บัญชีธนาคารกสิกรไทย--> บัญชีธนาคาร กรุงเทพ </td>
+							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left">  <!--บจ.ซีพีเอ็น888  เลขที่บัญชี--> ชื่อบัญชี เดชาธร ผลินธร <span style="text-decoration: underline; font-weight: bold;"> <!--075-8-81892-6--> 025-704019-6</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี <!--ชื่อบัญชี เดชาธร ผลินธร--> <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6 <!--855-2-01920-3--></span></td>
 							</tr>
 						</tr>
 						

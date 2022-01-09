@@ -7,8 +7,7 @@
 <body>
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
-	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	//define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  
+	define('LINE_API',"https://notify-api.line.me/api/notify");	 
 	define('LINE_TOKEN','DVkXOmyzLiMaXMhF8Ppoim48pl1A7foQgMTCsz1olfr');  
 	define('LINE_TOKEN1', $cust_token); 
 	function notify_message($message){

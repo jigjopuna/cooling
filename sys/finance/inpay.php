@@ -5,7 +5,7 @@
 	$sql = "SELECT op.pay_id, c.cust_name, op.pay_amount, op.pay_date, o.o_id, op.pay_bill
 			FROM (tb_orders o JOIN tb_ord_pay op ON o.o_id = op.o_id) 
 				 JOIN tb_customer c ON c.cust_id = o.o_cust
-			ORDER BY op.pay_date DESC LIMIT 0,50";
+			ORDER BY op.pay_date DESC LIMIT 0,200";
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 		

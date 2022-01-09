@@ -9,10 +9,10 @@
 	$countorder = $row['count'];
 	
 	if($countorder > 10){
-		$msg = $countorder.' ห้อง ยินดีด้วยจร้าเดือนนี้ทะลุทะลวงเป้า จะไปเที่ยวไหนกันดี';
+		$msg = ' ยอดขายปี 2564 รวม 39,086,500.00 บาท  จะไปเที่ยวไหนกันดี';
 	}else{
 		$remain = 10-$countorder;
-		$msg = "\n".'เดือนนี้ได้ '.$countorder.' ห้องแล้วน๊าา พวกเราสู้ๆ '."\n".'เอาให้ครบ 10 ห้อง';
+		$msg = ' ยอดขายปี 2564 รวม 39,086,500.00 บาท  จะไปเที่ยวไหนกันดี';
 	}
 ?>
 <!doctype html>
@@ -24,9 +24,9 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','p2BasIGUuINUyaOj4HnR3PDEzHiQ1EkLzTXWkeFY2sC');  //การเงิน
+	//define('LINE_TOKEN','DVkXOmyzLiMaXMhF8Ppoim48pl1A7foQgMTCsz1olfr');  //กลุ่ม เอกสาร   CPN
 	//define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');  //ไลน์ปู jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt  
-	define('LINE_TOKEN1','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  //กลุ่ม เอกสาร   
+	define('LINE_TOKEN1','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  //กลุ่ม เอกสาร   CPN
 	
 	function notify_message($message){
 

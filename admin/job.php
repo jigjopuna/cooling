@@ -11,7 +11,7 @@
 	<meta name="keywords" content="ราคาห้อง และโฟม" />
 	<meta name="description" content="ราคาห้อง และโฟม" />
 	<?php require_once('../sys/include/metatagsys.php');?>
-	<title>ใบเสร็จรับเงิน</title>
+	<title>ใบดำเนินงาน</title>
 	<link type="text/css" rel="stylesheet" href="../css/bill.css">
 	<link type="text/css" rel="stylesheet" href="../css/redmond/jquery-ui-1.8.12.custom.css">
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
@@ -28,7 +28,7 @@
 	$e_id = $_SESSION['ss_emp_id'];
 	if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ');window.location = '../../sys/pages/login/login.php';</script>");}
 	
-	$ord_id = 54;
+	$ord_id = trim($_GET['ordid']);
 	
 	$vatdate = trim($_POST['vatdate']);
 	/*echo 'e_id : '.$e_id.'<br>';
@@ -74,9 +74,18 @@
 <form method="post" action="pfq.php"id="form1">
     <div class="page">
         <div class="subpage">
-			<?php include('../include/corp_addr.php'); ?>
+			<div id="corp_addr_ini">
+				<?php 
+					
+					include ('../include/cpn_addr.php'); 
+					
+				?>
+			</div><!--end cover_header-->
+				
+				
 			
 			<div id="bill_title" style="/*background-color:green;*/ height: 40px; clear:both; margin-top: 100px; text-align: center; font-size: 2em; vertical-align: middle;">
+				<?php //echo $bill_head;?>
 				ใบดำเนินงาน
 			</div>
 			<?php include('../include/billdetail.php'); ?>
@@ -160,44 +169,18 @@
 				
 				</div>
 				
-				<div id="price" style="float:left; width:34%; /*background-color:orange;*/ height:150px; border: 1px dashed black;  border-radius: 10px; padding-left:10px; padding-top: 10px;">
-					<table style="width: 98%;">
-						<tr>
-							<td style="width:60%;">มูลค่าสินค้า </td>
-							<td align="right"><?php echo number_format($vatprice, 2, '.', ',');?></td> 
-						</tr>
-						
-						<tr>
-							<td>&nbsp; </td>
-							<td> </td>
-						</tr>
-						
-						<tr>
-							<td>&nbsp; </td>
-							<td> </td>
-						</tr>
-						<tr>
-							<td>ภาษีมูลค่าเพิ่ม </td>
-							<td align="right"><?php if($vattype==1)  echo number_format($vatprice*0.07, 2, '.', ','); else echo 0;?></td>
-						</tr>
-						<tr>
-							<td>รวมทั้งสิ้น </td>
-							<td align="right"><?php echo number_format($price, 2, '.', ',');?></td>
-						</tr>
-					</table>
-				
-				</div>
+
 				
 				<div id="signature">
-					<div class="sign">ผู้อนุมัติ ...........................</div>
-					<div class="sign">ผู้สั่งซื้อ ...........................</div>
+					<div class="sign">ผู้รับมอบงาน ...........................</div>
+					<div class="sign">ผู้ส่งงาน ...........................</div>
 					
 				</div>
 				
 				<div id="custname">
 					<div class="sign1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;ชูเกียรติ เทียนอำไพ&nbsp;&nbsp;)</div>
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;ภูริชญ์ โชคอุตสาหะ&nbsp;&nbsp;)</div>
 					
 				</div>
 			</div>

@@ -54,7 +54,7 @@
 		
 		<div class="row">
 			<div class="col-xs-12">
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/D9E0P3XkbqA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/_DglLb0FnAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<br><br><br>
 			</div>
 		</div>
@@ -254,8 +254,8 @@
 		<br><br><br><br>
 		<div class="row">
 			<div class="col-xs-12">
-				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<span style="font-size:36px;" class="topic-article"> รีวิวห้องเย็นสวยๆ</span><br><br><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/68FcyGUA_o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<br><br>
 			</div>
 		</div>

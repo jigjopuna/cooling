@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php require_once ('../../include/google_verify.php');?>
 <?php require_once ('../../include/googlebot.php');?>
-<meta name="copyright" content="CPN888 ห้องเย็น"/>
+<meta name="copyright" content="topcooling"/>
 <meta name="keywords" content="ห้องเย็นมือสอง, ห้องเย็นราคา, ห้องเย็นสำเร็จรูป">
 <meta name="description" content="ห้องเย็นมือสอง แต่ไม่เหมือนมือสอง ประกอบใหม่สภาพกริ๊บมาก เราเปลี่ยนคอมเพรสเซอร์ตัวใหม่ให้ พร้อมชุดคอนโทรลเดินไฟใหม่ ให้ทั้งหมด รับประกัน 6 เดือนเต็ม ฟรีเซอร์วิส">
 <meta property="og:title" content="ห้องเย็นมือสองประกอบใหม่ ที่เป็นมากกว่าห้องเย็นมือสอง"/>
@@ -487,8 +487,8 @@
 		<br><br><br><br>
 		<div class="row">
 			<div class="col-xs-12">
-				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<span style="font-size:36px;" class="topic-article"> มาดูห้องเย็นรีวิวมือสอง ที่ไม่ใช่มือสอง</span><br><br><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/_DglLb0FnAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<br><br>
 			</div>
 		</div>

@@ -1,4 +1,17 @@
-<?php require_once('../../include/connect.php'); ?>
+<?php require_once('../../include/connect.php'); 
+	
+	/*ถ้ายังไม่มี session ตะกร้า ให้สร้างตะกร้าใหม่
+	if($_SESSION['session_admin_basket'] == '')
+		$sqlcrebas = "INSERT INTO tb_basket SET b_cust = '0', b_type='M', b_status = '0'";
+		$createba = mysql_query($sqlcrebas);
+					
+		if($createba){ 
+			$a = mysql_insert_id($conn);
+			$_SESSION['session_admin_basket'] = $a;
+		}
+	}*/
+	
+?>
 <!doctype html>
 <html>
 <head>
@@ -8,7 +21,8 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');  
+	//define('LINE_TOKEN','rnkNl937MsFP8QGVRf4nKZQ0OIspR6MaVXe6GZdrE9G');
+    define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');	
 	define('LINE_TOKEN1', $cust_token); 
 	function notify_message($message){
 		$queryData = array('message' => $message);
@@ -29,27 +43,20 @@
 	}
 	
 	//หาเลข VAT ออเดอร์ก่อนหน้า แล้ว +1
-	/*$sql_maxTax = mysql_fetch_array(mysql_query("SELECT MAX(vat_ord) maxvat FROM tb_tax"));
-	$maxvat = $sql_maxTax['maxvat']+1;*/
+	$sql_maxTax = mysql_fetch_array(mysql_query("SELECT MAX(vat_ord) maxvat FROM tb_tax"));
+	$maxvat = $sql_maxTax['maxvat']+1;
 
 	
 	//1. receive data  ord_length ord_high 
 	$search_custname = trim($_POST['search_custname']);
-	$search_tool = trim($_POST['search_tool']); 
-	$ord_prov = trim($_POST['ord_prov']); 
-	$ord_qty = trim($_POST['ord_qty']);
+	$o_date = trim($_POST['date_pay']);  
 	$ord_price = trim($_POST['ord_price']);
 	
-	$o_type = trim($_POST['ord_type']); 
-	
-	if($ord_vat=='on') $o_vat = 1;
-	
-	/*echo "search_custname = ", $search_custname, "<br>";
-	echo "search_tool = ", $search_tool, "<br>";
-	echo "ord_prov = ", $ord_prov, "<br>";
-	echo "ord_qty = ", $ord_qty, "<br>";
-	echo "ord_price = ", $ord_price, "<br>";
-	exit();*/
+	$logger = trim($_POST['logger']);
+	$prod = trim($_POST['prod']);
+	$prod_type = trim($_POST['prod_type']);
+	$ord_qty = trim($_POST['ord_qty']); 
+	$ord_temp = trim($_POST['ord_temp']);
 	
 	$target_dir = "../../quotation/files/";
 	$filename = time().'.pdf';//.$_FILES["ord_quotation"]["name"];
@@ -106,22 +113,25 @@
 		}
 	}//end check is has file
 	
-	$arainame = mysql_fetch_array(mysql_query("SELECT t_name FROM tb_tools WHERE t_id = '$search_tool'"));
-	$arai = $arainame['t_name'];
-	
 	//2. insert into database	
-	$sql = "INSERT INTO tb_orders SET 
-			o_cust =  '$search_custname', 
-			o_status =  5, 
-			o_emp = 2, 
-			o_date =  now(), 
-			o_price = '$ord_price', 
-			o_quotation = '$filename',  
-			o_cuprovin = '$ord_prov', 
-			o_qty = '$ord_qty', 
-			o_type = '$o_type', 
-			o_part_id = '$search_tool'";
+	$sql = "INSERT INTO tb_deposit SET 
+			d_cust =  '$search_custname', 
+			d_qty = '$ord_qty', 
+			d_temp = '$ord_temp', 
+			d_logger = '$logger', 
+			d_status =  1, 
+			d_emp = 2, 
+			d_date =  '$o_date', 
+			d_price = '$ord_price', 
+			d_prod = '$prod', 
+			d_prod_type = '$prod_type', 
+			d_quotation = '$filename'
+			" ;
 	$result1 = mysql_query($sql); 
+	
+	$rowcust = mysql_fetch_array(mysql_query("SELECT cust_name FROM tb_customer WHERE cust_id = '$search_custname'"));
+	$custnames = $rowcust['cust_name'];
+
 	
 	if($result1) {
 		$a = mysql_insert_id($conn);
@@ -131,7 +141,7 @@
 		}
 		
 		if($result1){
-			$msg = "ขายอะไหล่ได้". $arai . 'จำนวน ' . $ord_qty;
+			$msg = "เทสระบบรับฝากอาหาร ".$ord_size.' x '.$ord_width.' x '.$ord_high."\n\n".' ลูกค้า '.$custnames."\n\n".' จังหวัด '.$custprov;	
 			$res = notify_message($msg);			
 			exit("<script>alert('บันทึกออเดอร์ใหม่เรียบร้อยแล้วจร้า ^^ '); window.location='../../order/order.php';</script>");
 		}else{

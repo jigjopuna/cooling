@@ -31,7 +31,7 @@
 		$('#date_pay, #date_delivery').datepicker({dateFormat: 'yy-mm-dd'});
 		$("#ord_prov").load("../../ajax/province_server.php");
 		$("#search_custname").autocomplete({
-				source: "../../ajax/search_cust.php",
+				source: "../../ajax/search_cust.php", 
 				minLength: 1
 		});
 		$("#search_tool").autocomplete({

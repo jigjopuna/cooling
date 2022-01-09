@@ -13,7 +13,7 @@
 		$dates = date('Y-m-d');
 		
 		
-			$sql_all = "SELECT  ot.ort_name, o.o_id, o.o_note, o.o_prepare, o.o_date, c.cust_name, c.cust_corp, c.cust_tel, c.cust_lineid, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status 
+			$sql_all = "SELECT  ot.ort_name, o.o_id, o.o_prepare, o.o_date, c.cust_name, c.cust_corp, c.cust_tel, c.cust_lineid, p.pro_name, o.o_status, o.o_temp, o.o_width, o.o_high, o.o_voltage, o.o_size, ost.ost_status 
 						FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) JOIN province p ON o.o_cuprovin = p.id) 
 							 JOIN tb_ord_status ost ON ost.ost_id = o.o_status) 
 							 JOIN tb_ord_type ot ON ot.ort_type = o.o_type
@@ -72,7 +72,6 @@
 										<th style='width: 5%;'>คอม 220/380</th>
 										<th style='width: 15%;'>เบอร์ติดต่อ</th>
 										<th style='width: 10%;'>ห้อง</th>
-										<th style='width: 10%;'>คอมเม้น</th>
 										<th style='width: 10%;'>วันที่ออเดอร์</th>
                                     </tr>
                                 </thead>
@@ -123,7 +122,6 @@
 											<td><?php echo $row_all['o_voltage']; ?></td>
 											<td><?php echo $row_all['cust_tel']; ?></td> 
 											<td><?php echo $row_all['ort_name']; ?></td> 
-											<td><?php echo $row_all['o_note']; ?></td>
 											<td><?php echo $row_all['o_date']; ?></td>
 											          
 										</tr>

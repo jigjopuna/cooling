@@ -1,21 +1,18 @@
 <?php 
 	require_once('../../include/connect.php'); 
-	$sql = "SELECT c.cust_name, b.orderid, b.nub_item, b.custs customerid
+	$sql = "SELECT c.cust_name, a.orderid, a.nub_item, a.o_cust customerid
 			FROM tb_customer c JOIN 
-				( SELECT a.orderid, a.nub_item, ord.o_cust custs
-				FROM tb_orders ord JOIN 
-					( SELECT orpd.o_id orderid, COUNT(orpd.o_id) nub_item
-					FROM tb_ord_prod orpd JOIN tb_orders o ON o.o_id = orpd.o_id
-					WHERE o.o_status = 5 AND o.o_id > 307 AND o.o_type LIKE '1%'
-					GROUP BY orpd.o_id 
-					ORDER BY orpd.o_id DESC) AS a
-				ON ord.o_id = a.orderid ) AS b
-			ON c.cust_id = b.custs
-			ORDER BY b.orderid DESC";
+				( SELECT orpd.o_id orderid, COUNT(orpd.o_id) nub_item, o.o_cust
+				FROM tb_ord_prod orpd JOIN tb_orders o ON o.o_id = orpd.o_id
+				WHERE o.o_status = 5 AND o.o_id > 307 AND o.o_type LIKE '1%'
+				GROUP BY orpd.o_id 
+				ORDER BY orpd.o_id DESC) AS a
+			ON c.cust_id = a.o_cust
+			ORDER BY a.orderid DESC";
 	/*
 	sub query
 	คิวรี่แรกนับแต่ละออเดอร์ว่ามีการเบิกไปแล้วกี่รายการ ออเดอร์สถานะที่ปิดงาน และเป็นออเดอร์ห้องเย็น ตั้งแต่ออเดอร์ที่ 307 เป็นต้นไป
-	คิวรี่ที่สอง เป็นการหาหมายเลขลูกค้า จากตารางออเดอร์เพื่อไปหาชื่อลูกค้าใน คิวรี่ที่ 3
+	คิวรี่ที่สอง เป็นการหาชื่อลูกค้า
 	*/
 
 	$result = mysql_query($sql);

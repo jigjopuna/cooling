@@ -21,7 +21,7 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','unssmF5QMBemRuMk3YSAVP5dmVPRkbMd5sE9nAwFLzA');
+	define('LINE_TOKEN','DVkXOmyzLiMaXMhF8Ppoim48pl1A7foQgMTCsz1olfr');
     //define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');	
 	define('LINE_TOKEN1', $cust_token); 
 	function notify_message($message){
@@ -129,7 +129,7 @@
 			" ;
 	$result1 = mysql_query($sql); 
 	
-	$rowcust = mysql_fetch_array(mysql_query("SELECT cuplt_name FROM tb_cust_depo WHERE cuplt_id = '$search_custname'"));
+	$rowcust = mysql_fetch_array(mysql_query("SELECT cust_name FROM tb_customer WHERE cust_id = '$search_custname'"));
 	$custnames = $rowcust['cust_name'];
 
 	

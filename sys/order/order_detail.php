@@ -117,7 +117,7 @@
 		});
 		$('#process').click(function(){
 			//window.location = '../../admin/job.php'+'?e_id='+ord_id;
-			window.open('../../admin/job.php'+'?e_id='+ord_id, '_blank');
+			window.open('../../admin/job.php'+'?ordid='+ord_id, '_blank');
 		});
 		
 	

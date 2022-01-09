@@ -13,7 +13,7 @@
 	<meta name="keywords" content="เช็คราคาห้องเย็น" />
 	<meta name="description" content="ใบเสนอราคาห้องเย็น Quotation" />
 	<link rel="shortcut icon" href="../content/images/favicon.png">
-	<title><?php echo date("Y").'-'.$nMonth.'-'.$date; ?></title>
+	<title>ราคาเครื่อง <?php echo date("Y").'-'.$nMonth.'-'.$date; ?></title>
 	<?php include('../include/metanoindex.php')?>
 	<?php include('../include/inc_font.php')?>
 	<link rel="stylesheet" href="../css/quotation.css">
@@ -76,7 +76,6 @@
 	$ord_temp = trim($_POST['ord_temp']);
 	
 	
-	
 	$discount = trim($_POST['discount']);
 	$qtyhp = trim($_POST['qtyhp']);
 	$shipcost = trim($_POST['shipcost']);
@@ -95,6 +94,11 @@
 	$sale_tel = $sales['e_tel'];
 	$sale_email = $sales['e_email'];
 	
+	/*echo 'combrand : '.$combrand.'<br>';
+	echo 'coilyen : '.$coilyen.'<br>';
+	echo 'hp : '.$hp .'<br>';*/
+	
+	
 	//SELECT t_name, t_cost, t_model, t_hp, t_subcate FROM tb_tools WHERE t_type = 11 AND t_subtype = 1 AND t_cate = 4 AND t_subcate = 0  
 
 	
@@ -107,9 +111,6 @@
 	//จ้างติดตั้งด้วย
 	
 	
-	if($controlbox == 'on'){ $contbox = 1; } else { $contbox = 0; }
-	if($hascoilyen == 'on'){ $meecoil = 1; } else { $meecoil = 0; }
-	if($install == 'on'){ $tidtung = 1; } else { $tidtung = 0; }
 
 	
 	$ngod1 = $total_price*0.5;
@@ -134,7 +135,30 @@
 		$fancon = 2;
 	}
 	
+
+	$cdu = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools t JOIN tb_com_brand c ON c.comp_id = t.t_brand WHERE t.t_type = 11 AND t.t_subtype =1 AND t.t_brand = '$combrand' AND t.t_hp = '$hp'"));
+	$cooler = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools t JOIN tb_cooling_brand c ON c.cool_id = t.t_brand WHERE t.t_type = 11 AND t.t_subtype = 2 AND t.t_brand = '$coilyen' AND t.t_hp = '$hp'"));
 	
+	$controlprice = 0; 
+	$cooler_cost = 0;
+	
+	if($controlbox == 'on'){ $contbox = 1; $controlprice = 20000; } else { $contbox = 0; }
+	if($hascoilyen == 'on'){ $meecoil = 1; $cooler_cost = $cooler['t_price_sell']; } else { $meecoil = 0; }
+	if($install == 'on'){ $tidtung = 1; $install_raka = $install_price;} else { $tidtung = 0; $install_raka = 0;}
+	
+	
+	$cdu_cost = $cdu['t_price_sell'];
+	$price = ($cdu_cost + $cooler_cost)*1.1;
+	
+	
+	/*echo 'cdu_cost : '.$cdu_cost.'<br>';
+	echo 'cooler_cost : '.$cooler_cost.'<br>';
+	echo 'price : '.$price .'<br>';
+	exit();*/
+	
+	$set_price = $controlprice +  $price + $install_raka + $shipcost;
+	$vats = $set_price*0.07;
+	$amount = $set_price + $vats;
 	
 	$sql_com = "SELECT * FROM tb_com_brand";
 	$result_com = mysql_query($sql_com);
@@ -233,12 +257,12 @@
 						
 						
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
-						<td class="l" align="right">47,800.00</td>
-						<td class="l" align="right">47,800.00</td>
+						<td class="l" align="right"><?php echo number_format($price, 2, '.', ',');?></td>
+						<td class="l" align="right"><?php echo number_format($price, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - น้ำยา R404a ไฟฟ้า 3 เฟส</td>
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - ใช้กับน้ำยา R404a ไฟฟ้า 3 เฟส</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -270,7 +294,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;  - Oil Seperator, Accumulator</td>
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;  - Oil Seperator</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
@@ -293,6 +317,13 @@
 							<td class="l" align="center"></td>
 							<td class="l" align="right"></td>
 						</tr>
+						
+						<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - พร้อม Expansion Valve อุปกรณ์ฉีดน้ำยา</td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="center"></td>
+						<td class="l" align="right"></td>
+					</tr>
 					<?php } ?>
 					
 					<?php if($contbox==1){ ?>
@@ -300,7 +331,7 @@
 						<td class="l">5. ระบบไฟฟ้า และระบบควบคุมห้องเย็น <strong><u> 3 เฟส</u></strong> ประกอบพร้อมใช้งาน</td>
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
+						<td class="l" align="right"><?php echo number_format($controlprice, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -311,7 +342,7 @@
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - ตู้คอนโทรลเบอร์ 2 กันน้ำกันฝุ่น, ไฟแสดงสถานะ และสวิตซ์ ON/OFF </td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - ตู้คอนโทรลเบอร์ 4 กันน้ำกันฝุ่น, ไฟแสดงสถานะ และสวิตซ์ ON/OFF </td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
@@ -332,7 +363,7 @@
 							<td class="l">7. ค่าติดตั้งและเดินทาง</td>
 							<td colspan="2" class="l" align="center">1 งาน</td>
 							<td class="l" align="center"></td>
-							<td class="l" align="right"><?php echo number_format($install_price, 2, '.', ',');?></td>
+							<td class="l" align="right"><?php echo number_format($install_raka, 2, '.', ',');?></td>
 						</tr>
 					<?php } ?>
 					
@@ -356,19 +387,19 @@
 							</div>
 						</td>
 						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
-						<td class="t l" align="right">52,800.00</td>
+						<td class="t l" align="right"><?php echo number_format($set_price, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						
-						<td colspan="3" class="rl">ภาษีมูลค่าเพิ่ม</td>
-						<td class="rt l" align="right">3,696.00</td>
+						<td colspan="3" class="rl">ภาษีมูลค่าเพิ่ม 7%</td>
+						<td class="rt l" align="right"><?php echo number_format($vats, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
-						<td class="rt l" align="right" id="totolprice">56,496.00 </td>
+						<td class="rt l" align="right" id="totolprice"><?php echo number_format($amount, 2, '.', ',');?></td> 
 					</tr>
 				
 				</tbody></table>
@@ -417,17 +448,17 @@
 							
 					?>
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
+							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 047-8-18623-1</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี <!--ชื่อบัญชี เดชาธร ผลินธร--> <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6 <!--855-2-01920-3--></span></td>
 							</tr>
 						</tr>
 					<?php } else { ?>
 						
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย <!--บัญชีธนาคาร กรุงเทพ --></td>
+							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี <!--ชื่อบัญชี เดชาธร ผลินธร--> <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6 <!--025-704019-6--></span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี <!--ชื่อบัญชี เดชาธร ผลินธร--> <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6 <!--855-2-01920-3--></span></td>
 							</tr>
 						</tr>
 						
@@ -1044,5 +1075,11 @@
 </div>
 <input type="button" value="คำนวนราคางวด" id="btn-calngod">
 <div style="display:none;" id="installs"><?php echo $tidtung;?></div>
+
+<div style="display:none;" id="cduprice"><?php echo $cdu_cost*1.1;?></div>
+<div style="display:none;" id="coolerprice"><?php echo $cooler_cost*1.1;?></div>
+<div style="display:none;" id="install_price"><?php echo $install_price;?></div>
+<div style="display:none;" id="controlprice"><?php echo $controlprice;?></div> 
+<div style="display:none;" id="shipcost"><?php echo $shipcost;?></div>
 </body>
 </html>

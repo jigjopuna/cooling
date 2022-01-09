@@ -218,13 +218,13 @@
 			
 			
 			
-			<div id="footer" style="clear: both; margin-top:20px;">
-				<div style="width: 65%; float:left; margin-top: 50px;">
+			<div id="footer" style="clear: both; margin-top:10px;">
+				<div style="width: 65%; float:left; margin-top: 10px;">
 					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
 					<span>ลงชื่อ......................................</span> <br><br>
 					<span>วันที่ <?php echo $thatdate;?></span>
 				</div>
-				<div style="width: 35%; float:left; margin-top: 50px;">
+				<div style="width: 35%; float:left; margin-top: 10px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
 					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
