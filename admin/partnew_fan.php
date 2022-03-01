@@ -7,18 +7,24 @@
 	$thatdate = $date."/".$nMonth."/".$year;
 	$tool_id = trim($_GET['t_id']);
 	
-	$row = mysql_fetch_array(mysql_query("SELECT t_name, t_model, t_price_sell, t_volt, t_amp FROM tb_tools WHERE t_id = '$tool_id'"));
+	$row = mysql_fetch_array(mysql_query("SELECT t_name, t_model, t_price_sell, t_price, t_volt, t_amp FROM tb_tools WHERE t_id = '$tool_id'"));
 	$tname = $row['t_name'];
 	$tmodel = $row['t_model'];
 	$tprice = $row['t_price_sell'];
+	$price = $row['t_price'];
+	
+	$tvolt = $row['t_volt'];
 	
 	$shipping = 200;
-	$discount_rate = 0.1;
+	$discount_rate = 0.05;
+	$qty = 1;
 	
-	//ราคาลด 10% ก่อนรวม VAT
-	$tempo = $tprice-($tprice*$discount_rate);
+	$sumqtyprice = $tprice*$qty;
+	
+	//ราคาลด 5% ก่อนรวม VAT
+	$tempo = $sumqtyprice-($sumqtyprice*$discount_rate)+$shipping;
 	$vat = $tempo*0.07;
-	$tatal = $tprice+$vat+$shipping;
+	$tatal = $tempo+$vat;
 	
 	
 ?>
@@ -130,14 +136,14 @@
 				
 					
 					<tr class="highs" style="">
-						<td class="l">1. พัดลม Axail Fan Eurotech </td>
+						<td class="l">1. <?php echo $tname;?> </td>
 						<td colspan="2" class="l" align="center">1 ชุด</td>
-						<td class="l" align="right">4,200.00</td>
-						<td class="l" align="right">4,200.00</td>
+						<td class="l" align="right"><?php echo number_format($tprice, 2, '.', ','); ?></td>
+						<td class="l" align="right"><?php echo number_format($tprice, 2, '.', ','); ?></td>
 					</tr>
 
 <tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - รุ่น 4E350-S ไฟฟ้า 3 เฟส 380V</td>
+						<td class="l">&nbsp;&nbsp;&nbsp; - รุ่น <?php echo $tmodel.' '.$tvolt;?>V</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -154,7 +160,7 @@
 						<td class="l">2. ค่าบริการขนส่ง</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
-						<td class="l" align="right">200.00</td>
+						<td class="l" align="right"><?php echo number_format($shipping, 2, '.', ','); ?></td>
 					</tr>
 					
     
@@ -164,7 +170,20 @@
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
+					
+					<tr class="highs" style="color:red; font-weight:bold;">
+						<td class="l">- ส่วนลด 5%</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right">-<?php echo number_format($sumqtyprice*$discount_rate, 2, '.', ','); ?></td>
+					</tr>
 
+					<tr class="highs" style="">
+						<td class="l">&nbsp;</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
 
 <tr class="highs" style="">
 						<td class="l"><img src="https://topcooling.net/shop/images/product/machine/fan/fancoil_eurotech01.jpg" style="width:200px;"></td>
@@ -179,6 +198,8 @@
 						<td class="l" align="right"></td>
 					</tr>
 					
+
+					
 					<tr>
 						<td rowspan="3">
 							<div style="width:100%" ;="">
@@ -191,19 +212,19 @@
 							</div>
 						</td>
 						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
-						<td class="t l" align="right">4,400.00</td>
+						<td class="t l" align="right"><?php echo number_format($tempo, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">ภาษีมูลค่าเพิ่ม 7%</td>
-						<td class="rt l" align="right">308.00</td>
+						<td class="rt l" align="right"><?php echo number_format($vat, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
-						<td class="rt l" align="right" id="totolprice">4,708.00</td>
+						<td class="rt l" align="right" id="totolprice"><?php echo number_format($tatal, 2, '.', ','); ?></td>
 					</tr>
 				
 				</tbody></table>
@@ -219,10 +240,10 @@
 						</tr>
 						
 						<tr>
-							<td align="left"><!--บัญชีธนาคารกสิกรไทย(ออมทรัพย์)--> บัญชีธนาคารกรุงเทพ </td>
+							<td align="left">บัญชีธนาคารกสิกรไทย(ออมทรัพย์) </td>
 							<td align="left"></td>
 							<tr>
-								<td colspan="2" align="left"> <!--บจ.ซีพีเอ็น888--> นายเดชาธร ผลินธร  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"><!-- 075-8-81892-6 --> 025-704019-6 </span></td>
+								<td colspan="2" align="left"> บจ.ซีพีเอ็น888 <!--นายเดชาธร ผลินธร --> เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;">075-8-81892-6 <!-- 855-2-01920-3 --> </span></td>
 							</tr>
 						</tr>
 					</table>

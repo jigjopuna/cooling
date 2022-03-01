@@ -1,4 +1,4 @@
-<div class="page">
+<div class="page" style="display:none;" id="iot_page">
         <div class="subpage">
 
             <div id="cover_header">

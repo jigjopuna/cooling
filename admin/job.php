@@ -93,64 +93,65 @@
 			<div id="detail" style="/*background-color: olive;*/ height:300px; float: none; margin-top: 15px;">
 				<table>
 					<tr>
-						<td style="width:5%;">No.</td>
-						<td style="width:40%;">รายการ/รายละเอียด</td>
-						<td style="width:7%;" align='center'>จำนวน</td>
-						<td style="width:12%;" align='center'>หน่วยนับ</td>
-						<td style="width:12%;" align='center'>ราคา</td>
-						<td style="width:12%;" align='center'>รวมเงิน</td>
+						<td style="width:10%;">No.</td>
+						<td style="width:85%;">รายการ/รายละเอียด</td>
+						
 					</tr>
 					<tr>
-						<td colspan="6"> <hr> </td>
+						<td colspan="2"> <hr> </td>
 					</tr>
+					
+					
+					<tr>
+						<td></td>
+						<td> ห้องเย็นข้าวโพด บ้านโป่ง ใหม่ทั้งหมด </td>	
+					</tr>
+					
 					
 					<tr>
 						<td>1</td>
-						<td>ห้องเย็นเก็บสินค้า อุณหภูมิ <?php echo $row_order['o_temp']?> องศา ขนาดวัดภายนอก <?php echo $row_order['o_size']?> เมตร</td>
-						<td align='right'>1</td>
-						<td align='center'>ห้อง</td>
-						<td align='center'><?php echo number_format($vatprice, 0, '.', ',');?></td>
-						<td align='center'><?php echo number_format($vatprice, 0, '.', ',');?></td>  
+						<td>ห้องเย็น  <?php echo $row_order['o_temp']?> องศา ขนาด <?php echo $row_order['o_width'].' x ' .$row_order['o_size'].' x '. $row_order['o_high']; ?> เมตร</td>	
 					</tr>
 					
 					<tr>
 						<td>2</td>
-						<td colspan='5'>คอมเพรสเซอร์ แรงดัน  <?php if($row_order['o_voltage']==380){ echo ' 380 โวลท์ (ไฟฟ้า 3 เฟส)';} else if($row_order['o_voltage']==220){ echo ' 220 โวลท์';} ?></td>
-					</tr>
-					
-					<tr>
-						<td>2</td>
-						<td colspan='5'>ตำแหน่งประตู : ด้านหน้า</td>
+						<td> ประตู </td>	
 					</tr>
 					
 					<tr>
 						<td>3</td>
-						<td colspan='5'>ตำแหน่งตู้คอนโทรล/ควบคุม : ด้านหน้า</td>
+						<td>พื้นปูน มีช่างปูน ต้องประสานช่างปูนลูกค้า</td>	
 					</tr>
 					
 					<tr>
 						<td>4</td>
-						<td colspan='5'>
-							<strong>คอล์ยร้อน : &nbsp;&nbsp;&nbsp; </strong> <?php 
-							if($row_order['o_coil']==1){ 
-								echo ' ด้านหน้า'; 
-							}else if($row_order['o_coil']==2){ 
-								echo ' ด้านข้างซ้าย'; 
-							}else if($row_order['o_coil']==3){ 
-								echo ' ด้านข้างขวา';
-							}else if($row_order['o_coil']==4){ 
-								echo ' ด้านหลัง';
-							}else if($row_order['o_coil']==5){ 
-								echo ' ด้านบน';
-							} else { echo '555'; }
-							?>
-						</td>
+						<td>โฟม PS 4 นิ้ว โฟมเปล่า PU 2 นิ้ว</td>	
 					</tr>
 					
 					<tr>
 						<td>5</td>
-						<td colspan='5'>สีเหล็กโครงสร้าง : สีฟ้ามาตราฐาน</td>
+						<td>เครื่องคอมเพรสเซอร์ 5 HP มีแล้ว  ซื้อคอยล์เย็นใหม่ CoolScape / Tecumseh ได้</td>	
 					</tr>
+					
+					<tr>
+						<td>6</td>
+						<td>การเดินท่อ หลังชนห้องเย็นเลย  ไฟฟ้า ลูกค้าจะเดินเมนมาให้ พร้อม เบรกเกอร์ 32 A</td>	
+					</tr>
+					
+					
+					
+					<tr>
+						<td>7</td>
+						<td>ตู้คอนโทรล </td>	
+					</tr>
+					
+					
+					<tr>
+						<td>&nbsp;</td>
+						<td></td>	
+					</tr>
+					
+	
 					
 				</table>
 			</div>
@@ -160,16 +161,6 @@
 			</div>
 			
 			<div id="summary" style="/*background-color:red;*/ overflow:hidden; /*height: 200px;*/">
-				<div id="pricetext" style="float:left; width:65%; /*background-color:brown;*/">
-			
-					<p><?=ThaiBahtConversion($price-$discount); ?></p><br>
-					<p style="line-height:150%;">
-						* หากยืนยันข้อมูลการดำเนินการข้างต้นแล้ว หากมีการเปลี่ยนแปลงจะมีค่าใช้เพิ่มเติม<br>
-					</p>
-				
-				</div>
-				
-
 				
 				<div id="signature">
 					<div class="sign">ผู้รับมอบงาน ...........................</div>
@@ -179,8 +170,11 @@
 				
 				<div id="custname">
 					<div class="sign1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
+					
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;ภูริชญ์ โชคอุตสาหะ&nbsp;&nbsp;)</div>
+					
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
+					
 					
 				</div>
 			</div>

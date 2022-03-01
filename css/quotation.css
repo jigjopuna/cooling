@@ -71,7 +71,7 @@ body {
             page-break-after: always;
 			
         }
-		#btn-calngod, #btn-compare, #btn-addroom, #btn-free { display: none !important; }
+		#btn-calngod, #btn-compare, #btn-addroom, #btn-free, .btn_hide { display: none !important; }
 	}
 	
 	

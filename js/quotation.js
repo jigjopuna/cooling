@@ -1,8 +1,10 @@
 $(document).ready(function(){
 		$("#btn-calngod").click(calucalatengod);
 		$("#btn-free").click(freeship);		
-		$("#btn-addroom").click(function(){ $('#addpage').css("display","block"); $('.amounts').css("display","none"); });
-		$("#btn-compare").click(function(){ $('#compare').css("display","block")});
+		$("#btn-addroom").click(function(){ $('#addpage').toggle("slow"); $('.amounts').css("display","none"); });
+		$("#btn-compare").click(function(){ $('#compare').toggle("slow")});
+		$("#btn-backoffice").click(function(){ $('#backoffice').toggle("slow")});
+		$("#btn-iot").click(function(){ $('#iot_page').toggle("slow")});
 		
 	});
 	function calucalatengod(){

@@ -121,6 +121,7 @@
 	$sale_email = $sales['e_email'];
 
 	$cute = ($r_width*$r_high*2) + ($r_lenght*$r_high*2) + ($r_width*$r_lenght*2);
+	
 	if($foaminch==2){ 
 		$cens = (5.08*2)/100; 
 	} else if($foaminch==3) {

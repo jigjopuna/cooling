@@ -16,23 +16,7 @@
 	<title><?php echo date("Y").'-'.$nMonth.'-'.$date; ?></title>
 	<link rel="stylesheet" href="../css/quotation.css">
 	<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
-	<style>
-		.text_strong { font-weight: bold; }
-		.text_emunder { text-decoration:underline; font-weight: bold; }
-		.container { clear:both; border: 1px solid black; min-height:850px;}
-		.row { width: 100%; clear:both; padding-bottom: 60px; overflow: hidden;}
-		.col1 { float:left; width:45%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
-		.col2 { float:left; width:51%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
-		.col3 { float:left; width:53%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
-		.col4 { float:left; width:43%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
-		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
-		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; }
-		
-		@media print { 
-			 #btn-calngod,  #btn-addroom { display: none !important; } 
-		}
-
-	</style>
+	<link rel="stylesheet" href="../css/quotation.css">
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
@@ -686,18 +670,13 @@
 					
 
 					<tr class="highs" style="">
-						<td class="l"> 6. ค่าขนส่งห้องเย็น</td>
-						<td colspan="2" class="l" align="center">1 เที่ยว</td>
+						<td class="l"> 6. ค่าบริการติดตั้งห้องเย็น</td>
+						<td colspan="2" class="l" align="center">1 ห้อง</td>
 						<td class="l" align="center"><?php if($ship_cost == 0) echo ''; ?></td>
 						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
 					</tr>
 					
-					<tr class="highs" style="">
-						<td class="l"> 7. ค่าติดตั้งห้องเย็น</td>
-						<td colspan="2" class="l" align="center">1 งาน</td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"><s>5,000.00</s></td>
-					</tr>
+					
 					
 					
 					
@@ -738,8 +717,8 @@
 					
 					<tr>
 						
-						<td colspan="3" class="rl"></td>
-						<td class="rt l" align="right"></td>
+						<td colspan="3" class="rl"> ส่วนลด มูลค่าสินค้า</td>
+						<td class="rt l" align="right">  </td>
 					</tr>
 					
 					<tr>
@@ -758,7 +737,7 @@
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tr>
-							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; (มือสองหากต้องการ VAT รบกวนแจ้งฝ่ายขาย)</td>
+							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; </td>
 						</tr>
 						<tr>
 							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   70%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
@@ -775,30 +754,26 @@
 							<td align="left"><span class="cal_ngo3"><?php //echo number_format($ngod3, 0, '.', ',');?></span> บาท</td>
 						</tr>-->
 						
-						
-						<?php
+					<?php
 						if($corp == 2) { 
 							
 					?>
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
+							<td colspan="2" align="left">บัญชีธนาคาร กสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 047-8-18623-1</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
 							</tr>
 						</tr>
 					<?php } else { ?>
 						
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกรุงเทพ (สะสมทรัพย์)</td>
+							<td colspan="2" align="left">บัญชีธนาคาร กสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left"> <!-- บจ.ซีพีเอ็น888--> เดชาธร ผลินธร  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> <!--520-0-45057-4--> 025-704019-6 </span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
 							</tr>
 						</tr>
 						
 					<?php }  ?>
-				
-				
-						
 					</table>
 					
 				</div><br>
@@ -812,7 +787,6 @@
 						</tr>
 						<tr>
 							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
-							
 						</tr>
 						
 						<tr class="fullpay" style="display:none;">
@@ -825,6 +799,7 @@
 								ชำระเพียง <span id="fullpricepay"></span> บาท เท่านั้น
 							</td>
 						</tr>
+						
 					</table>
 				</div>
 			</div><!--end amount-->

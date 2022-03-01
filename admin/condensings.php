@@ -23,6 +23,8 @@
 <script>
 	$(document).ready(function(){
 		$("#btn-calngod").click(calucalatengod);
+		$("#calroom").click(calucalatroom);
+		
 	});
 	function calucalatengod(){
 		var installs = $('#installs').text();
@@ -42,6 +44,15 @@
 			$('.cal_ngo3').text(third);
 			
 		}
+	}
+	
+	function calucalatroom(){
+			var romprice = $('#roomprice').text().replace(/,/g, '');
+			var first1 = (romprice*0.7).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+			var second2 = (romprice*0.3).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+			$('.roomngod1').text(first1);
+			$('.roomngod2').text(second2);
+	
 	}
 	
 
@@ -68,12 +79,15 @@
 	$hascoilyen = trim($_POST['hascoilyen']);
 	
 	$controlbox = trim($_POST['controlbox']);
+	$foaminch = trim($_POST['foaminch']);
+	$doortype = trim($_POST['doortype']);
 	
 	$r_width = trim($_POST['r_width']);
 	$r_lenght = trim($_POST['r_lenght']);
 	$r_high = trim($_POST['r_high']);
 	
 	$ord_temp = trim($_POST['ord_temp']);
+	
 	
 	
 	$discount = trim($_POST['discount']);
@@ -84,8 +98,14 @@
 	$combrand = trim($_POST['combrand']);
 	$install = trim($_POST['install']);
 	$install_price = trim($_POST['install_price']);
+	$hasroom = trim($_POST['hasroom']);
+	
+	$d_high = trim($_POST['d_high']);
+	$d_width = trim($_POST['d_width']);
+	
 	
 	$corp = trim($_POST['corp']);
+	$foam = trim($_POST['foam']);
 	$sale_id = trim($_POST['sale_id']);
 	
 	$sales = mysql_fetch_array(mysql_query("SELECT e.e_id, e.e_name, e.e_lname, e.e_tel, e.e_email FROM tb_emp e WHERE e_id = '$sale_id'"));
@@ -93,6 +113,12 @@
 	$sale_lname = $sales['e_lname'];
 	$sale_tel = $sales['e_tel'];
 	$sale_email = $sales['e_email'];
+	
+	$profit = 0.4;
+	
+	
+	
+	
 	
 	/*echo 'combrand : '.$combrand.'<br>';
 	echo 'coilyen : '.$coilyen.'<br>';
@@ -145,6 +171,7 @@
 	if($controlbox == 'on'){ $contbox = 1; $controlprice = 20000; } else { $contbox = 0; }
 	if($hascoilyen == 'on'){ $meecoil = 1; $cooler_cost = $cooler['t_price_sell']; } else { $meecoil = 0; }
 	if($install == 'on'){ $tidtung = 1; $install_raka = $install_price;} else { $tidtung = 0; $install_raka = 0;}
+	if($hasroom == 'on'){ $hasrooms = 1; } else { $hasrooms = 0;  }
 	
 	
 	$cdu_cost = $cdu['t_price_sell'];
@@ -188,6 +215,51 @@
 	if($comp_id==1) {
 		if($hp==1){ } else if($hp==2){ } else if($hp==3){ $hp1=21; }else if($hp==4){ $hp1=29; }else if($hp==5){ $hp1=38; }else if($hp==6){ $hp1=45; } else if($hp==7){ $hp1=48; }else if($hp==8){ $hp1=58; }
 	}	
+	
+	
+	/********** ROOM ZONE********/
+	
+	$cute = ($r_width*$r_high*2) + ($r_lenght*$r_high*2) + ($r_width*$r_lenght*2);
+	$walqty = ceil((($r_lenght*2)+($r_width*2))/1.2)+1;
+	$pedan = ceil($r_lenght/1.2);
+	$floors = ceil($r_lenght/1.2);
+	
+	//หาตารางเมตรของแผ่นทั้งหมด
+	$sqmwall = $walqty*$r_high*1.2;
+	$sqmpedan = $pedan*$r_width*1.2;
+	$sqmfloor = $floors*$r_width*1.2;
+	$sqmsum = $sqmfloor+$sqmpedan+$sqmwall;
+	
+	
+	
+	if($foaminch==2){ 
+		$cens = (5.08*2)/100; 
+	} else if($foaminch==3) {
+		$cens = (7.62*2)/100; 
+	} else if($foaminch==4){
+		$cens = (10.16*2)/100; 
+	}else if($foaminch==5){
+		$cens = (12.70*2)/100; 
+	}else if($foaminch==6){
+		$cens = (15.24*2)/100; 
+	}else if($foaminch==8){
+		$cens = (20.32*2)/100; 
+	}
+	
+	if($foam==1){ $foams = 'PU'; } else { $foams = 'PS'; }
+	if($doortype==1){ $doortypes = 'ประตูบานสวิง '; $pratoo = 26000; } else { $doortypes = 'ประตูบานเลื่อน'; $pratoo = 37000; }
+	
+	$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_productroom WHERE pr_cate= 1 AND pr_size = '$foaminch' AND pr_type = '$foams'"));
+	
+	$wall_price = $sql_wall['pr_sell_price'];
+	$foam_sum_price =  $sqmsum * $wall_price;
+	$wall_and_door = $foam_sum_price + $pratoo;
+	
+	$kumrai = $wall_and_door*$profit;
+	$walkai = $wall_and_door + $kumrai;
+	$vats = $walkai*0.07;
+	$kaivat = $walkai + $vats;
+	
 ?>
 </head>
 <body>
@@ -510,6 +582,9 @@
 
         </div>  <!--end subpage-->
     </div> <!--end page-->
+	
+	
+	<?php if($hasrooms == 1) { include('hasroom.php'); }?> 
 	
 	<div class="page">
         <div class="subpage">
@@ -1073,7 +1148,8 @@
 	
 	
 </div>
-<input type="button" value="คำนวนราคางวด" id="btn-calngod">
+<input type="button" value="คำนวนงวดเครื่อง" id="btn-calngod">
+<input type="button" value="คำนวนงวดห้อง" id="calroom">
 <div style="display:none;" id="installs"><?php echo $tidtung;?></div>
 
 <div style="display:none;" id="cduprice"><?php echo $cdu_cost*1.1;?></div>
@@ -1081,5 +1157,24 @@
 <div style="display:none;" id="install_price"><?php echo $install_price;?></div>
 <div style="display:none;" id="controlprice"><?php echo $controlprice;?></div> 
 <div style="display:none;" id="shipcost"><?php echo $shipcost;?></div>
+
+<div style="display:none;" id="">---------------------</div>
+
+
+<div style="display:none;" id="foams_type"><?php echo $foams;?></div>
+<div style="display:none;" id="foaminch"><?php echo $foaminch;?></div>
+<div style="display:none;" id="costfoam"><?php echo $wall_price;?></div>
+
+<div style="display:none;" id="sqmwall"><?php echo $sqmwall;?></div>
+<div style="display:none;" id="sqmpedan"><?php echo $sqmpedan;?></div>
+<div style="display:none;" id="sqmfloor"><?php echo $sqmfloor;?></div>
+<div style="display:none;" id="sqm-isowall-sum"><?php echo number_format($sqmsum, 2, '.', ',');?></div> 
+<div style="display:none;" id="foam_sum_price"><?php echo number_format($foam_sum_price, 2, '.', ',');?></div>
+
+<div style="display:none;" id="wall_and_door"><?php echo number_format($wall_and_door, 2, '.', ',');?></div> 
+<div style="display:none;" id="kumrai"><?php echo number_format($kumrai, 2, '.', ',');?></div>
+<div style="display:none;" id="vats"><?php echo number_format($vats, 2, '.', ',');?></div>
+<div style="display:none;" id="kaivat"><?php echo number_format($kaivat, 2, '.', ',');?></div>
+
 </body>
 </html>

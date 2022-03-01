@@ -115,7 +115,18 @@
 	if($installs==1){ $instype = "สำเร็จรูป แบบเคลื่อยนย้ายได้"; } else { $instype = "ประกอบเร็ว ติดตั้งหน้างาน"; }
 	
 	
+	/********** ROOM ZONE********/
 	
+	$cute = ($r_width*$r_high*2) + ($r_lenght*$r_high*2) + ($r_width*$r_lenght*2);
+	$walqty = ceil((($r_lenght*2)+($r_width*2))/1.2)+1;
+	$pedan = ceil($r_lenght/1.2);
+	$floors = ceil($r_lenght/1.2);
+	
+	//หาตารางเมตรของแผ่นทั้งหมด
+	$sqmwall = $walqty*$r_high*1.2;
+	$sqmpedan = $pedan*$r_width*1.2;
+	$sqmfloor = $floors*$r_width*1.2;
+	$sqmsum = $sqmfloor+$sqmpedan+$sqmwall;
 	
 	$cute = ($r_width*$r_high*2) + ($r_lenght*$r_high*2) + ($r_width*$r_lenght*2);
 	if($foaminch==2){ 
@@ -136,12 +147,12 @@
 	if($doortype==1){ $doortypes = 'ประตูบานสวิง '; $pratoo = 26000; } else { $doortypes = 'ประตูบานเลื่อน'; $pratoo = 37000; }
 	
 	$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_productroom WHERE pr_cate= 1 AND pr_size = '$foaminch' AND pr_type = '$foams'"));
+	
 	$wall_price = $sql_wall['pr_sell_price']; 
+	$foam_sum_price =  $sqmsum * $wall_price;
+	$wall_and_door = $foam_sum_price + $pratoo;
 	
 	
-	$realcost = ($cute*$wall_price)+$pratoo+($basic_price*$qtyhp);
-	$kumrai = (($cute*$wall_price)+$pratoo+($basic_price*$qtyhp))*$profit;
-	$pasee = (($cute*$wall_price)+$pratoo+($basic_price*$qtyhp))*$profit*1.07;
 	
 	/*echo 'ราคาต้นทุน realcost : '.$realcost.'<br>';
 	echo 'ราคาต้นทุน+กำไร : '.$kumrai.'<br>';*/
@@ -185,6 +196,25 @@
 		$copeland=58;
 		$fancon = 2;
 	}
+	
+	$cdu = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools t JOIN tb_com_brand c ON c.comp_id = t.t_brand WHERE t.t_type = 11 AND t.t_subtype =1 AND t.t_brand = '$comp_name' AND t.t_hp = '$hp'"));
+	$cooler = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools t JOIN tb_cooling_brand c ON c.cool_id = t.t_brand WHERE t.t_type = 11 AND t.t_subtype = 2 AND t.t_brand = '$coil_name' AND t.t_hp = '$hp'"));
+	
+	$controlprice = 20000; 
+	$shipcost = 8000;
+	
+	$cdu_cost = $cdu['t_price_sell']*1.1;
+	$cooler_cost = $cooler['t_price_sell']*1.1;
+	$price = ($cdu_cost + $cooler_cost);
+	
+	$sum_cost = (($controlprice +  $price) * $qtyhp) + $labor + $shipcost + $wall_and_door;
+	
+	$kumrai = $sum_cost*$profit;
+	$kai = $sum_cost + $kumrai;
+	$vats = $kai*0.07;
+	$kaivat = $kai + $vats;
+	
+	
 	 
 	
 	/*echo 'cute : '.$cute.'<br>';
@@ -606,8 +636,8 @@
 							
 						</td>
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
-						<td class="l" align="right"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
-						<td class="l" align="right" id="pricefullpay"><?php echo number_format($befor_ship, 2, '.', ','); ?></td>
+						<td class="l" align="right"><?php echo number_format($sum_cost, 2, '.', ','); ?></td>
+						<td class="l" align="right" id="pricefullpay"><?php echo number_format($sum_cost, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -691,10 +721,10 @@
 					</tr>-->
 					
 					<tr class="highs" style="">
-						<td class="l"> 6. ค่าบริการขนส่ง วัสดุอุปกรณ์ห้อง และเครื่องทำความเย็น</td>
-						<td colspan="2" class="l" align="center">1 เทียว</td>
+						<td class="l"> 6. ค่าบริการติดตั้งห้องเย็น</td>
+						<td colspan="2" class="l" align="center">1 ห้อง</td>
 						<td class="l" align="center"></td>
-						<td class="l" align="right"><?php if($ship_cost != 0) echo number_format($ship_cost, 2, '.', ','); ?></td>
+						<td class="l" align="right"><?php echo number_format($labor, 2, '.', ','); ?></td>
 					</tr>
 					
 					
@@ -730,19 +760,19 @@
 							</div>
 						</td>
 						<td colspan="3" class="rlt">รวมราคารายการทั้งหมด</td>
-						<td class="t l" align="right"><?php echo number_format($prettylast, 2, '.', ',');?></td>
+						<td class="t l" align="right"><?php echo number_format($kai, 2, '.', ',');?></td>
 					</tr>
 					
 					<tr>
 						
-						<td colspan="3" class="rl">ส่วนลด มูลค่าสินค้า</td>
-						<td class="rt l" align="right"><?php echo number_format($discount, 2, '.', ','); ?></td>
+						<td colspan="3" class="rl">ภาษีมูลค่าเพิ่ม 7%</td>
+						<td class="rt l" align="right"><?php echo number_format($vats, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ  <?php if($intvat=='on') echo '(Inc VAT 7%)';?></td>
-						<td class="rt l" align="right" id="totolprice"><?php echo number_format($incvat, 2, '.', ',');?> </td>
+						<td class="rt l" align="right" id="totolprice"><?php echo number_format($kaivat, 2, '.', ',');?> </td>
 					</tr>
 				
 				</table>
@@ -755,7 +785,7 @@
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tr>
-							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp;  (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)</td>
+							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; </td>
 						</tr>
 						<tr>
 							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   70%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
@@ -777,9 +807,9 @@
 							
 					?>
 						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกสิกรไทย (กระแสรายวัน)</td>
+							<td colspan="2" align="left">บัญชีธนาคาร กสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 047-8-18623-1</span></td>
+								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
 							</tr>
 						</tr>
 					<?php } else { ?>
@@ -830,238 +860,6 @@
 					<span>วันที่ <?php echo $thatdate;?></span>
 				</div>
 				<div style="width: 35%; float:left; margin-top: 0px;">
-					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
-					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
-					<br>
-				</div>
-			</div><!--end footer-->
-			
-			
-			
-			<div id="conclude" style="clear: both; line-height:18px;">
-				
-				
-				
-			</div><!--end conclude -->
-			<br><br><br>
-			<div id="note" style="clear: both; margin: 0 0 0 200px;">
-			</div><!--end note -->
-
-        </div>  <!--end subpage-->
-    </div> <!--end page-->
-	
-	
-	<div class="page" id="addpage" style="display:none;">
-        <div class="subpage">
-
-            <div id="cover_header">
-				<?php 
-					if($corp == 2)
-						include ('../include/chk_addr.php');
-					else 
-						include ('../include/cpn_addr.php');	
-				?>
-			</div><!--end cover_header-->
-			
-			<?php
-					if($corp == 2)
-						include ('../include/quotation_head.php');
-					else 
-						include ('../include/quotation_head_cpn.php');
-			?>
-			
-			<div id="product_price" style="margin-top:105px; clear:both">
-				<table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
-					<tbody><tr>
-						<td colspan="5" align="center" style="background: #DAD7D7; border: 1px solid black;">สรุปรายการห้องเย็น 2 ห้อง</td>
-					</tr>
-					
-
-					
-					<tr align="center" style="background: #DAD7D7; border: 1px black solid;">
-						<td class="l">Description </td>
-						<td colspan="2" class="l">QTY</td>
-						<td class="l">Unit Price</td>
-						<td class="l">Amount</td>
-					</tr>
-						
-					
-			
-					
-					<tr class="highs" style="">
-						<!--<td class="l">1. ชุด Condensing <strong><u></u></strong> </td>-->
-						<td class="l">1.  ห้องเย็นฟรีส -20C<sup>o</sup> <strong><u>ขนาด 2.4x2.4x2.4 เมตร</u></strong></td>
-						<td colspan="2" class="l" align="center">1 ชุด</td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right">259,745.00 </td>
-					</tr>
-
-					
-					<tr class="highs" style="">
-						<td class="l">2. ห้องเย็นฟรีส -20C<sup>o</sup> <strong><u>ขนาด 2.4x3.0x2.4 เมตร</u></strong></td>
-						<td colspan="2" class="l" align="center">1 ชุด</td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right">265,033.00</td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">3. เพิ่มประตูบานสวืง ขนาด <strong><u> 0.9 x 2.0 เมตร</u></strong></td>
-						<td colspan="2" class="l" align="center">1 บาน</td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right">25,000.00</td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;</td>
-						<td colspan="2" class="l" align="center"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;</td>
-						<td colspan="2" class="l" align="center"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;</td>
-						<td colspan="2" class="l" align="center"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;</td>
-						<td colspan="2" class="l" align="center"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					
-					<tr>
-						<td rowspan="3">
-							<div style="width:100%";>
-								<div style="width:30%; float:left;">
-									<img style="width:100px; height:100px;" src="../content/images/social/frame.png" />
-								</div>
-								<div style="width:70%; float:left; height:100px;">
-									<p align="left;" style="margin-top:35px;"> ข้อมูลเพิ่มเติม SCAN ME </p>
-								</div>
-							</div>
-						</td>
-						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
-						<td class="t l" align="right"><?php echo number_format($prettylast, 2, '.', ',');?></td>
-					</tr>
-					
-					<tr>
-						
-						<td colspan="3" class="rl">ส่วนลด</td>
-						<td class="rt l" align="right"><?php echo number_format($discount, 2, '.', ','); ?></td>
-					</tr>
-					
-					<tr>
-						
-						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ  <?php if($intvat=='on') echo '(Int VAT 7%)';?></td>
-						<td class="rt l" align="right" id="totolprice"><?php echo number_format($incvat, 2, '.', ',');?> </td>
-					</tr>
-					
-				
-				
-				</tbody></table>
-
-			</div><!--end product_price-->
-			
-			
-			
-			<div id="amount_" style="clear: both; margin-top: 20px;">
-				<div style="width: 50%; float:left;">
-					<table style="width: 100%; border-collapse: collapse;">
-						<tbody><tr>
-							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; (ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)</td>
-						</tr>
-						<tr>
-							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   50%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
-							<td align="left" style="width: 35%"><span class="cal_ngo1">274,889.00</span> บาท</td>
-						</tr>
-						
-						<tr>
-							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระเมื่อจัดส่งอุปกรณ์ </td>
-							<td align="left"><span class="cal_ngo2">164,933.40</span> บาท</td>
-						</tr>
-						
-						<tr>
-							<td align="left"> <span style="text-decoration: underline;">งวดที่ 3</span>   20% ชำระเมื่อใช้งานได้เรียบร้อย </td>
-							<td align="left"><span class="cal_ngo3">109,955.60</span> บาท</td>
-						</tr>
-						
-						<tr>
-							<td align="left">รายละเอียดเลขที่บัญชีสำหรับโอนเงิน </td>
-							<td align="left"></td>
-						</tr>
-						
-						<?php
-						if($corp == 2) { 
-							
-					?>
-						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารทหารไทย TMB (ออมทรัพย์)</td>
-							<tr>
-								<td colspan="2" align="left"> หจก. ท็อปคูลลิ่ง  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> 635-2-31556-5</span></td>
-							</tr>
-						</tr>
-					<?php } else { ?>
-						
-						<tr>
-							<td colspan="2" align="left">บัญชีธนาคารกรุงเทพ(สะสมทรัพย์)</td>
-							<tr>
-								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 520-0-45057-4</span></td>
-							</tr>
-						</tr>
-						
-					<?php }  ?>
-						
-					</tbody></table>
-					
-				</div><br>
-				<div style="width: 50%; float:left;">
-					<table style="width: 100%; border-collapse: collapse;">
-						<tbody><tr>
-							<td align="left" style="text-decoration: underline; font-weight: bold; font-size: 18px;"> กำหนดยืนราคา</td>
-						</tr>
-						<tr>
-							<td align="left">  ภายใน 20 วัน นับจากวันที่เสนอราคา</td>
-						</tr>
-						<tr>
-							<td align="left">  ส่งสินค้าและติดตั้งภายใน 30 วันหลังจากได้รับมัดจำงวดที่ 1</td>
-						</tr>
-						
-						<tr>
-							<td align="left" style="color:red; font-size:17px; font-weight:bold;">  		ชำระเต็มจำนวนงวดแรก ฟรีค่าขนส่ง
-							</td>
-						</tr>
-
-						<tr>
-							<td align="left" style="color:red; font-size:17px; font-weight:bold;"> 
-								ชำระเพียง 213,000 บาท เท่านั้น
-							</td>
-						</tr>
-
-					</tbody></table>
-				</div>
-			</div><!--end amount-->
-			
-			
-			<div id="footer" style="clear: both;">
-				<div style="width: 65%; float:left; margin-top: 50px;">
-					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
-					<span>ลงชื่อ......................................</span> <br><br>
-					<span>วันที่ <?php echo $thatdate;?></span>
-				</div>
-				<div style="width: 35%; float:left; margin-top: 50px;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
 					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
@@ -1420,8 +1218,8 @@
 
         </div>  <!--end subpage-->
     </div>
-
 	
+	<?php include('backoffice.php');?>
 	<?php include('../include/inc_iot.php');?>
 	<?php require_once('../include/inc_brief.php');?>
 

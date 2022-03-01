@@ -206,7 +206,7 @@
 											<?php for($i=1; $i<=$num_com; $i++) { 
 												$row_com = mysql_fetch_array($result_com);
 											?>
-												<option value="<?php echo $row_com['comp_id']?>"><?php echo $row_com['com_brand']?></option>
+												<option value="<?php echo $row_com['comp_id']?>" <?php if($row_com['comp_id']==4) echo "selected";?>><?php echo $row_com['com_brand']?></option>
 											
 											<?php } ?>
 											</select>
@@ -218,7 +218,7 @@
 											<?php for($i=1; $i<=$num_coil; $i++) { 
 												$row_coil = mysql_fetch_array($result_coil);
 											?>
-												<option value="<?php echo $row_coil['cool_id']?>"><?php echo $row_coil['cool_brand']?></option>
+												<option value="<?php echo $row_coil['cool_id']?>" <?php if($row_coil['cool_id']==6) echo "selected";?>><?php echo $row_coil['cool_brand']?></option>
 											
 											<?php } ?>
 											</select>
@@ -227,7 +227,7 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">หัวบิลบริษัท</label><br>
 											<input type="radio" value="1" name="corp" checked > CPN
-											<input type="radio" value="2" name="corp" style="margin-left:50px;" >  TCL
+											<input type="radio" value="2" name="corp" style="margin-left:50px;" >  CHK
 										</div>
 
 									</div>

@@ -143,6 +143,10 @@
                                 </li>
 								
 								<li>
+                                    <a href="order/ord_iot.php">IoT</a>
+                                </li>
+								
+								<li>
                                     <a href="order/select_order.php">เพิ่มออเดอร์</a>
                                 </li>
                             </ul>

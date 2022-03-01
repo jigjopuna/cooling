@@ -27,6 +27,7 @@
 		$('#btn').click(validation);
 		$('#install').change(chkinstall);
 		$('#hascoilyen').change(chkcoilyen);
+		$('#hasroom').change(chkroom);
 		$("#search_custname").autocomplete({
 				source: "../../ajax/search_cust_q.php",
 				minLength: 1
@@ -40,7 +41,7 @@
 		if($("#install").prop('checked') == true){
 			$('#hide').css("display","block"); 
 		}else{
-			$('#hide').css("display","none")
+			$('#hide').css("display","none");
 		}
 		 
 	}
@@ -50,7 +51,25 @@
 		if($("#hascoilyen").prop('checked') == true){
 			$('#coilhide').css("display","block"); 
 		}else{
-			$('#coilhide').css("display","none")
+			$('#coilhide').css("display","none");
+		}
+	}
+	
+	function chkroom(){
+		
+		if($("#hasroom").prop('checked') == true){
+			$('#foam').css("display","block");
+			$('#foaminch').css("display","block");		 	
+			$('#doortype').css("display","block");
+			$('#d_width').css("display","block");
+			$('#d_high').css("display","block");
+			
+		}else{
+			$('#foam').css("display","none");
+			$('#foaminch').css("display","none");
+			$('#doortype').css("display","none");
+			$('#d_width').css("display","none");
+			$('#d_high').css("display","none");
 		}
 		
 		 
@@ -116,7 +135,7 @@
 												<?php for($i=1; $i<=$num_com; $i++) { 
 													  $row_com = mysql_fetch_array($result_com);
 												?>
-												<option value="<?php echo $row_com['comp_id'];?>"><?php echo $row_com['com_brand'];?></option>
+												<option value="<?php echo $row_com['comp_id'];?>" <?php if($row_com['comp_id']==4) echo "selected";?>><?php echo $row_com['com_brand'];?></option>
 												<?php } ?>
 											</select>
 										</div>
@@ -174,9 +193,14 @@
 											<?php for($i=1; $i<=$num_cool; $i++) { 
 												$row_cool = mysql_fetch_array($result_cool);
 											?>
-												<option value="<?php echo $row_cool['cool_id'];?>"><?php echo $row_cool['cool_brand'];?></option>
+												<option value="<?php echo $row_cool['cool_id'];?>" <?php if($row_cool['cool_id']==6) echo "selected";?>><?php echo $row_cool['cool_brand'];?></option>
 											<?php } ?>
 											</select>
+										</div>
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">เอาแผ่นไหม</label>
+											<input type="checkbox" class="form-control" id="hasroom" name="hasroom">
 										</div>
 										
 										
@@ -208,6 +232,36 @@
 											<input type="radio" value="2" name="corp" style="margin-left:50px;" > CHK
 										</div>
 										
+										<div class="form-group has-success" id="foam" style="display:none;">
+											<label class="control-label" for="inputSuccess">โฟม</label>
+											<select class="form-control"  name="foam">
+												<option value="1">PU</option>
+												<option value="2">PS</option>
+											</select>
+										</div>
+										
+										<div class="form-group has-success" id="foaminch" style="display:none;">
+											<label class="control-label" for="inputSuccess">โฟมกี่นิ้ว</label>
+											<select class="form-control"  name="foaminch">
+												<option value="4">4</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+											</select>
+										</div>
+										
+										
+										<div class="form-group has-success" id="doortype" style="display:none;">
+											<label class="control-label" for="inputSuccess">ประตู</label>
+											<select class="form-control" name="doortype">
+												<option value="1">บานสวิง</option>
+												<option value="2">บานเลื่อน</option>
+											</select>
+										</div>
+										
 									</div>
 									
 									
@@ -226,6 +280,16 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ค่าขนส่ง</label>
 											<input type="text" class="form-control" id="shipcost" name="shipcost" value="5000">
+										</div>
+										
+										<div class="form-group has-success" id="d_width" style="display:none;">
+											<label class="control-label" for="inputSuccess">ประตูกว้าง เมตร</label>
+											<input type="text" class="form-control"  name="d_width" value="1.0">
+										</div>
+										
+										<div class="form-group has-success" id="d_high" style="display:none;">
+											<label class="control-label" for="inputSuccess">ประตูสูง เมตร</label>
+											<input type="text" class="form-control"  name="d_high" value="2.0">
 										</div>
 										
 										<div class="form-group has-success">
