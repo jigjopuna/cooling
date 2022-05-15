@@ -27,7 +27,7 @@
 								Line
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="https://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank" style="color: white;">@topcooling</a>
+								<a href="https://qr-official.line.me/sid/M/vsl8721x.png" target="_blank" style="color: white;">@cpn888</a>
 							</div>
 						</div>
 					</li>
@@ -71,8 +71,8 @@
 				<div class="footer-social">
 					<ul>
 					<li><a href="https://www.facebook.com/cpn888/" target="_blank"><img src="sources/assets/images/icon-fb.svg" target="_blank" alt=""></a></li>
-					<li><a href="" target="_blank"><img style="width:28px; height:28px;" src="sources/assets/images/icon/youtube.svg" target="_blank" alt=""></a></li>
-					<li><a href="https://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank"><img style="width:28px; height:28px;" src="sources/assets/images/icon/line.svg" target="_blank" alt=""></a></li>
+					<li><a href="https://www.youtube.com/channel/UCv5jRVFyFIwjuUd4IuJCXgQ/videos" target="_blank"><img style="width:28px; height:28px;" src="sources/assets/images/icon/youtube.svg" target="_blank" alt=""></a></li>
+					<li><a href="https://qr-official.line.me/sid/M/vsl8721x.png" target="_blank"><img style="width:28px; height:28px;" src="sources/assets/images/icon/line.svg" target="_blank" alt=""></a></li>
 					</ul>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 		<div class="row">
 			<div class="col-md-6">
 			<div class="copyright-text">
-			Copyright 2021 CPN888.Co, Ltd.
+			Copyright 2022 CPN888.Co, Ltd.
 			</div>
 			</div>
 			<div class="col-md-4">

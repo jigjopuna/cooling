@@ -89,7 +89,7 @@
 
            <div id="cover_header">
 				
-				<?php include ('../include/cpn_addr.php'); ?>
+				<?php include ('../include/chk_addr.php'); ?>
 			</div><!--end cover_header-->
 			
 			<?php include ('../include/quotation_head_cpn.php'); ?>
@@ -319,7 +319,7 @@
 	<div class="page">
         <div id="cover_header">
 				
-				<?php include ('../include/cpn_addr.php'); ?>
+				<?php include ('../include/chk_addr.php'); ?>
 			</div><!--end cover_header-->
 			
 			<?php include ('../include/quotation_head_cpn.php'); ?>
@@ -348,7 +348,7 @@
 						<tr>
 							<td colspan="2" align="left">บัญชีธนาคาร กสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left">  บจ.ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
+								<td colspan="2" align="left">  บจ. โชคอุตสาหะ พารวย  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 091-8-53927-1</span></td>
 							</tr>
 						</tr>
 					</table>
@@ -407,8 +407,7 @@
         <div class="subpage">
 
              <div id="cover_header">
-				<?php include ('../include/cpn_addr.php');
-				?>
+				<?php include ('../include/chk_addr.php'); ?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">

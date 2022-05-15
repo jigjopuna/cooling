@@ -231,7 +231,10 @@
 												<option value="2017">2017</option>
 												<option value="2018">2018</option>
 												<option value="2019">2019</option>
-												<option value="2020">2020</option>								
+												<option value="2020">2020</option>
+												<option value="2021">2021</option>
+												<option value="2022">2022</option>
+												<option value="2023">2023</option>												
 											</select>
 										</div>
 										
@@ -323,7 +326,46 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-
+			
+			<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+							เลือกรายงาน
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+							<div class="row">
+								<form action="" method="post" name="form1" id="form1" enctype="multipart/form-data">
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<a href="print/ord_part_report.php" target="_blank"><button id="" type="button" class="btn btn-lg btn-success btn-block">รายงานขายอะไหล่</button></a>
+										</div>
+									</div>
+																		
+									<div class="col-lg-4">
+										<div class="form-group has-success">
+											<button id="" type="button" class="btn btn-lg btn-success btn-block">รายงานขาย IoT</button>
+										</div>
+									</div>
+										
+									
+									<div class="col-lg-4">
+										
+										
+									</div>
+									
+								</form>
+							 </div> <!-- row -->
+                           
+                        </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>	
+        </div>
+			
+			
         </div>
         <!-- /#page-wrapper -->
 

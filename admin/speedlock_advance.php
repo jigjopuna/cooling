@@ -48,7 +48,8 @@
 	$size = trim($_POST['sizes']);
 	
 	$percent = trim($_POST['percent']);
-	$profit = ($percent/100)+1;
+	$profit = $percent/100;
+	//$profit = ($percent/100)+1;
 	
 	
 	$r_width = trim($_POST['r_width']);
@@ -203,8 +204,8 @@
 	$controlprice = 20000; 
 	$shipcost = 8000;
 	
-	$cdu_cost = $cdu['t_price_sell']*1.1;
-	$cooler_cost = $cooler['t_price_sell']*1.1;
+	$cdu_cost = $cdu['t_cost']*1.1;
+	$cooler_cost = $cooler['t_cost']*1.1;
 	$price = ($cdu_cost + $cooler_cost);
 	
 	$sum_cost = (($controlprice +  $price) * $qtyhp) + $labor + $shipcost + $wall_and_door;
@@ -533,16 +534,28 @@
 			</div><!--end condition-->
 			
 			<div id="footer" style="clear: both;">
-				<div style="width: 65%; float:left; margin-top: 20px;">
+				<div style="width: 33%; float:left; margin-top: 20px;">
 					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
 					<span>ลงชื่อ......................................</span> <br><br>
-					<span>วันที่ <?php echo $thatdate;?></span>
+					<span>ผู้สั่งซื้อ</span>
 				</div>
-				<div style="width: 35%; float:left; margin-top: 20px;">
+				
+				<div style="width: 32%; float:left; margin-top: 35px;">
 					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
-					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br><br>
+					<span>......................................</span> <br><br>
+					<span>(ภูริชญ์ โชคอุตสาหะ)</span> <br><br>
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;ฝ่ายขาย</span>
+					<br>
+				</div>
+				
+				
+				<div style="width: 33%; float:left; margin-top: 35px;">
+					
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br><br>
+					<span>......................................</span> <br><br>
+					<span>(เดชาธร ผลินธร)</span> <br><br>
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;กรรมการ</span>
 					<br>
 				</div>
 			</div><!--end footer-->
@@ -854,16 +867,26 @@
 			
 			
 			<div id="footer" style="clear: both;">
-				<div style="width: 65%; float:left; margin-top: 20px;">
+				<div style="width: 33%; float:left; margin-top: 20px;">
 					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
 					<span>ลงชื่อ......................................</span> <br><br>
-					<span>วันที่ <?php echo $thatdate;?></span>
+					<span>ผู้สั่งซื้อ</span>
 				</div>
-				<div style="width: 35%; float:left; margin-top: 0px;">
+				
+				<div style="width: 32%; float:left; margin-top: 20px;">
 					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
-					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br><br><br>
+					<span>(ภูริชญ์ โชคอุตสาหะ)</span> <br><br>
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;ฝ่ายขาย</span>
+					<br>
+				</div>
+				
+				
+				<div style="width: 33%; float:left; margin-top: 20px;">
+					
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br><br><br>
+					<span>(เดชาธร ผลินธร)</span> <br><br>
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;กรรมการ</span>
 					<br>
 				</div>
 			</div><!--end footer-->

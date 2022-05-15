@@ -93,7 +93,7 @@
 			</div>
 </div>
 
-<div class="section-testimonial"> 
+<<!--div class="section-testimonial"> 
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
@@ -103,4 +103,4 @@
 			</div>
 		</div>	
 	</div>	
-</div>
+</div>-->

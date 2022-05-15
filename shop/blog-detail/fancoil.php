@@ -263,7 +263,10 @@
 									</h4>
 
 									<div class="s-text8 flex-w flex-m p-b-21">
-										<?php include('../includes/contacts.php');?>
+										<?php //include('../includes/contacts.php');?>
+										ติดต่อสอบถาม สั่งซื้อ<br>
+										Line ID : phurits<br>
+										TEL : 099-129-0789 หรือ 084-013-7350 <br>
 									</div>
 
 									<p class="p-b-12">

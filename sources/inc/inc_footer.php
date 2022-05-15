@@ -27,7 +27,7 @@
 								Line
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="https://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank" style="color: white;">@cpn888</a>
+								<a href="https://qr-official.line.me/sid/M/vsl8721x.png" target="_blank" style="color: white;">@cpn888</a>
 							</div>
 						</div>
 					</li>
@@ -49,7 +49,7 @@
 								email
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;"> &nbsp;&nbsp; phurit_18@hotmail.com</a>
+								<a href="" style="color: white;"> &nbsp;&nbsp;phurit_18@hotmail.com</a>
 							</div>
 						</div>
 					</li>
@@ -103,7 +103,7 @@
 		<div class="row">
 			<div class="col-md-6">
 			<div class="copyright-text">
-			Copyright 2021 CPN888 Co,.Ltd
+			Copyright 2022 CPN888 Co,.Ltd
 			</div>
 			</div>
 			<div class="col-md-4">

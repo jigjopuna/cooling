@@ -26,7 +26,12 @@
 <div style="display:none;" id="sqm-isowall-sum"><?php echo number_format($sqmsum, 2, '.', ',');?></div> 
 <div style="display:none;" id="foam_sum_price"><?php echo number_format($foam_sum_price, 2, '.', ',');?></div>
 
+<div style="display:none;" id="">---------------------</div>
+
 <div style="display:none;" id="wall_and_door"><?php echo number_format($wall_and_door, 2, '.', ',');?></div> 
+<div style="display:none;" id="labor"><?php echo number_format($labor, 2, '.', ',');?></div> 
+<div style="display:none;" id="sum_cost"><?php echo number_format($sum_cost, 2, '.', ',');?></div>
+<div style="display:none;" id="kai"><?php echo number_format($kai, 2, '.', ',');?></div>
 <div style="display:none;" id="kumrai"><?php echo number_format($kumrai, 2, '.', ',');?></div>
 <div style="display:none;" id="vats"><?php echo number_format($vats, 2, '.', ',');?></div>
 <div style="display:none;" id="kaivat"><?php echo number_format($kaivat, 2, '.', ',');?></div>

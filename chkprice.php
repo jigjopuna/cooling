@@ -366,7 +366,7 @@
 	ระบบห้องนี้สร้างขึ้นมาเพื่ออำนวยความสะดวกให้กับทุกคนที่ต้องการทราบราคาห้องเย็น แต่ไม่รู้ว่าจะไปหาข้อมูลได้ที่ไหน ติดต่อห้องเย็น ท็อปคูลลิ่ง ได้ทันที<br><br>
 	
 	หามีข้อสงสัยติดต่อ 099-129-0789 หรือ 084-013-7350<br>
-	Line ID : @topcooling (พิมพ์ @ ข้างหน้าด้วย)<br><br>
+	Line ID : @cpn888 (พิมพ์ @ ข้างหน้าด้วย)<br><br>
 	
 	หากต้องการ <span class="text-strong">ห้องเย็นสำเร็จรูป</span> แบบเคลื่อนย้ายได้ให้เลื่อนมาด้านล่างดูราคาได้ครับ
 				</p>
@@ -521,7 +521,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> คลิปประกอบห้องเย็น</span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/D9E0P3XkbqA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/68FcyGUA_o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<br><br>
 			</div>
 		</div>	
@@ -702,17 +702,17 @@
 	</div>
 </div>
 
-<div class="section-testimonial"> 
+<!--<div class="section-testimonial"> 
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
-				<!--<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				<br><br>
 			</div>
 		</div>	
 	</div>	
-</div>
+</div>-->
 
 <?php include('include/inc_1_footer.php');?>
  

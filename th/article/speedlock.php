@@ -8,12 +8,12 @@
 <?php require_once ('../../include/googlebot.php');?>
 <meta name="copyright" content="topcooling"/>
 <meta name="keywords" content="ห้องเย็นมือสอง, ห้องเย็นราคา, ห้องเย็นสำเร็จรูป">
-<meta name="description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝังประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ">
+<meta name="description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝังประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ ห้องเย็นติดตั้งหน้างานเหมาะกับทุกพื้นที่ พื้นที่กว้าง พื้นที่แคบ ติดตั้งได้เลยครับ">
 <meta property="og:title" content="ห้องเย็นฝังประกอบเร็ว ติดตั้งหน้างาน"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/speedlock.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/speedlock.php"/>
-<meta property="og:description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝังประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ"/>
+<meta property="og:description" content="รับสร้างห้องเย็น ขอบอกเลยว่าห้องเย็นแบบฝังประกอบเร็วนี้ สร้างแล้วดีคุ้มค่ากับราคา มีระบบแจ้งเตือนก่อนห้องเย็นจะเสียผ่านมือถือ ห้องเย็นติดตั้งหน้างานเหมาะกับทุกพื้นที่ พื้นที่กว้าง พื้นที่แคบ ติดตั้งได้เลยครับ"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>ห้องเย็นฝังประกอบเร็ว ติดตั้งหน้างาน</title>
@@ -45,7 +45,7 @@
 		
 		<div class="row">
 			<div class="col-xs-12">
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/D9E0P3XkbqA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/68FcyGUA_o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<br><br><br>
 			</div>
 		</div>
@@ -232,15 +232,7 @@
 			</div>
 		</div>
 		
-		<div class="row" id="">
-			<div class="col-md-6">
-				<img src="../../content/images/speedlock/install-466x272ass.jpg" alt="ประกอบคอนเด็นซิ่ง ห้องเย็น"><br><br>
-			</div>
-			
-			<div class="col-md-6">
-				<img src="../../content/images/speedlock/install-466x272ass1.jpg" alt="คอนเด็นซิ่ง ห้องเย็น"><br><br>
-			</div>
-		</div>
+
 
 		<div class="row" id="">
 			<div class="col-md-6">
@@ -278,7 +270,7 @@
 					  </tr>
 					  <tr>
 						<td>คอล์ยเย็น</td>
-						<td>ALFA หรือ EDEN</td>
+						<td>Tecumseh หรือ CoolScape</td>
 					  </tr>
 					  <tr>
 						<td>คอล์ยร้อน</td>
@@ -437,13 +429,7 @@
 		
 		</div>
 		<br><br><br><br>
-		<div class="row">
-			<div class="col-xs-12">
-				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-				<br><br>
-			</div>
-		</div>
+		
 		
 		<!--<div class="row">
 			<p class="text -small">
