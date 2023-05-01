@@ -89,7 +89,10 @@
 
            <div id="cover_header">
 				
-				<?php include ('../include/chk_addr.php'); ?>
+				<?php 
+					//include ('../include/chk_addr.php'); 
+				    include ('../include/cpn_addr.php');
+				?>
 			</div><!--end cover_header-->
 			
 			<?php include ('../include/quotation_head_cpn.php'); ?>
@@ -217,10 +220,10 @@
 					</tr>
 
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; <span style="text-decoration: underline; font-size:18px; font-weight:bold;">SERVICE</span> (ฟรี 1 ปี แรก) </td>
+						<td class="l">&nbsp;&nbsp;&nbsp; <span style="text-decoration: underline; font-size:18px; font-weight:bold;">SERVICE</span>  </td>
 						<td colspan="2" class="l" align="center">1 Year</td>
 						<td class="l" align="right"></td>
-						<td class="l" align="right"><s>5,000.00</s></td>
+						<td class="l" align="right">6,800.00</td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -255,10 +258,22 @@
 						<td class="l">&nbsp;&nbsp;&nbsp; <span style="text-decoration: underline; font-size:18px; font-weight:bold;">INSTALLATION</span> </td>
 						<td colspan="2" class="l" align="center"> 1 SET</td>
 						<td class="l" align="right"></td>
-						<td class="l" align="right">10,000.00</td>
+						<td class="l" align="right">8,000.00</td>
 					</tr>
 					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - ค่าบริการติดตั้ง เซ็นเซอร์วัดอุณหภูมิ และอุปกรณ์ Monitor</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
 					
+					<tr class="highs" style="">
+						<td class="l">&nbsp;&nbsp;&nbsp; - Router WIFI พร้อม SIM CARD IoT (ค่า SIM IoT ปีละ 1,500 บาท)</td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
 
 					<tr class="highs" style="">
 						<td class="l">&nbsp;&nbsp;&nbsp; - รับประกับอุปกรณ์ IDCAM 1 ปี</td>
@@ -267,12 +282,7 @@
 						<td class="l" align="right"></td>
 					</tr>
 					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; **** ลูกค้าจะต้องเตรียมอินเตอร์เน็ต WiFi ที่มีสัญญาณบริเวณห้องเย็นที่ติดตั้ง IDCAM</td>
-						<td colspan="2" class="l" align="center"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
+					
 					
 					<tr>
 						<td rowspan="3">
@@ -286,19 +296,19 @@
 							</div>
 						</td>
 						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
-						<td class="t l" align="right">51,000.00</td>
+						<td class="t l" align="right">44,600.00</td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">ภาษีมูลค่าเพิ่ม 7%</td>
-						<td class="rt l" align="right">3,570.00</td>
+						<td class="rt l" align="right">3,122.00</td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ  </td>
-						<td class="rt l" align="right" id="totolprice">54,570.00</td>
+						<td class="rt l" align="right" id="totolprice">47,722.00</td>
 					</tr>
 				
 				
@@ -319,7 +329,7 @@
 	<div class="page">
         <div id="cover_header">
 				
-				<?php include ('../include/chk_addr.php'); ?>
+				<?php include ('../include/cpn_addr.php'); ?>
 			</div><!--end cover_header-->
 			
 			<?php include ('../include/quotation_head_cpn.php'); ?>
@@ -348,7 +358,7 @@
 						<tr>
 							<td colspan="2" align="left">บัญชีธนาคาร กสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left">  บจ. โชคอุตสาหะ พารวย  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 091-8-53927-1</span></td>
+								<td colspan="2" align="left">  บจ. ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
 							</tr>
 						</tr>
 					</table>
@@ -369,20 +379,8 @@
 				</div>
 			</div><!--end amount-->
 			
-			
 			<div id="footer" style="clear: both;">
-				<div style="width: 65%; float:left; margin-top: 20px;">
-					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
-					<span>ลงชื่อ......................................</span> <br><br>
-					<span>วันที่ <?php echo $thatdate;?></span>
-				</div>
-				<div style="width: 35%; float:left; margin-top: 20px;">
-					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
-					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
-					<br>
-				</div>
+				<?php include ('../include/footter_quo.php'); ?>
 			</div><!--end footer-->
 			
 			
@@ -407,7 +405,7 @@
         <div class="subpage">
 
              <div id="cover_header">
-				<?php include ('../include/chk_addr.php'); ?>
+				<?php include ('../include/cpn_addr.php'); ?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">

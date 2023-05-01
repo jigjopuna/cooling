@@ -9,8 +9,11 @@
 	<?php 
 		$dates = date('Y-m-d');
 		$sql_all = "SELECT *
-					FROM (tb_service s JOIN province p ON p.id = s.fix_province) 
-						  JOIN tb_cust_service se ON se.cusr_id = s.fix_cust";
+					FROM ((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
+					      JOIN tb_service s ON s.fix_ord = o.o_id) 
+						  JOIN province p ON p.id = o.o_cuprovin 
+					WHERE o.o_type = 30
+					";
 		$result_all = mysql_query($sql_all);
 		$num_all = mysql_num_rows($result_all);
 		
@@ -21,13 +24,14 @@
 	?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
 <script src="../../js/jquery-ui-1-12-1.min.js"></script>
+<title>เซอร์วิส รายการ</title>
 <script>
 	$(document).ready(function(){
 		$('.btn-success').click(validation);
 		//$('#date_pay, #date_delivery').datepicker({dateFormat: 'yy-mm-dd'});
 		$("#serv_prov").load("../../ajax/province_server.php");
 		$("#search_custname").autocomplete({
-				source: "../../ajax/search_custservice.php",
+				source: "../../ajax/search_cust.php",
 				minLength: 1
 		});
 		
@@ -152,11 +156,11 @@
 										  $row_all = mysql_fetch_array($result_all);
 									  ?>
 										<tr class="gradeA">
-											<td><?php echo $row_all['fix_id']; ?></td>  
-											<td><?php echo $row_all['cusr_name']; ?></td>
+											<td><?php echo $row_all['o_id']; ?></td>  
+											<td><?php echo $row_all['cust_name']; ?></td>
 											<td><?php echo $row_all['fix_broken']; ?></td>
 											<td><?php echo $row_all['pro_name']; ?></td>
-											<td><?php echo $row_all['fix_date']; ?></td>
+											<td><?php echo $row_all['o_date']; ?></td>
 										</tr>
 									<?php } ?>
 

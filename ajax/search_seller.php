@@ -5,7 +5,7 @@
 	
 	/*$sql = "select * from member_emp";
 	$sql .= " where name like '$keyword%'";*/
-	$sql = "SELECT sl_id, sl_name FROM tb_sellers WHERE sl_name LIKE '%$keyword%'";
+	$sql = "SELECT sl_id, sl_name FROM tb_sellers WHERE sl_name LIKE '%$keyword%' AND sl_publish = 1";
 	
 	$result = mysql_query($sql);
 	$num = mysql_num_rows($result);

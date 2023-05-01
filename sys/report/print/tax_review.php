@@ -11,7 +11,7 @@
 	  $row_payin = mysql_fetch_array(mysql_query("SELECT SUM(pay_amount) AS sumin FROM tb_ord_pay WHERE pay_date LIKE '$dates'"));
 	  $yodin = $row_payin['sumin'];
 	  
-	  $row_buy = mysql_fetch_array(mysql_query("SELECT SUM(po_price) AS sumpo FROM tb_po WHERE po_date LIKE '$dates'"));
+	  $row_buy = mysql_fetch_array(mysql_query("SELECT SUM(po_price) AS sumpo FROM tb_po WHERE po_date LIKE '$dates' AND po_vat = 1"));
 	  $yodbuy = $row_buy['sumpo'];
 	  
 	  
@@ -26,7 +26,7 @@
 	  
 	  $sql_sue = "SELECT  po_id, po_name, po_orders, po_price, po_bill_pdf , po_bill_img, po_date, po_shop  
 				  FROM tb_po  
-				  WHERE po_date LIKE '$dates'
+				  WHERE po_date LIKE '$dates' AND po_vat = 1 AND po_publish = 1
 			      ORDER BY po_id DESC LIMIT 0,200";
 	  $result_sue= mysql_query($sql_sue);
 	  $num_sue = mysql_num_rows($result_sue);

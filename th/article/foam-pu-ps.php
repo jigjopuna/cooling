@@ -8,12 +8,12 @@
 <?php require_once ('../../include/googlebot.php');?>
 <meta name="copyright" content="topcooling"/>
 <meta name="keywords" content="ฉนวนห้องเย็น, โฟมห้องเย็น, โฟม PU PS">
-<meta name="description" content="ผนังห้องเย็นใช้โฟมฉนวนเป็น PU หรือ PS อันไหนดีกว่ากัน ราคาเท่าไรบ้าง ซื้อที่ไหนอะไรยังไง  Foam PU PS เก็บความเย็นได้ดีมาก ประหยัดค่าเพราะเครื่องทำงานน้อย ผนังเหล็กคัลเลอร์แข็งแรงทนทานมาก">
+<meta name="description" content="ผนังห้องเย็นใช้โฟมฉนวนเป็น PU หรือ PS อันไหนดีกว่ากัน ราคาเท่าไรบ้าง ซื้อที่ไหนอะไรยังไง  Foam PU PS เก็บความเย็นได้ดีมาก ประหยัดค่าเพราะเครื่องทำงานน้อย ผนังเหล็กคัลเลอร์แข็งแรงทนทานมาก ท็อปคูลลิ่ง">
 <meta property="og:title" content="โฟม PU กับ PS ต่างกันยังไง ผนังฉนวนห้องเย็น"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/foam/cover.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/foam-pu-ps.php"/>
-<meta property="og:description" content="ผนังห้องเย็นใช้โฟมฉนวนเป็น PU หรือ PS อันไหนดีกว่ากัน ราคาเท่าไรบ้าง ซื้อที่ไหนอะไรยังไง  Foam PU PS เก็บความเย็นได้ดีมาก ประหยัดค่าเพราะเครื่องทำงานน้อย ผนังเหล็กคัลเลอร์แข็งแรงทนทานมาก"/>
+<meta property="og:description" content="ผนังห้องเย็นใช้โฟมฉนวนเป็น PU หรือ PS อันไหนดีกว่ากัน ราคาเท่าไรบ้าง ซื้อที่ไหนอะไรยังไง  Foam PU PS เก็บความเย็นได้ดีมาก ประหยัดค่าเพราะเครื่องทำงานน้อย ผนังเหล็กคัลเลอร์แข็งแรงทนทานมาก ห้องเย็น ท็อปคูลลิ่ง"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>ห้องเย็นโฟม PU กับ PS ต่างกันยังไง</title>
@@ -64,9 +64,9 @@
 					ทั้งโฟมขาว PS และโฟมเหลือง PU จะถูกหุ้มด้วย <span class="text-strong">เหล็ก</span> BHP หรือ <span class="text-strong">สแตนเลส</span> อีกที เรียกว่า Sandwich Panel โฟมอยู่ตรงกลางระหว่างเหล็กหรือสแตนเลส 2 ด้าน<br><br>
 					
 					ถ้าอยากจะมี <span class="text-strong">ห้องเย็น</span> เราจะเลือกโฟมฉนวนประเภทไหนดี แบบไหนที่เหมาะกับงานที่ลูกค้าต้องการใช้ <br><br>
-					ก่อนอื่นมาดูก่อนว่า PS กับ PU ต่างกันยังไง ตามตารางด้านล่างนี้ครับ<br><br>
+					มาชมคลิปแผ่นฉนวนกันครับ<br><br>
 					
-					<iframe width="100%" height="400" src="https://www.youtube.com/embed/eRV8YKO6hc4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/r1M_f5HY-hg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					
 					
 					
@@ -137,7 +137,8 @@
 			
 			<div class="col-md-12">
 				<div class="p_article">
-					<img src="../../content/images/article/foam/600x400-01.jpg" alt="โฟม PU ห้องเย็น"><br><br>
+					<img src="../../content/images/article/foam/foam-pu.jpg" alt="โฟม PU ห้องเย็น"><br><br>
+					<img src="../../content/images/article/foam/foam-pu1.jpg" alt="โฟม PU ห้องเย็น"><br><br>
 					เมื่อทราบความ <span class="text-strong">แตกต่าง</span> ระหว่าง PS กับ PU กันแล้ว มาดูอีกว่าแล้วมีปัจจัยอะไรอีกบ้างในการเลือกโฟม<br><br>
 					<span class="boldun">1. อุณหภูมิ</span> มีผลต่อความหนาของแผ่นโฟม<br>
 					<span class="boldun">2. ราคา</span> ไหนที่เหมาะสม<br>
@@ -221,47 +222,47 @@
 						<th style="width:25%" class="tb_strong tb_textcenter">ความหนา / บาท</th>
 						<th style="width:25%;" class="tb_strong tb_textcenter">PS (1.25Ib<Sup>2</Sup>)</th>
 						<th style="width:25%;" class="tb_strong tb_textcenter">PU</th>
-						<th style="width:25%;" class="tb_strong tb_textcenter">PU (สแตนเลส 1 ด้าน)</th>
+						<th style="width:25%;" class="tb_strong tb_textcenter">PU (สแตนเลส 2 ด้าน)</th>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">2 นิ้ว</td>
-						<td class="tb_textcenter">690</td>
-						<td class="tb_textcenter">1,150</td>
-						<td class="tb_textcenter">1,650</td>
+						<td class="tb_textcenter">720</td>
+						<td class="tb_textcenter">1,250</td>
+						<td class="tb_textcenter">2,200</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">3 นิ้ว</td>
-						<td class="tb_textcenter">750</td>
+						<td class="tb_textcenter">780</td>
+						<td class="tb_textcenter">1,380</td>
 						<td class="tb_textcenter">1,350</td>
-						<td class="tb_textcenter">1,750</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">4 นิ้ว</td>
-						<td class="tb_textcenter">820</td>
+						<td class="tb_textcenter">860</td>
 						<td class="tb_textcenter">1,500</td>
-						<td class="tb_textcenter">1,850</td>
+						<td class="tb_textcenter">2,500</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">5 นิ้ว</td>
 						<td class="tb_textcenter">900</td>
-						<td class="tb_textcenter">1,450</td>
-						<td class="tb_textcenter">2,000</td>
+						<td class="tb_textcenter">1,650</td>
+						<td class="tb_textcenter">2,800</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">6 นิ้ว</td>
-						<td class="tb_textcenter">990</td>
-						<td class="tb_textcenter">1,550</td>
-						<td class="tb_textcenter">2,100</td>
+						<td class="tb_textcenter">1,000</td>
+						<td class="tb_textcenter">1,800</td>
+						<td class="tb_textcenter">3,000</td>
 					  </tr>
 					  
 					   <tr>
 						<td class="tb_textcenter">8 นิ้ว</td>
-						<td class="tb_textcenter">1,100</td>
+						<td class="tb_textcenter">1,200</td>
 						<td class="tb_textcenter">-</td>
 						<td class="tb_textcenter">-</td>
 					  </tr>
@@ -277,7 +278,7 @@
 			<div class="col-md-12">
 				<div class="p_article">
 					
-					หากต้องการสั่งซื้อโฟมฉนวน ใช้เวลาผลิด 10-14 วัน ซื้อได้ที่ หจก.ท๊อปทูลลิ่ง จังหวัดนครปฐมครับ<br><br>
+					หากต้องการสั่งซื้อโฟมฉนวน ใช้เวลาผลิด 10-14 วัน ซื้อได้ที่ บริษัท ซีพีเอ็น 888 จังหวัดนครปฐมครับ<br><br>
 				
 				
 					
@@ -311,8 +312,8 @@
 		<br><br><br><br>
 		<div class="row">
 			<div class="col-xs-12">
-				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่ไอศรีมในห้องเย็น</span><br><br><br>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/szg_9rzqXT8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<br><br>
 			</div>
 		</div>

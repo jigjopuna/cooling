@@ -23,7 +23,12 @@
 	$cash_emp1 = $rowcash['cash_emp1'];
 	
 	$cash_temp = $rowcash['cash_temp'];
-	$cash_temp1 = $rowcash['cash_temp1'];
+	$cash_temp1 = $rowcash['cash_temp1']; 
+	
+	
+	
+	
+	
 		
 	
 	$po_id = trim($_POST[poid]);
@@ -40,7 +45,7 @@
 	$pobuyer  = trim($_POST['pobuyer']);
 	
 	$poment  = trim($_POST['poment']);
-
+	
 	$podate = trim($_POST['podate']);
 	$pocredit = trim($_POST['pocredit']);
 	
@@ -51,6 +56,10 @@
 	$today = date("Y-m-d");
 	
 	$ord_bank = trim($_POST['ord_bank']);
+	
+	$rowpo = mysql_fetch_array(mysql_query("SELECT * FROM tb_po WHERE po_id = '$po_id'"));
+	$bill_img = $rowpo['po_bill_img'];
+	
 	
 	
 	
@@ -100,37 +109,42 @@
 		$temp_cash2 = $cash_temp; //เงินสำรอง
 	}
 	
-	/*
-		ก่อน UPDATE ต้องเช็คก่อนว่า 
-	*/
-	
 
 	$target_dir = "../../images/bill/";
-	$filename = $po_id."-".time()."-".$_FILES["pobill"]["name"];//time().$_FILES["pobill"]["name"];
+	$filename = time().$_FILES["pobill"]["name"];
+
+    //ดูว่าชื่อว่าลงท้ายด้วย jpg ไหม ถ้าเป็น jpg แสดงว่ามีรูปเดิมอยู่ ห้ามเซฟทับถ้ามีไม่ได้อัปโหลดใหม่
+	$getjpgold = substr($bill_img,-3);
+	$getjpgnew = substr($filename,-3);
+	if($getjpgold == "jpg") { $havejpgold = 1; }else{	$havejpgold = 0;}
+	if($getjpgnew == "jpg") { $havejpgnew = 1; }else{	$havejpgnew = 0;}
+	
 	$target_file = $target_dir . basename($filename);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	
-	$target_pdf = "../../images/billpo/";
-	$filenamepdf = $po_id."-".time().'.pdf';//.$_FILES["ord_quotation"]["name"]popdf;
-	$target_pdffile = $target_pdf . basename($filenamepdf);
-	$uploadOkpdf = 1;
-	$imageFileTypepdf = pathinfo($target_pdffile,PATHINFO_EXTENSION);
-    
+	/*
+		ถ้าใน DB ไม่เคยมี file jpg เลย ให้อัปเดทอันใหม่
+		ถ้าใน DB มี jpg อยู่แล้ว แล้วจะอัปโหลดทับ ให้ใช้อันใหม่
+		ถ้าอันใหม่ไม่มี แล้ว อันเก่ามี ให้ใช้ชื่อเก่า
+	*/
+	if(($havejpgnew == 0) && ($havejpgold == 1)){
+		$filename = $bill_img;
+	}
+
+	/*echo "getjpgold = ", $getjpgold, "<br>";
+	echo "getjpgnew = ", $getjpgnew, "<br><br>";
+	
+	echo "havejpgold = ", $havejpgold, "<br>";
+	echo "havejpgnew = ", $havejpgnew, "<br><br>";
+	
+	
 	echo "target_dir = ", $target_dir, "<br>";
 	echo "filename = ", $filename, "<br>";
 	echo "target_file = ", $target_file, "<br>";
 	echo "imageFileType = ", $imageFileType, "<br>";
-	
-	
-	echo "<br><br>";
-	
-	
-	echo "target_pdf = ", $target_pdf, "<br>";
-	echo "filenamepdf = ", $filenamepdf, "<br>";
-	echo "target_pdffile = ", $target_pdffile, "<br>";
-	echo "imageFileTypepdf = ", $imageFileTypepdf, "<br>";
-	//exit();
+
+	exit();*/
 	
 	
 	if(file_exists($_FILES['pobill']['tmp_name']) || is_uploaded_file($_FILES['myfile']['tmp_name'])) {
@@ -178,51 +192,6 @@
 	}//end check is has file
 	
 	
-	//PDF
-	
-	if(file_exists($_FILES['popdf']['tmp_name']) || is_uploaded_file($_FILES['myfile']['tmp_name'])) {
-		// Check if image file is a actual image or fake image
-		if(isset($_POST["submit"])) {
-			$check = getimagesize($_FILES["popdf"]["tmp_name"]);
-				
-			if($check !== false) {
-				echo "File is an image - " . $check["mime"] . ".";
-				$uploadOkpdf = 1;
-			} else {
-				echo "File is not an image.";
-				$uploadOkpdf = 0;
-			}
-		}
-		
-		// Check if file already exists
-		if (file_exists($target_pdffile)) { 
-			echo "Sorry, file already exists."; exit();
-			$uploadOkpdf = 0;
-		}
-		// Check file size
-		if ($_FILES["popdf"]["size"] > 5000000) { 
-			echo "Sorry, your file is too large."; exit();
-			$uploadOkpdf = 0;
-		}
-		// Allow certain file formats
-		if($imageFileTypepdf != "pdf" && $imageFileTypepdf != "xlsx" && $imageFileTypepdf != "docx") {
-			echo "Sorry, only pdf, xlsx,  & docx files are allowed.";
-			$uploadOkpdf = 0;
-		}
-		// Check if $uploadOkpdf is set to 0 by an error
-		if ($uploadOkpdf == 0) { 
-			echo "Sorry, your file was not uploaded."; exit();
-		// if everything is ok, try to upload file
-		} else {
-			if (move_uploaded_file($_FILES["popdf"]["tmp_name"], $target_pdffile)) {
-				echo "The file ". basename( $_FILES["popdf"]["name"]). " has been uploaded."; 
-			} else {
-				echo "Sorry, there was an error uploading your file."; exit();
-			}
-		}
-	}//end check is has file
-	
-	
 	
 	echo "today = ", $today, "<br>"; 
 	echo "poname = ", $poname, "<br>";
@@ -253,7 +222,6 @@
 			po_comment  = '$poment',  
 			po_date     = '$podate', 
 			po_bill_img = '$filename', 
-			po_bill_pdf = '$filenamepdf',
 			po_orders   = '$search_custname', 
 			po_credit_due_date	= '$due_date', 
 			po_credit_pay	= '$wan_jay', 

@@ -14,11 +14,8 @@
 	<link type="text/css" rel="stylesheet" href="../css/redmond/jquery-ui-1.8.12.custom.css">
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
 	<script src="../js/jquery-ui-1.9.1.custom.min.js"></script>
-	<style>
-		#signature { width: 100%; /*background-color:red;*/ float:none; overflow:hidden; margin-top: 200px; height:35px;}
-		.sign { float: left; width: 33%; }
-		.sign1 { float: right; width: 33%; }
-	</style>
+	<link type="text/css" rel="stylesheet" href="../css/billsignature.css">
+	
 </head>
 <body>
 <?php 
@@ -219,8 +216,9 @@
 							<td>&nbsp; </td>
 							<td> </td>
 						</tr>
+						
 						<tr>
-							<td><?php if($vattype==1)  echo 'ภาษีมูลค่าเพิ่ม'; ?>  </td>
+							<td><?php if($vattype==1)  echo 'ภาษีมูลค่าเพิ่ม'; ?>  ภาษีมูลค่าเพิ่ม 7% </td>
 							<td align="right"><?php if($vattype==1)  echo number_format($vatprice*0.07, 2, '.', ','); else echo '';?></td>
 						</tr>
 						<tr>
@@ -232,7 +230,12 @@
 				</div>
 				
 				<div id="signature">
-					<div class="sign">ผู้อนุมัติ ...........................</div>
+					<div class="sign"> 
+						<div style="width:20%; float:left;"><p>ผู้อนุมัติ</p></div>
+						<div style="width:80%;">
+							<img src="https://topcooling.net/content/images/pusign.jpg" width="140px;">
+						</div>
+					</div>
 					<div class="sign">ผู้รับเงิน ...........................</div>
 					<div class="sign">ผู้รับสินค้า .........................</div>
 					
@@ -240,8 +243,8 @@
 				
 				<div id="custname">
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;นายภูริชญ์ โชคอุตสาหะ &nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'นายภูริชญ์ โชคอุตสาหะ'; }else{ echo 'นายภูริชญ์ โชคอุตสาหะ';}	?>&nbsp;&nbsp;)</div>		
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp; กัญญาณัฐ เย็นสุข  &nbsp;&nbsp;)</div>
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'ภูริชญ์ โชคอุตสาหะ'; }else{ echo 'ภูริชญ์ โชคอุตสาหะ';}	?>&nbsp;&nbsp;)</div>		
 				</div>
 			</div>
 			
@@ -356,8 +359,8 @@
 				
 				<div id="custname">
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;นายภูริชญ์ โชคอุตสาหะ &nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'นายภูริชญ์ โชคอุตสาหะ'; }else{ echo 'นายภูริชญ์ โชคอุตสาหะ';}	?>&nbsp;&nbsp;)</div>		
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp; กัญญาณัฐ เย็นสุข  &nbsp;&nbsp;)</div>
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'ภูริชญ์ โชคอุตสาหะ'; }else{ echo 'ภูริชญ์ โชคอุตสาหะ';}	?>&nbsp;&nbsp;)</div>		
 				</div>
 			</div>
 			
@@ -469,8 +472,8 @@
 				
 				<div id="custname">
 					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;นายภูริชญ์ โชคอุตสาหะ &nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'นายภูริชญ์ โชคอุตสาหะ'; }else{ echo 'นายภูริชญ์ โชคอุตสาหะ';}	?>&nbsp;&nbsp;)</div>		
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp; กัญญาณัฐ เย็นสุข  &nbsp;&nbsp;)</div>
+					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;<?php if($corp_addr == 1){ echo 'ภูริชญ์ โชคอุตสาหะ'; }else{ echo 'ภูริชญ์ โชคอุตสาหะ';}	?>&nbsp;&nbsp;)</div>		
 				</div>
 			</div>
 			

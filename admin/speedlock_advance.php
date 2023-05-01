@@ -534,30 +534,7 @@
 			</div><!--end condition-->
 			
 			<div id="footer" style="clear: both;">
-				<div style="width: 33%; float:left; margin-top: 20px;">
-					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
-					<span>ลงชื่อ......................................</span> <br><br>
-					<span>ผู้สั่งซื้อ</span>
-				</div>
-				
-				<div style="width: 32%; float:left; margin-top: 35px;">
-					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br><br>
-					<span>......................................</span> <br><br>
-					<span>(ภูริชญ์ โชคอุตสาหะ)</span> <br><br>
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;ฝ่ายขาย</span>
-					<br>
-				</div>
-				
-				
-				<div style="width: 33%; float:left; margin-top: 35px;">
-					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br><br>
-					<span>......................................</span> <br><br>
-					<span>(เดชาธร ผลินธร)</span> <br><br>
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;กรรมการ</span>
-					<br>
-				</div>
+				<?php include ('../include/footter_quo.php'); ?>
 			</div><!--end footer-->
 			
 			
@@ -867,28 +844,7 @@
 			
 			
 			<div id="footer" style="clear: both;">
-				<div style="width: 33%; float:left; margin-top: 20px;">
-					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
-					<span>ลงชื่อ......................................</span> <br><br>
-					<span>ผู้สั่งซื้อ</span>
-				</div>
-				
-				<div style="width: 32%; float:left; margin-top: 20px;">
-					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br><br><br>
-					<span>(ภูริชญ์ โชคอุตสาหะ)</span> <br><br>
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;ฝ่ายขาย</span>
-					<br>
-				</div>
-				
-				
-				<div style="width: 33%; float:left; margin-top: 20px;">
-					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br><br><br>
-					<span>(เดชาธร ผลินธร)</span> <br><br>
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;กรรมการ</span>
-					<br>
-				</div>
+				<?php include ('../include/footter_quo.php'); ?>
 			</div><!--end footer-->
 			
 			

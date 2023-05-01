@@ -1,4 +1,4 @@
-<div class="row" id="">
+<!--<div class="row" id="">
 			<div class="col-md-4">
 				<img src="sources/assets/images/ads/11.jpg" alt="" style="width: 99%;"><br><br>
 			</div>
@@ -9,7 +9,7 @@
 			<div class="col-md-4">
 				<img src="sources/assets/images/ads/33.jpg" alt="" style="width: 99%;"><br><br>
 			</div>
-</div>
+</div>-->
 
 <div class="row" id="">
 			<div class="col-md-4">

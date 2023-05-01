@@ -9,7 +9,7 @@
 		exit();
 	
     echo "<div class='form-group has-success adddiv'>
-				<label class='control-label' for='inputSuccess'>ธนาคาร</label>
+				<label class='control-label' for='inputSuccess'>หมวดออฟฟิต</label>
 				<select class='form-control' id='po_subcate' name='po_subcate'>
 												";
 	while($row = mysql_fetch_array($result)){ 

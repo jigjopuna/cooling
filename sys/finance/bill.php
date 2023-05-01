@@ -20,15 +20,25 @@
 			$("#search_custname").autocomplete({
 				source: "../../ajax/search_ord.php",
 				minLength: 1
-			});		
+			});
+			
+			$('input:radio[name=ord_type]').change(function () {
+				
+				if ($("input[name='ord_type']:checked").val() == 1) {
+					$('#form1').attr("action", "../../admin/receive_paper.php");
+				}else{	
+					$('#form1').attr("action", "../../admin/receive_paper_part.php");
+				}
+			});
+		
 		});
 		
 		
-		function validation(){		
-			
+		function validation(){	
 			$('#form1').submit();
-			
 		}
+		
+		
 		
 
 
@@ -65,6 +75,17 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ลูกค้า </label>
 											<input type="text" class="form-control" id="search_custname" name="search_custname">
+										</div>
+										
+										
+										<div class="form-group has-success">
+											<label class="control-label" for="inputSuccess">ประเภทออเดอร์</label><br>
+											<input type="radio" value="1" name="ord_type" checked> ห้องเย็น
+											<input style="margin-left: 10px;" type="radio" value="2" name="ord_type"> อะไหล่ใหม่
+										</div>
+										
+										<div class="form-group has-success">
+											<input type="radio" value="3" name="ord_type"> เซอร์วิส
 										</div>
 										
 										
@@ -125,7 +146,7 @@
 							<div class="row">
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<a href="../../admin/receive_paper_part.php"><button id="" type="button" class="btn btn-lg btn-success btn-block">บิลอะไหล่ใหม่ CPN</button>
+											<a href="../../admin/receive_paper_part.php" id="bilpart"><button id="" type="button" class="btn btn-lg btn-success btn-block">บิลอะไหล่ใหม่ CPN</button>
 										</div>
 										
 										
@@ -133,7 +154,7 @@
 																		
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<a href="../../admin/receive_paper_parsec.php"><button id="" type="button" class="btn btn-lg btn-success btn-block">บิลอะไหล่มือสอง TCL</button>
+											<a href="../../admin/receive_paper_parsec.php"><button id="" type="button" class="btn btn-lg btn-success btn-block">บิลอะไหล่มือสอง </button>
 										</div>
 									</div>
 									

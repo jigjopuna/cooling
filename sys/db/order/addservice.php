@@ -15,19 +15,24 @@
 	/*echo 'search_custname: '.$search_custname.'<br>';
 	echo 'serv_prov: '.$serv_prov.'<br>';
 	echo 'broken: '.$broken.'<br>';
-	*/
+	exit();*/
+	
 	
 
 	//2. insert into database	
-	$sql = "INSERT INTO tb_service SET 
-			fix_cust =  '$search_custname', 
-			fix_province =  '$serv_prov', 
-			fix_broken = '$broken', 
-			fix_date = now()
+	$sql = "INSERT INTO tb_orders SET 
+			o_cust =  '$search_custname', 
+			o_cuprovin =  '$serv_prov', 
+			o_type =  30,
+			o_date = now()
 			";
 	$result1 = mysql_query($sql);
 	
 	if($result1) {
+		$a = mysql_insert_id($conn);
+		$repair = "INSERT INTO tb_service SET fix_ord = '$a', fix_broken = '$broken'";
+		$result6 = mysql_query($repair);
+		
 		exit("<script>alert('บันทึกงานเซอร์วิสใหม่เรียบร้อยแล้วจร้า ^^ '); window.location='../../order/service.php';</script>");
 	} else {
 		exit("<script>alert('บันทึกไม่สำเร็จ ติดต่อผู้ดูแลระบบ'); window.location='../../order/service.php';</script>");

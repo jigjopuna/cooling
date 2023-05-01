@@ -9,6 +9,7 @@
 	$ro_quotation = $role['ro_quotation'];
 	$ro_income  = $role['income'];
 	$ro_cust = $role['ro_cust'];
+	$ro_logistic = $role['ro_logistic'];
 	$ro_shop = $role['ro_shop'];
 ?>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -91,6 +92,9 @@
                                     <a href="../finance/bankacc.php">เลขบัญชี</a>
                                 </li>
 							
+							    <li>
+                                    <a href="../form/form.php">ฟอร์มเอกสาร</a>
+                                </li>
                             </ul>
                         </li>
 						<?php } ?>
@@ -144,7 +148,15 @@
                                 </li>
 								
 								<li>
+                                    <a href="../order/ord_service.php">Service</a>
+                                </li>
+								
+								<li>
                                     <a href="../order/ord_source.php">ขายวัตถุดิบอาหาร</a>
+                                </li>
+								
+								<li>
+                                    <a href="../order/ord_rent.php">เช่าห้องเย็น</a>
                                 </li>
 								
 								<li>
@@ -246,6 +258,22 @@
                             </ul>
                         </li>
 						<?php } ?>
+						
+						
+						<?php if($ro_logistic!=0) { ?>
+						<li>
+                            <a href="../logistic/logis.php"><i class="fa fa-dashboard fa-fw"></i> Logistic <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+								
+                                <li>
+                                    <a href="../logistic/logis.php">บันทึกการเดินทาง</a>
+                                </li>
+
+                            </ul>
+                        </li>
+						<?php } ?>
+						
+						
 						
 						<li>
                             <a href="../part_sec/part_sec.php"><i class="fa fa-dashboard fa-fw"></i> โยกย้าย <span class="fa arrow"></span></a>

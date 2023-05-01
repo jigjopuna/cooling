@@ -33,7 +33,6 @@
 	$nMonth = date("n");
 	$date   = date("j");
 	$year   = date("Y")+543;
-	$years   = date("Y").'%';
 	$thatdate = $date."/".$nMonth."/".$year;
 	
 	$sql = "SELECT t.t_id, t.t_name, t.t_stock, t.t_supplier, t_cost, cs.cst_prod, cs.cst_five_meter, A.count nub,  cs.cst_five_meter*A.count AS yod, sl.sl_name, sl.sl_id 
@@ -41,7 +40,7 @@
 							 JOIN (
 								SELECT COUNT(*) count
 								FROM tb_orders o 
-								WHERE o.o_status != 5 AND o.o_type LIKE '1%' AND o.o_prepare = 0 AND o.o_date LIKE '$years' 
+								WHERE /*o.o_status = 1 OR o.o_status = 4 AND*/ o.o_type LIKE '1%' AND o.o_prepare = 0
 							 ) AS A
 							 JOIN tb_sellers sl ON sl.sl_id = t.t_supplier
 			WHERE t.t_stock-(cs.cst_five_meter*A.count) < 1

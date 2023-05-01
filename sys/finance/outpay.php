@@ -2,7 +2,7 @@
 	  require_once('../include/connect.php');
 	
 	//PO LIST
-	$sql = "SELECT p.po_emp, p.po_cate, p.po_id, p.po_name, p.po_orders, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_pdf , p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
+	$sql = "SELECT p.po_emp, p.po_cate, p.po_id, p.po_name, p.po_orders, p.po_qty, p.po_price, p.po_buyer, p.po_comment, p.po_subyer, p.po_bill_img, p.po_date, p.po_shop, p.po_credit, p.po_credit_complete, e.e_id, e.e_name   
 			FROM tb_po p JOIN tb_emp e ON p.po_buyer = e.e_id
 			ORDER BY po_id DESC LIMIT 0,1000";
 	$result= mysql_query($sql);
@@ -12,7 +12,7 @@
 	$result_buyer = mysql_query($sql_buyer);
 	$num_buyer = mysql_num_rows($result_buyer);
 	
-	$sql_bank = "SELECT * FROM tb_bank";
+	$sql_bank = "SELECT * FROM tb_bank WHERE bk_cop = 'CPN' OR bk_cop = 'CKP'";
 	$result_bank = mysql_query($sql_bank);
 	$num_bank = mysql_num_rows($result_bank);
 	
@@ -52,8 +52,6 @@
 <title>รายการสั่งซื้อ</title>
 <?php require_once ('../include/header.php');?>
 <?php require_once('../include/metatagsys.php');?>
-<link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
-<script src="../../js/jquery-ui-1-12-1.min.js"></script>
 <?php require_once('../include/inc_role.php'); ?>
 	
 	<script>
@@ -147,12 +145,32 @@
 			//disablemp();
 		}
 		function posubcate(){
-			if($(this).val()==8){
+			if($(this).val()==6){
+				oil();
+				
+			}else if($(this).val()==8){
 				tools_office();
+				
 			}else{
 				$('.adddiv').remove();
 			}
 				
+		}
+		
+		function oil(){
+				var url = "../../ajax/oil.php";
+				var param = "poprice="+$("#poprice").val();
+				   
+				$.ajax({
+					url      : url,
+					data     : param,
+					dataType : "html",
+					type     : "POST",
+					success: function(result){
+						$("#addpotools").html(result);	
+						
+					}
+				});//end ajax 
 		}
 		
 		function tools_office(){
@@ -177,7 +195,8 @@
 			var poprice = $('#poprice').val(); 
 			var poprodtype = $('#poprodtype').val();
 			var poshop = $('#poshop').val();
-			var pobuyer = $('select[name=pobuyer]').val();
+			var pobuyer = $('select[name=pobuyer]').val(); 
+			var bankpay = $('select[name=ord_bank]').val();
 			var podate = $('#podate').val(); 
 			var cashcenter = $('#pobuyer option:selected').val();
 			var ownercash = $('#ownercash option:selected').val(); 
@@ -192,7 +211,7 @@
 			if(isNaN(poprice)|| isNaN(poqty)){
 				alert('กรุณาใส่จำนวนเงินเป็นตัวเลขค่ะ'); return false;
 			}			
-			
+			if(bankpay == '' || bankpay == 0){ alert("เลือกบัญชีธนาคารด้วยนะคะ");   return false; }
 			if((poname=='') || (poqty=='') || (poprice=='') || (pobuyer=='') || (pobuyer<=0) || (podate=='')){
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
 			}else if(cashcenter==10 && ownercash==0) {
@@ -370,13 +389,13 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ธนาคาร</label>
 											<select class="form-control" id="ord_bank" name="ord_bank">
-												<option value="1">กสิกรไทย ออมทรัพย์</option> 
+												<option value="0">เลือกบัญชีธนาคาร ที่จ่ายเงิน</option> 
 												<?php for($i=1; $i<=$num_bank; $i++) { 
 													  $row_bank = mysql_fetch_array($result_bank);
 													  
 													  if($row['bk_type']==1){$types = 'ออมทรัพย์'; }else{ $types = 'กระแส'; }
 												?>
-												<option value="<?php echo $row_bank['bk_id'];?>"><?php echo $row_bank['bk_name']. ' ('.$types. ')';?></option> 
+												<option value="<?php echo $row_bank['bk_id'];?>"><?php echo $row_bank['bk_name'];?></option> 
 												<?php } ?>
 											</select>
 										</div>
@@ -396,25 +415,28 @@
 									
 									<div class="col-lg-4">
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess"> รูปโอนเงิน  (ไฟล์รูป)  </label>
+											<label class="control-label" for="inputSuccess">บิล/เอกสาร</label>
 											<input type="file" class="form-control require" id="pobill" name="pobill">
-										</div>
-										
-										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">บิลร้านค้า PDF (ไฟล์ PDF)</label>
-											<input type="file" class="form-control require" id="popdf" name="popdf">
 										</div>
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">วันที่</label>
 											<input type="text" class="form-control" id="podate" name="podate" value="<?php echo $today;?>">
 										</div>
+										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ลูกค้า</label>
 											<input type="text" class="form-control" id="search_custname" name="search_custname">
 										</div>
+										
 										<div class="form-group has-success">
-											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกรายการสั่งซื้อ</button>
+											<label class="control-label" for="inputSuccess"> VAT </label>
+											<input type="checkbox" class="form-control" id="povat" name="povat">
+										</div>
+										
+										
+										<div class="form-group has-success">
+											<button id="btn" type="button" class="btn btn-lg btn-success btn-block"> บันทึกรายการสั่งซื้อ </button>
 										</div>
 									</div>
 									<input type="hidden" name="curr_cash" id="curr_cash" value="<?php echo $cur_cash?>">   
@@ -495,7 +517,7 @@
 											
 											<td><?php echo $row['po_comment']; ?></td>
 											<td><?php echo $row['po_date']; ?></td>
-											<td><a href="../images/bill/<?php echo $row['po_bill_img'];?>" target="_blank">รูปโอน</a> | <a href="../images/billpo/<?php echo $row['po_bill_pdf'];?>" target="_blank">บิล PDF</a>(<?php echo $row['po_cate']?>)</td>											
+											<td><a href="../images/bill/<?php echo $row['po_bill_img'];?>" target="_blank">ดูบิล</a> (<?php echo $row['po_cate']?>)</td>											
 										    <td><?php echo $row['po_emp'].' ('.$row['po_orders'].')'; ?></td>
 										</tr>
 									<?php } ?>

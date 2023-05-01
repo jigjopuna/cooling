@@ -164,7 +164,7 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">หัวบิลบริษัท</label><br>
 											<input type="radio" value="1" name="corp" checked> CPN
-											<input type="radio" value="2" name="corp" style="margin-left:50px;" >  TCL
+											<input type="radio" value="2" name="corp" style="margin-left:50px;" >  CHK
 										</div>
 										
 									</div>

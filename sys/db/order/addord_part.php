@@ -135,7 +135,7 @@
 		}
 		
 		if($result1){
-			$msg = "ขายอะไหล่ได้". $arai . 'จำนวน ' . $ord_qty;
+			$msg = "ขายอะไหล่ได้ ". $arai . ' จำนวน ' . $ord_qty."\n". ' ราคา : '. $ord_price . ' บาท';
 			$res = notify_message($msg);			
 			exit("<script>alert('บันทึกออเดอร์ใหม่เรียบร้อยแล้วจร้า ^^ '); window.location='../../order/order.php';</script>");
 		}else{

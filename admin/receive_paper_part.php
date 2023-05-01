@@ -28,85 +28,52 @@
 	
 	$ord_id = trim($_POST['search_custname']);
 	
+	$corp = trim($_POST['copetype']);
+	$ord_type = trim($_POST['ord_type']);
+	
 	$sql_chkvat = "SELECT vat_ord FROM tb_tax WHERE vat_ord_type = 1 AND vat_ord_no = '$ord_id'";
 	$result_chkvat = mysql_query($sql_chkvat);
 	$num_chkvat = mysql_num_rows($result_chkvat);
 	$chkvat = mysql_fetch_array($result_chkvat);
 	$row_vat = $chkvat['vat_ord'];
 	
-	//echo $ord_id .' | '. $num_chkvat .' | '.$row_vat;
+	
+	
+	
+		/*echo $ord_id .' | '. $num_chkvat .' | '.$row_vat.'<br>';
+		echo 'ord_type = '.$ord_type;
+		exit();
+		*/
+	
 	
 	$vatdate = trim($_POST['vatdate']);
 	$corp_addr  = trim($_POST['corp_addr']);
 	/*echo 'e_id : '.$e_id.'<br>';
 	echo 'ord_id : '.$ord_id.'<br>';*/
 
-	
 	$row_cust = mysql_fetch_array(mysql_query("SELECT * FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) JOIN tumbon t ON c.cust_tumbon = t.id) JOIN amphur a ON c.cust_amphur = a.id) JOIN province p ON c.cust_province = p.id WHERE o.o_id = '$ord_id'"));
-	$row_order = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders WHERE o_id = '$ord_id'"));
-	$vatprice = $row_order['o_price'];
 	
-	/*
-		เงื่อนไข
-		จะคิด VAT เฉพาะมือหนึ่ง ใช้เงื่อนไข o_newold = 1 คือเท่ากับของใหม่ 
-	*/
 	
-	if($row_order['o_vat']==1){
-		$row_ordno = mysql_fetch_array(mysql_query("SELECT vat_id FROM tb_tax WHERE vat_ord='$ord_id'"));
-		$cust_ordno = $row_ordno['vat_id'];
-		
-		$price = $vatprice * 1.07;
-		$bill_head = 'ใบเสร็จรับเงิน/ใบกำกับภาษี';
+	
+	
+	if($ord_type == 2){
+		$row_order = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders o JOIN tb_tools t ON o.o_part_id = t.t_id WHERE o.o_id = '$ord_id'"));
+		$detail = $row_order['t_name'];
 	}else{
-		$price = $vatprice;
-		$bill_head = 'ใบเสร็จรับเงิน';
+		$row_order = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders o JOIN tb_service s ON s.fix_ord = o.o_id WHERE o.o_id = '$ord_id'"));
+		$detail = $row_order['fix_broken'];
 	}
 	
-	//ลูกค้าจ่ายกี่ครั้งแล้ว และครั้งละเท่าไร
-	$arrpay = array();
-	$sql_pay = "SELECT opay.pay_amount FROM tb_orders o JOIN tb_ord_pay opay ON o.o_id = opay.o_id WHERE opay.o_id = '$ord_id' ORDER BY opay.pay_id";
-	$result_pay = mysql_query($sql_pay);
-	$num_pay = mysql_num_rows($result_pay);
+	$price = $row_order['o_price'];
 	
-	for($i=1; $i<=$num_pay; $i++){
-		$row_pay = mysql_fetch_array($result_pay);
-		$arrpay[$i] = $row_pay['pay_amount']; 
-	}
+	$beforder_vat = $price/1.07;
+	$vats = $beforder_vat * 0.07;
+	$amount = $beforder_vat+$vats;
 	
+
+	$bill_head = 'ใบเสร็จรับเงิน/ใบกำกับภาษี';
 	
-	/*echo '1 :'.$arrpay[1].'<br>';
-	echo '2 :'.$arrpay[2].'<br>';
-	echo '3 :'.$arrpay[3].'<br><br>';
-	
-	echo 'ราคาเต็ม :'.$vatprice.'<br>';*/
-	
-	
-	
-	
-	/*เช็คก่อนว่าครั้งแรกจ่ายเกิน 50% หรือเปล่าถ้าใช่ให้คิดงวดที่ 2 กับที่งวดที่ 3 หักจากงวดที่1 
-	ถ้าไม่ใช่่ก็คิดตามเปอร์เซ็น
-	*/
-	if($arrpay[1] > $vatprice*0.5){
-		$remain = $vatprice - $arrpay[1];
-		$ngod2 = $remain*0.6;
-		$ngod3 = $remain*0.4;
-		//echo 'จ่ายเกิน 50%'.'<br>';
-	}else if($arrpay[1] < $vatprice*0.5){
-		$remain = $vatprice - $arrpay[1];
-		$ngod2 = $remain*0.6;
-		$ngod3 = $remain*0.4;
-		//echo 'จ่ายน้อยกว่า 50% '.'<br>';
-	}else{
-		$ngod2 = $vatprice*0.3;
-		$ngod3 = $vatprice*0.2;
-		//echo 'จ่าย 50% พอดี'.'<br>';
-	}
-	/*echo 'งวด1 :'.$arrpay[1].'<br>';
-	echo 'งวด2 :'.$ngod2.'<br>';
-	echo 'งวด3 :'.$ngod3.'<br><br>';
-	
-	echo 'ที่เหลือหลังจากงวดแรก :'.$remain.'<br>';*/
-	
+
 ?>
 
 <script>
@@ -125,8 +92,11 @@
         <div class="subpage">
 			<div id="corp_addr_ini">
 				<?php 
-					
-						require_once('../include/cpn_addr.php');				
+					if($corp == 1){
+						include ('../include/cpn_addr.php'); 
+					}else if ($corp == 2) {
+						include ('../include/chk_addr.php');
+					}
 				?>
 			</div><!--end cover_header-->
 				
@@ -134,7 +104,7 @@
 			
 			<div id="bill_title" style="/*background-color:green;*/ height: 40px; clear:both; margin-top: 100px; text-align: center; font-size: 2em; vertical-align: middle;">
 				<?php //echo $bill_head;?>
-				ใบเสร็จรับเงิน
+				ใบเสร็จรับเงิน/ใบกำกับภาษี
 			</div>
 			<?php include('../include/billdetail.php'); ?>
 
@@ -154,11 +124,11 @@
 					
 					<tr>
 						<td>1</td>
-						<td>พัดลม</td>
-						<td align='right'>1</td>
-						<td align='center'>ห้อง</td>
-						<td align='center'><?php echo number_format($vatprice, 0, '.', ',');?></td>
-						<td align='center'><?php echo number_format($vatprice, 0, '.', ',');?></td>  
+						<td><?php echo $detail; ?></td>
+						<td align='right'><?php echo $row_order['o_qty'];?></td>
+						<td align='center'>ตัว</td>
+						<td align='center'><?php echo number_format($beforder_vat, 2, '.', ',');?></td>
+						<td align='center'><?php echo number_format($beforder_vat, 2, '.', ',');?></td>  
 					</tr>
 				</table>
 			</div>
@@ -174,7 +144,7 @@
 					<p style="line-height:150%;">
 						* ได้รับสินค้าตามรายการข้างต้นในสภาพที่เรียบร้อยจำนวนสินค้าและราคาถูกต้องแล้ว<br>
 						* เอกสารฉบับนี้จะสมบูรณ์ต่อเมื่อได้เรียกเก็บเงินจากลูกค้าหรือเช็คผ่านธนาคารเรียบร้อยแล้ว<br>
-						* ธนาคารกรุงเทพ บจ.ซีพีเอ็น888  เลขที่บัญชี 520-0-45057-4  (สะสมทรัพย์)  <br>
+						* ธ.กสิกรไทย  บจก.ซีพีเอ็น888 เลขที่บัญชี 075-8-81892-6 (ออมทรัพย์)  <!-- ธ.กสิกรไทย  เดชาธร ผลินธร เลขที่บัญชี 855-2-01920-3 (ออมทรัพย์) -->
 					</p>
 				
 				</div>
@@ -183,7 +153,7 @@
 					<table style="width: 98%;">
 						<tr>
 							<td style="width:60%;">มูลค่าสินค้า </td>
-							<td align="right"><?php echo number_format($vatprice, 2, '.', ',');?></td> 
+							<td align="right"><?php echo number_format($beforder_vat, 2, '.', ',');?></td> 
 						</tr>
 						
 						<tr>
@@ -196,12 +166,12 @@
 							<td> </td>
 						</tr>
 						<tr>
-							<td>ภาษีมูลค่าเพิ่ม </td>
-							<td align="right"><?php if($vattype==1)  echo number_format($vatprice*0.07, 2, '.', ','); else echo 0;?></td>
+							<td>ภาษีมูลค่าเพิ่ม 7% </td>
+							<td align="right"><?php echo number_format($vats, 2, '.', ','); ?></td>
 						</tr>
 						<tr>
 							<td>รวมทั้งสิ้น </td>
-							<td align="right"><?php echo number_format($price, 2, '.', ',');?></td>
+							<td align="right"><?php echo number_format($amount, 2, '.', ',');?></td>
 						</tr>
 					</table>
 				

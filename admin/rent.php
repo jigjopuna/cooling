@@ -16,23 +16,7 @@
 	<title><?php echo date("Y").'-'.$nMonth.'-'.$date; ?></title>
 	<link rel="stylesheet" href="../css/quotation.css">
 	<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
-	<style>
-		.text_strong { font-weight: bold; }
-		.text_emunder { text-decoration:underline; font-weight: bold; }
-		.container { clear:both; border: 1px solid black; min-height:850px;}
-		.row { width: 100%; clear:both; padding-bottom: 60px; overflow: hidden;}
-		.col1 { float:left; width:45%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
-		.col2 { float:left; width:51%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
-		.col3 { float:left; width:53%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
-		.col4 { float:left; width:43%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
-		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
-		.intopic { font-family: 'Kanit', sans-serif; font-weight:bold; }
-		
-		@media print { 
-			 #btn-calngod,  #btn-addroom { display: none !important; } 
-		}
-
-	</style>
+	<link rel="stylesheet" href="../css/quotation.css">
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
@@ -231,10 +215,10 @@
 						</tr>
 						
 						<tr>
-							<td align="left"> <!-- บัญชีธนาคารกสิกรไทย  --> บัญชีธนาคากรุงเทพ </td>
+							<td align="left"> <!-- บัญชีธนาคารกสิกรไทย  --> บัญชีธนาคารไทยพานิชย์ </td>
 							<td align="left"></td>
 							<tr>
-								<td colspan="2" align="left"><!-- บจ.ซีพีเอ็น888-->  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> <!--075-8-81892-6--> 025-704019-6</span></td>
+								<td colspan="2" align="left"><!-- บจ.ซีพีเอ็น888-->  เลขที่บัญชี <span style="text-decoration: underline; font-weight: bold;"> <!--075-8-81892-6--> 830-249575-5</span></td>
 							</tr>
 						</tr>
 					</table>
@@ -257,18 +241,7 @@
 			
 			
 			<div id="footer" style="clear: both;">
-				<div style="width: 65%; float:left; margin-top: 20px;">
-					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
-					<span>ลงชื่อ......................................</span> <br><br>
-					<span>วันที่ <?php echo $thatdate;?></span>
-				</div>
-				<div style="width: 35%; float:left; margin-top: 20px;">
-					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
-					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
-					<br>
-				</div>
+				<?php include ('../include/footter_quo.php'); ?>
 			</div><!--end footer-->
 			
 			

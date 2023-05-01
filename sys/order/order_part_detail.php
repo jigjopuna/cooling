@@ -46,6 +46,8 @@
 	.o_image { width: 65%; margin-top:20px;}
 	@media screen and (max-width: 1024px){.o_image { width: 100%; }}
 	@media print{ .page{ background-color:red;}}
+	
+	.pum { width:30%; float:left; margin-left:20px;}
 </style>
 <?php require_once('../include/metatagsys.php');?>
 <?php require_once('../include/inc_role.php');?>
@@ -83,12 +85,12 @@
 			window.open('../../admin/job.php'+'?e_id='+ord_id, '_blank');
 		});
 		
+		
+		$('#delivery').click(function(){
+			window.open('../../admin/delivery.php'+'?o_id='+ord_id, '_blank');
+		});
 	
 	});
-	
-	
-	
-	
 	
 </script>
 </head>
@@ -113,8 +115,9 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:left;">ใบเสนอราคา</button>
-							<button id="process" type="button" class="btn btn-lg btn-success btn-block" style="width: 30%; float:right;">ใบดำเนินการ</button>
+                            <div class="pum"><button id="quotationfile" type="button" class="btn btn-lg btn-success btn-block">ใบเสนอราคา</button></div>
+							<div class="pum"><button id="delivery" type="button" class="btn btn-lg btn-success btn-block">ใบส่งของ</button></div>
+							<div class="pum"><button id="process" type="button" class="btn btn-lg btn-success btn-block">ใบดำเนินการ</button></div>
                             <!-- /.table-responsive -->
                         </div>
                         <!-- /.panel-body -->
@@ -294,7 +297,7 @@
 
     </div>
     <!-- /#wrapper -->
-
+    <div id="ord_id" style="display:none;"><?php echo $o_id;?></div>
    
 </body>
 

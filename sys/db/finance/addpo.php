@@ -41,11 +41,16 @@
 	
 	$podate = trim($_POST['podate']);
 	$pocredit = trim($_POST['pocredit']);
+	$povat = trim($_POST['povat']);
 	$posumrong = trim($_POST['posumrong']);
 	
 	$search_custname = trim($_POST['search_custname']);
 	$e_id = trim($_POST['e_id']);
 	$today = date("Ymd");
+	
+	$oil_type = trim($_POST['oil_type']);
+	$oil_unit = trim($_POST['oil_unit']); 
+	$oil_emp = trim($_POST['oil_emp']);
 	
 	$ord_bank = trim($_POST['ord_bank']);
 	
@@ -106,7 +111,6 @@
 	echo "poment = ", $poment, "<br>";
 	echo "podate = ", $podate, "<br>";
 	echo "pocredit = ", $pocredit, "<br>";
-	echo "pocredit = ", $pocredit, "<br>";
 	
 	$target_dir = "../../images/bill/";
 	$filename = time().$_FILES["pobill"]["name"];
@@ -164,6 +168,12 @@
 		}
 	}//end check is has file
 	
+	if($povat=='on'){ 
+		$povats = 1;
+	}else{
+		$povats = 0;
+	}
+	
 
 	$sql = "INSERT INTO tb_po SET 
 			po_name     = '$poname', 
@@ -171,19 +181,37 @@
 			po_price    = '$poprice', 
 			po_subcate  = '$po_subcate', 
 			po_buyer    = '$pobuyer', 
-			po_subyer    = '$owner_money',			
+			po_subyer    = '$ord_bank',			
 			po_shop     = '$poshop', 
 			po_comment  = '$poment', 
 			po_mudjum   = '$mudjum_1', 
 			po_bill_img = '$filename', 
 			po_date     = '$podate', 
 			po_orders   = '$search_custname', 
+			po_vat   = '$povats', 
 			po_cate		= '$poprodtype', 	
 			po_credit   = '$po_credit', 
 			po_emp      = '$e_id', 
 			po_time =  now()";
 	
 	$result1 = mysql_query($sql);
+	
+	//บันทุกน้ำมัน tb_oil
+	if($poprodtype==6){
+		if($result1){ 
+			$b = mysql_insert_id($conn);
+			
+			$sql_oil = "INSERT INTO tb_oil SET 
+						oil_po    = '$b', 
+						oil_car   = '$po_subcate', 
+						oil_type  = '$oil_type', 
+						oil_emp   = '$oil_emp', 
+						oil_unit  = '$oil_unit'";
+	
+			$result2 = mysql_query($sql_oil);
+		}
+	}
+	// end oil
 	
 	//อัปเดทเงินกองกลาง ในกรณีที่ใช้เงินส่วนกลางซื้อของ 
 	if($pobuyer == 10 /*&& $po_credit == 0*/){				

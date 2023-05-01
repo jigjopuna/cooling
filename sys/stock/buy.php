@@ -7,7 +7,7 @@
 			FROM tb_count_stock cs JOIN tb_tools t ON t.t_id = cs.cst_prod 
 				 JOIN (SELECT COUNT(*) count
 					FROM tb_orders o 
-					WHERE o.o_date LIKE '$pee' AND o.o_status != 5 AND o.o_type LIKE '1%'
+					WHERE o.o_date LIKE '$pee' AND o.o_status = 1 AND o.o_type LIKE '1%'
 					
 				 ) AS A";
 	$result= mysql_query($sql);

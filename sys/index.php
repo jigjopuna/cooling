@@ -274,7 +274,15 @@
 										
 									<tr class="odd gradeX">
 										<td><a href="report/print/tax_review.php" target="_blank">เช็คภาษี ซื้อ-ขาย</a></td>
-									</tr>	
+									</tr>
+
+									<tr class="odd gradeX">
+										<td><a href="report/print/vat_novat.php" target="_blank">บิลซื้อ VAT และไม่มี VAT</a></td>
+									</tr>
+
+									<tr class="odd gradeX">
+										<td><a href="report/print/oil.php" target="_blank">น้ำมัน</a></td>
+									</tr>									
 									
                                 </tbody>
 								</table>
