@@ -9,7 +9,7 @@
 	$result= mysql_query($sql);
 	$num = mysql_num_rows($result);
 		
-	$sql_bank = "SELECT * FROM tb_bank WHERE bk_cop = 'CPN'";
+	$sql_bank = "SELECT * FROM tb_bank WHERE bk_cop = 'CPN' OR bk_cop = 'CPN-P'";
 	$result_bank = mysql_query($sql_bank);
 	$num_bank = mysql_num_rows($result_bank);
 

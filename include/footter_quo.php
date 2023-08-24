@@ -7,10 +7,10 @@
 				
 				<div style="width: 32%; float:left; margin-top: 20px;">
 					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br><br>
-					<span>......................................</span> <br><br>
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <br><br>
+					<img src="https://topcooling.net/content/images/pusign.jpg" width="140px;"> <br>
 					<span>&nbsp;&nbsp;(ภูริชญ์ โชคอุตสาหะ)</span> <br><br>
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;ผู้จัดการฝ่ายขาย</span>
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;พนักงานฝ่ายขาย</span>
 					<br>
 				</div>
 				

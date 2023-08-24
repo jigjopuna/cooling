@@ -238,8 +238,8 @@
                                     
                                     </tr>
                                 </thead>
-                                <tbody>			
-									
+                                <tbody>	
+									<?php if($e_id == 3) { ?>
 									<tr class="odd gradeX">
 										<td><a href="db/finance/payin_chk.php" target="_blank">ปิดงานแล้ว แต่ยังไม่ลงสลิปเงินเข้า</a></td>
 									</tr>
@@ -282,7 +282,17 @@
 
 									<tr class="odd gradeX">
 										<td><a href="report/print/oil.php" target="_blank">น้ำมัน</a></td>
-									</tr>									
+									</tr>
+									
+									<tr class="odd gradeX">
+										<td><a href="report/print/factory2.php" target="_blank">ค่าใช้จ่ายโรงงาน</a></td>
+									</tr>
+									
+									<?php }  ?>
+									
+									<tr class="odd gradeX">
+										<td><a href="../admin/receive_paper_all.php" target="_blank">ออกใบเสร็จรับเงิน / ใบกำกับภาษี ประจำเดือน</a></td>
+									</tr>
 									
                                 </tbody>
 								</table>

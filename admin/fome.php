@@ -25,18 +25,20 @@
 	$stdardwall = 1.2;
 	$aluminium_lenght = 6;
 	
-	$cost_chakbold = 330;
-	$cost_chakl = 410;
-	$cost_chakcurve = 390;
-	$cost_chakf = 1035;
+	$cost_chakbold = 380;
+	$cost_chakl = 490;
+	$cost_chakcurve = 450;
+	$cost_chakbang = 450;
+	$cost_chakf = 1100;
 	$cost_minuimbua = 230;
 	
 	$cost_printcode = 400;
 	$cost_plastic = 4500;
-	$cost_seland = 70;
-	$cost_silicon = 88;
-	$cost_revet = 407;
-	$cost_pressure = 2000;
+	$cost_seland = 80;
+	$cost_silicon = 120;
+	$cost_revet = 512;
+	$cost_pressure = 1000;
+	$cost_light = 700+500+300; //โคมคู่ + ค่าติดตั้ง+สายไฟ ราง พร้อมสวิตซ์
 	
 	
 	
@@ -104,34 +106,79 @@
 	$area_room_all = $area_room + $celingsqm + $floor;
 
 
-	$chakbold = ceil(($r_height*4)/6);    
-	$chaklthing = ceil((($r_width*2) + ($r_length*2))/6);
-	$chak2in = $chakbold + $chaklthing;
-	$chakf = ceil((($r_width*2)+($r_length*2))/6);
+	$chakf = (ceil((($r_width*2)+($r_length*2))/6))+2;
+	$chakbold = $chakf; 
+	$chakcong = $chakf + ceil(($r_height/6)*4);
+	$chakbang = ceil(($r_height/6)*4);
 	$miniumbau = ceil(((($r_width*2)+($r_length*2))/6)*2);
-	$all_menium = $chakbold + $chaklthing + $chak2in + $chakf + $miniumbau;
+	$all_menium = $chakbold + $chakbang + $chakcong + $chakf + $miniumbau;
+	
+	
 	
 
 	
-	$printcode = ceil(($r_width*$r_length*2)/36);
-	$plasticflr = ceil(($r_width*$r_length)/45);
+	$printcode = ceil(($r_width*$r_length*2)/18);
+	$plasticflr = ceil(($r_width*$r_length)/90);
 	$seland_ = ceil($area_room*0.5);
-	$silicon_ = ceil($area_room/8);
-	$revet = ceil((($all_menium*6*2*0.35)/0.25)/1000);
+	$silicon_ = ceil(($area_room + $celingsqm)/6);
+	$revet = ceil((($all_menium*6*2*0.35)/0.25)/600);
 	$prsur = ceil(($r_width*$r_length*$r_height)/100);
 	
+	
+	
+	//ส่วนของเพดาน
+	$max_length = 4;
+	$qutity = ceil($r_width/$max_length); 
+	$length_iso = $r_width/$qutity; //ความยาวต่อหนึ่งแผ่น
+	
+	$qutity_length = ceil($r_length/1.2);   //จำนวนแผ่นตามความยาวห้อง
+	$pan =  ($qutity_length*$qutity)*3; //จำนวนแป้นสตัส
+	$h = ceil(($qutity-1)*($r_length/6));
+	$gift = $pan*2;
+	$saling = ceil(($pan*5)/200);
+	
+	$pan_cost = 60;
+	$kloreng_cost = 70;
+	$gift_cost = 30;
+	$h_cost = 1200;
+	$saling_cost = 2200;
+	
+	$pan_price = $pan_cost*$pan;
+	$kloreng_price = $kloreng_cost*$pan;
+	$gift_price = $gift_cost*$gift;
+	$h_price = $h*$h_cost;
+	$saling_price = $saling_cost*$saling;
+	
+	
+	$sum_pan_fah = $qutity*$qutity_length;
+	
+	
+	
+	$all_price_ceiling = $pan_price + $kloreng_price + $gift_price + $h_price + $saling_price;
 
-	
-	
-	
-	if($area_room <= 100){
-		$laborcost = 15000;
-	}else if($area_room <= 200){
-		$laborcost = 25000;
+	if($area_room_all <= 100){
+		$laborcost = 20000;
+		$jipata = 2000; //ทินเนอร์ เศษผ้า ถุงขยะ
+		$pufoam = 1000; 
+		$door = 50000;
+		$door_size = '1.20 x 2.00';
+		
+	}else if($area_room_all <= 200){
+		$laborcost = 35000;
+		$jipata = 3000; //ทินเนอร์ เศษผ้า ถุงขยะ
+		$pufoam = 2000; 
+		$door = 60000;
+		$door_size = '1.60 x 2.50';
 	}else{
-		$laborcost = $area_room*120;
+		$laborcost = $area_room_all*160;
+		$jipata = 5000; //ทินเนอร์ เศษผ้า ถุงขยะ
+		$pufoam = 6000;
+		$door = 120000;
+		$door_size = '3.00 x 3.00';
 	}
-
+	
+	$light_qty = ceil($sum_pan_fah/3);
+	$light = $light_qty*$cost_light;
 	
 	//exit();
 	//ราคาแผ่นผนัง = จำนวนแผ่น * ราคาแผ่น * 1.2 * ความสูงของห้อง
@@ -141,14 +188,15 @@
 	$price_isoceil = $isoceil*$isoprice*$stdardwall*$r_width;
 	$price_flrfome = $isoceil*$isoprice*$stdardwall*$r_width; 
 	
-	$all_price_flrfome =  $price_isoside + $price_isoceil +  $price_flrfome;
+	$all_price_flrfome =  $price_isoside + $price_isoceil +  $price_flrfome + $door;
 
 	$price_chkbold = $chakbold*$cost_chakbold;
 	$price_chkl = $chaklthing*$cost_chakl;
-	$price_chkcurve = $cost_chakcurve*$chak2in;
+	$price_chkcurve = $cost_chakcurve*$chakcong;
 	$price_chkf = $chakf*$cost_chakf;
+	$price_chkbang = $chakbang *$cost_chakbang;
 	$price_bua = $miniumbau*$cost_minuimbua;
-	$all_price_chak =  $price_chkbold + $price_chkl + $price_chkcurve + $price_chkf + $price_bua;
+	$all_price_chak =  $price_chkbold + $price_chkl + $price_chkcurve + $price_chkf + $price_chkbang + $price_bua;
 
 	$price_printcode = $printcode*$cost_printcode;
 	$price_plastic = $plasticflr*$cost_plastic;
@@ -157,9 +205,11 @@
 	$price_revet = $revet*$cost_revet;
 	$price_resur = $prsur*$cost_pressure;
 	
-	$all_price_acces = $price_printcode + $price_plastic + $price_seland + $price_silicon + $price_revet + $price_resur  + $laborcost; 
 	
-	$total_price = $all_price_flrfome + $all_price_chak + $all_price_acces;
+	
+	$all_price_acces = $price_printcode + $price_plastic + $price_seland + $price_silicon + $price_revet + $price_resur + $jipata + $pufoam; 
+	
+	$total_price = $all_price_flrfome + $all_price_chak + $all_price_acces + $all_price_ceiling + $laborcost + $light;
 	
 	
 	/*echo 'temparature : '. $temparature.'<br>';
@@ -235,7 +285,7 @@
 				<?php include ('../include/cpn_addr.php'); ?>
 			</div><!--end cover_header-->
 			
-			<?php include ('../include/quotation_head_cpn.php'); ?>
+			<?php //include ('../include/quotation_head_cpn.php'); ?>
 			
 			<div id="product_price" style="margin-top:105px; clear:both">
 				<table style="width: 100%; border: solid black 1px;  border-collapse: collapse;">
@@ -244,7 +294,7 @@
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ  พื้นที่ทั้งหมด <?php echo $area_room_all; ?> ตร.ม.</td>
+						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ  พื้นที่ทั้งหมด <?php echo number_format($area_room_all , 2, '.', ','); ?> ตร.ม.</td>
 						<td colspan="2" style="width: 13%;" class="rlb">กว้าง (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว (เมตร)</td>
 						<td style="width: 13%" class="b">สูง (เมตร)</td>
@@ -266,7 +316,7 @@
 					</tr>
 					
 					<tr class="highs" style="font-weight:bold; font-size:1.2em;">
-						<td class="l">ISOWALL ชนิด <?php echo $pr_type; ?> หนา <?php echo $pr_size;?> นิ้ว</td>
+						<td class="l">ISOWALL ชนิด <?php echo $pr_type; ?> หนา <?php echo $pr_size;?> นิ้ว (<?php echo number_format($all_price_flrfome, 2, '.', ','); ?>)</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
@@ -280,115 +330,195 @@
 					</tr>
 					
 					<tr>
-						<td>2. เพดานบน กว้าง 1.2 เมตร  ยาว <?php echo $r_width;?> เมตร (<?php echo $celingsqm; ?>) ตร.ม. </td>
-						<td colspan="2" class="l" align="center"><?php echo $isoceil;?> แผ่น</td>
+						<td>2. เพดานบน กว้าง 1.2 เมตร  ยาว <?php echo number_format($length_iso, 2, '.', ',');?> เมตร (<?php echo $celingsqm; ?>) ตร.ม. </td>
+						<td colspan="2" class="l" align="center"><?php echo $sum_pan_fah; //$isoceil;?> แผ่น</td>
 						<td class="l" align="right"><?php echo $isoprice;?></td>
 						<td class="l" align="right"><?php echo number_format($price_isoceil, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>3. โฟมพื้น กว้าง 1.2 เมตร    ยาว <?php echo $r_width;?> เมตร (<?php echo $floor; ?>) ตร.ม. </td>
-						<td colspan="2" class="l" align="center"><?php echo $isoceil;?> แผ่น</td>
+						<td>3. โฟมพื้น กว้าง 1.2 เมตร    ยาว <?php echo number_format($length_iso, 2, '.', ',');?> เมตร (<?php echo $floor; ?>) ตร.ม. </td>
+						<td colspan="2" class="l" align="center"><?php echo $sum_pan_fah;?> แผ่น</td>
 						<td class="l" align="right"><?php echo $isoprice;?></td>
 						<td class="l" align="right"><?php echo number_format($price_flrfome, 2, '.', ','); ?></td>
 					</tr>
 					
+					<tr>
+						<td>4. ประตูสไลด์ห้องเย็น ขนาด <?php echo $door_size; ?> เมตร     </td>
+						<td colspan="2" class="l" align="center">1 บาน </td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"><?php echo number_format($door, 2, '.', ','); ?></td>
+					</tr>
+					
 					<tr class="highs" style="">
-						<td class="l" style="font-weight: bold; background-color: #EEEEEE;">อลูมิเนียม ยาว <?php echo $aluminium_lenght;?> เมตร</td>
+						<td class="l" style="font-weight: bold; background-color: #EEEEEE;">อลูมิเนียม ยาว <?php echo $aluminium_lenght;?> เมตร (<?php echo number_format($all_price_chak, 2, '.', ','); ?>)</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr>
-						<td>4. ฉากหนา (มุมนอก)  <?php echo number_format(($r_height*4)/6 , 2, '.', ',') ;?>  เส้น  </td>
-						<td colspan="2" class="l" align="center"><?php echo $chakbold;?> </td>
-						<td class="l" align="right"><?php echo $cost_chakbold;?></td>
+						<td>5. ฉากหนา (ฉากแอล)  </td>
+						<td colspan="2" class="l" align="center"><?php echo $chakbold;?> เส้น</td>
+						<td class="l" align="right"><?php echo $cost_chakbold;?>    </td>
 						<td class="l" align="right"><?php echo number_format($price_chkbold , 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>5. ฉากแอลบาง(บนนอก)  <?php echo number_format((($r_width*2) + ($r_length*2))/6 , 2, '.', ',') ;?>  เส้น  </td>
-						<td colspan="2" class="l" align="center"><?php echo $chaklthing ;?> </td>
-						<td class="l" align="right"><?php echo $cost_chakl;?></td>
-						<td class="l" align="right"><?php echo number_format($price_chkl , 2, '.', ','); ?></td>
+						<td>6. ฉากบาง (นิ้วครึ่ง)  </td>
+						<td colspan="2" class="l" align="center"><?php echo $chakbang ;?>    เส้น</td>
+						<td class="l" align="right"><?php echo $cost_chakbang;?></td>
+						<td class="l" align="right"><?php echo number_format($price_chkbang , 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>6. ฉากโค้ง2ชิ้น (ใน) <?php echo number_format((($r_height*4)/6)+((($r_width*2) + ($r_length*2))/6) , 2, '.', ',') ;?>  เส้น  </td>
-						<td colspan="2" class="l" align="center"><?php echo $chak2in ;?> </td>
+						<td>7. ฉากโค้งชิ้นเดียว  </td>
+						<td colspan="2" class="l" align="center"><?php echo $chakcong ;?>    เส้น</td>
 						<td class="l" align="right"><?php echo $cost_chakcurve;?></td>
 						<td class="l" align="right"><?php echo number_format($price_chkcurve, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>7. ฉากF (พื้นห้องเย็น) <?php echo number_format((($r_width*2) + ($r_length*2))/6 , 2, '.', ',') ;?>  เส้น  </td>
-						<td colspan="2" class="l" align="center"><?php echo number_format($chakf, 0, '.', ',');?> </td>
+						<td>8. ฉาก F (พื้นห้องเย็น)  </td>
+						<td colspan="2" class="l" align="center"><?php echo number_format($chakf, 0, '.', ',');?>    เส้น</td>
 						<td class="l" align="right"><?php echo number_format($cost_chakf, 0, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($price_chkf , 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>8. อลูมิเนียมบัว <?php echo number_format(((($r_width*2)+($r_length*2))/6)*2 , 2, '.', ',') ;?>  เส้น  </td>
-						<td colspan="2" class="l" align="center"><?php echo $miniumbau ;?> </td>
+						<td>9. อลูมิเนียมบัว   </td>
+						<td colspan="2" class="l" align="center"><?php echo $miniumbau ;?>    เส้น</td>
 						<td class="l" align="right"><?php echo  number_format($cost_minuimbua, 0, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($price_bua , 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l" style="font-weight: bold; background-color: #EEEEEE;">อุปกรณ์อื่นๆ </td>
+						<td class="l" style="font-weight: bold; background-color: #EEEEEE;">งานเพดาน <?php echo $qutity;?> แถว แถวละ  <?php echo $qutity_length;?> แผ่น   (<?php echo number_format($all_price_ceiling, 2, '.', ','); ?>)</td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"></td>
 					</tr>
 					
 					<tr>
-						<td>9. ปริ้นโค้ส  </td>
+						<td>10. แป้นยึดแผ่นเพดาน  เกลียวเร่ง </td>
+						<td colspan="2" class="l" align="center"><?php echo $pan ;?> จุด </td>
+						<td class="l" align="right"><?php echo number_format($pan_cost+$kloreng_cost, 0, '.', ',');?></td>
+						<td class="l" align="right"><?php echo number_format($pan_price+$kloreng_price , 2, '.', ','); ?></td>
+					</tr>
+					
+					<tr>
+						<td>11. กิ๊ฟล็อค  </td>
+						<td colspan="2" class="l" align="center"><?php echo $gift ;?> ตัว</td>
+						<td class="l" align="right"><?php echo number_format($gift_cost, 0, '.', ',');?></td>
+						<td class="l" align="right"><?php echo number_format($gift_price , 2, '.', ','); ?></td>
+					</tr>
+					
+					<tr>
+						<td>12. อลูมิเนียม H มีรู  </td>
+						<td colspan="2" class="l" align="center"><?php echo $h ;?> เส้น</td>
+						<td class="l" align="right"><?php echo number_format($h_cost, 0, '.', ',');?></td>
+						<td class="l" align="right"><?php echo number_format($h_price , 2, '.', ','); ?></td>
+					</tr>
+					
+					<tr>
+						<td>13. สลิง  </td>
+						<td colspan="2" class="l" align="center"><?php echo $saling ;?> ม้วน</td>
+						<td class="l" align="right"><?php echo number_format($saling_cost, 0, '.', ',');?></td>
+						<td class="l" align="right"><?php echo number_format($saling_price , 2, '.', ','); ?></td>
+					</tr>
+					
+					<tr class="highs" style="">
+						<td class="l" style="font-weight: bold; background-color: #EEEEEE;">อุปกรณ์อื่นๆ  
+						
+						   (<?php echo number_format($all_price_acces, 2, '.', ','); ?>) </td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr>
+						<td>14. ฟริ้นโค้ส  </td>
 						<td colspan="2" class="l" align="center"><?php echo $printcode ;?> ถัง </td>
 						<td class="l" align="right"><?php echo number_format($cost_printcode, 0, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($price_printcode , 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>10. พลาสติกปูพื้น  </td>
+						<td>15. พลาสติกปูพื้น  </td>
 						<td colspan="2" class="l" align="center"><?php echo $plasticflr ;?> ม้วน </td>
 						<td class="l" align="right"><?php echo number_format($cost_plastic, 0, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($price_plastic , 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>11. ซีแลนด์  </td>
+						<td>16. ซีลแลนด์  </td>
 						<td colspan="2" class="l" align="center"><?php echo $seland_ ;?> หลอด </td>
 						<td class="l" align="right"><?php echo number_format($cost_seland, 0, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($price_seland , 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>12. ซีลิโคน  </td>
+						<td>17. ซีลิโคน  </td>
 						<td colspan="2" class="l" align="center"><?php echo $silicon_ ;?> หลอด </td>
 						<td class="l" align="right"><?php echo number_format($cost_silicon, 0, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($price_silicon , 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>13. รีเวท  </td>
+						<td>18. รีเวท  </td>
 						<td colspan="2" class="l" align="center"><?php echo $revet ;?> กล่อง </td>
 						<td class="l" align="right"><?php echo number_format($cost_revet, 0, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($price_revet, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>14. เพรชเชอร์รีพอร์ต  </td>
+						<td>19. วาล์วปรับแรงดัน </td>
 						<td colspan="2" class="l" align="center"><?php echo $prsur ;?> ตัว </td>
 						<td class="l" align="right"><?php echo number_format($cost_pressure, 0, '.', ',');?></td>
 						<td class="l" align="right"><?php echo number_format($price_resur , 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr>
-						<td>15. ค่าแรง  </td>
+						<td>20 ดอกสว่าน ถุงขยะ ทินเนอร์ เศษผ้า </td>
+						<td colspan="2" class="l" align="center">1 ชุด</td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"><?php echo number_format($jipata , 2, '.', ','); ?></td>
+					</tr>
+					
+					<tr>
+						<td>21. PU โฟม แบบกระป๋อง และแบบเท</td>
+						<td colspan="2" class="l" align="center">1 ชุด</td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"><?php echo number_format($pufoam , 2, '.', ','); ?></td>
+					</tr>
+					
+					<tr>
+						<td>22. ไฟส่องสว่าง LED 18 วัตต์ <?php echo $light_qty;?> โคม (โคมละ 2 หลอด) </td>
+						<td colspan="2" class="l" align="center"><?php echo $light_qty*2;?> หลอด</td>
+						<td class="l" align="right"><?php echo number_format($cost_light , 2, '.', ',');?></td>
+						<td class="l" align="right"><?php echo number_format($light , 2, '.', ','); ?></td>
+					</tr>
+					
+
+					<tr>
+						<td> &nbsp; </td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<tr>
+						<td>23. ค่าแรงติดตั้ง  </td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
 						<td class="l" align="right"><?php echo number_format($laborcost , 2, '.', ','); ?></td>
+					</tr>
+					
+					<tr>
+						<td>24 ค่าขนส่ง (ขึ้นอยู่กับระยะทาง)  </td>
+						<td colspan="2" class="l" align="center"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"> </td>
 					</tr>
 
 					<tr>
@@ -414,18 +544,7 @@
 			</div><!--end product_price-->
 			
 			<div id="footer" style="clear: both; margin-top: 20px;">
-				<div style="width: 65%; float:left;">
-					<span>ตกลงสั่งซื้อตามรายการข้างต้น</span> <br><br><br>
-					<span>ลงชื่อ......................................</span> <br><br>
-					<span>วันที่ <?php //echo $thatdate;?></span>
-				</div>
-				<div style="width: 35%; float:left;">
-					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
-					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
-					<br>
-				</div>
+				
 				
 				
 			</div><!--end footer-->
@@ -464,5 +583,25 @@
 	
 </div>
 <span style="float:right;"><?php echo $total_result_t;?></span>
+<div style="display:none" class="qutity"><?php echo $qutity ?></div>
+<div  style="display:none" class="length_iso"><?php echo $length_iso ?></div>
+<div style="display:none" class="pan"><?php echo $pan ?></div>
+<div style="display:none" class="h"><?php echo $h ?></div>
+<div style="display:none" class="gift"><?php echo $gift ?></div>
+<div style="display:none" class="saling"><?php echo $saling ?></div>
+
+<div style="display:none" class=""></div>
+
+<div style="display:none" class="pan_price"><?php echo number_format($pan_price , 2, '.', ','); ?></div>
+<div  style="display:none" class="kloreng_price"><?php echo number_format($kloreng_price , 2, '.', ','); ?></div>
+<div style="display:none" class="gift_price"><?php echo number_format($gift_price , 2, '.', ',');?></div>
+<div style="display:none" class="h_price"><?php echo number_format($h_price , 2, '.', ','); ?></div>
+<div style="display:none" class="saling_price"><?php echo number_format($saling_price , 2, '.', ',')  ?></div>
+<div style="display:none" class="all_price_ceiling"><?php echo number_format($all_price_ceiling , 2, '.', ',')  ?></div>
+
+
+
+
+
 </body>
 </html>

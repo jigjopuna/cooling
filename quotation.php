@@ -777,7 +777,7 @@ body {
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ เครื่อง</td>
+						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ เครื่อง ขนาด <?php echo number_format($total_result_t, 2, '.', ',');?> kW</td>
 						<td colspan="2" style="width: 13%;" class="rlb">กว้าง (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว (เมตร)</td>
 						<td style="width: 13%" class="b">สูง (เมตร)</td>

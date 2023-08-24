@@ -14,11 +14,7 @@
 	<link type="text/css" rel="stylesheet" href="../css/redmond/jquery-ui-1.8.12.custom.css">
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
 	<script src="../js/jquery-ui-1.9.1.custom.min.js"></script>
-	<style>
-		#signature { width: 100%; /*background-color:red;*/ float:none; overflow:hidden; margin-top: 200px; height:35px;}
-		.sign { float: left; width: 33%; }
-		.sign1 { float: right; width: 33%; }
-	</style>
+	<link type="text/css" rel="stylesheet" href="../css/billsignature.css">
 </head>
 <body>
 <?php 
@@ -177,18 +173,7 @@
 				
 				</div>
 				
-				<div id="signature">
-					<div class="sign">ผู้อนุมัติ ...........................</div>
-					<div class="sign">ผู้รับเงิน ...........................</div>
-					<div class="sign">ผู้รับสินค้า .........................</div>
-					
-				</div>
-				
-				<div id="custname">
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div>
-					<div class="sign1">&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;นายภูริชญ์  โชคอุตสาหะ&nbsp;&nbsp;)</div>		
-				</div>
+				<?php include('../include/signature.php'); ?>
 			</div>
 			
 

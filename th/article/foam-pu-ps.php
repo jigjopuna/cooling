@@ -227,37 +227,37 @@
 					  
 					  <tr>
 						<td class="tb_textcenter">2 นิ้ว</td>
-						<td class="tb_textcenter">720</td>
+						<td class="tb_textcenter">750</td>
 						<td class="tb_textcenter">1,250</td>
-						<td class="tb_textcenter">2,200</td>
+						<td class="tb_textcenter">2,400</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">3 นิ้ว</td>
-						<td class="tb_textcenter">780</td>
+						<td class="tb_textcenter">800</td>
 						<td class="tb_textcenter">1,380</td>
-						<td class="tb_textcenter">1,350</td>
+						<td class="tb_textcenter">1,450</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">4 นิ้ว</td>
 						<td class="tb_textcenter">860</td>
 						<td class="tb_textcenter">1,500</td>
-						<td class="tb_textcenter">2,500</td>
+						<td class="tb_textcenter">2,600</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">5 นิ้ว</td>
-						<td class="tb_textcenter">900</td>
-						<td class="tb_textcenter">1,650</td>
-						<td class="tb_textcenter">2,800</td>
+						<td class="tb_textcenter">950</td>
+						<td class="tb_textcenter">1,720</td>
+						<td class="tb_textcenter">2,900</td>
 					  </tr>
 					  
 					  <tr>
 						<td class="tb_textcenter">6 นิ้ว</td>
 						<td class="tb_textcenter">1,000</td>
-						<td class="tb_textcenter">1,800</td>
-						<td class="tb_textcenter">3,000</td>
+						<td class="tb_textcenter">1,900</td>
+						<td class="tb_textcenter">3,200</td>
 					  </tr>
 					  
 					   <tr>

@@ -107,15 +107,25 @@
 	
 	
 	$cost = $row_tool['t_price_sell'];
+	
+	$attrib = $row_tool['t_attrib_publish'];
+	$attrib1 = $row_tool['t_attrib1'];
+	$attrib2 = $row_tool['t_attrib2'];
+	$attrib3 = $row_tool['t_attrib3'];
+	
 	$prices = $cost*$qty;
 	$sumprice = $prices+$shipcost;
 	$vat = $sumprice*0.07;
 	$amount = $sumprice+$vat;
 	
-	
-	
-	
-	
+	/*echo 'cost : '.$cost.'<br>';
+	echo 'qty : '.$qty.'<br>';
+	echo 'sumprice : '.$sumprice.'<br><br>';
+
+	echo 'attrib : '.$attrib.'<br>';
+	echo 'attrib1 : '.$attrib1.'<br>';
+	echo 'attrib2 : '.$attrib2.'<br>';	*/
+
 ?>
 
 </head>
@@ -171,12 +181,38 @@
 						<td class="l" align="right"><?php echo number_format($prices, 2, '.', ',');?></td>
 					</tr>
 					
+					
+					<?php if($attrib==1) { ?>
+						<tr class="highs" style="">
+							<td class="l">&nbsp;&nbsp;&nbsp; - <?php echo $attrib1; ?></td>
+							<td colspan="2" class="l" align="center"></td>
+							<td class="l" align="right"></td>
+							<td class="l" align="right"></td>
+						</tr>
+						
+						<tr class="highs" style="">
+							<td class="l">&nbsp;&nbsp;&nbsp; - <?php echo $attrib2; ?></td>
+							<td colspan="2" class="l" align="center"></td>
+							<td class="l" align="right"></td>
+							<td class="l" align="right"></td>
+						</tr>
+						<tr class="highs" style="">
+							<td class="l">&nbsp;&nbsp;&nbsp; - <?php echo $attrib3; ?></td>
+							<td colspan="2" class="l" align="center"></td>
+							<td class="l" align="right"></td>
+							<td class="l" align="right"></td>
+						</tr>
+						
+					<?php  } ?>
+					
 					<tr class="highs" style="">
 						<td class="l">2. ค่าบริการขนส่ง</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
-						<td class="l" align="right">220.00</td>
+						<td class="l" align="right"><?php echo number_format($shipcost, 2, '.', ',');  ?></td>
 					</tr>
+					
+					
 					
 					<tr class="highs" style="">
 						<td class="l"> </td>
@@ -197,19 +233,19 @@
 							</div>
 						</td>
 						<td colspan="3" class="rlt">รวมราคารายการทั้งหมดเป็นเงิน</td>
-						<td class="t l" align="right"><?php number_format($sumprice, 2, '.', ',');  ?></td>
+						<td class="t l" align="right"><?php echo number_format($sumprice, 2, '.', ',');  ?></td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">ภาษีมูลค่าเพิ่ม 7%</td>
-						<td class="rt l" align="right"><?php number_format($vat, 2, '.', ',');  ?> </td>
+						<td class="rt l" align="right"><?php echo number_format($vat, 2, '.', ',');  ?> </td>
 					</tr>
 					
 					<tr>
 						
 						<td colspan="3" class="rl">รวมเป็นเงินสุทธิ</td>
-						<td class="rt l" align="right" id="totolprice">56,496.00 </td>
+						<td class="rt l" align="right" id="totolprice"><?php echo number_format($amount, 2, '.', ',');  ?> </td>
 					</tr>
 				
 				</tbody></table>

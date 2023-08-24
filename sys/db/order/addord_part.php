@@ -8,7 +8,8 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','DVkXOmyzLiMaXMhF8Ppoim48pl1A7foQgMTCsz1olfr');
+	//define('LINE_TOKEN','DVkXOmyzLiMaXMhF8Ppoim48pl1A7foQgMTCsz1olfr'); การเงิน CPN
+	define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');
 	define('LINE_TOKEN1', $cust_token); 
 	function notify_message($message){
 		$queryData = array('message' => $message);
@@ -110,8 +111,21 @@
 		}
 	}//end check is has file
 	
-	$arainame = mysql_fetch_array(mysql_query("SELECT t_name FROM tb_tools WHERE t_id = '$search_tool'"));
+	$arainame = mysql_fetch_array(mysql_query("SELECT t_name, t_cost FROM tb_tools WHERE t_id = '$search_tool'"));
 	$arai = $arainame['t_name'];
+	$costs = $arainame['t_cost'];
+	
+	$kumrai = $ord_price - $costs;
+	$persen = ($kumrai/$costs)*100;
+	
+	
+	/*echo 'ord_price : '.$ord_price ."<br>";
+	echo 'kumria : '.$kumrai ."<br>";
+	echo 'costs : '.$costs ."<br>";
+	echo 'persen : '.$persen ;
+	exit();*/
+	
+	
 	
 	//2. insert into database	
 	$sql = "INSERT INTO tb_orders SET 
@@ -126,6 +140,7 @@
 			o_type = '$o_type', 
 			o_part_id = '$search_tool'";
 	$result1 = mysql_query($sql); 
+
 	
 	if($result1) {
 		$a = mysql_insert_id($conn);
@@ -135,7 +150,7 @@
 		}
 		
 		if($result1){
-			$msg = "ขายอะไหล่ได้ ". $arai . ' จำนวน ' . $ord_qty."\n". ' ราคา : '. $ord_price . ' บาท';
+			$msg = "ขายอะไหล่ได้ ". $arai . "\n". ' ราคา : '.  number_format($ord_price, 2, '.', ',') . ' บาท'. "\n".' ต้นทุน : '.  number_format($costs, 2, '.', ','). "\n". ' กำไร : '.  number_format($kumrai, 2, '.', ','). "\n". ' คิดเป็น % : '. number_format($persen, 2, '.', ',').'%';
 			$res = notify_message($msg);			
 			exit("<script>alert('บันทึกออเดอร์ใหม่เรียบร้อยแล้วจร้า ^^ '); window.location='../../order/order.php';</script>");
 		}else{

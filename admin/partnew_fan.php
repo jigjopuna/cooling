@@ -16,13 +16,15 @@
 	$tvolt = $row['t_volt'];
 	
 	$shipping = 200;
-	$discount_rate = 0.05;
+	//$discount_rate = 0.05;
+	$discount_rate = 1;
 	$qty = 1;
 	
 	$sumqtyprice = $tprice*$qty;
 	
 	//ราคาลด 5% ก่อนรวม VAT
-	$tempo = $sumqtyprice-($sumqtyprice*$discount_rate)+$shipping;
+	//$tempo = $sumqtyprice-($sumqtyprice*$discount_rate)+$shipping;
+	$tempo = $sumqtyprice+$shipping;
 	$vat = $tempo*0.07;
 	$tatal = $tempo+$vat;
 	
@@ -171,12 +173,12 @@
 						<td class="l" align="right"></td>
 					</tr>
 					
-					<tr class="highs" style="color:red; font-weight:bold;">
+					<!--<tr class="highs" style="color:red; font-weight:bold;">
 						<td class="l">- ส่วนลด 5%</td>
 						<td colspan="2" class="l" align="center"></td>
 						<td class="l" align="right"></td>
-						<td class="l" align="right">-<?php echo number_format($sumqtyprice*$discount_rate, 2, '.', ','); ?></td>
-					</tr>
+						<td class="l" align="right">-<?php //echo number_format($sumqtyprice*$discount_rate, 2, '.', ','); ?></td>
+					</tr>-->
 
 					<tr class="highs" style="">
 						<td class="l">&nbsp;</td>

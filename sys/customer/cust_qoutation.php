@@ -231,7 +231,7 @@
 											</select>
 										</div>
 										
-										<?php if($ro_finance==1){?>
+										<?php if($ro_finance==1 && $e_id == 3){?>
 										<div class="form-group has-success">
 											<button id="btnpart" type="button" class="btn btn-lg btn-success btn-block">บันทึกอะไหล่และ IoT</button>
 										</div>

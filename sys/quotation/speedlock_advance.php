@@ -243,7 +243,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ค่าขนส่ง </label>
-											<input type="text" class="form-control" id="ship_cost" name="ship_cost" value="8000">
+											<input type="text" class="form-control" id="ship_cost" name="ship_cost" value="16000">
 										</div>
 										
 										
@@ -316,7 +316,7 @@
 										
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">เบ็ดเตล็ด</label>
-											<input type="text" class="form-control" id="bedtaled" name="bedtaled" value="43000">
+											<input type="text" class="form-control" id="bedtaled" name="bedtaled" value="55000">
 										</div>
 										
 										
@@ -332,7 +332,7 @@
 										</div>
 										
 										<div class="form-group has-success">
-											<label class="control-label" for="inputSuccess">โชว์  VAT (จริงๆ รวมไปแล้ว)</label>
+											<label class="control-label" for="inputSuccess">VAT </label>
 											<input type="checkbox" class="form-control" id="intvat" name="intvat" checked>
 										</div>
 										

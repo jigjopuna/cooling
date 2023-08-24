@@ -89,11 +89,6 @@
 											    <td><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></a></td>	
 											<?php } ?>
 											
-											
-											
-											
-											   
-											
 											<?php if($row_all['o_status']==5) { ?>
 												<td style="background-color: #315ab2; color:red; font-weight:bold;"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
 											<?php } else if($row_all['o_status']==1) { ?>

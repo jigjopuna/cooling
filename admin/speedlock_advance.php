@@ -23,10 +23,29 @@
 <script src="../js/quotation.js"></script>
 
 <?php 
+	date_default_timezone_set("Asia/Bangkok");	
+	define('LINE_API',"https://notify-api.line.me/api/notify");	
+	define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');
+	define('LINE_TOKEN1', $cust_token); 
+	function notify_message($message){
+		$queryData = array('message' => $message);
+		$queryData = http_build_query($queryData,'','&');
+		$headerOptions = array(
+			'http'=>array(
+				'method'=>'POST',
+				'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
+						  ."Authorization: Bearer ".LINE_TOKEN."\r\n"
+						  ."Content-Length: ".strlen($queryData)."\r\n",
+				'content' => $queryData
+			)
+		);
+		$context = stream_context_create($headerOptions);
+		$result = file_get_contents(LINE_API,FALSE,$context);
+		$res = json_decode($result);
+		return $res;
+	}
 	
 	$cust_id = trim($_POST['search_custname']);
-
-	
 	$chkdetail = mysql_fetch_array(mysql_query("SELECT qcust_prov FROM tb_quo_cust WHERE qcust_id = '$cust_id'"));
 	$rowchkdetail = $chkdetail['qcust_prov'];
 	
@@ -127,7 +146,7 @@
 	$sqmwall = $walqty*$r_high*1.2;
 	$sqmpedan = $pedan*$r_width*1.2;
 	$sqmfloor = $floors*$r_width*1.2;
-	$sqmsum = $sqmfloor+$sqmpedan+$sqmwall;
+	$sqmsum = ($sqmfloor+$sqmpedan+$sqmwall)*1.1; //เผื่อไว้ 10% กรณีที่ต้องตัดแผ่นแล้วเหลือเศษ
 	
 	$cute = ($r_width*$r_high*2) + ($r_lenght*$r_high*2) + ($r_width*$r_lenght*2);
 	if($foaminch==2){ 
@@ -145,39 +164,32 @@
 	}
 	
 	if($foam==1){ $foams = 'PU'; } else { $foams = 'PS'; }
-	if($doortype==1){ $doortypes = 'ประตูบานสวิง '; $pratoo = 26000; } else { $doortypes = 'ประตูบานเลื่อน'; $pratoo = 37000; }
+	if($doortype==1){ $doortypes = 'ประตูบานสวิง '; $pratoo = 28000; } else { $doortypes = 'ประตูบานเลื่อน'; $pratoo = 38000; }
 	
 	$sql_wall = mysql_fetch_array(mysql_query("SELECT * FROM tb_productroom WHERE pr_cate= 1 AND pr_size = '$foaminch' AND pr_type = '$foams'"));
 	
 	$wall_price = $sql_wall['pr_sell_price']; 
 	$foam_sum_price =  $sqmsum * $wall_price;
 	$wall_and_door = $foam_sum_price + $pratoo;
+	$foam_msg = $wall_price. ' '. $foams . $foaminch;
+	
+	$sum_acess =  $labor + $ship_cost + $jipata;
 	
 	
+	$room_msg = $r_width.'x'.$r_lenght.'x'.$r_high.' '.$ord_temp.'C'; 
 	
-	/*echo 'ราคาต้นทุน realcost : '.$realcost.'<br>';
-	echo 'ราคาต้นทุน+กำไร : '.$kumrai.'<br>';*/
-	
-	$befor_ship = $pasee+$jipata+$labor;
-	$prettylast = $befor_ship+$ship_cost;
-	$total_price = $prettylast-$discount;
-	$incvat = $total_price;
-	
-	/*echo 'กำไร+จิปาถะ+ค่าแรง  : '.$befor_ship.'<br>';
-	echo 'ราคารวมส่ง : '.$prettylast.'<br>';
-	echo 'ราคาลด : '.$total_price.'<br>';
-	echo 'ภาษีมูลค่าเพิ่ม : '.($total_price*0.07).'<br>';
-	echo 'ราคาสุทธิ : '.$incvat.'<br>';*/
-	
-	$ngod1 = $incvat*0.5;
-	$ngod2 = $incvat*0.3;
-	$ngod3 = $incvat*0.2;
-	/*$befor_ship = ($cute*$wall_price)+$pratoo+$basic_price+$jipata+$labor;
-	$prettylast = ($cute*$wall_price)+$pratoo+$basic_price+$jipata+$labor+$ship_cost;
-	$total_price = ($cute*$wall_price)+$pratoo+$basic_price+$jipata+$labor+$ship_cost-$discount;
-	*/
+	/*echo 'ราคาโฟมต่อ ตร.ม. : '.$wall_price.'<br>';
+	echo 'ตารางเมตรทั้งหมด : '.$sqmsum.'<br>';
+	echo 'คูณราคาโฟม : '.$foam_sum_price.'<br>';
+	echo 'ราคาโฟม + ประตู : '.$wall_and_door.'<br><br>';
 	
 	
+	echo 'จิปาถะ : '.$jipata.'<br>';
+	echo 'ค่าแรง : '.$labor.'<br>';
+	echo 'ค่าขนส่ง : '.$ship_cost.'<br>'; 
+	echo 'ค่าแรง ขนส่ง และ จิปาถะ  : '.$sum_acess.'<br><br>';*/
+	
+
 	if($hp==3){
 		$copeland=21;
 		$fancon = 1;
@@ -201,31 +213,67 @@
 	$cdu = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools t JOIN tb_com_brand c ON c.comp_id = t.t_brand WHERE t.t_type = 11 AND t.t_subtype =1 AND t.t_brand = '$comp_name' AND t.t_hp = '$hp'"));
 	$cooler = mysql_fetch_array(mysql_query("SELECT * FROM tb_tools t JOIN tb_cooling_brand c ON c.cool_id = t.t_brand WHERE t.t_type = 11 AND t.t_subtype = 2 AND t.t_brand = '$coil_name' AND t.t_hp = '$hp'"));
 	
-	$controlprice = 20000; 
-	$shipcost = 8000;
+	$cdu_name = $cdu['t_name'];
+	$cdu_cost = $cdu['t_cost'];
+	$cdu_model = $cdu['t_model'];
+	$cdu_hp = $cdu['t_hp'];
 	
+	$cooler_name = $cooler['t_name'];
+	$cooler_cost = $cooler['t_cost'];
+	$cooler_model = $cooler['t_model'];
+	$cooler_hp = $cooler['t_hp'];
+	
+	$controlprice = 20000; 
+	
+	$system = 	$cdu_cost + $cooler_cost + $controlprice;
+	
+	$cdu_detail = $cdu_name.' '.$cdu_model. $cdu_hp.'HP : '. number_format($cdu_cost, 2, '.', ',');
+	$cooling_detail = $cooler_name.' '.$cooler_model.' '. $cooler_hp.'HP   '. number_format($cooler_cost, 2, '.', ',');
+	
+	
+	/*echo $cdu_detail.'<br>';
+	echo $cooling_detail.'<br>';
+	echo 'ราคาเครื่องรวมตู้คอนโทรล : '.$system.'<br><br>';
+	
+	echo 'กำไร  %: '.$profit.'<br><br>';*/
+	
+	 
 	$cdu_cost = $cdu['t_cost']*1.1;
 	$cooler_cost = $cooler['t_cost']*1.1;
 	$price = ($cdu_cost + $cooler_cost);
 	
-	$sum_cost = (($controlprice +  $price) * $qtyhp) + $labor + $shipcost + $wall_and_door;
 	
-	$kumrai = $sum_cost*$profit;
-	$kai = $sum_cost + $kumrai;
+	$sum_kong = ($system * $qtyhp) + $wall_and_door;
+	
+	
+	$kumraikong = $sum_kong*$profit;
+	
+	/* 
+		ขายก็คือ = ต้นทุนของ + กำไร + ค่าช่างค่าขนส่ง
+		 $kai  = $sum_kong + $kumraikong + $sum_acess
+			
+		ต้นทุนของ + กำไร 
+		$sum_kong + $kumraikong;
+		
+	*/
+	$tontunandkumrai = $sum_kong + $kumraikong;
+	$kai = $tontunandkumrai + $sum_acess;
 	$vats = $kai*0.07;
 	$kaivat = $kai + $vats;
 	
+	$ngod1 = $kaivat*0.7;
+	$ngod2 = $kaivat*0.3;
+	$ngod3 = $kaivat*0;
 	
-	 
+	/*echo 'รวมต้นทุนของ: '.$sum_kong.'<br>';
+	echo 'กำไรของ : '.$kumraikong.'<br>';
+	echo 'ต้นทุนของ + กำไร : '.$tontunandkumrai.'<br><br>';
 	
-	/*echo 'cute : '.$cute.'<br>';
-	echo 'wall_price : '.$wall_price.'<br>';
-	echo 'basic_price : '.$basic_price.'<br>';
-	echo 'jipata : '.$jipata.'<br>';
-	echo 'kumrai : '.$kumrai.'<br>';
-	echo 'prettylast : '.$prettylast.'<br>';
-	echo 'total_price : '.$total_price.'<br>';*/
 	
+
+	echo 'ขาย  : '.$kai.'<br>';
+	echo 'VAT  : '.$vats.'<br>';
+	echo 'ขายรวม VAT  : '.$kaivat.'<br><br>';*/
 	
 
 	if($ord_coilh==2){ 
@@ -318,6 +366,7 @@
 	
 	*/
 	
+	
 	$sql_log = "INSERT INTO tb_quotation_log SET 
 				qou_cust = '$cust_id', 
 				qou_temp = '$ord_temp', 
@@ -336,6 +385,11 @@
 				qou_price = '$ord_price',  
 				qou_date = now()";
 	$result_log = mysql_query($sql_log);	
+	
+	$msg = $room_msg."\n\n"."ราคาโฟม ตร.ม. :  ". $foam_msg . "\n". 'ตารางเมตรทั้งหมด : '.  $sqmsum . ' ตร.ม.'. "\n".' คูณราคาโฟม : '.  number_format($foam_sum_price, 2, '.', ','). "\n". ' ราคาโฟม + ประตู : '.  number_format($wall_and_door, 2, '.', ','). "\n\n". $cdu_detail. "\n".$cooling_detail. "\n"."ราคารวมเครื่องตู้ไฟ:  ". number_format($system, 2, '.', ','). "\n\n"."อุปกรณ์ติดตั้ง :  ". number_format($jipata, 2, '.', ','). "\n"."ค่าขนส่ง :  ". number_format($ship_cost, 2, '.', ','). "\n"."ค่าแรง :  ". number_format($labor, 2, '.', ','). "\n"."ค่าขนส่ง ส่ง และอุปกรณ์ติดตั้ง :  ". number_format($sum_acess, 2, '.', ','). "\n\n"."%กำไร :  ".$percent."\n"."รวมต้นทุนของ :  ". number_format($sum_kong, 2, '.', ',')."\n"."กำไรของ :  ". number_format($kumraikong, 2, '.', ',')."\n"."รวมต้นทุน+กำไร :  ". number_format($tontunandkumrai, 2, '.', ','). "\n\n"."ขาย :  ". number_format($kai, 2, '.', ','). "\n"."VAT : ".number_format($vats, 2, '.', ','). "\n"."ขายรวม VAT : ".number_format($kaivat, 2, '.', ',');
+	
+	
+	$res = notify_message($msg);
 	
 	
 	
@@ -626,8 +680,8 @@
 							
 						</td>
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
-						<td class="l" align="right"><?php echo number_format($sum_cost, 2, '.', ','); ?></td>
-						<td class="l" align="right" id="pricefullpay"><?php echo number_format($sum_cost, 2, '.', ','); ?></td>
+						<td class="l" align="right"><?php echo number_format($kai, 2, '.', ','); ?></td>
+						<td class="l" align="right" id="pricefullpay"><?php echo number_format($kai, 2, '.', ','); ?></td>
 					</tr>
 					
 					<tr class="highs" style="">
@@ -714,7 +768,7 @@
 						<td class="l"> 6. ค่าบริการติดตั้งห้องเย็น</td>
 						<td colspan="2" class="l" align="center">1 ห้อง</td>
 						<td class="l" align="center"></td>
-						<td class="l" align="right"><?php echo number_format($labor, 2, '.', ','); ?></td>
+						<td class="l" align="right"></td>
 					</tr>
 					
 					
@@ -779,17 +833,17 @@
 						</tr>
 						<tr>
 							<td align="left" style="width: 60%">  <span style="text-decoration: underline;">งวดที่ 1</span>   70%  ชำระเมื่อได้รับใบสั่งซื้อ </td>
-							<td align="left" style="width: 35%"><span class="cal_ngo1"><?php echo number_format($ngod1, 0, '.', ',');?></span> บาท</td>
+							<td align="left" style="width: 35%"><span class="cal_ngo1"><?php echo number_format($ngod1, 2, '.', ',');?></span> บาท</td>
 						</tr>
 						
 						<tr>
 							<td align="left"> <span style="text-decoration: underline;">งวดที่ 2</span>   30% ชำระเมื่อใช้งานได้เรียบร้อย <!--ชำระก่อนจัดส่งอุปกรณ์--> </td>
-							<td align="left"><span class="cal_ngo2"><?php echo number_format($ngod2, 0, '.', ',');?></span> บาท</td>
+							<td align="left"><span class="cal_ngo2"><?php echo number_format($ngod2, 2, '.', ',');?></span> บาท</td>
 						</tr>
 						
 						<!--<tr>
 							<td align="left"> <span style="text-decoration: underline;">งวดที่ 3</span>   20% ชำระเมื่อใช้งานได้เรียบร้อย </td>
-							<td align="left"><span class="cal_ngo3"><?php //echo number_format($ngod3, 0, '.', ',');?></span> บาท</td>
+							<td align="left"><span class="cal_ngo3"><?php //echo number_format($ngod3, 2, '.', ',');?></span> บาท</td>
 						</tr>-->
 						
 					<?php
