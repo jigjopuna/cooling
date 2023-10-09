@@ -24,9 +24,17 @@
 	if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ');window.location = '../../sys/pages/login/login.php';</script>");}
 	
 	$ord_id = trim($_POST['search_custname']);
-	$ord_id = trim($_POST['search_custname']);
 	
 	$corp = trim($_POST['copetype']);
+	$bil_typ = trim($_POST['bil_typ']); 
+	if($bil_typ == 1){ 
+		$hbill   = 'ใบแจ้งหนี้ / ใบวางบิล';
+		$hbiltyp = 'เลขที่ใบแจ้งหนี้ /  No. : ';
+	} else { 
+		$hbill   = 'ใบเสร็จรับเงิน/ใบกำกับภาษี' ;
+		$hbiltyp = 'เลขที่ใบกำกับ /  No. : ';
+	}
+	
 	
 	$sql_chkvat = "SELECT vat_ord FROM tb_tax WHERE vat_ord_type = 1 AND vat_ord_no = '$ord_id'";
 	$result_chkvat = mysql_query($sql_chkvat);
@@ -107,6 +115,12 @@
 	
 	echo 'ที่เหลือหลังจากงวดแรก :'.$remain.'<br>';*/
 	
+	$approv = mysql_fetch_array(mysql_query("SELECT * FROM tb_emp e WHERE e_id = '$e_id'"));
+	$approv_name = $approv['e_name'];
+	$approv_lname = $approv['e_lname'];
+	$approv_sign = $approv['e_sign'];
+	$appv_name = $approv_name. ' ' .$approv_lname;
+	
 ?>
 
 <script>
@@ -136,8 +150,7 @@
 				
 			
 			<div id="bill_title" style="/*background-color:green;*/ height: 40px; clear:both; margin-top: 100px; text-align: center; font-size: 2em; vertical-align: middle;">
-				<?php //echo $bill_head;?>
-				ใบเสร็จรับเงิน/ใบกำกับภาษี
+				<?php echo $hbill;?>
 			</div>
 			<?php include('../include/billdetail.php'); ?>
 
@@ -245,7 +258,7 @@
 			</div><!--end cover_header-->
 			
 			<div id="bill_title" style="/*background-color:green;*/ height: 40px; clear:both; margin-top: 100px; text-align: center; font-size: 2em; vertical-align: middle;">
-				ใบแจ้งหนี้/ใบวางบิล
+				<?php echo $hbill;?>
 			</div>
 			
 			<?php include('../include/billdetail.php'); ?>
@@ -347,7 +360,7 @@
 				
 			</div><!--end cover_header-->
 			<div id="bill_title" style="/*background-color:green;*/ height: 40px; clear:both; margin-top: 100px; text-align: center; font-size: 2em; vertical-align: middle;">
-				ใบแจ้งหนี้/ใบวางบิล
+				<?php echo $hbill;?>
 			</div>
 			
 			<?php include('../include/billdetail.php'); ?>

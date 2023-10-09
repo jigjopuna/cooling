@@ -105,6 +105,10 @@
 										<a href="cust_part.php"><div id="" class="r_box"><p>ลูกค้าอะไหล่</p></div></a>
 									</div>
 									
+									<div class="col-lg-3">
+										<a href="cust_rent.php"><div id="" class="r_box"><p>ลูกค้าเช่าห้องเย็น</p></div></a>
+									</div>
+									
 									
 								
 								</form>

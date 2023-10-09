@@ -16,7 +16,7 @@
 					WHERE o.o_type LIKE '4%' ORDER BY o.o_id DESC LIMIT 0, 300";
 		*/
 		
-		$sql_all = "SELECT c.cust_name, c.cust_lineid, c.cust_tel, t.t_id, o.o_id, o.o_date, t.t_name, t.t_cost, o.o_price
+		$sql_all = "SELECT c.cust_name, c.cust_lineid, c.cust_tel, t.t_id, o.o_note, o.o_id, o.o_date, t.t_name, t.t_model, t.t_cost, o.o_price, o.o_qty
 					FROM (tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id)
 						  JOIN tb_tools t ON t.t_id = o.o_part_id
 					WHERE o.o_type LIKE '4%' ORDER BY o.o_id DESC LIMIT 0, 300";
@@ -75,14 +75,13 @@
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
-										<th style='width: 5%;'>ลำดับ</th>
+										<th style='width: 3%;'>ลำดับ</th>
                                         <th style='width: 15%;'>ลูกค้า</th>
-										<th style='width: 15%;'>รายการ</th>
-										<th style='width: 10%;'>ราคาขาย</th>
-										<th style='width: 10%;'>ราคาทุน</th>
-										<th style='width: 10%;'>Line ลูกค้า</th>
-										<th style='width: 15%;'>เบอร์ติดต่อ</th>
-										<th style='width: 10%;'>วันที่ออเดอร์</th>
+										<th style='width: 30%;'>รายการ</th>
+										<th style='width: 9%;'>ราคาขาย</th>
+										<th style='width: 9%;'>ราคาทุน</th>
+										<th style='width: 12%;'>เบอร์ติดต่อ</th>
+										<th style='width: 9%;'>วันที่ออเดอร์</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -94,13 +93,11 @@
 										<tr class="gradeA">
 											<td><?php echo $row_all['o_id']; ?></td>
 											<td><a href="order_part_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></td>	
-											<td><?php echo $row_all['t_name']; ?> (<?php echo $row_all['t_id']; ?>)</td>
+											<td><?php echo $row_all['t_name'].' '.$row_all['t_model']; ?> (<?php echo $row_all['t_id']; ?>)</td>
 											<td><?php echo number_format($row_all['o_price'], 0, '.', ',') ?></td>
-											<td><?php echo number_format($row_all['t_cost'], 0, '.', ',') ?></td>
-						
-											<td><?php echo $row_all['cust_lineid']; ?></td>
-											<td><?php echo $row_all['cust_tel']; ?></td> 
-											<td><?php echo $row_all['o_date']; ?></td>
+											<td><?php echo number_format($row_all['t_cost'], 0, '.', ',').' x '. $row_all['o_qty'];?></td>	
+											<td><?php echo $row_all['cust_tel'].' ('.$row_all['cust_lineid'].')'; ?></td> 
+											<td><?php echo date("d-m-Y", strtotime($row_all['o_date'])); ?></td>
 											          
 										</tr>
 									<?php } ?>

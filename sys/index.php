@@ -291,7 +291,7 @@
 									<?php }  ?>
 									
 									<tr class="odd gradeX">
-										<td><a href="../admin/receive_paper_all.php" target="_blank">ออกใบเสร็จรับเงิน / ใบกำกับภาษี ประจำเดือน</a></td>
+										<td><a href="finance/select_billdate.php" target="_blank">ออกใบเสร็จรับเงิน / ใบกำกับภาษี ประจำเดือน</a></td>
 									</tr>
 									
                                 </tbody>

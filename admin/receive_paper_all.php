@@ -21,10 +21,15 @@
 	/*require_once('../include/googletag.php');*/
 	$e_id = $_SESSION['ss_emp_id'];
 	if($e_id==""){exit("<script>alert('กรุณา Login ก่อนนะคะ');window.location = '../../sys/pages/login/login.php';</script>");}
+	
+	$year = $_POST['rep_year'];
+	$mont = $_POST['rep_month'];
 
-	$mont = date("m");
-	$year = date("Y");
+	/*$mont = date("m");
+	$year = date("Y");*/
+	
 	$dates =  $year.'-'.$mont.'%';
+	
 	
 	$yyy = $year+543;
 	$yy = substr($yyy, -2);
@@ -59,7 +64,7 @@
 <div class="book">
 <form method="post" action="pfq.php"id="form1">
 
-	<?php for($i=1; $i<$num; $i++) { //page  
+	<?php for($i=1; $i<=$num; $i++) { //page  
 		$row = mysql_fetch_array($result);
 
 		$ord_id = $row['o_id'];
@@ -97,10 +102,13 @@
 		*/
 		
 		if($otype == 1){ //ห้องเย็น
-			
+			$row1 = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders o  WHERE o.o_id = '$ord_id'"));
+			$detail = 'ห้องเย็น ขนาด '.$row1['o_width'].' x '.$row1['o_size'].' x '.$row1['o_high'].' เมตร กว้าง x ยาว x สูง';
+			$o_qty = $row1['o_qty'];
+			$unit = 'ห้อง';
 		}else if($otype == 3){ //Service
 			$row1 = mysql_fetch_array(mysql_query("SELECT * FROM tb_orders o JOIN tb_service s ON o.o_id = s.fix_ord WHERE o.o_id = '$ord_id'"));
-			$detail = $row1['fix_detail'];
+			$detail = $row1['fix_broken'];
 			$o_qty = 1;
 			$unit = 'งาน';
 			
@@ -229,7 +237,7 @@
 					
 					</div>
 					
-					<?php include('../include/signature.php'); ?>
+					<?php include('../include/signature1.php'); ?>
 				</div>
 				
 

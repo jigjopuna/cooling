@@ -25,7 +25,9 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	
-	define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt');
+	//define('LINE_TOKEN','jliLrNV8Biy1Gb51j6CnTYfMzO22RekxVh2KgqYETxt'); //pu
+	define('LINE_TOKEN','pgUcBCC3SHXr0aSmuzIf7beHRxfyYzRmk4SpfA6qZp4'); // Notify group
+	
 	define('LINE_TOKEN1', $cust_token); 
 	function notify_message($message){
 		$queryData = array('message' => $message);
@@ -173,7 +175,7 @@
 	$wall_and_door = $foam_sum_price + $pratoo;
 	$foam_msg = $wall_price. ' '. $foams . $foaminch;
 	
-	$sum_acess =  $labor + $ship_cost + $jipata;
+	$sum_shoplab =  $labor + $ship_cost;
 	
 	
 	$room_msg = $r_width.'x'.$r_lenght.'x'.$r_high.' '.$ord_temp.'C'; 
@@ -181,13 +183,10 @@
 	/*echo 'ราคาโฟมต่อ ตร.ม. : '.$wall_price.'<br>';
 	echo 'ตารางเมตรทั้งหมด : '.$sqmsum.'<br>';
 	echo 'คูณราคาโฟม : '.$foam_sum_price.'<br>';
-	echo 'ราคาโฟม + ประตู : '.$wall_and_door.'<br><br>';
+	echo 'ราคาโฟม + ประตู : '.$wall_and_door.'<br><br>';*/
 	
 	
-	echo 'จิปาถะ : '.$jipata.'<br>';
-	echo 'ค่าแรง : '.$labor.'<br>';
-	echo 'ค่าขนส่ง : '.$ship_cost.'<br>'; 
-	echo 'ค่าแรง ขนส่ง และ จิปาถะ  : '.$sum_acess.'<br><br>';*/
+	
 	
 
 	if($hp==3){
@@ -225,39 +224,37 @@
 	
 	$controlprice = 20000; 
 	
-	$system = 	$cdu_cost + $cooler_cost + $controlprice;
+	$system = 	($cdu_cost + $cooler_cost + $controlprice)* $qtyhp;
+	$sum_sys_wasadu = $system + $jipata;
 	
 	$cdu_detail = $cdu_name.' '.$cdu_model. $cdu_hp.'HP : '. number_format($cdu_cost, 2, '.', ',');
 	$cooling_detail = $cooler_name.' '.$cooler_model.' '. $cooler_hp.'HP   '. number_format($cooler_cost, 2, '.', ',');
 	
 	
 	/*echo $cdu_detail.'<br>';
-	echo $cooling_detail.'<br>';
-	echo 'ราคาเครื่องรวมตู้คอนโทรล : '.$system.'<br><br>';
+	echo $cooling_detail.'<br>'; 
+	echo 'จำนวน ชุด : '.$qtyhp.'<br>';
+	echo 'ราคาเครื่องรวมตู้คอนโทรล : '.$system.'<br>';
+	echo 'วัสดุอุปกรณ์ติดตั้ง : '.$jipata.'<br>';
+	echo 'รวมวัสดุอุปกรณ์ติดตั้ง : '.$sum_sys_wasadu.'<br><br>';
 	
 	echo 'กำไร  %: '.$profit.'<br><br>';*/
-	
-	 
-	$cdu_cost = $cdu['t_cost']*1.1;
-	$cooler_cost = $cooler['t_cost']*1.1;
-	$price = ($cdu_cost + $cooler_cost);
-	
-	
-	$sum_kong = ($system * $qtyhp) + $wall_and_door;
+
+	$sum_kong = $sum_sys_wasadu + $wall_and_door;
 	
 	
 	$kumraikong = $sum_kong*$profit;
 	
 	/* 
 		ขายก็คือ = ต้นทุนของ + กำไร + ค่าช่างค่าขนส่ง
-		 $kai  = $sum_kong + $kumraikong + $sum_acess
+		 $kai  = $sum_kong + $kumraikong + $sum_shoplab
 			
 		ต้นทุนของ + กำไร 
 		$sum_kong + $kumraikong;
 		
 	*/
 	$tontunandkumrai = $sum_kong + $kumraikong;
-	$kai = $tontunandkumrai + $sum_acess;
+	$kai = $tontunandkumrai + $sum_shoplab;
 	$vats = $kai*0.07;
 	$kaivat = $kai + $vats;
 	
@@ -268,8 +265,10 @@
 	/*echo 'รวมต้นทุนของ: '.$sum_kong.'<br>';
 	echo 'กำไรของ : '.$kumraikong.'<br>';
 	echo 'ต้นทุนของ + กำไร : '.$tontunandkumrai.'<br><br>';
-	
-	
+
+	echo 'ค่าแรง : '.$labor.'<br>';
+	echo 'ค่าขนส่ง : '.$ship_cost.'<br>'; 
+	echo 'รวมค่าแรง ขนส่ง  : '.$sum_shoplab.'<br><br>';
 
 	echo 'ขาย  : '.$kai.'<br>';
 	echo 'VAT  : '.$vats.'<br>';
@@ -386,7 +385,7 @@
 				qou_date = now()";
 	$result_log = mysql_query($sql_log);	
 	
-	$msg = $room_msg."\n\n"."ราคาโฟม ตร.ม. :  ". $foam_msg . "\n". 'ตารางเมตรทั้งหมด : '.  $sqmsum . ' ตร.ม.'. "\n".' คูณราคาโฟม : '.  number_format($foam_sum_price, 2, '.', ','). "\n". ' ราคาโฟม + ประตู : '.  number_format($wall_and_door, 2, '.', ','). "\n\n". $cdu_detail. "\n".$cooling_detail. "\n"."ราคารวมเครื่องตู้ไฟ:  ". number_format($system, 2, '.', ','). "\n\n"."อุปกรณ์ติดตั้ง :  ". number_format($jipata, 2, '.', ','). "\n"."ค่าขนส่ง :  ". number_format($ship_cost, 2, '.', ','). "\n"."ค่าแรง :  ". number_format($labor, 2, '.', ','). "\n"."ค่าขนส่ง ส่ง และอุปกรณ์ติดตั้ง :  ". number_format($sum_acess, 2, '.', ','). "\n\n"."%กำไร :  ".$percent."\n"."รวมต้นทุนของ :  ". number_format($sum_kong, 2, '.', ',')."\n"."กำไรของ :  ". number_format($kumraikong, 2, '.', ',')."\n"."รวมต้นทุน+กำไร :  ". number_format($tontunandkumrai, 2, '.', ','). "\n\n"."ขาย :  ". number_format($kai, 2, '.', ','). "\n"."VAT : ".number_format($vats, 2, '.', ','). "\n"."ขายรวม VAT : ".number_format($kaivat, 2, '.', ',');
+	$msg = $room_msg."\n\n"."ราคาโฟม ตร.ม. :  ". $foam_msg . "\n". 'ตารางเมตรทั้งหมด : '.  $sqmsum . ' ตร.ม.'. "\n".' คูณราคาโฟม : '.  number_format($foam_sum_price, 2, '.', ','). "\n". ' ราคาโฟม + ประตู : '.  number_format($wall_and_door, 2, '.', ','). "\n\n". $cdu_detail. "\n".$cooling_detail. "\n"."จำนวน ชุด :  ". $qtyhp. "\n"."อุปกรณ์ติดตั้ง :  ". number_format($jipata, 2, '.', ','). "\n"."ราคาอุปกรณ์ทั้งหมด :  ". number_format($sum_sys_wasadu, 2, '.', ','). "\n\n"."%กำไร :  ".$percent."\n"."รวมต้นทุนของ :  ". number_format($sum_kong, 2, '.', ',')."\n"."กำไรของ :  ". number_format($kumraikong, 2, '.', ',')."\n"."รวมต้นทุน+กำไร :  ". number_format($tontunandkumrai, 2, '.', ','). "\n\n"."ค่าขนส่ง :  ". number_format($ship_cost, 2, '.', ','). "\n"."ค่าแรง :  ". number_format($labor, 2, '.', ','). "\n"."ค่าขนส่ง และค่าแรง :  ". number_format($sum_shoplab, 2, '.', ',')."\n\n"."ขาย :  ". number_format($kai, 2, '.', ','). "\n"."VAT : ".number_format($vats, 2, '.', ','). "\n"."ขายรวม VAT : ".number_format($kaivat, 2, '.', ','). "\n". $sale_name;
 	
 	
 	$res = notify_message($msg);

@@ -82,7 +82,7 @@
 	$result = mysql_query($sql);	
 	
 	if($result){
-		$msg = $cust_name.' เบอร์ ชื่อ '.$sc_tel;
+		$msg = $cust_name.' ดูแลลูกค้า Line ชื่อ '.$sc_tel;
 		$res = notify_message($msg);
 		exit("<script> alert('บันทึกเรียบร้อย'); window.location='../../customer/cust_sell.php';</script>");
 	}else{

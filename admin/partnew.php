@@ -182,28 +182,6 @@
 					</tr>
 					
 					
-					<?php if($attrib==1) { ?>
-						<tr class="highs" style="">
-							<td class="l">&nbsp;&nbsp;&nbsp; - <?php echo $attrib1; ?></td>
-							<td colspan="2" class="l" align="center"></td>
-							<td class="l" align="right"></td>
-							<td class="l" align="right"></td>
-						</tr>
-						
-						<tr class="highs" style="">
-							<td class="l">&nbsp;&nbsp;&nbsp; - <?php echo $attrib2; ?></td>
-							<td colspan="2" class="l" align="center"></td>
-							<td class="l" align="right"></td>
-							<td class="l" align="right"></td>
-						</tr>
-						<tr class="highs" style="">
-							<td class="l">&nbsp;&nbsp;&nbsp; - <?php echo $attrib3; ?></td>
-							<td colspan="2" class="l" align="center"></td>
-							<td class="l" align="right"></td>
-							<td class="l" align="right"></td>
-						</tr>
-						
-					<?php  } ?>
 					
 					<tr class="highs" style="">
 						<td class="l">2. ค่าบริการขนส่ง</td>

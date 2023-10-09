@@ -44,6 +44,14 @@
 	
 	$vatdate = trim($_POST['vatdate']);
 	$corp_addr  = trim($_POST['corp_addr']);
+	$bil_typ = trim($_POST['bil_typ']); 
+	if($bil_typ == 1){ 
+		$hbill   = 'ใบแจ้งหนี้ / ใบวางบิล';
+		$hbiltyp = 'เลขที่ใบแจ้งหนี้ /  No. : ';
+	} else { 
+		$hbill   = 'ใบเสร็จรับเงิน/ใบกำกับภาษี' ;
+		$hbiltyp = 'เลขที่ใบกำกับ /  No. : ';
+	}
 	/*echo 'e_id : '.$e_id.'<br>';
 	echo 'ord_id : '.$ord_id.'<br>';*/
 
@@ -61,13 +69,18 @@
 	}
 	
 	$price = $row_order['o_price'];
+	$qty = $row_order['o_qty'];
 	
 	$beforder_vat = $price/1.07;
 	$vats = $beforder_vat * 0.07;
 	$amount = $beforder_vat+$vats;
 	
 
-	$bill_head = 'ใบเสร็จรับเงิน/ใบกำกับภาษี';
+	$approv = mysql_fetch_array(mysql_query("SELECT * FROM tb_emp e WHERE e_id = '$e_id'"));
+	$approv_name = $approv['e_name'];
+	$approv_lname = $approv['e_lname'];
+	$approv_sign = $approv['e_sign'];
+	$appv_name = $approv_name. ' ' .$approv_lname;
 	
 
 ?>
@@ -99,8 +112,7 @@
 				
 			
 			<div id="bill_title" style="/*background-color:green;*/ height: 40px; clear:both; margin-top: 100px; text-align: center; font-size: 2em; vertical-align: middle;">
-				<?php //echo $bill_head;?>
-				ใบเสร็จรับเงิน/ใบกำกับภาษี
+				<?php echo $hbill;?>
 			</div>
 			<?php include('../include/billdetail.php'); ?>
 
@@ -121,9 +133,9 @@
 					<tr>
 						<td>1</td>
 						<td><?php echo $detail; ?></td>
-						<td align='right'><?php echo $row_order['o_qty'];?></td>
+						<td align='right'><?php echo $qty;?></td>
 						<td align='center'>ตัว</td>
-						<td align='center'><?php echo number_format($beforder_vat, 2, '.', ',');?></td>
+						<td align='center'><?php echo number_format($beforder_vat/$qty, 2, '.', ',');?></td>
 						<td align='center'><?php echo number_format($beforder_vat, 2, '.', ',');?></td>  
 					</tr>
 				</table>

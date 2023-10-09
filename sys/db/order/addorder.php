@@ -8,7 +8,8 @@
 <?php 
 	date_default_timezone_set("Asia/Bangkok");	
 	define('LINE_API',"https://notify-api.line.me/api/notify");	 
-	define('LINE_TOKEN','DVkXOmyzLiMaXMhF8Ppoim48pl1A7foQgMTCsz1olfr');  
+	//define('LINE_TOKEN','DVkXOmyzLiMaXMhF8Ppoim48pl1A7foQgMTCsz1olfr');  //การเงิน CPN888
+	define('LINE_TOKEN','pgUcBCC3SHXr0aSmuzIf7beHRxfyYzRmk4SpfA6qZp4'); // Notify group
 	define('LINE_TOKEN1', $cust_token); 
 	function notify_message($message){
 		$queryData = array('message' => $message);

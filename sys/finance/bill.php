@@ -98,21 +98,25 @@
 											<input type="text" class="form-control" id="vatdate" name="vatdate" value="<?php echo $today;?>">
 										</div>
 										
+										<?php if($e_id == 3) { ?>
+											<label class="control-label" for="inputSuccess">บริษัท </label>
+											<div class="form-group has-success">
+												<input type="radio" value="1" name="copetype" checked> CPN
+												<input style="margin-left: 10px;" type="radio" value="2" name="copetype"> CHK
+											</div>
+										<?php } else { ?>	
+											<input type="hidden" value="1" name="copetype">
+										<?php } ?>
 									</div>
+									
 									
 									<div class="col-lg-3">
 										<label class="control-label" for="inputSuccess">หัวบิล</label>
 										<div class="form-group has-success">
-											<input type="radio" value="1" name="copetype" checked> CPN
-											<input style="margin-left: 10px;" type="radio" value="2" name="copetype"> CHK
-											<!--<input style="margin-left: 10px;" type="radio" value="3" name="copetype"> TCL888-->
+											<input type="radio" value="1" name="bil_typ" checked> ใบแจ้งหนี้ <br>
+											<input type="radio" value="2" name="bil_typ"> ใบกำกับภาษี / ใบเสร็จรับเงิน
+											
 										</div>
-										
-										<!--<label class="control-label" for="inputSuccess"></label>
-										<div class="form-group has-success">
-											<input style="" type="radio" value="4" name="copetype"> พระลักษณ์ไทย
-										</div>-->
-										
 									</div>
 									
 									<div class="col-lg-3">

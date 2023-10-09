@@ -153,12 +153,16 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ระดับความสำคัญ</label>
 											<select class="form-control" id="serverity" name="serverity">
-												<option value="0">เลือกระดับความสำคัญ</option> 
-												<option value="5">เร่งด่วน (5)</option> 
-												<option value="4">ด่วน (4)</option> 
-												<option value="3">สนใจปานกลาง (3)</option>
-												<option value="2">สนใจ (2)</option>
-												<option value="1">หาข้อมูล (1)</option>
+												<option value="10">100% เอาแน่อน </option> 
+												<option value="9">90% สนใจมาก พร้อมจ่าย</option> 
+												<option value="8">80% พร้อมซื้อ แต่รอไฟฟ้า</option> 
+												<option value="7">70% พร้อมซื้อ รอถามที่บ้าน</option>
+												<option value="6">60% สนใจ มาเยี่ยมชมเราแล้ว</option>
+												<option value="5">50% หาข้อมูล </option>
+												<option value="4">40% หาข้อมูล</option> 
+												<option value="3">30% หาข้อมูล</option> 
+												<option value="2">20% หาข้อมูล </option>
+												<option value="1">10% หาข้อมูล</option>
 																											
 											</select>
 										</div>
@@ -207,14 +211,14 @@
                             <table width="100%" class="table table-striped table-bordered table-hover data_table">
                                 <thead>
                                     <tr>
-										<th style="width:3%">ลำดับ</th>
+										<th style="width:3%; font-size:12px;">ลำดับ</th>
                                         <th style="width:10%">ชื่อลูกค้า</th> 
                                         <th style="width:8%">เบอร์</th>
                                         <th style="width:8%">จังหวัด</th>
 										
                                         <th style="width:35%">รายละเอียด</th>
 										
-										
+										<th style="width:3%; font-size:12px;">Serv</th>
 										<th style="width:10%">สิ่งที่ทำไป</th>
 										<th style="width:10%">โอกาส</th>
 										<th style="width:5%">เซลล์</th>
@@ -234,6 +238,8 @@
 											<td><?php echo $row['sc_tel']; ?></td>
 											<td><?php echo $row['pro_name']; ?></td>
 											<td><?php echo $row['sc_detail']; ?></td>
+											
+											<td><?php echo $row['sc_severity']; ?></td>
 											<td><?php echo $row['ost_status']; ?></td>
 											
 											<td><?php echo $row['sc_occu']; ?></td>

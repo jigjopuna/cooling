@@ -31,7 +31,7 @@
 		$('#date_pay, #date_delivery').datepicker({dateFormat: 'yy-mm-dd'});
 		$("#ord_prov").load("../../ajax/province_server.php");
 		$("#search_custname").autocomplete({
-				source: "../../ajax/search_cust.php", 
+				source: "../../ajax/search_cust.php",
 				minLength: 1
 		});
 		$("#search_tool").autocomplete({
@@ -41,9 +41,22 @@
 		function validation(){
 			
 			var search_tool = $('#search_tool').val();
+			var search_custname = $('#search_custname').val();
+			var ord_prov = $('#ord_prov').val();
+			var ord_type = $('#ord_type').val();
 			var ord_qty = $('#ord_qty').val();
-			if((search_tool=='') || (ord_qty=='')){
+			var ord_price = $('#ord_price').val();
+			if((search_tool=='') || (ord_qty=='')|| (search_custname=='')){
 				alert("ใส่ข้อมูลให้ครบนะค่ะ"); 
+				return false;
+			}else if (ord_prov == '' || ord_prov == 0 ){
+				alert("ใส่จังหวัดด้วยค่ะ"); 
+				return false;
+			}else if (ord_type==''){
+				alert("ใส่ประเภทอะไหล่ให้ถูกต้องนะค่ะ"); 
+				return false;
+			}else if (ord_price == ''){
+				alert("ใส่ราคาด้วยค๊าา"); 
 				return false;
 			}else{
 				$('#form1').submit();				
@@ -123,7 +136,7 @@
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">ประเภทอะไหล่</label>
 											<select class="form-control" id="ord_type" name="ord_type">
-												<option value="0">ประเภทอะไหล่</option> 
+												<option value="">ประเภทอะไหล่</option> 
 												<?php for($i=1; $i<=$num_ordtype; $i++) { 
 													  $row_ordtype = mysql_fetch_array($result_ordtype);
 												?>

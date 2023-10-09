@@ -116,7 +116,7 @@
         <div id="page-wrapper">
 			<div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">เพิ่มออเดอร์</h1>
+                    <h1 class="page-header">แก้ไขข้อมูลลูกค้า</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

@@ -19,9 +19,11 @@
 				<div id="docs" style="/*background-color:red;*/ height:150px; float:left; width: 40%; border: 1px dashed black;  border-radius: 10px; margin-left:10px;">
 					<p style="padding-left: 20px;">วันที่ / Date : <?php echo $vatdate;?><br>  					
 					
-					เลขที่ใบกำกับ /  No. : 
+					
 					
 					<?php 
+						echo $hbiltyp; 
+						
 						if($row_order['o_vat']==1){ 
 							echo 'C'.$cust_ordno;
 						} else { 

@@ -4,9 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="keywords" content="เช็คราคาห้องเย็น" />
 	<meta name="description" content="ใบเสนอราคาห้องเย็น Quotation" />
+	<link rel="shortcut icon" href="content/images/favicon.png">
 	<title>ใบเสนอราคาห้องเย็น Topcooling</title>
 </head>
 <body>
+<?php require_once('include/googletag.php');?>
 <?php
    require_once('include/connect.php');
    require_once('include/thaibaht.php');
@@ -21,7 +23,46 @@
 	$temp_before  = $_POST['temp_before']; 
 	$timeperiod  = $_POST['timeperiod'];
 	$qty  = $_POST['qty'];
-	$percentprice = 1.1;
+	
+	$sql = "INSERT INTO tb_quo_log SET qo_w = '$r_width', qo_h = '$r_height', qo_l='$r_length', qo_temp = '$temparature', qo_tempb='$temp_before', qo_peroid = '$timeperiod'";
+	$result = mysql_query($sql);
+	//$percentprice = 1.1;
+	$percentprice = 1.25 ;
+	$stdardwall = 1.2;
+	$aluminium_lenght = 6;
+	
+	$cost_chakbold = 330;
+	$cost_chakl = 410;
+	$cost_chakcurve = 390;
+	$cost_chakf = 1035;
+	$cost_minuimbua = 230;
+	
+	$cost_printcode = 2150;
+	$cost_plastic = 4500;
+	$cost_seland = 70;
+	$cost_silicon = 88;
+	$cost_revet = 407;
+	$cost_pressure = 2000;
+
+	if($temparature==1){
+		$temps = 25;
+	}else if ($temparature==2){
+		$temps = 18;
+	}else if ($temparature==3){
+		$temps = 15;
+	}else if ($temparature==4){
+		$temps = -5;
+	}else if ($temparature==5){
+		$temps = -12;
+	}else if ($temparature==6){
+		$temps = -15;
+	}else if ($temparature==7){
+		$temps = -25;
+	}else if ($temparature==8){
+		$temps = -30;
+	}else{
+		$temps = -40;
+	}
 	
 	$area_room = ((($r_width*$r_height)*2)+ (($r_length*$r_height)*2) + (($r_length*$r_width)))*1.1;
 	$cute = $r_width*$r_length*$r_height;
@@ -29,25 +70,29 @@
 	
 	if($timeperiod==6){
 		$condensingtime = 5;
+	}
+	else if ($timeperiod==8){
+		$condensingtime = 8;
+		
 	}else if ($timeperiod==12){
 		$condensingtime = 10;
-	}
-	else if ($timeperiod==15){
+		
+	}else if ($timeperiod==15){
 		$condensingtime = 13.5;
-	}
-	else if ($timeperiod==18){
+		
+	}else if ($timeperiod==18){
 		$condensingtime = 15;
-	}
-	else if ($timeperiod==21){
+		
+	}else if ($timeperiod==21){
 		$condensingtime = 17.5;
-	}
-	else if ($timeperiod==24){
+		
+	}else if ($timeperiod==24){
 		$condensingtime = 20;
 	}
 	
-	
+	//echo "temparature = ".$temparature."<br>";
 	//Temparature 0
-	if($temparature==1){
+	if($temparature <= 4){
 		$pps = 100;
 		$var13 = 35;
 		$temp_num = 0;
@@ -65,8 +110,17 @@
 	$var_florom = $r_length*$r_width*1.1;
 	$var12 = 0.033/($pps/1000);
 	
+	/*echo "var11 = ".$var11."<br>";
+	echo "var12 = ".$var12."<br>";
+	echo "var13 = ".$var13."<br>";
+	
+	echo "var_room : ".$var_room."<br>";
+	echo "var_florom : ".$var_florom."<br><br>";*/
+
+	
 	//1. ค่ารวม ภาระที่ผ่านฉนวนห้องเย็น
 	$rusult = ($var11*$var12*$var13*24)/($condensingtime*1000);
+	//echo "rusult = ".$rusult."<br><br>";
 
 	
 	//2.ภาระอากาศจากภายนอก
@@ -79,6 +133,14 @@
 	 $result30 = ($qty * 3.89 * ($temp_before - $temp_num)) / ($timeperiod*3600); 
 	 $result31 = ($qty * 0) / ($timeperiod*3600);  
 	 $result3 = $result30+$result31;
+	 
+	/* echo "var21 = ".$var21."<br>";
+	 echo "var22 = ".$var22."<br>";
+	 echo "result2 = ".$result2."<br><br>";
+	 echo "test = ".$test."<br>";
+	 echo "result30 = ".$result30."<br>";
+	 echo "result31 = ".$result31."<br>";
+	 echo "result3 = ".$result3."<br>";*/
 	 
 	 
 	 //4.ภาระอื่นๆ 
@@ -106,11 +168,11 @@
 	
 	echo "all_result  "; echo $all_result; echo " KW "; echo "<br>";
 	echo "safety  "; echo $safety; echo " KW "; echo "<br><br>";
-	echo "ตารางที่ 1  = "; echo $total_result; echo " KW "; echo "<br><br>";*/
+	echo "ตารางที่ 1  = "; echo $total_result; echo " KW "; echo "<br><br>";
 	
 
 	
-   // echo "=======================================================================";  echo "<br><br>";
+    echo "=======================================================================";  echo "<br><br>";*/
 	
 	
 	
@@ -150,7 +212,7 @@
 	 $total_result_t = $all_result_t + $safety_t;
 	 
 	 
-	 /*echo "all_result_t  "; echo $all_result_t; echo " KW "; echo "<br>";
+	/* echo "all_result_t  "; echo $all_result_t; echo " KW "; echo "<br>";
 	 echo "safety_t  "; echo $safety_t; echo " KW "; echo "<br><br>";
 	 echo "ตารางที่ 2  = "; echo $total_result_t; echo " KW "; echo "<br><br>";
 	 
@@ -190,11 +252,9 @@
 	    $row_chkMaxKw = mysql_fetch_array($result_chkMaxKw);
 		$get_chkMaxKw = $row_chkMaxKw['MAXKW'];
 		$get_MaxKw_id = $row_chkMaxKw['p_id'];
-		
+
 		/*echo "get_chkMaxKwfromCWConedensing = ".$get_chkMaxKw."<br>";
-		echo "get_MaxKw_id = ".$get_MaxKw_id."<br>";
 		echo "ค่าที่คำนวณได้ = ".$total_result_t."<br>";*/
-		
 		
 		
 		if($total_result_t > $get_chkMaxKw){ //compare condensing max  
@@ -220,13 +280,12 @@
 				$first = number_format($total_result_t / $get_chkMaxKw, 2, '.', ''); 
 				$condensingmaxqty = ceil($first);
 				list($fdec, $fsed) = explode('.',$first);
-				/*echo "<br>"."first = ".$first."<br>";
-				echo "<br>"."condensingmaxqty = ".$condensingmaxqty."<br>";*/
+				//echo "<br>"."condensingmaxqty = ".$condensingmaxqty."<br>";
 				//ลูปเพื่อหาว่า ค่าไหนเหมาะสมที่สุด
 				for($i=1; $i<=$num; $i++){
 					$row = mysql_fetch_array($result);
 					/*echo "<br>"."cw5 = ".$row['p_cw5']."<br>";
-					echo "fdec = ".$fdec."<br>";*/
+					echo "<br>"."fdec = ".$fdec."<br>";*/
 					
 					
 					//แบ่งค่าออกมา ห้ามเกินตัวนั้น เช่น 150/40  = 3.75  ตัวแรกห้ามเกิน 3 หลังจุดหาให้เข้าใกล้ 9 มากที่สุดจะดี
@@ -239,31 +298,30 @@
 					
 					
 					if($dec == $fdec){
-						$goodvalue[$i] = $row['p_id'];
-						/*echo "row p_id : ".$row['p_id'].'<br>';
-						print_r(array_values($goodvalue));
-						echo '<br>';*/
+						$goodvalue[$i] = $row['p_id']."<br>";
+						//echo $row['p_id'];
+						//print_r(array_values($goodvalue));
 					}else{
 						break;
 					}
 						
 				}//end for 
-				print_r(array_values($goodvalue));
+				//print_r(array_values($goodvalue));
 				$lastvalue = end($goodvalue);
-               // echo "<br>"."condensing_id = ".$lastvalue.'<br>';			
+                //echo "condensing_id = ".$lastvalue;			
 							
-				$sub = number_format($total_result_t / $get_chkMaxKw, 2, '.', '');
-				/*list($dec, $sed) = explode('.',$sub);			
-				echo "<br>"."total_result_t = ".$total_result_t."<br>";
+				//$sub = number_format($total_result_t / $get_chkMaxKw, 2, '.', '');
+				list($dec, $sed) = explode('.',$sub);			
+				/*echo "<br>"."total_result_t = ".$total_result_t."<br>";
 				echo "<br>"."get_chkMaxKw = ".$get_chkMaxKw."<br>";
 				echo "<br>"."getsed = ".$getsed."<br>";
 				echo "<br>"."sub = ".$sub."<br>";
 				echo "<br>"."dec = ".$dec."<br>";
 				echo "<br>"."sed = ".$sed."<br>";*/
 			} //end getsed
-			$sql_condensing = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_id='$lastvalue'";	
+			$sql_condensing = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_id='$lastvalue'";		
 		}else{ 
-			if($temparature==1){
+			if($temparature <= 4){
 				//echo "no more cw5";
 				$sql_condensing = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw5 > '$total_result_t' AND p.p_cate = 1 ORDER BY p.p_cw5 Limit 0,1";		
 			}else{
@@ -278,8 +336,7 @@
 	
 	
 	
-    	
-	
+	//echo 'condensingmaxqty = '. $condensingmaxqty.'<br>';
 	//echo $row['p_id'];echo "<br>"; echo $row['p_name'] ;echo "<br>"; echo $row['p_model'] ;
 
     // Cooler 
@@ -302,6 +359,7 @@
 			//echo "<br>","coolercw20", '<br>';
 			
 		}//end select 0 or -20
+		
 		//exit();
 	
 	    $row_chkMaxKwcw = mysql_fetch_array($result_chkMaxKwcw);
@@ -311,9 +369,9 @@
 		echo "getfromcondensing = ".$getfromcondensing."<br>";
 		echo $getfromcondensing - $get_chkMaxKwcw, '<br>';*/
 		if($getfromcondensing > $get_chkMaxKwcw ){ //compare cooler max 
-		  //  echo "คอนเด็นซิงมากกว่าจริงๆ นะ", '<br>';
+		    //echo "คอนเด็นซิงมากกว่าจริงๆ นะ", '<br>';
 			$getsedcw = $getfromcondensing % $get_chkMaxKwcw;
-			// echo "เศษเท่าไรจ๊ะ ", $getsedcw, '<br>';
+			 //echo "เศษเท่าไรจ๊ะ ", $getsedcw, '<br>';
 			if(($getsedcw==0) && ($getfromcondensing-$get_chkMaxKwcw)>1){
 				//echo "หารลงตัว",'<br>';
 				$coolermaxqty = $getfromcondensing / $get_chkMaxKwcw;
@@ -364,20 +422,24 @@
                 //echo "cooler_id = ".$lastvaluecw;	
 			} //end getsedcw
 			$sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_id = '$lastvaluecw'";		
-			$qtycooler = $condensingmaxqty*2;
+			$qtycooler = $condensingmaxqty*2; 
 		}else{ 
 		    //echo "<br>"."no more"."<br>";
-			if($temparature==1){
-				// echo "cw5","<br>";
-				$sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw5 > '$getfromcondensing' AND p.p_cate = 2 ORDER BY p.p_cw5 Limit 0,1";		
-			}else{
-				// echo "cw20","<br>";
-				$sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw20 > '$getfromcondensing' AND p.p_cate = 2 ORDER BY p.p_cw20 Limit 0,1";				
+			if($temparature <= 4){
+				 /*echo "cw5","<br>"; 
+				 echo "เลือก 0.2 ช่วง 0 องศา","<br>"; */
+				 //เลือกค่า kw ที่ต่ำกว่าได้ ยอมรับค่าที่ต่ำกว่าได้ไม่เกิน 0.2 และ kw สูงกว่าเท่าไรก็ได้ แต่ต้องได้ราคาที่ถูกที่สุด
+				$sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw5 > ('$total_result_t'/$condensingmaxqty)-0.2 AND p.p_cate = 2 ORDER BY p.p_price_sell ASC Limit 0,1";
+			}else{			
+				/* echo "cw20","<br>";
+				 echo "เลือก 0.2 ช่วง -20 องศา","<br>"; */
+				 $sql_cooler = "SELECT * FROM tb_product p JOIN tb_category c ON c.cat_id = p.p_cate WHERE p.p_cw20 > ('$total_result_t'/$condensingmaxqty)-0.2 AND p.p_cate = 2 ORDER BY p.p_price_sell ASC Limit 0,1";				
 			}
 			$qtycooler = $condensingmaxqty;
 		}//end compare cooler max
 		
-		//echo "<br>"." qtycooler = ".$qtycooler;
+		/*echo "<br>"." condensingmaxqty = ".$condensingmaxqty;
+		echo "<br>"." qtycooler = ".$qtycooler;*/
 		
 		$result_cooler = mysql_query($sql_cooler);
 		//$num_cooler = mysql_num_rows($result_cooler);
@@ -566,6 +628,32 @@
    }
 	
 	
+	$b_condensing_price =  $row_condensing['p_price_sell']*$percentprice*$condensingmaxqty;
+	$b_cooler_price = $row_cooler['p_price_sell']*$percentprice*$qtycooler;
+	$b_dc_price = $row_dc['p_price_sell']*$percentprice*$condensingmaxqty;
+	$b_expand_price = $row_expand['p_price_sell']*$percentprice*$expandmaxqty;
+	$b_tube2_price = $row_tube2['p_price_sell']*$percentprice*2*$qtycooler; 
+	$b_tube1_price = $row_tube1['p_price_sell']*$percentprice*2*$qtycooler;
+	$b_curve1_price = $row_curve1['p_price_sell']*$percentprice*5*$condensingmaxqty;
+	$b_curve2_price = $row_curve2['p_price_sell']*$percentprice*5*$condensingmaxqty;
+	$b_curve3_price = $row_curve3['p_price_sell']*$percentprice*$qtycooler;
+	$b_ins_price = $row_ins['p_price_sell']*$percentprice*$qtycooler*2*3;
+	$b_numya_price = $row_numya['p_price_sell']*$percentprice*$numyaQty*$condensingmaxqty;
+	$b_cable_price = $cable*$percentprice*$condensingmaxqty;
+	
+	/*echo 'b_condensing_price : '.$b_condensing_price.'<br>';
+	echo 'b_cooler_price : '.$b_cooler_price.'<br>';
+	echo 'b_dc_price : '.$b_dc_price.'<br>';
+	echo 'b_expand_price : '.$b_expand_price.'<br>';
+	echo 'b_tube2_price : '.$b_tube2_price.'<br>';
+	echo 'b_tube1_price : '.$b_tube1_price.'<br>';
+	echo 'b_curve1_price : '.$b_curve1_price.'<br>';
+	echo 'b_curve2_price : '.$b_curve2_price.'<br>';
+	echo 'b_curve3_price : '.$b_curve3_price.'<br>';
+	echo 'b_ins_price : '.$b_ins_price.'<br>';
+	echo 'b_numya_price : '.$b_numya_price.'<br>';
+	echo 'b_cable_price : '.$b_cable_price.'<br>';*/
+	
 	
 	$tatal_price =  ($row_condensing['p_price_sell']*$percentprice*$condensingmaxqty) + 
 					($row_cooler['p_price_sell']*$percentprice*$qtycooler) +
@@ -664,14 +752,7 @@ body {
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
-				</div>
+				<?php include('include/cpn_addr.php');?>
 			</div><!--end cover_header-->
 			
 			
@@ -684,13 +765,7 @@ body {
 				
 				</div><!--end cust-->
 				
-				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation  T.C.L. </strong></span><br>
-					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
-					<span>โทร : 082-360-1523</span><br>
-					<span>Email: Topcooling.ltd@gmail.com</span>
-				</div><!--end oweneraddress-->
+				<?php include('include/tcl_contact.php'); ?>
 				
 				
 			</div><!--end contect_detail-->
@@ -702,13 +777,13 @@ body {
 					</tr style="border: solid black 1px;">
 					
 					<tr border='1' align="center">
-						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ เครื่อง</td>
+						<td style="width: 60%" align="left">รายละเอียดของงานที่นำเสนอ เครื่อง ขนาด <?php echo number_format($total_result_t, 2, '.', ',');?> kW</td>
 						<td colspan="2" style="width: 13%;" class="rlb">กว้าง (เมตร)</td>
 						<td style="width: 13%" class="br">ยาว (เมตร)</td>
 						<td style="width: 13%" class="b">สูง (เมตร)</td>
 					</tr>
 					<tr align="center">
-						<td align="left">COLD ROOM TEMP <?php echo $temp_num?> C<Sup>o</Sup> ขนาดห้อง (วัดภายนอก) </td>
+						<td align="left">COLD ROOM TEMP <?php echo $temps?> C<Sup>o</Sup> ขนาดห้อง (วัดภายนอก) </td>
 						<td class="l"><?php echo $r_width?></td>
 						<td class="r"></td>
 						<td><?php echo $r_length?></td>
@@ -851,7 +926,7 @@ body {
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 					<br>
 				</div>
@@ -889,6 +964,90 @@ body {
 		
 		
 		<?
+		
+		    $row_inch = mysql_fetch_array(mysql_query("SELECT pr_size, pr_sell_price FROM tb_productroom WHERE pr_cate = 1 AND pr_temp = '$temps'"));	
+			$isoprice = $row_inch['pr_sell_price'];
+
+			//echo 'isoprice : '. $isoprice . '<br>';
+			
+			//ISOWALL
+			$isoside = ceil((($r_length+$r_width)*2)/1.2);
+			$isosidecost = $r_height*1.2*$isoside*$isoprice;
+			$isosidearea = 1.2*$r_height*$isoside;
+			
+			$isoceil = ceil($r_length/1.2);
+			$isoceilcost = $r_width*1.2*$isoceil*$isoprice;
+			$isoceilarea = 1.2*$r_width*$isoceil;
+			
+			$cuteiso = ($r_height*1.2*$isoside)+($r_length*1.2*$isoceil);
+			
+			/*echo 'isoside : '. $isoside . '<br>';
+			echo 'isosidecost : '. $isosidecost . '<br>';
+			echo 'isosidearea : '. $isosidearea . '<br>';
+			echo 'cuteiso : '. $cuteiso . '<br><br>';
+			
+			echo 'isoceil : '. $isoceil . '<br>';
+			echo 'isoceilarea : '. $isoceilarea . '<br>';
+			echo 'isoceilcost : '. $isoceilcost . '<br><br>';*/
+			
+			//Fome Floor
+			$inchs = $row_inch['pr_size'];
+			$inch2 = $inchs/2;
+			if($inch2 < 2 ){ //ถ้าคำนวนโฟมได้น้อยกว่า 2 นิ้ว ให้ใช้ 2 นิ้ว
+				$inch2 = 2;
+			}
+			$fqty = $r_width*$r_length*2;
+			$qtypaper = ceil($fqty/3.66);
+			
+			
+			
+			$row_flr_cost = mysql_fetch_array(mysql_query("SELECT * FROM tb_productroom WHERE pr_cate = 2 AND pr_size = '$inch2'"));
+			$flr_cost = $row_flr_cost['pr_sell_price'];
+			
+			$flr_area = $qtypaper*3.6;
+			$fome_flr_cost = $flr_area*$flr_cost;
+			
+			
+			/*echo 'inch2 : '. $inch2 . '<br>';
+			echo 'fqty : '. $fqty . '<br>';
+			echo 'qtypaper : '. $qtypaper . '<br>';
+			echo 'flr_area : '. $flr_area . '<br>';
+			echo 'flr_cost : '. $flr_cost . '<br>';
+			echo 'fome_flr_cost : '. $fome_flr_cost . '<br><br>';*/
+			
+			
+			$chakbold = ceil(($r_height*4)/6);    
+			$chaklthing = ceil((($r_width*2) + ($r_length*2))/6);
+			$chak2in = $chakbold + $chaklthing;
+			$chakf = ceil((($r_width*2)+($r_length*2))/6);
+			$miniumbau = ceil(((($r_width*2)+($r_length*2))/6)*2);
+			$all_menium = $chakbold + $chaklthing + $chak2in + $chakf + $miniumbau;
+			
+			$price_chkbold = $chakbold*$cost_chakbold;
+			$price_chkl = $chaklthing*$cost_chakl;
+			$price_chkcurve = $cost_chakcurve*$chak2in;
+			$price_chkf = $chakf*$cost_chakf;
+			$price_bua = $miniumbau*$cost_minuimbua;
+			$all_price_chak =  $price_chkbold + $price_chkl + $price_chkcurve + $price_chkf + $price_bua;
+					
+
+			
+			$printcode = ceil((($r_width*$r_length)*2)/36);
+			$plasticflr = ceil(($r_width*$r_length)/45);
+			$seland_ = ceil($area_room*0.5);
+			$silicon_ = ceil($area_room/8);
+			$revet = ceil((($all_menium*6*2*0.35)/0.25)/1000);
+			$prsur = ceil(($r_width*$r_length*$r_height)/100);
+			
+			
+			if($area_room <= 100){
+				$laborcost = 15000;
+			}else if($area_room <= 200){
+				$laborcost = 25000;
+			}else{
+				$laborcost = $area_room*120;
+			}
+			
 			if($temparature==1){
 				
 				$sql_isowall = "SELECT * FROM tb_categoryroom c JOIN tb_productroom p ON c.catr_id = p.pr_cate WHERE p.pr_cate = 1 AND p.pr_size = 4";			
@@ -1020,14 +1179,7 @@ body {
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
-				</div>
+				<?php include('include/cpn_addr.php');?>
 			</div><!--end cover_header-->
 			
 			
@@ -1040,13 +1192,7 @@ body {
 				
 				</div><!--end cust-->
 				
-				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation  T.C.L. </strong></span><br>
-					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
-					<span>โทร : 082-360-1523</span><br>
-					<span>Email: Topcooling.ltd@gmail.com</span>
-				</div><!--end oweneraddress-->
+				<?php include('include/tcl_contact.php'); ?>
 				
 				
 			</div><!--end contect_detail-->
@@ -1064,7 +1210,7 @@ body {
 						<td style="width: 13%" class="b">สูง (เมตร)</td>
 					</tr>
 					<tr align="center">
-						<td align="left">COLD ROOM TEMP <?php echo $temp_num?> C<Sup>o</Sup> ขนาดห้อง (วัดภายนอก) </td>
+						<td align="left">COLD ROOM TEMP <?php echo $temps?> C<Sup>o</Sup> ขนาดห้อง (วัดภายนอก) </td>
 						<td class="l"><?php echo $r_width?></td>
 						<td class="r"></td>
 						<td><?php echo $r_length?></td>
@@ -1087,7 +1233,7 @@ body {
 					
 					<tr>
 						<td>1. <?php echo "แผ่นฉนวนสำเร็จรูปสำหรับผนังและเพดาน "." หนา ".$row_isowall['pr_size'].'"' ." Type ".$row_isowall['pr_type'];?></?></td>
-						<td colspan="2" class="l" align="center"><?php echo number_format($var_room, 2, '.', ',') ." ตร.ม."; ?></td>
+						<td colspan="2" class="l" align="center"><?php echo number_format(1111  , 2, '.', ',') ." ตร.ม."; ?></td>
 						<td class="l" align="right"><?php //echo number_format($row_isowall['pr_sell_price']*$percentprice, 2, '.', ',');?></td>
 						<td class="l" align="right"><?php //echo number_format($row_isowall['pr_sell_price']*$percentprice*$var_room, 2, '.', ','); ?></td>
 					</tr>
@@ -1193,7 +1339,7 @@ body {
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 				</div>
 			</div><!--end footer-->
@@ -1219,14 +1365,7 @@ body {
         <div class="subpage">
 
             <div id="cover_header">
-				<img src="content/images/logo-small.jpg" style="float:left;">
-				<div style="float:left; line-height:18px; margin: 0 0 0 40px;">
-				
-				<span>ห้างหุ้นส่วนจำกัด ท๊อปคูลลิ่ง 28/1 หมู่6 อ.เมือง จ.นครปฐม 73000 (สำนักงานใหญ่)</span><br>
-				<span>TOP COOLING LTD.,PART 28/1 M.6TRAPRUANG  NAKORN PATHOM 73000</span><br>
-				<span>Tel.034-209652, 082-3601523</span><br>
-				<span>เลขประจำตัวผู้เสียภาษี : 0733537000077</span>
-				</div>
+				<?php include('include/cpn_addr.php');?>
 			</div><!--end cover_header-->
 			
 			
@@ -1239,13 +1378,7 @@ body {
 				
 				</div><!--end cust-->
 				
-				<div class="oweneraddress" style="float:left; width: 32%; line-height:18px;">
-					<span><strong>Quotation  T.C.L. </strong></span><br>
-					<span>วันที่ <?php echo $thatdate;?></span><br>
-					<span>ติดต่อ : ชูเกียรติ เทียนอำไพ </span><br>
-					<span>โทร : 082-360-1523</span><br>
-					<span>Email: Topcooling.ltd@gmail.com</span>
-				</div><!--end oweneraddress-->
+				<?php include('include/tcl_contact.php'); ?>
 				
 				
 			</div><!--end contect_detail-->
@@ -1369,7 +1502,7 @@ body {
 					</tr>
 					
 					<tr class="highs" style="">
-						<td class="l" colspan="5">บัญชีธนาคารกสิกรไทย ชูเกียรติ เทียนอำไพ   ออมทรัพย์  เลขที่บัญชี 855-2-05499-8 </td>
+						<td class="l" colspan="5">บัญชีธนาคารกสิกรไทย บจ.ซีพีเอ็น 888   ออมทรัพย์  เลขที่บัญชี 075-8-81892-6 </td>
 					</tr>
 					
 				
@@ -1386,7 +1519,7 @@ body {
 				<div style="width: 35%; float:left;">
 					
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;ขอแสดงความนับถือ</span> <br><br><br><br>
-					<span>(นายชูเกียรติ  เทียนอำไพ)</span> <br><br>
+					<span>(นายภูริชญ์ โชคอุตสาหะ)</span> <br><br>
 					<span style="font-size: 14pt;">&nbsp;&nbsp;หุ้นส่วนผู้จัดการ</span>
 				</div>
 			</div><!--end footer-->
