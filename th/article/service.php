@@ -34,7 +34,7 @@
 	<div class="container">
 		<div class="row" id="">
 			<div class="col-md-12">
-				<div class="heading" style="text-align: center;">ซ่อมห้องเย็นต้อง TCL มีรับประกัน</div><br><br>
+				<div class="heading" style="text-align: center;">ซ่อมห้องเย็น มีรับประกัน</div><br><br>
 				
 			</div>
 		</div>
@@ -239,35 +239,36 @@
 
 <?php include('../../sources/inc/inc_article-relate.php');?>
 <?php include('../../sources/inc/inc_footer.php');?>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/", 
   "@type": "Product", 
-  "name": "TOPCOOLING", 
+  "name": "ภูริชญ์ โชคอุตสาหะ", 
   "priceRange":"3,500 บาท", 
   "servesCuisine":"ฉนวนโฟมผนังห้องเย็น", 
-  "description": "โทร 061-728-3888 เรามีนวัตกรรมที่รู้ว่าห้องเย็นจะเสียตอนไหน ห้องเย็นเสียให้บอกเรา Topcooling เรามีช่างที่อยู่ใกล้ๆ ลูกค้า เราบริการซ่อมห้องเย็น ดูแลห้องเย็น บำรุงรักษาเปลี่ยนอะไหล่", 
+  "description": "โทร 099-129-0789 เรามีนวัตกรรมที่รู้ว่าห้องเย็นจะเสียตอนไหน ห้องเย็นเสียให้บอกเรา  เรามีช่างที่อยู่ใกล้ๆ ลูกค้า เราบริการซ่อมห้องเย็น ดูแลห้องเย็น บำรุงรักษาเปลี่ยนอะไหล่", 
   "image": "https://topcooling.net/content/images/article/foam/cover.jpg",
   "address":{ 
       "@type":"PostalAddress",
-      "streetAddress":"ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง  28/1 ม.6 ต.ทัพหลวง อ.เมือง ",
-      "addressLocality":"ตรงข้ามร้านอาหารครัวหลังบ้าน",
-      "addressRegion":"นครปฐม",
-      "postalCode":"73000"
+      "streetAddress":"190/70 ม.10 ต.ดอนตะโก อ.เมือง จ.ราชบุรี",
+      "addressLocality":"ติดกับตลาดศรีเมือง",
+      "addressRegion":"ราชบุรี",
+      "postalCode":"70000"
    }, 
    "geo":{ 
       "@type":"GeoCoordinates",
-      "latitude": 13.878727, 
-      "longitude": 100.008955
+      "latitude": 13.523730282912313, 
+      "longitude": 99.80733727355484
    },
   "brand": {
     "@type": "Thing",
-    "name": "TOPCOOLING"
+    "name": "ภูริชญ์ โชคอุตสาหะ"
   },
   "contactPoint": {
     "@type": "ContactPoint", 
 	"telephone": "+66 99-129-0789",
-    "contactType": "TCL ยินดีบริการลูกค้า"
+    "contactType": " ยินดีบริการลูกค้า"
   },
   
   "offers": {

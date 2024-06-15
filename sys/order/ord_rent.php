@@ -84,9 +84,9 @@
 											
 											
 											<?php if($row_all['o_prepare']==1) { ?>
-												<td style="background-color: #79f699;  font-weight:bold;"><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></a></td>	
+												<td style="background-color: #79f699;  font-weight:bold;"><a href="order_rent_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></a></td>	
 											<?php } else  { ?>
-											    <td><a href="order_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></a></td>	
+											    <td><a href="order_rent_detail.php?o_id=<?php echo $row_all['o_id'];?>&cust_name=<?php echo $row_all['cust_name'];?>"><?php echo $row_all['cust_name']; ?></a></td>	
 											<?php } ?>
 											
 											<?php if($row_all['o_status']==5) { ?>

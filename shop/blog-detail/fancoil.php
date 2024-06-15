@@ -1,14 +1,10 @@
-<?php session_start(); 
-	  require_once('../includes/connect.php');
+<?php 
+	  include('../../include/connect.php');
 	  $currmenu = 3;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
-	  
-	  $sql_catroom = "SELECT * FROM tb_categoryroom";
-	  $result_catroom = mysql_query($sql_catroom);
-	  $num_catroom = mysql_num_rows($result_catroom);
-	  
+
 	  $sql_eurotech = "SELECT * FROM tb_tools WHERE t_type = 1 AND t_cate = 32 AND t_subcate = 1 ORDER BY t_attrib1";
-	  $result_eurotech = mysql_query($sql_eurotech);
-	  $num_eurotech = mysql_num_rows($result_eurotech);
+	  $result_eurotech = mysqli_query($conn, $sql_eurotech);
+	  $num_eurotech = mysqli_num_rows($result_eurotech);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,14 +14,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include('../includes/inc_robot.php'); ?>
 	
-	<meta name="copyright" content="Topcooling Shop"/>
+	<meta name="copyright" content="พัดลมห้องเย็น"/>
 	<meta name="keywords" content="อะไหล่ห้องเย็น, อุปกรณ์ห้องเย็น" />
-    <meta name="description" content="ร้านขายพัดลมคอยเย็น ห้องเย็น ร้านอยู่ที่ไหน ร้านไหนมีขายบ้าง ราคากี่บาท พัดคอยเย็นเสีย ซ่อมได้ไหม คุ้มค่าซ่อมหรือเปล่า หรือซื้อใหม่จะคุ้มกว่าไหม ราคาไม่ต่างกัน">
+    <meta name="description" content="ร้านขายพัดลมคอยเย็น ห้องเย็น ร้านอยู่ที่ไหน ร้านไหนมีขายบ้าง ราคากี่บาท พัดคอยเย็นเสีย ซ่อมได้ไหม คุ้มค่าซ่อมหรือเปล่า หรือซื้อใหม่จะคุ้มกว่าไหม ราคาไม่ต่างกัน เรามีพัดสแตนเลส ใบพัดและตะแกรง สแตนเลสด้วย">
     <meta name="author" content="">
 	<meta property="og:url" content="" />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="ขายพัดลมคอยล์เย็นห้องเย็น มอเตอร์พัดลมคอยเย็น AXIAL FAN Eurotech" />
-	<meta property="og:description" content="ร้านขายพัดลมคอยเย็น ห้องเย็น ร้านอยู่ที่ไหน ร้านไหนมีขายบ้าง ราคากี่บาท พัดคอยเย็นเสีย ซ่อมได้ไหม คุ้มค่าซ่อมหรือเปล่า หรือซื้อใหม่จะคุ้มกว่าไหม ราคาไม่ต่างกัน" />
+	<meta property="og:description" content="ร้านขายพัดลมคอยเย็น ห้องเย็น ร้านอยู่ที่ไหน ร้านไหนมีขายบ้าง ราคากี่บาท พัดคอยเย็นเสีย ซ่อมได้ไหม คุ้มค่าซ่อมหรือเปล่า หรือซื้อใหม่จะคุ้มกว่าไหม ราคาไม่ต่างกัน เรามีพัดสแตนเลส ใบพัดและตะแกรง สแตนเลสด้วย" />
 	<meta property="og:image" content="<?php echo $httpurl;?>shop/images/product/machine/fan/cover.jpg" />
 	<?php include('../includes/google-verify.php');?>
 	<?php include('../includes/inc_css_sub.php'); ?>
@@ -79,7 +75,7 @@
 
 					<div class="header-wrapicon2">
 						<!-- Header cart noti -->
-						<?php include('../includes/inc_minibasket_mobile1.php');?>
+						<?php //include('../includes/inc_minibasket_mobile1.php');?>
 					</div>
 					
 				</div>
@@ -140,7 +136,7 @@
 									</span>
 
 									<span>
-										28 March, 2020
+										28 January, 2024
 										<span class="m-l-3 m-r-6">|</span>
 									</span>
 
@@ -157,7 +153,7 @@
 								<p class="p-b-25">
 									
 									<br />
-									พัดลมคอยล์เย็น ห้องเย็น พัดลมคอยล์ร้อน <span class="text-strong">AXIAL FAN</span> ยี่ห้อ Eurotech หรือ ebm <br /><br />
+									พัดลมคอยล์เย็น ห้องเย็น พัดลมคอยล์ร้อน ห้องเย็น<span class="text-strong">AXIAL FAN</span> ยี่ห้อ Eurotech หรือ ebm มีพัดลมแบบสแตนเลส ใบพัด ตะแกรงสแตนเลส มีสินค้าพร้อมจัดส่ง ไม่ต้องรอนาน <br /><br />
 
 									<span class="topic-article">คุณสมบัติ</span><br />
 									- ระบายความร้อนได้ดี <br />
@@ -165,21 +161,19 @@
 									- มีตะแกรง แข็งแรงทนทาน<br />
 									- เสียงเงียบ ไม่รบกวน<br />
 									- มอเตอร์ประหยัดไฟ<br />
-									- รับประกันนาน 1 ปี <br /><br />
-
-
-
-
+									- รับประกันนาน 1 ปี <br />
+									-  ใบพัดเป็นใบเหล็กแข็งแรง <br /><br />
 
 
 									<span class="topic-article">วิธีการเลือกซื้อ</span><br />
 
-									1. ดูขนาดพัดลมที่ต้องการ เช่น 300 mm, 500 mm หรือ ใหญ่กว่านี้ ให้เหมาะสมกับพัดลมที่จะเปลี่ยนหรือใส่เพิ่ม<br /><br />
-							    	2. ดูมอเตอร์ไฟฟ้าที่ใช้ ใช้กี่เฟส ใช้แรงดัน 230v หรือ 380v ถ้าเป็น 3 เฟสจะไม่มีแคป หรือ คาปาซิเตอร์ ถ้าเป็น single phase จะมีแคปให้ ถ้าเรามีไฟ 1 เฟส จะใช้กับพัดลม 3 เฟสไม่ได้ แต่ถ้ามีไฟ 3 เฟส จะใช้กับพัดลม 1 เฟสได้<br /><br />
-									3. ต้องการเปลี่ยนพัดลมตัวใหม่ ให้ดูตัวเดิมว่าขนาดพัดลมเท่าไร กี่ mm หรือ กี่นิ้ว
+									1. ดูขนาดพัดลมที่ต้องการ เช่น 300 mm, 500 mm หรือ ใหญ่กว่านี้ ให้เหมาะสมกับพัดลมที่จะเปลี่ยน<br /><br />
+							    	2. ดูมอเตอร์ไฟฟ้าที่ใช้ ใช้กี่เฟส ใช้แรงดัน 230v หรือ 380v ถ้าเป็น 3 เฟสจะไม่มีแคป หรือ คาปาซิเตอร์ ถ้าเป็น single phase จะมีแคปให้ ถ้าเรามีไฟ 1 เฟส จะใช้กับพัดลม 3 เฟสไม่ได้<br /><br />
+									3. ทิศทางลมใบพัด ของพัดลม จะมีแบบเป่า กับ แบบดูด (แบบเป่าขนาดพัดลมใหญ่สุดที่ 350 mm)
 								
 									<br />
 									<br />
+									พัดลมติดตั้งไม่ยาก เพียงแค่ยึดน็อตพัดลมเข้ากับโครงคอยล์เย็นหรือคอยล์ร้อน และต่อสายไฟฟ้าเข้ามาที่พัดลมก็เสร็จเรียบร้อย<br /><br />
 									<span class="topic-article">ราคา</span><br />
 									รายละเอียดเรื่อง <span class="text-strong"></span>ราคา ให้ดูตามตารางข้างล่างนี้เลยนะครับ
 									<br />
@@ -229,10 +223,9 @@
 											<th class="column-4">Speed rpm</th>
 										</tr>
 										
-										
-									<?php 
+										<?php 
 										for($i=1; $i<=$num_eurotech;$i++){
-											$row_eurotech = mysql_fetch_array($result_eurotech);
+											$row_eurotech = mysqli_fetch_array($result_eurotech);
 									?>
 										<tr class="table-row">
 											<td class="column-1"><?php echo $row_eurotech['t_model']; ?></td>
@@ -245,6 +238,7 @@
 											<td class="column-4"><?php echo number_format($row_eurotech['t_attrib3'], 0, '.', ',');?></td>
 										</tr>
 									<?php } ?>
+									
 										
 										</tbody>
 									</table>
@@ -270,7 +264,7 @@
 									</div>
 
 									<p class="p-b-12">
-										<?php include('../includes/inc_qrcode.php');?>
+										<?php //include('../includes/inc_qrcode.php');?>
 									</p>
 							</div>
 							
@@ -403,6 +397,103 @@
 
 
    <?php include('../includes/inc_js_sub.php');?>
+   <script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "Product", 
+  "name": "โชคอุตสาหะ", 
+  "priceRange":"4000-20000 บาท", 
+  "servesCuisine":"พัดลมห้องเย็น", 
+  "description": "จำหน่ายพัดลมห้องเย็น มอเตอร์พัดลมคอยล์เย็น ที่ใช้สำหรับห้องเย็นและอุตสาหกรรม", 
+  "image": "https://topcooling.net/shop/images/product/machine/fan/fancoil_eurotech01.jpg",
+  "address":{ 
+      "@type":"PostalAddress",
+      "streetAddress":"190/70 ม.10 ",
+      "addressLocality":"ราชบุรี",
+      "addressRegion":"ราชบุรี", 
+      "postalCode":"70000"
+   }, 
+   "geo":{ 
+      "@type":"GeoCoordinates",
+      "latitude": 13.52373294645152, 
+      "longitude": 99.80735148909625
+   },
+  "brand": {
+    "@type": "Thing",
+    "name": "โชคอุตสาหะ"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint", 
+	"telephone": "+66 84-013-7350",
+    "contactType": " ยินดีบริการลูกค้า"
+  },
+  
+  "offers": {
+    "@type": "Offer",
+    "availability": "http://schema.org/InStock",
+    "price": "4000.00",
+    "priceCurrency": "THB"
+  },
+  
+   "openingHoursSpecification":[ 
+      
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Monday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Tuesday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Wednesday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Thursday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Friday"
+         ],
+         "opens":"08:00",
+         "closes":"17:00"
+      },
+      { 
+         "@type":"OpeningHoursSpecification",
+         "dayOfWeek":[ 
+            "Saturday"
+         ],
+         "opens":"11:00",
+         "closes":"23:59"
+      }
+   ],
+   "aggregateRating":{ 
+      "@type":"AggregateRating",
+      "ratingValue":5,
+      "reviewCount":120,
+      "ratingCount":156
+   }
+}
+</script>
 
 </body>
 </html>

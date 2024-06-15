@@ -8,17 +8,17 @@
 <?php require_once ('../../include/googlebot.php');?>
 <meta name="copyright" content="topcooling tcl"/>
 <meta name="keywords" content="ระบบสมาร์ทห้องเย็น">
-<meta name="description" content="จะดีแค่ไหนถ้าเรารู้พฤติกรรมการทำงานของห้องเย็นทั้งระบบ และสามารถควบคุมห้องเย็นได้ด้วยตัวเราเอง รู้ปัญหา แก้ไขได้ทันท่วงที ลดความเสี่ยง ประหยัดค่าไฟ แถมยืดอายุการทำงานของห้องเย็นได้ด้วย ลดต้นทันอีกต่างหาก">
+<meta name="description" content="จะดีแค่ไหนถ้าเรารู้พฤติกรรมการทำงานของห้องเย็นทั้งระบบ และสามารถควบคุมห้องเย็นได้ด้วยตัวเราเอง รู้ปัญหา แก้ไขได้ทันท่วงที ลดความเสี่ยง ประหยัดค่าไฟ แถมยืดอายุการทำงานของห้องเย็นได้ด้วย ลดต้นทันอีกต่างหาก ในราคาพิเศษ อุปกรณ์เช็คอุณหภูมิห้องเย็นผ่านมือถือออนไลน์">
 <meta property="og:title" content="ห้องเย็น วิเคราะห์การทำงานระบบทำความเย็น ประหยัดค่าไฟมหาศาล ด้วย IoT"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="https://topcooling.net/content/images/art_iot/iot/iot.jpg">
 <meta property="og:url" content="https://topcooling.net/th/art_iot/analytic.php"/>
-<meta property="og:description" content="จะดีแค่ไหนถ้าเรารู้พฤติกรรมการทำงานของห้องเย็นทั้งระบบ และสามารถควบคุมห้องเย็นได้ด้วยตัวเราเอง รู้ปัญหา แก้ไขได้ทันท่วงที ลดความเสี่ยง ประหยัดค่าไฟ แถมยืดอายุการทำงานของห้องเย็นได้ด้วย ลดต้นทันอีกต่างหา"/>
+<meta property="og:description" content="จะดีแค่ไหนถ้าเรารู้พฤติกรรมการทำงานของห้องเย็นทั้งระบบ และสามารถควบคุมห้องเย็นได้ด้วยตัวเราเอง รู้ปัญหา แก้ไขได้ทันท่วงที ลดความเสี่ยง ประหยัดค่าไฟ แถมยืดอายุการทำงานของห้องเย็นได้ด้วย ลดต้นทันอีกต่างหาก ในราคาพิเศษ อุปกรณ์เช็คอุณหภูมิห้องเย็นผ่านมือถือออนไลน์"/>
 <meta property="fb:app_id" content="574507943122181"/>
 
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
-<title>วิเคราะห์ระบบห้องเย็น ประหยัดค่าไฟมหาศาล</title>
+<title>วิเคราะห์ระบบห้องเย็น ประหยัดค่าไฟมหาศาล IoT ห้องเย็น</title>
 
 <script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
 <script src="../../js/main.js"></script>
@@ -109,7 +109,7 @@
 					
 					<span class="bold_brown">แล้วถ้าห้องเย็นทำงานไม่ปกติล่ะ จะมีอะไรแจ้งเตือนเราไหม</span>
 					<br><br>
-					 <span class="text-strong">ผมได้พัฒนา</span> ระบบแจ้งเตือนไว้เรียบร้อยแล้วครับผม สบายใจได้ ถ้าเมื่อไรที่ห้อง  <span class="text-strong">มีปัญหา</span> ระบบจะ  <span class="text-strong">แจ้งเตือน</span> ผ่านแอปไลน์ที่ทุกคนใช้กันอยู่แล้ว ไปยังลูกค้าและทีมซ่อมบำรุงห้องเย็นของ ซีพีเอ็น 888 ทันทีทุกเวลา ไม่ว่าจะกลางวัน หรือกลางคืน ตลอด 24 ชม. เราจะได้แก้ไขปัญหาได้ทันเวลา ก่อนที่สินค้าในห้องเย็นจะเสียหาย 
+					 <span class="text-strong">ผมได้พัฒนา</span> ระบบแจ้งเตือนไว้เรียบร้อยแล้วครับผม สบายใจได้ ถ้าเมื่อไรที่ห้อง  <span class="text-strong">มีปัญหา</span> ระบบจะ  <span class="text-strong">แจ้งเตือน</span> ผ่านแอปไลน์ที่ทุกคนใช้กันอยู่แล้ว ไปยังลูกค้าและทีมซ่อมบำรุงห้องเย็นของ ทันทีทุกเวลา ไม่ว่าจะกลางวัน หรือกลางคืน ตลอด 24 ชม. เราจะได้แก้ไขปัญหาได้ทันเวลา ก่อนที่สินค้าในห้องเย็นจะเสียหาย 
 					<br><br>
 					
 					<img src="../../content/images/art_iot/iot/alert11.jpg" alt="ซ่อมห้องเย็น"><br><br>
@@ -121,6 +121,16 @@
 					แต่เรามีระบบแจ้งเตือนผ่านไปยัง Line แจ้งเตือนทุกนาที จึงมั่นใจในความปลอดภัยได้ครับผม <br><br>
 					
 					<img src="../../content/images/art_iot/iot/alert2.jpg" alt="ห้องเย็นเสีย"><br><br>
+					
+					<span class="topic-article"> คลิปวิดีโอสอนใช้งานระบบ IoT ห้องเย็น</span><br>
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/ghmsAWIRDK0?si=AsovHL42SP7dxOOx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br>
+					
+					
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/D0KS2pJcIQY?si=d0RECtVWYKEeG1wf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br>
+					
+					<span class="topic-article"> การทำงานของระบบ</span><br>
+					<img src="https://chokeutsaha.co.th/assets/img/iot/iot-01.jpg" alt="IoT ห้องเย็น"><br><br>
+					<img src="https://chokeutsaha.co.th/assets/img/iot/iot-02.jpg" alt="เช็คอุณหภูมิห้องเย็นออนไลน์ องค์กร">
 
 					<?php include('../../sources/inc/inc_contact_art.php');?>
 					<br>

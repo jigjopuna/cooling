@@ -294,6 +294,11 @@
 										<td><a href="finance/select_billdate.php" target="_blank">ออกใบเสร็จรับเงิน / ใบกำกับภาษี ประจำเดือน</a></td>
 									</tr>
 									
+									<tr class="odd gradeX">
+										<td><a href="../admin/receive_paper_rent.php" target="_blank">ใบแจ้งหนี้ห้องเช่าประจำเดือน</a></td>
+									</tr>
+									
+									
                                 </tbody>
 								</table>
 						 

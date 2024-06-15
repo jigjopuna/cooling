@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php require_once ('../../include/google_verify.php');?>
 <?php require_once ('../../include/googlebot.php');?>
-<meta name="copyright" content="topcooling"/>
+<meta name="copyright" content=""/>
 <meta name="keywords" content="ห้องเย็นเสีย, ห้องเย็นไม่เย็น, ซ่อมห้องเย็น">
 <meta name="description" content="ห้องเย็น ปัญหาที่พบบ่อยๆ พร้อมวิธีการแก้ปัญหาง่ายๆ ที่ทุกคนซ่อมหรือทำเองได้  ห้องเสีย ห้องเย็นไม่เย็นอ่านบทความนี้ช่วยแก้ไขได้แน่นอน">
 <meta property="og:title" content="5 สาเหตุหลักที่ห้องเย็นไม่เย็น"/>
@@ -176,7 +176,7 @@
 		
 		</div>
 		<br><br><br><br>
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> รีวิวห้องเย็นสวยๆ ครับ</span><br><br><br>
 				<iframe width="100%" height="400" src="https://www.youtube.com/embed/68FcyGUA_o4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -184,7 +184,7 @@
 			</div>
 		</div>
 		
-		<!--<div class="row">
+		<div class="row">
 			<p class="text -small">
 				หมายเหตุ
 			</p>

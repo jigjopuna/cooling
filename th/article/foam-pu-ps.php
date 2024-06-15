@@ -278,7 +278,7 @@
 			<div class="col-md-12">
 				<div class="p_article">
 					
-					หากต้องการสั่งซื้อโฟมฉนวน ใช้เวลาผลิด 10-14 วัน ซื้อได้ที่ บริษัท ซีพีเอ็น 888 จังหวัดนครปฐมครับ<br><br>
+					หากต้องการสั่งซื้อโฟมฉนวน ใช้เวลาผลิด 10-14 วัน <br><br>
 				
 				
 					
@@ -310,7 +310,7 @@
 		
 		</div>
 		<br><br><br><br>
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่ไอศรีมในห้องเย็น</span><br><br><br>
 				<iframe width="100%" height="400" src="https://www.youtube.com/embed/szg_9rzqXT8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -318,7 +318,7 @@
 			</div>
 		</div>
 		
-		<!--<div class="row">
+		<div class="row">
 			<p class="text -small">
 				หมายเหตุ
 			</p>

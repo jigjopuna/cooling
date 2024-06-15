@@ -67,8 +67,12 @@
 	echo 'img5 : '.$img5;
 	exit();*/
 	
-	$comm = mysql_fetch_array(mysql_query("SELECT o_note FROM tb_orders WHERE o_id='$o_id'"));
+	$comm = mysql_fetch_array(mysql_query("SELECT o.o_note, ot.ort_name FROM tb_orders o JOIN tb_ord_type ot ON o.o_type = ot.ort_type WHERE o_id = '$o_id'"));
 	$comments = $comm['o_note'];
+	$ortype = $comm['ort_name'];
+	
+	
+
 
 	
 ?>
@@ -117,7 +121,7 @@
 		});
 		$('#process').click(function(){
 			//window.location = '../../admin/job.php'+'?e_id='+ord_id;
-			window.open('../../admin/job.php'+'?ordid='+ord_id, '_blank');
+			window.open('../../admin/job.php'+'?e_id='+ord_id, '_blank');
 		});
 		
 	
@@ -146,7 +150,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							
+							<?php echo $ortype; ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

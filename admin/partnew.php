@@ -112,6 +112,7 @@
 	$attrib1 = $row_tool['t_attrib1'];
 	$attrib2 = $row_tool['t_attrib2'];
 	$attrib3 = $row_tool['t_attrib3'];
+	$images = $row_tool['t_img'];
 	
 	$prices = $cost*$qty;
 	$sumprice = $prices+$shipcost;
@@ -191,6 +192,22 @@
 					</tr>
 					
 					
+					
+					<tr class="highs" style="">
+						<td class="l"> </td>
+						<td colspan="2" class="l"></td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>
+					
+					<?php if($images != '') { ?>
+						<tr class="highs" style="">
+							<td class="l"><img src="https://topcooling.net/shop/images/product/<?php echo $images; ?>" style="width:200px;"></td>
+							<td colspan="2" class="l" align="center"></td>
+							<td class="l" align="right"></td>
+							<td class="l" align="right"></td>
+						</tr>
+					<?php } ?>
 					
 					<tr class="highs" style="">
 						<td class="l"> </td>

@@ -1,8 +1,4 @@
-<?php 
 
-	require_once('connect.php'); 
-	if($isuat==0) { // 1 = อยู่ในระบบ Local Host เพื่อใช้เทส
-?>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -53,7 +49,3 @@ _lt('send', 'pv', ['9ab3ae65-2707-4c01-aa09-51aa8ee8c140']);
        src="https://tr.line.me/tag.gif?c_t=lap&t_id=9ab3ae65-2707-4c01-aa09-51aa8ee8c140&e=pv&noscript=1" />
 </noscript>
 <!-- End LINE Tag Base Code -->
-
-
-
-<?php } ?>

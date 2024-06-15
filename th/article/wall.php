@@ -6,17 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php require_once ('../../include/google_verify.php');?>
 <?php require_once ('../../include/googlebot.php');?>
-<meta name="copyright" content="topcooling"/>
+<meta name="copyright" content="ราคาห้องเย็น"/>
 <meta name="keywords" content="ห้องเย็นมือสอง, ห้องเย็นราคา, ห้องเย็นสำเร็จรูป">
-<meta name="description" content="ราคาต่ำกว่าแสน ห้องเย็นโครตถูก ปกติของใหม่ๆ ราคาสูงกว่า 270,000 แต่เราไม่ขาย เราอยากแค่ 80,000 เอาไปประกอบใช้งานเองได้">
+<meta name="description" content="ราคาต่ำกว่าแสน ห้องเย็นโครตถูก ปกติของใหม่ๆ ราคาสูงกว่า 290,000 แต่เราไม่ขาย เราอยากแค่ 98,000 เอาไปประกอบใช้งานเองได้ ห้องเย็นสามารถฟรีสแช่แข็งได้ แช่เย็นได้ ของมือสองมือมคุณภาพ">
 <meta property="og:title" content="ห้องเย็นมือสอง ราคาไม่ถึงแสน หาที่ไหนไม่ได้อีกแล้ว"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/wall2/cover.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/wall.php"/>
-<meta property="og:description" content="ราคาต่ำกว่าแสน ห้องเย็นโครตถูก ปกติของใหม่ๆ ราคาสูงกว่า 270,000 แต่เราไม่ขาย เราอยากแค่ 80,000 เอาไปประกอบใช้งานเองได้"/>
+<meta property="og:description" content="ราคาต่ำกว่าแสน ห้องเย็นโครตถูก ปกติของใหม่ๆ ราคาสูงกว่า 290,000 แต่เราไม่ขาย เราอยากแค่ 98,000 เอาไปประกอบใช้งานเองได้ ห้องเย็นสามารถฟรีสแช่แข็งได้ แช่เย็นได้ ของมือสองมือมคุณภาพ"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
-<title>ห้องเย็นราคาไม่ถึงแสน ถูกมากๆ</title>
+<title>ห้องเย็นราคาไม่ถึงแสน ถูกมากๆ ราคาห้องเย็นเท่าไร</title>
 
 <script type="text/javascript" src="../../js/jquery-libs-3-2-1-min.js"></script>
 <script src="../../js/main.js"></script>
@@ -144,22 +144,23 @@
 					<span class="boldun">4. แผ่นฉนวน</span> PU หนา 3 นิ้ว 1 ห้อง<br>
 					<span class="boldun">5. ตู้คอนโทรล</span> เบรกเกอร์ แม็กเนติก โอเวอร์โหลด อย่างละ 1 ตัว<br><br>
 					
-					ราคา <span class="text-strong">สุดคุ้ม</span> 68,000 ถึง 88,000 บาท เท่านั้น ราคาขึ้นอยู่กับขนาดห้องเย็น เราจะมีขนาดที่มีประจำๆ <br>
+					ราคา <span class="text-strong">สุดคุ้ม</span> 98,000 บาท เท่านั้น ราคาขึ้นอยู่กับขนาดห้องเย็น เราจะมีขนาดที่มีประจำๆ <br>
 					2.4 x 3.0 x 2.3 เมตร กว้าง ยาว สูง<br>
 					2.4 x 5.0 x 2.3 เมตร กว้าง ยาว สูง<br><br>
 					
 					ไม่รวมที่ลูกค้าอาจต้องซื้อเพิ่มเติม รายการข้างล่างนี้<br>
 					1. ฮีทเตอร์ละลายน้ำแข็ง ถ้าใช้อุณหภูมิติดลบต่ำๆ<br>
 					2. อุปกรณ์ติดตั้ง เช่น อลูมิเนียม ซิลิโคน  สายไฟฟ้า <br>
-					3. ค่าขนส่งไปถึงหน้างาน<br><br>
+					3. ค่าขนส่งไปถึงหน้างาน<br>
+					4. ผนังห้องเย็นจะมีแค่ 3 ด้าน ต้องซื้อแผ่นผนังห้องเย็นเพิ่ม 3 แผ่น<br><br>
 					
 					ทั้งหมดนี้ลูกค้าสามารถหาช่างไปประกอบเองได้ หรือ 
 					จะให้ผมติดตั้งก็ได้ เรทราคาค่าแรงติดตั้งห้องเย็น
 					และเครื่องทำความเย็นครบชุด 
-					ราคาเริ่มต้น 35,000 บาท ไม่รวมค่าเดินทาง<br><br>
+					ราคาเริ่มต้น 38,000 บาท ไม่รวมค่าเดินทาง<br><br>
 					
-					Line ID : @topcooling (มี @ ด้านหน้าด้วย)<br>
-					โทร : 084-013-7350 หรือ 064-458-5689
+					Line ID : phurits <br>
+					โทร : 084-013-7350 หรือ 099-129-0789
 					
 					
 					

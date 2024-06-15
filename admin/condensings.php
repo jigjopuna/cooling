@@ -321,10 +321,11 @@
 					</tr>
 					
 				
-					
-					<tr class="highs" style="">
-						<td class="l">1. ชุด Compressor 
-							<?php echo $compressor_name; ?> ขนาด <?php echo $hp?>HP
+					<tr class="highs">
+						<td class="l"> 1.
+							<span style="font-weight:bold; text-decoration:underline; font-size:1.2em;">
+								 ชุดเครื่องทำความเย็น
+							</span>
 						</td>
 						
 						
@@ -333,74 +334,59 @@
 						<td class="l" align="right"><?php echo number_format($price, 2, '.', ',');?></td>
 					</tr>
 					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - ใช้กับน้ำยา R404a ไฟฟ้า 3 เฟส</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">2. ชุดคอนเด็นซิ่ง <?php echo $condensing;?></td>
-						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
-						<td class="l" align="right"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					
-					
-				
-					
-					<tr class="highs" style="">
-						<td class="l">3. อุปกรณ์ภายใน </td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
-    
-   				    <tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - Receive Tank, Filter Drier, Sign Glasses, Solinoid Valve </td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;  - Oil Seperator</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
-					
-					<?php if($tidtung==1){ ?>
+					<tr class="highs">
+						<td class="l"> &nbsp;&nbsp;&nbsp;&nbsp;  
+							<span style="font-weight:bold; text-decoration:underline; font-size:1.2em;">
+								Compressor
+							</span>
+							
+							<span style="font-weight:bold;"> 
+								<?php echo $compressor_name; ?> ขนาด <?php echo $hp?>HP ระบบไฟฟ้า 3 เฟส
+							</span>
+						</td>
 						
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - ท่อทองแดงระยะไม่เกิน 10 เมตร และอุปกรณ์ติดตั้งอื่นๆ </td>
+						<td colspan="2" class="l" align="center"> </td>
+						<td class="l" align="right"> </td>
+						<td class="l" align="right"> </td>
+					</tr>
+					
+					
+					
+					<!--<tr class="highs" style="">
+						<td class="l">2. ชุดคอนเด็นซิ่ง <?php //echo $condensing;?></td>
+						<td colspan="2" class="l" align="center"><?php //echo $qtyhp; ?> ชุด</td>
+						<td class="l" align="right"></td>
+						<td class="l" align="right"></td>
+					</tr>-->
+					
+					<tr class="highs" style="font-size:0.9em;">
+						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - Receive Tank, Filter Drier, Sign Glasses, Solinoid Valve, Oil Seperator </td>
 						<td colspan="2" class="l"></td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"></td>
 					</tr>
-					<?php } ?>
+					
+					
 					
 					<?php if($meecoil==1){ ?>
-						<tr class="highs" style="">
-							<td class="l">4. คอยล์เย็น ยี่ห้อ  <?php echo $cool_name; ?></td>
+						<tr class="highs">
+							<td class="l">  &nbsp;&nbsp;&nbsp;&nbsp; 
+								<span style="font-weight:bold; text-decoration:underline; font-size:1.2em;">
+									คอยล์เย็น</span>
+								
+								<span style="font-weight:bold;">
+									 ยี่ห้อ <?php echo $cool_name; ?>  พร้อม Expansion Valve
+								</span>
+							 </td>
 							<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 							<td class="l" align="center"></td>
 							<td class="l" align="right"></td>
 						</tr>
-						
-						<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp; - พร้อม Expansion Valve อุปกรณ์ฉีดน้ำยา</td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
 					<?php } ?>
 					
 					<?php if($contbox==1){ ?>
 						<tr class="highs" style="">
-						<td class="l">5. ระบบไฟฟ้า และระบบควบคุมห้องเย็น <strong><u> 3 เฟส</u></strong> ประกอบพร้อมใช้งาน</td>
+						<td class="l">2. ตู้คอนโทรลห้องเย็น ระบบไฟฟ้า และระบบควบคุม  <strong><u> 3 เฟส</u></strong> </td>
 						<td colspan="2" class="l" align="center"><?php echo $qtyhp; ?> ชุด</td>
 						<td class="l" align="center"></td>
 						<td class="l" align="right"><?php echo number_format($controlprice, 2, '.', ',');?></td>
@@ -413,39 +399,52 @@
 						<td class="l" align="right"></td>
 					</tr>
 					
-					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp; - ตู้คอนโทรลเบอร์ 4 กันน้ำกันฝุ่น, ไฟแสดงสถานะ และสวิตซ์ ON/OFF </td>
-						<td colspan="2" class="l"></td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
-					</tr>
+					
 					
 					<?php } ?>
-
-					<tr class="highs" style="">
-						<td class="l">6. ค่าจัดส่งสินค้า</td>
-						<td colspan="2" class="l" align="center">1 งาน</td>
-						<td class="l" align="center"></td>
-						<td class="l" align="right"><?php echo number_format($shipcost, 2, '.', ',');?></td>
-					</tr>
 					
+
 					
 					<?php if($tidtung==1){ ?>
+						
 						<tr class="highs" style="">
-							<td class="l">7. ค่าติดตั้งและเดินทาง</td>
+							<td class="l">3. วัสดุและอุปกรณ์ติดตั้ง</td>
+							<td colspan="2" class="l" align="center">1 ชุด</td>
+							<td class="l" align="center"></td>
+							<td class="l" align="right">32,000.00</td>
+						</tr>
+						
+						<tr class="highs" style="">
+							<td class="l">&nbsp;&nbsp;&nbsp; - น้ำยา R404 และระบบท่อท่อทองแดง </td>
+							<td colspan="2" class="l"></td>
+							<td class="l" align="center"></td>
+							<td class="l" align="right"></td>
+						</tr>
+						
+						<tr class="highs" style="">
+							<td class="l">&nbsp;&nbsp;&nbsp; - ระยะเดินท่อไม่เกิน 10 เมตร </td>
+							<td colspan="2" class="l"></td>
+							<td class="l" align="center"></td>
+							<td class="l" align="right"></td>
+						</tr>
+						
+						<tr class="highs" style="">
+							<td class="l">4. ค่าติดตั้งเครื่องทำความเย็นและระบบไฟฟ้าห้องเย็น</td>
 							<td colspan="2" class="l" align="center">1 งาน</td>
 							<td class="l" align="center"></td>
 							<td class="l" align="right"><?php echo number_format($install_raka, 2, '.', ',');?></td>
 						</tr>
 					<?php } ?>
 					
+
 					<tr class="highs" style="">
-						<td class="l">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td colspan="2" class="l"></td>
+						<td class="l">5. ค่าจัดส่งสินค้า</td>
+						<td colspan="2" class="l" align="center">1 งาน</td>
 						<td class="l" align="center"></td>
-						<td class="l" align="right"></td>
+						<td class="l" align="right"><?php echo number_format($shipcost, 2, '.', ',');?></td>
 					</tr>
 					
+
 					
 					<tr>
 						<td rowspan="3">
@@ -483,7 +482,7 @@
 				<div style="width: 50%; float:left;">
 					<table style="width: 100%; border-collapse: collapse;">
 						<tr>
-							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp; <?php if($tidtung == 1 ) { echo '(ภาษีหักที่จ่าย ได้เฉพาะค่าติดตั้งห้องเย็น)';}?> </td>
+							<td colspan="2" align="left"><span style="text-decoration: underline; font-weight: bold; font-size: 18px;"> การชำระเงิน </span> &nbsp;&nbsp;  </td>
 						</tr>
 						
 						<?php if($tidtung == 0 ) {?>

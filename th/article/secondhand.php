@@ -485,7 +485,7 @@
 		
 		</div>
 		<br><br><br><br>
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> มาดูห้องเย็นรีวิวมือสอง ที่ไม่ใช่มือสอง</span><br><br><br>
 				<iframe width="100%" height="400" src="https://www.youtube.com/embed/_DglLb0FnAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -493,9 +493,9 @@
 			</div>
 		</div>
 		
-		<!--<div class="row">
+		<div class="row">
 			<p class="text -small">
-				หมายเหตุ
+				หมายเหตุ DglLb0FnAw
 			</p>
 		</div>-->
 	</div>

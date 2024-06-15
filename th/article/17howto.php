@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta http-equiv="cache-control" content="max-age=10"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php require_once ('../../include/google_verify.php');?>
-<?php require_once ('../../include/googlebot.php');?>
-<meta name="copyright" content="topcooling 2017"/>
+<?php include ('../../include/google_verify.php');?>
+<?php include ('../../include/googlebot.php');?>
+<meta name="copyright" content="ราคาห้องเย็น"/>
 <meta name="keywords" content="ห้องเย็นคำถาม">
-<meta name="description" content="ห้องเย็น ท็อปคูลลิ่ง TOPCOOLING TCL กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร">
+<meta name="description" content="ก่อนมีห้องเย็นสิ่งที่ทุกคนต้องรู้ จะได้มีความรู้ในการเลือกห้องเย็น และใช้งานห้องเย็นยังไงให้ประหยัดไฟ และทนทาน รวมถึงการดูแลรักษา คำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร">
 <meta property="og:title" content="17 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../content/images/article/17howto/17.jpg">
 <meta property="og:url" content="https://topcooling.net/th/article/17howto.php"/>
-<meta property="og:description" content="ห้องเย็น ท็อปคูลลิ่ง TOPCOOLING TCL กับคำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร"/>
+<meta property="og:description" content="ก่อนมีห้องเย็นสิ่งที่ทุกคนต้องรู้ จะได้มีความรู้ในการเลือกห้องเย็น และใช้งานห้องเย็นยังไงให้ประหยัดไฟ และทนทาน รวมถึงการดูแลรักษา คำถามห้องเย็นฮอตฮิต ที่ทุกคนอยากรู้ เราคัดคำถามที่ลูกค้าส่วนใหญ่มาให้ เข้าใจง่าย คลิกอ่าน ห้องเย็นราคาเท่าไร"/>
 <link rel="shortcut icon" href="../../content/images/favicon.png">
 <link rel="stylesheet" href="../../sources/css/main.css">
 <title>17 ข้อต้องรู้ ก่อนมีห้องเย็น ทุกคำถาม มีคำตอบ</title>
@@ -26,7 +26,6 @@
 </style>
 </head>
 <body>
-<?php require_once('../../include/googletag.php');?>
 <div class="loading-point">
 
 </div>
@@ -41,7 +40,7 @@
 					17 ข้อต้องรู้ก่อนมีห้องเย็น	
 				</div><br><br>
 				
-				<img src="../../content/images/article/17howto/17.jpg" alt="ห้องเย็น"><br><br>
+				<!--<img src="../../content/images/article/17howto/17.jpg" alt="ห้องเย็น"><br><br>-->
 				
 				
 				<?php include('../../sources/inc/inc_holiday.php');?>
@@ -157,7 +156,7 @@
 					
 					<span class="topic-article" id="topic6">5. ค่าไฟแพงไหม</span><br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					ค่าไฟฟ้าโดยเฉลี่ยห้อง 3 เมตร ประมาณ 3 ถึง 5 พันบาท จริงๆ แล้วก็มีปัจจัยอื่นๆ ที่ทำให้ค่าไฟสูงขึ้น เช่น <br><br>
+					ค่าไฟฟ้าโดยเฉลี่ยห้อง 3 เมตร ประมาณ 6 ถึง 8 พันบาท จริงๆ แล้วก็มีปัจจัยอื่นๆ ที่ทำให้ค่าไฟสูงขึ้น เช่น <br><br>
 						<span class="bolds">- เปิดประตูห้องเย็นบ่อยๆ  </span><br>
 						<span class="bolds">- การดูแลบำรุงรักษาเครื่องทำความเย็น <a href="https://youtu.be/5EvsTApnYSg" target="_blank">ดูคลิป</a></span><br>
 						<span class="bolds">- คอมเพรสเซอร์ตัดต่อการทำงานถี่เกินไป </span><br>
@@ -169,7 +168,8 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						ห้องเย็นสำเร็จรูป จำเป็นต้องวางในพื้นที่ที่ค่อนข้างโล่งและ <span class="text-strong">หลังคาสูง</span>  เพราะการเคลื่อนย้ายหรือการขนส่งจะใช้รถเครน (รถเฮียบ) ยกและวาง 
 						ต้องใช้พื้นที่พอสมควร ซึ่งต่างจากห้องเย็นแบบ <span class="text-strong">ฝังประกอบเร็ว</span> ที่เราจะเข้าไปประกอบขึ้นห้องที่หน้างานเลยจึงไม่มีปัญหาเรื่องหลังคาหรือความสูง  <a href="https://coolingstory.blogspot.com/2018/05/blog-post.html" target="_blank">วิธีการเลือกห้องเย็น คลิก</a> <br><br>
-						<iframe width="100%" height="400" src="https://www.youtube.com/embed/7YScc8TlmWI" frameborder="0" allowfullscreen></iframe><br><br>
+						
+						<iframe width="100%" height="400" src="https://www.youtube.com/embed/D0KS2pJcIQY?si=YZIZjMYkMVH-HnDW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br>
 						
 					<span class="topic-article"> 7. ถ้าห้องเย็นเสียจะรู้ได้ยังไง</span><br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -198,6 +198,12 @@
 					<img src="../../content/images/art_iot/iot/line.jpg" alt="Line ห้องเย็น">
 					<br><br>
 					
+					
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/ghmsAWIRDK0?si=Lav6_eOBD-oz83jT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					<br><br>
+					
+					<br><br>
+					
 					<span class="topic-article"> 10. อยากเห็นภาพส่งรูปให้ดูหน่อย</span><br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="https://goo.gl/Rd9Da7" target="_blank">คลิกดูรูป Gallery ได้ที่นี่ครับ </a>
@@ -206,12 +212,12 @@
 					
 					<span class="topic-article"> 11. เข้าไปดูของห้องจริงได้ไหม</span><br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					ลูกค้าสามารถเข้าชมและลองใช้งานห้องเย็นก่อนได้ครับ โดยเดินทางที่ CPN888 ที่จังหวัดนครปฐม ตามแผนที่นี้ได้เลย<br><br>
+					ลูกค้าสามารถเข้าชมและลองใช้งานห้องเย็นก่อนได้ครับ<br><br>
 					
 					<div id="map" style="width:100%; height: 400px;"></div>
 					<script>
 					  function initMap() {
-						var uluru = {lat: 13.856101, lng: 100.0444265};
+						var uluru = {lat: 13.523733064030521, lng: 99.80734483627396}; 
 						var map = new google.maps.Map(document.getElementById('map'), {
 						  zoom: 10,
 						  center: uluru
@@ -245,13 +251,12 @@
 					- อยากให้เย็นแค่ไหนก็ทำได้ <br>
 					  ลองดูคลิปด้านล่างนี้ครับ<br><br>
 					  
-					<iframe width="100%" height="400" src="https://www.youtube.com/embed/TB2hEO-GU3A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/b4pDfff7uM8?si=W4lAGT3u_NyMBcuU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 					<br><br>
 					
 					<span class="topic-article"> 15.  ต้องจ่ายเงินยังไง</span><br>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					หากยืนยันสั่งซื้อห้องเย็น <span class="text-strong">มัดจำ 50%</span> ชำระครั้งที่สอง <span class="text-strong">30%</span> เมื่อห้องเย็นส่งถึงหน้างาน และครั้งสุดท้าย <span class="text-strong">20%</span> หลังจากใช้งานแล้ว 7 วัน   โดยสามารถโอนเข้าบัญชีธนาคารได้ หรือมามัดจำที่ 
-					CPN888 ได้ อยู่นครปฐม ครับ
+					หากยืนยันสั่งซื้อห้องเย็น <span class="text-strong">มัดจำ 50%</span> ชำระครั้งที่สอง <span class="text-strong">30%</span> เมื่อห้องเย็นส่งถึงหน้างาน และครั้งสุดท้าย <span class="text-strong">20%</span> หลังจากใช้งานแล้ว 7 วัน   โดยสามารถโอนเข้าบัญชีธนาคารได้ 
 					<br><br>
 					
 					<img src="../../content/images/article/17howto/shipping.jpg" alt="ขนส่งห้องเย็น"><br><br>

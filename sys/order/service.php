@@ -9,9 +9,10 @@
 	<?php 
 		$dates = date('Y-m-d');
 		$sql_all = "SELECT *
-					FROM ((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
-					      JOIN tb_service s ON s.fix_ord = o.o_id) 
-						  JOIN province p ON p.id = o.o_cuprovin 
+					FROM (((tb_orders o JOIN tb_customer c ON o.o_cust = c.cust_id) 
+					      JOIN tb_service s ON s.fix_ord = o.o_id)
+						  JOIN province p ON p.id = o.o_cuprovin )
+						  JOIN tb_ord_status ost ON ost.ost_id = o.o_status
 					WHERE o.o_type = 30
 					";
 		$result_all = mysql_query($sql_all);
@@ -101,7 +102,7 @@
 									<div class="col-lg-3">
 										<div class="form-group has-success">
 											<label class="control-label" for="inputSuccess">อาการเสีย </label>
-											<input type="text" class="form-control" id="broken" name="broken" value="ห้องไม่เย็น">
+											<textarea class="form-control" rows="5" id="broken" name="broken"></textarea>
 										</div>
 									</div>
 									
@@ -109,7 +110,7 @@
 									<div class="col-lg-3">
 										
 										<div class="form-group has-success">
-											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกออเดอร์ใหม่</button>
+											<button id="btn" type="button" class="btn btn-lg btn-success btn-block">บันทึกงานเซอร์วิส</button>
 										</div>																
 									</div>
 									
@@ -126,7 +127,7 @@
 		
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">ออเดอร์ลูกค้า</h1>
+                    <h1 class="page-header">งานเซอร์วิส</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -144,6 +145,7 @@
                                     <tr>
 										<th style='width: 5%;'>ลำดับ</th>
                                         <th style='width: 15%;'>ลูกค้า</th>
+										<th style='width: 10%;'>สถานะ</th>
 										 <th style='width: 10%;'>อาการ</th>
 										<th style='width: 10%;'>จังหวัด</th>
                                         <th style='width: 10%;'>วันที่</th>
@@ -158,6 +160,21 @@
 										<tr class="gradeA">
 											<td><?php echo $row_all['o_id']; ?></td>  
 											<td><?php echo $row_all['cust_name']; ?></td>
+											
+											<?php if($row_all['o_status']==5) { ?>
+												<td style="background-color: #315ab2; color:red; font-weight:bold;"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php } else if($row_all['o_status']==1) { ?>
+												<td style="background-color: #f7f3ba"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php } else if($row_all['o_status']==7){ ?>
+												<td style="background-color: #feacc3"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<? } else if($row_all['o_status']==6) { ?>
+												<td style="background-color: #baf7ee"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php } else if($row_all['o_status']==9){?>
+												<td style="background-color: #fc637c; font-weight:bold;"><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php } else{ ?>
+												<td><a href="edit_ord_status.php?o_id=<?php echo $row_all['o_id']?>"><?php echo $row_all['ost_status']; ?></a></td>
+											<?php }  ?>
+											
 											<td><?php echo $row_all['fix_broken']; ?></td>
 											<td><?php echo $row_all['pro_name']; ?></td>
 											<td><?php echo $row_all['o_date']; ?></td>

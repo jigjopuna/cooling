@@ -45,7 +45,7 @@
 				<div class="p_article">
 					<h2>ระบบห้องเย็นออนไลน์</h2>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					ระบบห้องเย็นอัจฉริยะหรือ <span class="text-strong">IoT</span> จะช่วยเจ้าของห้องเย็นดูและห้องเย็น ห้องเย็นไม่เย็น เสีย หรือมีปัญหาเราจะเฝ้าดูให้ตลอดเวลา 24 ชั่วโมง ผ่านระบบออนไลน์ ไม่ว่าจะมีปัญหาจากอะไรก็ตาม ทาง ซีพีเอ็น888
+					ระบบห้องเย็นอัจฉริยะหรือ <span class="text-strong">IoT</span> จะช่วยเจ้าของห้องเย็นดูและห้องเย็น ห้องเย็นไม่เย็น เสีย หรือมีปัญหาเราจะเฝ้าดูให้ตลอดเวลา 24 ชั่วโมง ผ่านระบบออนไลน์ ไม่ว่าจะมีปัญหาจากอะไรก็ตาม เราจะ
 					จะวิเคราะห์และหาสาเหตุต้นตอของปัญหา เพื่อแก้ไข แล้วเจ้า IoT ที่ว่ามานี้จะเข้ามาช่วยเรายังไง ติดตามในบทความนี้ครับ<br><br>
 					
 					เชื่อว่าใครหลายๆ คน ที่มีห้องเย็นแล้วหรือกำลังจะตัดสินใจซื้อ จากประสบการณ์ 30 ปี ของผมจะมา <span class="text-strong">แชร์ปัญหา</span> และวิธีการแก้ไขปัญหาที่ทุกคนต้องเคยเจอ ต่อจากนี้<br><br>
@@ -57,7 +57,7 @@
 					เครื่องทำงานปกติหรือมีเสียงแปลกๆ ไหม หากทำงานปกติและน้ำยาไม่รั่ว ก็ดูต่อว่าคอล์ยเย็นมีน้ำแข็งตันไหม เป็นต้น จริงๆ มีอีกหลายวิธีการตรวจสอบ<br><br>
 					
 					<span class="text-strong">หากมีระบบ IoT</span> เข้ามาช่วย ปัญหาเหล่านี้จะช่วยบรรเทาไปได้ เพราะเราจะ Monitor คอยเฝ้าดูให้ตลอดเวลาด้วยแอปพลิเคชั่นออนไลน์ จะแจ้งเตือนทันทีที่มีปัญหา ช่างจะได้เตรียมการแก้ไขปัญหาได้ทันท่วงที
-					ระบบที่มีก็คือจะแจ้งเตือนผ่าน Line ที่เราใช้กันอยู่แล้วทุกวัน จะแจ้งไปหาลูกค้าและ CPN888 ช่วยกันดูหากอุณหภูมิห้องเย็นผิดปกติ  นอกจากนี้ยังมีข้อมูลอุณหภูมิย้อนหลังได้ผ่านกราฟบนมือถือซึ่งดูได้ตลอดเวลา
+					ระบบที่มีก็คือจะแจ้งเตือนผ่าน Line ที่เราใช้กันอยู่แล้วทุกวัน จะแจ้งไปหาลูกค้าและทางทีมงานผมช่วยกันดูหากอุณหภูมิห้องเย็นผิดปกติ  นอกจากนี้ยังมีข้อมูลอุณหภูมิย้อนหลังได้ผ่านกราฟบนมือถือซึ่งดูได้ตลอดเวลา
 					
 					<br><br>
 					<img src="../../content/images/art_iot/iot/line.jpg" alt="Line ห้องเย็น"><br><br>
@@ -98,7 +98,18 @@
 					<span class="topic-article">สรุป</span><br>	
 					สมาร์ทห้องเย็นจะช่วย <span class="text-strong">อำนวยความสะดวก</span> ให้หลายๆ ฝ่าย ทั้งผู้บริหาร ผู้แล และผู้ปฏิบัติงานห้องเย็น เราสามารถทำนายการทำงานของห้องเย็นได้โดยการสังเกตุพฤติกรรมของห้องเย็นเก็บเป็นสถิติ
 					ลดความเสียง ประหยัดเวลาและค่าใช้จ่ายในการดูแลห้องเย็น<br><br>	
-					<iframe width="100%" height="400" src="https://www.youtube.com/embed/AooYt1QwE60" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					
+					
+					<span class="topic-article"> คลิปวิดีโอสอนใช้งานระบบ IoT ห้องเย็น</span><br>
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/ghmsAWIRDK0?si=AsovHL42SP7dxOOx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br>
+					
+					
+					<iframe width="100%" height="400" src="https://www.youtube.com/embed/D0KS2pJcIQY?si=d0RECtVWYKEeG1wf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br>
+					
+					
+					<span class="topic-article"> การทำงานของระบบ</span><br>
+					<img src="https://chokeutsaha.co.th/assets/img/iot/iot-01.jpg" alt="IoT ห้องเย็น"><br><br>
+					<img src="https://chokeutsaha.co.th/assets/img/iot/iot-02.jpg" alt="เช็คอุณหภูมิห้องเย็นออนไลน์ องค์กร">
 					
 					<?php include('../../sources/inc/inc_contact_art.php');?>
 					<br>

@@ -214,7 +214,7 @@
 		
 		</div>
 		<br><br><br><br>
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> มาดูคลิปตัวอย่างการเก็บแช่หมูในห้องเย็น</span><br><br><br>
 				<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -222,7 +222,7 @@
 			</div>
 		</div>
 		
-		<!--<div class="row">
+		<div class="row">
 			<p class="text -small">
 				หมายเหตุ
 			</p>
@@ -238,67 +238,39 @@
 {
   "@context": "https://schema.org/", 
   "@type": "Product", 
-  "name": "TOPCOOLING", 
-  "priceRange":"400 - 38,000 บาท", 
-  "servesCuisine":"ห้องเย็น", 
-  "description": "ขายอุปกรณ์ห้องเย็นมือสองและอะไหล่ ราคาถูก ครบวงจร ดูของจริงก่อนซื้อได้ มีลูกค้าห้องเย็นซื้อแล้วทั่วประเทศ การันตีความน่าเชื่อถือ", 
-  "image": "https://topcooling.net/content/images/cool/sec-300x300.jpg",
+  "name": "ภูริชญ์ โชคอุตสาหะ", 
+  "priceRange":"3,500 บาท", 
+  "servesCuisine":"ฉนวนโฟมผนังห้องเย็น", 
+  "description": "โทร 099-129-0789 เรามีนวัตกรรมที่รู้ว่าห้องเย็นจะเสียตอนไหน ห้องเย็นเสียให้บอกเรา  เรามีช่างที่อยู่ใกล้ๆ ลูกค้า เราบริการซ่อมห้องเย็น ดูแลห้องเย็น บำรุงรักษาเปลี่ยนอะไหล่", 
+  "image": "https://topcooling.net/content/images/article/foam/cover.jpg",
   "address":{ 
       "@type":"PostalAddress",
-      "streetAddress":"ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง  28/1 ม.6 ต.ทัพหลวง อ.เมือง ",
-      "addressLocality":"ตรงข้ามร้านอาหารครัวหลังบ้าน",
-      "addressRegion":"นครปฐม",
-      "postalCode":"73000"
+      "streetAddress":"190/70 ม.10 ต.ดอนตะโก อ.เมือง จ.ราชบุรี",
+      "addressLocality":"ติดกับตลาดศรีเมือง",
+      "addressRegion":"ราชบุรี",
+      "postalCode":"70000"
    }, 
    "geo":{ 
       "@type":"GeoCoordinates",
-      "latitude": 13.878727, 
-      "longitude": 100.008955
+      "latitude": 13.523730282912313, 
+      "longitude": 99.80733727355484
    },
   "brand": {
     "@type": "Thing",
-    "name": "TOPCOOLING"
+    "name": "ภูริชญ์ โชคอุตสาหะ"
   },
   "contactPoint": {
     "@type": "ContactPoint", 
-	"telephone": "+66 84-013-7350",
-    "contactType": "TCL ยินดีบริการลูกค้า"
+	"telephone": "+66 99-129-0789",
+    "contactType": " ยินดีบริการลูกค้า"
   },
   
   "offers": {
     "@type": "Offer",
     "availability": "http://schema.org/InStock",
-    "price": "168000.00",
+    "price": "3,500.00",
     "priceCurrency": "THB"
   },
-  "review": [
-    {
-      "@type": "Review",
-      "author": "เกด",
-      "datePublished": "2019-12-05",
-      "description": "เย็นเร็วดีทันใจ ของไม่เสีย",
-      "name": "รีวิวห้องเย็น 5 ดาว",
-      "reviewRating": {
-        "@type": "Rating",
-        "bestRating": "5",
-        "ratingValue": "1",
-        "worstRating": "1"
-      }
-    },
-    {
-      "@type": "Review",
-      "author": "Supachai",
-      "datePublished": "2019-12-25",
-      "description": "ดีมากเลย มือสองแต่เหมือนใหม่ทุกอย่าง แนะนำห้องเย็น Topcooling เลยครับ",
-      "name": "รีวิวห้องเย็น 5 ดาว",
-      "reviewRating": {
-        "@type": "Rating",
-        "bestRating": "5",
-        "ratingValue": "4",
-        "worstRating": "1"
-      }
-    }
-   ], 
    "openingHoursSpecification":[ 
       
       { 
@@ -352,9 +324,9 @@
    ],
    "aggregateRating":{ 
       "@type":"AggregateRating",
-      "ratingValue":,
-      "reviewCount":890,
-      "ratingCount":1056
+      "ratingValue":4,
+      "reviewCount":120,
+      "ratingCount":156
    }
 }
 </script>

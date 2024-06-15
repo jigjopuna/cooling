@@ -27,7 +27,7 @@
 								Line
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="https://qr-official.line.me/sid/M/vsl8721x.png" target="_blank" style="color: white;">@cpn888</a>
+								<a href="https://qr-official.line.me/gs/M_swe1303e_GW.png" target="_blank" style="color: white;">@swe1303e</a>
 							</div>
 						</div>
 					</li>
@@ -35,10 +35,10 @@
 					<li>
 						<div class="row">
 							<div class="col-md-1 col-xs-2">
-								โทร
+								โทร  : 
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;"> <!--098-970-2339--> 099-129-0789 หรือ 034-114-186</a>
+								<a href="" style="color: white;"> 084-013-7350 </a>
 							</div>
 						</div>
 					</li>
@@ -49,7 +49,7 @@
 								email
 							</div>
 							<div class="col-md-11 col-xs-10">
-								<a href="" style="color: white;"> &nbsp;&nbsp;phurit_18@hotmail.com</a>
+								<a href="" style="color: white;"> &nbsp;&nbsp; seodriveonly@gmail.com </a>
 							</div>
 						</div>
 					</li>
@@ -61,28 +61,26 @@
 								<i class="fa fa-map-marker"></i>
 							</div>
 							<div class="col-md-11 col-xs-10">
-								บริษัท ซีพีเอ็น888 จำกัด</br>
-								107/52 ต.นครปฐม</br>
-								อ.เมือง จ.นครปฐม 73000
+								COLD ROOM อุปกรณ์ห้องเย็น</br>
 							</div>
 						</div>
 					</li>
 				</ul>
 				<div class="footer-social">
 					<ul>
-					<li><a href="https://www.facebook.com/cpn888/" target="_blank"><img src="../../sources/assets/images/icon-fb.svg" target="_blank" alt=""></a></li>
+					<li><a href="https://www.facebook.com/" target="_blank"><img src="../../sources/assets/images/icon-fb.svg" target="_blank" alt=""></a></li>
 					<li><a href="" target="_blank"><img style="width:28px; height:28px;" src="../../sources/assets/images/icon/youtube.svg" target="_blank" alt=""></a></li>
-					<li><a href="https://qr-official.line.me/L/kKWfyY5zMY.png" target="_blank"><img style="width:28px; height:28px;" src="../../sources/assets/images/icon/line.svg" target="_blank" alt=""></a></li>
+					<li><a href="https://qr-official.line.me/gs/M_swe1303e_GW.png" target="_blank"><img style="width:28px; height:28px;" src="../../sources/assets/images/icon/line.svg" target="_blank" alt=""></a></li>
 					</ul>
 				</div>
 			</div>
 
 			<div class="col-sm-2">
 				<ul class="footer-menu">
-					<li>เกี่ยวกับ ซีพีเอ็น888 </li>
-					<li><a href="">ให้ข้อมูลและราคาห้องเย็น</a></li>
+					<li>คอมเพรสเซอร์มือสอง </li>
+					<li><a href="">ราคาห้องเย็น</a></li>
 					<li><a href="" target="_blank">จำหน่ายอุปกรณ์ห้องเย็น</a></li>
-					<li><a href="">ขอใบเสนอราคาห้องเย็น</a></li>
+					<li><a href="">คอยล์เย็นห้องเย็น</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-2">
@@ -103,7 +101,7 @@
 		<div class="row">
 			<div class="col-md-6">
 			<div class="copyright-text">
-			Copyright 2022 CPN888 Co,.Ltd
+			Copyright 2024 
 			</div>
 			</div>
 			<div class="col-md-4">
@@ -114,7 +112,7 @@
 			</div>
 			<div class="col-md-2">
 			<div class="pull-rignt">
-			<label>บริษัท ซีพีเอ็น888 จำกัด</label>
+			<label>อุปกรณ์ห้องเย็นมือสอง</label>
 			</div>
 			</div>
 		</div>

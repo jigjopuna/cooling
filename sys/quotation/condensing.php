@@ -1,5 +1,5 @@
 <?php session_start();
-	  require_once('../include/connect.php');
+	  include('../include/connect.php');
 	  
 	  $sql_com = "SELECT * FROM tb_com_brand";
 	  $result_com = mysql_query($sql_com);
@@ -10,14 +10,15 @@
 	  $result_cool = mysql_query($sql_cool);
 	  $num_cool = mysql_num_rows($result_cool);
 	  
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title> ราคาเครื่องทำความเย็น </title>
 <?php 
-	require_once ('../include/header.php');
-	require_once('../include/metatagsys.php');
+	include ('../include/header.php');
+	include('../include/metatagsys.php');
 	$dates = date('Y-m-d');
 ?>
 <link type="text/css" rel="stylesheet" href="../../css/redmond/jquery-ui-1.8.12.custom.css">
@@ -96,8 +97,8 @@
 
     <div id="wrapper">
 		<?php 
-			require_once('../include/inc_role.php'); 
-			require_once ('../include/navproduct.php');
+			include('../include/inc_role.php'); 
+			include ('../include/navproduct.php');
 			if($role['ro_quotation']!=1){ exit("<script>alert('ไม่มีสิทธิ์ในการทำใบเสนอราคานะคะ'); window.location = '../index.php';</script>");}
 		?>
         <div id="page-wrapper">
@@ -297,7 +298,7 @@
 										</div>
 										
 									</div>
-									
+									<input type="hidden" id="sale_id" name="sale_id" value="<?php echo $e_id;?>">
 								</form>
 							 </div> <!-- row -->
                            

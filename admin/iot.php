@@ -16,27 +16,7 @@
 	<title><?php echo date("Y").'-'.$nMonth.'-'.$date; ?></title>
 	<link rel="stylesheet" href="../css/quotation.css">
 	<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
-	<style>
-		.text_strong, .text-strong { font-weight: bold; text-decoration:underline;}
-		.text_emunder { text-decoration:underline; font-weight: bold; }
-		.container { clear:both; border: 1px solid black; min-height:850px;}
-		.row { width: 100%; clear:both; padding-bottom: 60px; overflow: hidden;}
-		.col1 { float:left; width:45%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
-		.col2 { float:left; width:51%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
-		.col3 { float:left; width:53%; margin:0.5% 0.5% 0.5% 10px; /*background:red;*/ }
-		.col4 { float:left; width:43%; margin:0.5% 0.5% 0 10px; /*background:blue;*/ }
-		.topic { font-family: 'Kanit', sans-serif; font-size:18px; font-weight:bold; text-decoration:underline;}
-		.intopic { font-family: 'Kanit', sans-serif;  }
-		.tew { line-height: 18px;}
-		
-		@media print { 
-			 #btn-calngod { display: none !important; } 
-		}
-
-		
-	 
-
-	</style>
+	<style></style>
 	<script src="../sys/js/jquery-1.11.1.min.js"></script>
 </head>
 <body>
@@ -90,8 +70,8 @@
            <div id="cover_header">
 				
 				<?php 
-					//include ('../include/chk_addr.php'); 
-				    include ('../include/cpn_addr.php');
+					include ('../include/chk_addr.php'); 
+				    //include ('../include/cpn_addr.php');
 				?>
 			</div><!--end cover_header-->
 			
@@ -329,7 +309,11 @@
 	<div class="page">
         <div id="cover_header">
 				
-				<?php include ('../include/cpn_addr.php'); ?>
+			<?php 
+					include ('../include/chk_addr.php'); 
+				  //include ('../include/cpn_addr.php'); 
+			?>
+			
 			</div><!--end cover_header-->
 			
 			<?php include ('../include/quotation_head_cpn.php'); ?>
@@ -358,7 +342,7 @@
 						<tr>
 							<td colspan="2" align="left">บัญชีธนาคาร กสิกรไทย </td>
 							<tr>
-								<td colspan="2" align="left">  บจ. ซีพีเอ็น888  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 075-8-81892-6</span></td>
+								<td colspan="2" align="left">  บจ. โชคอุตสาหะ พารวย  เลขที่บัญชี  <span style="text-decoration: underline; font-weight: bold;"> 091-8-53927-1</span></td>
 							</tr>
 						</tr>
 					</table>
@@ -380,7 +364,7 @@
 			</div><!--end amount-->
 			
 			<div id="footer" style="clear: both;">
-				<?php include ('../include/footter_quo.php'); ?>
+				<?php include ('../include/footter_quo_chk.php'); ?>
 			</div><!--end footer-->
 			
 			
@@ -405,7 +389,10 @@
         <div class="subpage">
 
              <div id="cover_header">
-				<?php include ('../include/cpn_addr.php'); ?>
+				<?php 
+					include ('../include/chk_addr.php'); 
+				  //include ('../include/cpn_addr.php'); 
+				?>
 			</div><!--end cover_header-->
 			
 			<div style="width: 100%; clear:both; height: 10px;">

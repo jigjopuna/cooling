@@ -135,7 +135,7 @@
 		
 		</div>
 		<br><br><br><br>
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> รีวิวห้องเย็นสวยๆ ครับ</span><br><br><br>
 				<iframe width="100%" height="400" src="https://www.youtube.com/embed/68FcyGUA_o4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -143,7 +143,7 @@
 			</div>
 		</div>
 		
-		<!--<div class="row">
+		<div class="row">
 			<p class="text -small">
 				หมายเหตุ
 			</p>

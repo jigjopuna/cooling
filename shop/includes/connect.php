@@ -5,14 +5,14 @@
        $db = 'u175850674_top';*/
 	   
 	   $host = 'localhost';
-       $user = 'root';
-       $pass = '1234';
-       $db = 'topcooling';
+       $user = 'topcooli_db';
+       $pass = 'Webpom123456';
+       $db = 'topcooli_db';
 	   
 	   
-	   @$conn = mysql_connect($host, $user, $pass) or exit('server fail');
-       mysql_select_db($db, $conn) or die('Not found database');
-       mysql_query('set names utf8'); 
+	   @$conn = mysqli_connect($host, $user, $pass) or exit('server fail');
+       mysqli_select_db($db, $conn) or die('Not found database');
+       mysqli_query('set names utf8'); 
 	   
 	   $httpurl = 'https://topcooling.net/';
 	
