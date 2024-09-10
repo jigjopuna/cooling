@@ -85,7 +85,11 @@
 					
 					<span class="topic-article">1 . อยากได้ห้องเย็นมีขนาดและราคาเท่าไหร่บ้าง</span><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-strong">ห้องเย็น</span> ขนาดกว้าง 2.4 เมตร ยาว 3 เมตร สูง 2.4 เมตร จะเก็บสินค้าได้ประมาณ 2-3 ตัน ขึ้นอยู่กับเป็น <span class="text-strong">สินค้า</span> อะไร เนื้อสัตว์ หรือ ผักผลไม้ ถ้าเป็นประเภทผักผลไม้ น้ำหนักก็น้อยลงไป ส่วนนี้เป็นห้องเย็นสำเร็จรูปนะครับ
-				จริงๆ แล้ว ก่อนเลือกห้องเย็นว่าจะเอาขนาดเท่าไร จะมี <span class="text-strong">ปัจจัย</span> ในการเลือก เช่น ประเภทสินค้า, ปริมาณสินค้า(กิโลกรัม/ตัน) <a href="https://coolingstory.blogspot.com/2018/05/blog-post.html" target="_blank">วิธีการเลือกห้องเย็น คลิก</a> <br><br>
+				จริงๆ แล้ว ก่อนเลือกห้องเย็นว่าจะเอาขนาดเท่าไร จะมี <span class="text-strong">ปัจจัย</span> ในการเลือก เช่น ประเภทสินค้า, ปริมาณสินค้า(กิโลกรัม/ตัน) 
+				
+		
+				<br><br>
+				<button class="btnsoftware">วิธีการเลือกห้องเย็น</button><br><br>
 				
 				อ่านต่อหัวข้อที่ 2  เนื้อหาจะต่อเนื่องกันในการเลือกขนาดห้อง ส่วนเรื่องราคาห้องเย็นสำเร็จรูปจะเริ่มที่ 250,000 บาท <br><br>
 				
@@ -167,7 +171,10 @@
 					<span class="topic-article" id="topic6">6. พื้นที่เท่าไรในการวางห้องเย็น</span><br>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						ห้องเย็นสำเร็จรูป จำเป็นต้องวางในพื้นที่ที่ค่อนข้างโล่งและ <span class="text-strong">หลังคาสูง</span>  เพราะการเคลื่อนย้ายหรือการขนส่งจะใช้รถเครน (รถเฮียบ) ยกและวาง 
-						ต้องใช้พื้นที่พอสมควร ซึ่งต่างจากห้องเย็นแบบ <span class="text-strong">ฝังประกอบเร็ว</span> ที่เราจะเข้าไปประกอบขึ้นห้องที่หน้างานเลยจึงไม่มีปัญหาเรื่องหลังคาหรือความสูง  <a href="https://coolingstory.blogspot.com/2018/05/blog-post.html" target="_blank">วิธีการเลือกห้องเย็น คลิก</a> <br><br>
+						ต้องใช้พื้นที่พอสมควร ซึ่งต่างจากห้องเย็นแบบ <span class="text-strong">ฝังประกอบเร็ว</span> ที่เราจะเข้าไปประกอบขึ้นห้องที่หน้างานเลยจึงไม่มีปัญหาเรื่องหลังคาหรือความสูง 
+						
+						<br><br>
+					<button class="btnsoftware">วิธีการเลือกห้องเย็น</button><br><br><br>
 						
 						<iframe width="100%" height="400" src="https://www.youtube.com/embed/D0KS2pJcIQY?si=YZIZjMYkMVH-HnDW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br><br>
 						
@@ -217,7 +224,7 @@
 					<div id="map" style="width:100%; height: 400px;"></div>
 					<script>
 					  function initMap() {
-						var uluru = {lat: 13.523733064030521, lng: 99.80734483627396}; 
+						var uluru = {lat: 13.523730519879196, lng: 99.80734156264818};  , 
 						var map = new google.maps.Map(document.getElementById('map'), {
 						  zoom: 10,
 						  center: uluru
@@ -275,11 +282,9 @@
 						<span class="bolds">- อายุการใช้งานจะสั้นกว่าห้องเย็นมือหนึ่ง </span><br>
 						<span class="bolds">- บางช่วงเวลาของมือสองจะหายาก อาจต้องใช้เวลานาน</span><br><br>
 
-					<br><br>
-			
-					<!--<span class="topic-article"> มาดูคลิป ตัวอย่างการเก็บแช่หมูกัน </span><br>
-					<iframe width="100%" height="400" src="https://www.youtube.com/embed/hO-_B2puhgg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-					<br><br>-->
+					
+					ผมมีซอร์ฟแวร์คำนวณราคาห้องเย็นไว้ให้ด้วยนะครับ กดที่ปุ่มนี้ได้เลย ออกมาเป็นใบเสนอราคาได้เลย<br><br>
+					<button class="btnsoftware">โปรแกรมคำนวณ</button>
 					
 					<?php include('../../sources/inc/inc_contact_art.php');?>
 				</div>
@@ -302,11 +307,11 @@
 {
   "@context": "https://schema.org/", 
   "@type": "Product", 
-  "name": "CPN888", 
-  "priceRange":"168000 - 400000 บาท", 
+  "name": "โชคอุตสาหะ พารวย", 
+  "priceRange":"238000 - 435000 บาท", 
   "servesCuisine":"ห้องเย็น", 
   "description": "ห้องเย็นคุณภาพคับแก้ว มาชมห้องเย็นตัวอย่างจริงๆ ได้ที่โรงงานนะครับ อยู่นครปฐม", 
-  "image": "https://topcooling.net/content/images/cool/speed300.jpg",
+  "image": "https://chokeutsaha.co.th/content/images/cool/speed300.jpg",
   "address":{ 
       "@type":"PostalAddress",
       "streetAddress":"ห้างหุ้นส่วนจำกัด ท็อปคูลลิ่ง  28/1 ม.6 ต.ทัพหลวง อ.เมือง ",
@@ -316,17 +321,17 @@
    }, 
    "geo":{ 
       "@type":"GeoCoordinates",
-      "latitude": 13.878727, 
-      "longitude": 100.008955
+      "latitude": 13.523736625458138, 
+      "longitude": 99.80734156264818  
    },
   "brand": {
     "@type": "Thing",
-    "name": "CPN888"
+    "name": "โชคอุตสาหะ พารวย"
   },
   "contactPoint": {
     "@type": "ContactPoint", 
 	"telephone": "+66 84-013-7350",
-    "contactType": "TCL ยินดีบริการลูกค้า"
+    "contactType": "โชคอุตสาหะ พารวย ยินดีบริการลูกค้า"
   },
   
   "offers": {
@@ -395,20 +400,13 @@
    }
 }
 </script>
-<script type="text/javascript">
-     //www.ptengine.com heatmap
-	window._pt_lt = new Date().getTime();
-	window._pt_sp_2 = [];
-	_pt_sp_2.push("setAccount,73a3cfa8");
-	var _protocol =(("https:" == document.location.protocol) ? " https://" : " http://");
-	(function() {
-		var atag = document.createElement("script");
-		atag.type = "text/javascript";
-		atag.async = true;
-		atag.src = _protocol + "js.ptengine.jp/73a3cfa8.js";
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(atag, s);
-	})();
+<script>
+	$(document).ready(function(){
+		$('.btnsoftware').click(function(){			
+			window.open('https://chokeutsaha.co.th/chkprice.php', '_newtab');
+		});	
+	});	
 </script>
+
 </body>
 </html>

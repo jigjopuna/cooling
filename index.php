@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="cache-control" content="max-age=10"/>
-<title>ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | Topcooling</title>
+<title>ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | ห้องเย็น</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-<meta name="author" content="Topcooling"/>
+<meta name="author" content="ห้องเย็น"/>
 <meta name="robots" content="index, follow">
-<meta name="copyright" content="Topcooling 2017"/>
+<meta name="copyright" content="ห้องเย็น 2017"/>
 <meta name="keywords" content="ห้องเย็น, ห้องเย็นราคา, ห้องเย็นมือสอง, เครื่องทำความเย็นอาหาร, ห้องเย็นไม่เย็น">
-<meta name="description" content="ห้องเย็นท็อปคูลลิ่ง TCL TOPCOOLING รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้">
-<?php //require_once ('include/google_verify.php');?>
-<meta property="og:title" content="ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | Topcooling"/>
+<meta name="description" content="ห้องเย็นรับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้">
+<?php include ('include/google_verify.php');?>
+<meta property="og:title" content="ห้องเย็นบริการครบวงจร รับปรึกษาทุกปัญหาเกี่ยวกับห้องเย็น ฟรี | ห้องเย็น"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content=""/>
 <meta property="og:url" content="https://www.topcooling.net"/>
-<meta property="og:description" content="ห้องเย็นท็อปคูลลิ่ง TCL TOPCOOLING รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้"/>
+<meta property="og:description" content="ห้องเย็น รับสร้างห้องเย็น เพิ่มผลกำไรให้กับธุรกิจอาหารสดได้มากขึ้น  กับระบบออนไลน์ของเรา รู้ราคาห้องเย็นภายใน 1 นาที ที่คุณกำหนดราคาเองได้"/>
 <link rel="shortcut icon" href="content/images/favicon.png">
 <link rel="stylesheet" href="sources/css/main.css">
 <link rel="canonical" href="https://topcooling.net" />
@@ -342,7 +342,7 @@ src="https://www.facebook.com/tr?id=370390888116538&ev=PageView&noscript=1"
 			
 			<div class="col-md-12">
 				<div class="heading">
-				เกี่ยวกับ ซีพีเอ็น 888
+				เกี่ยวกับ ห้องเย็น
 				</div>
 				<div style="font-size:19px;">
 				 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เราเป็นผู้เชี่ยวชาญในด้านการผลิต ออกแบบ และติดตั้งห้องเย็นสำเร็จรูป ห้องเย็นฝั่งประกอบเร็ว ในอุตสาหกรรมความเย็น นอกจากนี้เรายังพัฒนาห้องเย็น  เพื่อให้ SME หรือ บุคคลทั่วไปสามารถเข้าถึง ใช้งานห้องเย็นได้ง่ายและสะดวก ในราคาที่เหมาะสม<br><br><br>
@@ -811,17 +811,17 @@ src="https://www.facebook.com/tr?id=370390888116538&ev=PageView&noscript=1"
    }, 
    "geo":{ 
       "@type":"GeoCoordinates",
-      "latitude": 13.878727, 
-      "longitude": 100.008955
+      "latitude": , 
+      "longitude": 
    },
   "brand": {
     "@type": "Thing",
-    "name": "TOPCOOLING"
+    "name": "T"
   },
   "contactPoint": {
     "@type": "ContactPoint", 
 	"telephone": "+66 84-013-7350",
-    "contactType": "TCL ยินดีบริการลูกค้า"
+    "contactType": "ยินดีบริการลูกค้า"
   },
   
   "offers": {
@@ -848,7 +848,7 @@ src="https://www.facebook.com/tr?id=370390888116538&ev=PageView&noscript=1"
       "@type": "Review",
       "author": "Supachai",
       "datePublished": "2019-12-25",
-      "description": "ดีมากเลย มือสองแต่เหมือนใหม่ทุกอย่าง แนะนำห้องเย็น Topcooling เลยครับ",
+      "description": "ดีมากเลย มือสองแต่เหมือนใหม่ทุกอย่าง แนะนำห้องเย็น ห้องเย็น เลยครับ",
       "name": "รีวิวห้องเย็น 5 ดาว",
       "reviewRating": {
         "@type": "Rating",

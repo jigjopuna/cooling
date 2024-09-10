@@ -54,7 +54,7 @@
 		
 		<div class="row">
 			<div class="col-xs-12">
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/_DglLb0FnAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/Dvpmyps7FOg?si=5M7JUAVIN9QsFKqV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 				<br><br><br>
 			</div>
 		</div>
@@ -135,7 +135,7 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					
 					
-					ห้องเย็นมือสอง ราคา <span class="text-strong">ต่ำกว่า</span> 1 แสนบาท ราคาโครตถูก ปกติ <span class="text-strong">ห้องเย็นใหม่</span> ราคาสูงกว่า 270,000 บาท ราคาสุดคุ้ม 68,000 ถึง 88,000 บาท เราไม่ขายแพง ให้ลูกค้าไปทำกำไร รองรับอุณหภูมิช่วง +20 ถึง -18 องศา <br><br>
+					ห้องเย็นมือสอง ราคา <span class="text-strong">ต่ำกว่า</span> 1 แสนบาท ราคาโครตถูก ปกติ <span class="text-strong">ห้องเย็นใหม่</span> ราคาสูงกว่า 270,000 บาท ราคาสุดคุ้ม 78,000 ถึง 88,000 บาท เราไม่ขายแพง ให้ลูกค้าไปทำกำไร รองรับอุณหภูมิช่วง +20 ถึง -18 องศา <br><br>
 					
 					ของที่จะได้มี ทั้งหมดตามนี้<br>
 					<span class="boldun">1. คอยล์ร้อน</span> ไดเออร์ รีซีฟเวอร์ ออยเซฟ<br>
@@ -148,18 +148,20 @@
 					2.4 x 3.0 x 2.3 เมตร กว้าง ยาว สูง<br>
 					2.4 x 5.0 x 2.3 เมตร กว้าง ยาว สูง<br><br>
 					
-					ไม่รวมที่ลูกค้าอาจต้องซื้อเพิ่มเติม รายการข้างล่างนี้<br>
+					<strong>ไม่รวมที่ลูกค้าอาจต้องซื้อเพิ่มเติม รายการข้างล่างนี้</strong><br>
 					1. ฮีทเตอร์ละลายน้ำแข็ง ถ้าใช้อุณหภูมิติดลบต่ำๆ<br>
 					2. อุปกรณ์ติดตั้ง เช่น อลูมิเนียม ซิลิโคน  สายไฟฟ้า <br>
 					3. ค่าขนส่งไปถึงหน้างาน<br>
 					4. ผนังห้องเย็นจะมีแค่ 3 ด้าน ต้องซื้อแผ่นผนังห้องเย็นเพิ่ม 3 แผ่น<br><br>
 					
-					ทั้งหมดนี้ลูกค้าสามารถหาช่างไปประกอบเองได้ หรือ 
+					<span class="text-strong">ทั้งหมด</span>  นี้ลูกค้าสามารถหาช่างไปประกอบเองได้ หรือ 
 					จะให้ผมติดตั้งก็ได้ เรทราคาค่าแรงติดตั้งห้องเย็น
 					และเครื่องทำความเย็นครบชุด 
-					ราคาเริ่มต้น 38,000 บาท ไม่รวมค่าเดินทาง<br><br>
+					ราคาเริ่มต้น <span class="text-strong">38,000 บาท</span>   ไม่รวมค่าเดินทาง<br><br>
 					
-					Line ID : phurits <br>
+					
+					ปรึกษาสอบถามทักทายได้นะครับ หรือ ต้องการให้ผม <span class="text-strong">ช่วยคิด</span>  ช่วยออกแบบห้องเย็นให้เหมาะกับการใช้งาน หรือต้องการขอใบเสนอราคาห้องเย็นด่วนจัดให้ได้เลย<br><br>
+					Line ID : <a href="https://qr-official.line.me/gs/M_941mnidk_GW.png" target="_blank">@941mnidk</a> <br>
 					โทร : 084-013-7350 หรือ 099-129-0789
 					
 					
@@ -256,7 +258,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<span style="font-size:36px;" class="topic-article"> รีวิวห้องเย็นสวยๆ</span><br><br><br>
-				<iframe width="100%" height="400" src="https://www.youtube.com/embed/68FcyGUA_o4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe width="100%" height="400" src="https://www.youtube.com/embed/b4pDfff7uM8?si=EMUDTYSFIsSW-Ztw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 				<br><br>
 			</div>
 		</div>

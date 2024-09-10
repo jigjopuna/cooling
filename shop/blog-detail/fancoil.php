@@ -2,9 +2,16 @@
 	  include('../../include/connect.php');
 	  $currmenu = 3;  // ตั้งค่าเมนูให้ default ไว้ที่หมวดนี้
 
-	  $sql_eurotech = "SELECT * FROM tb_tools WHERE t_type = 1 AND t_cate = 32 AND t_subcate = 1 ORDER BY t_attrib1";
+	  $sql_eurotech = "SELECT * FROM tb_tools WHERE t_type = 1 AND t_cate = 32 AND t_subcate = 1 AND t_publish = 1 ORDER BY t_attrib1";
 	  $result_eurotech = mysqli_query($conn, $sql_eurotech);
 	  $num_eurotech = mysqli_num_rows($result_eurotech);
+	  
+	  //Stainless
+	  $sql_stales = "SELECT * FROM tb_tools WHERE t_type = 1 AND t_cate = 32 AND t_subcate =  2 AND t_publish = 1 ORDER BY t_attrib1";
+	  $result_stales = mysqli_query($conn, $sql_stales);
+	  $num_stales = mysqli_num_rows($result_stales);
+	  
+	 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -228,7 +235,13 @@
 											$row_eurotech = mysqli_fetch_array($result_eurotech);
 									?>
 										<tr class="table-row">
-											<td class="column-1"><?php echo $row_eurotech['t_model']; ?></td>
+											<td class="column-1">
+												<a href="https://chokeutsaha.co.th/quotation.php?tid=<?php echo $row_eurotech['t_id'];?>&ship=<?php echo $row_eurotech['t_kw2'];?>" target="_blank">
+													<?php echo $row_eurotech['t_model'];?>
+												</a>
+											</td>
+											
+											
 											<th class="column-2" style="text-align: center;" ><?php echo $row_eurotech['t_attrib1']; ?></th>
 											<th class="column-5" style="text-align: center; font-size:18px; font-weight:bold; color:red;"><?php echo number_format($row_eurotech['t_price_sell'], 0, '.', ','); ?></th>
 											<td class="column-3"><?php echo $row_eurotech['t_volt'].'/'.$row_eurotech['t_kw1'].'/'.$row_eurotech['t_hz'];?></td>
@@ -243,10 +256,66 @@
 										</tbody>
 									</table>
 								</div>
-								<br><br><br>
+								<br><br>
 								
 								
-								<iframe width="100%" height="400" src="https://www.youtube.com/embed/fpF08RLbnNI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<div class="wrap-table-shopping-cart bgwhite">
+									<table class="table-shopping-cart">
+										<tbody>
+										
+										<tr class="table-row">
+											<th class="column-1" colspan="8" style="font-size:24px; text-align: center;" > พัดลม AXIAL FAN สแตนเลส</th>
+										</tr>
+										
+										<tr class="table-head">
+											<th class="column-1" style="width:27%;">Model</th>
+											<th class="column-2" style="width:10%; text-align: center;">ขนาด mm</th>
+											<th class="column-5" style="width:10%; text-align: center;">ราคา</th>
+											<th class="column-3" style="width:10%;">V/Ph/Hz</th>
+											<th class="column-3" style="width:10%;">วัตต์ W</th>
+											<th class="column-5" style="width:10%;">แอมป์ A</th>
+											<th class="column-4" style="width:10%; text-align: center;">Air m<sup>3</sup>/h</th>
+											<th class="column-4" style="width:10%;">Speed rpm</th>
+										</tr>
+										
+										
+									<?php 
+										for($i=1; $i<=$num_stales;$i++){
+											$row_stales = mysqli_fetch_array($result_stales);
+									?>
+										<tr class="table-row">
+											<td class="column-1">
+												<a href="https://chokeutsaha.co.th/quotation.php?tid=<?php echo $row_stales['t_id'];?>&ship=<?php echo $row_stales['t_kw2'];?>" target="_blank">
+													<?php echo $row_stales['t_model'].' ('.$row_stales['t_detail'].')';?>
+												</a>
+											</td>
+											<th class="column-2" style="text-align: center;" ><?php echo $row_stales['t_attrib1']; ?></th>
+											<th class="column-5" style="text-align: center; font-size:18px; font-weight:bold; color:red;"><?php echo number_format($row_stales['t_price_sell'], 0, '.', ','); ?></th>
+											<td class="column-3"><?php echo $row_stales['t_volt'].'/'.$row_stales['t_kw1'].'/'.$row_stales['t_hz'];?></td>
+											<td class="column-3"><?php echo $row_stales['t_kw']; ?></td>
+											<th class="column-5"><?php echo $row_stales['t_amp']; ?></th>
+											<td class="column-4" style="text-align: center;"><?php echo number_format($row_stales['t_attrib2'], 0, '.', ',');  ?></td>
+											<td class="column-4"><?php echo number_format($row_stales['t_attrib3'], 0, '.', ',');?></td>
+										</tr>
+									<?php } ?>
+										
+										</tbody>
+									</table>
+								</div>
+								<br><br>
+								
+								
+								
+								
+								<span class="topic-article">รีวิวพัดลมห้องเย็น</span><br>
+								<iframe width="100%" height="400" src="https://www.youtube.com/embed/fpF08RLbnNI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>
+								
+								<span class="topic-article">รีวิวพัดลมคอยล์ร้อน 630 mm</span><br>
+								<iframe width="100%" height="400" src="https://www.youtube.com/embed/gbOej8VVhtU?si=9HXYTue3cgvUoZ3O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
+
+
+								<span class="topic-article">รีวิวพัดลมคอยล์เย็น แสตนเลส 630 mm</span><br>
+								<iframe width="100%" height="400" src="https://www.youtube.com/embed/43yFBL6M06s?si=yGINje8YGO6MPjH7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
 						
 						
 							</div>
